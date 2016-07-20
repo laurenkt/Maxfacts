@@ -1,79 +1,79 @@
-(function($) {
+var React = require('react');
+var ReactDOM = require('react-dom');
 
-	class Slider {
-		constructor() {
-			this.$root   = $('<div class="-slider" />');
-			this.$slider = $('<div class="-slider-background" />').appendTo(this.$root);
-			this.$marker = $('<div class="-slider-marker" />').appendTo(this.$slider)
-			this.$labels = $('<div class="-slider-labels"><p class="-slider-label-left">Not a problem</p><p class="-slider-label-right">Seriously a problem</p></div>').appendTo(this.$slider);
+class Slider extends React.Component {
+	constructor() {
+		super();
 
-			this.$slider.bind('mousedown.slider', this.onMouseDown.bind(this));
+		this.onMouseDown = this.onMouseDown.bind(this);
+		this.onMouseUp   = this.onMouseUp.bind(this);
+		this.onMouseMove = this.onMouseMove.bind(this);
 
-			this.value = 50;
-		}
-
-		// Set a value on the user interface (0-100)
-		setValue(val) {
-			if (val < 0)   val = 0;
-			if (val > 100) val = 100;
-
-			this.value = val;
-			this.redraw();
-		}
-
-		onMouseDown(e) {
-			// Capture the mouse events
-			$(document)
-				.bind('mousemove.slider', this.onMouseMove.bind(this))
-				.bind('mouseup.slider', this.onMouseUp.bind(this));
-
-			// Treat this event like a normal mouse move
-			this.onMouseMove(e);
-
-			// Prevent the browser from treating this like a normal click
-			e.preventDefault();
-		}
-
-		onMouseMove(e) {
-			// Get cursor position
-			var x = e.pageX - this.$slider.offset().left;
-			var y = e.pageY - this.$slider.offset().top;
-
-			// Check within bounds of slider
-			if (x < 0)
-				x = 0;
-			else if (x > this.$slider.width())
-				x = this.$slider.width();
-			
-			// Set new position
-			this.value = Math.round(x*100.0 / this.$slider.width());
-			this.redraw();
-		}
-
-		onMouseUp(e) {
-			$(document)
-				.unbind('mousemove.slider')
-				.unbind('mouseup.slider');
-
-			e.preventDefault();
-		}
-
-		redraw() {
-			this.$marker
-				.show()
-				.css('left', (this.value/100.0) * this.$slider.width() - this.$marker.width()/2)
-				.css('top', -20);
-		}
+		this.state = {value: 0};
+		this.width = 200;
 	}
 
-	$.fn.slider = function() {
-		this.each(function(_, node) {
-			node.slider = new Slider();
-			$(node).append(node.slider.$root);
-			node.slider.redraw();
-		});
+	render() {
+		var markerStyles = {
+			top: '-20px',
+			left: (this.state.value/100.0) * this.width
+		}
 
-		return this;
+		return (
+			<div className="-slider">
+				<div ref="slider" className="-slider-background" onMouseDown={this.onMouseDown}>
+					<div className="-slider-marker" style={markerStyles} />
+					<div className="-slider-labels">
+						<p className="-slider-label-left">Not a problem</p>
+						<p className="-slider-label-right">Seriously a problem</p>
+					</div>
+				</div>
+			</div>
+		);
 	}
 
-} (jQuery));
+	componentDidMount() {
+		// Get the bounds of the slider
+		var bounds = this.refs.slider.getBoundingClientRect();
+		this.width = bounds.right - bounds.left;
+	}
+
+	onMouseDown(e) {
+		// Capture the mouse events
+		document.addEventListener('mousemove', this.onMouseMove);
+		document.addEventListener('mouseup', this.onMouseUp);
+
+		// Treat this event like a normal mouse move
+		this.onMouseMove(e);
+
+		// Prevent the browser from treating this like a normal click
+		e.preventDefault();
+	}
+
+	onMouseMove(e) {
+		// Get relative coordinates
+		var bounds = this.refs.slider.getBoundingClientRect();
+		var width  = this.refs.slider.clientWidth;
+
+		var x = e.clientX - bounds.left;
+
+		// Check within bounds of slider
+		if (x < 0)
+			x = 0;
+		else if (x > width)
+			x = width;
+		
+		// Set new position
+		this.setState({value: Math.round(x*100.0 / width)});
+	}
+
+	onMouseUp(e) {
+		document.removeEventListener('mousemove', this.onMouseMove);
+		document.removeEventListener('mouseup', this.onMouseUp);
+
+		e.preventDefault();
+	}
+}
+
+document.addEventListener("DOMContentLoaded", (e) =>
+	ReactDOM.render(<Slider />, document.getElementById('slider')));

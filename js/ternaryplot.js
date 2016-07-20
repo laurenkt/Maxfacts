@@ -57,7 +57,6 @@ class TernaryPlot extends React.Component {
 	}
 
 	onMouseMove(e) {
-		console.log('onMouseMove');
 		// Get relative coordinates
 		var plot_bounds = this.refs.plot.getBoundingClientRect();
 		var plot_width  = this.refs.plot.clientWidth;
