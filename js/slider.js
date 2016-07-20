@@ -8,6 +8,17 @@
 			this.$labels = $('<div class="-slider-labels"><p class="-slider-label-left">Not a problem</p><p class="-slider-label-right">Seriously a problem</p></div>').appendTo(this.$slider);
 
 			this.$slider.bind('mousedown.slider', this.onMouseDown.bind(this));
+
+			this.value = 50;
+		}
+
+		// Set a value on the user interface (0-100)
+		setValue(val) {
+			if (val < 0)   val = 0;
+			if (val > 100) val = 100;
+
+			this.value = val;
+			this.redraw();
 		}
 
 		onMouseDown(e) {
@@ -35,12 +46,8 @@
 				x = this.$slider.width();
 			
 			// Set new position
-			this.$marker
-				.show()
-				.css('left', x - this.$marker.width()/2)
-				.css('top', -20);
-
-			this.percentage = Math.round(x*100.0 / this.$slider.width());
+			this.value = Math.round(x*100.0 / this.$slider.width());
+			this.redraw();
 		}
 
 		onMouseUp(e) {
@@ -50,12 +57,20 @@
 
 			e.preventDefault();
 		}
+
+		redraw() {
+			this.$marker
+				.show()
+				.css('left', (this.value/100.0) * this.$slider.width() - this.$marker.width()/2)
+				.css('top', -20);
+		}
 	}
 
 	$.fn.slider = function() {
 		this.each(function(_, node) {
 			node.slider = new Slider();
 			$(node).append(node.slider.$root);
+			node.slider.redraw();
 		});
 
 		return this;

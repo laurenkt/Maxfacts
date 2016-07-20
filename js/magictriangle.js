@@ -48,7 +48,7 @@ $(function() {
 		var triangle = $('div.mt').get(0).ternaryPlot;
 		var slider = $('div.mt').get(0).slider;
 
-		results.html('<strong>Ratio of problems:</strong><br>' + descA.text() + ': ' + triangle.a + '%<br>' + descB.text() + ': ' + triangle.b + '%<br>' + descC.text() + ': ' + triangle.c + '%<br><strong>Overall severity</strong>: ' + slider.percentage+ '%');
+		results.html('<strong>Ratio of problems:</strong><br>' + descA.text() + ': ' + triangle.a + '%<br>' + descB.text() + ': ' + triangle.b + '%<br>' + descC.text() + ': ' + triangle.c + '%<br><strong>Overall severity</strong>: ' + slider.value+ '%');
 		$('.container').append(results);
 	});
 });

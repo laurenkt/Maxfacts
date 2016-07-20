@@ -15,6 +15,13 @@
 			labelC.wrap('<p class="-tp-label-c"></p>').parent().appendTo(this.$labels);
 		}
 
+		// Set the proportions between the values on the user interface
+		setValues(a, b, c) {
+			this.a = a;
+			this.b = b;
+			this.c = c;	
+		}
+
 		onMouseDown(e) {
 			// Capture the mouse events
 			$(document)
@@ -37,12 +44,6 @@
 			if (!this.withinTriangle(this.$triangle.width(), x, y))
 				return;
 			
-			// Set new position
-			this.$marker
-				.show()
-				.css('left', x - this.$marker.width()/2)
-				.css('top', y - this.$marker.height()/2);
-
 			var distance_a = Math.sqrt(Math.pow(y, 2) + Math.pow(this.$triangle.width()/2 - x, 2));
 			var distance_b = Math.sqrt(Math.pow(this.$triangle.height()-y, 2) + Math.pow(x, 2));
 			var distance_c = Math.sqrt(Math.pow(this.$triangle.height()-y, 2) + Math.pow(this.$triangle.width()-x, 2));
@@ -52,7 +53,20 @@
 			this.a = Math.round(100 - distance_a*200.0/total);
 			this.b = Math.round(100 - distance_b*200.0/total);
 			this.c = Math.round(100 - distance_c*200.0/total);
+			
+			this.redraw();
+		}
 
+		redraw() {
+			var x, y;
+			
+			y = ((100-this.a)/100.0) * this.$triangle.height();
+			x = (this.c / (this.b + this.c)) * this.$triangle.width();
+
+			this.$marker
+				.show()
+				.css('left', x - this.$marker.width()/2)
+				.css('top', y - this.$marker.height()/2);
 		}
 
 		onMouseUp(e) {
