@@ -1,10 +1,10 @@
-div.mt {
+.-tp {
+	padding: 20px 100px;
 	position: relative;
 }
 
-div.magic-triangle-root {
-	padding: 20px 100px;
-	position: relative;
+.-tp-labels {
+	z-index: 2;
 }
 
 .mt p a {
@@ -19,11 +19,7 @@ div.magic-triangle-root {
 	color: #fff;
 }
 
-p.magic-slider-descriptors {
-	z-index: 2;
-}
-
-p.magic-slider-desc-a {
+.-tp-label-a {
 	position: absolute;
 	top: -50px;
 	left: 0;
@@ -32,7 +28,7 @@ p.magic-slider-desc-a {
 	text-align: center;
 }
 
-p.magic-slider-desc-b {
+.-tp-label-b {
 	position: absolute;
 	top: 150px;
 	left: -150px;
@@ -41,7 +37,7 @@ p.magic-slider-desc-b {
 	line-height: 50px;
 }
 
-p.magic-slider-desc-c {
+.-tp-label-c {
 	position: absolute;
 	top: 150px;
 	left: 200px;
@@ -50,7 +46,7 @@ p.magic-slider-desc-c {
 	line-height: 50px;
 }
 
-div.magic-triangle-input {
+.-tp-plot {
 	position: relative;
 	width: 200px;
 	height: 174px;
@@ -60,7 +56,7 @@ div.magic-triangle-input {
 	background-position: 0 0;
 }
 
-div.magic-triangle-marker {
+.-tp-marker {
 	position: absolute;
 	width: 20px;
 	height: 20px;
@@ -69,7 +65,7 @@ div.magic-triangle-marker {
 	display: none;
 }
 
-div.magic-triangle-slider {
+.-slider-background {
 	position: relative;
 	width: 300px;
 	margin: 20px auto;
@@ -77,7 +73,7 @@ div.magic-triangle-slider {
 	background: url('../assets/slider-scaled.png');
 }
 
-div.magic-triangle-slider-marker {
+.-slider-marker {
 	position: absolute;
 	width: 20px;
 	height: 17px;
@@ -109,7 +105,7 @@ ul.magic-triangle-descriptor-box {
 	color: #eee;
 }
 
-.magic-triangle-slider-descriptors p.left {
+.-slider-label-left {
 	position: absolute;
 	left: -50px;
 	width: 100px;
@@ -117,7 +113,7 @@ ul.magic-triangle-descriptor-box {
 	top: 20px;
 }
 
-.magic-triangle-slider-descriptors p.right {
+.-slider-label-right {
 	position: absolute;
 	left: 250px;
 	width: 100px;
