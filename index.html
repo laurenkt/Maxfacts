@@ -1,32 +1,39 @@
 <!DOCTYPE html>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script src="magictriangle.js"></script>
-<style type="text/css">
-<!--
-	div.magic-triangle {
-		position: relative;
-		width: 200px;
-		height: 174px;
-		background-image: url('triangle-scaled.png');
-		background-size: 200px 174px;
-		background-position: 0 0;
-	}
-
-	div.magic-triangle-selector {
-		position: absolute;
-		width: 20px;
-		height: 20px;
-		background: url('circle-scaled.png');
-	}
-
-	div.magic-triangle-slider {
-		width:300px;
-		margin-top: 20px;
-		height: 19px;
-		border: 2px solid black;
-		background: url('slider-scaled.png');
-	}
--->
-</style>
-<p>Magic Triangle
-<div class="mt" />
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Magic Triangle</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet">
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/skeleton.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script src="js/magictriangle.js"></script>
+</head>
+<body>
+	<div class="container">
+		<h3>Magic Triangle Self-assessment</h3>
+		<h5>How to use the magic triangles</h5>
+		<div class="explanation">
+			<p>Drag the circle to describe the relative importance of each descriptor (see below).
+			<div class="row examples">
+				<div class="one-third column"><p class="example"><img src="assets/info-1.png" class="u-max-full-width" /> A, B, and C are all of equal importance.</div>
+				<div class="one-third column"><p class="example"><img src="assets/info-2.png" class="u-max-full-width" /> A and B are of equal importance and C is of little importance.</div>
+				<div class="one-third column"><p class="example"><img src="assets/info-3.png" class="u-max-full-width" /> B is of most importance.</div>
+			</div>
+		</div>
+		<ol>
+			<li>Choose three descriptors that make your accommodation miserable. 
+			<li>Move the circle in the triangle to describe the relative misery of 
+		the three descriptors i.e. move the circle closest to B if B makes you 
+		the most miserable. 
+			<li>Adjust the slider to describe the intensity of the misery caused by 
+		the descriptors i.e. the descriptors do not provide a lot of misery, 
+		therefore move the slider to the blue region. 
+		</ol>
+		<div class="mt"></div>
+		<button class="button-primary">Next</button>
+	</div>
+</body>
+</html>

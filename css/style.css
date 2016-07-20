@@ -1,0 +1,126 @@
+div.mt {
+	position: relative;
+}
+
+div.magic-triangle-root {
+	padding: 20px 100px;
+	position: relative;
+}
+
+.mt p a {
+	font-size: 0.5em;
+	background: #e5d6d8;
+	padding: 5px;
+	border-radius: 5px;
+}
+
+.mt p a:hover {
+	background: #8d2a28;
+	color: #fff;
+}
+
+p.magic-slider-descriptors {
+	z-index: 2;
+}
+
+p.magic-slider-desc-a {
+	position: absolute;
+	top: -50px;
+	left: 0;
+	width: 200px;
+	line-height: 50px;
+	text-align: center;
+}
+
+p.magic-slider-desc-b {
+	position: absolute;
+	top: 150px;
+	left: -150px;
+	width: 150px;
+	text-align: center;
+	line-height: 50px;
+}
+
+p.magic-slider-desc-c {
+	position: absolute;
+	top: 150px;
+	left: 200px;
+	width: 150px;
+	text-align: center;
+	line-height: 50px;
+}
+
+div.magic-triangle-input {
+	position: relative;
+	width: 200px;
+	height: 174px;
+	margin: 0 auto;
+	background-image: url('../assets/triangle-scaled.png');
+	background-size: 200px 174px;
+	background-position: 0 0;
+}
+
+div.magic-triangle-marker {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	background: url('../assets/circle-scaled.png');
+	background-size: 20px 20px;
+	display: none;
+}
+
+div.magic-triangle-slider {
+	position: relative;
+	width: 300px;
+	margin: 20px auto;
+	height: 19px;
+	background: url('../assets/slider-scaled.png');
+}
+
+div.magic-triangle-slider-marker {
+	position: absolute;
+	width: 20px;
+	height: 17px;
+	background: url('../assets/slider-marker.png');
+	display: none;
+	background-size: 20px 17px;
+}
+
+div.explanation {
+	background: white;
+}
+
+ul.magic-triangle-descriptor-box {
+	background: #fff;
+	border: 3px solid #ccc;
+	list-style: none;
+	padding: 0;
+	display: inline-block;
+}
+
+.magic-triangle-descriptor-box li a {
+	padding: 5px;
+	display: block;
+	font-size: 0.5em;
+}
+
+.magic-triangle-descriptor-box li a:hover {
+	background: #666;
+	color: #eee;
+}
+
+.magic-triangle-slider-descriptors p.left {
+	position: absolute;
+	left: -50px;
+	width: 100px;
+	text-align: center;
+	top: 20px;
+}
+
+.magic-triangle-slider-descriptors p.right {
+	position: absolute;
+	left: 250px;
+	width: 100px;
+	text-align: center;
+	top: 20px;
+}
