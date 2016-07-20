@@ -1,4 +1,15 @@
 $(function() {
+	var descriptors = ["Kitchen", "Room", "Bathroom", "Noisiness",
+	                   "Carpet squidginess", "Temperature"];
+	function step1($root) {
+		var rows = Math.ceil(descriptors.length);		
+
+		$.each(descriptors, function(_, d) {
+			alert(d);
+		});
+	}
+
+
 	var descriptors = $('<ul class="magic-triangle-descriptor-box"><li><a href="#">Kitchen</a></li><li><a href="#">Room</a></li><li><a href="#">Bathroom</a></li><li><a href="#">Noisiness</a></li><li><a href="#">Carpet squidginess</a></li><li><a href="#">Temperature</a></li></ul>');
 
 	descriptors.find('a').click(function(e) {

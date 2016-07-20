@@ -81,8 +81,11 @@
 	background-size: 20px 17px;
 }
 
-div.explanation {
-	background: white;
+.explanation {
+	background: #f7f7f7;
+	margin: 20px -20px;
+	padding: 20px 20px 0;
+	border: 3px solid #eee;
 }
 
 ul.magic-triangle-descriptor-box {
