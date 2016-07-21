@@ -1,7 +1,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
-class Slider extends React.Component {
+module.exports = class Slider extends React.Component {
 	constructor() {
 		super();
 
@@ -67,6 +67,3 @@ class Slider extends React.Component {
 		e.preventDefault();
 	}
 }
-
-document.addEventListener("DOMContentLoaded", (e) =>
-	ReactDOM.render(<Slider />, document.getElementById('slider')));

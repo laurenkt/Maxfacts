@@ -1,7 +1,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
-class TernaryPlot extends React.Component {
+module.exports = class TernaryPlot extends React.Component {
 	constructor() {
 		super();
 
@@ -166,6 +166,3 @@ class TernaryPlot extends React.Component {
 		);
 	}
 }
-
-document.addEventListener("DOMContentLoaded", (e) =>
-	ReactDOM.render(<TernaryPlot />, document.getElementById('ternaryPlot')));
