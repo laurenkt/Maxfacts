@@ -96,29 +96,18 @@ class TernaryPlot extends React.Component {
 		var b = {x: 0, y: height};
 		var c = {x: width, y: height};
 
-		// Solve distance BX
-		// eq1: Y == ((y - b_y)/x)*X + b_y
-		// console.log('BX: y = ' + ((mouse.y - b.y)/mouse.x) + 'x + ' + b.y);
-		// Solve distance AC
-		// eq2: Y == (c_y/(c_x - a_x))*X - c_y;
-		// console.log('AC: y = ' + (c.y/(c.x - a.x)) + 'x - ' + c.y);
+		// BX: Y == ((y - b_y)/x)*X + b_y
+		// AC: Y == (c_y/(c_x - a_x))*X - c_y;
 
-		// Find line of intersection
-		// eq1 - eq2
+		// Find point of intersection of BX and AC
+		// by simultaneous equations, which will allow us to find |BX|
 		var i = {x: (b.y + c.y) / ( (c.y/(c.x - a.x)) - (y - b.y)/x )};
-		i.y = ((mouse.y - b.y)/mouse.x) * i.x + b.y;
-		// console.log('Intersection: (' + i.x + ', ' + i.y + ')');
-
-		var val_a = 1.0 - y/height;
-		var val_b = 1.0 - distance(b, mouse) / distance(b, i);
-		var val_c = 1.0 - val_a - val_b;
-		
-		console.log(Math.round(val_a * 100) + '% ' + Math.round(val_b * 100) + '% ' + Math.round(val_c * 100) + '%');
+		i.y   = ((mouse.y - b.y)/mouse.x) * i.x + b.y;
 
 		this.setState({
-			a: val_a,
-			b: val_b,
-			c: val_c
+			a: 1.0 - y/height,
+			b: 1.0 - distance(b, mouse) / distance(b, i),
+			c: 1.0 - val_a - val_b
 		});
 
 		e.preventDefault();
