@@ -1,5 +1,4 @@
 .-tp {
-	padding: 20px 100px;
 	position: relative;
 }
 
@@ -48,11 +47,11 @@
 
 .-tp-plot {
 	position: relative;
-	width: 200px;
-	height: 174px;
-	margin: 0 auto;
+	width: 100%;
+	max-width: 300px;
 	background-image: url('../assets/triangle-scaled.png');
-	background-size: 200px 174px;
+	background-size: 100% auto;
+	background-repeat: no-repeat;
 	background-position: 0 0;
 }
 
@@ -68,8 +67,8 @@
 .-slider-background {
 	position: relative;
 	width: 300px;
-	margin: 20px auto;
 	height: 19px;
+	margin: 40px 0 60px;
 	background: url('../assets/slider-scaled.png');
 }
 

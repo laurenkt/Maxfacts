@@ -9,7 +9,7 @@ class TernaryPlot extends React.Component {
 		this.onMouseMove = this.onMouseMove.bind(this);
 		this.onMouseUp   = this.onMouseUp.bind(this);
 
-		this.state = {a: 0.3333, b: 0.3333, c: 0.3333};
+		this.state = {a: 0.3333, b: 0.3333, c: 0.3333, height:0};
 	}
 
 	render() {
@@ -34,9 +34,15 @@ class TernaryPlot extends React.Component {
 			top: ((1.0 - this.state.a) * 100.0) + '%',
 			left: (p.x) + '%'}
 
+		var plotStyles = {};
+
+		if (this.state.height != 0) {
+			plotStyles.height = this.state.height + 'px';
+		}
+
 		return (
 			<div className="-tp">
-				<div ref="plot" className="-tp-plot" onMouseDown={this.onMouseDown}>
+				<div ref="plot" style={plotStyles} className="-tp-plot" onMouseDown={this.onMouseDown}>
 					<div className="-tp-marker" style={markerStyles}></div>
 					<div className="-tp-labels"></div>
 				</div>
@@ -50,6 +56,13 @@ class TernaryPlot extends React.Component {
 			labelB.wrap('<p class="-tp-label-b"></p>').parent().appendTo(this.$labels);
 			labelC.wrap('<p class="-tp-label-c"></p>').parent().appendTo(this.$labels);
 		}*/
+
+
+	componentDidMount() {
+		var updateWidth = () => this.setState({height: this.refs.plot.offsetWidth*0.87});
+		window.addEventListener('resize', updateWidth);
+		updateWidth();
+	}
 
 	onMouseDown(e) {
 		document.addEventListener('mousemove', this.onMouseMove);
