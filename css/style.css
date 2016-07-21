@@ -76,6 +76,7 @@
 .-slider-marker {
 	position: absolute;
 	width: 20px;
+	margin-left: -10px;
 	height: 17px;
 	background: url('../assets/slider-marker.png');
 	background-size: 20px 17px;
