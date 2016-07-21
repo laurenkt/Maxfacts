@@ -10,14 +10,28 @@ class TernaryPlot extends React.Component {
 		this.onMouseUp   = this.onMouseUp.bind(this);
 
 		this.bounds = {height: 174, width: 200};
-		this.state = {a: 33, b: 33, c: 33};
+		this.state = {a: 0.3333, b: 0.3333, c: 0.3333};
 	}
 
 	render() {
-		var markerStyles = {
-			top: ((100-this.state.a)/100.0) * this.bounds.height,
-			left: (this.state.c / (this.state.b + this.state.c)) * this.bounds.width
-		}
+		// Need to calculate where to position the marker based on properties of the
+		// triangle
+		var a = {x: this.bounds.width / 2, y: 0};
+		var b = {x: 0, y: this.bounds.height};
+		var c = {x: this.bounds.width, y: this.bounds.height};
+
+		// Point where extended B value-line intersects BC 
+		var z = {x: (1.0 - this.state.b) * c.x, y: b.y};
+
+		// Gradient is same as line AC
+		// gradient = (c.y/(c.x - a.x)) * X;
+		// But offset is relative to Z
+		// y - z.y == (c.y/(c.x - a.x))*(X - z.x)
+		// We know that the y value is proportional to A
+		var p = {y: (1.0 - this.state.a) * this.bounds.height};
+		p.x = (p.y - z.y) / (c.y / (c.x - a.x)) + z.x;
+
+		var markerStyles = {top: p.y, left: p.x}
 
 		return (
 			<div className="-tp">
@@ -57,28 +71,54 @@ class TernaryPlot extends React.Component {
 	}
 
 	onMouseMove(e) {
-		// Get relative coordinates
-		var plot_bounds = this.refs.plot.getBoundingClientRect();
-		var plot_width  = this.refs.plot.clientWidth;
-		var plot_height = this.refs.plot.clientHeight;
+		function distance(p1, p2) {
+			return Math.sqrt(
+				Math.pow(p1.x - p2.x, 2) +
+				Math.pow(p1.y - p2.y, 2)
+			);
+		}
 
-		var x = e.clientX - plot_bounds.left;
-		var y = e.clientY - plot_bounds.top;
+		// Get relative coordinates
+		var bounds = this.refs.plot.getBoundingClientRect();
+		var width  = this.refs.plot.clientWidth;
+		var height = this.refs.plot.clientHeight;
+
+		var x = e.clientX - bounds.left;
+		var y = e.clientY - bounds.top;
+
+		var mouse = {x: e.clientX - bounds.left, y: e.clientY - bounds.top};
 
 		// Check that within bounds of equilateral triangle
-		if (!this.withinTriangle(plot_width, x, y))
+		if (!this.withinTriangle(width, mouse.x, mouse.y))
 			return;
-		
-		var distance_a = Math.sqrt(Math.pow(y, 2) + Math.pow(plot_width/2 - x, 2));
-		var distance_b = Math.sqrt(Math.pow(plot_height-y, 2) + Math.pow(x, 2));
-		var distance_c = Math.sqrt(Math.pow(plot_height-y, 2) + Math.pow(plot_width-x, 2));
 
-		var total = distance_a + distance_b + distance_c;
+		var a = {x: width / 2, y: 0};
+		var b = {x: 0, y: height};
+		var c = {x: width, y: height};
+
+		// Solve distance BX
+		// eq1: Y == ((y - b_y)/x)*X + b_y
+		// console.log('BX: y = ' + ((mouse.y - b.y)/mouse.x) + 'x + ' + b.y);
+		// Solve distance AC
+		// eq2: Y == (c_y/(c_x - a_x))*X - c_y;
+		// console.log('AC: y = ' + (c.y/(c.x - a.x)) + 'x - ' + c.y);
+
+		// Find line of intersection
+		// eq1 - eq2
+		var i = {x: (b.y + c.y) / ( (c.y/(c.x - a.x)) - (y - b.y)/x )};
+		i.y = ((mouse.y - b.y)/mouse.x) * i.x + b.y;
+		// console.log('Intersection: (' + i.x + ', ' + i.y + ')');
+
+		var val_a = 1.0 - y/height;
+		var val_b = 1.0 - distance(b, mouse) / distance(b, i);
+		var val_c = 1.0 - val_a - val_b;
+		
+		console.log(Math.round(val_a * 100) + '% ' + Math.round(val_b * 100) + '% ' + Math.round(val_c * 100) + '%');
 
 		this.setState({
-			a: Math.round(100 - distance_a*200.0/total),
-			b: Math.round(100 - distance_b*200.0/total),
-			c: Math.round(100 - distance_c*200.0/total)
+			a: val_a,
+			b: val_b,
+			c: val_c
 		});
 
 		e.preventDefault();
