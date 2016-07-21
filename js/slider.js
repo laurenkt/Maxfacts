@@ -9,14 +9,13 @@ class Slider extends React.Component {
 		this.onMouseUp   = this.onMouseUp.bind(this);
 		this.onMouseMove = this.onMouseMove.bind(this);
 
-		this.state = {value: 0};
-		this.width = 200;
+		this.state = {value: 0.0};
 	}
 
 	render() {
 		var markerStyles = {
 			top: '-20px',
-			left: (this.state.value/100.0) * this.width
+			left: (this.state.value*100.0) + '%'
 		}
 
 		return (
@@ -30,12 +29,6 @@ class Slider extends React.Component {
 				</div>
 			</div>
 		);
-	}
-
-	componentDidMount() {
-		// Get the bounds of the slider
-		var bounds = this.refs.slider.getBoundingClientRect();
-		this.width = bounds.right - bounds.left;
 	}
 
 	onMouseDown(e) {
@@ -64,7 +57,7 @@ class Slider extends React.Component {
 			x = width;
 		
 		// Set new position
-		this.setState({value: Math.round(x*100.0 / width)});
+		this.setState({value: x / width});
 	}
 
 	onMouseUp(e) {
