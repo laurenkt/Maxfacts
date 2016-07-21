@@ -9,16 +9,15 @@ class TernaryPlot extends React.Component {
 		this.onMouseMove = this.onMouseMove.bind(this);
 		this.onMouseUp   = this.onMouseUp.bind(this);
 
-		this.bounds = {height: 174, width: 200};
 		this.state = {a: 0.3333, b: 0.3333, c: 0.3333};
 	}
 
 	render() {
-		// Need to calculate where to position the marker based on properties of the
+		// Need to calculate where to position the marker based on properties of a
 		// triangle
-		var a = {x: this.bounds.width / 2, y: 0};
-		var b = {x: 0, y: this.bounds.height};
-		var c = {x: this.bounds.width, y: this.bounds.height};
+		var a = {x: 100 / 2, y: 0};
+		var b = {x: 0, y: 87};
+		var c = {x: 100, y: 87};
 
 		// Point where extended B value-line intersects BC 
 		var z = {x: (1.0 - this.state.b) * c.x, y: b.y};
@@ -28,10 +27,12 @@ class TernaryPlot extends React.Component {
 		// But offset is relative to Z
 		// y - z.y == (c.y/(c.x - a.x))*(X - z.x)
 		// We know that the y value is proportional to A
-		var p = {y: (1.0 - this.state.a) * this.bounds.height};
+		var p = {y: (1.0 - this.state.a) * 87};
 		p.x = (p.y - z.y) / (c.y / (c.x - a.x)) + z.x;
 
-		var markerStyles = {top: p.y, left: p.x}
+		var markerStyles = {
+			top: ((1.0 - this.state.a) * 100.0) + '%',
+			left: (p.x) + '%'}
 
 		return (
 			<div className="-tp">
@@ -43,12 +44,6 @@ class TernaryPlot extends React.Component {
 		);
 	}
 
-	componentDidMount() {
-		// Get the bounds of the plot
-		var bounds = this.refs.plot.getBoundingClientRect();
-		this.bounds.width = bounds.right - bounds.left;
-		this.bounds.height = bounds.bottom - bounds.top;
-	}
 	/*
 		addLabels(labelA, labelB, labelC) {
 			labelA.wrap('<p class="-tp-label-a"></p>').parent().appendTo(this.$labels);
@@ -83,52 +78,79 @@ class TernaryPlot extends React.Component {
 		var width  = this.refs.plot.clientWidth;
 		var height = this.refs.plot.clientHeight;
 
-		var x = e.clientX - bounds.left;
-		var y = e.clientY - bounds.top;
-
 		var mouse = {x: e.clientX - bounds.left, y: e.clientY - bounds.top};
-
-		// Check that within bounds of equilateral triangle
-		if (!this.withinTriangle(width, mouse.x, mouse.y))
-			return;
 
 		var a = {x: width / 2, y: 0};
 		var b = {x: 0, y: height};
 		var c = {x: width, y: height};
+
+		// Check that within bounds of equilateral triangle
+		if (!this.withinTriangle(width, height, mouse)) {
+			// It's out of bounds so we need to extrapolate the nearest position
+			// within the triangle
+
+			// First cap the bottom as its simplest - one axis
+			if (mouse.y > height)
+				mouse.y = height;
+			if (mouse.y < 0) 
+				mouse.y = 0;
+
+			// Is it still out of bounds?
+			if (!this.withinTriangle(width, height, mouse)) {
+				if ((mouse.x - width/2) < 0) {
+					// Find intersection with AB
+					var i = {x: (a.x*b.y*c.x - a.x*b.y*mouse.x - a.x*c.x*mouse.y + a.x*c.y*mouse.x)/(a.x*c.y + b.y*c.x - a.x*mouse.y - b.y*mouse.x)};
+					i.y = (-b.y)/a.x * i.x + b.y;;
+					mouse = i;
+				}
+				else {
+					// Find intersection with AC
+					// y == (c.y/(c.x - a.x))*X - c.y
+					// BX: y == ((mouse.y - b.y)/mouse.x)*X + b.y
+					var i = {x: (b.y + c.y) / ( (c.y/(c.x - a.x)) - (mouse.y - b.y)/mouse.x )};
+					i.y   = ((mouse.y - b.y)/mouse.x) * i.x + b.y;
+					mouse = i;
+				}
+			}
+		}
 
 		// BX: Y == ((y - b_y)/x)*X + b_y
 		// AC: Y == (c_y/(c_x - a_x))*X - c_y;
 
 		// Find point of intersection of BX and AC
 		// by simultaneous equations, which will allow us to find |BX|
-		var i = {x: (b.y + c.y) / ( (c.y/(c.x - a.x)) - (y - b.y)/x )};
+		var i = {x: (b.y + c.y) / ( (c.y/(c.x - a.x)) - (mouse.y - b.y)/mouse.x )};
 		i.y   = ((mouse.y - b.y)/mouse.x) * i.x + b.y;
 
+		var val_a = 1.0 - mouse.y/height;
+		var val_b = 1.0 - distance(b, mouse) / distance(b, i);
+
 		this.setState({
-			a: 1.0 - y/height,
-			b: 1.0 - distance(b, mouse) / distance(b, i),
+			a: val_a,
+			b: val_b,
 			c: 1.0 - val_a - val_b
 		});
 
 		e.preventDefault();
 	}
 
-	withinTriangle(edgeLength, x, y) {
-		function area(x1, y1, x2, y2, x3, y3) {
-			return Math.abs((x1*(y2-y3) + x2*(y3-y1)+ x3*(y1-y2))/2.0);
-		}
+	withinTriangle(width, height, point) {
+		// Validation function, checks within 0-60 degrees
+		function acceptable(angle) {
+			return (angle >= 0 && angle <= Math.PI/3);
+		};
 
-		var x1 = 0, y1 = Math.sqrt(Math.pow(edgeLength, 2) - Math.pow(edgeLength/2, 2));
-		var x2 = edgeLength, y2 = y1;
-		var x3 = edgeLength/2, y3 = 0;
+		// Basic sanity checks
+		if (point.x < 0 || point.x > width || point.y < 0 || point.y > height)
+			return false;
 
-		var real_area = area(x1, y1, x2, y2, x3, y3);
-
-		var a1 = area(x, y, x2, y2, x3, y3);
-		var a2 = area(x1, y1, x, y, x3, y3);
-		var a3 = area(x1, y1, x2, y2, x, y);
-		
-		return (real_area == (a1+a2+a3));
+		// Now check angles
+		return (
+			// angle from A
+			acceptable(Math.atan((height - point.y) / point.x)) &&
+			// angle from C
+			acceptable(Math.atan((height - point.y) / (width-point.x)))
+		);
 	}
 }
 
