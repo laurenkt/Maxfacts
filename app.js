@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
+var magic_triangle = require('./routes/magic_triangle');
 
 var app = express();
 
@@ -20,7 +20,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use('/javascripts', require('browserify-middleware')(__dirname + '/public/javascripts', {
+app.use('/javascripts/magictriangle.js', require('browserify-middleware')(__dirname + '/public/javascripts/magictriangle.jsx', {
 	transform: ['babelify'],
 	grep: /\.jsx$/
 }));
@@ -32,7 +32,7 @@ app.use(require('node-sass-middleware')({
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/users', users);
+app.use('/magic-triangle', magic_triangle);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
