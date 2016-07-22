@@ -15,6 +15,7 @@ public/javascripts/*.js
 
 # Compiled CSS
 public/stylesheets/*.css
+.sass-cache
 
 # Source maps
 *.map
