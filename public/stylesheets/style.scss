@@ -3,7 +3,144 @@
 @import "neat/neat";
 @import "base/base";
 
+html {
+  border-top: 3rem solid #32292f;
+}
+
 body {
   max-width: 64em;
   margin: 0 auto;
+  padding: 0 20px;
 }
+
+header {
+  margin: -3em 0 20px;
+  padding: 0;
+  border-bottom: 20px solid #565ed8;
+  
+  h1 {
+    color: #d1e3dd;
+    margin: 0;
+    line-height: 3rem;
+    font-size: 1.5em;
+  }
+}
+
+label.disabled {
+  color: grey;
+  opacity: 0.8;
+}
+
+.-tp {
+	position: relative;
+}
+
+.-tp-labels {
+	z-index: 2;
+}
+
+.-tp-label-a {
+	position: absolute;
+	top: -50px;
+	left: 0;
+	width: 200px;
+	line-height: 50px;
+	text-align: center;
+}
+
+.-tp-label-b {
+	position: absolute;
+	top: 150px;
+	left: -150px;
+	width: 150px;
+	text-align: center;
+	line-height: 50px;
+}
+
+.-tp-label-c {
+	position: absolute;
+	top: 150px;
+	left: 200px;
+	width: 150px;
+	text-align: center;
+	line-height: 50px;
+}
+
+.-tp-plot {
+	position: relative;
+	width: 100%;
+	max-width: 300px;
+	background-image: url('/images/triangle-scaled.png');
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}
+
+.-tp-marker {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	margin: -10px 0 0 -10px;
+	background: url('/images/circle-scaled.png');
+	background-size: 20px 20px;
+}
+
+.-slider-background {
+	position: relative;
+	width: 300px;
+	height: 19px;
+	margin: 40px 0 60px;
+	background: url('/images/slider-scaled.png');
+}
+
+.-slider-marker {
+	position: absolute;
+	width: 20px;
+	margin-left: -10px;
+	height: 17px;
+	background: url('/images/slider-marker.png');
+	background-size: 20px 17px;
+}
+
+.explanation {
+	background: #f7f7f7;
+	margin: 20px -20px;
+	padding: 20px 20px 0;
+	border: 3px solid #eee;
+}
+
+ul.magic-triangle-descriptor-box {
+	background: #fff;
+	border: 3px solid #ccc;
+	list-style: none;
+	padding: 0;
+	display: inline-block;
+}
+
+.magic-triangle-descriptor-box li a {
+	padding: 5px;
+	display: block;
+	font-size: 0.5em;
+}
+
+.magic-triangle-descriptor-box li a:hover {
+	background: #666;
+	color: #eee;
+}
+
+.-slider-label-left {
+	position: absolute;
+	left: -50px;
+	width: 100px;
+	text-align: center;
+	top: 20px;
+}
+
+.-slider-label-right {
+	position: absolute;
+	left: 250px;
+	width: 100px;
+	text-align: center;
+	top: 20px;
+}
+
