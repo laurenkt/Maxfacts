@@ -1,6 +1,9 @@
+@import "normalize";
 @import "bourbon/bourbon";
 @import "neat/neat";
 @import "base/base";
 
 body {
+  max-width: 64em;
+  margin: 0 auto;
 }
