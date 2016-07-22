@@ -1,11 +1,17 @@
 MaxFacts
 ========
 
-Building
---------
+Install dependencies with `npm`:
 
-Project JS is structured across multiple files with embedded HTML and therefore must be compiled before usage.
+	cd maxfacts
+	npm install
 
-The simplest way is using `browserify` with Babel:
+Run in debug mode:
 
-	browserify -t babelify js/magictriangle.jsx -o main.js
+	DEBUG=maxfacts:* npm start
+
+Default configuration watches directory for changes and restarts node server automatically.
+
+Stylesheets are implemented using Sass with the `.scss` extension - these are automatically compiled to CSS.
+
+Javascript in the `public` directory will be compiled with Babel supporting React/JSX.
