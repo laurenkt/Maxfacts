@@ -132,9 +132,10 @@ class MagicTriangle extends React.Component {
 			return (
 				<div>
 					<p className="completed"><strong>Step 1</strong> (completed) &mdash; {sorted.join(', ')} &mdash; <a href="#" onClick={this.callbackChangeToStep(0)}>Edit</a></p>
-					<p className="completed"><strong>Step 2</strong> (completed) &mdash; <a href="#" onClick={this.callbackChangeToStep(1)}>Edit</a>
+					<div className="completed">
+						<p><strong>Step 2</strong> (completed) &mdash; <a href="#" onClick={this.callbackChangeToStep(1)}>Edit</a></p>
 						<TernaryPlot disabled a={this.state.a} b={this.state.b} c={this.state.c} labela={sorted[0]} labelb={sorted[1]} labelc={sorted[2]} />
-					</p>
+					</div>
 					<h2>Step 3</h2>
 					<p>Adjust the slider to describe the severity of the problem.</p>
 					<Slider ref={(slider) => this.slider = slider} value={this.state.value} />
@@ -150,12 +151,14 @@ class MagicTriangle extends React.Component {
 			return (
 				<div>
 					<p className="completed"><strong>Step 1</strong> (completed) &mdash; {sorted.join(', ')} &mdash; <a href="#" onClick={this.callbackChangeToStep(0)}>Edit</a></p>
-					<p className="completed"><strong>Step 2</strong> (completed) &mdash; <a href="#" onClick={this.callbackChangeToStep(1)}>Edit</a>
+					<div className="completed">
+						<p><strong>Step 2</strong> (completed) &mdash; <a href="#" onClick={this.callbackChangeToStep(1)}>Edit</a></p>
 						<TernaryPlot disabled a={this.state.a} b={this.state.b} c={this.state.c} labela={sorted[0]} labelb={sorted[1]} labelc={sorted[2]} />
-					</p>
-					<p className="completed"><strong>Step 3</strong> (completed) &mdash; <a href="#" onClick={this.callbackChangeToStep(2)}>Edit</a>
+					</div>
+					<div className="completed">
+						<p><strong>Step 3</strong> (completed) &mdash; <a href="#" onClick={this.callbackChangeToStep(2)}>Edit</a></p>
 						<Slider disabled value={this.state.value} nolabels />
-					</p>
+					</div>
 					<h2>Summary</h2>
 					<table>
 						<tbody>

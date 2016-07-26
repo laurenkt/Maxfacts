@@ -39,10 +39,11 @@ div.checkboxes {
   }
 }
 
-p.completed {
+.completed {
   padding: 10px;
   border: 3px solid #eee;
   background: #fcfcfc;
+  margin-bottom: 0.75em;
 
   .-tp {
     padding: 30px 60px;
@@ -52,6 +53,7 @@ p.completed {
     width: 10px;
     height: 10px;
     margin: -5px 0 0 -5px;
+    background-image: url('/images/circle-grey-scaled.png');
   }
 
   .-tp-labels {
