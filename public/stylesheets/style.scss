@@ -17,7 +17,7 @@ header {
   margin: -3em 0 20px;
   padding: 0;
   border-bottom: 20px solid #565ed8;
-  
+
   h1 {
     color: #d1e3dd;
     margin: 0;
@@ -26,121 +26,190 @@ header {
   }
 }
 
+table {
+  width: 100%;
+  max-width: 700px;
+}
+
+div.checkboxes {
+  @include outer-container;
+
+  label {
+    @include span-columns(4);
+  }
+}
+
+p.completed {
+  padding: 10px;
+  border: 3px solid #eee;
+  background: #fcfcfc;
+
+  .-tp {
+    padding: 30px 60px;
+  }
+
+  .-tp-marker {
+    width: 10px;
+    height: 10px;
+    margin: -5px 0 0 -5px;
+  }
+
+  .-tp-labels {
+    font-size: 80%;
+
+    p {
+      line-height: 30px;
+    }
+
+    .-tp-label-a { top: -30px; }
+    .-tp-label-b {
+      bottom: -30px;
+      left: -45px;
+    }
+    .-tp-label-c {
+      bottom: -30px;
+      right: -45px;
+    }
+  }
+
+  .-slider-background {
+    max-width: 300px;
+    margin: 10px 0 0;
+  }
+
+  .-slider-marker {
+    width: 10px;
+    margin-left: -5px;
+    top: -9px;
+    height: 9px;
+  }
+
+  .-tp-plot {
+    max-width: 120px;
+  }
+}
+
+div.labels {
+}
+
 label.disabled {
   color: grey;
   opacity: 0.8;
 }
 
 .-tp {
-	position: relative;
+  position: relative;
+  padding: 50px;
 }
 
 .-tp-labels {
-	z-index: 2;
-}
+  width: 100%;
+  z-index: 2;
 
-.-tp-label-a {
-	position: absolute;
-	top: -50px;
-	left: 0;
-	width: 200px;
-	line-height: 50px;
-	text-align: center;
-}
+  p {
+    width: 100%;
+    position: absolute;
+    line-height: 50px;
+    margin: 0;
+  }
 
-.-tp-label-b {
-	position: absolute;
-	top: 150px;
-	left: -150px;
-	width: 150px;
-	text-align: center;
-	line-height: 50px;
-}
+  .-tp-label-a {
+    text-align: center;
+    top: -50px;
+  }
 
-.-tp-label-c {
-	position: absolute;
-	top: 150px;
-	left: 200px;
-	width: 150px;
-	text-align: center;
-	line-height: 50px;
+  .-tp-label-b,
+  .-tp-label-c {
+    text-align: left;
+    bottom: -50px;
+    left: -25px;
+  }
+
+  .-tp-label-c {
+    text-align: right;
+    left: inherit;
+    right: -25px;
+  }
 }
 
 .-tp-plot {
-	position: relative;
-	width: 100%;
-	max-width: 300px;
-	background-image: url('/images/triangle-scaled.png');
-	background-size: 100% auto;
-	background-repeat: no-repeat;
-	background-position: 0 0;
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  background-image: url('/images/triangle-scaled.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 0 0;
 }
 
 .-tp-marker {
-	position: absolute;
-	width: 20px;
-	height: 20px;
-	margin: -10px 0 0 -10px;
-	background: url('/images/circle-scaled.png');
-	background-size: 20px 20px;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  background: url('/images/circle-scaled.png');
+  background-size: 100% 100%;
 }
 
 .-slider-background {
-	position: relative;
-	width: 300px;
-	height: 19px;
-	margin: 40px 0 60px;
-	background: url('/images/slider-scaled.png');
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  height: 19px;
+  margin: 40px 0 60px;
+  background: url('/images/slider-scaled.png');
+  background-size: 100% 100%;
 }
 
 .-slider-marker {
-	position: absolute;
-	width: 20px;
-	margin-left: -10px;
-	height: 17px;
-	background: url('/images/slider-marker.png');
-	background-size: 20px 17px;
+  position: absolute;
+  width: 20px;
+  top: -18px;
+  margin-left: -10px;
+  height: 17px;
+  background: url('/images/slider-marker.png');
+  background-size: 100% 100%;
 }
 
 .explanation {
-	background: #f7f7f7;
-	margin: 20px -20px;
-	padding: 20px 20px 0;
-	border: 3px solid #eee;
+  background: #f7f7f7;
+  margin: 20px -20px;
+  padding: 20px 20px 0;
+  border: 3px solid #eee;
 }
 
 ul.magic-triangle-descriptor-box {
-	background: #fff;
-	border: 3px solid #ccc;
-	list-style: none;
-	padding: 0;
-	display: inline-block;
+  background: #fff;
+  border: 3px solid #ccc;
+  list-style: none;
+  padding: 0;
+  display: inline-block;
 }
 
 .magic-triangle-descriptor-box li a {
-	padding: 5px;
-	display: block;
-	font-size: 0.5em;
+  padding: 5px;
+    display: block;
+    font-size: 0.5em;
 }
 
 .magic-triangle-descriptor-box li a:hover {
-	background: #666;
-	color: #eee;
+  background: #666;
+    color: #eee;
 }
 
 .-slider-label-left {
-	position: absolute;
-	left: -50px;
-	width: 100px;
-	text-align: center;
-	top: 20px;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  text-align: left;
+  top: 20px;
 }
 
 .-slider-label-right {
-	position: absolute;
-	left: 250px;
-	width: 100px;
-	text-align: center;
-	top: 20px;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  text-align: right;
+  top: 20px;
 }
 

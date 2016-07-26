@@ -2,19 +2,29 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 
 module.exports = class TernaryPlot extends React.Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 
 		this.onMouseDown = this.onMouseDown.bind(this);
 		this.onMouseMove = this.onMouseMove.bind(this);
 		this.onMouseUp   = this.onMouseUp.bind(this);
 
-		this.state = {a: 0.3333, b: 0.3333, c: 0.3333, height:0};
+		this.state = {a: props.a, b: props.b, c: props.c, height:0};
+	}
+
+	static get defaultProps() {
+		return {
+			a: 0.3333,
+			b: 0.3333,
+			c: 0.3333
+		};
 	}
 
 	render() {
 		// Need to calculate where to position the marker based on properties of a
 		// triangle
+		console.log(this.state);
+
 		var a = {x: 100 / 2, y: 0};
 		var b = {x: 0, y: 87};
 		var c = {x: 100, y: 87};
@@ -44,19 +54,15 @@ module.exports = class TernaryPlot extends React.Component {
 			<div className="-tp">
 				<div ref="plot" style={plotStyles} className="-tp-plot" onMouseDown={this.onMouseDown}>
 					<div className="-tp-marker" style={markerStyles}></div>
-					<div className="-tp-labels"></div>
+					<div className="-tp-labels">
+						<p className="-tp-label-a">{this.props.labela}</p>
+						<p className="-tp-label-b">{this.props.labelb}</p>
+						<p className="-tp-label-c">{this.props.labelc}</p>
+					</div>
 				</div>
 			</div>
 		);
 	}
-
-	/*
-		addLabels(labelA, labelB, labelC) {
-			labelA.wrap('<p class="-tp-label-a"></p>').parent().appendTo(this.$labels);
-			labelB.wrap('<p class="-tp-label-b"></p>').parent().appendTo(this.$labels);
-			labelC.wrap('<p class="-tp-label-c"></p>').parent().appendTo(this.$labels);
-		}*/
-
 
 	componentDidMount() {
 		var updateWidth = () => this.setState({height: this.refs.plot.offsetWidth*0.87});
@@ -65,6 +71,9 @@ module.exports = class TernaryPlot extends React.Component {
 	}
 
 	onMouseDown(e) {
+		if (this.props.disabled) 
+			return;
+
 		document.addEventListener('mousemove', this.onMouseMove);
 		document.addEventListener('mouseup', this.onMouseUp);
 
@@ -132,8 +141,9 @@ module.exports = class TernaryPlot extends React.Component {
 
 		// Find point of intersection of BX and AC
 		// by simultaneous equations, which will allow us to find |BX|
-		var i = {x: (b.y + c.y) / ( (c.y/(c.x - a.x)) - (mouse.y - b.y)/mouse.x )};
-		i.y   = ((mouse.y - b.y)/mouse.x) * i.x + b.y;
+		// The || 0 eats up NaN's
+		var i = {x: ((b.y + c.y) / ( (c.y/(c.x - a.x)) - (mouse.y - b.y)/mouse.x) || 0 )};
+		i.y   = (((mouse.y - b.y)/mouse.x) * i.x + b.y) || 0;
 
 		var val_a = 1.0 - mouse.y/height;
 		var val_b = 1.0 - distance(b, mouse) / distance(b, i);

@@ -2,36 +2,45 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 
 module.exports = class Slider extends React.Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 
 		this.onMouseDown = this.onMouseDown.bind(this);
 		this.onMouseUp   = this.onMouseUp.bind(this);
 		this.onMouseMove = this.onMouseMove.bind(this);
 
-		this.state = {value: 0.0};
+		this.state = {value: props.value};
+	}
+
+	static get defaultProps() {
+		return {value: 0.5};
 	}
 
 	render() {
-		var markerStyles = {
-			top: '-20px',
-			left: (this.state.value*100.0) + '%'
+		var labels = "";
+		if (!this.props.nolabels) {
+			labels = (
+				<div className="-slider-labels">
+					<p className="-slider-label-left">Not a problem</p>
+					<p className="-slider-label-right">Seriously a problem</p>
+				</div>
+			);
 		}
 
 		return (
 			<div className="-slider">
 				<div ref="slider" className="-slider-background" onMouseDown={this.onMouseDown}>
-					<div className="-slider-marker" style={markerStyles} />
-					<div className="-slider-labels">
-						<p className="-slider-label-left">Not a problem</p>
-						<p className="-slider-label-right">Seriously a problem</p>
-					</div>
+					<div className="-slider-marker" style={{left: (this.state.value*100.0) + '%'}} />
+					{labels}
 				</div>
 			</div>
 		);
 	}
 
 	onMouseDown(e) {
+		if (this.props.disabled) 
+			return;
+
 		// Capture the mouse events
 		document.addEventListener('mousemove', this.onMouseMove);
 		document.addEventListener('mouseup', this.onMouseUp);

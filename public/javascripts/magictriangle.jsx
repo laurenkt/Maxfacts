@@ -8,9 +8,15 @@ class MagicTriangle extends React.Component {
 		super(props);
 		this.state = {
 			step: 0,
-			selected: []
+			selected: [],
+			a: 0.3333,
+			b: 0.3333,
+			c: 0.3333,
+			value: 0.5
 		};
 
+		this.plot = {};
+		this.slider = {};
 		this.processNextStep = this.processNextStep.bind(this);
 	}
 
@@ -28,6 +34,30 @@ class MagicTriangle extends React.Component {
 				this.setState({step: 1});
 			}
 		}
+		else
+		if (this.state.step == 1) {
+			this.setState({
+				step: 2,
+				a: this.plot.state.a,
+				b: this.plot.state.b,
+				c: this.plot.state.c
+			});	
+		}
+		else
+		if (this.state.step == 2) {
+			this.setState({
+				step: 3,
+				value: this.slider.state.value
+			});
+		}
+	}
+
+	callbackChangeToStep(stepNo) {
+		return (e) => {
+			this.setState({step: stepNo});
+			e.preventDefault();
+			return false;
+		};
 	}
 
 	render() {
@@ -44,14 +74,17 @@ class MagicTriangle extends React.Component {
 				if (this.state.selected.includes(d) || this.state.selected.length < 3)
 					disabled = "";
 
+				var checked = "";
+				if (this.state.selected.includes(d)) checked="checked";
+
 				return (
 					<label key={d} className={disabled}>
-						<input type="checkbox" onChange={this.onDescriptorChange.bind(this, d)} disabled={disabled} />
-						<span className="label-body">{d}</span>
+						<input type="checkbox" onChange={this.onDescriptorChange.bind(this, d)} checked={checked} disabled={disabled} />
+						<span ref={'label_' + d} className="label-body">{d}</span>
 					</label>
 				)
 			});
-			return <div key={r} className="row">{columns}</div>
+			return <div key={r} className="checkboxes">{columns}</div>
 		});
 
 		if (this.state.step == 0) {
@@ -61,12 +94,10 @@ class MagicTriangle extends React.Component {
 
 			if (remainingDescriptors > 0) {
 				disabled = "disabled";
-				if (remainingDescriptors > 1) {
+				if (remainingDescriptors > 1)
 					label = 'Choose ' + remainingDescriptors + ' more items';
-				}
-				else {
+				else 
 					label = 'Choose 1 more item';
-				}
 			}
 
 			return (
@@ -80,12 +111,65 @@ class MagicTriangle extends React.Component {
 		}
 		else
 		if (this.state.step == 1) {
+			// Sort the selected items
+			var sorted = this.state.selected.sort();
+
 			return (
 				<div>
+					<p className="completed"><strong>Step 1</strong> (completed) &mdash; {sorted.join(', ')} &mdash; <a href="#" onClick={this.callbackChangeToStep(0)}>Edit</a></p>
 					<h2>Step 2</h2>
 					<p>Move the circle in the triangle to describe the relative misery of the three descriptors i.e. move the circle closest to B if B makes you the most miserable.</p>
-					<TernaryPlot />
-					<button>Next</button>
+					<TernaryPlot ref={(plot) => this.plot = plot} a={this.state.a} b={this.state.b} c={this.state.c} labela={sorted[0]} labelb={sorted[1]} labelc={sorted[2]} />
+					<button onClick={this.processNextStep}>Next</button>
+				</div>
+			);
+		}
+		else
+		if (this.state.step == 2) {
+			// Sort the selected items
+			var sorted = this.state.selected.sort();
+
+			return (
+				<div>
+					<p className="completed"><strong>Step 1</strong> (completed) &mdash; {sorted.join(', ')} &mdash; <a href="#" onClick={this.callbackChangeToStep(0)}>Edit</a></p>
+					<p className="completed"><strong>Step 2</strong> (completed) &mdash; <a href="#" onClick={this.callbackChangeToStep(1)}>Edit</a>
+						<TernaryPlot disabled a={this.state.a} b={this.state.b} c={this.state.c} labela={sorted[0]} labelb={sorted[1]} labelc={sorted[2]} />
+					</p>
+					<h2>Step 3</h2>
+					<p>Adjust the slider to describe the severity of the problem.</p>
+					<Slider ref={(slider) => this.slider = slider} value={this.state.value} />
+					<button onClick={this.processNextStep}>Next</button>
+				</div>
+			);
+		}
+		else
+		if (this.state.step == 3) {
+			// Sort the selected items
+			var sorted = this.state.selected.sort();
+
+			return (
+				<div>
+					<p className="completed"><strong>Step 1</strong> (completed) &mdash; {sorted.join(', ')} &mdash; <a href="#" onClick={this.callbackChangeToStep(0)}>Edit</a></p>
+					<p className="completed"><strong>Step 2</strong> (completed) &mdash; <a href="#" onClick={this.callbackChangeToStep(1)}>Edit</a>
+						<TernaryPlot disabled a={this.state.a} b={this.state.b} c={this.state.c} labela={sorted[0]} labelb={sorted[1]} labelc={sorted[2]} />
+					</p>
+					<p className="completed"><strong>Step 3</strong> (completed) &mdash; <a href="#" onClick={this.callbackChangeToStep(2)}>Edit</a>
+						<Slider disabled value={this.state.value} nolabels />
+					</p>
+					<h2>Summary</h2>
+					<table>
+						<tbody>
+							<tr><th colSpan="3">Level 1</th></tr>
+							<tr>
+								<td>{sorted[0]}: {Math.round(this.state.a * 100.0)}%</td>
+								<td>{sorted[1]}: {Math.round(this.state.b * 100.0)}%</td>
+								<td>{sorted[2]}: {Math.round(this.state.c * 100.0)}%</td>
+							</tr>
+							<tr>
+								<td colSpan="3">Overall severity: {Math.round(this.state.value * 100.0)}%</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
 			);
 		}
