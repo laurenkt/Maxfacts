@@ -18,7 +18,7 @@ Then start the server:
 	# OR:
 
 	# Prepend directly into the start command
-	MONGHQ_URL="mongodb://localhost/dbname" npm start
+	MONGOHQ_URL="mongodb://localhost/dbname" npm start
 
 The default configuration watches the project directory for changes and restarts node server automatically.
 
