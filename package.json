@@ -3,8 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "DEBUG=maxfacts nodemon ./bin/www",
-    "migrate": "NODE_MONGOOSE_MIGRATIONS_CONFIG=./config/migrations.js mongoose-migrate"
+    "start": "DEBUG=maxfacts nodemon ./bin/www"
   },
   "dependencies": {
     "babel-preset-react": "^6.11.1",
@@ -17,7 +16,6 @@
     "hbs": "~4.0.0",
     "mongodb": "^2.2.4",
     "mongoose": "^4.5.7",
-    "mongoose-migrate": "^0.2.4",
     "morgan": "~1.7.0",
     "node-sass-middleware": "0.8.0",
     "nodemon": "^1.9.2",

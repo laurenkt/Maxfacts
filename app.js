@@ -9,7 +9,7 @@ const mongoose     = require('mongoose');
 // Import environment variables from .env
 require('dotenv').config();
 
-const db = mongoose.connect(process.env.MONGOHQ_URL).connection;
+const db = mongoose.connect(process.env.MONGO_URI).connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => console.log('Mongoose: Connected'));
 
