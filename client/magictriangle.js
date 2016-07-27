@@ -1,7 +1,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var TernaryPlot = require('./ternaryplot.jsx');
-var Slider = require('./slider.jsx');
+var TernaryPlot = require('./ternaryplot.js');
+var Slider = require('./slider.js');
 
 class MagicTriangle extends React.Component {
 	constructor(props) {

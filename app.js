@@ -31,10 +31,7 @@ app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Babel for React/JSX
-app.use('/javascripts', browserify(
-	join(__dirname, 'public', 'javascripts', 'magictriangle.jsx'),
-	{transform: ['babelify'], grep: /\.jsx$/}
-));
+app.use('/js', browserify(join(__dirname, 'client'), {transform: ['babelify']}));
 
 // SASS middleware
 app.use(sass({
@@ -43,8 +40,8 @@ app.use(sass({
 	sourceMap: true
 }));
 
-// Middleware for static files into public/
-app.use(express.static(join(__dirname, 'public')));
+// Middleware for static files into static/
+app.use(express.static(join(__dirname, 'static')));
 
 // Loads the named module from the routes/ directory
 const route = (name) => require(join(__dirname, 'routes', name));
