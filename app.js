@@ -1,78 +1,80 @@
+// Import environment variables from .env
+require('dotenv').config();
+
 const express      = require('express');
-const path         = require('path');
+const join         = require('path').join;
 const favicon      = require('serve-favicon');
 const logger       = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser   = require('body-parser');
 const mongoose     = require('mongoose');
+const fs           = require('fs');
+const browserify   = require('browserify-middleware');
+const sass         = require('node-sass-middleware');
 
-// Import environment variables from .env
-require('dotenv').config();
+// Set-up Mongoose models
+const db = mongoose.connect(process.env.MONGO_URI).connection
+	.on('error', console.error.bind(console, 'connection error:'))
+	.once('open', () => console.log('Mongoose: Connected'));
 
-const db = mongoose.connect(process.env.MONGO_URI).connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', () => console.log('Mongoose: Connected'));
+// Start Express
+const app = express();
 
-var routes         = require('./routes/index');
-var magic_triangle = require('./routes/magic_triangle');
-var editor         = require('./routes/editor');
-
-var app = express();
-
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
+// Views in views/ using handlebars.js
+app.set('views', join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
+// Logging in the console
 app.use(logger('dev'));
-//app.use(bodyParser.json());
+
+// Process POST request bodies
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cookieParser());
-app.use('/javascripts/magictriangle.js', require('browserify-middleware')(__dirname + '/public/javascripts/magictriangle.jsx', {
-	transform: ['babelify'],
-	grep: /\.jsx$/
-}));
-app.use(require('node-sass-middleware')({
-  src: path.join(__dirname, 'public'),
-  dest: path.join(__dirname, 'public'),
-  sourceMap: true
-}));
-app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/magic-triangle', magic_triangle);
-app.use('/editor', editor);
-app.use('/', routes);
+// Babel for React/JSX
+app.use('/javascripts', browserify(
+	join(__dirname, 'public', 'javascripts', 'magictriangle.jsx'),
+	{transform: ['babelify'], grep: /\.jsx$/}
+));
 
-// catch 404 and forward to error handler
+// SASS middleware
+app.use(sass({
+	src:  join(__dirname, 'public'),
+	dest: join(__dirname, 'public'),
+	sourceMap: true
+}));
+
+// Middleware for static files into public/
+app.use(express.static(join(__dirname, 'public')));
+
+// Loads the named module from the routes/ directory
+const route = (name) => require(join(__dirname, 'routes', name));
+
+app.use('/magic-triangle', route('magic_triangle'));
+app.use('/editor',         route('editor'));
+app.use('/',               route('index'));
+
+// If nothing is found
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+	var err = new Error('Not Found');
+	err.status = 404;
+	next(err); // pass to error handler
 });
 
-// error handlers
-
-// development error handler
-// will print stacktrace
-if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
-	console.error(err.stack);
-    res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error: err
-    });
-  });
-}
-
-// production error handler
-// no stacktraces leaked to user
+// Error handler
 app.use(function(err, req, res, next) {
-  res.status(err.status || 500);
-  res.render('error', {
-    message: err.message,
-    error: {}
-  });
-});
+	var errInfo = {};
 
+	// Show more information if development
+	if (app.get('env') === 'development') {
+		console.error(err.stack);
+		errInfo = err;
+	}
+
+	res.status(err.status || 500);
+	res.render('error', {
+		message: err.message,
+		error: errInfo
+	});
+});
 
 module.exports = app;
