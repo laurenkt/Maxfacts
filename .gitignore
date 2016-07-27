@@ -5,6 +5,9 @@
 logs
 *.log
 
+# Env files (as these may contain passwords)
+.env
+
 # Runtime data
 pids
 *.pid

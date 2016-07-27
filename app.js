@@ -6,7 +6,10 @@ const cookieParser = require('cookie-parser');
 const bodyParser   = require('body-parser');
 const mongoose     = require('mongoose');
 
-const db = mongoose.connect('mongodb://' + process.env.MONGO_USER + ':' + process.env.MONGO_PASSWORD + '@localhost/maxfacts').connection;
+// Import environment variables from .env
+require('dotenv').config();
+
+const db = mongoose.connect(process.env.MONGOHQ_URL).connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => console.log('Mongoose: Connected'));
 

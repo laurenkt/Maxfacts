@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "DEBUG=maxfacts nodemon ./bin/www",
+    "migrate": "NODE_MONGOOSE_MIGRATIONS_CONFIG=./config/migrations.js mongoose-migrate"
   },
   "dependencies": {
     "babel-preset-react": "^6.11.1",
@@ -11,10 +12,12 @@
     "browserify-middleware": "^7.0.0",
     "cookie-parser": "~1.4.3",
     "debug": "~2.2.0",
+    "dotenv": "^2.0.0",
     "express": "~4.13.4",
     "hbs": "~4.0.0",
     "mongodb": "^2.2.4",
     "mongoose": "^4.5.7",
+    "mongoose-migrate": "^0.2.4",
     "morgan": "~1.7.0",
     "node-sass-middleware": "0.8.0",
     "nodemon": "^1.9.2",
