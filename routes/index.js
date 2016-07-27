@@ -5,7 +5,6 @@ var Content = require('../models/content.js');
 /* GET home page. */
 router.get('/', (req, res, next) => {
 	Content.find({}, {}, { sort: { title: 1 } }, (err, items) => {
-		console.log(items);
 		res.render('index', {items: items});
 	});
 });

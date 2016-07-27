@@ -13,6 +13,7 @@ const browserify   = require('browserify-middleware');
 const sass         = require('node-sass-middleware');
 
 // Set-up Mongoose models
+mongoose.Promise = global.Promise; // Required to squash a deprecation warning
 const db = mongoose.connect(process.env.MONGO_URI).connection
 	.on('error', console.error.bind(console, 'connection error:'))
 	.once('open', () => console.log('Mongoose: Connected'));
@@ -35,9 +36,10 @@ app.use('/js', browserify(join(__dirname, 'client'), {transform: ['babelify']}))
 
 // SASS middleware
 app.use(sass({
-	src:  join(__dirname, 'public'),
-	dest: join(__dirname, 'public'),
-	sourceMap: true
+	src:  join(__dirname, 'static'),
+	dest: join(__dirname, 'static'),
+	sourceMap: true,
+	error: console.error.bind(console, 'sass error: ')
 }));
 
 // Middleware for static files into static/
