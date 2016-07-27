@@ -13,6 +13,17 @@ body {
   padding: 0 20px;
 }
 
+form {
+	p {
+		@include span-columns(12);
+	}
+
+	.primary,
+	.secondary {
+		@include span-columns(5);
+	}
+}
+
 div.text {
   @include span-columns(8);
 }

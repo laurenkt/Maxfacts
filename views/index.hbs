@@ -1,2 +1,7 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<h1>Directory</h1>
+<ul>
+{{#each items}}
+	<li><a href="/{{uri}}">{{title}}</a></li>
+{{/each}}
+
+</ul>

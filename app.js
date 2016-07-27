@@ -13,8 +13,9 @@ const db = mongoose.connect(process.env.MONGO_URI).connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => console.log('Mongoose: Connected'));
 
-var routes = require('./routes/index');
+var routes         = require('./routes/index');
 var magic_triangle = require('./routes/magic_triangle');
+var editor         = require('./routes/editor');
 
 var app = express();
 
@@ -22,11 +23,9 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+//app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use('/javascripts/magictriangle.js', require('browserify-middleware')(__dirname + '/public/javascripts/magictriangle.jsx', {
 	transform: ['babelify'],
@@ -40,6 +39,7 @@ app.use(require('node-sass-middleware')({
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/magic-triangle', magic_triangle);
+app.use('/editor', editor);
 app.use('/', routes);
 
 // catch 404 and forward to error handler
