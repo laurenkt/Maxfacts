@@ -13,13 +13,43 @@ body {
   padding: 0 20px;
 }
 
+div.text {
+  @include span-columns(8);
+}
+
+h1 {
+  font-size: 1.7em;
+}
+
+strong a {
+  display: inline-block;
+  background: #292;
+  padding: 10px 20px;
+  font-size: 1.5em;
+  border: 3px solid #171;
+  border-top: 0;
+  border-left: 0;
+  border-radius: 5px;
+  color: #fff;
+}
+
+strong a:after {
+  content: " »";
+}
+
+strong a:hover {
+  background: #eee;
+  border-color: #ddd;
+  text-decoration: underline;
+}
+
 header {
   margin: -3em 0 20px;
   padding: 0;
   border-bottom: 20px solid #565ed8;
 
   h1 {
-    color: #d1e3dd;
+    color: #eee;
     margin: 0;
     line-height: 3rem;
     font-size: 1.5em;
@@ -31,11 +61,13 @@ table {
   max-width: 700px;
 }
 
-div.checkboxes {
+.checkboxes {
   @include outer-container;
+  margin-bottom: 0.75em;
 
   label {
-    @include span-columns(4);
+    //@include span-columns(4);
+    //@include omega(3n);
   }
 }
 
@@ -138,10 +170,10 @@ label.disabled {
   position: relative;
   width: 100%;
   max-width: 300px;
-  background-image: url('/images/triangle-scaled.png');
-  background-size: 100%;
+  background-image: url('/images/triangle-mask.png'), url('/images/triangle-scaled.png');
+  background-size: 200% 200%, 100% 100%;
+  background-position: 100px 100px;
   background-repeat: no-repeat;
-  background-position: 0 0;
 }
 
 .-tp-marker {

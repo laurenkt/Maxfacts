@@ -20,6 +20,14 @@ module.exports = class TernaryPlot extends React.Component {
 		};
 	}
 
+	computeWeight(value) {
+		return {
+			fontWeight: (300 + Math.round(value * 4.0) * 100),
+			fontSize: (90 + value * 30.0) + '%',
+			opacity: (50 + Math.round(value * 50.0)) + '%'
+		};
+	}
+
 	render() {
 		// Need to calculate where to position the marker based on properties of a
 		// triangle
@@ -47,7 +55,12 @@ module.exports = class TernaryPlot extends React.Component {
 		var plotStyles = {};
 
 		if (this.state.height != 0) {
+			var bgOffset = {
+				top: (1.0 - this.state.a) * this.state.height - this.state.height,
+				left: ((p.x/100.0)*1.1494*this.state.height) - this.state.height * 1.1494
+			};
 			plotStyles.height = this.state.height + 'px';
+			plotStyles.backgroundPosition = bgOffset.left + 'px ' + bgOffset.top + 'px, center'
 		}
 
 		return (
@@ -55,9 +68,9 @@ module.exports = class TernaryPlot extends React.Component {
 				<div ref="plot" style={plotStyles} className="-tp-plot" onMouseDown={this.onMouseDown}>
 					<div className="-tp-marker" style={markerStyles}></div>
 					<div className="-tp-labels">
-						<p className="-tp-label-a">{this.props.labela}</p>
-						<p className="-tp-label-b">{this.props.labelb}</p>
-						<p className="-tp-label-c">{this.props.labelc}</p>
+						<p className="-tp-label-a" style={this.computeWeight(this.state.a)}>{this.props.labela}</p>
+						<p className="-tp-label-b" style={this.computeWeight(this.state.b)}>{this.props.labelb}</p>
+						<p className="-tp-label-c" style={this.computeWeight(this.state.c)}>{this.props.labelc}</p>
 					</div>
 				</div>
 			</div>
