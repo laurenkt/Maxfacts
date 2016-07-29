@@ -32,7 +32,10 @@ app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Babel for React/JSX
-app.use('/js', browserify(join(__dirname, 'client'), {transform: ['babelify']}));
+app.use('/js', browserify(join(__dirname, 'client'), {
+	noParse: ['react-rte'],
+	transform: ['babelify']
+}));
 
 // SASS middleware
 app.use(sass({

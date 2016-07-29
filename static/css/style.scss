@@ -5,257 +5,256 @@
 
 
 html {
-  border-top: 3rem solid #32292f;
+	border-top: 3rem solid #32292f;
 }
 
 body {
-  max-width: 64em;
-  margin: 0 auto;
-  padding: 0 20px;
+	max-width: 64em;
+	margin: 0 auto;
+	padding: 0 20px;
 }
 
-form {
-	p {
-		@include span-columns(12);
-	}
+textarea {
+	min-height: 200px;
+	font-family: monospace;
+}
 
-	.primary,
-	.secondary {
-		@include span-columns(5);
-	}
+.editor {
+	font-family: $base-font-family;	
+	min-height: 200px;
 }
 
 div.text {
-  @include span-columns(8);
+	@include span-columns(8);
 }
 
 h1 {
-  font-size: 1.7em;
+	font-size: 1.7em;
 }
 
 strong a {
-  display: inline-block;
-  background: #292;
-  padding: 10px 20px;
-  font-size: 1.5em;
-  border: 3px solid #171;
-  border-top: 0;
-  border-left: 0;
-  border-radius: 5px;
-  color: #fff;
+	display: inline-block;
+	background: #292;
+	padding: 10px 20px;
+	font-size: 1.5em;
+	border: 3px solid #171;
+	border-top: 0;
+	border-left: 0;
+	border-radius: 5px;
+	color: #fff;
 }
 
 strong a:after {
-  content: " »";
+	content: " »";
 }
 
 strong a:hover {
-  background: #eee;
-  border-color: #ddd;
-  text-decoration: underline;
+	background: #eee;
+	border-color: #ddd;
+	text-decoration: underline;
 }
 
 header {
-  margin: -3em 0 20px;
-  padding: 0;
-  border-bottom: 20px solid #565ed8;
+	margin: -3em 0 20px;
+	padding: 0;
+	border-bottom: 20px solid #565ed8;
 
-  h1 {
-    color: #eee;
-    margin: 0;
-    line-height: 3rem;
-    font-size: 1.5em;
-  }
+	h1 {
+		color: #eee;
+		margin: 0;
+		line-height: 3rem;
+		font-size: 1.5em;
+	}
 }
 
 table {
-  width: 100%;
-  max-width: 700px;
+	width: 100%;
+	max-width: 700px;
 }
 
 .checkboxes {
-  @include outer-container;
-  margin-bottom: 0.75em;
+	@include outer-container;
+	margin-bottom: 0.75em;
 
-  label {
-    //@include span-columns(4);
-    //@include omega(3n);
-  }
+	label {
+		//@include span-columns(4);
+		//@include omega(3n);
+	}
 }
 
 .completed {
-  padding: 10px;
-  border: 3px solid #eee;
-  background: #fcfcfc;
-  margin-bottom: 0.75em;
+	padding: 10px;
+	border: 3px solid #eee;
+	background: #fcfcfc;
+	margin-bottom: 0.75em;
 
-  .-tp {
-    padding: 30px 60px;
-  }
+	.-tp {
+		padding: 30px 60px;
+	}
 
-  .-tp-marker {
-    width: 10px;
-    height: 10px;
-    margin: -5px 0 0 -5px;
-    background-image: url('/images/circle-grey-scaled.png');
-  }
+	.-tp-marker {
+		width: 10px;
+		height: 10px;
+		margin: -5px 0 0 -5px;
+		background-image: url('/images/circle-grey-scaled.png');
+	}
 
-  .-tp-labels {
-    font-size: 80%;
+	.-tp-labels {
+		font-size: 80%;
 
-    p {
-      line-height: 30px;
-    }
+		p {
+			line-height: 30px;
+		}
 
-    .-tp-label-a { top: -30px; }
-    .-tp-label-b {
-      bottom: -30px;
-      left: -45px;
-    }
-    .-tp-label-c {
-      bottom: -30px;
-      right: -45px;
-    }
-  }
+		.-tp-label-a { top: -30px; }
+		.-tp-label-b {
+			bottom: -30px;
+			left: -45px;
+		}
+		.-tp-label-c {
+			bottom: -30px;
+			right: -45px;
+		}
+	}
 
-  .-slider-background {
-    max-width: 300px;
-    margin: 10px 0 0;
-  }
+	.-slider-background {
+		max-width: 300px;
+		margin: 10px 0 0;
+	}
 
-  .-slider-marker {
-    width: 10px;
-    margin-left: -5px;
-    top: -9px;
-    height: 9px;
-  }
+	.-slider-marker {
+		width: 10px;
+		margin-left: -5px;
+		top: -9px;
+		height: 9px;
+	}
 
-  .-tp-plot {
-    max-width: 120px;
-  }
+	.-tp-plot {
+		max-width: 120px;
+	}
 }
 
 div.labels {
 }
 
 label.disabled {
-  color: grey;
-  opacity: 0.8;
+	color: grey;
+	opacity: 0.8;
 }
 
 .-tp {
-  position: relative;
-  padding: 50px;
+	position: relative;
+	padding: 50px;
 }
 
 .-tp-labels {
-  width: 100%;
-  z-index: 2;
+	width: 100%;
+	z-index: 2;
 
-  p {
-    width: 100%;
-    position: absolute;
-    line-height: 50px;
-    margin: 0;
-  }
+	p {
+		width: 100%;
+		position: absolute;
+		line-height: 50px;
+		margin: 0;
+	}
 
-  .-tp-label-a {
-    text-align: center;
-    top: -50px;
-  }
+	.-tp-label-a {
+		text-align: center;
+		top: -50px;
+	}
 
-  .-tp-label-b,
-  .-tp-label-c {
-    text-align: left;
-    bottom: -50px;
-    left: -25px;
-  }
+	.-tp-label-b,
+	.-tp-label-c {
+		text-align: left;
+		bottom: -50px;
+		left: -25px;
+	}
 
-  .-tp-label-c {
-    text-align: right;
-    left: inherit;
-    right: -25px;
-  }
+	.-tp-label-c {
+		text-align: right;
+		left: inherit;
+		right: -25px;
+	}
 }
 
 .-tp-plot {
-  position: relative;
-  width: 100%;
-  max-width: 300px;
-  background-image: url('/images/triangle-mask.png'), url('/images/triangle-scaled.png');
-  background-size: 200% 200%, 100% 100%;
-  background-position: 100px 100px;
-  background-repeat: no-repeat;
+	position: relative;
+	width: 100%;
+	max-width: 300px;
+	background-image: url('/images/triangle-mask.png'), url('/images/triangle-scaled.png');
+	background-size: 200% 200%, 100% 100%;
+	background-position: 100px 100px;
+	background-repeat: no-repeat;
 }
 
 .-tp-marker {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  margin: -10px 0 0 -10px;
-  background: url('/images/circle-scaled.png');
-  background-size: 100% 100%;
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	margin: -10px 0 0 -10px;
+	background: url('/images/circle-scaled.png');
+	background-size: 100% 100%;
 }
 
 .-slider-background {
-  position: relative;
-  width: 100%;
-  max-width: 400px;
-  height: 19px;
-  margin: 40px 0 60px;
-  background: url('/images/slider-scaled.png');
-  background-size: 100% 100%;
+	position: relative;
+	width: 100%;
+	max-width: 400px;
+	height: 19px;
+	margin: 40px 0 60px;
+	background: url('/images/slider-scaled.png');
+	background-size: 100% 100%;
 }
 
 .-slider-marker {
-  position: absolute;
-  width: 20px;
-  top: -18px;
-  margin-left: -10px;
-  height: 17px;
-  background: url('/images/slider-marker.png');
-  background-size: 100% 100%;
+	position: absolute;
+	width: 20px;
+	top: -18px;
+	margin-left: -10px;
+	height: 17px;
+	background: url('/images/slider-marker.png');
+	background-size: 100% 100%;
 }
 
 .explanation {
-  background: #f7f7f7;
-  margin: 20px -20px;
-  padding: 20px 20px 0;
-  border: 3px solid #eee;
+	background: #f7f7f7;
+	margin: 20px -20px;
+	padding: 20px 20px 0;
+	border: 3px solid #eee;
 }
 
 ul.magic-triangle-descriptor-box {
-  background: #fff;
-  border: 3px solid #ccc;
-  list-style: none;
-  padding: 0;
-  display: inline-block;
+	background: #fff;
+	border: 3px solid #ccc;
+	list-style: none;
+	padding: 0;
+	display: inline-block;
 }
 
 .magic-triangle-descriptor-box li a {
-  padding: 5px;
-    display: block;
-    font-size: 0.5em;
+	padding: 5px;
+	display: block;
+	font-size: 0.5em;
 }
 
 .magic-triangle-descriptor-box li a:hover {
-  background: #666;
-    color: #eee;
+	background: #666;
+	color: #eee;
 }
 
 .-slider-label-left {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  text-align: left;
-  top: 20px;
+	position: absolute;
+	left: 0;
+	width: 100%;
+	text-align: left;
+	top: 20px;
 }
 
 .-slider-label-right {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  text-align: right;
-  top: 20px;
+	position: absolute;
+	left: 0;
+	width: 100%;
+	text-align: right;
+	top: 20px;
 }
 

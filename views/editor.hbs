@@ -1,16 +1,14 @@
-<h1>{{title}}</h1>
+<h1>Editor</h1>
 <form method="post" action="#">
-	<p class="primary">
+	<p>
 		<label for="title">Title:</label>
 		<input type="text" name="title" id="title" value="{{title}}">
 	</p>
-	<p class="secondary">
+	<p>
 		<label for="uri">URI:</label>
 		<input type="text" name="uri" id="uri" value="{{uri}}">
 	</p>
-	<p>
-		<label for="body">HTML:</label>
-		<textarea id="body" name="body" rows="8">{{body}}</textarea>
-	</p>
-	<p><input type="submit" value="Submit"></p>
+	<div><textarea id="body" name="body" rows="8">{{body}}</textarea></div>
+	<p><input type="submit" value="Save"></p>
 </form>
+<script type="text/javascript" src="/js/editor.js"></script>
