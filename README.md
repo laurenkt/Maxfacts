@@ -13,12 +13,12 @@ Then start the server:
 **Note:** you will need the `MONGOHQ_URL` environment variable set with the MongoDB URL, you can do this in a `.env` file or by prefixing the start command with the variable:
 
 	# Put in a .env file
-	echo "MONGOHQ_URL=mongodb://localhost/dbname" > .env
+	echo "MONGO_URI=mongodb://localhost/dbname" > .env
 
 	# OR:
 
 	# Prepend directly into the start command
-	MONGOHQ_URL="mongodb://localhost/dbname" npm start
+	MONGO_URI="mongodb://localhost/dbname" npm start
 
 The default configuration watches the project directory for changes and restarts node server automatically.
 
