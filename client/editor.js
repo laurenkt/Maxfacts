@@ -43,7 +43,7 @@ class Editor extends React.Component {
 					<label><input type="checkbox" onChange={(e) => this.setState({html: e.target.checked})} checked={null} />
 					       <span className="label-body">Raw HTML</span></label>
 				</p>
-				<textarea rows={this.rows} id={this.props.id} style={{display: this.state.html ? 'block' : 'none'}} onChange={this.onChangeText} value={this.state.value.toString('html')}></textarea>
+				<textarea rows={this.rows} name={this.props.name} style={{display: this.state.html ? 'block' : 'none'}} onChange={this.onChangeText} value={this.state.value.toString('html')}></textarea>
 				{this.state.html || rte()}
 			</div>
 		);
@@ -53,7 +53,7 @@ class Editor extends React.Component {
 document.addEventListener("DOMContentLoaded", e => {
 	var textarea  = document.getElementsByTagName('textarea').item(0);
 	var container = document.createElement('div');
-	ReactDOM.render(<Editor id={textarea.getAttribute('id')} value={textarea.value} />, container);
+	ReactDOM.render(<Editor name={textarea.getAttribute('name')} value={textarea.value} />, container);
 	
 	textarea.parentNode.replaceChild(container.childNodes[0], textarea);
 });
