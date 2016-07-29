@@ -9,7 +9,15 @@
 		<header>
 			<h1>MaxFacts</h1>
 		</header>
-		<p><a href="/">Home</a></p>
+		<p>
+			<a href="/">Home</a>
+			{{#each breadcrumbs}}
+				» <a href="/{{uri}}">{{title}}</a>
+			{{/each}}
+			{{#if uri}}
+				» {{title}}
+			{{/if}}
+		</p>
 		{{{body}}}
 	</body>
 </html>

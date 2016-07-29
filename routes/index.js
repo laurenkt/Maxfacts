@@ -9,13 +9,20 @@ router.get('/', (req, res, next) => {
 	});
 });
 
-router.get('/:uri(*)', function(req, res, next) {
-	console.log('Searching for content at ' + req.params.uri);
+router.get('/:uri(*)', (req, res, next) => {
 	Content.findOne( { uri: req.params.uri } ).then(content => {
-		if (content)
-			res.render('content', content);
-		else
+		if (!content)
 			next();
+
+		Content
+			.find()
+			.where('uri').in(content.lineage)
+			.select('title uri')
+			.sort('uri')
+			.exec((err, results) => {
+				content.breadcrumbs = results;
+				res.render('content', content);
+			});
 	});
 });
 
