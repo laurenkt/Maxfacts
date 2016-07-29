@@ -16,7 +16,7 @@ ContentSchema
 
 ContentSchema
 	.virtual('lineage')
-	.get(function() { 
+	.get(function() {
 		var fragments = [];
 		var parent = this.parent;
 		while (parent != '') {
