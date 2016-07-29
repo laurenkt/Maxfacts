@@ -27,4 +27,20 @@ ContentSchema
 		return fragments.reverse();
 	});
 
+ContentSchema.pre('save', function(next) {
+	// Force the URI into acceptable format:
+	// All lowercase
+	this.uri = this.uri.toLowerCase();
+	// Convert spaces and underscores to dashes (and multiple dashes)
+	this.uri = this.uri.replace(/[_ -]+/g, '-');
+	// Remove any duplicate slashes
+	this.uri = this.uri.replace(/[\/]+/g, '/');
+	// Remove any leading or trailing slashes or dashes
+	this.uri = this.uri.replace(/(^[\/-]+|[\/-]+$)/g, '');
+	// Remove any remaining characters that don't conform to the URL
+	this.uri = this.uri.replace(/[^a-z0-9-\/]+/g, '');
+	// Save it
+	next();
+});
+
 module.exports = mongoose.model('Content', ContentSchema);

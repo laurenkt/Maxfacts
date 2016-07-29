@@ -25,7 +25,7 @@ router.post('/:uri(*)', (req, res, next) => {
 		item.uri = req.body.uri;
 		item.title = req.body.title;
 		item.body = req.body.body;
-		item.save(() => res.redirect('/' + req.body.uri));
+		item.save(() => res.redirect('/' + item.uri));
 	});
 });
 
