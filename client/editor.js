@@ -35,14 +35,14 @@ class Editor extends React.Component {
 	}
 
 	render() {
-		var rte = () => <RichTextEditor editorClassName="editor" value={this.state.value} onChange={this.onChange} />
+		var rte = () => <RichTextEditor toolbarClassName="editor-toolbar" editorClassName="editor" value={this.state.value} onChange={this.onChange} />
 
 		return (
 			<div>
-				<p>
-					<label><input type="checkbox" onChange={(e) => this.setState({html: e.target.checked})} checked={null} />
-					       <span className="label-body">Raw HTML</span></label>
-				</p>
+				<p><label>
+					<input type="checkbox" onChange={(e) => this.setState({html: e.target.checked})} checked={null} />
+					<span className="label-body">Edit in raw HTML</span>
+				</label></p>
 				<textarea rows={this.rows} name={this.props.name} style={{display: this.state.html ? 'block' : 'none'}} onChange={this.onChangeText} value={this.state.value.toString('html')}></textarea>
 				{this.state.html || rte()}
 			</div>

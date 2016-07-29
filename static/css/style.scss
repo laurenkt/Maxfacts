@@ -19,6 +19,15 @@ textarea {
 	font-family: monospace;
 }
 
+.editor-toolbar {
+	button[title="Italic"],
+	button[title="Strikethrough"],
+	button[title="Monospace"],
+	button[title="Blockquote"] {
+		display: none;
+	}
+}
+
 .editor {
 	font-family: $base-font-family;	
 	min-height: 200px;
