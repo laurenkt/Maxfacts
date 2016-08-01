@@ -12,6 +12,15 @@ module.exports = class Slider extends React.Component {
 		this.state = {value: props.value};
 	}
 
+	static get propTypes() {
+		return {
+			value:    React.PropTypes.number,
+			onChange: React.PropTypes.func,
+			nolabels: React.PropTypes.any,
+			disabled: React.PropTypes.any
+		};
+	}
+
 	static get defaultProps() {
 		return {value: 0.5};
 	}
@@ -67,6 +76,9 @@ module.exports = class Slider extends React.Component {
 		
 		// Set new position
 		this.setState({value: x / width});
+
+		if (this.props.onChange)
+			this.props.onChange({value: x / width});
 	}
 
 	onMouseUp(e) {

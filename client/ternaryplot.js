@@ -1,5 +1,5 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
+import React    from 'react';
+import ReactDOM from 'react-dom';
 
 module.exports = class TernaryPlot extends React.Component {
 	constructor(props) {
@@ -10,6 +10,17 @@ module.exports = class TernaryPlot extends React.Component {
 		this.onMouseUp   = this.onMouseUp.bind(this);
 
 		this.state = {a: props.a, b: props.b, c: props.c, height:0};
+	}
+
+	static get propTypes() {
+		return {
+			a:        React.PropTypes.number,
+			b:        React.PropTypes.number,
+			c:        React.PropTypes.number,
+			labels:   React.PropTypes.array.isRequired,
+			onChange: React.PropTypes.func,
+			disabled: React.PropTypes.any
+		};
 	}
 
 	static get defaultProps() {
@@ -23,21 +34,21 @@ module.exports = class TernaryPlot extends React.Component {
 	computeWeight(value) {
 		return {
 			fontWeight: (300 + Math.round(value * 4.0) * 100),
-			fontSize: (90 + value * 30.0) + '%',
-			opacity: (50 + Math.round(value * 50.0)) + '%'
+			fontSize:   (90 + value * 30.0) + '%',
+			opacity:    (50 + Math.round(value * 50.0)) + '%'
 		};
 	}
 
 	render() {
 		// Need to calculate where to position the marker based on properties of a
 		// triangle
-		console.log(this.state);
 
+		// The coordinates of the points A, B and C
 		var a = {x: 100 / 2, y: 0};
-		var b = {x: 0, y: 87};
-		var c = {x: 100, y: 87};
+		var b = {x: 0,       y: 87};
+		var c = {x: 100,     y: 87};
 
-		// Point where extended B value-line intersects BC 
+		// Point where extended B value-line intersects BC
 		var z = {x: (1.0 - this.state.b) * c.x, y: b.y};
 
 		// Gradient is same as line AC
@@ -50,7 +61,8 @@ module.exports = class TernaryPlot extends React.Component {
 
 		var markerStyles = {
 			top: ((1.0 - this.state.a) * 100.0) + '%',
-			left: (p.x) + '%'}
+			left: (p.x) + '%'
+		};
 
 		var plotStyles = {};
 
@@ -68,9 +80,9 @@ module.exports = class TernaryPlot extends React.Component {
 				<div ref="plot" style={plotStyles} className="-tp-plot" onMouseDown={this.onMouseDown}>
 					<div className="-tp-marker" style={markerStyles}></div>
 					<div className="-tp-labels">
-						<p className="-tp-label-a" style={this.computeWeight(this.state.a)}>{this.props.labela}</p>
-						<p className="-tp-label-b" style={this.computeWeight(this.state.b)}>{this.props.labelb}</p>
-						<p className="-tp-label-c" style={this.computeWeight(this.state.c)}>{this.props.labelc}</p>
+						<p className="-tp-label-a" style={this.computeWeight(this.state.a)}>{this.props.labels[0]}</p>
+						<p className="-tp-label-b" style={this.computeWeight(this.state.b)}>{this.props.labels[1]}</p>
+						<p className="-tp-label-c" style={this.computeWeight(this.state.c)}>{this.props.labels[2]}</p>
 					</div>
 				</div>
 			</div>
@@ -84,7 +96,7 @@ module.exports = class TernaryPlot extends React.Component {
 	}
 
 	onMouseDown(e) {
-		if (this.props.disabled) 
+		if (this.props.disabled)
 			return;
 
 		document.addEventListener('mousemove', this.onMouseMove);
@@ -104,9 +116,11 @@ module.exports = class TernaryPlot extends React.Component {
 		function distance(p1, p2) {
 			return Math.sqrt(
 				Math.pow(p1.x - p2.x, 2) +
-				Math.pow(p1.y - p2.y, 2)
+					Math.pow(p1.y - p2.y, 2)
 			);
 		}
+
+		e.preventDefault();
 
 		// Get relative coordinates
 		var bounds = this.refs.plot.getBoundingClientRect();
@@ -120,18 +134,18 @@ module.exports = class TernaryPlot extends React.Component {
 		var c = {x: width, y: height};
 
 		// Check that within bounds of equilateral triangle
-		if (!this.withinTriangle(width, height, mouse)) {
+		if (!this.isPointWithinTriangle(mouse, width, height)) {
 			// It's out of bounds so we need to extrapolate the nearest position
 			// within the triangle
 
 			// First cap the bottom as its simplest - one axis
 			if (mouse.y > height)
 				mouse.y = height;
-			if (mouse.y < 0) 
+			if (mouse.y < 0)
 				mouse.y = 0;
 
 			// Is it still out of bounds?
-			if (!this.withinTriangle(width, height, mouse)) {
+			if (!this.isPointWithinTriangle(mouse, width, height)) {
 				if ((mouse.x - width/2) < 0) {
 					// Find intersection with AB
 					var i = {x: (a.x*b.y*c.x - a.x*b.y*mouse.x - a.x*c.x*mouse.y + a.x*c.y*mouse.x)/(a.x*c.y + b.y*c.x - a.x*mouse.y - b.y*mouse.x)};
@@ -158,19 +172,20 @@ module.exports = class TernaryPlot extends React.Component {
 		var i = {x: ((b.y + c.y) / ( (c.y/(c.x - a.x)) - (mouse.y - b.y)/mouse.x) || 0 )};
 		i.y   = (((mouse.y - b.y)/mouse.x) * i.x + b.y) || 0;
 
-		var val_a = 1.0 - mouse.y/height;
-		var val_b = 1.0 - distance(b, mouse) / distance(b, i);
+		var values = {
+			a: 1.0 - mouse.y/height,
+			b: 1.0 - distance(b, mouse) / distance(b, i)
+		};
 
-		this.setState({
-			a: val_a,
-			b: val_b,
-			c: 1.0 - val_a - val_b
-		});
+		values.c = 1.0 - values.a - values.b;
 
-		e.preventDefault();
+		this.setState(values);
+
+		if (this.props.onChange)
+			this.props.onChange(values);
 	}
 
-	withinTriangle(width, height, point) {
+	isPointWithinTriangle(point, width, height) {
 		// Validation function, checks within 0-60 degrees
 		function acceptable(angle) {
 			return (angle >= 0 && angle <= Math.PI/3);
@@ -184,8 +199,8 @@ module.exports = class TernaryPlot extends React.Component {
 		return (
 			// angle from A
 			acceptable(Math.atan((height - point.y) / point.x)) &&
-			// angle from C
-			acceptable(Math.atan((height - point.y) / (width-point.x)))
+				// angle from C
+				acceptable(Math.atan((height - point.y) / (width-point.x)))
 		);
 	}
 }

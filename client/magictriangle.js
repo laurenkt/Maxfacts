@@ -2,6 +2,7 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var TernaryPlot = require('./ternaryplot.js');
 var Slider = require('./slider.js');
+var DescriptorList = require('./descriptorlist.js');
 
 class MagicTriangle extends React.Component {
 	constructor(props) {
@@ -17,39 +18,14 @@ class MagicTriangle extends React.Component {
 
 		this.plot = {};
 		this.slider = {};
-		this.processNextStep = this.processNextStep.bind(this);
 	}
 
 	onDescriptorChange(descriptor, e) {
-		if (e.target.checked) {
-			this.setState({selected: this.state.selected.concat([descriptor])});
-		}
-		else
-			this.setState({selected: this.state.selected.filter((d) => d != descriptor)});
-	}
-
-	processNextStep(e) {
-		if (this.state.step == 0) {
-			if (this.state.selected.length == 3) {
-				this.setState({step: 1});
-			}
-		}
-		else
-		if (this.state.step == 1) {
-			this.setState({
-				step: 2,
-				a: this.plot.state.a,
-				b: this.plot.state.b,
-				c: this.plot.state.c
-			});	
-		}
-		else
-		if (this.state.step == 2) {
-			this.setState({
-				step: 3,
-				value: this.slider.state.value
-			});
-		}
+		this.setState({
+			selected: e.target.checked ?
+				this.state.selected.concat([descriptor]) :
+				this.state.selected.filter(d => d != descriptor)
+		});
 	}
 
 	callbackChangeToStep(stepNo) {
@@ -60,126 +36,89 @@ class MagicTriangle extends React.Component {
 		};
 	}
 
-	render() {
-		// Should non-selected descriptors be disabled?
+	editLinkForStep(stepNo) {
+		return <a href="#" onClick={this.callbackChangeToStep(stepNo)}>Edit</a>;
+	}
+
+	labelForStep0() {
+		var remainingDescriptors = 3 - this.state.selected.length;
+		var label = 'Next';
 		var disabled = "";
-		if (this.state.selected.length >= 3) disabled = "disabled";
 
-		// Determine how many rows to have with three columns
-		var rows = Math.ceil(this.props.descriptors.length / 3);
-
-		var desc = this.props.descriptors.sort().map((d) => {
-			// Should this descriptor be disabled
-			var disabled = "disabled";
-			if (this.state.selected.includes(d) || this.state.selected.length < 3)
-				disabled = "";
-
-			var checked = "";
-			if (this.state.selected.includes(d)) checked="checked";
-
-			return (
-				<label key={d} className={disabled}>
-					<input type="checkbox" onChange={this.onDescriptorChange.bind(this, d)} checked={checked} disabled={disabled} />
-					<span ref={'label_' + d} className="label-body">{d}</span>
-				</label>
-			)
-		});
-
-		if (this.state.step == 0) {
-			var remainingDescriptors = 3 - this.state.selected.length;
-			var label = 'Next';
-			var disabled = "";
-
-			if (remainingDescriptors > 0) {
-				disabled = "disabled";
-				if (remainingDescriptors > 1)
-					label = 'Choose ' + remainingDescriptors + ' more items';
-				else 
-					label = 'Choose 1 more item';
-			}
-
-			return (
-				<div>
-					<h2>Step 1</h2>
-					<p>Choose <strong>three</strong> things that make your accomodation miserable.</p>
-					<div className="checkboxes">{desc}</div>
-					<button disabled={disabled} onClick={this.processNextStep}>{label}</button>
-				</div>
-			);
+		if (remainingDescriptors > 0) {
+			disabled = "disabled";
+			if (remainingDescriptors > 1)
+				label = 'Choose ' + remainingDescriptors + ' more items';
+			else
+				label = 'Choose 1 more item';
 		}
-		else
-		if (this.state.step == 1) {
-			// Sort the selected items
-			var sorted = this.state.selected.sort();
 
-			return (
-				<div>
-					<p className="completed"><strong>Step 1</strong> (completed) &mdash; {sorted.join(', ')} &mdash; <a href="#" onClick={this.callbackChangeToStep(0)}>Edit</a></p>
-					<h2>Step 2</h2>
-					<p>Move the circle in the triangle towards the corners which describe the relative misery of your three labels i.e. move the circle closest to '{sorted[0]}' if that makes you the most miserable.</p>
-					<TernaryPlot ref={(plot) => this.plot = plot} a={this.state.a} b={this.state.b} c={this.state.c} labela={sorted[0]} labelb={sorted[1]} labelc={sorted[2]} />
-					<button onClick={this.processNextStep}>Next</button>
-				</div>
-			);
-		}
-		else
-		if (this.state.step == 2) {
-			// Sort the selected items
-			var sorted = this.state.selected.sort();
+		return label;
+	}
 
-			return (
-				<div>
-					<p className="completed"><strong>Step 1</strong> (completed) &mdash; {sorted.join(', ')} &mdash; <a href="#" onClick={this.callbackChangeToStep(0)}>Edit</a></p>
-					<div className="completed">
-						<p><strong>Step 2</strong> (completed) &mdash; <a href="#" onClick={this.callbackChangeToStep(1)}>Edit</a></p>
-						<TernaryPlot disabled a={this.state.a} b={this.state.b} c={this.state.c} labela={sorted[0]} labelb={sorted[1]} labelc={sorted[2]} />
-					</div>
-					<h2>Step 3</h2>
-					<p>Adjust the slider to describe the severity of the problem.</p>
-					<Slider ref={(slider) => this.slider = slider} value={this.state.value} />
-					<button onClick={this.processNextStep}>Next</button>
-				</div>
-			);
-		}
-		else
-		if (this.state.step == 3) {
-			// Sort the selected items
-			var sorted = this.state.selected.sort();
+	buttonEnabledStep0() {
+		return this.state.selected.length == 3 ? '' : 'disabled';
+	}
 
-			return (
-				<div>
-					<p className="completed"><strong>Step 1</strong> (completed) &mdash; {sorted.join(', ')} &mdash; <a href="#" onClick={this.callbackChangeToStep(0)}>Edit</a></p>
-					<div className="completed">
-						<p><strong>Step 2</strong> (completed) &mdash; <a href="#" onClick={this.callbackChangeToStep(1)}>Edit</a></p>
-						<TernaryPlot disabled a={this.state.a} b={this.state.b} c={this.state.c} labela={sorted[0]} labelb={sorted[1]} labelc={sorted[2]} />
-					</div>
-					<div className="completed">
-						<p><strong>Step 3</strong> (completed) &mdash; <a href="#" onClick={this.callbackChangeToStep(2)}>Edit</a></p>
+	render() {
+		return (
+			<div>
+				<div className="completed">
+					<If condition={this.state.step > 0}>
+						<p>Step 1 (completed) — {this.state.selected.join(', ')} — {this.editLinkForStep(0)}</p>
+					</If>
+					<If condition={this.state.step > 1}>
+						<p>Step 2 (completed) — {this.editLinkForStep(1)}</p>
+						<TernaryPlot disabled a={this.state.a} b={this.state.b} c={this.state.c}
+							labels={this.state.selected} />
+					</If>
+					<If condition={this.state.step > 2}>
+						<p>Step 3 (completed) — {this.editLinkForStep(2)}</p>
 						<Slider disabled value={this.state.value} nolabels />
-					</div>
-					<h2>Summary</h2>
-					<table>
-						<tbody>
-							<tr><th colSpan="3">Level 1</th></tr>
-							<tr>
-								<td>{sorted[0]}: {Math.round(this.state.a * 100.0)}%</td>
-								<td>{sorted[1]}: {Math.round(this.state.b * 100.0)}%</td>
-								<td>{sorted[2]}: {Math.round(this.state.c * 100.0)}%</td>
-							</tr>
-							<tr>
-								<td colSpan="3">Overall severity: {Math.round(this.state.value * 100.0)}%</td>
-							</tr>
-						</tbody>
-					</table>
+					</If>
 				</div>
-			);
-		}
-
-		return <div></div>;
+				<Choose>
+					<When condition={this.state.step == 0}>
+						<h2>Step 1</h2>
+						<p>Choose <strong>three</strong> things that make your accomodation miserable.</p>
+						<DescriptorList items={this.props.descriptors} onSelection={s => this.setState({selected: s})} />
+						<button disabled={this.buttonEnabledStep0()} onClick={e => this.setState({step: 1})}>{this.labelForStep0()}</button>
+					</When>
+					<When condition={this.state.step == 1}>
+						<h2>Step 2</h2>
+						<p>Move the circle in the triangle towards the corners which describe the relative misery of your three labels i.e. move the circle closest to '{this.state.selected[0]}' if that makes you the most miserable.</p>
+						<TernaryPlot a={this.state.a} b={this.state.b} c={this.state.c} 
+							labels={this.state.selected} onChange={v => this.setState(v)} />
+						<button onClick={e => this.setState({step: 2})}>Next</button>
+					</When>
+					<When condition={this.state.step == 2}>
+						<h2>Step 3</h2>
+						<p>Adjust the slider to describe the severity of the problem.</p>
+						<Slider value={this.state.value} onChange={v => this.setState(v)} />
+						<button onClick={e => this.setState({step: 3})}>Next</button>
+					</When>
+					<When condition={this.state.step == 3}>
+						<h2>Summary</h2>
+						<table>
+							<tbody>
+								<tr><th colSpan="3">Level 1</th></tr>
+								<tr>
+									<td>{this.state.selected[0]}: {Math.round(this.state.a * 100.0)}%</td>
+									<td>{this.state.selected[1]}: {Math.round(this.state.b * 100.0)}%</td>
+									<td>{this.state.selected[2]}: {Math.round(this.state.c * 100.0)}%</td>
+								</tr>
+								<tr>
+									<td colSpan="3">Overall severity: {Math.round(this.state.value * 100.0)}%</td>
+								</tr>
+							</tbody>
+						</table>
+					</When>
+				</Choose>
+			</div>
+		);
 	}
 }
 
-var descriptors = ["Kitchen", "Room", "Bathroom", "Noisiness",
-				   "Carpet squidginess", "Temperature"];
+var descriptors = ["Appearance", "Eating/Drinking", "Fatigue", "Pain", "Intimacy/Sex", "Talking", "Work"];
 document.addEventListener("DOMContentLoaded", (e) =>
 	ReactDOM.render(<MagicTriangle descriptors={descriptors} />, document.getElementById('magicTriangle')));

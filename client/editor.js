@@ -35,7 +35,7 @@ class Editor extends React.Component {
 	}
 
 	render() {
-		var rte = () => <RichTextEditor toolbarClassName="editor-toolbar" editorClassName="editor" value={this.state.value} onChange={this.onChange} />
+		var rte = () => <RichTextEditor blockRendererFn={a => console.log(a)} toolbarClassName="editor-toolbar" editorClassName="editor" value={this.state.value} onChange={this.onChange} />
 
 		return (
 			<div>
