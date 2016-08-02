@@ -23,9 +23,9 @@ module.exports = class Slider extends React.Component {
 			// Callback function when value changes
 			onChange: React.PropTypes.func,
 			// Whether to draw labels
-			nolabels: React.PropTypes.boolean,
+			nolabels: React.PropTypes.bool,
 			// Whether the slider is disabled
-			disabled: React.PropTypes.boolean
+			disabled: React.PropTypes.bool
 		};
 	}
 
@@ -73,8 +73,8 @@ module.exports = class Slider extends React.Component {
 						!this.props.nolabels &&
 							this.renderLabels()
 					}
-					</div>
-					</div>
+				</div>
+			</div>
 		);
 	}
 
