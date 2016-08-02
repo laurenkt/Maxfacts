@@ -64,7 +64,6 @@ class MagicTriangle extends React.Component {
 		return (
 			<div>
 				<div className="completed">
-					{if (this.state.step) > 0}
 					<If condition={this.state.step > 0}>
 						<p>Step 1 (completed) — {this.state.selected.join(', ')} — {this.editLinkForStep(0)}</p>
 					</If>
