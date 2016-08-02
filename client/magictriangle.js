@@ -64,6 +64,7 @@ class MagicTriangle extends React.Component {
 		return (
 			<div>
 				<div className="completed">
+					{if (this.state.step) > 0}
 					<If condition={this.state.step > 0}>
 						<p>Step 1 (completed) — {this.state.selected.join(', ')} — {this.editLinkForStep(0)}</p>
 					</If>
@@ -87,7 +88,7 @@ class MagicTriangle extends React.Component {
 					<When condition={this.state.step == 1}>
 						<h2>Step 2</h2>
 						<p>Move the circle in the triangle towards the corners which describe the relative misery of your three labels i.e. move the circle closest to '{this.state.selected[0]}' if that makes you the most miserable.</p>
-						<TernaryPlot a={this.state.a} b={this.state.b} c={this.state.c} 
+						<TernaryPlot a={this.state.a} b={this.state.b} c={this.state.c}
 							labels={this.state.selected} onChange={v => this.setState(v)} />
 						<button onClick={e => this.setState({step: 2})}>Next</button>
 					</When>
