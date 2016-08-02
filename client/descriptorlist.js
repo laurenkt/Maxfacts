@@ -21,6 +21,9 @@ module.exports = class DescriptorList extends React.Component {
 			this.state.selected.concat([descriptor]) :
 			this.state.selected.filter(d => d != descriptor);
 
+		// Always show items in the same order
+		new_selected = new_selected.sort();
+
 		this.setState({selected: new_selected});
 
 		// Raise callback
@@ -29,27 +32,21 @@ module.exports = class DescriptorList extends React.Component {
 	}
 
 	render() {
-		// Should non-selected descriptors be disabled?
-		var disabled = "";
-		if (this.state.selected.length >= 3) disabled = "disabled";
+		return (
+			<div className="checkboxes">
+				{this.props.items.sort().map(d => {
+					var disabled = !this.state.selected.includes(d) && this.state.selected.length >= 3;
 
-		var desc = this.props.items.sort().map(d => {
-			// Should this descriptor be disabled
-			var disabled = "disabled";
-			if (this.state.selected.includes(d) || this.state.selected.length < 3)
-				disabled = "";
-
-			var checked = "";
-			if (this.state.selected.includes(d)) checked="checked";
-
-			return (
-				<label key={d} className={disabled}>
-					<input type="checkbox" onChange={this.onChange.bind(this, d)} checked={checked} disabled={disabled} />
-					<span className="label-body">{d}</span>
-				</label>
-			)
-		});
-		
-		return <div className="checkboxes">{desc}</div>
+					return (
+						<label key={d} className={disabled ? 'disabled' : ''}>
+							<input type="checkbox" onChange={this.onChange.bind(this, d)}
+								checked={this.state.selected.includes(d)} 
+								disabled={disabled} />
+							<span className="label-body">{d}</span>
+						</label>
+						);
+				})}
+			</div>
+		);
 	}
 }
