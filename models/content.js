@@ -1,5 +1,6 @@
 const mongoose     = require('mongoose');
 const sanitizeHtml = require('sanitize-html');
+import {merge} from 'lodash';
 
 const ContentSchema = new mongoose.Schema({
 	uri:        {type: String, unique: true, minlength:1, required:true},
@@ -51,6 +52,10 @@ ContentSchema.pre('save', function(next) {
 				'li', 'strong', 'em', 'table', 'thead', 'caption', 'tbody', 'tfoot', 'tr', 'th', 'td',
 				'figure', 'abbr', 'img', 'caption', 'cite', 'dd', 'dfn', 'dl', 'dt', 'figcaption',
 				'sub', 'sup'],
+			allowedAttributes: merge({
+				th: ['colspan', 'rowspan'],
+				td: ['colspan', 'rowspan']
+			}, sanitizeHtml.defaults.allowedAttributes),
 			exclusiveFilter: frame => {
 				// Remove certain empty tags
 				return ['p', 'a', 'em', 'strong'].includes(frame.tag) && !frame.text.trim() && !frame.children.length;

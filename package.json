@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "DEBUG=maxfacts nodemon ./bin/www"
+    "start": "DEBUG=maxfacts nodemon --exec babel-node -- ./bin/www"
   },
   "dependencies": {
     "babel-preset-react": "^6.11.1",
@@ -18,6 +18,7 @@
     "mongodb": "^2.2.4",
     "mongoose": "^4.5.7",
     "morgan": "~1.7.0",
+    "node-cli": "^0.1.0",
     "node-sass-middleware": "0.8.0",
     "nodemon": "^1.9.2",
     "react": "^15.2.1",

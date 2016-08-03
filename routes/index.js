@@ -21,13 +21,12 @@ router.get('/:uri(*)', (req, res, next) => {
 			transform[headers[i]] = headers[Math.min(i + offset, 5)];
 		}
 
-		console.log(transform);
+		// Allow everything - it is not the job of this helper to sanitize
+		// inputs
 		return sanitizeHtml(text, {
-			allowedTags: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'p', 'a', 'ul', 'ol',
-				'li', 'strong', 'em', 'table', 'thead', 'caption', 'tbody', 'tfoot', 'tr', 'th', 'td',
-				'figure', 'abbr', 'img', 'caption', 'cite', 'dd', 'dfn', 'dl', 'dt', 'figcaption',
-				'sub', 'sup'],
-			transformTags: transform
+			allowedTags:       false,
+			allowedAttributes: false,
+			transformTags:     transform
 		});
 	});
 
