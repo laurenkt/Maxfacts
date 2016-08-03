@@ -31,6 +31,13 @@ figure {
 	}
 }
 
+.warning {
+	border: 3px solid orange;
+	background: yellow;
+	padding: 20px;
+	margin: 20px 0;
+}
+
 .editor-toolbar {
 	button[title="Italic"],
 	button[title="Strikethrough"],

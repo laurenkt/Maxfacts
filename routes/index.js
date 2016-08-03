@@ -30,22 +30,24 @@ router.get('/:uri(*)', (req, res, next) => {
 		});
 	});
 
-	Content.findOne( { uri: req.params.uri } ).then(content => {
-		if (!content)
-			next();
+	Content.findOne( { uri: req.params.uri } )
+		.then(content => {
+			if (!content)
+				next();
 
-		content.validateLinks();
-
-		Content
-			.find()
-			.where('uri').in(content.lineage)
-			.select('title uri')
-			.sort('uri')
-			.exec((err, results) => {
-				content.breadcrumbs = results;
+			return Promise.all([
+				content.getInvalidLinks(),
+				Content.findFromURIs(content.lineage)
+					.select('title uri')
+					.sort('uri')
+					.exec()
+			])
+			.then(([uris, breadcrumbs]) => {
+				content.invalid_uris = uris;
+				content.breadcrumbs  = breadcrumbs;
 				res.render('content', content);
 			});
-	});
+		});
 });
 
 module.exports = router;

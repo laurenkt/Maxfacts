@@ -1,7 +1,8 @@
-const mongoose     = require('mongoose');
-const sanitizeHtml = require('sanitize-html');
-import {merge, uniq} from 'lodash';
-import {Parser} from 'htmlparser2';
+import mongoose     from 'mongoose';
+import sanitizeHtml from 'sanitize-html';
+import {Parser}     from 'htmlparser2';
+import {merge, uniq, map,
+	difference}     from 'lodash';
 
 const ContentSchema = new mongoose.Schema({
 	uri:        {type: String, unique: true, minlength:1, required:true},
@@ -11,7 +12,16 @@ const ContentSchema = new mongoose.Schema({
 	timestamps: true
 });
 
-ContentSchema.statics.parentUriFragment = uri => uri.split('/').slice(0, -1).join('/');
+ContentSchema.statics = {
+	parentUriFragment: uri => uri.split('/').slice(0, -1).join('/'),
+	
+	findFromURIs(uris) {
+		console.log('URIs search: ', uris);
+		return this
+			.find()
+			.where('uri').in(uris);
+	}
+};
 
 ContentSchema
 	.virtual('parent')
@@ -31,7 +41,7 @@ ContentSchema
 	});
 
 ContentSchema.methods = {
-	validateLinks: function() {
+	getInvalidLinks: function() {
 		var links = [];
 		var parser = new Parser({
 			onopentag(name, attribs) {
@@ -45,7 +55,11 @@ ContentSchema.methods = {
 
 		links = uniq(links);
 
-		console.log(links);
+		return new Promise(resolve => {
+			this.model('Content').findFromURIs(links).select('uri').then(valid_links => {
+				resolve(difference(links, map(valid_links, 'uri')));
+			});
+		});
 	}
 };
 
@@ -100,7 +114,6 @@ ContentSchema.pre('save', function(next) {
 
 		this.body = reduced_body;
 	}
-
 
 	// Save it
 	next();
