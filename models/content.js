@@ -1,6 +1,7 @@
 const mongoose     = require('mongoose');
 const sanitizeHtml = require('sanitize-html');
-import {merge} from 'lodash';
+import {merge, uniq} from 'lodash';
+import {Parser} from 'htmlparser2';
 
 const ContentSchema = new mongoose.Schema({
 	uri:        {type: String, unique: true, minlength:1, required:true},
@@ -28,6 +29,25 @@ ContentSchema
 
 		return fragments.reverse();
 	});
+
+ContentSchema.methods = {
+	validateLinks: function() {
+		var links = [];
+		var parser = new Parser({
+			onopentag(name, attribs) {
+				if (name == 'a' && attribs.href)
+					// Track link without leading slash
+					links.push(attribs.href.replace(/^\//, ''));
+			}
+		});
+		parser.write(this.body);
+		parser.end();
+
+		links = uniq(links);
+
+		console.log(links);
+	}
+};
 
 ContentSchema.pre('save', function(next) {
 	// Force the URI into acceptable format:

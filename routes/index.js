@@ -34,6 +34,8 @@ router.get('/:uri(*)', (req, res, next) => {
 		if (!content)
 			next();
 
+		content.validateLinks();
+
 		Content
 			.find()
 			.where('uri').in(content.lineage)

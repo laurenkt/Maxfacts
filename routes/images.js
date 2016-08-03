@@ -61,8 +61,6 @@ router.post('/images/upload', multer({storage:multer.memoryStorage()}).single('i
 
 		image.save(err => res.redirect('/images'));
 	}
-
-	next();
 });
 
 module.exports = router;
