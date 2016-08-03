@@ -51,6 +51,7 @@ app.use(express.static(join(__dirname, 'static')));
 // Loads the named module from the routes/ directory
 const route = (name) => require(join(__dirname, 'routes', name));
 
+app.use('/',               route('images'));
 app.use('/magic-triangle', route('magic_triangle'));
 app.use('/editor',         route('editor'));
 app.use('/',               route('index'));

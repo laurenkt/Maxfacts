@@ -18,6 +18,7 @@
     "mongodb": "^2.2.4",
     "mongoose": "^4.5.7",
     "morgan": "~1.7.0",
+    "multer": "^1.1.0",
     "node-cli": "^0.1.0",
     "node-sass-middleware": "0.8.0",
     "nodemon": "^1.9.2",

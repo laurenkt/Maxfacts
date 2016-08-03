@@ -1,0 +1,15 @@
+<h2>Images</h2>
+<form action="#" method="POST" enctype="multipart/form-data">
+	{{#if uri}}
+	<p><img src="/{{uri}}"></p>
+	{{/if}}
+	<p>
+		<label for="uri">URI:</label>
+		<input type="text" name="uri" id="uri" value="{{uri}}">
+	</p>
+	<p>
+		<label for="image">Select an image to upload:</label>
+		<input type="file" name="image" id="image">
+	</p>
+	<input type="submit" value="Upload">
+</form>
