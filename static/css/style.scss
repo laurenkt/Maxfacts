@@ -18,6 +18,19 @@ textarea {
 	font-family: monospace;
 }
 
+figure {
+	max-width: 500px;
+	margin: 0 auto;
+	font-style: italic;
+	text-align: center;
+
+	figcaption::before {
+		content: "Above figure: ";
+		font-style: normal;
+		font-weight: bold;
+	}
+}
+
 .editor-toolbar {
 	button[title="Italic"],
 	button[title="Strikethrough"],
