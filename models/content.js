@@ -1,4 +1,5 @@
-const mongoose = require('mongoose');
+const mongoose     = require('mongoose');
+const sanitizeHtml = require('sanitize-html');
 
 const ContentSchema = new mongoose.Schema({
 	uri:        {type: String, unique: true, minlength:1, required:true},
@@ -29,18 +30,57 @@ ContentSchema
 
 ContentSchema.pre('save', function(next) {
 	// Force the URI into acceptable format:
-	// All lowercase
-	this.uri = this.uri.toLowerCase();
-	// Convert spaces and underscores to dashes (and multiple dashes)
-	this.uri = this.uri.replace(/[_ -]+/g, '-');
-	// Remove any duplicate slashes
-	this.uri = this.uri.replace(/[\/]+/g, '/');
-	// Remove any leading or trailing slashes or dashes
-	this.uri = this.uri.replace(/(^[\/-]+|[\/-]+$)/g, '');
-	// Remove any remaining characters that don't conform to the URL
-	this.uri = this.uri.replace(/[^a-z0-9-\/]+/g, '');
+	this.uri = this.uri
+		// All lowercase
+		.toLowerCase()
+		// Convert spaces and underscores to dashes (and multiple dashes)
+		.replace(/[_ -]+/g, '-')
+		// Remove any duplicate slashes
+		.replace(/[\/]+/g, '/')
+		// Remove any leading or trailing slashes or dashes
+		.replace(/(^[\/-]+|[\/-]+$)/g, '')
+		// Remove any remaining characters that don't conform to the URL
+		.replace(/[^a-z0-9-\/]+/g, '');
+
+	// Force the body into an acceptable format
+	// Allow only a super restricted set of tags and attributes
+	var reduced_body = '';
+	while(1) {
+		reduced_body = sanitizeHtml(this.body, {
+			allowedTags: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'p', 'a', 'ul', 'ol',
+				'li', 'strong', 'em', 'table', 'thead', 'caption', 'tbody', 'tfoot', 'tr', 'th', 'td',
+				'figure', 'abbr', 'img', 'caption', 'cite', 'dd', 'dfn', 'dl', 'dt', 'figcaption',
+				'sub', 'sup'],
+			exclusiveFilter: frame => {
+				// Remove certain empty tags
+				return ['p', 'a', 'em', 'strong'].includes(frame.tag) && !frame.text.trim() && !frame.children.length;
+			},
+			textFilter: (text, stack) => {
+				// Remove things not in a tag at all
+				if (stack.length == 0)
+					// If it's not in a container class
+					return text
+						// Remove any non-whitespace characters
+						.replace(/[^\s]+/g, '')
+						// Remove any blank lines
+						.replace(/[\n]+/g, "\n") // Unix
+						.replace(/(\r\n)+/g, "\r\n"); // Windows
+				else
+					return text;
+			}
+		});
+
+		if (reduced_body == this.body)
+			break;
+
+		this.body = reduced_body;
+	}
+
+
 	// Save it
 	next();
 });
+
+
 
 module.exports = mongoose.model('Content', ContentSchema);

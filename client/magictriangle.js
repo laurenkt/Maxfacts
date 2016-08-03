@@ -1,8 +1,8 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
-var TernaryPlot = require('./ternaryplot.js');
-var Slider = require('./slider.js');
-var DescriptorList = require('./descriptorlist.js');
+import React          from 'react';
+import ReactDOM       from 'react-dom';
+import TernaryPlot    from './ternaryplot';
+import Slider         from './slider';
+import DescriptorList from './descriptorlist';
 
 class MagicTriangle extends React.Component {
 	constructor(props) {
@@ -56,33 +56,28 @@ class MagicTriangle extends React.Component {
 		return label;
 	}
 
-	buttonEnabledStep0() {
-		return this.state.selected.length == 3 ? '' : 'disabled';
-	}
-
 	render() {
 		return (
 			<div>
-				<div className="completed">
-					<If condition={this.state.step > 0}>
-						<p>Step 1 (completed) — {this.state.selected.join(', ')} — {this.editLinkForStep(0)}</p>
-					</If>
-					<If condition={this.state.step > 1}>
+				{this.state.step > 0 &&
+					<p className="completed">Step 1 (completed) — {this.state.selected.join(', ')} — {this.editLinkForStep(0)}</p>}
+				{this.state.step > 1 &&
+					<div className="completed">
 						<p>Step 2 (completed) — {this.editLinkForStep(1)}</p>
 						<TernaryPlot disabled a={this.state.a} b={this.state.b} c={this.state.c}
 							labels={this.state.selected} />
-					</If>
-					<If condition={this.state.step > 2}>
+					</div>}
+				{this.state.step > 2 &&
+					<div className="completed">
 						<p>Step 3 (completed) — {this.editLinkForStep(2)}</p>
 						<Slider disabled value={this.state.value} nolabels />
-					</If>
-				</div>
+					</div>}
 				<Choose>
 					<When condition={this.state.step == 0}>
 						<h2>Step 1</h2>
 						<p>Choose <strong>three</strong> things that make your accomodation miserable.</p>
 						<DescriptorList items={this.props.descriptors} onSelection={s => this.setState({selected: s})} />
-						<button disabled={this.buttonEnabledStep0()} onClick={e => this.setState({step: 1})}>{this.labelForStep0()}</button>
+						<button disabled={this.state.selected.length != 3} onClick={e => this.setState({step: 1})}>{this.labelForStep0()}</button>
 					</When>
 					<When condition={this.state.step == 1}>
 						<h2>Step 2</h2>

@@ -1,6 +1,5 @@
-var express = require('express');
-var router = express.Router();
-var Content = require('../models/content.js');
+const router       = require('express').Router();
+const Content      = require('../models/content');
 
 router.get('/create', (req, res, next) => {
 	res.render('editor');
@@ -25,7 +24,7 @@ router.post('/:uri(*)', (req, res, next) => {
 		item.uri = req.body.uri;
 		item.title = req.body.title;
 		item.body = req.body.body;
-		item.save(() => res.redirect('/' + item.uri));
+		item.save(() => res.redirect('/editor/' + item.uri));
 	});
 });
 

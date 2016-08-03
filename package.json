@@ -22,7 +22,7 @@
     "nodemon": "^1.9.2",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
-    "react-rte": "https://github.com/ForbesLindesay/react-rte/tarball/dead-code",
+    "sanitize-html": "github:comaleaf/sanitize-html#filter-contexts",
     "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
