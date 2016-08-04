@@ -6,9 +6,9 @@ module.exports = class TernaryPlot extends React.Component {
 
 		// These need to be bound here rather than in-line, so that document.removeEventListener
 		// can be passed a direct reference to the event listeners
-		this.onMouseDown = this.onMouseDown.bind(this);
-		this.onMouseMove = this.onMouseMove.bind(this);
-		this.onMouseUp   = this.onMouseUp.bind(this);
+		this.onMouseDown     = this.onMouseDown.bind(this);
+		this.onMouseMove     = this.onMouseMove.bind(this);
+		this.onMouseUp       = this.onMouseUp.bind(this);
 		this.windowDidResize = this.windowDidResize.bind(this);
 
 		this.state = {
@@ -103,7 +103,7 @@ module.exports = class TernaryPlot extends React.Component {
 		}
 
 		return (
-			<div className="-tp">
+			<div className={"-tp " + (this.props.className || '')}>
 				<div ref={ref => this._plotDom = ref} style={plotStyles}
 					className="-tp-plot" onMouseDown={this.onMouseDown}>
 					<div className="-tp-marker" style={{top: `${P.y/0.866025}%`, left: `${P.x}%`}}></div>

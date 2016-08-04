@@ -1,119 +1,164 @@
-import React          from 'react';
-import ReactDOM       from 'react-dom';
-import TernaryPlot    from './ternaryplot';
-import Slider         from './slider';
-import DescriptorList from './descriptorlist';
+import React    from 'react';
+import ReactDOM from 'react-dom';
+import MagicTriangleStage from './magictrianglestage';
+import TernaryPlot from './ternaryplot';
+import {keys, filter,
+	property} from 'lodash';
 
 class MagicTriangle extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			step: 0,
-			selected: [],
-			a: 0.3333,
-			b: 0.3333,
-			c: 0.3333,
-			value: 0.5
-		};
 
-		this.plot = {};
-		this.slider = {};
+		this.state = {
+			results: [],
+			targetLevel: null,
+			furtherInput: false
+		}
+
+		this.descriptors = {
+			"Appearance": {
+				"Self": null,
+				"Others Private": null,
+				"Others Public": null
+			},
+			"Eating/Drinking": {
+				"Inability to Swallow": {
+					"Dry Mouth": null,
+					"Fluids": null,
+					"Solids": null
+				},
+				"Loss of Appetite": null,
+				"Impaired Taste/Smell": null,
+				"Inability to Chew": null,
+				"Embarrassment": null,
+				"Voluntary/involuntary Swallowing": null
+			},
+			"Fatigue": {
+				"Physically Exhausted": {
+					"Unable to do everyday stuff": null,
+					"Unable to do gentle exercise": null,
+					"Unable to do strenuous excercise": null
+				},
+				"Mentally Exhausted": {
+					"Physically capable but still unable to do everyday stuff": null,
+					"Unable to concentrate": null,
+					"Brain fog/thinking and coordination impaired": null
+				},
+				"Emotionally Exhausted": {
+					"Self": null,
+					"Private/Partner": null,
+					"Public": null
+				}
+			},
+			"Pain": {
+				"Severity": {
+					"Interference with everyday functioning": null,
+					"Sleep interruption": null,
+					"Insufficient analgesia": null,
+					"Mood": null
+				},
+				"Frequency": {
+					"Interference with everyday functioning": null,
+					"Sleep interruption": null,
+					"Insufficient analgesia": null,
+					"Mood": null
+				},
+				"Longevity": {
+					"Interference with everyday functioning": null,
+					"Sleep interruption": null,
+					"Insufficient analgesia": null,
+					"Mood": null
+				}
+			},
+			"Intimacy/Sex": {
+				"Self": null,
+				"Partner": null,
+				"Other": null
+			},
+			"Talking": {
+				"Family": {
+					"Exhausting": null,
+					"Slurred": null,
+					"Embarrassing": null,
+					"Hard to understand": null
+				},
+				"Friends": {
+					"Exhausting": null,
+					"Slurred": null,
+					"Embarrassing": null,
+					"Hard to understand": null
+				},
+				"Public": {
+					"Exhausting": null,
+					"Slurred": null,
+					"Embarrassing": null,
+					"Hard to understand": null
+				},
+				"Phone": {
+					"Exhausting": null,
+					"Slurred": null,
+					"Embarrassing": null,
+					"Hard to understand": null
+				}
+			},
+			"Work": {
+				"Ability": null,
+				"Desire": null,
+				"Need": null
+			}
+		}
+
+		this.onComplete = this.onComplete.bind(this);
 	}
 
-	onDescriptorChange(descriptor, e) {
+	onComplete(labels, relationship, severity) {
 		this.setState({
-			selected: e.target.checked ?
-				this.state.selected.concat([descriptor]) :
-				this.state.selected.filter(d => d != descriptor)
+			results: this.state.results.concat({labels, relationship, severity}),
+			furtherInput: true
 		});
 	}
 
-	callbackChangeToStep(stepNo) {
-		return (e) => {
-			this.setState({step: stepNo});
-			e.preventDefault();
-			return false;
-		};
-	}
-
-	editLinkForStep(stepNo) {
-		return <a href="#" onClick={this.callbackChangeToStep(stepNo)}>Edit</a>;
-	}
-
-	labelForStep0() {
-		var remainingDescriptors = 3 - this.state.selected.length;
-		var label = 'Next';
-		var disabled = "";
-
-		if (remainingDescriptors > 0) {
-			disabled = "disabled";
-			if (remainingDescriptors > 1)
-				label = 'Choose ' + remainingDescriptors + ' more items';
-			else
-				label = 'Choose 1 more item';
-		}
-
-		return label;
-	}
-
 	render() {
-		return (
-			<div>
-				{this.state.step > 0 &&
-					<p className="completed">Step 1 (completed) — {this.state.selected.join(', ')} — {this.editLinkForStep(0)}</p>}
-				{this.state.step > 1 &&
-					<div className="completed">
-						<p>Step 2 (completed) — {this.editLinkForStep(1)}</p>
-						<TernaryPlot disabled a={this.state.a} b={this.state.b} c={this.state.c}
-							labels={this.state.selected} />
-					</div>}
-				{this.state.step > 2 &&
-					<div className="completed">
-						<p>Step 3 (completed) — {this.editLinkForStep(2)}</p>
-						<Slider disabled value={this.state.value} nolabels />
-					</div>}
-				<Choose>
-					<When condition={this.state.step == 0}>
-						<h2>Step 1</h2>
-						<p>Choose <strong>three</strong> things that make your accomodation miserable.</p>
-						<DescriptorList items={this.props.descriptors} onSelection={s => this.setState({selected: s})} />
-						<button disabled={this.state.selected.length != 3} onClick={e => this.setState({step: 1})}>{this.labelForStep0()}</button>
-					</When>
-					<When condition={this.state.step == 1}>
-						<h2>Step 2</h2>
-						<p>Move the circle in the triangle towards the corners which describe the relative misery of your three labels i.e. move the circle closest to '{this.state.selected[0]}' if that makes you the most miserable.</p>
-						<TernaryPlot a={this.state.a} b={this.state.b} c={this.state.c}
-							labels={this.state.selected} onChange={v => this.setState(v)} />
-						<button onClick={e => this.setState({step: 2})}>Next</button>
-					</When>
-					<When condition={this.state.step == 2}>
-						<h2>Step 3</h2>
-						<p>Adjust the slider to describe the severity of the problem.</p>
-						<Slider value={this.state.value} onChange={v => this.setState(v)} />
-						<button onClick={e => this.setState({step: 3})}>Next</button>
-					</When>
-					<When condition={this.state.step == 3}>
-						<h2>Summary</h2>
-						<table>
-							<tbody>
-								<tr><th colSpan="3">Level 1</th></tr>
-								<tr>
-									<td>{this.state.selected[0]}: {Math.round(this.state.a * 100.0)}%</td>
-									<td>{this.state.selected[1]}: {Math.round(this.state.b * 100.0)}%</td>
-									<td>{this.state.selected[2]}: {Math.round(this.state.c * 100.0)}%</td>
-								</tr>
-								<tr>
-									<td colSpan="3">Overall severity: {Math.round(this.state.value * 100.0)}%</td>
-								</tr>
-							</tbody>
-						</table>
-					</When>
-				</Choose>
-			</div>
-		);
+		if (this.state.furtherInput) {
+			// Last result
+			var last_result = this.state.results.slice(-1)[0];
+			// Find the proportions between those choices
+			var largest_result = Math.max(...last_result.relationship);
+
+			var proportions = last_result.relationship.map(val => val/largest_result);
+
+			var most_significant_labels = filter(last_result.labels, (label, idx) => 
+				// Needs to be both
+				// a) within the threshhold
+				proportions[idx] > 0.6 &&
+				// b) actually have subcategories
+				property(this.state.targetLevel ? `${this.state.targetLevel}.${label}` : label)(this.descriptors)
+			);
+
+			return (
+				<div>
+					<p>This is what you told us:</p>
+					<TernaryPlot className="completed" disabled a={last_result.relationship[0]}
+						b={last_result.relationship[1]} c={last_result.relationship[2]} labels={last_result.labels} />
+					{most_significant_labels.length >= 1 &&
+						<p>Would you like to tell us more?</p>}
+					{most_significant_labels.map(label =>
+						<p key={label}><button className="preferred" onClick={_ => this.setState({
+							targetLevel: (this.state.targetLevel ? this.state.targetLevel+'.' : '') + label,
+							furtherInput: false
+						})}>Tell us more about <strong>{label}</strong></button></p>)
+					}
+					<p><button onClick={(e) => this.setState({furtherInput: false})}>I'm finished</button></p>
+				</div>
+			);
+		}
+		else {
+			var descriptors = keys(this.state.targetLevel ? property(this.state.targetLevel)(this.descriptors) : this.descriptors);
+
+			return <MagicTriangleStage descriptors={descriptors} onComplete={this.onComplete} />;
+		}
 	}
 }
 
-var descriptors = ["Appearance", "Eating/Drinking", "Fatigue", "Pain", "Intimacy/Sex", "Talking", "Work"];
 document.addEventListener("DOMContentLoaded", (e) =>
-	ReactDOM.render(<MagicTriangle descriptors={descriptors} />, document.getElementById('magicTriangle')));
+	ReactDOM.render(<MagicTriangle />, document.getElementById('magicTriangle')));
