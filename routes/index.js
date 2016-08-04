@@ -6,7 +6,7 @@ const sanitizeHtml = require('sanitize-html');
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-	Content.find({}, {}, { sort: { title: 1 } }, (err, items) => {
+	Content.find().sort('title').then(items => {
 		res.render('index', {items: items});
 	});
 });
@@ -36,18 +36,20 @@ router.get('/:uri(*)', (req, res, next) => {
 				next();
 
 			return Promise.all([
+				content,
 				content.getInvalidLinks(),
 				Content.findFromURIs(content.lineage)
 					.select('title uri')
 					.sort('uri')
 					.exec()
-			])
-			.then(([uris, breadcrumbs]) => {
-				content.invalid_uris = uris;
-				content.breadcrumbs  = breadcrumbs;
-				res.render('content', content);
-			});
-		});
+			]);
+		})
+		.then(([content, uris, breadcrumbs]) => {
+			content.invalid_uris = uris;
+			content.breadcrumbs  = breadcrumbs;
+			res.render('content', content);
+		})
+		.catch(console.error.bind(console));
 });
 
 module.exports = router;

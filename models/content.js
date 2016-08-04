@@ -14,9 +14,8 @@ const ContentSchema = new mongoose.Schema({
 
 ContentSchema.statics = {
 	parentUriFragment: uri => uri.split('/').slice(0, -1).join('/'),
-	
+
 	findFromURIs(uris) {
-		console.log('URIs search: ', uris);
 		return this
 			.find()
 			.where('uri').in(uris);
@@ -55,26 +54,26 @@ ContentSchema.methods = {
 
 		links = uniq(links);
 
-		return new Promise(resolve => {
-			this.model('Content').findFromURIs(links).select('uri').then(valid_links => {
-				resolve(difference(links, map(valid_links, 'uri')));
-			});
-		});
+		return this.model('Content')
+			.findFromURIs(links)
+			.select('uri')
+			.exec()
+			.then(valid_links => difference(links, map(valid_links, 'uri')));
 	}
 };
 
 ContentSchema.pre('save', function(next) {
 	// Force the URI into acceptable format:
 	this.uri = this.uri
-		// All lowercase
+	// All lowercase
 		.toLowerCase()
-		// Convert spaces and underscores to dashes (and multiple dashes)
+	// Convert spaces and underscores to dashes (and multiple dashes)
 		.replace(/[_ -]+/g, '-')
-		// Remove any duplicate slashes
+	// Remove any duplicate slashes
 		.replace(/[\/]+/g, '/')
-		// Remove any leading or trailing slashes or dashes
+	// Remove any leading or trailing slashes or dashes
 		.replace(/(^[\/-]+|[\/-]+$)/g, '')
-		// Remove any remaining characters that don't conform to the URL
+	// Remove any remaining characters that don't conform to the URL
 		.replace(/[^a-z0-9-\/]+/g, '');
 
 	// Force the body into an acceptable format
@@ -99,13 +98,13 @@ ContentSchema.pre('save', function(next) {
 				if (stack.length == 0)
 					// If it's not in a container class
 					return text
-						// Remove any non-whitespace characters
+					// Remove any non-whitespace characters
 						.replace(/[^\s]+/g, '')
-						// Remove any blank lines
+					// Remove any blank lines
 						.replace(/[\n]+/g, "\n") // Unix
 						.replace(/(\r\n)+/g, "\r\n"); // Windows
-				else
-					return text;
+					else
+						return text;
 			}
 		});
 
