@@ -7,7 +7,8 @@ const sanitizeHtml = require('sanitize-html');
 /* GET home page. */
 router.get('/', (req, res, next) => {
 	Content.find().sort('title').then(items => {
-		res.render('index', {items: items});
+		Promise.all(items.map(item => item.getInvalidLinks().then(uris => item.invalid_links_count = uris.length)))
+			.then(() => res.render('index', {items: items}));
 	});
 });
 
