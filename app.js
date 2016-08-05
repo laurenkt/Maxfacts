@@ -26,8 +26,19 @@ app.set('views', join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
 // Logging in the console
-app.use(morgan(`\u2753 ${chalk.yellow('Request:')}  :method ${chalk.inverse(':url')}`, {immediate:true}));
-app.use(morgan(`\u2755 ${chalk.green('Response:')} :method ${chalk.inverse(':url')} :status :response-time ms - :res[content-length]`));
+morgan.token('time', (req, res) => `${(new Date()).getHours()}:${(new Date()).getMinutes()}`);
+morgan.token('cstatus', (req, res) => {
+	var code = res.statusCode;
+	var colorer = code >= 500 ? chalk.white
+		: code >= 400 ? chalk.yellow
+		: code >= 300 ? chalk.cyan
+		: code >= 200 ? chalk.green
+		: chalk.white;
+
+	return colorer(code);
+});
+app.use(morgan(`\u2753 ${chalk.yellow('Request:')}  :method ${chalk.inverse(':url')} (:time)`, {immediate:true}));
+app.use(morgan(`\u2755 ${chalk.green('Response:')} :method ${chalk.inverse(':url')} :cstatus :response-time ms - :res[content-length]`));
 
 // Process POST request bodies
 app.use(bodyParser.urlencoded({ extended: true }));
