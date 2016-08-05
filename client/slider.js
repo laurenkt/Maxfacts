@@ -113,7 +113,7 @@ module.exports = class Slider extends React.Component {
 
 		// Propogate callback to parent
 		if (this.props.onChange)
-			this.props.onChange({value: x / width});
+			this.props.onChange(x / width);
 	}
 
 	onMouseUp(e) {

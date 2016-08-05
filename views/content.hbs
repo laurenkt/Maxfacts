@@ -1,13 +1,15 @@
 <h2>{{title}}</h2>
 <p><a href="/editor/{{uri}}" class="button">Edit</a></p>
-{{#if invalid_uris}}
-	<div class="warning">
-		<p>The following URIs in this document do not currently go anywhere:</p>
-		<ul>
-			{{#each invalid_uris}}
-				<li><code>{{this}}</code></li>
-			{{/each}}
-		</ul>
-	</div>
-{{/if}}
-{{{shift_headers 2 body}}}
+<div class="text">
+	{{#if invalid_uris}}
+		<div class="warning">
+			<p>The following URIs in this document do not currently go anywhere:</p>
+			<ul>
+				{{#each invalid_uris}}
+					<li><code>{{this}}</code></li>
+				{{/each}}
+			</ul>
+		</div>
+	{{/if}}
+	{{{shift_headers 2 body}}}
+</div>

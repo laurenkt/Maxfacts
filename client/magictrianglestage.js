@@ -7,6 +7,7 @@ export default class MagicTriangleStage extends React.Component {
 	constructor(props) {
 		super(props);
 
+		console.log(props.descriptors.length);
 		// If only 3 descriptors are provided there is not much point in
 		// asking the user to select them - so do it automatically
 		const skipStep0 = (props.descriptors.length == 3);
