@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import MagicTriangleStage from './magictrianglestage';
 import TernaryPlot from './ternaryplot';
 import {keys, filter,
-	property} from 'lodash';
+	property, find} from 'lodash';
 
 class MagicTriangle extends React.Component {
 	constructor(props) {
@@ -12,8 +12,48 @@ class MagicTriangle extends React.Component {
 		this.state = {
 			results: [],
 			targetLevel: null,
-			furtherInput: false
+			furtherInput: false,
+			finished: false
 		}
+
+		/*
+		this.descriptors = [
+			{
+				name: 'Appearance',
+				children: [
+					{name: 'Self',           children: []},
+					{name: 'Others Private', children: []},
+					{name: 'Others Public',  children: []},
+				]
+			},
+			{
+				name: 'Eating/Drinking',
+				children: [
+					{name: 'Inability to Swallow', children: [
+						{name: 'Dry Mouth', children: []},
+						{name: 'Fluids',    children: []},
+						{name: 'Solids',    children: []},
+					]},
+					{name: 'Loss of Appetite',     children: []},
+					{name: 'Impaired Taste/Smell', children: []},
+					{name: 'Inability to Chew',    children: []},
+					{name: 'Embarassment',         children: []},
+					{name: 'Voluntary/involuntary swallowing', children: []},
+				]
+			},
+			{
+				name: 'Fatigue',
+				children: [
+					{name: 'Physically Exhausted', children: [
+						{name: 'Unable to do everyday stuff', children: []},
+						{name: 'Unable to do gentle exercise',    children: []},
+						{name: 'Unable to do strenuous exercise',    children: []},
+					]},
+					{name: 'Mentally Exhausted',     children: []},
+					{name: 'Emotionally Exhausted', children: []},
+				]
+			},
+			];*/
 
 		this.descriptors = {
 			"Appearance": {
@@ -111,51 +151,78 @@ class MagicTriangle extends React.Component {
 		this.onComplete = this.onComplete.bind(this);
 	}
 
-	onComplete(labels, relationship, severity) {
+	onComplete(labels, ratios, severity) {
 		this.setState({
-			results: this.state.results.concat({labels, relationship, severity}),
+			results: this.state.results.concat({path: this.state.targetLevel, labels, ratios, severity}),
 			furtherInput: true
 		});
 	}
 
 	render() {
-		if (this.state.furtherInput) {
-			// Last result
-			var last_result = this.state.results.slice(-1)[0];
-			// Find the proportions between those choices
-			var largest_result = Math.max(...last_result.relationship);
+		if (!this.state.finished) {
+			if (this.state.furtherInput) {
+				// Last result
+				var last_result = this.state.results.slice(-1)[0];
+				// Find the proportions between those choices
+				var largest_result = Math.max(...last_result.ratios);
 
-			var proportions = last_result.relationship.map(val => val/largest_result);
+				var proportions = last_result.ratios.map(val => val/largest_result);
 
-			var most_significant_labels = filter(last_result.labels, (label, idx) => 
-				// Needs to be both
-				// a) within the threshhold
-				proportions[idx] > 0.6 &&
-				// b) actually have subcategories
-				property(this.state.targetLevel ? `${this.state.targetLevel}.${label}` : label)(this.descriptors)
-			);
+				var most_significant_labels = filter(last_result.labels, (label, idx) => 
+					// Needs to be both
+					// a) within the threshhold
+					proportions[idx] > 0.6 &&
+					// b) actually have subcategories
+					property(this.state.targetLevel ? `${this.state.targetLevel}.${label}` : label)(this.descriptors)
+				);
 
-			return (
-				<div>
-					<p>This is what you told us:</p>
-					<TernaryPlot className="completed" disabled a={last_result.relationship[0]}
-						b={last_result.relationship[1]} c={last_result.relationship[2]} labels={last_result.labels} />
-					{most_significant_labels.length >= 1 &&
-						<p>Would you like to tell us more?</p>}
-					{most_significant_labels.map(label =>
-						<p key={label}><button className="preferred" onClick={_ => this.setState({
-							targetLevel: (this.state.targetLevel ? this.state.targetLevel+'.' : '') + label,
-							furtherInput: false
-						})}>Tell us more about <strong>{label}</strong></button></p>)
-					}
-					<p><button onClick={(e) => this.setState({furtherInput: false})}>I'm finished</button></p>
-				</div>
-			);
+				return (
+					<div>
+						<p>This is what you told us:</p>
+						<TernaryPlot className="completed" disabled values={last_result.ratios} labels={last_result.labels} />
+						{most_significant_labels.length >= 1 &&
+							<p>Would you like to tell us more?</p>}
+						{most_significant_labels.map(label =>
+							<p key={label}><button className="preferred" onClick={_ => this.setState({
+								targetLevel: (this.state.targetLevel ? this.state.targetLevel+'.' : '') + label,
+								furtherInput: false
+							})}>Tell us more about <strong>{label}</strong></button></p>)
+						}
+						<p><button onClick={(e) => this.setState({finished: true})}>I'm finished</button></p>
+					</div>
+				);
+			}
+			else {
+				var descriptors = keys(this.state.targetLevel ? property(this.state.targetLevel)(this.descriptors) : this.descriptors);
+
+				return <MagicTriangleStage descriptors={descriptors} onComplete={this.onComplete} />;
+			}
 		}
 		else {
-			var descriptors = keys(this.state.targetLevel ? property(this.state.targetLevel)(this.descriptors) : this.descriptors);
+			var plotResult = r => <TernaryPlot className="completed" disabled values={r.ratios} labels={r.labels} />;
 
-			return <MagicTriangleStage descriptors={descriptors} onComplete={this.onComplete} />;
+			// Render finished overview
+			// Level 1
+			return (
+				<div>
+					{this.state.results.filter(r => !r.path).map(r1 => {
+						return (
+							<div key={r1}>
+								<h3>{r1.path}</h3>
+								{plotResult(r1)}
+								{this.state.results.filter(r => keys(this.descriptors).includes(r.path)).map(r2 => {
+									return (
+										<div key={r2}>
+											<h4>{r2.path}</h4>
+											{plotResult(r2)}
+										</div>
+									);
+								})}
+							</div>
+						);
+					})}
+				</div>
+			);
 		}
 	}
 }

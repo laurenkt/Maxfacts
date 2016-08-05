@@ -6,13 +6,16 @@ import DescriptorList from './descriptorlist';
 export default class MagicTriangleStage extends React.Component {
 	constructor(props) {
 		super(props);
+
+		// If only 3 descriptors are provided there is not much point in
+		// asking the user to select them - so do it automatically
+		const skipStep0 = (props.descriptors.length == 3);
+
 		this.state = {
-			step: 0,
-			selected: [],
-			a: 0.3333,
-			b: 0.3333,
-			c: 0.3333,
-			value: 0.5
+			step:     skipStep0 ? 1 : 0,
+			selected: skipStep0 ? props.descriptors : [],
+			ratios:   [0.3333, 0.3333, 0.3333],
+			severity: 0.5,
 		};
 	}
 
@@ -49,7 +52,7 @@ export default class MagicTriangleStage extends React.Component {
 
 	complete() {
 		if (this.props.onComplete)
-			this.props.onComplete(this.state.selected, [this.state.a, this.state.b, this.state.c], this.state.value);
+			this.props.onComplete(this.state.selected, this.state.ratios, this.state.severity);
 	}
 
 	render() {
@@ -65,19 +68,17 @@ export default class MagicTriangleStage extends React.Component {
 				{this.state.step == 1 &&
 					<div>
 						<h2>Step 2</h2>
-						<p>Now adjust the circle in the triangle below towards the corners which are labelled with the descriptions you chose - {this.state.selected[0]}, {this.state.selected[1]}, and {this.state.selected[2]}. I.e. move the circle closest to '{this.state.selected[0]}' if that makes you the most miserable.</p>
-						<TernaryPlot a={this.state.a} b={this.state.b} c={this.state.c}
-							labels={this.state.selected} onChange={v => this.setState(v)} />
+						<p>Now adjust the circle in the triangle below towards the labels which bother you the most. I.e. move the circle closest to '{this.state.selected[0]}' if that's the biggest problem.</p>
+						<TernaryPlot values={this.state.ratios} labels={this.state.selected} onChange={ratios => this.setState({ratios})} />
 						<button onClick={e => this.setState({step: 2})}>Next</button>
 					</div>}
 				{this.state.step == 2 &&
 					<div>
 						<h2>Step 3</h2>
 						<p>This is what you told us:</p>
-						<TernaryPlot className="completed" disabled a={this.state.a} b={this.state.b} c={this.state.c}
-							labels={this.state.selected} />
+						<TernaryPlot className="completed" disabled values={this.state.ratios} labels={this.state.selected} />
 						<p>Adjust the slider below to describe the severity of this problem.</p>
-						<Slider value={this.state.value} onChange={v => this.setState(v)} />
+						<Slider value={this.state.severity} onChange={severity => this.setState({severity})} />
 						<button onClick={e => this.complete()}>Next</button>
 					</div>}
 			</div>

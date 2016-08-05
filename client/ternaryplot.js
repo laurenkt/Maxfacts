@@ -13,9 +13,9 @@ module.exports = class TernaryPlot extends React.Component {
 
 		this.state = {
 			// A, B, and C values corresponding to the three points of the triangle
-			a: props.a,
-			b: props.b,
-			c: props.c,
+			a: props.values[0],
+			b: props.values[1],
+			c: props.values[2],
 			// Current triangle height (auto-adjusts based on width)
 			height: 0
 		};
@@ -26,24 +26,20 @@ module.exports = class TernaryPlot extends React.Component {
 	static get propTypes() {
 		return {
 			// Initial magnitudes of A, B, and C (adds up to 1.0)
-			a:        React.PropTypes.number,
-			b:        React.PropTypes.number,
-			c:        React.PropTypes.number,
+			values:   React.PropTypes.arrayOf(React.PropTypes.number),
 			// An array of three string labels (required)
 			labels:   React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
 			// Callback for the parent component
 			onChange: React.PropTypes.func,
 			// If present, component cannot be edited
-			disabled: React.PropTypes.bool
+			disabled: React.PropTypes.bool,
 		};
 	}
 
 	static get defaultProps() {
 		return {
 			// Dead centre
-			a: 0.3333,
-			b: 0.3333,
-			c: 0.3333
+			values: [0.3333, 0.3333, 0.3333],
 		};
 	}
 
@@ -265,7 +261,7 @@ module.exports = class TernaryPlot extends React.Component {
 
 		// Pass data to parent
 		if (this.props.onChange)
-			this.props.onChange(values);
+			this.props.onChange([values.a, values.b, values.c]);
 	}
 
 	static isPointWithinTriangle(point, width, height) {
