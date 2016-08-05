@@ -86,9 +86,10 @@ button.strong {
 	ul {
 		list-style: none;
 		padding: 0;
-		font-size: small;
+		font-size: x-small;
 
 		code {
+			white-space: nowrap;
 			background: rgba(255,255,255,0.5);
 		}
 	}
