@@ -1,9 +1,10 @@
-<h2>{{title}}</h2>
-<p><a href="/editor/{{uri}}" class="button">Edit</a></p>
 <div class="text">
+	<h2>{{title}}</h2>
 	{{{shift_headers 2 body}}}
 </div>
 {{#if invalid_uris}}
+<aside>
+<p><a href="/editor/{{uri}}" class="button">Edit</a></p>
 	<div class="warning">
 		<p>This document has links that go nowhere:</p>
 		<ul>
@@ -12,4 +13,5 @@
 			{{/each}}
 		</ul>
 	</div>
+</aside>
 {{/if}}

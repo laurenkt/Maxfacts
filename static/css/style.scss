@@ -13,6 +13,16 @@ body {
 	padding: 0 20px;
 }
 
+h2 {
+	font-size: 2.5rem;
+	margin: 1.5rem 0 0.75rem;
+}
+
+h3 {
+	font-size: 1.5rem;
+	margin: 0 0 0.75rem;
+}
+
 textarea {
 	min-height: 200px;
 	font-family: monospace;
@@ -74,13 +84,14 @@ button.strong {
 	padding: 2px 6px;
 }
 
-.warning {
+aside {
 	@include span-columns(4);
+}
 
-	border: 3px solid darkred;
-	border-radius: 10px;
-	background: rgba(orange, 0.3);
-	padding: 15px;
+.warning {
+	background: rgba(darkred, 1);
+	color: white;
+	padding: $small-spacing;
 	margin: 20px 0;
 
 	ul {
@@ -88,9 +99,15 @@ button.strong {
 		padding: 0;
 		font-size: x-small;
 
+		li {
+			margin: 5px 0;
+		}
+
 		code {
 			white-space: nowrap;
-			background: rgba(255,255,255,0.5);
+			background: rgba(black,0.3);
+			padding: 3px;
+			border-radius: 3px;
 		}
 	}
 }
