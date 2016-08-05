@@ -36,19 +36,19 @@ router.get('/:uri(*)', (req, res, next) => {
 			if (!content)
 				next();
 
-			return Promise.all([
-				content,
-				content.getInvalidLinks(),
-				Content.findFromURIs(content.lineage)
-					.select('title uri')
-					.sort('uri')
-					.exec()
-			]);
-		})
-		.then(([content, uris, breadcrumbs]) => {
-			content.invalid_uris = uris;
-			content.breadcrumbs  = breadcrumbs;
-			res.render('content', content);
+			else
+				return Promise.all([
+					content.getInvalidLinks(),
+					Content.findFromURIs(content.lineage)
+						.select('title uri')
+						.sort('uri')
+						.exec()
+				])
+				.then(([uris, breadcrumbs]) => {
+					content.invalid_uris = uris;
+					content.breadcrumbs  = breadcrumbs;
+					res.render('content', content);
+				});
 		})
 		.catch(console.error.bind(console));
 });

@@ -4,7 +4,8 @@ require('dotenv').config();
 const express      = require('express');
 const join         = require('path').join;
 const favicon      = require('serve-favicon');
-const logger       = require('morgan');
+const morgan       = require('morgan');
+const chalk        = require('chalk');
 const cookieParser = require('cookie-parser');
 const bodyParser   = require('body-parser');
 const mongoose     = require('mongoose');
@@ -16,7 +17,6 @@ const sass         = require('node-sass-middleware');
 mongoose.Promise = global.Promise; // Required to squash a deprecation warning
 const db = mongoose.connect(process.env.MONGO_URI).connection
 	.on('error', console.error.bind(console, 'connection error:'))
-	.once('open', () => console.log('Mongoose: Connected'));
 
 // Start Express
 const app = express();
@@ -26,7 +26,8 @@ app.set('views', join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
 // Logging in the console
-app.use(logger('dev'));
+app.use(morgan(`\u2753 ${chalk.yellow('Request:')}: :method ${chalk.inverse(':url')}`, {immediate:true}));
+app.use(morgan(`\u2755 ${chalk.green('Response:')} :method ${chalk.inverse(':url')} :status :response-time ms - :res[content-length]`));
 
 // Process POST request bodies
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -69,6 +70,7 @@ app.use(function(err, req, res, next) {
 
 	// Show more information if development
 	if (app.get('env') === 'development') {
+		console.error("RequestUrl:", chalk.inverse(req.originalUrl));
 		console.error(err.stack);
 		errInfo = err;
 	}
