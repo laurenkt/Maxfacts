@@ -26,7 +26,7 @@ app.set('views', join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
 // Logging in the console
-app.use(morgan(`\u2753 ${chalk.yellow('Request:')}: :method ${chalk.inverse(':url')}`, {immediate:true}));
+app.use(morgan(`\u2753 ${chalk.yellow('Request:')}  :method ${chalk.inverse(':url')}`, {immediate:true}));
 app.use(morgan(`\u2755 ${chalk.green('Response:')} :method ${chalk.inverse(':url')} :status :response-time ms - :res[content-length]`));
 
 // Process POST request bodies
@@ -70,7 +70,6 @@ app.use(function(err, req, res, next) {
 
 	// Show more information if development
 	if (app.get('env') === 'development') {
-		console.error("RequestUrl:", chalk.inverse(req.originalUrl));
 		console.error(err.stack);
 		errInfo = err;
 	}
