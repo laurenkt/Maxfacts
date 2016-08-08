@@ -77,7 +77,7 @@ export default class MagicTriangleStage extends React.Component {
 					<div>
 						<h2>Step 3</h2>
 						<p>This is what you told us:</p>
-						<TernaryPlot className="completed" disabled values={this.state.ratios} labels={this.state.selected} />
+						<TernaryPlot className="completed" disabled severity={this.state.severity} values={this.state.ratios} labels={this.state.selected} />
 						<p>Adjust the slider below to describe the severity of this problem.</p>
 						<Slider value={this.state.severity} onChange={severity => this.setState({severity})} />
 						<button onClick={e => this.complete()}>Next</button>

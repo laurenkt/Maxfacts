@@ -33,6 +33,8 @@ module.exports = class TernaryPlot extends React.Component {
 			onChange: React.PropTypes.func,
 			// If present, component cannot be edited
 			disabled: React.PropTypes.bool,
+			// The extent to highlight the marker
+			severity: React.PropTypes.number
 		};
 	}
 
@@ -40,6 +42,7 @@ module.exports = class TernaryPlot extends React.Component {
 		return {
 			// Dead centre
 			values: [0.3333, 0.3333, 0.3333],
+			severity: 1.0
 		};
 	}
 
@@ -98,11 +101,13 @@ module.exports = class TernaryPlot extends React.Component {
 			}
 		}
 
+		console.log(this.props.severity);
+
 		return (
 			<div className={"-tp " + (this.props.className || '')}>
 				<div ref={ref => this._plotDom = ref} style={plotStyles}
 					className="-tp-plot" onMouseDown={this.onMouseDown}>
-					<div className="-tp-marker" style={{top: `${P.y/0.866025}%`, left: `${P.x}%`}}></div>
+					<div className="-tp-marker" style={{top: `${P.y/0.866025}%`, left: `${P.x}%`, opacity: 0.3+(this.props.severity*0.7)}}></div>
 					<div className="-tp-labels">
 						<p className="-tp-label-a" style={this.computeWeight(this.state.a)}>{this.props.labels[0]}</p>
 						<p className="-tp-label-b" style={this.computeWeight(this.state.b)}>{this.props.labels[1]}</p>
