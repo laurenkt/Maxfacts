@@ -1,4 +1,5 @@
-import React from 'react';
+import React  from 'react';
+import {omit} from 'lodash';
 
 module.exports = class TernaryPlot extends React.Component {
 	constructor(props) {
@@ -34,7 +35,7 @@ module.exports = class TernaryPlot extends React.Component {
 			// If present, component cannot be edited
 			disabled: React.PropTypes.bool,
 			// The extent to highlight the marker
-			severity: React.PropTypes.number
+			severity: React.PropTypes.number,
 		};
 	}
 
@@ -50,7 +51,7 @@ module.exports = class TernaryPlot extends React.Component {
 		return {
 			fontWeight: (300 + Math.round(value * 4.0) * 100),
 			fontSize:   `${90 + value*30.0}%`,
-			opacity:    `${50 + Math.round(value * 50.0)}%`
+			opacity:    (0.5 + (value * 0.5)),
 		};
 	}
 
@@ -96,23 +97,25 @@ module.exports = class TernaryPlot extends React.Component {
 
 			// CSS to adjust the position of the gradient
 			plotStyles = {
-				height:             `${this.state.height}px`,
-				backgroundPosition: `${offset.left}px ${offset.top}px, center`
-			}
+				height: `${this.state.height}px`,
+				//backgroundPosition: `${offset.left}px ${offset.top}px, center`
+				cursor: this.props.disabled ? 'not-allowed' : 'auto',
+			};
 		}
 
-		console.log(this.props.severity);
+		// Transfer unused props to container
+		var other = omit(this.props, ['className', 'severity', 'labels', 'values', 'onChange']);
 
 		return (
-			<div className={"-tp " + (this.props.className || '')}>
+			<div {...other} className={"-tp " + (this.props.className || '')}>
+				<div className="-tp-labels">
+					<p className="-tp-label-a" style={this.computeWeight(this.state.a)}>{this.props.labels[0]}</p>
+					<p className="-tp-label-b" style={this.computeWeight(this.state.b)}>{this.props.labels[1]}</p>
+					<p className="-tp-label-c" style={this.computeWeight(this.state.c)}>{this.props.labels[2]}</p>
+				</div>
 				<div ref={ref => this._plotDom = ref} style={plotStyles}
 					className="-tp-plot" onMouseDown={this.onMouseDown}>
 					<div className="-tp-marker" style={{top: `${P.y/0.866025}%`, left: `${P.x}%`, opacity: 0.3+(this.props.severity*0.7)}}></div>
-					<div className="-tp-labels">
-						<p className="-tp-label-a" style={this.computeWeight(this.state.a)}>{this.props.labels[0]}</p>
-						<p className="-tp-label-b" style={this.computeWeight(this.state.b)}>{this.props.labels[1]}</p>
-						<p className="-tp-label-c" style={this.computeWeight(this.state.c)}>{this.props.labels[2]}</p>
-					</div>
 				</div>
 			</div>
 		);

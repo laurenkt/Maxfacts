@@ -3,6 +3,8 @@
 @import "neat/neat";
 @import "base/base";
 
+$accent-color: #565ed8;
+
 html {
 	border-top: 3rem solid #32292f;
 }
@@ -159,7 +161,7 @@ strong a:hover {
 header {
 	margin: -3em 0 20px;
 	padding: 0;
-	border-bottom: 20px solid #565ed8;
+	border-bottom: 20px solid $accent-color;
 
 	h1 {
 		color: #eee;
@@ -179,54 +181,43 @@ header {
 	}
 }
 
-.completed {
-	.-tp {
-		padding: 30px 60px;
-	}
+.magic-triangle {
+	@include outer-container;
 
-	.-tp-marker {
-		width: 10px;
-		height: 10px;
-		margin: -5px 0 0 -5px;
-		background-image: url('/images/circle-grey-scaled.png');
-	}
+	> .-mt-stage {
+		@include span-columns(4);
+		padding: $small-spacing;
 
-	.-tp-labels {
-		font-size: 80%;
-
-		p {
-			line-height: 30px;
+		&.completed {
+			opacity: 0.8;
+			font-size: 80%;
 		}
 
-		.-tp-label-a { top: -30px; }
-		.-tp-label-b {
-			bottom: -30px;
-			left: -45px;
+		&.current {
+			animation-name: fadeInLeft;
+			animation-duration: 0.5s;
+			animation-fill-mode: both;
+			background: #3e5667;//$accent-color;//$accent-color;
+			color: white;
+
+			.-tp-plot {
+				background-image: url('/images/triangle-scaled.png');
+				background-size: 100% 100%;
+				background-position: center center;
+			}
 		}
-		.-tp-label-c {
-			bottom: -30px;
-			right: -45px;
-		}
-	}
-
-	.-slider-background {
-		max-width: 300px;
-		margin: 10px 0 0;
-	}
-
-	.-slider-marker {
-		width: 10px;
-		margin-left: -5px;
-		top: -9px;
-		height: 9px;
-	}
-
-	.-tp-plot {
-		max-width: 120px;
 	}
 }
 
-div.labels {
+@-webkit-keyframes fadeInLeft {
+	from {
+		opacity: 0;
+		transform: translate3d(-100%, 0, 0);
+	}
+	to {
+		opacity: 1;
+		transform: none;
+	}
 }
 
 label.disabled {
@@ -236,46 +227,48 @@ label.disabled {
 
 .-tp {
 	position: relative;
-	padding: 50px;
+	padding: 2rem;
+	min-width: 250px;
+	width: 100%;
+	margin-bottom: $small-spacing;
 }
 
 .-tp-labels {
 	width: 100%;
-	z-index: 2;
 
 	p {
 		width: 100%;
 		position: absolute;
-		line-height: 50px;
 		margin: 0;
 	}
 
 	.-tp-label-a {
 		text-align: center;
-		top: -50px;
+		top: 0;
+		left: 0;
 	}
 
 	.-tp-label-b,
 	.-tp-label-c {
 		text-align: left;
-		bottom: -50px;
-		left: -25px;
+		bottom: 0;
+		left: 0;
 	}
 
 	.-tp-label-c {
 		text-align: right;
 		left: inherit;
-		right: -25px;
+		right: 0;
 	}
 }
 
 .-tp-plot {
 	position: relative;
 	width: 100%;
-	max-width: 300px;
-	background-image: url('/images/triangle-mask.png'), url('/images/triangle-scaled.png');
-	background-size: 200% 200%, 100% 100%;
-	background-position: 100px 100px;
+	background-image: /*url('/images/triangle-mask.png'),*/ url('/images/triangle-scaled.png');
+	background-size: 100% 100%;//200% 200%, 100% 100%;
+	background-position: center;
+	//background-position: 100px 100px;
 	background-repeat: no-repeat;
 }
 
@@ -321,6 +314,8 @@ label.disabled {
 	width: 100%;
 	text-align: left;
 	top: 20px;
+	height: 1.7rem;
+	line-height: 1.7rem;
 }
 
 .-slider-label-right {
@@ -329,5 +324,7 @@ label.disabled {
 	width: 100%;
 	text-align: right;
 	top: 20px;
+	height: 1.7rem;
+	line-height: 1.7rem;
 }
 

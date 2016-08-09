@@ -36,20 +36,12 @@ module.exports = class Slider extends React.Component {
 		};
 	}
 
-	computeWeight(value) {
-		return {
-			fontWeight: (300 + Math.round(value * 4.0) * 100),
-			fontSize:   (90 + value * 30.0) + '%',
-			opacity:    (50 + Math.round(value * 50.0)) + '%'
-		};
-	}
-
 	renderLabels() {
 		function computeWeight(value) {
 			return {
 				fontWeight: (300 + Math.round(value * 4.0) * 100),
 				fontSize:   (90 + value * 30.0) + '%',
-				opacity:    (50 + Math.round(value * 50.0)) + '%'
+				opacity:    (0.2 + (value * 0.8))
 			};
 		}
 

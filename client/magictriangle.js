@@ -4,6 +4,7 @@ import MagicTriangleStage from './magictrianglestage';
 import TernaryPlot from './ternaryplot';
 import {keys, filter,
 	property, find} from 'lodash';
+import TransitionGroup from 'react-addons-transition-group';
 
 class MagicTriangle extends React.Component {
 	constructor(props) {
@@ -11,7 +12,7 @@ class MagicTriangle extends React.Component {
 
 		this.state = {
 			results: [],
-			targetLevel: null,
+			targetLevel: '',
 			furtherInput: false,
 			finished: false
 		}
@@ -163,6 +164,7 @@ class MagicTriangle extends React.Component {
 			if (this.state.furtherInput) {
 				// Last result
 				var last_result = this.state.results.slice(-1)[0];
+				var top_result = this.state.results.slice(-2)[0];
 				// Find the proportions between those choices
 				var largest_result = Math.max(...last_result.ratios);
 
@@ -177,25 +179,41 @@ class MagicTriangle extends React.Component {
 				);
 
 				return (
-					<div>
-						<p>This is what you told us:</p>
-						<TernaryPlot className="completed" disabled values={last_result.ratios} labels={last_result.labels} />
+					<div className="magic-triangle">
+						{top_result && top_result != last_result && 
+							<MagicTriangleStage title="Overview" descriptors={top_result.labels} ratios={top_result.ratios} severity={top_result.severity} disabled />}
+						<MagicTriangleStage title={this.state.targetLevel.includes('.') ? this.state.targetLevel.split('.').slice(-2)[0] : 'Overview'} descriptors={last_result.labels} ratios={last_result.ratios} severity={last_result.severity} disabled />
+						<div className="-mt-stage current">
 						{most_significant_labels.length >= 1 &&
-							<p>Would you like to tell us more?</p>}
+							<p>Choose a descriptor to expand on:</p>}
 						{most_significant_labels.map(label =>
 							<p key={label}><button className="preferred" onClick={_ => this.setState({
 								targetLevel: (this.state.targetLevel ? this.state.targetLevel+'.' : '') + label,
 								furtherInput: false
-							})}>Tell us more about <strong>{label}</strong></button></p>)
+							})}>{label}</button></p>)
 						}
-						<p><button onClick={(e) => this.setState({finished: true})}>I'm finished</button></p>
+						</div>
+						<p style={{clear:'both'}}><button onClick={(e) => this.setState({finished: true})}>I'm finished</button></p>
 					</div>
 				);
 			}
 			else {
 				var descriptors = keys(this.state.targetLevel ? property(this.state.targetLevel)(this.descriptors) : this.descriptors);
 
-				return <MagicTriangleStage descriptors={descriptors} onComplete={this.onComplete} />;
+				var above      = this.state.results.slice(-1)[0];
+				var aboveabove = this.state.results.slice(-2)[0];
+				
+				return (
+					<div className="magic-triangle">
+						{aboveabove && aboveabove != above &&
+							<MagicTriangleStage title="Overview" descriptors={aboveabove.labels} ratios={aboveabove.values} severity={aboveabove.severity} disabled />
+						}
+						{above &&
+							<MagicTriangleStage title={this.state.targetLevel.includes('.') ? this.state.targetLevel.split('.').slice(-2)[0] : 'Overview'} descriptors={above.labels} ratios={above.ratios} severity={above.severity} disabled />
+						}
+						<MagicTriangleStage title={this.state.targetLevel.split('.').slice(-1)[0]} descriptors={descriptors} onComplete={this.onComplete} />
+					</div>
+				);
 			}
 		}
 		else {

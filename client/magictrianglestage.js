@@ -22,6 +22,8 @@ export default class MagicTriangleStage extends React.Component {
 
 	static get propTypes() {
 		return {
+			ratios:      React.PropTypes.arrayOf(React.PropTypes.number),
+			severity:    React.PropTypes.number,
 			onComplete:  React.PropTypes.func,
 			descriptors: React.PropTypes.arrayOf(React.PropTypes.string).isRequired
 		};
@@ -57,31 +59,34 @@ export default class MagicTriangleStage extends React.Component {
 	}
 
 	render() {
+		if (this.props.disabled) {
+			return (
+				<div className="-mt-stage completed">
+					<h3>{this.props.title || 'Overview'}</h3>
+					<TernaryPlot disabled values={this.props.ratios} labels={this.props.descriptors} />
+					<Slider disabled value={this.props.severity} />
+				</div>
+			);
+		}
+		
 		return (
-			<div>
-				{this.state.step == 0 &&
-					<div>
-						<h2>Step 1</h2>
-						<p>Choose <strong>three</strong> things to evaluate your current condition.</p>
-						<DescriptorList items={this.props.descriptors} onSelection={selected => this.setState({selected})} />
-						<button disabled={this.state.selected.length != 3} onClick={e => this.setState({step: 1})}>{this.labelForStep0()}</button>
-					</div>}
-				{this.state.step == 1 &&
-					<div>
-						<h2>Step 2</h2>
-						<p>Now adjust the circle in the triangle below towards the labels which bother you the most. I.e. move the circle closest to '{this.state.selected[0]}' if that's the biggest problem.</p>
-						<TernaryPlot values={this.state.ratios} labels={this.state.selected} onChange={ratios => this.setState({ratios})} />
-						<button onClick={e => this.setState({step: 2})}>Next</button>
-					</div>}
-				{this.state.step == 2 &&
-					<div>
-						<h2>Step 3</h2>
-						<p>This is what you told us:</p>
-						<TernaryPlot className="completed" disabled severity={this.state.severity} values={this.state.ratios} labels={this.state.selected} />
-						<p>Adjust the slider below to describe the severity of this problem.</p>
-						<Slider value={this.state.severity} onChange={severity => this.setState({severity})} />
-						<button onClick={e => this.complete()}>Next</button>
-					</div>}
+			<div className="-mt-stage current">
+				<div>
+					{this.state.step == 0 &&
+						<div>
+							<h3>{this.props.title || 'Overview'}</h3>
+							<p>Choose <strong>three</strong> things to evaluate your current condition.</p>
+							<DescriptorList items={this.props.descriptors} onSelection={selected => this.setState({selected})} />
+							<button disabled={this.state.selected.length != 3} onClick={e => this.setState({step: 1})}>{this.labelForStep0()}</button>
+						</div>}
+					{this.state.step == 1 &&
+						<div>
+							<h3>{this.props.title || 'Overview'}</h3>
+							<TernaryPlot values={this.state.ratios} labels={this.state.selected} onChange={ratios => this.setState({ratios})} />
+							<Slider value={this.state.severity} onChange={severity => this.setState({severity})} />
+							<button onClick={e => this.complete()}>Next</button>
+						</div>}
+				</div>
 			</div>
 		);
 	}

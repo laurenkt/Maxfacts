@@ -23,6 +23,7 @@
     "node-sass-middleware": "0.8.0",
     "nodemon": "^1.9.2",
     "react": "^15.2.1",
+    "react-addons-transition-group": "^15.3.0",
     "react-dom": "^15.2.1",
     "sanitize-html": "github:comaleaf/sanitize-html#filter-contexts",
     "serve-favicon": "~2.3.0"
