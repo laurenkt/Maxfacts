@@ -1,0 +1,19 @@
+<h2>{{title}}</h2>
+<div class="directory">
+	{{#each directory}}
+	<nav>
+		<ul>
+			{{#each this}}
+				<li><a href="/{{uri}}">{{title}}</a></li>
+			{{/each}}
+		</ul>
+	</nav>
+	{{/each}}
+	{{#if body}}
+	<section>
+		<h3>{{title}}</h3>
+		<p><a href="/editor/{{uri}}" class="button">Edit</a></p>
+		{{{shift_headers 3 body}}}
+	</section>
+	{{/if}}
+</div>

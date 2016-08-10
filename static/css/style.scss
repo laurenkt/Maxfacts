@@ -4,15 +4,18 @@
 @import "base/base";
 
 $accent-color: #565ed8;
+$blackout-color: #32292f;
+$green-back: #98e47f;
+$green-front: #171;
 
-html {
-	border-top: 3rem solid #32292f;
+p.success {
+	background: $green-back;
+	padding: $small-spacing;
 }
 
-body {
-	max-width: 64em;
+section {
+	max-width: 64rem;
 	margin: 0 auto;
-	padding: 0 20px;
 }
 
 h2 {
@@ -38,7 +41,43 @@ span.warn {
 	opacity: 0.5;
 }
 
+.directory {
+	@include outer-container;
+
+	nav {
+		@include span-columns(3)
+		border-right: 1px solid lightgray;
+
+
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+
+			li a {
+				font-size: 1.5em;
+				padding: 10px;
+				display: block;
+				background: white url(/images/chevron.png) center right no-repeat;
+				background-size: auto 1em;
+
+				&:hover {
+					background: $accent-color url(/images/chevron-highlighted.png) center right no-repeat;
+					background-size: auto 1em;
+					color: white;
+				}
+			}
+		}
+	}
+
+	section {
+		@include span-columns(6)
+	}
+}
+
 div.sections {
+	margin-top: 1.5rem;
+
 	@include outer-container;
 
 	nav {
@@ -148,9 +187,6 @@ div.text {
 	@include span-columns(8);
 }
 
-h1 {
-	font-size: 1.7em;
-}
 
 strong a {
 	display: inline-block;
@@ -175,15 +211,58 @@ strong a:hover {
 }
 
 header {
-	margin: -3em 0 20px;
-	padding: 0;
-	border-bottom: 20px solid $accent-color;
+	div {
+		background: $blackout-color;
+		
+		> * {
+			padding: 0 0.75rem;
+		}
+	}
+
+	div *,
+	nav {
+		margin: 0 auto;
+		max-width: 64rem;
+	}
 
 	h1 {
-		color: #eee;
-		margin: 0;
+		color: white;
 		line-height: 3rem;
 		font-size: 1.5em;
+	}
+
+	nav {
+		background: $accent-color;
+		color: #eee;
+		p {
+			padding: $small-spacing;
+		}
+
+		a {
+			color: white;
+			text-decoration: underline;
+		}
+	}
+
+	&.fill {
+		margin-bottom: 2rem;
+		div {
+			padding: 0.5rem 0 0.5rem;
+
+			> * {
+				padding: 0;
+			}
+		}	
+
+		h1 {
+			font-size: 2.5em;
+			margin-bottom: 0.5rem;
+		}
+
+		p {
+			color: white;
+			margin-bottom: 0.5rem;
+		}
 	}
 }
 

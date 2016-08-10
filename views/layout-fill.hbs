@@ -6,21 +6,12 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 	</head>
 	<body>
-		<header>
+		<header class="fill">
 			<div>
 				<h1>MaxFacts</h1>
+				<p>MaxFacts aims to provide information about head and neck cancer to patients, carers, and professionals.</p>
 			</div>
-			<nav>
-				<p>
-					<a href="/">Home</a>
-					{{#each breadcrumbs}}
-					» <a href="/{{uri}}">{{title}}</a>
-					{{/each}}
-					{{#if uri}}
-					» {{title}}
-					{{/if}}
-				</p>
-			</nav>
+			<nav><p></p></nav>
 		</header>
 		<section>
 			{{{body}}}

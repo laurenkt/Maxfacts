@@ -1,4 +1,7 @@
 <h2>Editor</h2>
+{{#if saved}}
+	<p class="success">Content has been updated. Go <a href="/{{uri}}">to page</a>.</p>
+{{/if}}
 <form method="post" action="#">
 	<p>
 		<label for="title">Title:</label>
@@ -7,6 +10,12 @@
 	<p>
 		<label for="uri">URI:</label>
 		<input type="text" name="uri" id="uri" value="{{uri}}">
+	</p>
+	<p><label for="type">Type:</label>
+		<select name="type" id="type">
+			<option value="page"      {{lookup selected 'page'}}     >Page</option>
+			<option value="directory" {{lookup selected 'directory'}}>Directory</option>
+		</select>
 	</p>
 	<div><textarea id="body" name="body" rows="8">{{body}}</textarea></div>
 	<p><input type="submit" value="Save"></p>

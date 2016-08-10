@@ -7,7 +7,8 @@ import {merge, uniq, map,
 const ContentSchema = new mongoose.Schema({
 	uri:        {type: String, unique: true, minlength:1, required:true},
 	body:       {type: String},
-	title:      {type: String, default: ''}
+	title:      {type: String, default: ''},
+	type:       {type: String, default: 'page'},
 }, {
 	timestamps: true
 });
@@ -25,8 +26,12 @@ ContentSchema.statics = {
 		return this
 			.find()
 		// Only match URIs prefixed with the parent without any following slashes
-			.where('uri', new RegExp(`^${parent}/[^/]+$`));
-	}
+			.where('uri', new RegExp(parent != '' ? `^${parent}/[^/]+$` : '^[^/]+$'));
+	},
+
+	findFromAdjacentURI(uri) {
+		return this.findFromParentURI(this.parentUriFragment(uri));
+	},
 };
 
 ContentSchema
