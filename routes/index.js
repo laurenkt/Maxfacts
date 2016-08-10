@@ -6,9 +6,20 @@ const sanitizeHtml = require('sanitize-html');
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
+	Promise.all([
+		Content.findFromParentURI('diagnosis').exec(),
+		Content.findFromParentURI('treatment').exec(),
+		Content.findFromParentURI('help').exec(),
+	])
+	.then(([diagnosis, treatment, help]) => {
+		res.render('index', {diagnosis, treatment, help});
+	});
+});
+
+router.get('/directory', (req, res, next) => {
 	Content.find().sort('title').then(items => {
 		Promise.all(items.map(item => item.getInvalidLinks().then(uris => item.invalid_links_count = uris.length)))
-			.then(() => res.render('index', {items: items}));
+			.then(() => res.render('directory', {items: items}));
 	});
 });
 

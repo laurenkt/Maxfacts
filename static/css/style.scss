@@ -38,6 +38,22 @@ span.warn {
 	opacity: 0.5;
 }
 
+div.sections {
+	@include outer-container;
+
+	nav {
+		@include span-columns(4);
+		background: lightgrey;
+		padding: $small-spacing;
+
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+	}
+}
+
 figure {
 	width: 100%;
 	max-width: 500px;
@@ -197,6 +213,7 @@ header {
 			animation-name: fadeInLeft;
 			animation-duration: 0.5s;
 			animation-fill-mode: both;
+			transform-origin: left center;
 			background: #3e5667;//$accent-color;//$accent-color;
 			color: white;
 
@@ -212,7 +229,7 @@ header {
 @-webkit-keyframes fadeInLeft {
 	from {
 		opacity: 0;
-		transform: translate3d(-100%, 0, 0);
+		transform: scale3d(0, 1, 1); //translate3d(-100%, 0, 0);
 	}
 	to {
 		opacity: 1;

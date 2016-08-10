@@ -19,6 +19,13 @@ ContentSchema.statics = {
 		return this
 			.find()
 			.where('uri').in(uris);
+	},
+
+	findFromParentURI(parent) {
+		return this
+			.find()
+		// Only match URIs prefixed with the parent without any following slashes
+			.where('uri', new RegExp(`^${parent}/[^/]+$`));
 	}
 };
 
