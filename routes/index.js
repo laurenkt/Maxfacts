@@ -34,13 +34,6 @@ router.get('/', (req, res, next) => {
 	});
 });
 
-router.get('/directory', (req, res, next) => {
-	Content.find().sort('title').then(items => {
-		Promise.all(items.map(item => item.getInvalidLinks().then(uris => item.invalid_links_count = uris.length)))
-			.then(() => res.render('directory', {items: items}));
-	});
-});
-
 // Directory handler
 router.get('/:uri(*)', (req, res, next) => {	
 	Content.findOne( { uri: req.params.uri } )

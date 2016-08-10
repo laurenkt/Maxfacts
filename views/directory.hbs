@@ -3,7 +3,7 @@
 <p><a class="button" href="/editor/create">New page</a></p>
 <ul>
 {{#each items}}
-	<li><a href="/{{uri}}">{{title}}</a> ({{uri}}) {{#if invalid_links_count}}<span class="warn">💔 {{invalid_links_count}}</span>{{/if}}</li>
+	<li><a href="/editor/{{uri}}">{{title}}</a> ({{uri}}) {{#if invalid_links_count}}<span class="warn">💔 {{invalid_links_count}}</span>{{/if}}</li>
 {{/each}}
 </ul>
 
