@@ -3,7 +3,7 @@
 <p><a class="button" href="/editor/create">New page</a></p>
 <ul>
 {{#each (lookup structure '/')}}
-	<li>
+	<li class="{{#if is_empty}}empty{{/if}}">
 		<strong>{{title}}</strong> <small>@ "<code>{{uri}}</code>"</small>
 		[<a href="/editor/{{uri}}">Edit</a>] 
 		[<a href="/{{uri}}">View</a>]
@@ -11,7 +11,7 @@
 		{{#if invalid_links_count}}<span class="warn">💔 {{invalid_links_count}}</span>{{/if}}
 		<ul>
 		{{#each (lookup ../structure uri)}}
-			<li>
+			<li class="{{#if is_empty}}empty{{/if}}">
 				<strong>{{title}}</strong> <small>@ "<code>{{uri}}</code>"</small>
 				[<a href="/editor/{{uri}}">Edit</a>] 
 				[<a href="/{{uri}}">View</a>]
@@ -19,7 +19,7 @@
 				{{#if invalid_links_count}}<span class="warn">💔 {{invalid_links_count}}</span>{{/if}}
 				<ul>
 				{{#each (lookup ../../structure uri)}}
-					<li>
+					<li class="{{#if is_empty}}empty{{/if}}">
 						<strong>{{title}}</strong> <small>@ "<code>{{uri}}</code>"</small>
 						[<a href="/editor/{{uri}}">Edit</a>] 
 						[<a href="/{{uri}}">View</a>]
@@ -27,7 +27,7 @@
 						{{#if invalid_links_count}}<span class="warn">💔 {{invalid_links_count}}</span>{{/if}}
 						<ul>
 						{{#each (lookup ../../../structure uri)}}
-							<li>
+							<li class="{{#if is_empty}}empty{{/if}}">
 								<strong>{{title}}</strong> <small>@ "<code>{{uri}}</code>"</small>
 								[<a href="/editor/{{uri}}">Edit</a>] 
 								[<a href="/{{uri}}">View</a>]
@@ -35,7 +35,7 @@
 								{{#if invalid_links_count}}<span class="warn">💔 {{invalid_links_count}}</span>{{/if}}
 								<ul>
 								{{#each (lookup ../../../../structure uri)}}
-									<li>
+									<li class="{{#if is_empty}}empty{{/if}}">
 										<strong>{{title}}</strong> <small>@ "<code>{{uri}}</code>"</small>
 										[<a href="/editor/{{uri}}">Edit</a>] 
 										[<a href="/{{uri}}">View</a>]

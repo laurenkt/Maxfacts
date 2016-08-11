@@ -1,14 +1,31 @@
 const router       = require('express').Router();
 const Content      = require('../models/content');
+/*
+ *
+		const hasBody = this.body && this.body.length != '';
 
+		if (this.type == 'page')
+			return hasBody;
+
+		else (this.type == 'directory') {
+			// It must have either a body or children
+			return hasBody || ContentSchema.statics.findFromParentURI(this.uri).
+		}
+		*/
 router.get('/', (req, res, next) => {
-	Content.find().sort('title').then(items => {
+	const hasBody = item => item.body && item.body != '';
+
+	Content.find().sort('title').exec().then(items => 
 		Promise
 			.all(
-				items.map(
-					item => item.getInvalidLinks()
-						.then(uris => item.invalid_links_count = uris.length)
-				)
+				items.map(item => Promise.all([
+					[item.getInvalidLinks().then(uris => item.invalid_links_count = uris.length)],
+					[hasBody(item) ?
+						Promise.resolve(item.is_empty = false) :
+						item.type == 'directory' ?
+							Content.findFromParentURI(item.uri).exec().then(children => item.is_empty = children.length == 0) :
+							Promise.resolve(item.is_empty = true)],
+				]))
 			)
 			.then(() => {
 				const number_of_slashes = s => (s.match(/\//g) || []).length;
@@ -16,7 +33,6 @@ router.get('/', (req, res, next) => {
 				var structure = {};
 				structure['/'] = items.filter(item => number_of_slashes(item.uri) == 0);
 				items = items.filter(item => !structure['/'].includes(item));
-
 
 				structure['/'].forEach(item => {
 					structure[item.uri] = items.filter(subitem => subitem.parent == item.uri);
@@ -38,11 +54,10 @@ router.get('/', (req, res, next) => {
 					});
 				});
 
-				console.log(structure);
 				res.render('directory', {structure, orphans:items})
 			})
-			.catch(console.error.bind(console));
-	});
+	)
+	.catch(console.error.bind(console));
 });
 
 router.get('/delete/:uri(*)', (req, res, next) => {
@@ -64,32 +79,28 @@ router.post('/create', (req, res, next) => {
 });
 
 router.get('/:uri(*)', (req, res, next) => {
-	Content.findOne( { uri: req.params.uri } ).then(content => {
+	Content.findOne( { uri: req.params.uri } ).exec().then(content => {
 		if (content) {
-			var context = {
-				uri: content.uri,
-				body: content.body,
-				title: content.title,
-				selected: {},
-				saved: req.query.hasOwnProperty('saved') ? true : false,
-			}
-			console.log(req.query);
-			context.selected[content.type || 'page'] = 'selected';
-			res.render('editor', context);
+			content.saved = req.query.hasOwnProperty('saved');
+			content.selected = {};
+			content.selected[content.type || 'page'] = 'selected';
+			res.render('editor', content);
 		}
 		else
 			next();
-	});
+	})
+	.catch(console.error.bind(console));
 });
 
 router.post('/:uri(*)', (req, res, next) => {
-	Content.findOne({uri: req.params.uri}).then(item => {
+	Content.findOne({uri: req.params.uri}).exec().then(item => {
 		item.uri = req.body.uri;
 		item.title = req.body.title;
 		item.type = req.body.type;
 		item.body = req.body.body;
 		item.save(() => res.redirect(`/editor/${item.uri}?saved`));
-	});
+	})
+	.catch(console.error.bind(console));
 });
 
 module.exports = router;
