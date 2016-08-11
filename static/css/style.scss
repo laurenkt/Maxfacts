@@ -6,6 +6,7 @@
 $accent-color: #565ed8;
 $accent-fade: rgb(205, 202, 254);
 $blackout-color: #32292f;
+$magic-color: #0a6356;
 $green-back: #98e47f;
 $green-front: #171;
 
@@ -258,6 +259,26 @@ footer {
 }
 
 header {
+	form {
+		position: relative;
+		top: -2.6rem;
+
+		input[type=search] {
+			background: white;
+			border: 2px solid black;
+			float: right;
+			width: 15rem;
+		}
+
+		button {
+			float: right;
+			border-radius: 0;
+			border: 2px solid black;
+			border-left: 0;
+			padding: 0.55rem;
+		}
+	}
+
 	div {
 		background: $blackout-color;
 		
@@ -348,8 +369,12 @@ header {
 			animation-duration: 0.5s;
 			animation-fill-mode: both;
 			transform-origin: left center;
-			background: #3e5667;//$accent-color;//$accent-color;
+			background: $magic-color;//#3e5667;//$accent-color;//$accent-color;
 			color: white;
+
+			label {
+				font-weight: normal;
+			}
 
 			.-tp-plot {
 				background-image: url('/images/triangle-scaled.png');

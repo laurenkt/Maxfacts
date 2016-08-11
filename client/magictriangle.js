@@ -4,7 +4,6 @@ import MagicTriangleStage from './magictrianglestage';
 import TernaryPlot from './ternaryplot';
 import {keys, filter,
 	property, find} from 'lodash';
-import TransitionGroup from 'react-addons-transition-group';
 
 class MagicTriangle extends React.Component {
 	constructor(props) {

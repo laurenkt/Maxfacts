@@ -13,6 +13,16 @@ const ContentSchema = new mongoose.Schema({
 	timestamps: true
 });
 
+ContentSchema.index({
+	body: 'text',
+	title: 'text',
+}, {
+	weights: {
+		title: 10,
+		body: 4,
+	}
+});
+
 ContentSchema.statics = {
 	parentUriFragment: uri => uri.split('/').slice(0, -1).join('/'),
 

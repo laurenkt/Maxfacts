@@ -66,6 +66,7 @@ const route = (name) => require(join(__dirname, 'routes', name));
 app.use('/',               route('images'));
 app.use('/magic-triangle', route('magic_triangle'));
 app.use('/editor',         route('editor'));
+app.use('/search',         route('search'));
 app.use('/',               route('index'));
 
 // If nothing is found
