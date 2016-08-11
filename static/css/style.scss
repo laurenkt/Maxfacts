@@ -4,6 +4,7 @@
 @import "base/base";
 
 $accent-color: #565ed8;
+$accent-fade: rgb(205, 202, 254);
 $blackout-color: #32292f;
 $green-back: #98e47f;
 $green-front: #171;
@@ -54,6 +55,10 @@ span.warn {
 			margin: 0;
 			padding: 0;
 
+			li {
+				padding: 0 10px 0 0;
+			}
+
 			li a {
 				font-size: 1.5em;
 				padding: 10px;
@@ -62,6 +67,11 @@ span.warn {
 				background-size: auto 1em;
 
 				&:hover {
+					background-color: #eee;
+					text-decoration: underline;
+				}
+
+				&.selected {
 					background: $accent-color url(/images/chevron-highlighted.png) center right no-repeat;
 					background-size: auto 1em;
 					color: white;
@@ -208,6 +218,15 @@ strong a:hover {
 	background: #eee;
 	border-color: #ddd;
 	text-decoration: underline;
+}
+
+footer {
+	clear: both;
+
+	p {
+		margin: 0 auto;
+		text-align: center;
+	}
 }
 
 header {

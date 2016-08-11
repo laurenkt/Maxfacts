@@ -3,8 +3,24 @@ const Content      = require('../models/content');
 
 router.get('/', (req, res, next) => {
 	Content.find().sort('title').then(items => {
-		Promise.all(items.map(item => item.getInvalidLinks().then(uris => item.invalid_links_count = uris.length)))
-			.then(() => res.render('directory', {items: items}));
+		Promise
+			.all(
+				items.map(
+					item => item.getInvalidLinks()
+						.then(uris => item.invalid_links_count = uris.length)
+				)
+			)
+			.then(() => {
+				const number_of_slashes = s => (s.match(/\//g) || []).length;
+				var orphans = [];
+				var structure = {};
+				structure['/'] = items.filter(item => number_of_slashes(item.uri) == 0);
+				items = items.filter(item => !structure['/'].includes(item));
+
+				console.log(structure);
+
+				res.render('directory', {items: items})
+			});
 	});
 });
 

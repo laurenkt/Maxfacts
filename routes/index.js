@@ -44,15 +44,32 @@ router.get('/:uri(*)', (req, res, next) => {
 			Promise
 				.all(
 					content.lineage
+					// Get links from all parent stages
 						.map(uri => Content
 							.findFromAdjacentURI(uri)
-							.select('title uri')
+							.select('title type uri')
 							.exec()
 						)
-						.concat([Content.findFromAdjacentURI(content.uri).select('title uri').exec()])
+					// Get siblings of the current page
+						.concat([Content.findFromAdjacentURI(content.uri).select('title type uri').exec()])
+					// Get children of the current page
+						.concat([Content.findFromParentURI(content.uri).select('title type uri').exec()])
+					// Also get breadcrumbs
+						.concat([Content.findFromURIs(content.lineage).select('title uri').sort('uri').exec()])
 				)
 				.then(directory => {
+					content.breadcrumbs = directory.pop(); // The breadcrumb lineage will be the last item
 					content.directory = directory;
+
+					// Provide a way for the template to lookup whether a URI is selected
+					content.selected = {};
+					content.lineage.forEach(uri => content.selected[uri] = 'selected');
+					// The current page too
+					content.selected[content.uri] = 'selected';
+
+					// Editor URI
+					content.edit_uri = '/editor/' + content.uri;
+
 					res.render('list', content);
 				})
 				.catch(console.error.bind(console));
@@ -78,6 +95,8 @@ router.get('/:uri(*)', (req, res, next) => {
 				.then(([uris, breadcrumbs]) => {
 					content.invalid_uris = uris;
 					content.breadcrumbs  = breadcrumbs;
+					// Editor URI
+					content.edit_uri = '/editor/' + content.uri;
 					res.render('content', content);
 				});
 		})
