@@ -29,6 +29,11 @@ router.get('/', (req, res, next) => {
 						structure[item.uri].forEach(item => {
 							structure[item.uri] = items.filter(subitem => subitem.parent == item.uri);
 							items = items.filter(subitem => subitem.parent != item.uri);
+
+							structure[item.uri].forEach(item => {
+								structure[item.uri] = items.filter(subitem => subitem.parent == item.uri);
+								items = items.filter(subitem => subitem.parent != item.uri);
+							});
 						});
 					});
 				});

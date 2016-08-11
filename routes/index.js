@@ -59,6 +59,11 @@ router.get('/:uri(*)', (req, res, next) => {
 				)
 				.then(directory => {
 					content.breadcrumbs = directory.pop(); // The breadcrumb lineage will be the last item
+
+					// Don't display children if there is content
+					if (content.body && content.body != '')
+						directory.pop();
+
 					content.directory = directory;
 
 					// Provide a way for the template to lookup whether a URI is selected

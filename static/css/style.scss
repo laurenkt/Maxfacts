@@ -88,6 +88,10 @@ span.warn {
 					background-size: auto 1em;
 					color: white;
 				}
+
+				&.page {
+					background-image: none;
+				}
 			}
 		}
 	}
