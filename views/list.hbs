@@ -1,5 +1,4 @@
-<h2>{{title}}</h2>
-<div class="directory">
+<div class="directory levels-{{levels}}">
 	{{#each directory}}
 	<nav>
 		<ul>
@@ -12,7 +11,6 @@
 	{{#if body}}
 	<section>
 		<h3>{{title}}</h3>
-		<p><a href="/editor/{{uri}}" class="button">Edit</a></p>
 		{{{shift_headers 3 body}}}
 	</section>
 	{{/if}}

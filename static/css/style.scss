@@ -14,9 +14,13 @@ p.success {
 	padding: $small-spacing;
 }
 
+a:hover {
+	text-decoration: underline;
+}
+
 section {
 	max-width: 64rem;
-	margin: 0 auto;
+	margin: 0 auto 2rem;
 }
 
 h2 {
@@ -45,10 +49,19 @@ span.warn {
 .directory {
 	@include outer-container;
 
+	h3 {
+		margin-top: 1rem;
+	}
+
 	nav {
 		@include span-columns(3)
 		border-right: 1px solid lightgray;
 
+		&:first-child {
+			li a {
+				font-size: 1.2em;
+			}
+		}
 
 		ul {
 			list-style: none;
@@ -60,7 +73,6 @@ span.warn {
 			}
 
 			li a {
-				font-size: 1.5em;
 				padding: 10px;
 				display: block;
 				background: white url(/images/chevron.png) center right no-repeat;
@@ -89,6 +101,14 @@ div.sections {
 	margin-top: 1.5rem;
 
 	@include outer-container;
+
+	h3 a {
+		color: black;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
 
 	nav {
 		@include span-columns(4);
@@ -248,6 +268,14 @@ header {
 		color: white;
 		line-height: 3rem;
 		font-size: 1.5em;
+
+		a {
+			color: white;
+
+			&:hover {
+				color: white;
+			}
+		}
 	}
 
 	nav {

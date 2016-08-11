@@ -67,8 +67,11 @@ router.get('/:uri(*)', (req, res, next) => {
 					// The current page too
 					content.selected[content.uri] = 'selected';
 
+					// Level count
+					content.levels = directory.length;
 					// Editor URI
 					content.edit_uri = '/editor/' + content.uri;
+					console.log(content);
 
 					res.render('list', content);
 				})

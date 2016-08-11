@@ -1,9 +1,60 @@
-<h1>Directory</h1>
-<p>Other links: <a href="/images">Images</a>, <a href="/magic-triangle">Magic Triangle</a></p>
+<h2>Editor</h2>
+<p>Other links: <a href="/images">Images</a></p>
 <p><a class="button" href="/editor/create">New page</a></p>
 <ul>
-{{#each items}}
-	<li><a href="/editor/{{uri}}">{{title}}</a> ({{uri}}) {{#if invalid_links_count}}<span class="warn">💔 {{invalid_links_count}}</span>{{/if}}</li>
+{{#each (lookup structure '/')}}
+	<li>
+		<strong>{{title}}</strong> <small>@ "<code>{{uri}}</code>"</small>
+		[<a href="/editor/{{uri}}">Edit</a>] 
+		[<a href="/{{uri}}">View</a>]
+		[<a href="/editor/delete/{{uri}}">&#x1F5D1;</a>]
+		{{#if invalid_links_count}}<span class="warn">💔 {{invalid_links_count}}</span>{{/if}}
+		<ul>
+		{{#each (lookup ../structure uri)}}
+			<li>
+				<strong>{{title}}</strong> <small>@ "<code>{{uri}}</code>"</small>
+				[<a href="/editor/{{uri}}">Edit</a>] 
+				[<a href="/{{uri}}">View</a>]
+				[<a href="/editor/delete/{{uri}}">&#x1F5D1;</a>]
+				{{#if invalid_links_count}}<span class="warn">💔 {{invalid_links_count}}</span>{{/if}}
+				<ul>
+				{{#each (lookup ../../structure uri)}}
+					<li>
+						<strong>{{title}}</strong> <small>@ "<code>{{uri}}</code>"</small>
+						[<a href="/editor/{{uri}}">Edit</a>] 
+						[<a href="/{{uri}}">View</a>]
+						[<a href="/editor/delete/{{uri}}">&#x1F5D1;</a>]
+						{{#if invalid_links_count}}<span class="warn">💔 {{invalid_links_count}}</span>{{/if}}
+						<ul>
+						{{#each (lookup ../../../structure uri)}}
+							<li>
+								<strong>{{title}}</strong> <small>@ "<code>{{uri}}</code>"</small>
+								[<a href="/editor/{{uri}}">Edit</a>] 
+								[<a href="/{{uri}}">View</a>]
+								[<a href="/editor/delete/{{uri}}">&#x1F5D1;</a>]
+								{{#if invalid_links_count}}<span class="warn">💔 {{invalid_links_count}}</span>{{/if}}
+							</li>	
+						{{/each}}
+						</ul>
+					</li>	
+				{{/each}}
+				</ul>
+			</li>	
+		{{/each}}
+		</ul>
+	</li>
+{{/each}}
+</ul>
+<h3>Pages with no parent</h3>
+<ul>
+{{#each orphans}}
+	<li>
+		<strong>{{title}}</strong> <small>@ "<code>{{uri}}</code>"</small>
+		[<a href="/editor/{{uri}}">Edit</a>] 
+		[<a href="/{{uri}}">View</a>]
+		[<a href="/editor/delete/{{uri}}">&#x1F5D1;</a>]
+		{{#if invalid_links_count}}<span class="warn">💔 {{invalid_links_count}}</span>{{/if}}
+	</li>
 {{/each}}
 </ul>
 
