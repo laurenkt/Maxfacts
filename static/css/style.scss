@@ -6,7 +6,7 @@
 $accent-color: #565ed8;
 $accent-fade: rgb(205, 202, 254);
 $blackout-color: #32292f;
-$magic-color: #0a6356;
+$magic-color: #ddd;
 $green-back: #98e47f;
 $green-front: #171;
 
@@ -208,15 +208,6 @@ aside {
 	}
 }
 
-.editor-toolbar {
-	button[title="Italic"],
-	button[title="Strikethrough"],
-	button[title="Monospace"],
-	button[title="Blockquote"] {
-		display: none;
-	}
-}
-
 .editor {
 	font-family: $base-font-family;	
 	min-height: 200px;
@@ -225,7 +216,6 @@ aside {
 div.text {
 	@include span-columns(8);
 }
-
 
 strong a {
 	display: inline-block;
@@ -276,6 +266,10 @@ header {
 			border: 2px solid black;
 			border-left: 0;
 			padding: 0.55rem;
+			height: 2.35rem;
+			width: 2.35rem;
+			background: $accent-color url('/images/search.png') center center no-repeat;
+			background-size: 1rem 1rem;
 		}
 	}
 
@@ -370,7 +364,6 @@ header {
 			animation-fill-mode: both;
 			transform-origin: left center;
 			background: $magic-color;//#3e5667;//$accent-color;//$accent-color;
-			color: white;
 
 			label {
 				font-weight: normal;

@@ -76,7 +76,6 @@ router.get('/:uri(*)', (req, res, next) => {
 					content.levels = directory.length;
 					// Editor URI
 					content.edit_uri = '/editor/' + content.uri;
-					console.log(content);
 
 					res.render('list', content);
 				})
