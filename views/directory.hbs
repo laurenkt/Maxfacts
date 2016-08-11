@@ -60,7 +60,7 @@
 <h3>Pages with no parent</h3>
 <ul>
 {{#each orphans}}
-	<li>
+	<li class="{{#if is_empty}}empty{{/if}}">
 		<strong>{{title}}</strong> <small>@ "<code>{{uri}}</code>"</small>
 		[<a href="/editor/{{uri}}">Edit</a>] 
 		[<a href="/{{uri}}">View</a>]

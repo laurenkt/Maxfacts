@@ -18,14 +18,20 @@ router.get('/', (req, res, next) => {
 	Content.find().sort('title').exec().then(items => 
 		Promise
 			.all(
-				items.map(item => Promise.all([
-					[item.getInvalidLinks().then(uris => item.invalid_links_count = uris.length)],
-					[hasBody(item) ?
-						Promise.resolve(item.is_empty = false) :
-						item.type == 'directory' ?
-							Content.findFromParentURI(item.uri).exec().then(children => item.is_empty = children.length == 0) :
-							Promise.resolve(item.is_empty = true)],
-				]))
+				items.map(item =>
+					Promise.all([
+						item.getInvalidLinks().then(uris => uris.length),
+						hasBody(item) ?
+							Promise.resolve(false) :
+							item.type == 'directory' ?
+								Content.findFromParentURI(item.uri).exec().then(children => children.length == 0) :
+								Promise.resolve(true),
+					])
+					.then(([length, is_empty]) => {
+						item.is_empty = is_empty
+						item.invalid_links_count = length;
+					})
+				)
 			)
 			.then(() => {
 				const number_of_slashes = s => (s.match(/\//g) || []).length;
