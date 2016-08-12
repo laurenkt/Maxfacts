@@ -1,7 +1,7 @@
-import React  from 'react';
-import {omit} from 'lodash';
+import React  from "react";
+import {omit} from "lodash";
 
-module.exports = class TernaryPlot extends React.Component {
+export default class TernaryPlot extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -10,15 +10,12 @@ module.exports = class TernaryPlot extends React.Component {
 		this.onMouseDown     = this.onMouseDown.bind(this);
 		this.onMouseMove     = this.onMouseMove.bind(this);
 		this.onMouseUp       = this.onMouseUp.bind(this);
-		this.windowDidResize = this.windowDidResize.bind(this);
 
 		this.state = {
 			// A, B, and C values corresponding to the three points of the triangle
 			a: props.values[0],
 			b: props.values[1],
 			c: props.values[2],
-			// Current triangle height (auto-adjusts based on width)
-			height: 0
 		};
 
 		this._plotDom = null;
@@ -43,7 +40,7 @@ module.exports = class TernaryPlot extends React.Component {
 		return {
 			// Dead centre
 			values: [0.3333, 0.3333, 0.3333],
-			severity: 1.0
+			severity: 1.0,
 		};
 	}
 
@@ -90,24 +87,24 @@ module.exports = class TernaryPlot extends React.Component {
 
 		if (this.state.height != 0) {
 			// Radial fade gradient offset
+			/*
 			var offset = {
 				top:   (1.0 - this.state.a) * this.state.height  - this.state.height,
 				left: ((P.x/100.0) * 1.1494 * this.state.height) - this.state.height * 1.1494
-			};
+				};*/
 
 			// CSS to adjust the position of the gradient
 			plotStyles = {
-				height: `${this.state.height}px`,
 				//backgroundPosition: `${offset.left}px ${offset.top}px, center`
-				cursor: this.props.disabled ? 'not-allowed' : 'auto',
+				cursor: this.props.disabled ? "not-allowed" : "auto",
 			};
 		}
 
 		// Transfer unused props to container
-		var other = omit(this.props, ['className', 'severity', 'labels', 'values', 'onChange']);
+		var other = omit(this.props, ["className", "severity", "labels", "values", "onChange"]);
 
 		return (
-			<div {...other} className={"-tp " + (this.props.className || '')}>
+			<div {...other} className={"-tp " + (this.props.className || "")}>
 				<div className="-tp-labels">
 					<p className="-tp-label-a" style={this.computeWeight(this.state.a)}>{this.props.labels[0]}</p>
 					<p className="-tp-label-b" style={this.computeWeight(this.state.b)}>{this.props.labels[1]}</p>
@@ -121,41 +118,19 @@ module.exports = class TernaryPlot extends React.Component {
 		);
 	}
 
-	windowDidResize() {
-		if (!this._plotDom)
-			return;
-
-		// Constant factor derived by height of equilateral triangle (pythagoras)
-		this.setState({height: this._plotDom.offsetWidth * 0.866025});
-	}
-
-	componentDidMount() {
-		// We will need to update the component height when the window is redrawn
-		// to maintain a responsive design
-		window.addEventListener('resize', this.windowDidResize);
-		this.windowDidResize();
-	}
-
-	componentWillUnmount() {
-		// Remove event listeners
-		window.removeEventListener('resize', this.windowDidResize);
-		// Remove any mouse listeners
-		this.onMouseUp(new Event('mouseup'));
-	}
-
 	onMouseDown(e) {
 		if (this.props.disabled)
 			return;
 
-		document.addEventListener('mousemove', this.onMouseMove);
-		document.addEventListener('mouseup', this.onMouseUp);
+		document.addEventListener("mousemove", this.onMouseMove);
+		document.addEventListener("mouseup", this.onMouseUp);
 
 		e.preventDefault();
 	}
 
 	onMouseUp(e) {
-		document.removeEventListener('mousemove', this.onMouseMove);
-		document.removeEventListener('mouseup', this.onMouseUp);
+		document.removeEventListener("mousemove", this.onMouseMove);
+		document.removeEventListener("mouseup", this.onMouseUp);
 
 		e.preventDefault();
 	}
@@ -191,7 +166,7 @@ module.exports = class TernaryPlot extends React.Component {
 					// Find intersection with AB
 					I.x = (A.x*B.y*C.x - A.x*B.y*point.x - A.x*C.x*point.y +
 						A.x*C.y*point.x)/(A.x*C.y + B.y*C.x - A.x*point.y - B.y*point.x);
-					I.y = (-B.y)/A.x * I.x + B.y;;
+					I.y = (-B.y)/A.x * I.x + B.y;
 				}
 				// On the right side
 				else {
@@ -258,7 +233,7 @@ module.exports = class TernaryPlot extends React.Component {
 		// B is |BX|/|BI|
 		var values = {
 			a: 1.0 - mouse.y/height,
-			b: 1.0 - distance(B, mouse) / distance(B, I)
+			b: 1.0 - distance(B, mouse) / distance(B, I),
 		};
 
 		// C is whatever remains
@@ -276,7 +251,7 @@ module.exports = class TernaryPlot extends React.Component {
 		// Validation function, checks within 0-60 degrees
 		function acceptable(angle) {
 			return (angle >= 0 && angle <= Math.PI/3);
-		};
+		}
 
 		// Basic sanity checks
 		if (point.x < 0 || point.x > width || point.y < 0 || point.y > height)
