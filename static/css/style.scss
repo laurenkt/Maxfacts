@@ -351,45 +351,110 @@ header {
 
 	> .-mt-stage {
 		@include span-columns(4);
-		padding: $small-spacing;
+		position: relative;
+
+		&::before {
+			height: 64px;
+			display: block;
+			content: " ";
+			width: 100%;
+		}
+
+		.check {
+			position: absolute;
+			top: 0;
+			width: 100%;
+			text-align: center;
+			font-size: 7em;
+			color: green;
+			line-height: 4em;
+			
+			animation: checkIn 0.5s 0s,
+			           checkOut 0.5s 0.5s forwards;
+
+			@keyframes checkIn {
+				from {
+					opacity: 0;
+					transform: scale3d(0, 0, 1);
+				}
+				to {
+					opacity: 1;
+					transform: scale3d(1, 1, 1);
+				}
+			}
+			@keyframes checkOut {
+				to {
+					opacity: 0;
+					color: black;
+					transform: scale3d(3, 3, 1);
+				}
+			}
+		}
 
 		&.completed {
-			opacity: 0.8;
-			font-size: 80%;
+			animation: shrink 0.5s 0.5s both;
+
+			@keyframes shrink {
+				to {
+					opacity: 0.6;
+					font-size: 80%;
+					@include span-columns(3.3);
+				}
+			}
+		}
+
+		&.completed:first-of-type {
+			animation: shrink2 0.5s 0.5s both;
+
+			@keyframes shrink2 {
+				to {
+					opacity: 0.6;
+					font-size: 80%;
+					@include span-columns(3);
+				}
+			}
 		}
 
 		&.current {
-			animation-name: fadeInLeft;
-			animation-duration: 0.5s;
-			animation-fill-mode: both;
+			animation: fadeInLeft 0.5s 1s both;
 			transform-origin: left center;
-			background: $magic-color;//#3e5667;//$accent-color;//$accent-color;
+
+			@keyframes fadeInLeft {
+				from {
+					opacity: 0;
+					transform: scale3d(0, 1, 1); //translate3d(-100%, 0, 0);
+				}
+				to {
+					opacity: 1;
+					transform: none;
+				}
+			}
 
 			label {
 				font-weight: normal;
 			}
 
-			.-tp-plot {
-				background-image: url('/images/triangle-scaled.png');
-				background-size: 100% 100%;
-				background-position: center center;
+			&::before {
+				background: transparent url(/images/chevron-down.png) center 0/64px 64px no-repeat;
+				animation: focusMe 1.5s ease-out infinite;
+
+				@keyframes focusMe {
+					from {
+						transform: scale3d(1, 1, 1);
+					}
+					50% {
+						transform: scale3d(0.8, 0.8, 0.8);
+					}
+					to {
+						transform: scale3d(1, 1, 1);
+					}
+				}
 			}
 		}
 	}
 
 	aside {
 		@include span-columns(8)
-	}
-}
-
-@-webkit-keyframes fadeInLeft {
-	from {
-		opacity: 0;
-		transform: scale3d(0, 1, 1); //translate3d(-100%, 0, 0);
-	}
-	to {
-		opacity: 1;
-		transform: none;
 	}
 }
 
@@ -401,7 +466,7 @@ label.disabled {
 .-tp {
 	position: relative;
 	padding: 2rem;
-	min-width: 250px;
+	min-width: 200px;
 	width: 100%;
 	margin-bottom: $small-spacing;
 }
@@ -438,8 +503,9 @@ label.disabled {
 .-tp-plot {
 	position: relative;
 	width: 100%;
-	background-image: /*url('/images/triangle-mask.png'),*/ url('/images/triangle-scaled.png');
-	background-size: 100% 100%;//200% 200%, 100% 100%;
+	padding-bottom: 86%;
+	background-image: url('/images/triangle-mask.png'), url('/images/triangle-scaled.png');
+	background-size: 200% 200%, 100% 100%;
 	background-position: center;
 	//background-position: 100px 100px;
 	background-repeat: no-repeat;

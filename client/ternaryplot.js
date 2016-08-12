@@ -85,17 +85,15 @@ export default class TernaryPlot extends React.Component {
 
 		var plotStyles = {};
 
-		if (this.state.height != 0) {
-			// Radial fade gradient offset
-			/*
+		if (this._plotDom) {
 			var offset = {
-				top:   (1.0 - this.state.a) * this.state.height  - this.state.height,
-				left: ((P.x/100.0) * 1.1494 * this.state.height) - this.state.height * 1.1494
-				};*/
+				top:   (1.0 - this.state.a) * this._plotDom.offsetHeight  - this._plotDom.offsetHeight,
+				left: ((P.x/100.0) * 1.1494 * this._plotDom.offsetHeight) - this._plotDom.offsetHeight * 1.1494,
+			};
 
 			// CSS to adjust the position of the gradient
 			plotStyles = {
-				//backgroundPosition: `${offset.left}px ${offset.top}px, center`
+				backgroundPosition: `${offset.left}px ${offset.top}px, center`,
 				cursor: this.props.disabled ? "not-allowed" : "auto",
 			};
 		}

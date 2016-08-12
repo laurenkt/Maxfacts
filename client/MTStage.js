@@ -81,8 +81,12 @@ export default class MTStage extends React.Component {
 					{this.state.step == 0 &&
 						<p>Choose a descriptor to expand on:</p>}
 					{this.state.step == 0 &&
-						keys(this.props.context).map(label =>
-							<p key={label}><button className="preferred" onClick={_ => this.setContext(label)}>{label}</button></p>)}
+						keys(this.props.context)
+						// Ensure we only show descriptors that actually have a sub-tree (can be expanded)
+							.filter(label => this.props.context[label] != null)
+						// Display the results
+							.map(label =>
+								<p key={label}><button className="preferred" onClick={_ => this.setContext(label)}>{label}</button></p>)}
 					{this.state.step == 1 &&
 						<div>
 							<p>Choose <strong>three</strong> things to evaluate your current condition.</p>
@@ -99,6 +103,7 @@ export default class MTStage extends React.Component {
 						<div>
 							<TernaryPlot values={this.state.ratios} labels={this.state.selected} disabled />
 							<Slider value={this.state.severity} disabled />
+							<div className="check">&#x2714;</div>
 						</div>}
 				</div>
 			</div>
