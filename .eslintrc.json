@@ -39,6 +39,13 @@
 				"vars": "all",
 				"argsIgnorePattern": "^_$"
 			}
+		],
+		"comma-dangle": [
+			"error",
+			"always-multiline"
+		],
+		"no-shadow": [
+			"error"
 		]
 	}
 }

@@ -59,7 +59,7 @@ span.warn {
 	}
 
 	nav {
-		@include span-columns(3)
+		@include span-columns(3);
 		border-right: 1px solid lightgray;
 
 		&:first-child {
