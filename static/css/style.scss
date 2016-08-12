@@ -435,8 +435,22 @@ header {
 			}
 
 			&::before {
+				opacity: 0;
 				background: transparent url(/images/chevron-down.png) center 0/64px 64px no-repeat;
-				animation: focusMe 1.5s ease-out infinite;
+				animation: fadeIn  1s   1.5s forwards,
+				           focusMe 1.5s ease-out 2.5s infinite both;
+
+				@keyframes fadeIn {
+					from {
+						transform: translate3d(0, -20px, 0)
+						           scale3d(0.8, 0.8, 0.8);
+					}
+					to {
+						transform: translate3d(0, 0, 0)
+						           scale3d(1, 1, 1);
+						opacity: 1.0;
+					}
+				}
 
 				@keyframes focusMe {
 					from {
