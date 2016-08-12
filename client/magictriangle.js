@@ -206,16 +206,16 @@ class MagicTriangle extends React.Component {
 					<div className="magic-triangle">
 						{aboveabove && aboveabove != above &&
 							<MagicTriangleStage title="Overview" descriptors={aboveabove.labels} ratios={aboveabove.values} severity={aboveabove.severity} disabled />}
-						{aboveabove && aboveabove != above &&
+						{above &&
+							<MagicTriangleStage title={this.state.targetLevel.includes(".") ? this.state.targetLevel.split(".").slice(-2)[0] : "Overview"} descriptors={above.labels} ratios={above.ratios} severity={above.severity} disabled />
+						}
+						<MagicTriangleStage title={this.state.targetLevel.split(".").slice(-1)[0]} descriptors={descriptors} onComplete={this.onComplete} />
+						{!above &&
 							<aside className="walkthrough">
 								<p>This seems like a good location to have the step-through guide for the magic triangle.</p>
 								<p>It doesn't get in the way of people who already know what they're doing, but it's right
 									alongside for people who don't.</p>
 							</aside> }
-						{above &&
-							<MagicTriangleStage title={this.state.targetLevel.includes(".") ? this.state.targetLevel.split(".").slice(-2)[0] : "Overview"} descriptors={above.labels} ratios={above.ratios} severity={above.severity} disabled />
-						}
-						<MagicTriangleStage title={this.state.targetLevel.split(".").slice(-1)[0]} descriptors={descriptors} onComplete={this.onComplete} />
 					</div>
 				);
 			}

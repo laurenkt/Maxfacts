@@ -376,6 +376,10 @@ header {
 			}
 		}
 	}
+
+	aside {
+		@include span-columns(8)
+	}
 }
 
 @-webkit-keyframes fadeInLeft {
