@@ -121,16 +121,16 @@ export default class TernaryPlot extends React.Component {
 			return;
 
 		document.addEventListener("mousemove", this.onMouseMove);
-		document.addEventListener("mouseup", this.onMouseUp);
+		document.addEventListener("mouseup",   this.onMouseUp);
 
-		e.preventDefault();
+		this.onMouseMove(e);
 	}
 
 	onMouseUp(e) {
-		document.removeEventListener("mousemove", this.onMouseMove);
-		document.removeEventListener("mouseup", this.onMouseUp);
-
 		e.preventDefault();
+
+		document.removeEventListener("mousemove", this.onMouseMove);
+		document.removeEventListener("mouseup",   this.onMouseUp);
 	}
 
 	static wrapPointWithinTriangle(point, width, height) {

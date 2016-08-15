@@ -372,6 +372,7 @@ header {
 			font-size: 7em;
 			color: green;
 			line-height: 4em;
+			overflow: hidden;
 
 			animation: checkIn 0.5s 0s, checkOut 0.5s 0.5s forwards;
 
@@ -386,10 +387,15 @@ header {
 				}
 			}
 			@keyframes checkOut {
-				to {
+				90% {
 					opacity: 0;
 					color: black;
 					transform: scale3d(3, 3, 1);
+				}
+				to {
+					// need to do this to stop it from covering links/buttons on the site
+					opacity: 0;
+					transform: scale3d(0, 0, 1);
 				}
 			}
 		}
