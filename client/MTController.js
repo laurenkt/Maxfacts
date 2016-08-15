@@ -1,9 +1,8 @@
 import React    from "react";
 import ReactDOM from "react-dom";
 import MTStage from "./MTStage";
-import TernaryPlot from "./ternaryplot";
 import descriptors from "./descriptortree";
-import {keys,pick} from "lodash";
+import {pick} from "lodash";
 
 class MTController extends React.Component {
 	constructor(props) {
@@ -45,6 +44,8 @@ class MTController extends React.Component {
 			);
 		}
 		else {
+			return <h3>Display next state</h3>;
+			/*
 			var plotResult = r => <TernaryPlot className="completed" disabled values={r.ratios} labels={r.labels} />;
 
 			// Render finished overview
@@ -68,7 +69,7 @@ class MTController extends React.Component {
 						);
 					})}
 				</div>
-			);
+				);*/
 		}
 	}
 }

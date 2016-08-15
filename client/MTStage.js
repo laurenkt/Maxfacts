@@ -8,18 +8,46 @@ export default class MTStage extends React.Component {
 	constructor(props) {
 		super(props);
 
+		// If there is more than 3 keys in the context we know it must be the top level
+		// so jump to the first step
 		if (keys(props.context).length > 3) {
 			var step = 1;
 			var descriptors = keys(props.context);
 		}
+		else {
+			let valid_labels = keys(props.context).filter(label => this.props.context[label] != null);
+			if (valid_labels.length == 1) {
+				// There can only be one option, so just select it automatically
+				step = 1;
+				descriptors = keys(props.context[valid_labels[0]]);
+				var title = valid_labels[0];
+			}
+			else if (valid_labels.length == 0) {
+				// No valid options, so abort
+				step = -1;
+			}
+		}
+
+		if (step == 1) {
+			// We might be able to skip this step too
+			if (descriptors.length == 3) {
+				// If there's only 3 descriptors we might as well select them and jump to the next step
+				var selected = descriptors;
+				step = 2;
+			}
+			else if (descriptors.length == 0) {
+				// No valid options, so abort
+				step = -1;
+			}
+		}
 
 		this.state = {
 			step:     step || 0,
-			selected: [],
+			selected: selected || [],
 			ratios:   [0.3333, 0.3333, 0.3333],
 			severity: 0.5,
 			descriptors: descriptors || [],
-			title:    "Overview",
+			title:    title || " ",
 		};
 
 		this.setContext = this.setContext.bind(this);
@@ -66,14 +94,29 @@ export default class MTStage extends React.Component {
 	}
 
 	setContext(path) {
-		this.setState({
-			title: path,
-			descriptors: keys(this.props.context[path]),
-			step: 1,
-		});
+		var descriptors = keys(this.props.context[path]);
+
+		if (descriptors.length != 3) {
+			this.setState({
+				title: path,
+				descriptors,
+				step: 1,
+			});
+		}
+		else {
+			this.setState({
+				title: path,
+				descriptors,
+				selected: descriptors,
+				step: 2,
+			});
+		}
 	}
 
 	render() {
+		if (this.state.step == -1)
+			return;
+
 		return (
 			<div className={"-mt-stage " + (this.state.step < 3 ? "current" : "completed")}>
 				<div>
@@ -86,7 +129,7 @@ export default class MTStage extends React.Component {
 							.filter(label => this.props.context[label] != null)
 						// Display the results
 							.map(label =>
-								<p key={label}><button className="preferred" onClick={_ => this.setContext(label)}>{label}</button></p>)}
+								<p key={label}><button onClick={_ => this.setContext(label)}>{label}</button></p>)}
 					{this.state.step == 1 &&
 						<div>
 							<p>Choose <strong>three</strong> things to evaluate your current condition.</p>

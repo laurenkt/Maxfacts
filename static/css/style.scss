@@ -209,7 +209,7 @@ aside {
 }
 
 .editor {
-	font-family: $base-font-family;	
+	font-family: $base-font-family;
 	min-height: 200px;
 }
 
@@ -275,7 +275,7 @@ header {
 
 	div {
 		background: $blackout-color;
-		
+
 		> * {
 			padding: 0 0.75rem;
 		}
@@ -322,7 +322,7 @@ header {
 			> * {
 				padding: 0;
 			}
-		}	
+		}
 
 		h1 {
 			font-size: 2.5em;
@@ -360,6 +360,10 @@ header {
 			width: 100%;
 		}
 
+		h3 {
+			text-align: center;
+		}
+
 		.check {
 			position: absolute;
 			top: 0;
@@ -368,9 +372,8 @@ header {
 			font-size: 7em;
 			color: green;
 			line-height: 4em;
-			
-			animation: checkIn 0.5s 0s,
-			           checkOut 0.5s 0.5s forwards;
+
+			animation: checkIn 0.5s 0s, checkOut 0.5s 0.5s forwards;
 
 			@keyframes checkIn {
 				from {
@@ -394,23 +397,13 @@ header {
 		&.completed {
 			animation: shrink 0.5s 0.5s both;
 
+			* {
+				filter: inherit;
+			}
+
 			@keyframes shrink {
 				to {
-					opacity: 0.6;
-					font-size: 80%;
-					@include span-columns(3.3);
-				}
-			}
-		}
-
-		&.completed:first-of-type {
-			animation: shrink2 0.5s 0.5s both;
-
-			@keyframes shrink2 {
-				to {
-					opacity: 0.6;
-					font-size: 80%;
-					@include span-columns(3);
+					filter: grayscale(1);
 				}
 			}
 		}
@@ -437,17 +430,16 @@ header {
 			&::before {
 				opacity: 0;
 				background: transparent url(/images/chevron-down.png) center 0/64px 64px no-repeat;
-				animation: fadeIn  1s   1.5s forwards,
-				           focusMe 1.5s ease-out 2.5s infinite both;
+				animation: fadeIn 1s 1.5s forwards, focusMe 1.5s ease-out 2.5s infinite both;
 
 				@keyframes fadeIn {
 					from {
 						transform: translate3d(0, -20px, 0)
-						           scale3d(0.8, 0.8, 0.8);
+						scale3d(0.8, 0.8, 0.8);
 					}
 					to {
 						transform: translate3d(0, 0, 0)
-						           scale3d(1, 1, 1);
+						scale3d(1, 1, 1);
 						opacity: 1.0;
 					}
 				}
@@ -468,7 +460,9 @@ header {
 	}
 
 	aside {
-		@include span-columns(8)
+		margin-top: 64px;
+		padding-top: 1.5rem;
+		@include span-columns(8);
 	}
 }
 
