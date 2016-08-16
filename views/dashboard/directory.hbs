@@ -1,0 +1,38 @@
+<h2>Directory</h2>
+<p><a class="button" href="/dashboard/directory/new">New page</a></p>
+<ul>
+
+{{#*inline "nested"}}
+<li class="{{#if is_empty}}empty{{/if}}">
+	<strong>{{title}}</strong> <small>@ "<code>{{uri}}</code>"</small>
+	[<a href="/editor/{{uri}}">Edit</a>] 
+	[<a href="/{{uri}}">View</a>]
+	[<a href="/editor/delete/{{uri}}">&#x1F5D1;</a>]
+	{{#if invalid_links_count}}<span class="warn">💔 {{invalid_links_count}}</span>{{/if}}
+	<ul>
+		{{#each children}}
+			{{> nested this}}
+		{{/each}}
+	</ul>
+</li>	
+{{/inline}}
+
+<ul>
+	{{#each items}}
+		{{>nested this}}
+	{{/each}}
+</ul>
+
+<h3>Pages with no parent</h3>
+<ul>
+{{#each orphans}}
+	<li class="{{#if is_empty}}empty{{/if}}">
+		<strong>{{title}}</strong> <small>@ "<code>{{uri}}</code>"</small>
+		[<a href="/editor/{{uri}}">Edit</a>] 
+		[<a href="/{{uri}}">View</a>]
+		[<a href="/editor/delete/{{uri}}">&#x1F5D1;</a>]
+		{{#if invalid_links_count}}<span class="warn">💔 {{invalid_links_count}}</span>{{/if}}
+	</li>
+{{/each}}
+</ul>
+

@@ -1,0 +1,8 @@
+<h2>Images</h2>
+<p><a class="button" href="/dashboard/images/upload">Upload new image</a></p>
+<ul>
+{{#each items}}
+	<li><code><a href="/dashboard/images/edit/{{_id}}">{{uri}}</a></code><br /><img style="max-width: 300px" src="/{{uri}}"></li>
+{{/each}}
+</ul>
+

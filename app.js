@@ -14,7 +14,7 @@ import {join}       from "path";
 
 // Set-up Mongoose models
 mongoose.Promise = global.Promise; // Required to squash a deprecation warning
-const db = mongoose.connect(process.env.MONGO_URI).connection
+mongoose.connect(process.env.MONGO_URI).connection
 	.on("error", console.error.bind(console, "connection error:"));
 
 // Start Express
@@ -47,7 +47,7 @@ app.use(session({
 	secret: "f8e1a0f9-e7a9-4e0d-8a2e-0624a3f62510", // Just a generated UUID
 	saveUninitialized: false,
 	resave: false,
-	store: new (mongoStore(session))({mongooseConnection: db}),
+	store: new (mongoStore(session))({mongooseConnection: mongoose.connection}),
 }));
 
 // Babel for React/JSX
@@ -72,7 +72,7 @@ const route = (name) => require(join(__dirname, "routes", name));
 
 app.use("/",               route("images"));
 app.use("/magic-triangle", route("magic_triangle"));
-app.use("/editor",         route("editor"));
+app.use("/dashboard",      route("dashboard"));
 app.use("/search",         route("search"));
 app.use("/",               route("index"));
 
@@ -100,4 +100,4 @@ app.use((err, req, res, _) => {
 	});
 });
 
-module.exports = app;
+export default app;

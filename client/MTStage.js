@@ -139,13 +139,13 @@ export default class MTStage extends React.Component {
 					{this.state.step == 2 &&
 						<div>
 							<TernaryPlot values={this.state.ratios} labels={this.state.selected} onChange={ratios => this.setState({ratios})} />
-							{/*<Slider value={this.state.severity} onChange={severity => this.setState({severity})} />*/}
+							<Slider value={this.state.severity} onChange={severity => this.setState({severity})} />
 							<button onClick={_ => this.complete()}>Next</button>
 						</div>}
 					{this.state.step == 3 &&
 						<div>
 							<TernaryPlot values={this.state.ratios} labels={this.state.selected} disabled />
-							{/*<Slider value={this.state.severity} disabled />*/}
+							<Slider value={this.state.severity} disabled />
 							<div className="check">&#x2714;</div>
 						</div>}
 				</div>

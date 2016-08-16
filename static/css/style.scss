@@ -7,8 +7,53 @@ $accent-color: #565ed8;
 $accent-fade: rgb(205, 202, 254);
 $blackout-color: #32292f;
 $magic-color: #ddd;
+$dashboard-back: #d8295e;
 $green-back: #98e47f;
 $green-front: #171;
+
+
+@mixin nav-column($cols) {
+	@include span-columns($cols);
+	border-right: 1px solid lightgray;
+
+	&:first-child {
+		li a {
+			font-size: 1.2em;
+		}
+	}
+
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		li {
+			padding: 0 10px 0 0;
+		}
+
+		li a {
+			padding: 10px;
+			display: block;
+			background: white url(/images/chevron.png) center right no-repeat;
+			background-size: auto 1em;
+
+			&:hover {
+				background-color: #eee;
+				text-decoration: underline;
+			}
+
+			&.selected {
+				background: $accent-color url(/images/chevron-highlighted.png) center right no-repeat;
+				background-size: auto 1em;
+				color: white;
+			}
+
+			&.page {
+				background-image: none;
+			}
+		}
+	}
+}
 
 p.success {
 	background: $green-back;
@@ -19,9 +64,19 @@ a:hover {
 	text-decoration: underline;
 }
 
-section {
+body > section {
+	@include outer-container;
+
 	max-width: 64rem;
 	margin: 0 auto 2rem;
+
+	.sidebar {
+		@include nav-column(3);
+	}
+
+	main {
+		@include span-columns(9);
+	}
 }
 
 h2 {
@@ -59,50 +114,11 @@ span.warn {
 	}
 
 	nav {
-		@include span-columns(3);
-		border-right: 1px solid lightgray;
-
-		&:first-child {
-			li a {
-				font-size: 1.2em;
-			}
-		}
-
-		ul {
-			list-style: none;
-			margin: 0;
-			padding: 0;
-
-			li {
-				padding: 0 10px 0 0;
-			}
-
-			li a {
-				padding: 10px;
-				display: block;
-				background: white url(/images/chevron.png) center right no-repeat;
-				background-size: auto 1em;
-
-				&:hover {
-					background-color: #eee;
-					text-decoration: underline;
-				}
-
-				&.selected {
-					background: $accent-color url(/images/chevron-highlighted.png) center right no-repeat;
-					background-size: auto 1em;
-					color: white;
-				}
-
-				&.page {
-					background-image: none;
-				}
-			}
-		}
+		@include nav-column(3);
 	}
 
 	section {
-		@include span-columns(6)
+		@include span-columns(6);
 	}
 }
 
@@ -246,6 +262,14 @@ footer {
 		margin: 0 auto;
 		text-align: center;
 	}
+}
+
+.dashboard {
+	header nav {
+		background: $dashboard-back;
+	}
+
+	
 }
 
 header {
