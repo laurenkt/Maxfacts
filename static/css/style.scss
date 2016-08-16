@@ -269,7 +269,30 @@ footer {
 		background: $dashboard-back;
 	}
 
-	
+	table {
+		width: 100%;
+		max-width: none;
+
+		tr.empty {
+			background: yellow;
+		}
+	}
+
+	td {
+		min-width: 30px;
+	}
+
+	.leader {
+		background: #555;
+		text-align: center;
+		color: white;
+	}
+
+	.utility {
+		font-size: 80%;
+		text-align: center;
+		background: #ddd;
+	}
 }
 
 header {

@@ -1,38 +1,44 @@
 <h2>Directory</h2>
 <p><a class="button" href="/dashboard/directory/new">New page</a></p>
-<ul>
 
 {{#*inline "nested"}}
-<li class="{{#if is_empty}}empty{{/if}}">
-	<strong>{{title}}</strong> <small>@ "<code>{{uri}}</code>"</small>
-	[<a href="/editor/{{uri}}">Edit</a>] 
-	[<a href="/{{uri}}">View</a>]
-	[<a href="/editor/delete/{{uri}}">&#x1F5D1;</a>]
-	{{#if invalid_links_count}}<span class="warn">💔 {{invalid_links_count}}</span>{{/if}}
-	<ul>
-		{{#each children}}
-			{{> nested this}}
-		{{/each}}
-	</ul>
-</li>	
+	<tr class="{{#if is_empty}}empty{{/if}}">
+		<td colspan={{colspan}} class="leader">{{colspan}}</td>
+		<td colspan={{colspan_remaining}}>
+			{{#if is_empty}}Empty{{/if}}
+			<strong>{{title}}</strong><br><small><code>{{uri}}</code></small>
+		</td>
+		<td class="utility"><a href="/editor/{{uri}}">Edit</a></td>
+		<td class="utility"><a href="/{{uri}}">View</a></td>
+		<td class="utility"><a href="/editor/delete/{{uri}}">Remove</a></td>
+		<td class="utility">{{#if invalid_links_count}}<span class="warn">💔 {{invalid_links_count}}</span>{{/if}}</td>
+	</tr>	
+	{{#each children}}
+		{{> nested this}}
+	{{/each}}
 {{/inline}}
 
-<ul>
+<h3>Pages with no parent</h3>
+<table>
+	{{#each orphans}}
+	<tr class="{{#if is_empty}}empty{{/if}}">
+		<td>
+			{{#if is_empty}}Empty{{/if}}
+			<strong>{{title}}</strong><br><small><code>{{uri}}</code></small>
+		</td>
+		<td class="utility"><a href="/editor/{{uri}}">Edit</a></td>
+		<td class="utility"><a href="/{{uri}}">View</a></td>
+		<td class="utility"><a href="/editor/delete/{{uri}}">Remove</a></td>
+		<td class="utility">{{#if invalid_links_count}}<span class="warn">💔 {{invalid_links_count}}</span>{{/if}}</td>
+	</tr>	
+	{{/each}}
+</table>
+
+<h3>Pages on directory</h3>
+
+<table>
+	<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
 	{{#each items}}
 		{{>nested this}}
 	{{/each}}
-</ul>
-
-<h3>Pages with no parent</h3>
-<ul>
-{{#each orphans}}
-	<li class="{{#if is_empty}}empty{{/if}}">
-		<strong>{{title}}</strong> <small>@ "<code>{{uri}}</code>"</small>
-		[<a href="/editor/{{uri}}">Edit</a>] 
-		[<a href="/{{uri}}">View</a>]
-		[<a href="/editor/delete/{{uri}}">&#x1F5D1;</a>]
-		{{#if invalid_links_count}}<span class="warn">💔 {{invalid_links_count}}</span>{{/if}}
-	</li>
-{{/each}}
-</ul>
-
+</table>
