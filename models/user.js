@@ -4,8 +4,8 @@ import bcrypt   from "bcrypt";
 const bcryptSaltRounds = 10;
 
 const UserSchema = new mongoose.Schema({
-	email:          {type:String, required:true, unique:true, maxlength:60, minlength:60},
-	hash:           {type:String, required:true},
+	email:          {type:String, required:true, unique:true},
+	hash:           {type:String, required:true, maxlength:60, minlength:60},
 	can_edit_users: {type:Boolean, default:false},
 }, {
 	timestamps: true,

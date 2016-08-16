@@ -1,0 +1,10 @@
+<h2>Users</h2>
+<p><a class="button" href="/dashboard/users/new">Add user</a></p>
+<table>
+	{{#each users}}
+	<tr>
+		<td>{{email}}</td>
+		<td class="utility"><a href="/dashboard/users/edit/{{_id}}">Edit</a></td>
+	</tr>
+	{{/each}}
+</table>

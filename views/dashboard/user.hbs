@@ -1,0 +1,15 @@
+<h2>User Editor</h2>
+<form action="#" method="POST">
+	<p>
+		<label for="email">Email</label>
+		<input type="text" placeholder="some@email.address" name="email" id="email" value="{{email}}">
+	</p>
+	<p>
+		<label for="password">Password</label>
+		<input type="password" name="password" id="password">
+	</p>
+	<p>
+		<label><input name="can_edit_users" type="checkbox" {{#if can_edit_users}}checked{{/if}}> Allow them to edit other users?</label>
+	</p>
+	<input type="submit" value="Update">
+</form>

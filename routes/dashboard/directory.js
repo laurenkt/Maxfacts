@@ -73,13 +73,13 @@ router.get("/delete/:uri(*)", (req, res) => {
 	}
 });
 
-router.get("/create", (req, res) => {
-	res.render("editor");
+router.get("/new", (req, res) => {
+	res.render("dashboard/content", {layout:"layout-dashboard"});
 });
 
-router.post("/create", (req, res) => {
+router.post("/new", (req, res) => {
 	var content = new Content(req.body);
-	content.save(() => res.redirect(`/editor/${req.body.uri}?saved`));
+	content.save(() => res.redirect(`/dashboard/directory/${req.body.uri}?saved`));
 });
 
 router.get("/:uri(*)", (req, res, next) => {
@@ -88,7 +88,8 @@ router.get("/:uri(*)", (req, res, next) => {
 			content.saved = req.query.hasOwnProperty("saved");
 			content.selected = {};
 			content.selected[content.type || "page"] = "selected";
-			res.render("editor", content);
+			content.layout = "layout-dashboard";
+			res.render("dashboard/content", content);
 		}
 		else
 			next();
@@ -102,7 +103,7 @@ router.post("/:uri(*)", (req, res) => {
 		item.title = req.body.title;
 		item.type = req.body.type;
 		item.body = req.body.body;
-		item.save(() => res.redirect(`/editor/${item.uri}?saved`));
+		item.save(() => res.redirect(`/dashboard/directory/${item.uri}?saved`));
 	})
 	.catch(console.error.bind(console));
 });
