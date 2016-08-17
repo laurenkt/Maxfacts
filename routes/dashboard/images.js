@@ -48,7 +48,7 @@ router.post("/upload", multer({storage:multer.memoryStorage()}).single("image"),
 		else
 			image.uri = req.body.uri;
 
-		image.save(_ => res.redirect("/dashboard/images", {layout:"layout-dashboard"}));
+		image.save(_ => res.redirect("/dashboard/images"));
 	}
 });
 
