@@ -10,7 +10,7 @@ $magic-color: #ddd;
 $dashboard-back: #d8295e;
 $green-back: #98e47f;
 $green-front: #171;
-
+$level3-back: #055a57;
 
 @mixin nav-column($cols) {
 	@include span-columns($cols);
@@ -241,8 +241,8 @@ main {
 
 	header {
 		padding: 20px 20px 10px;
-		background: #017b48;
-		border-bottom: 10px solid lighten(#017b48, 10%);
+		background: $level3-back;
+		border-bottom: 10px solid lighten($level3-back, 10%);
 		margin: $small-spacing 0;
 		color: white;
 
