@@ -75,7 +75,7 @@ router.get("/:uri(*)", (req, res, next) => {
 					// Level count
 					content.levels = directory.length;
 					// Editor URI
-					content.edit_uri = "/editor/" + content.uri;
+					content.edit_uri = "/dashboard/directory/" + content.uri;
 
 					res.render("directory", content);
 				})
@@ -104,8 +104,8 @@ router.get("/:uri(*)", (req, res, next) => {
 					content.breadcrumbs  = breadcrumbs;
 					// Editor URI
 					content.edit_uri = "/dashboard/directory/" + content.uri;
-					res.render("content", content);
-					content.replaceHREFsWith();
+
+					res.render(content.type == "level3" ? "level3" : "content", content);
 				});
 		})
 		.catch(console.error.bind(console));

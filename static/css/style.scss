@@ -58,7 +58,8 @@ $green-front: #171;
 				color: white;
 			}
 
-			&.page {
+			&.page,
+			&.level3 {
 				background-image: none;
 			}
 		}
@@ -82,10 +83,6 @@ body > section {
 
 	.sidebar {
 		@include nav-column(3);
-	}
-
-	main {
-		@include span-columns(9);
 	}
 }
 
@@ -239,8 +236,54 @@ aside {
 	min-height: 200px;
 }
 
-div.text {
+main {
 	@include span-columns(8);
+
+	header {
+		padding: 20px 20px 10px;
+		background: #017b48;
+		border-bottom: 10px solid lighten(#017b48, 10%);
+		margin: $small-spacing 0;
+		color: white;
+
+		p:first-of-type {
+			margin: 0;
+			text-transform: uppercase;
+			font-size: 80%;
+			letter-spacing: 2px;
+		}
+
+		h2 {
+			margin-top: 0;
+		}
+	
+
+		ol {
+			list-style-type: decimal;
+
+			a {
+				color: white;
+
+				&:hover {
+					color: #ddd;
+				}
+			}
+		}
+	}
+
+	counter-reset: h3;
+	position: relative;
+
+	&.level3 header h3::before {
+		counter-increment: none;
+	}
+
+	&.level3 h3::before {
+		position: absolute;
+		left: -2rem;
+		counter-increment: h3;
+		content: counter(h3);
+	}
 }
 
 strong a {

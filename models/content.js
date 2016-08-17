@@ -18,7 +18,8 @@ const ContentSchema = new mongoose.Schema({
 			return uri;
 		},
 	},
-	body:       {type: String},
+	body:        {type: String},
+	description: {type: String},
 	title:      {type: String, default: ""},
 	type:       {type: String, default: "page"},
 	contents:   {type: [{text: String, id: String}]},
@@ -29,9 +30,11 @@ const ContentSchema = new mongoose.Schema({
 ContentSchema.index({
 	body: "text",
 	title: "text",
+	description: "text",
 }, {
 	weights: {
 		title: 10,
+		description: 7,
 		body: 4,
 	},
 });

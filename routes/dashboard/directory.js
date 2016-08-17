@@ -103,6 +103,7 @@ router.post("/:uri(*)", (req, res) => {
 		item.title = req.body.title;
 		item.type = req.body.type;
 		item.body = req.body.body;
+		item.description = req.body.description;
 		item.save(() => res.redirect(`/dashboard/directory/${item.uri}?saved`));
 	})
 	.catch(console.error.bind(console));
