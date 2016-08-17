@@ -171,7 +171,7 @@ ContentSchema.pre("save", function(next) {
 		reduced_body = sanitizeHtml(this.body, {
 			allowedTags: ["h1", "h2", "h3", "h4", "h5", "h6", "blockquote", "p", "a", "ul", "ol",
 				"li", "strong", "em", "table", "thead", "caption", "tbody", "tfoot", "tr", "th", "td",
-				"figure", "abbr", "img", "caption", "cite", "dd", "dfn", "dl", "dt", "figcaption",
+				"figure", "abbr", "img", "aside", "caption", "cite", "dd", "dfn", "dl", "dt", "figcaption",
 				"sub", "sup"],
 			allowedAttributes: merge({
 				th: ["colspan", "rowspan"],

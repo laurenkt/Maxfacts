@@ -239,6 +239,19 @@ aside {
 main {
 	@include span-columns(8);
 
+	aside {
+		float: none;
+		width: 100%;
+		padding: 10px;
+		margin: 10px 0;
+		font-size: 90%;
+		background: #eee;
+
+		p {
+			margin: 0;
+		}
+	}
+
 	header {
 		padding: 20px 20px 10px;
 		background: $level3-back;
