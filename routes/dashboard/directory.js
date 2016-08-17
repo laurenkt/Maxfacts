@@ -36,16 +36,16 @@ router.get("/", (req, res) => {
 						items_by_slashes[number_of_slashes(item.uri)] = [item];
 				});
 
-				var not_orphans = items_by_slashes[0];
+				var not_orphans = [];
+				not_orphans.push(...items_by_slashes[0]);
 
-				items_by_slashes.forEach((items_on_level, num_slashes) =>
+				items_by_slashes.forEach((items_on_level, num_slashes) => 
 					items_on_level.forEach(item => {
 						item.colspan = num_slashes + 1;
 						item.colspan_remaining = items_by_slashes.length - item.colspan + 1;
 						if (Array.isArray(items_by_slashes[num_slashes+1])) {
-							//console.log(items_by_slashes[num_slashes+1].map(i => `${i.parent} ?? ${item.uri}`));
 							item.children = items_by_slashes[num_slashes+1].filter(subitem => subitem.parent == item.uri);
-							//console.log(item.children);
+							//console.log(item.uri, ' children ', item.children.map(i=>i.uri));
 							not_orphans.push(...item.children);
 						}
 						else {
@@ -55,7 +55,7 @@ router.get("/", (req, res) => {
 				);
 
 				res.render("dashboard/directory", {
-					items:not_orphans,
+					items:items_by_slashes[0],
 					orphans:difference(items, not_orphans),
 					layout:"layout-dashboard",
 				});
