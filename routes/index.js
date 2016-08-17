@@ -77,7 +77,7 @@ router.get("/:uri(*)", (req, res, next) => {
 					// Editor URI
 					content.edit_uri = "/editor/" + content.uri;
 
-					res.render("list", content);
+					res.render("directory", content);
 				})
 				.catch(console.error.bind(console));
 

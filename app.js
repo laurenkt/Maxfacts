@@ -21,7 +21,7 @@ mongoose.connect(process.env.MONGO_URI).connection
 const app = express();
 
 // Views in views/ using handlebars.js
-app.set("views", join(__dirname, "views"));
+app.set("views", join(__dirname, "templates"));
 app.set("view engine", "hbs");
 
 // Logging in the console
