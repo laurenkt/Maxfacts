@@ -41,7 +41,7 @@ router.get("/", (req, res) => {
 				items_by_slashes.forEach((items_on_level, num_slashes) =>
 					items_on_level.forEach(item => {
 						item.colspan = num_slashes + 1;
-						item.colspan_remaining = items_by_slashes.length - item.colspan;
+						item.colspan_remaining = items_by_slashes.length - item.colspan + 1;
 						if (Array.isArray(items_by_slashes[num_slashes+1])) {
 							//console.log(items_by_slashes[num_slashes+1].map(i => `${i.parent} ?? ${item.uri}`));
 							item.children = items_by_slashes[num_slashes+1].filter(subitem => subitem.parent == item.uri);
