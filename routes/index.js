@@ -105,6 +105,7 @@ router.get("/:uri(*)", (req, res, next) => {
 					// Editor URI
 					content.edit_uri = "/dashboard/directory/" + content.uri;
 					res.render("content", content);
+					content.replaceHREFsWith();
 				});
 		})
 		.catch(console.error.bind(console));

@@ -1,42 +1,55 @@
-import mongoose     from 'mongoose';
-import sanitizeHtml from 'sanitize-html';
-import {Parser}     from 'htmlparser2';
+import mongoose     from "mongoose";
+import sanitizeHtml from "sanitize-html";
+import {Parser,DomHandler}     from "htmlparser2";
 import {merge, uniq, map,
-	difference}     from 'lodash';
+	difference}     from "lodash";
+import DomUtils from "domutils";
 
 const ContentSchema = new mongoose.Schema({
-	uri:        {type: String, unique: true, minlength:1, required:true},
+	uri: {
+		type: String,
+		unique: true,
+		minlength:1,
+		required:true,
+		set: function(uri) {
+			if (uri != this.uri)
+				this._previousURI = this.uri;
+			
+			return uri;
+		},
+	},
 	body:       {type: String},
-	title:      {type: String, default: ''},
-	type:       {type: String, default: 'page'},
+	title:      {type: String, default: ""},
+	type:       {type: String, default: "page"},
+	contents:   {type: [{text: String, id: String}]},
 }, {
-	timestamps: true
+	timestamps: true,
 });
 
 ContentSchema.index({
-	body: 'text',
-	title: 'text',
+	body: "text",
+	title: "text",
 }, {
 	weights: {
 		title: 10,
 		body: 4,
-	}
+	},
 });
 
 ContentSchema.statics = {
-	parentUriFragment: uri => uri.split('/').slice(0, -1).join('/'),
+	parentUriFragment: uri => uri.split("/").slice(0, -1).join("/"),
 
 	findFromURIs(uris) {
 		return this
 			.find()
-			.where('uri').in(uris);
+			.where("uri").in(uris);
 	},
 
 	findFromParentURI(parent) {
 		return this
 			.find()
 		// Only match URIs prefixed with the parent without any following slashes
-			.where('uri', new RegExp(parent != '' ? `^${parent}/[^/]+$` : '^[^/]+$'));
+			.where("uri", new RegExp(parent != "" ? `^${parent}/[^/]+$` : "^[^/]+$"));
 	},
 
 	findFromAdjacentURI(uri) {
@@ -45,15 +58,15 @@ ContentSchema.statics = {
 };
 
 ContentSchema
-	.virtual('parent')
+	.virtual("parent")
 	.get(function() { return ContentSchema.statics.parentUriFragment(this.uri); });
 
 ContentSchema
-	.virtual('lineage')
+	.virtual("lineage")
 	.get(function() {
 		var fragments = [];
 		var parent = this.parent;
-		while (parent != '') {
+		while (parent != "") {
 			fragments.push(parent);
 			parent = ContentSchema.statics.parentUriFragment(parent);
 		}
@@ -66,68 +79,118 @@ ContentSchema.methods = {
 		var links = [];
 		var parser = new Parser({
 			onopentag(name, attribs) {
-				if (name == 'a' && attribs.href)
+				if (name == "a" && attribs.href)
 					// Track link without leading slash
-					links.push(attribs.href.replace(/^\//, ''));
-			}
+					links.push(attribs.href.replace(/^\//, ""));
+			},
 		});
 		parser.write(this.body);
 		parser.end();
 
 		links = uniq(links);
 
-		return this.model('Content')
+		return this.model("Content")
 			.findFromURIs(links)
-			.select('uri')
+			.select("uri")
 			.exec()
-			.then(valid_links => difference(links, map(valid_links, 'uri')));
-	}
+			.then(valid_links => difference(links, map(valid_links, "uri")));
+	},
+
+
+	setIDsForHeadings: function() {
+		var new_body;
+		var headings = [];
+
+		var handler = new DomHandler((err, dom) => {
+			DomUtils.getElements({tag_name:"h1"}, dom, true).forEach(node => {
+				var text = DomUtils.getText(node);
+				var id = text
+					// All lowercase
+						.toLowerCase()
+					// Make sure ampersands are covered
+						.replace(/&amp;/g, "and")
+					// Convert spaces and underscores to dashes (and multiple dashes)
+						.replace(/[_ -]+/g, "-")
+					// Remove any duplicate slashes
+						.replace(/[\/]+/g, "/")
+					// Remove any leading or trailing slashes or dashes
+						.replace(/(^[\/-]+|[\/-]+$)/g, "")
+					// Remove any remaining characters that don"t conform to the URL
+						.replace(/[^a-z0-9-\/]+/g, "");
+				
+				node.attribs.id = id;
+				headings.push({text, id});
+			});
+			new_body = DomUtils.getOuterHTML(dom);
+		});
+		var parser = new Parser(handler);
+		parser.write(this.body);
+		parser.done();
+
+		this.body = new_body;
+		this.contents = headings;
+	},
+
+	replaceHREFsWith: function(from, to) {
+		var handler = new DomHandler((err, dom) => {
+			DomUtils.getElements({tag_name:"a"}, dom, true).forEach(node => {
+				if (node.attribs.href && node.attribs.href == from) {
+					// Update HREF
+					node.attribs.href = to;
+				}
+			});
+			this.body = DomUtils.getOuterHTML(dom);
+		});
+		var parser = new Parser(handler);
+		parser.write(this.body);
+		parser.done();
+	},
 };
 
-ContentSchema.pre('save', function(next) {
+ContentSchema.pre("save", function(next) {
 	// Force the URI into acceptable format:
 	this.uri = this.uri
 	// All lowercase
 		.toLowerCase()
 	// Convert spaces and underscores to dashes (and multiple dashes)
-		.replace(/[_ -]+/g, '-')
+		.replace(/[_ -]+/g, "-")
 	// Remove any duplicate slashes
-		.replace(/[\/]+/g, '/')
+		.replace(/[\/]+/g, "/")
 	// Remove any leading or trailing slashes or dashes
-		.replace(/(^[\/-]+|[\/-]+$)/g, '')
-	// Remove any remaining characters that don't conform to the URL
-		.replace(/[^a-z0-9-\/]+/g, '');
+		.replace(/(^[\/-]+|[\/-]+$)/g, "")
+	// Remove any remaining characters that don"t conform to the URL
+		.replace(/[^a-z0-9-\/]+/g, "");
 
 	// Force the body into an acceptable format
 	// Allow only a super restricted set of tags and attributes
-	var reduced_body = '';
-	while(1) {
+	var reduced_body = "";
+	for(;;) {
 		reduced_body = sanitizeHtml(this.body, {
-			allowedTags: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'p', 'a', 'ul', 'ol',
-				'li', 'strong', 'em', 'table', 'thead', 'caption', 'tbody', 'tfoot', 'tr', 'th', 'td',
-				'figure', 'abbr', 'img', 'caption', 'cite', 'dd', 'dfn', 'dl', 'dt', 'figcaption',
-				'sub', 'sup'],
+			allowedTags: ["h1", "h2", "h3", "h4", "h5", "h6", "blockquote", "p", "a", "ul", "ol",
+				"li", "strong", "em", "table", "thead", "caption", "tbody", "tfoot", "tr", "th", "td",
+				"figure", "abbr", "img", "caption", "cite", "dd", "dfn", "dl", "dt", "figcaption",
+				"sub", "sup"],
 			allowedAttributes: merge({
-				th: ['colspan', 'rowspan'],
-				td: ['colspan', 'rowspan']
+				th: ["colspan", "rowspan"],
+				td: ["colspan", "rowspan"],
 			}, sanitizeHtml.defaults.allowedAttributes),
 			exclusiveFilter: frame => {
 				// Remove certain empty tags
-				return ['p', 'a', 'em', 'strong'].includes(frame.tag) && !frame.text.trim() && !frame.children.length;
+				return ["p", "a", "em", "strong"].includes(frame.tag) && !frame.text.trim() && !frame.children.length;
 			},
 			textFilter: (text, stack) => {
 				// Remove things not in a tag at all
 				if (stack.length == 0)
-					// If it's not in a container class
+					// If it"s not in a container class
 					return text
 					// Remove any non-whitespace characters
-						.replace(/[^\s]+/g, '')
+						.replace(/[^\s]+/g, "")
 					// Remove any blank lines
 						.replace(/[\n]+/g, "\n") // Unix
 						.replace(/(\r\n)+/g, "\r\n"); // Windows
-					else
-						return text;
-			}
+				else
+					return text;
+			},
 		});
 
 		if (reduced_body == this.body)
@@ -136,10 +199,30 @@ ContentSchema.pre('save', function(next) {
 		this.body = reduced_body;
 	}
 
+	// Generate table of contents from <h1> tags
+	// And update IDs of header elements to match text
+	this.setIDsForHeadings();
+
 	// Save it
 	next();
 });
 
+ContentSchema.post("save", function(content) {
+	const updateHREFs = page => {
+		page.replaceHREFsWith("/" + content._previousURI, "/" + content.uri);
+		return page.save();
+	};
+
+	// Need to update any other content if the URI changed
+	if (content._previousURI && content._previousURI != content.uri) {
+		// It was updated
+		content.model("Content")
+			.find({ $text : { $search : content._previousURI } })
+			.exec()
+			.then(matches => Promise.all(matches.map(updateHREFs)))
+			.catch(console.error.bind(console));
+	}
+});
 
 
-module.exports = mongoose.model('Content', ContentSchema);
+module.exports = mongoose.model("Content", ContentSchema);
