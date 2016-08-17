@@ -66,7 +66,7 @@ router.get("/", (req, res) => {
 
 router.get("/delete/:uri(*)", (req, res) => {
 	if (req.query.hasOwnProperty("confirm")) {
-		Content.remove({uri: req.params.uri}).exec().then(() => res.redirect("/editor"));
+		Content.remove({uri: req.params.uri}).exec().then(() => res.redirect("/dashboard/directory"));
 	}
 	else {
 		throw new Error("Deletion must contain confirm token in URL query string");
