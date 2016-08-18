@@ -4,7 +4,7 @@ import Slider         from "./slider";
 import DescriptorList from "./descriptorlist";
 import {keys}         from "lodash";
 
-export default class MTStage extends React.Component {
+export default class Column extends React.Component {
 	constructor(props) {
 		super(props);
 
