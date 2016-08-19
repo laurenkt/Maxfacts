@@ -8,41 +8,35 @@ export default class Column extends React.Component {
 	constructor(props) {
 		super(props);
 
+		this.skipped = 0;
+
 		// If there is more than 3 keys in the context we know it must be the top level
 		// so jump to the first step
 		if (keys(props.context).length > 3) {
-			var step = 1;
+			this.skipped = 1;
 			var descriptors = keys(props.context);
 		}
 		else {
 			let valid_labels = keys(props.context).filter(label => this.props.context[label] != null);
 			if (valid_labels.length == 1) {
 				// There can only be one option, so just select it automatically
-				step = 1;
+				this.skipped = 1;
 				descriptors = keys(props.context[valid_labels[0]]);
 				var title = valid_labels[0];
 			}
-			else if (valid_labels.length == 0) {
-				// No valid options, so abort
-				step = -1;
-			}
 		}
 
-		if (step == 1) {
+		if (this.skipped == 1) {
 			// We might be able to skip this step too
 			if (descriptors.length == 3) {
 				// If there's only 3 descriptors we might as well select them and jump to the next step
 				var selected = descriptors;
-				step = 2;
-			}
-			else if (descriptors.length == 0) {
-				// No valid options, so abort
-				step = -1;
+				this.skipped = 2;
 			}
 		}
 
 		this.state = {
-			step:     step || 0,
+			step:     this.skipped,
 			selected: selected || [],
 			ratios:   [0.3333, 0.3333, 0.3333],
 			severity: 0.5,
@@ -59,6 +53,7 @@ export default class Column extends React.Component {
 			ratios:      React.PropTypes.arrayOf(React.PropTypes.number),
 			severity:    React.PropTypes.number,
 			onComplete:  React.PropTypes.func,
+			onCancel:    React.PropTypes.func,
 		};
 	}
 
@@ -75,10 +70,7 @@ export default class Column extends React.Component {
 		var label = "Next";
 
 		if (remainingDescriptors > 0) {
-			if (remainingDescriptors > 1)
-				label = `Choose ${remainingDescriptors} more items`;
-			else
-				label = "Choose 1 more item";
+			label = `Choose ${remainingDescriptors} more`;
 		}
 
 		return label;
@@ -114,9 +106,6 @@ export default class Column extends React.Component {
 	}
 
 	render() {
-		if (this.state.step == -1)
-			return;
-
 		return (
 			<div className={"-mt-stage " + (this.state.step < 3 ? "current" : "completed")}>
 				<div>
@@ -132,7 +121,7 @@ export default class Column extends React.Component {
 								<p key={label}><button onClick={_ => this.setContext(label)}>{label}</button></p>)}
 					{this.state.step == 1 &&
 						<div>
-							<p>Choose <strong>three</strong> things to evaluate your current condition.</p>
+							<p>Pick <strong>three</strong> categories to compare.</p>
 							<DescriptorList items={this.state.descriptors} onSelection={selected => this.setState({selected})} />
 							<button disabled={this.state.selected.length != 3} onClick={_ => this.setState({step: 2})}>{this.labelForStep0()}</button>
 						</div>}
@@ -148,6 +137,8 @@ export default class Column extends React.Component {
 							<Slider value={this.state.severity} disabled />
 							<div className="check">&#x2714;</div>
 						</div>}
+					{this.state.step == this.skipped && this.props.onCancel &&
+						<p>Or <a href="#" onClick={e => { e.preventDefault(); this.props.onCancel(); }}>finish this set</a>.</p>}
 				</div>
 			</div>
 		);

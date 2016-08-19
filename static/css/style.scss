@@ -2,15 +2,21 @@
 @import "bourbon/bourbon";
 @import "neat/neat";
 @import "base/base";
+@import "magic-triangle";
 
 $accent-color: #565ed8;
 $accent-fade: rgb(205, 202, 254);
+$button-accent: #c05d7b;
 $blackout-color: #32292f;
 $magic-color: #ddd;
 $dashboard-back: #d8295e;
 $green-back: #98e47f;
 $green-front: #171;
 $level3-back: #055a57;
+
+p ~ p {
+	margin-top: $small-spacing;
+}
 
 @mixin nav-column($cols) {
 	@include span-columns($cols);
@@ -201,6 +207,11 @@ button.strong {
 	border-radius: 5px;
 	background: rgba(200, 200, 200, 0.3);
 	padding: 2px 6px;
+}
+
+button.accent {
+	background: $button-accent;
+	font-size: 120%;
 }
 
 aside {
@@ -419,6 +430,7 @@ header {
 		color: #eee;
 		p {
 			padding: $small-spacing;
+			margin: 0;
 		}
 
 		a {
@@ -459,238 +471,10 @@ header {
 	}
 }
 
-.magic-triangle {
-	@include outer-container;
-
-	> .-mt-stage {
-		@include span-columns(4);
-		position: relative;
-
-		&::before {
-			height: 64px;
-			display: block;
-			content: " ";
-			width: 100%;
-		}
-
-		h3 {
-			text-align: center;
-		}
-
-		.check {
-			position: absolute;
-			top: 0;
-			width: 100%;
-			text-align: center;
-			font-size: 7em;
-			color: green;
-			line-height: 4em;
-			overflow: hidden;
-
-			animation: checkIn 0.5s 0s, checkOut 0.5s 0.5s forwards;
-
-			@keyframes checkIn {
-				from {
-					opacity: 0;
-					transform: scale3d(0, 0, 1);
-				}
-				to {
-					opacity: 1;
-					transform: scale3d(1, 1, 1);
-				}
-			}
-			@keyframes checkOut {
-				90% {
-					opacity: 0;
-					color: black;
-					transform: scale3d(3, 3, 1);
-				}
-				to {
-					// need to do this to stop it from covering links/buttons on the site
-					opacity: 0;
-					transform: scale3d(0, 0, 1);
-				}
-			}
-		}
-
-		&.completed {
-			animation: shrink 0.5s 0.5s both;
-
-			* {
-				filter: inherit;
-			}
-
-			@keyframes shrink {
-				to {
-					filter: grayscale(1);
-				}
-			}
-		}
-
-		&.current {
-			animation: fadeInLeft 0.5s 1s both;
-			transform-origin: left center;
-
-			@keyframes fadeInLeft {
-				from {
-					opacity: 0;
-					transform: scale3d(0, 1, 1); //translate3d(-100%, 0, 0);
-				}
-				to {
-					opacity: 1;
-					transform: none;
-				}
-			}
-
-			label {
-				font-weight: normal;
-			}
-
-			&::before {
-				opacity: 0;
-				background: transparent url(/images/chevron-down.png) center 0/64px 64px no-repeat;
-				animation: fadeIn 1s 1.5s forwards, focusMe 1.5s ease-out 2.5s infinite both;
-
-				@keyframes fadeIn {
-					from {
-						transform: translate3d(0, -20px, 0)
-						scale3d(0.8, 0.8, 0.8);
-					}
-					to {
-						transform: translate3d(0, 0, 0)
-						scale3d(1, 1, 1);
-						opacity: 1.0;
-					}
-				}
-
-				@keyframes focusMe {
-					from {
-						transform: scale3d(1, 1, 1);
-					}
-					50% {
-						transform: scale3d(0.8, 0.8, 0.8);
-					}
-					to {
-						transform: scale3d(1, 1, 1);
-					}
-				}
-			}
-		}
-	}
-
-	aside {
-		margin-top: 64px;
-		padding-top: 1.5rem;
-		@include span-columns(8);
-	}
-}
 
 label.disabled {
 	color: grey;
 	opacity: 0.8;
 }
 
-.-tp {
-	position: relative;
-	padding: 2rem;
-	min-width: 200px;
-	width: 100%;
-	margin-bottom: $small-spacing;
-}
-
-.-tp-labels {
-	width: 100%;
-
-	p {
-		width: 100%;
-		position: absolute;
-		margin: 0;
-	}
-
-	.-tp-label-a {
-		text-align: center;
-		top: 0;
-		left: 0;
-	}
-
-	.-tp-label-b,
-	.-tp-label-c {
-		text-align: left;
-		bottom: 0;
-		left: 0;
-	}
-
-	.-tp-label-c {
-		text-align: right;
-		left: inherit;
-		right: 0;
-	}
-}
-
-.-tp-plot {
-	position: relative;
-	width: 100%;
-	padding-bottom: 86%;
-	background-image: url('/images/triangle-mask.png'), url('/images/triangle-scaled.png');
-	background-size: 200% 200%, 100% 100%;
-	background-position: center;
-	//background-position: 100px 100px;
-	background-repeat: no-repeat;
-}
-
-.-tp-marker {
-	position: absolute;
-	width: 20px;
-	height: 20px;
-	margin: -10px 0 0 -10px;
-	background: url('/images/circle-scaled.png');
-	background-size: 100% 100%;
-}
-
-.-slider-background {
-	position: relative;
-	width: 100%;
-	max-width: 400px;
-	height: 19px;
-	margin: 40px 0 60px;
-	background: url('/images/slider-scaled.png');
-	background-size: 100% 100%;
-}
-
-.-slider-marker {
-	position: absolute;
-	width: 20px;
-	top: -18px;
-	margin-left: -10px;
-	height: 17px;
-	background: url('/images/slider-marker.png');
-	background-size: 100% 100%;
-}
-
-.explanation {
-	background: #f7f7f7;
-	margin: 20px -20px;
-	padding: 20px 20px 0;
-	border: 3px solid #eee;
-}
-
-.-slider-label-left {
-	position: absolute;
-	left: 0;
-	width: 100%;
-	text-align: left;
-	top: 20px;
-	height: 1.7rem;
-	line-height: 1.7rem;
-}
-
-.-slider-label-right {
-	position: absolute;
-	left: 0;
-	width: 100%;
-	text-align: right;
-	top: 20px;
-	height: 1.7rem;
-	line-height: 1.7rem;
-}
 

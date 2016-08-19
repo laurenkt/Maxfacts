@@ -20,12 +20,8 @@ class MagicTriangle extends React.Component {
 		this.setState({results: this.state.results.concat(result)});
 	}
 
-	renderFooter() {
-		return <div><button><strong>I'm finished</strong></button></div>;
-	}
-
 	render() {
-		return <div>{this.rows.concat(this.renderFooter())}</div>;
+		return <div>{this.rows}</div>;
 	}
 }
 
