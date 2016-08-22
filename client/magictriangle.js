@@ -8,6 +8,7 @@ class MagicTriangle extends React.Component {
 
 		this.state = {
 			results: [],
+			finished: false,
 		};
 
 		this.onComplete = this.onComplete.bind(this);
@@ -16,12 +17,22 @@ class MagicTriangle extends React.Component {
 	}
 
 	onComplete(result) {
-		this.rows.push(<Row key={this.rows.length} onComplete={this.onComplete} />);
-		this.setState({results: this.state.results.concat(result)});
+		if (result != []) {
+			this.rows.push(<Row key={this.rows.length} onComplete={this.onComplete} optional />);
+			this.setState({results: this.state.results.concat(result)});
+		}
+		else
+			this.setState({finished:true});
 	}
 
 	render() {
-		return <div>{this.rows}</div>;
+		return (
+			<div>
+				{this.rows}
+				{this.state.finished &&
+					<p>Finished</p>}
+			</div>
+		);
 	}
 }
 

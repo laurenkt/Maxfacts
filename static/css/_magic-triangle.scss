@@ -48,7 +48,7 @@ body {
 .mt-row-unfinished {
 	&-leave {
 		position: absolute;
-		transform-origin: top left;
+		transform-origin: 4em top;
 		opacity: 1;
 		transform: scale3d(1, 1, 1);
 

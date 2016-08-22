@@ -19,6 +19,7 @@ export default class Row extends React.Component {
 	static get propTypes() {
 		return {
 			onComplete: React.PropTypes.func,
+			optional:   React.PropTypes.bool,
 		};
 	}
 
@@ -66,13 +67,19 @@ export default class Row extends React.Component {
 						<Column onComplete={this.onComplete} onCancel={this.onComplete}
 							context={pick(descriptors[this.state.results[1].title], this.state.results[1].labels)} />}
 				</div>
-				<p className="notice">If you don't want to answer any more questions, click below to finish the questionnaire.</p>
-				<button className="accent">I'm done</button>
+				{this.props.optional &&
+					<div>
+						<p className="notice">If you don't want to answer any more questions, click below to finish the questionnaire.</p>
+						<button className="accent" onClick={_ => this.onComplete()}>I'm done</button>
+					</div>}
 			</div>
 		);
 	}
 
 	renderFinished() {
+		if (this.state.results.length == 0)
+			return;
+
 		const strongIf = (str, cond) =>
 			cond ? `<strong>${str}</strong>` : str;
 		const formatSelected = result_title => // curried
@@ -96,12 +103,12 @@ export default class Row extends React.Component {
 		return (
 			<div>
 				<ReactCSSTransitionGroup transitionName="mt-row-unfinished"
-					transitionLeaveTimeout={400} transitionEnterTimeout={false}>
+					transitionLeaveTimeout={400} transitionEnterTimeout={0}>
 					{!this.state.finished &&
 						this.renderColumns() }
 				</ReactCSSTransitionGroup>
 				<ReactCSSTransitionGroup transitionName="mt-row-finished"
-					transitionEnterTimeout={400} transitionLeaveTimeout={false}>
+					transitionEnterTimeout={400} transitionLeaveTimeout={0}>
 					{this.state.finished &&
 						this.renderFinished() }
 				</ReactCSSTransitionGroup>
