@@ -79,7 +79,7 @@ router.get("/new", (req, res) => {
 
 router.post("/new", (req, res) => {
 	var content = new Content(req.body);
-	content.save(() => res.redirect(`/dashboard/directory/${req.body.uri}?saved`));
+	content.save(saved_content => res.redirect(`/dashboard/directory/${saved_content.uri}?saved`));
 });
 
 router.get("/:uri(*)", (req, res, next) => {
