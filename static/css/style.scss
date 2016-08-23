@@ -120,8 +120,10 @@ span.warn {
 	opacity: 0.5;
 }
 
-.directory {
+.directory-browser {
 	@include outer-container;
+
+	margin-top: $small-spacing;
 
 	h3 {
 		margin-top: 1rem;
