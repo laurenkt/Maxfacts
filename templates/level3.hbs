@@ -1,6 +1,5 @@
 <main class="level3">
 	<header>
-		<p>Detailed information</p>
 		<h2>{{title}}</h2>
 		{{#description}}
 			<p>{{this}}</p>
@@ -14,15 +13,3 @@
 	</header>
 	{{{shift_headers 2 body}}}
 </main>
-<aside>
-	{{#if invalid_uris}}
-	<div class="warning">
-		<p>This document has links that go nowhere:</p>
-		<ul>
-			{{#each invalid_uris}}
-				<li><code>{{this}}</code></li>
-			{{/each}}
-		</ul>
-	</div>
-	{{/if}}
-</aside>

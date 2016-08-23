@@ -13,6 +13,7 @@ $dashboard-back: #d8295e;
 $green-back: #98e47f;
 $green-front: #171;
 $level3-back: #055a57;
+$level2-back: #ccc;
 
 p ~ p {
 	margin-top: $small-spacing;
@@ -256,7 +257,7 @@ main {
 		padding: 10px;
 		margin: 10px 0;
 		font-size: 90%;
-		background: #eee;
+		background: #ddd;
 
 		p {
 			margin: 0;
@@ -265,22 +266,20 @@ main {
 
 	header {
 		padding: 20px 20px 10px;
-		background: $level3-back;
-		border-bottom: 10px solid lighten($level3-back, 10%);
 		margin: $small-spacing 0;
-		color: white;
-
-		p:first-of-type {
-			margin: 0;
-			text-transform: uppercase;
-			font-size: 80%;
-			letter-spacing: 2px;
-		}
 
 		h2 {
-			margin-top: 0;
+			margin: 0;
+
+			&::before {
+				display: block;
+				margin: 0;
+				text-transform: uppercase;
+				font-size: 10pt;
+				font-weight: normal;
+				letter-spacing: 2px;
+			}
 		}
-	
 
 		ol {
 			list-style-type: decimal;
@@ -295,19 +294,106 @@ main {
 		}
 	}
 
+	.next-section {
+		margin-left: 10em;
+		position: relative;
+		padding: 0;
+
+		a {
+			width: 10em;
+			display: inline-block;
+			margin-left: -10em;
+			text-align: center;
+			padding: $small-spacing 20px;
+		}
+
+		span {
+			display: inline-block;
+			vertical-align: middle;
+			font-weight: bold;
+			font-size: 140%;
+			padding: $small-spacing 30px $small-spacing/2;
+
+			&::before {
+				letter-spacing: 2px;
+				display: block;
+				text-transform: uppercase;
+				font-weight: normal;
+				font-size: 10pt;
+				clear: both;
+			}
+		}
+	}
+
 	counter-reset: h3;
 	position: relative;
 
-	&.level3 header h3::before {
-		counter-increment: none;
+	&.level1 {
+		header {
+			background: none;
+			border-bottom: 10px solid #ddd;
+			color: black;
+
+			h2::before {
+				content: "Getting started";
+			}
+		}
+
+		.next-section {
+			border-bottom: 10px solid darken($level2-back, 10%);
+			background: $level2-back;
+
+			span::before {
+				content: "Getting to know more";
+			}
+		}
 	}
 
-	&.level3 h3::before {
-		position: absolute;
-		left: -2rem;
-		counter-increment: h3;
-		content: counter(h3);
+	&.level2 {
+		header {
+			background: $level2-back;
+			border-bottom: 10px solid darken($level2-back, 10%);
+			color: black;
+
+			h2::before {
+				content: "Getting to know more";
+			}
+		}
+
+		.next-section {
+			border-bottom: 10px solid darken($level3-back, 10%);
+			background: $level3-back;
+			color: white;
+
+			span::before {
+				content: "Detailed information";
+			}
+		}
 	}
+
+	&.level3 {
+		header {
+			background: $level3-back;
+			border-bottom: 10px solid lighten($level3-back, 10%);
+			color: white;
+
+			h2::before {
+				content: "Detailed information";
+			}
+			
+			h3::before {
+				counter-increment: none;
+			}
+		}
+
+		h3::before {
+			position: absolute;
+			left: -2rem;
+			counter-increment: h3;
+			content: counter(h3);
+		}
+	}
+
 }
 
 strong a {

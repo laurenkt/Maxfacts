@@ -1,0 +1,14 @@
+<main class="level1">
+	<header>
+		<h2>{{title}}</h2>
+		{{#if description}}
+			<p>{{this}}</p>
+		{{/if}}
+	</header>
+	{{{shift_headers 2 body}}}
+	{{#next}}
+		<p class="next-section"><a href="/{{uri}}">Next section</a> <span>{{title}}</span></p>
+	{{/next}}
+</main>
+<aside>
+</aside>

@@ -98,14 +98,30 @@ router.get("/:uri(*)", (req, res, next) => {
 						.select("title uri")
 						.sort("uri")
 						.exec(),
+					(content.type == "level1" ? Content.findFromParentURI(content.uri) : Content.findFromParentURI(content.parent))
+						.select("title uri")
+					// For level1, 'next' is level2, otherwise it's level3
+						.where("type", content.type == "level1" ? "level2" : "level3")
+						.exec(),
 				])
-				.then(([uris, breadcrumbs]) => {
+				.then(([uris, breadcrumbs, next_page]) => {
 					content.invalid_uris = uris;
 					content.breadcrumbs  = breadcrumbs;
+					
+					console.log(next_page);
+
+					if (next_page[0])
+						content.next = next_page[0];
+
 					// Editor URI
 					content.edit_uri = "/dashboard/directory/" + content.uri;
 
-					res.render(content.type == "level3" ? "level3" : "content", content);
+					var template = "content";
+
+					if ((["level3", "level2", "level1"]).includes(content.type))
+						template = content.type;
+
+					res.render(template, content);
 				});
 		})
 		.catch(console.error.bind(console));
