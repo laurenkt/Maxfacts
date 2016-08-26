@@ -26,7 +26,7 @@ export default class TernaryPlot extends React.Component {
 			// Initial magnitudes of A, B, and C (adds up to 1.0)
 			values:   React.PropTypes.arrayOf(React.PropTypes.number),
 			// An array of three string labels (required)
-			labels:   React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
+			labels:   React.PropTypes.arrayOf(React.PropTypes.any).isRequired,
 			// Callback for the parent component
 			onChange: React.PropTypes.func,
 			// If present, component cannot be edited

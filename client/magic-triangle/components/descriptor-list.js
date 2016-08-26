@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
 
-module.exports = class DescriptorList extends React.Component {
+export default class DescriptorList extends React.Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
 			// List of currently selected 
-			selected: []
+			selected: props.selected || [],
 		};
 	}
 
@@ -15,7 +15,9 @@ module.exports = class DescriptorList extends React.Component {
 			// Callback invoked when descriptor list changes
 			onSelection: React.PropTypes.func,
 			// List of descriptors to select from
-			items:       React.PropTypes.array.isRequired
+			items:       React.PropTypes.array.isRequired,
+			// List of selected items
+			selected:    React.PropTypes.array,
 		};
 	}
 
@@ -44,7 +46,7 @@ module.exports = class DescriptorList extends React.Component {
 					var disabled = this.state.selected.length >= 3 && !this.state.selected.includes(d);
 
 					return (
-						<label key={d} className={disabled ? 'disabled' : ''}>
+						<label key={d} className={disabled ? "disabled" : ""}>
 							<input type="checkbox" onChange={this.onChange.bind(this, d)}
 								checked={this.state.selected.includes(d)}
 								disabled={disabled} />

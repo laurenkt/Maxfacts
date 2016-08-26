@@ -1,61 +1,67 @@
-body {
-	counter-reset: results;
-}
+.magic-triangle {
+	@include outer-container;
 
-.mt-row-finished {
-	text-align: 90%;
-	line-height: 1.9em;
-	margin-left: 4em;
+	h3 {
+		text-align: center;
 
-	&-enter {
-		opacity: 0;
-		transform-origin: top left;
-		transform: scale3d(3, 5, 0);
-
-		&-active {
-			opacity: 1;
-			transform: scale3d(1, 1, 0);
-			transition: all 400ms ease-in;
+		// Close buttons
+		a {
+			font-weight: normal;
+			font-size: 50%;
+			background: #ddd;
+			border-radius: 5px;
+			vertical-align: middle;
+			padding: 5px;
 		}
 	}
 
-	&::before {
-		content: counter(results);
-		counter-increment: results;
-		font-size: 1.2em;
-		font-weight: bold;
-		margin-left: -3em;
-		display: inline-block;
-		width: 3em;
-		padding-right: 0.5em;
-		text-align: right;
+	a:active {
+		outline: 5px solid yellow;
+		background: yellow;
 	}
 
-	.column {
-		background: #ddd;
-		border-radius: 5px;
-		padding: 5px 10px;
-		white-space: nowrap;
+	.mt-set ~ .mt-set {
+		margin-top: 10px;
+		border-top: 3px solid #888;
+		padding-top: 10px;
+	}
 
-		small {
-			color: #888;
-			position: relative;
-			top: -1px; // small baseline shift
+	.mt-set {
+		@include clearfix;
+
+		&-enter {
+			transform: scale(0, 0);
+			background: yellow;
+
+			&-active {
+				background: transparent;
+				transform: scale(1, 1);
+				transition: all 1000ms ease;
+			}
 		}
 	}
-}
 
-.mt-row-unfinished {
-	&-leave {
-		position: absolute;
-		transform-origin: 4em top;
-		opacity: 1;
-		transform: scale3d(1, 1, 1);
+	.mt-cell {
+		float: left;
+		padding: 10px;
+		width: 33%;
+	}
 
-		&-active {
-			transform: scale3d(0.5, 0, 1);
-			opacity: 0;
-			transition: all 400ms ease-in;
+	.mt-children {
+		float: left;
+		width: 66%;
+		@include clearfix;
+
+		.mt-cell {
+			width: 50%;
+		}
+
+		.mt-children {
+			width: 50%;
+
+			.mt-cell {
+				width: 100%;
+			}
 		}
 	}
 }
@@ -72,13 +78,14 @@ body {
 	width: 100%;
 
 	p {
-		width: 100%;
+		width: auto;
 		position: absolute;
 		margin: 0;
 	}
 
 	.-tp-label-a {
 		text-align: center;
+		width: 100%;
 		top: 0;
 		left: 0;
 	}
@@ -87,6 +94,7 @@ body {
 	.-tp-label-c {
 		text-align: left;
 		bottom: 0;
+		display: inline;
 		left: 0;
 	}
 
@@ -137,163 +145,21 @@ body {
 	background-size: 100% 100%;
 }
 
-.explanation {
-	background: #f7f7f7;
-	margin: 20px -20px;
-	padding: 20px 20px 0;
-	border: 3px solid #eee;
-}
+.-slider-labels {
+	p {
+		position: absolute;
+		top: 20px;
+		margin-top: 0;
+		line-height: 1.7rem;
+		left: 0;
+		width: 100%;
 
-.-slider-label-left {
-	position: absolute;
-	left: 0;
-	width: 100%;
-	text-align: left;
-	top: 20px;
-	height: 1.7rem;
-	line-height: 1.7rem;
-}
-
-.-slider-label-right {
-	position: absolute;
-	left: 0;
-	width: 100%;
-	text-align: right;
-	top: 20px;
-	height: 1.7rem;
-	line-height: 1.7rem;
-}
-.magic-triangle {
-	@include outer-container;
-
-	> .-mt-stage {
-		@include span-columns(4);
-		position: relative;
-
-		&::before {
-			height: 64px;
-			display: block;
-			content: " ";
-			width: 100%;
+		&.-slider-label-left {
+			text-align: left;
 		}
 
-		h3 {
-			text-align: center;
+		&.-slider-label-right {
+			text-align: right;
 		}
-
-		.check {
-			position: absolute;
-			top: 0;
-			width: 100%;
-			text-align: center;
-			font-size: 7em;
-			color: green;
-			line-height: 4em;
-			overflow: hidden;
-
-			animation: checkIn 0.5s 0s, checkOut 0.5s 0.5s forwards;
-
-			@keyframes checkIn {
-				from {
-					opacity: 0;
-					transform: scale3d(0, 0, 1);
-				}
-				to {
-					opacity: 1;
-					transform: scale3d(1, 1, 1);
-				}
-			}
-			@keyframes checkOut {
-				90% {
-					opacity: 0;
-					color: black;
-					transform: scale3d(3, 3, 1);
-				}
-				to {
-					// need to do this to stop it from covering links/buttons on the site
-					opacity: 0;
-					transform: scale3d(0, 0, 1);
-				}
-			}
-		}
-
-		&.completed {
-			animation: shrink 0.5s 0.5s both;
-
-			* {
-				filter: inherit;
-			}
-
-			@keyframes shrink {
-				to {
-					filter: grayscale(1);
-				}
-			}
-		}
-
-		&.current {
-			animation: fadeInLeft 0.5s 1s both;
-			transform-origin: left center;
-			overflow-x: hidden;
-
-			@keyframes fadeInLeft {
-				from {
-					opacity: 0;
-					transform: translate3d(-100%, 0, 0);
-				}
-				to {
-					opacity: 1;
-					transform: none;
-				}
-			}
-
-			label {
-				font-weight: normal;
-			}
-
-			&:first-of-type {
-				animation: none;
-
-				&::before {
-					position: relative;
-					top: 30px;
-				}
-			}
-
-			&::before {
-				opacity: 0;
-				background: transparent url(/images/chevron-down.png) center 0/64px 64px no-repeat;
-				animation: fadeIn 1s 1.5s forwards, focusMe 1.5s ease-out 2.5s infinite both;
-
-				@keyframes fadeIn {
-					from {
-						transform: translate3d(0, -20px, 0)
-						scale3d(0.8, 0.8, 0.8);
-					}
-					to {
-						transform: translate3d(0, 0, 0)
-						scale3d(1, 1, 1);
-						opacity: 1.0;
-					}
-				}
-
-				@keyframes focusMe {
-					from {
-						transform: scale3d(1, 1, 1);
-					}
-					50% {
-						transform: scale3d(0.8, 0.8, 0.8);
-					}
-					to {
-						transform: scale3d(1, 1, 1);
-					}
-				}
-			}
-		}
-	}
-
-	aside {
-		padding-top: 6.5rem;
-		@include span-columns(8);
 	}
 }

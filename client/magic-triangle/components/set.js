@@ -1,10 +1,52 @@
 import React       from "react";
+import { connect } from "react-redux";
+import Cell      from "./cell";
+import descriptors from "../descriptors.json";
+import { addResultToParent } from "../reducers/results";
 import ReactCSSTransitionGroup from "react/lib/ReactCSSTransitionGroup";
-import Column      from "./column";
-import descriptors from "./descriptors.json";
-import {pick,some} from "lodash";
 
-export default class Row extends React.Component {
+const getResultTree = (results, root) => {
+	const denormalize = node => ({
+		...node,
+		children: node.children.map(id => denormalize(results[id])),
+	});
+
+	return denormalize(results[root]);
+};
+
+const mapStateToProps = (state, ownProps) => ({
+	root: getResultTree(state.results, ownProps.root),
+	context: descriptors,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+	onLabelClick: parent => label => dispatch(addResultToParent(parent, label)),
+	onRemove:     id => dispatch(removeResult(id)),
+});
+
+const Set = ({ root, context, onLabelClick, onRemove }) =>
+	<section className="mt-set">
+		<Cell {...root} context={context} onLabelClick={onLabelClick(root.id)} />
+		<div className="mt-children">
+			<ReactCSSTransitionGroup transitionName="mt-set"
+				transitionLeaveTimeout={1000} transitionEnterTimeout={1000}>
+			{root.children.map(child =>
+				<Set key={child.id} root={child} context={context[child.title]}
+					onLabelClick={onLabelClick} onRemove={() => onRemove(child.id)} />)}
+			</ReactCSSTransitionGroup>
+		</div>
+	</section>;
+
+Set.propTypes = {
+	root: React.PropTypes.object,
+	context: React.PropTypes.object,
+	onLabelClick: React.PropTypes.func,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Set);
+
+/*
+export default class Set extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -14,6 +56,10 @@ export default class Row extends React.Component {
 		};
 
 		this.onComplete = this.onComplete.bind(this);
+	}
+
+	static get contentTypes() {
+
 	}
 
 	static get propTypes() {
@@ -59,9 +105,9 @@ export default class Row extends React.Component {
 		return (
 			<div key="cols" className="mt-row-unfinished">
 				<div className="magic-triangle">
-					<Column context={descriptors} onComplete={this.onComplete} />
+					<Column onAddChild={console.log.bind(console)} context={descriptors} onComplete={this.onComplete} />
 					{this.state.results.length > 0 &&
-						<Column onComplete={this.onComplete} onCancel={this.onComplete}
+						<Column onAddChild={console.log.bind(console)} onComplete={this.onComplete} onCancel={this.onComplete}
 							context={pick(descriptors, this.state.results[0].labels)} />}
 					{this.state.results.length > 1 &&
 						<Column onComplete={this.onComplete} onCancel={this.onComplete}
@@ -115,4 +161,4 @@ export default class Row extends React.Component {
 			</div>
 		);
 	}
-}
+}*/
