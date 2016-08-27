@@ -101,6 +101,23 @@ h2 {
 h3 {
 	font-size: 1.5rem;
 	margin: 0 0 0.75rem;
+
+}
+
+.landing-page {
+	margin-bottom: 20px;
+
+	h3 {
+		float: left;
+		font-size: 1em;
+		line-height: 1.5;
+		padding-right: 10px;
+		margin: 0;
+	}
+
+	p {
+		margin: 0 0 10px;
+	}
 }
 
 textarea {
@@ -461,32 +478,21 @@ footer {
 }
 
 header {
-	form {
-		position: relative;
-		top: -2.6rem;
-
-		input[type=search] {
-			background: white;
-			border: 2px solid black;
-			float: right;
-			width: 15rem;
-		}
-
-		button {
-			float: right;
-			border-radius: 0;
-			border: 2px solid black;
-			border-left: 0;
-			padding: 0.55rem;
-			height: 2.35rem;
-			width: 2.35rem;
-			background: $accent-color url(/images/search.png) center center no-repeat;
-			background-size: 1rem 1rem;
-		}
+	input[type=search] {
+		background: white url(/images/search.png) 10px center / 12px 12px no-repeat;
+		margin-top: -3.1em;
+		padding-left: 30px;
+		border: 2px solid black;
+		border-radius: 10px;
+		float: right;
+		width: 12rem;
 	}
 
 	div {
+		padding: 20px 0;
+
 		background: $blackout-color;
+		background: linear-gradient(to bottom, $blackout-color 0%, #000000 100%);
 
 		> * {
 			padding: 0 0.75rem;
@@ -505,10 +511,16 @@ header {
 		font-size: 1.5em;
 
 		a {
+			text-indent: -30em;
+			display: inline-block;
+			background: transparent url(/images/maxfacts.png) top left / 100% 100% no-repeat;
+			height: 42px;
+			width: 250px;
 			color: white;
 
 			&:hover {
 				color: white;
+				opacity: 0.8;
 			}
 		}
 	}
@@ -530,8 +542,6 @@ header {
 	&.fill {
 		margin-bottom: 2rem;
 		div {
-			padding: 0.5rem 0 0.5rem;
-
 			> * {
 				padding: 0;
 			}
@@ -544,7 +554,7 @@ header {
 
 		p {
 			color: white;
-			margin-bottom: 0.5rem;
+			margin: 0 auto;
 		}
 	}
 }

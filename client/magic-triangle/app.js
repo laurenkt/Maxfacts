@@ -8,7 +8,8 @@ import Set from "./components/set.js";
 
 let store = createStore(reducer);
 
-const getRootResults = results => results.filter(r => typeof r.get("parent_id") === "undefined");
+const getRootResults = results =>
+	results.filter(r => !r.has("parent"));
 
 const mapStateToProps = ({results}) => {
 	return {
@@ -20,16 +21,14 @@ const mapDispatchToProps = {
 	onClick: addResult,
 };
 
-const MagicTriangle = connect(mapStateToProps, mapDispatchToProps)(({results, onClick}) => {
-	return (
-		<div>
-			<div className="magic-triangle">
-					{results.map(r => <Set key={r.id} root={r.id} />)}
-			</div>
-			<p><a href="#" onClick={onClick}>Button</a></p>
+const MagicTriangle = connect(mapStateToProps, mapDispatchToProps)(({results, onClick}) =>
+	<div>
+		<div className="magic-triangle">
+			{results.valueSeq().map(r => <Set key={r.get("id")} root={r.get("id")} />)}
 		</div>
-	);
-});
+		<p><a href="#" onClick={onClick}>Button</a></p>
+	</div>
+);
 
 document.addEventListener("DOMContentLoaded", _ => {
 	ReactDOM.render(<Provider store={store}><MagicTriangle /></Provider>, document.getElementById("magicTriangle"));

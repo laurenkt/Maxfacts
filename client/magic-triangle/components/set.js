@@ -2,16 +2,17 @@ import React       from "react";
 import { connect } from "react-redux";
 import Cell      from "./cell";
 import descriptors from "../descriptors.json";
-import { addResultToParent } from "../reducers/results";
+import { addResultToParent,
+	removeResult } from "../reducers/results";
 import ReactCSSTransitionGroup from "react/lib/ReactCSSTransitionGroup";
 
 const getResultTree = (results, root) => {
 	const denormalize = node => ({
-		...node,
-		children: node.children.map(id => denormalize(results[id])),
+		...node.toJS(),
+		children: node.get("children").map(id => denormalize(results.get(id))).toArray(),
 	});
 
-	return denormalize(results[root]);
+	return denormalize(results.get(root));
 };
 
 const mapStateToProps = (state, ownProps) => ({
@@ -19,28 +20,62 @@ const mapStateToProps = (state, ownProps) => ({
 	context: descriptors,
 });
 
+const clickDecorator = e => action => {
+	e.preventDefault();
+
+	action.click_coords = {
+		x: e.clientX,
+		y: e.clientY,
+	};
+
+	return action;
+};
+
 const mapDispatchToProps = (dispatch) => ({
-	onLabelClick: parent => label => dispatch(addResultToParent(parent, label)),
-	onRemove:     id => dispatch(removeResult(id)),
+	onLabelClick:  parent => (e, label) => {
+		return dispatch(clickDecorator(e)(addResultToParent(parent, label)));
+	},
+	onRemoveClick: (e, id) => {
+		return dispatch(clickDecorator(e)(removeResult(id)));
+	},
 });
 
-const Set = ({ root, context, onLabelClick, onRemove }) =>
-	<section className="mt-set">
-		<Cell {...root} context={context} onLabelClick={onLabelClick(root.id)} />
-		<div className="mt-children">
+let offsets = [];
+
+const register_offset_for_parent = parent_id => dom => {
+	if (!dom)
+		return;
+
+	const bounds = dom.getBoundingClientRect();
+	offsets[parent_id] = {
+		x: bounds.left,
+		y: bounds.top,
+	};
+};
+
+const transform_origin = child => ({
+	transformOrigin: `${0 - Math.round(offsets[child.parent].x - child.origin.x)}px ${0 - Math.round(offsets[child.parent].y - child.origin.y)}px`,
+});
+
+const Set = ({ root, context, onLabelClick, onRemoveClick, ...props }) =>
+	<section {...props} className="mt-set">
+		<Cell {...root} context={context}
+			onLabelClick={onLabelClick(root.id)} onRemoveClick={e => onRemoveClick(e, root.id)} />
+		<div ref={register_offset_for_parent(root.id)} className="mt-children">
 			<ReactCSSTransitionGroup transitionName="mt-set"
 				transitionLeaveTimeout={1000} transitionEnterTimeout={1000}>
 			{root.children.map(child =>
 				<Set key={child.id} root={child} context={context[child.title]}
-					onLabelClick={onLabelClick} onRemove={() => onRemove(child.id)} />)}
+					onLabelClick={onLabelClick} onRemoveClick={onRemoveClick} style={transform_origin(child)} />)}
 			</ReactCSSTransitionGroup>
 		</div>
 	</section>;
 
 Set.propTypes = {
-	root: React.PropTypes.object,
-	context: React.PropTypes.object,
-	onLabelClick: React.PropTypes.func,
+	root:          React.PropTypes.object.isRequired,
+	context:       React.PropTypes.object.isRequired,
+	onLabelClick:  React.PropTypes.func.isRequired,
+	onRemoveClick: React.PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Set);

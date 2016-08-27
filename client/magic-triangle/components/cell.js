@@ -22,11 +22,12 @@ export default class Cell extends React.Component {
 
 	static get propTypes() {
 		return {
-			title:       React.PropTypes.string,
-			context:     React.PropTypes.object.isRequired,
-			ratios:      React.PropTypes.arrayOf(React.PropTypes.number),
-			severity:    React.PropTypes.number,
-			onLabelClick:React.PropTypes.func.isRequired,
+			title:         React.PropTypes.string,
+			context:       React.PropTypes.object.isRequired,
+			ratios:        React.PropTypes.arrayOf(React.PropTypes.number),
+			severity:      React.PropTypes.number,
+			onLabelClick:  React.PropTypes.func.isRequired,
+			onRemoveClick: React.PropTypes.func.isRequired,
 		};
 	}
 
@@ -51,24 +52,17 @@ export default class Cell extends React.Component {
 
 	decorateLabels() {
 		return this.state.selected.map(label => {
-			var current_context = this.props.context[label];
-			if (!current_context)
+			if (!this.props.context[label])
 				return label;
 
-			return (
-				<a href="#" onClick={e => {
-					// Otherwise the page will scroll
-					e.preventDefault();
-					// Pass to handler
-					this.props.onLabelClick(label);
-				}}>{label}</a>
-			);});
+			return <a href="#" onClick={e => this.props.onLabelClick(e, label)}>{label}</a>;
+		});
 	}
 
 	render() {
 		return (
 			<div className="mt-cell">
-				<h3>{this.state.title} {this.props.title && <a href="#" onClick={e => {e.preventDefault(); this.props.onRemove();}}>&#x2715; delete</a>}</h3>
+				<h3>{this.state.title} {this.props.title && <a href="#" onClick={this.props.onRemoveClick}>&#x2715; delete</a>}</h3>
 				{this.state.step == 0 &&
 					<div>
 						<p>Pick <strong>three</strong> categories to compare.</p>

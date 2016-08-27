@@ -18,25 +18,48 @@
 	a:active {
 		outline: 5px solid yellow;
 		background: yellow;
-	}
-
-	.mt-set ~ .mt-set {
-		margin-top: 10px;
-		border-top: 3px solid #888;
-		padding-top: 10px;
+		border-radius: 0;
 	}
 
 	.mt-set {
 		@include clearfix;
 
+		margin-bottom: 10px;
+		border-bottom: 3px solid #888;
+		padding-bottom: 10px;
+		transform-origin: 0 0;
+
+		&:last-child {
+			border-bottom: 0;
+		}
+
 		&-enter {
 			transform: scale(0, 0);
 			background: yellow;
+			max-height: 0;
+			overflow: hidden;
 
 			&-active {
+				max-height: 400px;
 				background: transparent;
 				transform: scale(1, 1);
-				transition: all 1000ms ease;
+				transition: all 1000ms ease, max-height 1000ms ease-out;
+			}
+		}
+
+		&-leave {
+			opacity: 1;
+			transform: scale(1, 1);
+			max-height: 400px;
+			overflow: hidden;
+
+			&-active {
+				max-height: 0;
+				opacity: 0;
+				padding-bottom: 0;
+				margin-bottom: 0;
+				transform: scale(0, 0);
+				transition: all 1000ms ease, max-height 1000ms ease-out;
 			}
 		}
 	}
