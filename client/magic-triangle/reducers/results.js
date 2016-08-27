@@ -14,19 +14,13 @@ export default function results(state = initialState, action) {
 		children: [],
 	});
 
-	const empty_result_exists = (parent, title) =>
-		state.filter(
-			result => result.get("parent") === parent &&
-				result.get("labels").size === 0 &&
-				result.get("title") === title).size > 0;
-
 	switch (action.type) {
 		case "ADD_RESULT":
 			lastResultId++;
 			return state.set(lastResultId, scaffold());
 		case "ADD_RESULT_TO_PARENT":
 			// Only do this if there isn't one there already
-			if (empty_result_exists(action.parent, action.title))
+			if (state.some(result => fromJS({parent:action.parent, title:action.title, labels:[]}).isSubset(result)))
 				return state;
 
 			lastResultId++;
