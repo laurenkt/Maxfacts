@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 import Cell      from "./cell";
 import descriptors from "../descriptors.json";
 import { addResultToParent,
-	removeResult } from "../reducers/results";
+	removeResult,
+	updateResult } from "../reducers/results";
 import ReactCSSTransitionGroup from "react/lib/ReactCSSTransitionGroup";
 
 const getResultTree = (results, root) => {
@@ -38,6 +39,9 @@ const mapDispatchToProps = (dispatch) => ({
 	onRemoveClick: (e, id) => {
 		return dispatch(clickDecorator(e)(removeResult(id)));
 	},
+	onCellChange: id => state => {
+		return dispatch(updateResult(id, state));
+	},
 });
 
 let offsets = [];
@@ -57,16 +61,17 @@ const transform_origin = child => ({
 	transformOrigin: `${0 - Math.round(offsets[child.parent].x - child.origin.x)}px ${0 - Math.round(offsets[child.parent].y - child.origin.y)}px`,
 });
 
-const Set = ({ root, context, onLabelClick, onRemoveClick, ...props }) =>
+const Set = ({ root, context, onLabelClick, onRemoveClick, onCellChange, ...props }) =>
 	<section {...props} className="mt-set">
 		<Cell {...root} context={context}
-			onLabelClick={onLabelClick(root.id)} onRemoveClick={e => onRemoveClick(e, root.id)} />
+			onLabelClick={onLabelClick(root.id)} onRemoveClick={e => onRemoveClick(e, root.id)}
+			onChange={onCellChange(root.id)} />
 		<div ref={register_offset_for_parent(root.id)} className="mt-children">
 			<ReactCSSTransitionGroup transitionName="mt-set"
 				transitionLeaveTimeout={1000} transitionEnterTimeout={1000}>
 			{root.children.map(child =>
 				<Set key={child.id} root={child} context={context[child.title]}
-					onLabelClick={onLabelClick} onRemoveClick={onRemoveClick} style={transform_origin(child)} />)}
+					onLabelClick={onLabelClick} onRemoveClick={onRemoveClick} onCellChange={onCellChange} style={transform_origin(child)} />)}
 			</ReactCSSTransitionGroup>
 		</div>
 	</section>;
@@ -76,6 +81,7 @@ Set.propTypes = {
 	context:       React.PropTypes.object.isRequired,
 	onLabelClick:  React.PropTypes.func.isRequired,
 	onRemoveClick: React.PropTypes.func.isRequired,
+	onCellChange:  React.PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Set);

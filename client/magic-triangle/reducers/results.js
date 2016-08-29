@@ -6,14 +6,15 @@ const scaffold = () => fromJS({
 	id:       lastResultId,
 	labels:   [],
 	selected: [],
-	ratios:   [0.3333, 0.3333, 0.3333],
-	severity: 0.5,
+	ratios:   undefined,
+	severity: undefined,
 	children: [],
 });
 
 const initialState = Map({}).set(lastResultId, scaffold());
 
 export default function results(state = initialState, action) {
+	console.log("ACTION", action);
 	switch (action.type) {
 		case "ADD_RESULT":
 			lastResultId++;
@@ -23,11 +24,14 @@ export default function results(state = initialState, action) {
 			if (state.some(result => fromJS({parent:action.parent, title:action.title, labels:[]}).isSubset(result)))
 				return state;
 
-			lastResultId++;
-			return state
-				.set(lastResultId, scaffold())
+			return results(state, addResult())
 				.mergeIn([lastResultId], {parent:action.parent, title:action.title, origin:action.click_coords})
 				.updateIn([action.parent, "children"], children => children.unshift(lastResultId));
+		case "UPDATE_RESULT":
+			return state
+				.mergeIn([action.id], 
+					fromJS({ratios:action.ratios, severity:action.severity, selected:action.selected})
+					.filterNot(val => typeof val === "undefined"));
 		case "REMOVE_RESULT":
 			// Skip this if already deleted (e.g. if the user clicks delete again whilst it
 			// transitions out)
@@ -60,5 +64,11 @@ export const addResultToParent = (parent, title) => ({
 
 export const removeResult = id => ({
 	type: "REMOVE_RESULT",
+	id,
+});
+
+export const updateResult = (id, state) => ({
+	...state,
+	type: "UPDATE_RESULT",
 	id,
 });
