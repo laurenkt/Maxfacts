@@ -62,7 +62,7 @@ export default class Cell extends React.Component {
 	render() {
 		return (
 			<div className="mt-cell">
-				<h3>{this.state.title} {this.props.title && <a href="#" onClick={this.props.onRemoveClick}>&#x2715; delete</a>}</h3>
+				<h3>{this.state.title} {this.props.title && <a href="#" onClick={this.props.onRemoveClick}>&#x2715;</a>}</h3>
 				{this.state.step == 0 &&
 					<div>
 						<p>Pick <strong>three</strong> categories to compare.</p>

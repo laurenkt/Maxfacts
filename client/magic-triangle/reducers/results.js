@@ -2,18 +2,18 @@ import { Map, fromJS } from "immutable";
 
 let lastResultId = 0;
 
-const initialState = Map({});
+const scaffold = () => fromJS({
+	id:       lastResultId,
+	labels:   [],
+	selected: [],
+	ratios:   [0.3333, 0.3333, 0.3333],
+	severity: 0.5,
+	children: [],
+});
+
+const initialState = Map({}).set(lastResultId, scaffold());
 
 export default function results(state = initialState, action) {
-	const scaffold = () => fromJS({
-		id:       lastResultId,
-		labels:   [],
-		selected: [],
-		ratios:   [0.3333, 0.3333, 0.3333],
-		severity: 0.5,
-		children: [],
-	});
-
 	switch (action.type) {
 		case "ADD_RESULT":
 			lastResultId++;

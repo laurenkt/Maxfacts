@@ -26,7 +26,7 @@ const MagicTriangle = connect(mapStateToProps, mapDispatchToProps)(({results, on
 		<div className="magic-triangle">
 			{results.valueSeq().map(r => <Set key={r.get("id")} root={r.get("id")} />)}
 		</div>
-		<p><a href="#" onClick={onClick}>Button</a></p>
+		<p><button className="accent" onClick={onClick}>Add Another</button></p>
 	</div>
 );
 
