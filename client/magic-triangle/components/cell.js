@@ -9,13 +9,6 @@ export default class Cell extends React.Component {
 		super(props);
 
 		this.descriptors = keys(props.context);
-
-		this.state = {
-			selected: this.descriptors.length == 3 ? this.descriptors : (props.selected || []),
-			ratios:   props.ratios   || undefined,
-			severity: props.severity || undefined,
-			title:    props.title    || String.fromCodePoint(0x00A0), // non-breaking space
-		};
 	}
 
 	static get propTypes() {
@@ -35,15 +28,20 @@ export default class Cell extends React.Component {
 		const derived_step = () =>
 			typeof this.props.severity === "undefined" && typeof this.props.ratios === "undefined" ? 0 : 1;
 
-		const button_label = (num_remaining = 3 - this.props.selected.length) =>
-			num_remaining === 0 ? "Next" : `Choose ${num_remaining} more`;
-
 		const plot_label = name => {
 			if (!this.props.context[name])
 				return name;
 			else
 				return <a href="#" onClick={e => this.props.onLabelClick(e, name)}>{name}</a>;
 		};
+
+		var { selected } = this.props;
+
+		if (!selected.length && this.descriptors.length === 3)
+			selected = this.descriptors;
+
+		const button_label = (num_remaining = 3 - selected.length) =>
+			num_remaining === 0 ? "Next" : `Choose ${num_remaining} more`;
 
 		return (
 			<div className="mt-cell">
@@ -54,10 +52,11 @@ export default class Cell extends React.Component {
 				{derived_step() === 0 &&
 					<div>
 						<p>Pick <strong>three</strong> categories to compare.</p>
-						<DescriptorList items={this.descriptors} selected={this.props.selected}
+						<DescriptorList items={this.descriptors}
+							selected={selected}
 							onSelection={selected => this.props.onChange({selected})} />
-						<button disabled={this.props.selected.length != 3}
-							onClick={_ => this.props.onChange({severity: 0.5, ratios:[0.3333, 0.3333, 0.3333]})}>{button_label()}</button>
+						<button disabled={selected.length != 3}
+							onClick={_ => this.props.onChange({severity: 0.5, ratios:[0.3333, 0.3333, 0.3333], selected:selected})}>{button_label()}</button>
 					</div>}
 				{derived_step() === 1 &&
 					<div>

@@ -7,9 +7,9 @@ export default class TernaryPlot extends React.Component {
 
 		// These need to be bound here rather than in-line, so that document.removeEventListener
 		// can be passed a direct reference to the event listeners
-		this.onMouseDown     = this.onMouseDown.bind(this);
-		this.onMouseMove     = this.onMouseMove.bind(this);
-		this.onMouseUp       = this.onMouseUp.bind(this);
+		this.onMouseDown = this.onMouseDown.bind(this);
+		this.onMouseMove = this.onMouseMove.bind(this);
+		this.onMouseUp   = this.onMouseUp.bind(this);
 
 		this.state = {
 			// A, B, and C values corresponding to the three points of the triangle
@@ -102,7 +102,7 @@ export default class TernaryPlot extends React.Component {
 		var other = omit(this.props, ["className", "severity", "labels", "values", "onChange"]);
 
 		return (
-			<div {...other} className={"-tp " + (this.props.className || "")}>
+			<div {...other} className="-tp">
 				<div className="-tp-labels">
 					<p className="-tp-label-a" style={this.computeWeight(this.state.a)}>{this.props.labels[0]}</p>
 					<p className="-tp-label-b" style={this.computeWeight(this.state.b)}>{this.props.labels[1]}</p>
@@ -110,7 +110,11 @@ export default class TernaryPlot extends React.Component {
 				</div>
 				<div ref={ref => this._plotDom = ref} style={plotStyles}
 					className="-tp-plot" onMouseDown={this.onMouseDown}>
-					<div className="-tp-marker" style={{top: `${P.y/0.866025}%`, left: `${P.x}%`, opacity: 0.3+(this.props.severity*0.7)}}></div>
+					<div className="-tp-marker" style={{
+						top: `${P.y/0.866025}%`,
+						left: `${P.x}%`,
+						opacity: 0.3+(this.props.severity*0.7),
+					}}></div>
 				</div>
 			</div>
 		);
@@ -131,6 +135,10 @@ export default class TernaryPlot extends React.Component {
 
 		document.removeEventListener("mousemove", this.onMouseMove);
 		document.removeEventListener("mouseup",   this.onMouseUp);
+
+		// Pass data to parent
+		if (this.props.onChange)
+			this.props.onChange([this.state.a, this.state.b, this.state.c]);
 	}
 
 	static wrapPointWithinTriangle(point, width, height) {
@@ -239,10 +247,6 @@ export default class TernaryPlot extends React.Component {
 
 		// Update the state
 		this.setState(values);
-
-		// Pass data to parent
-		if (this.props.onChange)
-			this.props.onChange([values.a, values.b, values.c]);
 	}
 
 	static isPointWithinTriangle(point, width, height) {
