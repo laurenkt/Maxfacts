@@ -54,7 +54,7 @@ export default class Cell extends React.Component {
 						<p>Pick <strong>three</strong> categories to compare.</p>
 						<DescriptorList items={this.descriptors}
 							selected={selected}
-							onSelection={selected => this.props.onChange({selected})} />
+							onSelection={sel => this.props.onChange({sel})} />
 						<button disabled={selected.length != 3}
 							onClick={_ => this.props.onChange({severity: 0.5, ratios:[0.3333, 0.3333, 0.3333], selected:selected})}>{button_label()}</button>
 					</div>}
