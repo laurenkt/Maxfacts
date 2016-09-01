@@ -6,7 +6,6 @@ import { addResultToParent,
 	removeResult,
 	updateResult,
 	copyResult} from "../reducers/results";
-import ReactCSSTransitionGroup from "react/lib/ReactCSSTransitionGroup";
 
 const getResultTree = (results, root) => {
 	const denormalize = node => ({
@@ -71,12 +70,9 @@ const Set = ({ root, context, onLabelClick, onRemoveClick, onCellChange, onCopyC
 			onLabelClick={onLabelClick(root.id)} onRemoveClick={onRemoveClick}
 			onCopyClick={onCopyClick(root.id)} onChange={onCellChange(root.id)} />
 		<div ref={register_offset_for_parent(root.id)} className="mt-children">
-			<ReactCSSTransitionGroup transitionName="mt-set"
-				transitionLeave={false} transitionEnterTimeout={1000}>
 			{root.children.map(child =>
 				<Set key={child.id} root={child} context={context[child.title]}
 					onLabelClick={onLabelClick} onCopyClick={onCopyClick} onRemoveClick={onRemoveClick} onCellChange={onCellChange} style={transform_origin(child)} />)}
-			</ReactCSSTransitionGroup>
 		</div>
 	</section>;
 
