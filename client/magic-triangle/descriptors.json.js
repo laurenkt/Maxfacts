@@ -1,11 +1,13 @@
 export default {
 	"Appearance": {
+		__description: "",
 		"Self": null,
 		"Others Private": null,
 		"Others Public": null,
 	},
 	"Eating/Drinking": {
 		"Inability to Swallow": {
+			__description: " about what you have trouble swallowing",
 			"Dry Mouth": null,
 			"Fluids": null,
 			"Solids": null,
@@ -18,13 +20,15 @@ export default {
 	},
 	"Fatigue": {
 		"Physically Exhausted": {
-			"Unable to do everyday stuff": null,
-			"Unable to do gentle exercise": null,
-			"Unable to do strenuous excercise": null,
+			__description: " about what physical exhaustion prevents you from doing",
+			"Everyday stuff": null,
+			"Gentle exercise": null,
+			"Strenuous excercise": null,
 		},
 		"Mentally Exhausted": {
-			"Physically capable but still unable to do everyday stuff": null,
-			"Unable to concentrate": null,
+			__description: " about what mental exhaustion stops you from doing",
+			"Unable to do everyday stuff": null,
+			"Poor concentration": null,
 			"Brain fog/thinking and coordination impaired": null,
 		},
 		"Emotionally Exhausted": {

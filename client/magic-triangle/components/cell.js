@@ -39,8 +39,8 @@ const StatelessCell = props => {
 				<h3><span className="selected">{props.title}</span></h3>}
 			{step === 0 &&
 				<div>
-					<p>Pick <strong>three</strong> categories to compare.</p>
-					<DescriptorList items={Object.keys(props.context)}
+					<p>{"Pick three things to compare" + (props.context.__description || "") + "."}</p>
+					<DescriptorList items={Object.keys(props.context).filter(name => name != "__description")}
 						selected={props.selected}
 						onSelection={selected => props.onChange({selected})} />
 					<button disabled={props.selected.length != 3}
