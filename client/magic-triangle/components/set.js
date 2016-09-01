@@ -4,7 +4,8 @@ import Cell      from "./cell";
 import descriptors from "../descriptors.json";
 import { addResultToParent,
 	removeResult,
-	updateResult } from "../reducers/results";
+	updateResult,
+	copyResult} from "../reducers/results";
 import ReactCSSTransitionGroup from "react/lib/ReactCSSTransitionGroup";
 
 const getResultTree = (results, root) => {
@@ -33,7 +34,10 @@ const clickDecorator = e => action => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-	onLabelClick:  parent => (e, label) => {
+	onCopyClick: id => _ => {
+		return dispatch(copyResult(id));
+	},
+	onLabelClick: parent => (e, label) => {
 		return dispatch(clickDecorator(e)(addResultToParent(parent, label)));
 	},
 	onRemoveClick: (e, id) => {
@@ -58,20 +62,20 @@ const register_offset_for_parent = parent_id => dom => {
 };
 
 const transform_origin = child => ({
-	transformOrigin: `${0 - Math.round(offsets[child.parent].x - child.origin.x)}px ${0 - Math.round(offsets[child.parent].y - child.origin.y)}px`,
+	transformOrigin: offsets[child.parent] ? `${0 - Math.round(offsets[child.parent].x - child.origin.x)}px ${0 - Math.round(offsets[child.parent].y - child.origin.y)}px` : "0 0",
 });
 
-const Set = ({ root, context, onLabelClick, onRemoveClick, onCellChange, ...props }) =>
+const Set = ({ root, context, onLabelClick, onRemoveClick, onCellChange, onCopyClick, ...props }) =>
 	<section {...props} className="mt-set">
 		<Cell {...root} context={context}
 			onLabelClick={onLabelClick(root.id)} onRemoveClick={onRemoveClick}
-			onChange={onCellChange(root.id)} />
+			onCopyClick={onCopyClick(root.id)} onChange={onCellChange(root.id)} />
 		<div ref={register_offset_for_parent(root.id)} className="mt-children">
 			<ReactCSSTransitionGroup transitionName="mt-set"
-				transitionLeaveTimeout={1000} transitionEnterTimeout={1000}>
+				transitionLeave={false} transitionEnterTimeout={1000}>
 			{root.children.map(child =>
 				<Set key={child.id} root={child} context={context[child.title]}
-					onLabelClick={onLabelClick} onRemoveClick={onRemoveClick} onCellChange={onCellChange} style={transform_origin(child)} />)}
+					onLabelClick={onLabelClick} onCopyClick={onCopyClick} onRemoveClick={onRemoveClick} onCellChange={onCellChange} style={transform_origin(child)} />)}
 			</ReactCSSTransitionGroup>
 		</div>
 	</section>;
@@ -81,6 +85,7 @@ Set.propTypes = {
 	context:       React.PropTypes.object.isRequired,
 	onLabelClick:  React.PropTypes.func.isRequired,
 	onRemoveClick: React.PropTypes.func.isRequired,
+	onCopyClick:   React.PropTypes.func.isRequired,
 	onCellChange:  React.PropTypes.func.isRequired,
 };
 

@@ -13,7 +13,7 @@ const ComponentWithDefaultSelected = component => props => {
 };
 
 const StatelessCell = props => {
-	const can_have_children = props.selected.every(label => props.context[label]);
+	const can_have_children = props.selected.some(label => props.context[label]);
 
 	const plot_label = name => {
 		if (!props.context[name])
@@ -56,8 +56,7 @@ const StatelessCell = props => {
 						onChange={severity => props.onChange({severity})} />
 				</div>}
 			{step === 1 && can_have_children &&
-				<p><button>Copy this triangle</button>&nbsp;</p>}
-			<p><button onClick={props.onRemoveClick}>Delete</button></p>
+				<p><button onClick={props.onCopyClick}>Copy this triangle</button>&nbsp;</p>}
 		</div>
 	);
 };
@@ -70,6 +69,7 @@ StatelessCell.PropTypes = {
 	ratios:        React.PropTypes.arrayOf(React.PropTypes.number),
 	severity:      React.PropTypes.number,
 	onChange:      React.PropTypes.func.isRequired,
+	onCopyClick:   React.PropTypes.func.isRequired,
 	onLabelClick:  React.PropTypes.func.isRequired,
 	onRemoveClick: React.PropTypes.func.isRequired,
 };
