@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-module.exports = class Slider extends React.Component {
+export default class Slider extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -12,7 +12,7 @@ module.exports = class Slider extends React.Component {
 
 		this.state = {
 			// Number from 0 to 1 representing the slider value
-			value: props.value
+			value: props.value,
 		};
 	}
 
@@ -25,14 +25,14 @@ module.exports = class Slider extends React.Component {
 			// Whether to draw labels
 			nolabels: React.PropTypes.bool,
 			// Whether the slider is disabled
-			disabled: React.PropTypes.bool
+			disabled: React.PropTypes.bool,
 		};
 	}
 
 	static get defaultProps() {
 		return {
 			// Right in the middle
-			value: 0.5
+			value: 0.5,
 		};
 	}
 
@@ -40,8 +40,8 @@ module.exports = class Slider extends React.Component {
 		function computeWeight(value) {
 			return {
 				fontWeight: (300 + Math.round(value * 4.0) * 100),
-				fontSize:   (90 + value * 30.0) + '%',
-				opacity:    (0.2 + (value * 0.8))
+				fontSize:   (90 + value * 30.0) + "%",
+				opacity:    (0.2 + (value * 0.8)),
 			};
 		}
 
@@ -60,7 +60,7 @@ module.exports = class Slider extends React.Component {
 		return (
 			<div className="-slider">
 				<div ref="slider" className="-slider-background" onMouseDown={this.onMouseDown}>
-					<div className="-slider-marker" style={{left: (this.state.value*100.0) + '%'}} />
+					<div className="-slider-marker" style={{left: (this.state.value*100.0) + "%"}} />
 					{// Only render labels if props.nolabels is not set
 						!this.props.nolabels &&
 							this.renderLabels()
@@ -74,13 +74,13 @@ module.exports = class Slider extends React.Component {
 		// Prevent the browser from treating this like a normal click
 		e.preventDefault();
 
-		// Only deal with the event if the element isn't disabled
+		// Only deal with the event if the element isn"t disabled
 		if (this.props.disabled)
 			return;
 
-		// We are effectively in 'drag' mode now, so capture the relevant mouse events
-		document.addEventListener('mousemove', this.onMouseMove);
-		document.addEventListener('mouseup',   this.onMouseUp);
+		// We are effectively in "drag" mode now, so capture the relevant mouse events
+		document.addEventListener("mousemove", this.onMouseMove);
+		document.addEventListener("mouseup",   this.onMouseUp);
 
 		// Process the event like a normal mouse move (to begin dragging)
 		this.onMouseMove(e);
@@ -102,18 +102,18 @@ module.exports = class Slider extends React.Component {
 
 		// Set new position
 		this.setState({value: x / width});
-
-		// Propogate callback to parent
-		if (this.props.onChange)
-			this.props.onChange(x / width);
 	}
 
 	onMouseUp(e) {
 		// Cancel normal browser mouse behaviour
 		e.preventDefault();
 
-		// Don't need to listen to these events again until another mouse down
-		document.removeEventListener('mousemove', this.onMouseMove);
-		document.removeEventListener('mouseup',   this.onMouseUp);
+		// Don"t need to listen to these events again until another mouse down
+		document.removeEventListener("mousemove", this.onMouseMove);
+		document.removeEventListener("mouseup",   this.onMouseUp);
+
+		// Propogate changes to callback
+		if (this.props.onChange)
+			this.props.onChange(this.state.value);
 	}
 }
