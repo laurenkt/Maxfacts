@@ -13,9 +13,14 @@ const ComponentWithDefaultSelected = component => props => {
 };
 
 const StatelessCell = props => {
+	const can_have_children = props.selected.every(label => props.context[label]);
+
 	const plot_label = name => {
 		if (!props.context[name])
 			return name;
+		else
+		if (props.children.length && props.children[0].title === name)
+			return <a className="selected" href="#" onClick={e => props.onRemoveClick(e, props.children[0].id)}>{name}</a>;
 		else
 			return <a href="#" onClick={e => props.onLabelClick(e, name)}>{name}</a>;
 	};
@@ -23,16 +28,16 @@ const StatelessCell = props => {
 	const derived_step = (severity, ratios) =>
 		typeof severity === "undefined" && typeof ratios === "undefined" ? 0 : 1;
 
+	const step = derived_step(props.severity, props.ratios);
+
 	const button_label = num_selected =>
 		num_selected === 3 ? "Next" : `Choose ${3 - num_selected} more`;
 
 	return (
 		<div className="mt-cell">
-			<h3>
-				{props.title || String.fromCodePoint(0x00A0)}
-				{props.title && <a href="#" onClick={props.onRemoveClick}>&#x2715;</a>}
-			</h3>
-			{derived_step(props.severity, props.ratios) === 0 &&
+			{props.title &&
+				<h3><span className="selected">{props.title}</span></h3>}
+			{step === 0 &&
 				<div>
 					<p>Pick <strong>three</strong> categories to compare.</p>
 					<DescriptorList items={Object.keys(props.context)}
@@ -43,18 +48,22 @@ const StatelessCell = props => {
 						{button_label(props.selected.length)}
 					</button>
 				</div>}
-			{derived_step(props.severity, props.ratios) === 1 &&
+			{step === 1 &&
 				<div>
 					<TernaryPlot values={props.ratios} labels={props.selected.map(plot_label)}
 						onChange={ratios => props.onChange({ratios})} />
 					<Slider value={props.severity}
 						onChange={severity => props.onChange({severity})} />
 				</div>}
+			{step === 1 && can_have_children &&
+				<p><button>Copy this triangle</button>&nbsp;</p>}
+			<p><button onClick={props.onRemoveClick}>Delete</button></p>
 		</div>
 	);
 };
 
 StatelessCell.PropTypes = {
+	children:      React.PropTypes.array,
 	title:         React.PropTypes.string,
 	context:       React.PropTypes.object.isRequired,
 	selected:      React.PropTypes.arrayOf(React.PropTypes.string),

@@ -26,7 +26,7 @@ export default function results(state = initialState, action) {
 
 			return results(state, addResult())
 				.mergeIn([lastResultId], {parent:action.parent, title:action.title, origin:action.click_coords})
-				.updateIn([action.parent, "children"], children => children.unshift(lastResultId));
+				.setIn([action.parent, "children"], fromJS([lastResultId]));
 		case "UPDATE_RESULT":
 			return state
 				.mergeIn([action.id], 

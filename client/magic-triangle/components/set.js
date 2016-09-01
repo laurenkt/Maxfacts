@@ -64,7 +64,7 @@ const transform_origin = child => ({
 const Set = ({ root, context, onLabelClick, onRemoveClick, onCellChange, ...props }) =>
 	<section {...props} className="mt-set">
 		<Cell {...root} context={context}
-			onLabelClick={onLabelClick(root.id)} onRemoveClick={e => onRemoveClick(e, root.id)}
+			onLabelClick={onLabelClick(root.id)} onRemoveClick={onRemoveClick}
 			onChange={onCellChange(root.id)} />
 		<div ref={register_offset_for_parent(root.id)} className="mt-children">
 			<ReactCSSTransitionGroup transitionName="mt-set"

@@ -1,6 +1,5 @@
 .magic-triangle {
 	@include outer-container;
-
 	h3 {
 		text-align: center;
 
@@ -15,10 +14,18 @@
 		}
 	}
 
-	a:active {
-		outline: 5px solid yellow;
-		background: yellow;
-		border-radius: 0;
+	a {
+		&.selected {
+			background: black;
+			color: white;
+			outline: 5px solid black;
+		}
+
+		&:active {
+			outline: 5px solid yellow;
+			background: yellow;
+			border-radius: 0;
+		}
 	}
 
 	.mt-set {
