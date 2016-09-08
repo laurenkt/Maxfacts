@@ -68,6 +68,14 @@ router.get("/:uri(*)", (req, res, next) => {
 
 					content.directory = directory;
 
+					// Make sure first level is always in set order
+					if (content.directory[0][1].uri === "help") {
+						// Swap with treatment
+						var tmp = content.directory[0][1];
+						content.directory[0][1] = content.directory[0][2];
+						content.directory[0][2] = tmp;
+					}
+
 					// Provide a way for the template to lookup whether a URI is selected
 					content.selected = {};
 					content.lineage.forEach(uri => content.selected[uri] = "selected");
