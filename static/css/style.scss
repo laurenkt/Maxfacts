@@ -193,14 +193,8 @@ figure {
 	width: 100%;
 	max-width: 500px;
 	margin: 0 auto $small-spacing;
-	font-style: italic;
-	text-align: center;
-
-	figcaption::before {
-		content: "Above figure: ";
-		font-style: normal;
-		font-weight: bold;
-	}
+	background: #eee;
+	padding: 10px;
 }
 
 table {
