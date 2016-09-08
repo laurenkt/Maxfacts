@@ -62,7 +62,9 @@ router.get("/:uri(*)", (req, res, next) => {
 
 					// Don"t display children if there is content
 					if (content.body && content.body != "")
-						directory.pop();
+						// Unless it's a top level
+						if (content.uri.split("/").length != 1)
+							directory.pop();
 
 					content.directory = directory;
 
