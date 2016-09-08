@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "DEBUG=maxfacts nodemon --exec babel-node -- ./bin/www"
+    "start": "DEBUG=maxfacts nodemon --exec babel-node -- ./bin/www",
+    "backup": "mongodump -d maxfacts -o ./backups/$(date \"+%Y-%m-%d-%Hh-%Mm\")"
   },
   "dependencies": {
     "bcrypt": "^0.8.7",

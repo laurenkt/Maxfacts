@@ -2,96 +2,97 @@ export default {
 	"Appearance": {
 		__description: "",
 		"Self": null,
-		"Others Private": null,
-		"Others Public": null,
+		"Others in private": null,
+		"Others in public":  null,
 	},
-	"Eating/Drinking": {
-		"Inability to Swallow": {
+	"Eating/drinking": {
+		"Inability to swallow": {
 			__description: " about what you have trouble swallowing",
-			"Dry Mouth": null,
-			"Fluids": null,
-			"Solids": null,
+			"Dry mouth": null,
+			"Fluids":    null,
+			"Solids":    null,
 		},
-		"Loss of Appetite": null,
-		"Impaired Taste/Smell": null,
-		"Inability to Chew": null,
-		"Embarrassment": null,
-		"Voluntary/involuntary Swallowing": null,
+		"Loss of appetite":  null,
+		"Impaired taste/smell": null,
+		"Inability to chew": null,
+		"Embarrassment":     null,
+		"Voluntary/involuntary swallowing": null,
 	},
 	"Fatigue": {
-		"Physically Exhausted": {
+		__description: "",
+		"Physically exhausted": {
 			__description: " about what physical exhaustion prevents you from doing",
-			"Everyday stuff": null,
-			"Gentle exercise": null,
+			"Everyday stuff":      null,
+			"Gentle exercise":     null,
 			"Strenuous excercise": null,
 		},
-		"Mentally Exhausted": {
+		"Mentally exhausted": {
 			__description: " about what mental exhaustion stops you from doing",
 			"Unable to do everyday stuff": null,
 			"Poor concentration": null,
-			"Brain fog/thinking and coordination impaired": null,
+			"Brain fog": null,
 		},
-		"Emotionally Exhausted": {
-			"Self": null,
-			"Private/Partner": null,
+		"Emotionally exhausted": {
+			"Self":   null,
+			"Private/partner": null,
 			"Public": null,
 		},
 	},
 	"Pain": {
 		"Severity": {
 			"Interference with everyday functioning": null,
-			"Sleep interruption": null,
+			"Sleep interruption":     null,
 			"Insufficient analgesia": null,
 			"Mood": null,
 		},
 		"Frequency": {
 			"Interference with everyday functioning": null,
-			"Sleep interruption": null,
+			"Sleep interruption":     null,
 			"Insufficient analgesia": null,
 			"Mood": null,
 		},
 		"Longevity": {
 			"Interference with everyday functioning": null,
-			"Sleep interruption": null,
+			"Sleep interruption":     null,
 			"Insufficient analgesia": null,
 			"Mood": null,
 		},
 	},
-	"Intimacy/Sex": {
-		"Self": null,
+	"Intimacy/sex": {
+		"Self":    null,
 		"Partner": null,
-		"Other": null,
+		"Other":   null,
 	},
 	"Talking": {
 		"Family": {
-			"Exhausting": null,
-			"Slurred": null,
-			"Embarrassing": null,
+			"Exhausting":         null,
+			"Slurred":            null,
+			"Embarrassing":       null,
 			"Hard to understand": null,
 		},
 		"Friends": {
-			"Exhausting": null,
-			"Slurred": null,
-			"Embarrassing": null,
+			"Exhausting":         null,
+			"Slurred":            null,
+			"Embarrassing":       null,
 			"Hard to understand": null,
 		},
 		"Public": {
-			"Exhausting": null,
-			"Slurred": null,
-			"Embarrassing": null,
+			"Exhausting":         null,
+			"Slurred":            null,
+			"Embarrassing":       null,
 			"Hard to understand": null,
 		},
 		"Phone": {
-			"Exhausting": null,
-			"Slurred": null,
-			"Embarrassing": null,
+			"Exhausting":         null,
+			"Slurred":            null,
+			"Embarrassing":       null,
 			"Hard to understand": null,
 		},
 	},
 	"Work": {
 		"Ability": null,
-		"Desire": null,
-		"Need": null,
+		"Desire":  null,
+		"Need":    null,
 	},
 };
 

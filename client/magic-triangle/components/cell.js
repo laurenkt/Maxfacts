@@ -4,9 +4,10 @@ import Slider         from "./slider";
 import DescriptorList from "./descriptor-list";
 
 const ComponentWithDefaultSelected = component => props => {
+	let descriptors;
 	// If there is no selection, and there are exactly three descriptors to choose from
-	if (!props.selected.length && Object.keys(props.context).length === 3)
-		return component({...props, selected: Object.keys(props.context)});
+	if (!props.selected.length && (descriptors = Object.keys(props.context).filter(label => label != "__description")).length === 3)
+		return component({...props, selected: descriptors});
 
 	// Otherwise invoke the component without modifying props
 	return component(props);
