@@ -19,20 +19,21 @@ export default {
 		"Voluntary/involuntary swallowing": null,
 	},
 	"Fatigue": {
-		__description: "",
-		"Physically exhausted": {
+		__description: " about how fatigue affects you",
+		"Physically": {
 			__description: " about what physical exhaustion prevents you from doing",
 			"Everyday stuff":      null,
 			"Gentle exercise":     null,
 			"Strenuous excercise": null,
 		},
-		"Mentally exhausted": {
+		"Mentally": {
 			__description: " about what mental exhaustion stops you from doing",
 			"Unable to do everyday stuff": null,
 			"Poor concentration": null,
 			"Brain fog": null,
 		},
-		"Emotionally exhausted": {
+		"Emotionally": {
+			__description: " about which situations emotional fatigue affects you the most",
 			"Self":   null,
 			"Private/partner": null,
 			"Public": null,

@@ -56,8 +56,6 @@ const StatelessCell = props => {
 					<Slider value={props.severity}
 						onChange={severity => props.onChange({severity})} />
 				</div>}
-			{step === 1 && can_have_children &&
-				<p><button onClick={props.onCopyClick}>Copy this triangle</button>&nbsp;</p>}
 		</div>
 	);
 };
