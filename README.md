@@ -28,8 +28,8 @@ Stylesheets are implemented using Sass with the `.scss` extension - these are au
 
 Javascript in the `client` directory will be compiled with Babel supporting React/JSX.
 
-Making and Restoring from Backups
----------------------------------
+Backups
+-------
 
 Backups by default are made in the `backups/` directory.
 
