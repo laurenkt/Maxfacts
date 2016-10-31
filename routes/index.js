@@ -1,9 +1,11 @@
-var express = require("express");
-var router = express.Router();
-var Content = require("../models/content.js");
-const hbs = require("hbs");
-const sanitizeHtml = require("sanitize-html");
+import express      from "express";
+import Content      from "../models/content";
+import hbs          from "hbs";
+import sanitizeHtml from "sanitize-html";
 
+const router = express.Router();
+
+// TODO: Move this into a separate handler
 hbs.registerHelper("shift_headers", function (offset, text) {
 	var headers = ["h1", "h2", "h3", "h4", "h5", "h6"];
 	var transform = {};
@@ -22,20 +24,22 @@ hbs.registerHelper("shift_headers", function (offset, text) {
 	});
 });
 
-/* GET home page. */
+// Landing page
 router.get("/", (req, res) => {
+	// The three pillars of the home-page
 	Promise.all([
 		Content.findFromParentURI("diagnosis").sort("title").exec(),
 		Content.findFromParentURI("treatment").sort("title").exec(),
 		Content.findFromParentURI("help").sort("title").exec(),
 	])
 	.then(([diagnosis, treatment, help]) => {
+		// Use alternative layout
 		res.render("index", {diagnosis, treatment, help, layout:"layout-fill"});
 	});
 });
 
 // Directory handler
-router.get("/:uri(*)", (req, res, next) => {	
+router.get("/:uri(*)", (req, res, next) => {
 	Content.findOne( { uri: req.params.uri } )
 		.then(content => {
 			if (!content || content.type != "directory")
@@ -69,7 +73,8 @@ router.get("/:uri(*)", (req, res, next) => {
 
 					content.directory = directory;
 
-					// Make sure first level is always in set order
+					// Make sure first level is always in a certain order (Diagnosis, Treatment, Help)
+					// TODO: This is a bit hacky so maybe there should be another solution
 					if (content.directory[0][1].uri === "help") {
 						// Swap with treatment
 						var tmp = content.directory[0][1];
@@ -119,14 +124,17 @@ router.get("/:uri(*)", (req, res, next) => {
 					content.invalid_uris = uris;
 					content.breadcrumbs  = breadcrumbs;
 					
+					// Pass which document comes 'next' to the template
 					if (next_page[0])
 						content.next = next_page[0];
 
 					// Editor URI
 					content.edit_uri = "/dashboard/directory/" + content.uri;
 
+					// Standard template for layout
 					var template = "content";
 
+					// Some content types have customer renderers.. at the moment we will whitelist these in particular
 					if ((["level3", "level2", "level1"]).includes(content.type))
 						template = content.type;
 
