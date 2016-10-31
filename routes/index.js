@@ -119,8 +119,6 @@ router.get("/:uri(*)", (req, res, next) => {
 					content.invalid_uris = uris;
 					content.breadcrumbs  = breadcrumbs;
 					
-					console.log(next_page);
-
 					if (next_page[0])
 						content.next = next_page[0];
 
