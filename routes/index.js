@@ -25,9 +25,9 @@ hbs.registerHelper("shift_headers", function (offset, text) {
 /* GET home page. */
 router.get("/", (req, res) => {
 	Promise.all([
-		Content.findFromParentURI("diagnosis").exec(),
-		Content.findFromParentURI("treatment").exec(),
-		Content.findFromParentURI("help").exec(),
+		Content.findFromParentURI("diagnosis").sort("title").exec(),
+		Content.findFromParentURI("treatment").sort("title").exec(),
+		Content.findFromParentURI("help").sort("title").exec(),
 	])
 	.then(([diagnosis, treatment, help]) => {
 		res.render("index", {diagnosis, treatment, help, layout:"layout-fill"});
@@ -48,12 +48,13 @@ router.get("/:uri(*)", (req, res, next) => {
 						.map(uri => Content
 							.findFromAdjacentURI(uri)
 							.select("title type uri")
+							.sort("title")
 							.exec()
 						)
 					// Get siblings of the current page
-						.concat([Content.findFromAdjacentURI(content.uri).select("title type uri").exec()])
+						.concat([Content.findFromAdjacentURI(content.uri).select("title type uri").sort("title").exec()])
 					// Get children of the current page
-						.concat([Content.findFromParentURI(content.uri).select("title type uri").exec()])
+						.concat([Content.findFromParentURI(content.uri).select("title type uri").sort("title").exec()])
 					// Also get breadcrumbs
 						.concat([Content.findFromURIs(content.lineage).select("title uri").sort("uri").exec()])
 				)
