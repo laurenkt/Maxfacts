@@ -7,10 +7,10 @@ const router = express.Router();
 
 // TODO: Move this into a separate handler
 hbs.registerHelper("shift_headers", function (offset, text) {
-	var headers = ["h1", "h2", "h3", "h4", "h5", "h6"];
-	var transform = {};
+	const headers = ["h1", "h2", "h3", "h4", "h5", "h6"];
+	let transform = {};
 
-	for (var i = 0; i < 6; i++) {
+	for (let i = 0; i < 6; i++) {
 		// Don"t go off the edge of the array
 		transform[headers[i]] = headers[Math.min(i + offset, 5)];
 	}
@@ -77,7 +77,7 @@ router.get("/:uri(*)", (req, res, next) => {
 					// TODO: This is a bit hacky so maybe there should be another solution
 					if (content.directory[0][1].uri === "help") {
 						// Swap with treatment
-						var tmp = content.directory[0][1];
+						const tmp = content.directory[0][1];
 						content.directory[0][1] = content.directory[0][2];
 						content.directory[0][2] = tmp;
 					}
@@ -132,7 +132,7 @@ router.get("/:uri(*)", (req, res, next) => {
 					content.edit_uri = "/dashboard/directory/" + content.uri;
 
 					// Standard template for layout
-					var template = "content";
+					let template = "content";
 
 					// Some content types have customer renderers.. at the moment we will whitelist these in particular
 					if ((["level3", "level2", "level1"]).includes(content.type))
