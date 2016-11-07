@@ -65,11 +65,12 @@ router.get("/:uri(*)", (req, res, next) => {
 				.then(directory => {
 					content.breadcrumbs = directory.pop(); // The breadcrumb lineage will be the last item
 
+						/*
 					// Don"t display children if there is content
 					if (content.body && content.body != "")
 						// Unless it's a top level
 						if (content.uri.split("/").length != 1)
-							directory.pop();
+						directory.pop();*/
 
 					content.directory = directory;
 
@@ -88,8 +89,12 @@ router.get("/:uri(*)", (req, res, next) => {
 					// The current page too
 					content.selected[content.uri] = "selected";
 
-					// Level count
+					// How many levels are there in this branch
+					// TODO: is this being used for anything?
 					content.levels = directory.length;
+					// And what level are we currently at
+					content.deepness = content.lineage.length;
+
 					// Editor URI
 					content.edit_uri = "/dashboard/directory/" + content.uri;
 
