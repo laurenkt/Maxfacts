@@ -11,6 +11,7 @@ import mongoStore  from "connect-mongo";
 import browserify  from "browserify-middleware";
 import sass        from "node-sass-middleware";
 import passport    from "passport";
+import {Strategy}  from "passport-google-oauth20";
 import {join}      from "path";
 
 // Set-up Mongoose models
@@ -51,6 +52,16 @@ app.use(session({
 	store: new (mongoStore(session))({mongooseConnection: mongoose.connection}), // Store session data in mongodb
 }));
 
+passport.use(new Strategy({
+		clientID:     "374535397413-efev3hqdb8p7lprvjcp9h2bp3cpvnd5n.apps.googleusercontent.com",
+		clientSecret: "ZsuO8H9cLXvDUfieYLkUDHiT",
+		callbackURL:  "http://localhost:3000/dashboard/auth/callback"
+	}, (accessToken, refreshToken, profile, cb) => {
+		const email = profile.emails[0].value;
+		cb(null, email);
+	}
+));
+
 passport.serializeUser(function(user, cb) {
   cb(null, user);
 });
@@ -87,6 +98,10 @@ app.use("/magic-triangle", route("magic_triangle"));
 app.use("/dashboard",      route("dashboard"));
 app.use("/search",         route("search"));
 app.use("/",               route("index"));
+
+app.get("/auth", passport.authenticate("google", { scope: ["email"] } ));
+app.get("/auth/callback",
+	passport.authenticate("google", { successReturnToOrRedirect: "/", failureRedirect: "/error" }));
 
 // If nothing is found
 app.use((req, res, next) => {
