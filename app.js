@@ -58,7 +58,13 @@ passport.use(new Strategy({
 		callbackURL:  "http://localhost:3000/dashboard/auth/callback"
 	}, (accessToken, refreshToken, profile, cb) => {
 		const email = profile.emails[0].value;
-		cb(null, email);
+		// Must be a York e-mail
+		if (email.match(/.*@york\.ac\.uk/i) !== null) {
+			cb(null, email);
+		}
+		else {
+			cb({error: "Invalid email"}, null);
+		}
 	}
 ));
 
