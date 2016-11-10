@@ -10,6 +10,7 @@ import mongoose    from "mongoose";
 import mongoStore  from "connect-mongo";
 import browserify  from "browserify-middleware";
 import sass        from "node-sass-middleware";
+import passport    from "passport";
 import {join}      from "path";
 
 // Set-up Mongoose models
@@ -49,6 +50,17 @@ app.use(session({
 	resave: false,
 	store: new (mongoStore(session))({mongooseConnection: mongoose.connection}), // Store session data in mongodb
 }));
+
+passport.serializeUser(function(user, cb) {
+  cb(null, user);
+});
+
+passport.deserializeUser(function(obj, cb) {
+  cb(null, obj);
+});
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Babel for React/JSX
 app.use("/js", browserify(join(__dirname, "client"), {
