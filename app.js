@@ -1,16 +1,16 @@
 // Import environment variables from .env
 require("dotenv").config();
 
-import express      from "express";
-import session      from "express-session";
-import morgan       from "morgan";
-import chalk        from "chalk";
-import bodyParser   from "body-parser";
-import mongoose     from "mongoose";
-import mongoStore   from "connect-mongo";
-import browserify   from "browserify-middleware";
-import sass         from "node-sass-middleware";
-import {join}       from "path";
+import express     from "express";
+import session     from "express-session";
+import morgan      from "morgan";
+import chalk       from "chalk";
+import bodyParser  from "body-parser";
+import mongoose    from "mongoose";
+import mongoStore  from "connect-mongo";
+import browserify  from "browserify-middleware";
+import sass        from "node-sass-middleware";
+import {join}      from "path";
 
 // Set-up Mongoose models
 mongoose.Promise = global.Promise; // Required to squash a deprecation warning
@@ -47,7 +47,7 @@ app.use(session({
 	secret: "f8e1a0f9-e7a9-4e0d-8a2e-0624a3f62510", // Just a generated UUID
 	saveUninitialized: false,
 	resave: false,
-	store: new (mongoStore(session))({mongooseConnection: mongoose.connection}),
+	store: new (mongoStore(session))({mongooseConnection: mongoose.connection}), // Store session data in mongodb
 }));
 
 // Babel for React/JSX
