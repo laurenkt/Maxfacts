@@ -92,6 +92,7 @@ body > section {
 
 	max-width: 64rem;
 	margin: 0 auto 2rem;
+	width: 100%;
 	flex: 1;
 
 	.sidebar {
@@ -150,8 +151,6 @@ span.warn {
 }
 
 .directory-browser {
-	@include outer-container;
-
 	margin-top: $small-spacing;
 
 	h3 {

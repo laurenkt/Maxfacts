@@ -89,11 +89,10 @@ router.get("/:uri(*)", (req, res, next) => {
 					// The current page too
 					content.selected[content.uri] = "selected";
 
-					// How many levels are there in this branch
+					// Pass on how many levels there are in this branch
 					// TODO: is this being used for anything?
-					content.levels = directory.length;
-					// And what level are we currently at
-					content.deepness = content.lineage.length;
+					// And how deep we are into the branch
+					content.classes = `directory-browser levels-${directory.length} deepness-${content.lineage.length}`;
 
 					// Editor URI
 					content.edit_uri = "/dashboard/directory/" + content.uri;

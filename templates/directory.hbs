@@ -1,17 +1,17 @@
-<div class="directory-browser levels-{{levels}} deepness-{{deepness}}">
-	{{#each directory}}
-	<nav>
-		<ul>
-			{{#each this}}
-				<li><a href="/{{uri}}" class="{{type}} {{lookup ../../selected uri}}">{{title}}</a></li>
-			{{/each}}
-		</ul>
-	</nav>
-	{{/each}}
+{{#each directory}}
+<nav>
+	<ul>
+		{{#each this}}
+			<li><a href="/{{uri}}" class="{{type}} {{lookup ../../selected uri}}">{{title}}</a></li>
+		{{/each}}
+	</ul>
+</nav>
+{{/each}}
+<section>
+	<h3>{{title}}</h3>
 	{{#if body}}
-	<section>
-		<h3>{{title}}</h3>
 		{{{shift_headers 3 body}}}
-	</section>
+	{{else}}
+		<p>This section has no content yet.</p>
 	{{/if}}
-</div>
+</section>
