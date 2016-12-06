@@ -53,28 +53,24 @@ app.use(session({
 }));
 
 passport.use(new Strategy({
-		clientID:     "374535397413-efev3hqdb8p7lprvjcp9h2bp3cpvnd5n.apps.googleusercontent.com",
-		clientSecret: "ZsuO8H9cLXvDUfieYLkUDHiT",
-		callbackURL:  "http://localhost:3000/dashboard/auth/callback"
-	}, (accessToken, refreshToken, profile, cb) => {
-		const email = profile.emails[0].value;
-		// Must be a York e-mail
-		if (email.match(/.*@york\.ac\.uk/i) !== null) {
-			cb(null, email);
-		}
-		else {
-			cb({error: "Invalid email"}, null);
-		}
+	clientID:     "374535397413-efev3hqdb8p7lprvjcp9h2bp3cpvnd5n.apps.googleusercontent.com",
+	clientSecret: "ZsuO8H9cLXvDUfieYLkUDHiT",
+	callbackURL:  "http://lt696dev.york.ac.uk/dashboard/auth/callback",
+},
+(accessToken, refreshToken, profile, cb) => {
+	const email = profile.emails[0].value;
+	// Must be a York e-mail
+	if (email.match(/.*@york\.ac\.uk/i) !== null) {
+		cb(null, email);
 	}
+	else {
+		cb({error: "Invalid email"}, null);
+	}
+}
 ));
 
-passport.serializeUser(function(user, cb) {
-  cb(null, user);
-});
-
-passport.deserializeUser(function(obj, cb) {
-  cb(null, obj);
-});
+passport.serializeUser((user, cb)  => cb(null, user));
+passport.deserializeUser((obj, cb) => cb(null, obj));
 
 app.use(passport.initialize());
 app.use(passport.session());
