@@ -212,6 +212,33 @@ span.warn {
 			@include span-columns(5);
 		}
 	}
+
+	&.levels-4 {
+		nav:first-of-type,
+		nav:first-of-type + nav {
+			@include nav-column(1);
+
+			ul li a {
+				background-image: none!important;
+			}
+		}
+
+		nav:first-of-type + nav + nav {
+			@include nav-column(2.5);
+
+			ul li a {
+				background-image: none!important;
+			}
+		}
+
+		nav + nav {
+			@include nav-column(2.5);
+		}
+
+		section {
+			@include span-columns(5);
+		}
+	}
 }
 
 .sections {
