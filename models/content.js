@@ -55,6 +55,12 @@ ContentSchema.statics = {
 			.where("uri", new RegExp(parent != "" ? `^${parent}/[^/]+$` : "^[^/]+$"));
 	},
 
+	findAllBelowURI(uri) {
+		return this
+			.find()
+			.where("uri", new RegExp(`^${uri}.+$`));
+	},
+
 	findFromAdjacentURI(uri) {
 		return this.findFromParentURI(this.parentUriFragment(uri));
 	},
@@ -219,10 +225,20 @@ ContentSchema.post("save", function(content) {
 	// Need to update any other content if the URI changed
 	if (content._previousURI && content._previousURI != content.uri) {
 		// It was updated
+		// Update links in text
 		content.model("Content")
 			.find({ $text : { $search : content._previousURI } })
 			.exec()
 			.then(matches => Promise.all(matches.map(updateHREFs)))
+			.catch(console.error.bind(console));
+
+		// And update child URIs that contain the parent URI
+		content.model("Content").findAllBelowURI(content._previousURI)
+			.exec()
+			.then(pages => Promise.all(pages.map(page => {
+				page.uri = page.uri.replace(content._previousURI, content.uri);
+				return page.save();
+			})))
 			.catch(console.error.bind(console));
 	}
 });
