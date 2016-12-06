@@ -79,7 +79,9 @@ router.get("/new", (req, res) => {
 
 router.post("/new", (req, res) => {
 	var content = new Content(req.body);
-	content.save(saved_content => res.redirect(`/dashboard/directory/${saved_content.uri}?saved`));
+	content.save()
+		.then(saved_content => res.redirect(`/dashboard/directory/${saved_content.uri}?saved`))
+		.catch(console.error.bind(console));
 });
 
 router.get("/:uri(*)", (req, res, next) => {
@@ -104,7 +106,7 @@ router.post("/:uri(*)", (req, res) => {
 		item.type = req.body.type;
 		item.body = req.body.body;
 		item.description = req.body.description;
-		item.save(() => res.redirect(`/dashboard/directory/${item.uri}?saved`));
+		return item.save().then(() => res.redirect(`/dashboard/directory/${item.uri}?saved`));
 	})
 	.catch(console.error.bind(console));
 });
