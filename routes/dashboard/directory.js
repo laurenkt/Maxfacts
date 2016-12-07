@@ -78,6 +78,9 @@ router.get("/new", (req, res) => {
 });
 
 router.post("/new", (req, res) => {
+	// Normalize has_sublist checkbox
+	req.body.has_sublist = req.body.has_sublist && req.body.has_sublist === "on";
+
 	var content = new Content(req.body);
 	content.save()
 		.then(saved_content => res.redirect(`/dashboard/directory/${saved_content.uri}?saved`))
@@ -87,9 +90,13 @@ router.post("/new", (req, res) => {
 router.get("/:uri(*)", (req, res, next) => {
 	Content.findOne( { uri: req.params.uri } ).exec().then(content => {
 		if (content) {
+			// Determines whether to show notice about content being saved
 			content.saved = req.query.hasOwnProperty("saved");
+			// Prepare selected structure for template to render the select box
+			// This has to be done like this because Handlebars doesn't have a form builder
 			content.selected = {};
 			content.selected[content.type || "page"] = "selected";
+			// Use alternate page layout for dashboard
 			content.layout = "layout-dashboard";
 			res.render("dashboard/content", content);
 		}
@@ -101,11 +108,17 @@ router.get("/:uri(*)", (req, res, next) => {
 
 router.post("/:uri(*)", (req, res) => {
 	Content.findOne({uri: req.params.uri}).exec().then(item => {
-		item.uri = req.body.uri;
+		item.uri   = req.body.uri;
 		item.title = req.body.title;
-		item.type = req.body.type;
-		item.body = req.body.body;
+		item.type  = req.body.type;
+		item.body  = req.body.body;
+
+		// Normalize has_sublist checkbox
+		item.has_sublist = req.body.has_sublist && req.body.has_sublist === "on";
+
 		item.description = req.body.description;
+
+		// Redirect after saving
 		return item.save().then(() => res.redirect(`/dashboard/directory/${item.uri}?saved`));
 	})
 	.catch(console.error.bind(console));

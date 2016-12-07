@@ -24,6 +24,7 @@
 			<option value="level1"    {{lookup selected 'level1'}}   >Level 1</option>
 		</select>
 	</p>
+	<p><label for="has_sublist"><input type="checkbox" name="has_sublist" id="has_sublist" {{#if has_sublist}}checked{{/if}} />Has sub-list?</label></p>
 	<div><textarea id="body" name="body" rows="8">{{body}}</textarea></div>
 	<p><input type="submit" value="Save"></p>
 </form>

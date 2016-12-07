@@ -22,6 +22,7 @@ const ContentSchema = new mongoose.Schema({
 	description: {type: String},
 	title:      {type: String, default: ""},
 	type:       {type: String, default: "page"},
+	has_sublist: {type: Boolean, default: false},
 	contents:   {type: [{text: String, id: String}]},
 }, {
 	timestamps: true,

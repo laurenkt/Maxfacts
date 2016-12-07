@@ -2,7 +2,13 @@
 <nav>
 	<ul>
 		{{#each this}}
-			<li><a href="/{{uri}}" class="{{type}} {{lookup ../../selected uri}}">{{title}}</a></li>
+			<li><a href="/{{uri}}" class="{{type}} {{lookup ../../selected uri}}">
+				{{title}}
+				{{#if description}}
+					<br />
+					<small>{{description}}</small>
+				{{/if}}
+			</a></li>
 		{{/each}}
 	</ul>
 </nav>

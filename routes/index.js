@@ -51,14 +51,14 @@ router.get("/:uri(*)", (req, res, next) => {
 					// Get links from all parent stages
 						.map(uri => Content
 							.findFromAdjacentURI(uri)
-							.select("title type uri")
+							.select("title description type uri")
 							.sort("title")
 							.exec()
 						)
 					// Get siblings of the current page
-						.concat([Content.findFromAdjacentURI(content.uri).select("title type uri").sort("title").exec()])
+						.concat([Content.findFromAdjacentURI(content.uri).select("title description type uri").sort("title").exec()])
 					// Get children of the current page
-						.concat([Content.findFromParentURI(content.uri).select("title type uri").sort("title").exec()])
+						.concat([Content.findFromParentURI(content.uri).select("title description type uri").sort("title").exec()])
 					// Also get breadcrumbs
 						.concat([Content.findFromURIs(content.lineage).select("title uri").sort("uri").exec()])
 				)
