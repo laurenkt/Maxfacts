@@ -38,7 +38,7 @@ morgan.token("cstatus", (req, res) => {
 
 	return colorer(code);
 });
-app.use(morgan(`\u2753 ${chalk.yellow("Request:")}  :method ${chalk.inverse(":url")} (:time)`, {immediate:true}));
+app.use(morgan(`\u2753 ${chalk.yellow("Request:")} :method ${chalk.inverse(":url")} (:time)`, {immediate:true}));
 app.use(morgan(`\u2755 ${chalk.green("Response:")} :method ${chalk.inverse(":url")} :cstatus :response-time ms - :res[content-length]`));
 
 // Process POST request bodies
