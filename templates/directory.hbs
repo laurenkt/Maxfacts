@@ -9,6 +9,11 @@
 					<small>{{description}}</small>
 				{{/if}}
 			</a></li>
+			{{#if sublist}}
+				{{#each sublist}}
+					<li><a href="/{{uri}}" class="sublist {{type}}">{{title}}</a></li>
+				{{/each}}
+			{{/if}}
 		{{/each}}
 	</ul>
 </nav>

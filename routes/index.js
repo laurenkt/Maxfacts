@@ -51,28 +51,46 @@ router.get("/:uri(*)", (req, res, next) => {
 					// Get links from all parent stages
 						.map(uri => Content
 							.findFromAdjacentURI(uri)
-							.select("title description type uri")
+							.select("title has_sublist description type uri")
 							.sort("title")
 							.exec()
 						)
 					// Get siblings of the current page
-						.concat([Content.findFromAdjacentURI(content.uri).select("title description type uri").sort("title").exec()])
+						.concat([Content.findFromAdjacentURI(content.uri).select("title has_sublist description type uri").sort("title").exec()])
 					// Get children of the current page
-						.concat([Content.findFromParentURI(content.uri).select("title description type uri").sort("title").exec()])
+						.concat([Content.findFromParentURI(content.uri).select("title has_sublist description type uri").sort("title").exec()])
 					// Also get breadcrumbs
 						.concat([Content.findFromURIs(content.lineage).select("title uri").sort("uri").exec()])
 				)
+				.then(directory => new Promise((resolve, reject) => {
+					// Transform directory, adding sublists as necessary
+					// TODO: this is really a promise mess - there must be a clearer way to structure this
+					// Essentially return a composed promise of all columns, for each column return a composed promise
+					// of creating a sublist entry for each item which has a sublist (this must be a promise as it hits
+					// the DB)
+					Promise
+						.all(
+							directory
+								.map(column => Promise
+									.all(column
+										.filter(c => c.has_sublist)
+										.map(c =>
+											Content
+												.findFromParentURI(c.uri)
+												.select("title description type uri")
+												.sort("title")
+												.exec()
+												.then(sublist => c.sublist = sublist)
+										)
+									)
+								)
+						)
+						.then(() => resolve(directory))
+						.catch(reject);
+				}))
 				.then(directory => {
 					content.breadcrumbs = directory.pop(); // The breadcrumb lineage will be the last item
-
-						/*
-					// Don"t display children if there is content
-					if (content.body && content.body != "")
-						// Unless it's a top level
-						if (content.uri.split("/").length != 1)
-						directory.pop();*/
-
-					content.directory = directory;
+					content.directory = directory; // The rest are the directory
 
 					// Make sure first level is always in a certain order (Diagnosis, Treatment, Help)
 					// TODO: This is a bit hacky so maybe there should be another solution
