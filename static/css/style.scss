@@ -194,7 +194,7 @@ span.warn {
 		padding-left: 20px;
 	}
 
-	&.deepness-1 {
+	&.deepness-1, &.deepness-2 {
 		nav:first-of-type {
 			@include nav-column(2);
 			

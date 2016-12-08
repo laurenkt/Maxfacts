@@ -90,6 +90,11 @@ router.get("/:uri(*)", (req, res, next) => {
 				}))
 				.then(directory => {
 					content.breadcrumbs = directory.pop(); // The breadcrumb lineage will be the last item
+
+					// If this page has a sublist, don't display children (they will be displayed in the parent list)
+					if (content.has_sublist)
+						directory.pop();
+
 					content.directory = directory; // The rest are the directory
 
 					// Make sure first level is always in a certain order (Diagnosis, Treatment, Help)
