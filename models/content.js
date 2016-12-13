@@ -20,6 +20,7 @@ const ContentSchema = new mongoose.Schema({
 	},
 	body:        {type: String},
 	description: {type: String},
+	surtitle:    {type: String},
 	title:      {type: String, default: ""},
 	type:       {type: String, default: "page"},
 	has_sublist: {type: Boolean, default: false},

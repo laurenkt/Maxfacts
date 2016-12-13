@@ -112,11 +112,11 @@ router.post("/:uri(*)", (req, res) => {
 		item.title = req.body.title;
 		item.type  = req.body.type;
 		item.body  = req.body.body;
-
-		// Normalize has_sublist checkbox
-		item.has_sublist = req.body.has_sublist && req.body.has_sublist === "on";
-
+		item.surtitle = req.body.surtitle;
 		item.description = req.body.description;
+
+		// Normalize checkboxes
+		item.has_sublist = req.body.has_sublist && req.body.has_sublist === "on";
 
 		// Redirect after saving
 		return item.save().then(() => res.redirect(`/dashboard/directory/${item.uri}?saved`));

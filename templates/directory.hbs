@@ -3,6 +3,9 @@
 	<ul>
 		{{#each this}}
 			<li><a href="/{{uri}}" class="{{type}} {{lookup ../../selected uri}}">
+				{{#if surtitle}}
+					<span class="surtitle">{{surtitle}}</span>
+				{{/if}}
 				{{title}}
 				{{#if description}}
 					<span class="subtitle">{{description}}</span>
