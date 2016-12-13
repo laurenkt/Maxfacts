@@ -1,6 +1,6 @@
 <main class="level3">
 	<header>
-		<h2>{{title}}</h2>
+		<h2>{{title}}{{#if surtitle}} <span class="surtitle">({{surtitle}})</span>{{/if}}</h2>
 		{{#description}}
 			<p>{{this}}</p>
 		{{/description}}
