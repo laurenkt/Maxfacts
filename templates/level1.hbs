@@ -7,7 +7,7 @@
 	</header>
 	{{{shift_headers 2 body}}}
 	{{#next}}
-		<p class="next-section"><a href="/{{uri}}">Next section</a> <span>{{title}}</span></p>
+		<p class="next-section"><a href="/{{uri}}">Next section</a> <span>{{title}}{{#if surtitle}} <span class="surtitle">({{surtitle}})</span>{{/if}}</span></p>
 	{{/next}}
 </main>
 <aside>

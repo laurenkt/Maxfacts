@@ -138,7 +138,7 @@ router.get("/:uri(*)", (req, res, next) => {
 						.sort("uri")
 						.exec(),
 					(content.type == "level1" ? Content.findFromParentURI(content.uri) : Content.findFromParentURI(content.parent))
-						.select("title uri")
+						.select("title surtitle uri")
 					// For level1, 'next' is level2, otherwise it's level3
 						.where("type", content.type == "level1" ? "level2" : "level3")
 						.exec(),

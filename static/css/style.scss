@@ -443,12 +443,18 @@ main {
 			padding: $small-spacing 20px;
 		}
 
-		span {
+		> span {
 			display: inline-block;
 			vertical-align: middle;
 			font-weight: bold;
 			font-size: 140%;
 			padding: $small-spacing 30px $small-spacing/2;
+
+			.surtitle {
+				font-weight: 100;
+				font-size: 15pt;
+				vertical-align: middle;
+			}
 
 			&::before {
 				letter-spacing: 2px;
@@ -479,7 +485,7 @@ main {
 			border-bottom: 10px solid darken($level2-back, 10%);
 			background: $level2-back;
 
-			span::before {
+			> span::before {
 				content: "Getting to know more";
 			}
 		}
@@ -501,7 +507,7 @@ main {
 			background: $level3-back;
 			color: white;
 
-			span::before {
+			> span::before {
 				content: "Detailed information";
 			}
 		}
