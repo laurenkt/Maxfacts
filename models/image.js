@@ -19,7 +19,7 @@ ImageSchema.pre("save", function(next) {
 	};
 
 	// Validation
-	if (!mimetypes[this.mimetype]) {
+	if (!mimetypes.hasOwnProperty(this.mimetype)) {
 		next(new Error(`Forbidden mime-type: ${this.mimetype}`));
 	}
 
