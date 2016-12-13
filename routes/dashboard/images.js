@@ -20,7 +20,7 @@ router.get("/edit/:id(*)", (req, res) => {
 	});
 });
 
-router.post("/edit/:id(*)", multer({stroage:multer.memoryStorage()}).single("image"), (req, res) => {
+router.post("/edit/:id(*)", multer({storage:multer.memoryStorage()}).single("image"), (req, res) => {
 	Image.findOne( { _id: req.params.id } ).then(image => {
 		// Edit URI
 		image.uri = req.body.uri;
