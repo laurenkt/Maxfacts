@@ -88,8 +88,21 @@ router.post("/new", (req, res) => {
 });
 
 router.get("/:uri(*)", (req, res, next) => {
-	Content.findOne( { uri: req.params.uri } ).exec().then(content => {
-		if (content) {
+	Content
+		.findOne( {uri: req.params.uri} )
+		.exec()
+		.then(content => {
+			if (!content)
+				next();
+
+			else
+				return content;
+		})
+		.then(content => {
+			// Find invalid URIs
+			return content.getInvalidLinks().then(uris => content.invalid_uris = uris).then(_ => content);
+		})
+		.then(content => {
 			// Determines whether to show notice about content being saved
 			content.saved = req.query.hasOwnProperty("saved");
 			// Prepare selected structure for template to render the select box
@@ -99,11 +112,8 @@ router.get("/:uri(*)", (req, res, next) => {
 			// Use alternate page layout for dashboard
 			content.layout = "dashboard";
 			res.render("dashboard/content", content);
-		}
-		else
-			next();
-	})
-	.catch(console.error.bind(console));
+		})
+		.catch(console.error.bind(console));
 });
 
 router.post("/:uri(*)", (req, res) => {

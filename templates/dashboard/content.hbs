@@ -2,6 +2,16 @@
 {{#if saved}}
 	<p class="success">Content has been updated. Go <a href="/{{uri}}">to page</a>, return <a href="/dashboard/directory">to directory editor</a>, or <a href="/dashboard/directory/new">create a new page</a>.</p>
 {{/if}}
+{{#if invalid_uris}}
+<div class="warning">
+	<p>This document has links that go nowhere:</p>
+	<ul>
+		{{#each invalid_uris}}
+			<li><code>{{this}}</code></li>
+		{{/each}}
+	</ul>
+</div>
+{{/if}}
 <form method="post" action="#">
 	<p>
 		<label for="title">Title</label>
