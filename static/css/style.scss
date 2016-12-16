@@ -416,6 +416,22 @@ aside {
 		}
 	}
 
+	&.-short {
+		p {
+			margin-left: 8em;
+
+			a {
+				width: 8em;
+				margin-left: -8em;
+			}
+
+			> span {
+				padding-left: 10px;
+				padding-right: 10px;
+			}
+		}
+	}
+
 	&.-level1 {
 		border-bottom: 10px solid $level1-under;
 
