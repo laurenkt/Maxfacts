@@ -49,16 +49,12 @@ router.get("/:uri(*)", (req, res, next) => {
 				.all(
 					content.lineage
 					// Get links from all parent stages
-						.map(uri => Content
-							.findFromAdjacentURI(uri)
-							.sort("title")
-							.exec()
-						)
-					// Get siblings of the current page
-						.concat([Content.findFromAdjacentURI(content.uri).sort("title").exec()])
-					// Get children of the current page
-						.concat([Content.findFromParentURI(content.uri).sort("title").exec()])
-					// Also get breadcrumbs
+						.map(uri => Content.findFromAdjacentURI(uri).select("-body").sort("title").exec())
+					// Append siblings of the current page
+						.concat([Content.findFromAdjacentURI(content.uri).select("-body").sort("title").exec()])
+					// Append children of the current page (excluding ones with the same name)
+						.concat([Content.findFromParentURI(content.uri).where("title").ne(content.title).select("-body").sort("title").exec()])
+					// Also append breadcrumbs
 						.concat([content.getBreadcrumbs()])
 				)
 				.then(directory => new Promise((resolve, reject) => {
