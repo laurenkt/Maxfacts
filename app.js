@@ -13,6 +13,7 @@ import sass        from "node-sass-middleware";
 import passport    from "passport";
 import {Strategy}  from "passport-google-oauth20";
 import {join}      from "path";
+import hbs         from "hbs";
 
 // Set-up Mongoose models
 mongoose.Promise = global.Promise; // Required to squash a deprecation warning
@@ -22,9 +23,11 @@ mongoose.connect(process.env.MONGO_URI).connection
 // Start Express
 const app = express();
 
-// Views in views/ using handlebars.js
+// Views in templates/ using handlebars.js
 app.set("views", join(__dirname, "templates"));
 app.set("view engine", "hbs");
+// Partials in templates/partials/
+hbs.registerPartials(join(__dirname, "templates", "partials"));
 
 // Logging in the console
 morgan.token("time", () => `${(new Date()).getHours()}:${(new Date()).getMinutes()}`);
