@@ -6,17 +6,17 @@ const router = express.Router();
 
 router.get("/", (req, res) => {
 	Image.find({}, {}, { sort: { uri: 1 } }, (err, items) => {
-		res.render("dashboard/images", {items: items, layout:"layout-dashboard"});
+		res.render("dashboard/images", {items: items, layout:"dashboard"});
 	});
 });
 
 router.get("/upload", (req, res) => {
-	res.render("dashboard/upload", {layout:"layout-dashboard"});
+	res.render("dashboard/upload", {layout:"dashboard"});
 });
 
 router.get("/edit/:id(*)", (req, res) => {
 	Image.findOne( { _id: req.params.id } ).then(image => {
-		res.render("dashboard/upload", {uri:image.uri, layout:"layout-dashboard"});
+		res.render("dashboard/upload", {uri:image.uri, layout:"dashboard"});
 	});
 });
 

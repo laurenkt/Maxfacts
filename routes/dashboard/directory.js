@@ -57,7 +57,7 @@ router.get("/", (req, res) => {
 				res.render("dashboard/directory", {
 					items:items_by_slashes[0],
 					orphans:difference(items, not_orphans),
-					layout:"layout-dashboard",
+					layout:"dashboard",
 				});
 			})
 	)
@@ -74,7 +74,7 @@ router.get("/delete/:uri(*)", (req, res) => {
 });
 
 router.get("/new", (req, res) => {
-	res.render("dashboard/content", {layout:"layout-dashboard"});
+	res.render("dashboard/content", {layout:"dashboard"});
 });
 
 router.post("/new", (req, res) => {
@@ -97,7 +97,7 @@ router.get("/:uri(*)", (req, res, next) => {
 			content.selected = {};
 			content.selected[content.type || "page"] = "selected";
 			// Use alternate page layout for dashboard
-			content.layout = "layout-dashboard";
+			content.layout = "dashboard";
 			res.render("dashboard/content", content);
 		}
 		else

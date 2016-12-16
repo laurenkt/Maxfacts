@@ -10,7 +10,7 @@ router.use("/directory", require("./dashboard/directory.js"));
 router.get("/", (req, res) => {
 	ensureLoggedIn("/dashboard/auth");
 	console.log(req.user);
-	res.render("dashboard/overview", {layout: "layout-dashboard"});
+	res.render("dashboard/overview", {layout: "dashboard"});
 });
 
 module.exports = router;
