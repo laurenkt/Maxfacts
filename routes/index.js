@@ -38,13 +38,33 @@ router.get("/", (req, res) => {
 	});
 });
 
-// Directory handler
+// Page handler
 router.get("/:uri(*)", (req, res, next) => {
 	Content.findOne( { uri: req.params.uri } )
 		.then(content => {
-			if (!content || content.type != "directory")
-				return next();
-			
+			if (!content)
+				next();
+
+			else
+				// Modify and then return the content object with the extras needed to render the page
+				return Promise
+					.all([
+						content.getInvalidLinks(),
+						content.getBreadcrumbs(),
+						content.getNextPage(),
+					])
+					.then(results => {
+						content.invalid_uris = results[0];
+						content.breadcrumbs  = results[1];
+						content.next_page    = results[2];
+						return content;
+					});
+		})
+		.then(content => {
+			// Only do this step if it's a directory
+			if (content.type != "directory")
+				return content;
+
 			return Promise
 				.all(
 					content.lineage
@@ -54,8 +74,6 @@ router.get("/:uri(*)", (req, res, next) => {
 						.concat([Content.findFromAdjacentURI(content.uri).select("-body").sort("title").exec()])
 					// Append children of the current page (excluding ones with the same name)
 						.concat([Content.findFromParentURI(content.uri).where("title").ne(content.title).select("-body").sort("title").exec()])
-					// Also append breadcrumbs
-						.concat([content.getBreadcrumbs()])
 				)
 				.then(directory => new Promise((resolve, reject) => {
 					// Transform directory, adding sublists as necessary
@@ -66,13 +84,8 @@ router.get("/:uri(*)", (req, res, next) => {
 					Promise.all(
 						directory.map(column => Promise.all(column
 								.filter(c => c.has_sublist)
-								.map(c => Content
-									.findFromParentURI(c.uri)
-									.select("title description type uri")
-									.sort("title")
-									.exec()
-									.then(sublist => c.sublist = sublist)
-								)
+								.map(c => Content.findFromParentURI(c.uri).select("-body").sort("title").exec()
+									.then(sublist => c.sublist = sublist))
 							)
 						)
 					)
@@ -80,8 +93,6 @@ router.get("/:uri(*)", (req, res, next) => {
 						.catch(reject);
 				}))
 				.then(directory => {
-					content.breadcrumbs = directory.pop(); // The breadcrumb lineage will be the last item
-
 					// If this page has a sublist, don't display children (they will be displayed in the parent list)
 					if (content.has_sublist)
 						directory.pop();
@@ -108,48 +119,17 @@ router.get("/:uri(*)", (req, res, next) => {
 					// And how deep we are into the branch
 					content.classes = `directory-browser levels-${content.directory.length} deepness-${content.lineage.length}`;
 
-					// Editor URI
-					content.edit_uri = "/dashboard/directory/" + content.uri;
-
-					res.render("directory", content);
+					return content;
 				});
-		}).catch(console.error.bind(console));
-});
-
-// Page handler
-router.get("/:uri(*)", (req, res, next) => {
-	Content.findOne( { uri: req.params.uri } )
-		.then(content => {
-			if (!content)
-				next();
-
-			else
-				// Modify and then return the content object with the extras needed to render the page
-				return Promise
-					.all([
-						content.getInvalidLinks(),
-						content.getBreadcrumbs(),
-						content.getNextPage(),
-					])
-					.then(results => {
-						content.invalid_uris = results[0];
-						content.breadcrumbs  = results[1];
-						content.next_page    = results[2];
-						return content;
-					});
 		})
 		.then(content => {
+			// Render page
+			
 			// Editor URI
 			content.edit_uri = "/dashboard/directory/" + content.uri;
 
-			// Standard template for layout
-			let template = "content";
-
-			// Some content types have customer renderers.. at the moment we will whitelist these in particular
-			if ((["level3", "level2", "level1"]).includes(content.type))
-				template = content.type;
-
-			res.render(template, content);
+			// Render different content types with different templates
+			res.render(content.type, content);
 		})
 		.catch(console.error.bind(console));
 });
