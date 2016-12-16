@@ -130,35 +130,18 @@ router.get("/:uri(*)", (req, res, next) => {
 
 			else
 				// Modify and then return the content object with the extras needed to render the page
-				return Promise.all([
-					// Find which URIs are invalid
-					content.getInvalidLinks()
-						.then(uris => content.invalid_uris = uris),
-					// Get breadcrum trail for page
-					Content.findFromURIs(content.lineage)
-						.select("title uri")
-						.sort("uri")
-						.exec()
-						.then(breadcrumbs => content.breadcrumbs = breadcrumbs),
-					// Determine what the next page is
-					Content.findFromParentURI(content.uri)
-						.find()
-						/// The location can be below or adjacent to the current page
-						.where("uri", new RegExp(`^(${content.uri}|${content.parent})/[^/]+$`))
-						.select("title surtitle uri")
-						.where("title", content.title)
-						// Only allow a type that could follow the current type
-						.where("type").in(
-							content.type == "level1" ? ["level2", "level3"] :
-							content.type == "level2" ? ["level3"] :
-							["level1", "level2", "level3"])
-						// Make sure to favour the order of the types
-						.sort("type")
-						// Only need one of them
-						.limit(1)
-						.exec()
-						.then(next_page => { if (next_page[0]) content.next = next_page[0]; }),
-				]).then(_ => content);
+				return Promise
+					.all([
+						content.getInvalidLinks(),
+						content.getBreadcrumbs(),
+						content.getNextPage(),
+					])
+					.then(results => {
+						content.invalid_uris = results[0];
+						content.breadcrumbs  = results[1];
+						content.next_page    = results[2];
+						return content;
+					});
 		})
 		.then(content => {
 			// Editor URI

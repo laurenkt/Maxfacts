@@ -107,6 +107,32 @@ ContentSchema.methods = {
 			.then(valid_links => difference(links, map(valid_links, "uri")));
 	},
 
+	getBreadcrumbs: function() {
+		return this.model("Content").findFromURIs(this.lineage)
+			.select("title uri")
+			.sort("uri")
+			.exec();
+	},
+
+	getNextPage: function() {
+		return this.model("Content")
+			.find()
+			/// The location can be below or adjacent to the current page
+			.where("uri", new RegExp(`^(${this.uri}|${this.parent})/[^/]+$`))
+			.select("title surtitle uri")
+			.where("title", this.title)
+			// Only allow a type that could follow the current type
+			.where("type").in(
+				this.type == "level1" ? ["level2", "level3"] :
+				this.type == "level2" ? ["level3"] :
+				["level1", "level2", "level3"])
+			// Make sure to favour the order of the types
+			.sort("type")
+			// Only need one of them
+			.limit(1)
+			.exec()
+			.then(next_page => next_page[0]);
+	},
 
 	setIDsForHeadings: function() {
 		var new_body;
