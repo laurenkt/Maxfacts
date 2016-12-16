@@ -45,7 +45,7 @@ router.get("/:uri(*)", (req, res, next) => {
 			if (!content || content.type != "directory")
 				return next();
 			
-			Promise
+			return Promise
 				.all(
 					content.lineage
 					// Get links from all parent stages
@@ -117,9 +117,7 @@ router.get("/:uri(*)", (req, res, next) => {
 					content.edit_uri = "/dashboard/directory/" + content.uri;
 
 					res.render("directory", content);
-				})
-				.catch(console.error.bind(console));
-
+				});
 		}).catch(console.error.bind(console));
 });
 
@@ -131,38 +129,49 @@ router.get("/:uri(*)", (req, res, next) => {
 				next();
 
 			else
+				// Modify and then return the content object with the extras needed to render the page
 				return Promise.all([
-					content.getInvalidLinks(),
+					// Find which URIs are invalid
+					content.getInvalidLinks()
+						.then(uris => content.invalid_uris = uris),
+					// Get breadcrum trail for page
 					Content.findFromURIs(content.lineage)
 						.select("title uri")
 						.sort("uri")
-						.exec(),
-					(content.type == "level1" ? Content.findFromParentURI(content.uri) : Content.findFromParentURI(content.parent))
+						.exec()
+						.then(breadcrumbs => content.breadcrumbs = breadcrumbs),
+					// Determine what the next page is
+					Content.findFromParentURI(content.uri)
+						.find()
+						/// The location can be below or adjacent to the current page
+						.where("uri", new RegExp(`^(${content.uri}|${content.parent})/[^/]+$`))
 						.select("title surtitle uri")
-					// For level1, 'next' is level2, otherwise it's level3
-						.where("type", content.type == "level1" ? "level2" : "level3")
-						.exec(),
-				])
-				.then(([uris, breadcrumbs, next_page]) => {
-					content.invalid_uris = uris;
-					content.breadcrumbs  = breadcrumbs;
-					
-					// Pass which document comes 'next' to the template
-					if (next_page[0])
-						content.next = next_page[0];
+						.where("title", content.title)
+						// Only allow a type that could follow the current type
+						.where("type").in(
+							content.type == "level1" ? ["level2", "level3"] :
+							content.type == "level2" ? ["level3"] :
+							["level1", "level2", "level3"])
+						// Make sure to favour the order of the types
+						.sort("type")
+						// Only need one of them
+						.limit(1)
+						.exec()
+						.then(next_page => { if (next_page[0]) content.next = next_page[0]; }),
+				]).then(_ => content);
+		})
+		.then(content => {
+			// Editor URI
+			content.edit_uri = "/dashboard/directory/" + content.uri;
 
-					// Editor URI
-					content.edit_uri = "/dashboard/directory/" + content.uri;
+			// Standard template for layout
+			let template = "content";
 
-					// Standard template for layout
-					let template = "content";
+			// Some content types have customer renderers.. at the moment we will whitelist these in particular
+			if ((["level3", "level2", "level1"]).includes(content.type))
+				template = content.type;
 
-					// Some content types have customer renderers.. at the moment we will whitelist these in particular
-					if ((["level3", "level2", "level1"]).includes(content.type))
-						template = content.type;
-
-					res.render(template, content);
-				});
+			res.render(template, content);
 		})
 		.catch(console.error.bind(console));
 });
