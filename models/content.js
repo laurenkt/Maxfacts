@@ -119,7 +119,7 @@ ContentSchema.methods = {
 			.find()
 			/// The location can be below or adjacent to the current page
 			.where("uri", new RegExp(`^(${this.uri}|${this.parent})/[^/]+$`))
-			.select("title surtitle uri")
+			.select("-body")
 			.where("title", this.title)
 			// Only allow a type that could follow the current type
 			.where("type").in(

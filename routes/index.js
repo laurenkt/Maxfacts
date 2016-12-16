@@ -1,28 +1,8 @@
 import express      from "express";
 import Content      from "../models/content";
-import hbs          from "hbs";
 import sanitizeHtml from "sanitize-html";
 
 const router = express.Router();
-
-// TODO: Move this into a separate handler
-hbs.registerHelper("shift_headers", function (offset, text) {
-	const headers = ["h1", "h2", "h3", "h4", "h5", "h6"];
-	let transform = {};
-
-	for (let i = 0; i < 6; i++) {
-		// Don"t go off the edge of the array
-		transform[headers[i]] = headers[Math.min(i + offset, 5)];
-	}
-
-	// Allow everything - it is not the job of this helper to sanitize
-	// inputs
-	return sanitizeHtml(text, {
-		allowedTags:       false,
-		allowedAttributes: false,
-		transformTags:     transform,
-	});
-});
 
 // Landing page
 router.get("/", (req, res) => {
@@ -34,7 +14,7 @@ router.get("/", (req, res) => {
 	])
 	.then(([diagnosis, treatment, help]) => {
 		// Use alternative layout
-		res.render("index", {diagnosis, treatment, help, layout:"layout-fill"});
+		res.render("index", {diagnosis, treatment, help, layout:"home"});
 	});
 });
 
@@ -127,6 +107,28 @@ router.get("/:uri(*)", (req, res, next) => {
 			
 			// Editor URI
 			content.edit_uri = "/dashboard/directory/" + content.uri;
+
+			// Handlebar local helper
+			content.helpers = {
+				// TODO: Move this into a separate handler
+				shift_headers: (offset, text) => {
+					const headers = ["h1", "h2", "h3", "h4", "h5", "h6"];
+					let transform = {};
+
+					for (let i = 0; i < 6; i++) {
+						// Don"t go off the edge of the array
+						transform[headers[i]] = headers[Math.min(i + offset, 5)];
+					}
+
+					// Allow everything - it is not the job of this helper to sanitize
+					// inputs
+					return sanitizeHtml(text, {
+						allowedTags:       false,
+						allowedAttributes: false,
+						transformTags:     transform,
+					});
+				},
+			};
 
 			// Render different content types with different templates
 			res.render(content.type, content);

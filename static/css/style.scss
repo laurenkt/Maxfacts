@@ -14,6 +14,8 @@ $green-back: #98e47f;
 $green-front: #171;
 $level3-back: #055a57;
 $level2-back: #ccc;
+$level1-back: white;
+$level1-under: #ddd;
 
 p ~ p {
 	margin-top: $small-spacing;
@@ -373,6 +375,85 @@ aside {
 	min-height: 200px;
 }
 
+.next-section {
+	margin-top: $small-spacing;
+	background: #eee;
+
+	p {
+		margin: 0 0 0 10em;
+		position: relative;
+		padding: 0;
+
+		a {
+			width: 10em;
+			display: inline-block;
+			margin-left: -10em;
+			text-align: center;
+			padding: $small-spacing 0;
+		}
+
+		> span {
+			display: inline-block;
+			vertical-align: middle;
+			font-weight: bold;
+			font-size: 140%;
+			padding: $small-spacing 30px $small-spacing/2;
+
+			.surtitle {
+				font-weight: 100;
+				font-size: 15pt;
+				vertical-align: middle;
+			}
+
+			&::before {
+				letter-spacing: 2px;
+				display: block;
+				text-transform: uppercase;
+				font-weight: normal;
+				font-size: 10pt;
+				clear: both;
+			}
+		}
+	}
+
+	&.-level1 {
+		border-bottom: 10px solid $level1-under;
+
+		p {
+			background: $level1-back;
+
+			> span::before {
+				content: "Getting started";
+			}
+		}
+	}
+
+	&.-level2 {
+		border-bottom: 10px solid darken($level2-back, 10%);
+
+		p {
+			background: $level2-back;
+
+			> span::before {
+				content: "Getting to know more";
+			}
+		}
+	}
+
+	&.-level3 {
+			border-bottom: 10px solid darken($level3-back, 10%);
+
+		p {
+			background: $level3-back;
+			color: white;
+
+			> span::before {
+				content: "Detailed information";
+			}
+		}
+	}
+}
+
 main {
 	@include span-columns(8);
 
@@ -430,50 +511,13 @@ main {
 		}
 	}
 
-	.next-section {
-		margin-left: 10em;
-		position: relative;
-		padding: 0;
-
-		a {
-			width: 10em;
-			display: inline-block;
-			margin-left: -10em;
-			text-align: center;
-			padding: $small-spacing 20px;
-		}
-
-		> span {
-			display: inline-block;
-			vertical-align: middle;
-			font-weight: bold;
-			font-size: 140%;
-			padding: $small-spacing 30px $small-spacing/2;
-
-			.surtitle {
-				font-weight: 100;
-				font-size: 15pt;
-				vertical-align: middle;
-			}
-
-			&::before {
-				letter-spacing: 2px;
-				display: block;
-				text-transform: uppercase;
-				font-weight: normal;
-				font-size: 10pt;
-				clear: both;
-			}
-		}
-	}
-
 	counter-reset: h3;
 	position: relative;
 
 	&.level1 {
 		header {
-			background: none;
-			border-bottom: 10px solid #ddd;
+			background: $level1-back;
+			border-bottom: 10px solid $level1-under;
 			color: black;
 
 			h2::before {
@@ -481,14 +525,6 @@ main {
 			}
 		}
 
-		.next-section {
-			border-bottom: 10px solid darken($level2-back, 10%);
-			background: $level2-back;
-
-			> span::before {
-				content: "Getting to know more";
-			}
-		}
 	}
 
 	&.level2 {
@@ -499,16 +535,6 @@ main {
 
 			h2::before {
 				content: "Getting to know more";
-			}
-		}
-
-		.next-section {
-			border-bottom: 10px solid darken($level3-back, 10%);
-			background: $level3-back;
-			color: white;
-
-			> span::before {
-				content: "Detailed information";
 			}
 		}
 	}

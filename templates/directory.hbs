@@ -27,7 +27,5 @@
 	{{else}}
 		<p>This section has no content yet.</p>
 	{{/if}}
-	{{#next_page}}
-		<p class="next-section"><a href="/{{uri}}">Next section</a> <span>{{title}}{{#if surtitle}} <span class="surtitle">({{surtitle}})</span>{{/if}}</span></p>
-	{{/next_page}}
+	{{> next-section class="-short" }}
 </section>
