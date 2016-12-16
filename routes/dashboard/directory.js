@@ -84,7 +84,17 @@ router.post("/new", (req, res) => {
 	var content = new Content(req.body);
 	content.save()
 		.then(saved_content => res.redirect(`/dashboard/directory/${saved_content.uri}?saved`))
-		.catch(console.error.bind(console));
+		.catch(err => {
+			// Prepopulate with what was filled in
+			let item = {...req.body};
+			item.error = err;
+			// Prepare selected structure for template to render the select box
+			// This has to be done like this because Handlebars doesn't have a form builder
+			item.selected = {};
+			item.selected[item.type || "page"] = "selected";
+			item.layout = "dashboard";
+			res.render("dashboard/content", item);
+		});
 });
 
 router.get("/:uri(*)", (req, res, next) => {
@@ -129,7 +139,17 @@ router.post("/:uri(*)", (req, res) => {
 		item.has_sublist = req.body.has_sublist && req.body.has_sublist === "on";
 
 		// Redirect after saving
-		return item.save().then(() => res.redirect(`/dashboard/directory/${item.uri}?saved`));
+		return item.save()
+			.then(() => res.redirect(`/dashboard/directory/${item.uri}?saved`))
+			.catch(err => {
+				item.error = err;
+				// Prepare selected structure for template to render the select box
+				// This has to be done like this because Handlebars doesn't have a form builder
+				item.selected = {};
+				item.selected[item.type || "page"] = "selected";
+				item.layout = "dashboard";
+				res.render("dashboard/content", item);
+			});
 	})
 	.catch(console.error.bind(console));
 });

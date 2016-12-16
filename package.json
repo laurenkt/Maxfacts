@@ -40,6 +40,8 @@
     "immutable": "^3.8.1",
     "jsx-control-statements": "^3.1.2",
     "lodash": "^4.14.1",
+    "mongodb": "^2.2.16",
+    "mongoose": "^4.7.2",
     "node-cli": "^0.1.0",
     "node-sass-middleware": "0.8.0",
     "nodemon": "^1.9.2",

@@ -2,6 +2,12 @@
 {{#if saved}}
 	<p class="success">Content has been updated. Go <a href="/{{uri}}">to page</a>, return <a href="/dashboard/directory">to directory editor</a>, or <a href="/dashboard/directory/new">create a new page</a>.</p>
 {{/if}}
+{{#if error}}
+	<div class="error">
+		<p>The following error occured:</p>
+		<pre>{{error}}</pre>
+	</div>
+{{/if}}
 {{#if invalid_uris}}
 <div class="warning">
 	<p>This document has links that go nowhere:</p>

@@ -346,11 +346,15 @@ aside {
 	@include span-columns(4);
 }
 
-.warning {
-	background: rgba(darkred, 1);
+.error, .warning {
+	background: rgb(72, 12, 20);
 	color: white;
-	padding: $small-spacing;
+	padding: 1px $small-spacing;
 	margin: 20px 0;
+
+	&.warning {
+		background: #d5b09f;
+	}
 
 	ul {
 		list-style: none;
