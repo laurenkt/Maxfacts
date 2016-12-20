@@ -23,7 +23,7 @@ router.get("/:uri(*)", (req, res, next) => {
 	Content.findOne( { uri: req.params.uri } )
 		.then(content => {
 			if (!content)
-				next();
+				return Promise.reject();
 
 			else
 				// Modify and then return the content object with the extras needed to render the page
@@ -133,7 +133,7 @@ router.get("/:uri(*)", (req, res, next) => {
 			// Render different content types with different templates
 			res.render(content.type, content);
 		})
-		.catch(console.error.bind(console));
+		.catch(next);
 });
 
 module.exports = router;
