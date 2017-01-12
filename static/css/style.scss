@@ -301,6 +301,11 @@ figure {
 	margin: 0 auto $small-spacing;
 	background: #eee;
 	padding: 10px;
+	text-align: center;
+
+	figcaption {
+		text-align: left;
+	}
 }
 
 table {
