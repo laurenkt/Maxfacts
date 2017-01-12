@@ -206,7 +206,7 @@ ContentSchema.pre("save", function(next) {
 			allowedTags: ["h1", "h2", "h3", "h4", "h5", "h6", "blockquote", "p", "a", "ul", "ol",
 				"li", "strong", "em", "table", "thead", "caption", "tbody", "tfoot", "tr", "th", "td",
 				"figure", "abbr", "img", "aside", "caption", "cite", "dd", "dfn", "dl", "dt", "figcaption",
-				"sub", "sup"],
+				"sub", "sup", "i"],
 			allowedAttributes: merge({
 				th: ["colspan", "rowspan"],
 				td: ["colspan", "rowspan"],
