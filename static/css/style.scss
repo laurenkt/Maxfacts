@@ -512,6 +512,10 @@ main {
 			}
 		}
 
+		h3 {
+			margin: $small-spacing 0;
+		}
+
 		.surtitle {
 			font-weight: 100;
 			font-size: 15pt;
@@ -525,6 +529,7 @@ main {
 
 		ol {
 			list-style-type: decimal;
+			margin-bottom: 0;
 
 			a {
 				color: white;
