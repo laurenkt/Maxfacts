@@ -1,19 +1,19 @@
 // Import environment variables from .env
 require("dotenv").config();
 
-import express     from "express";
-import session     from "express-session";
-import morgan      from "morgan";
-import chalk       from "chalk";
-import bodyParser  from "body-parser";
-import mongoose    from "mongoose";
-import mongoStore  from "connect-mongo";
-import browserify  from "browserify-middleware";
-import sass        from "node-sass-middleware";
-import passport    from "passport";
-import {Strategy}  from "passport-google-oauth20";
-import {join}      from "path";
-import hbs         from "express-handlebars";
+import express    from "express";
+import session    from "express-session";
+import morgan     from "morgan";
+import chalk      from "chalk";
+import bodyParser from "body-parser";
+import mongoose   from "mongoose";
+import mongoStore from "connect-mongo";
+import browserify from "browserify-middleware";
+import sass       from "node-sass-middleware";
+import passport   from "passport";
+import {Strategy} from "passport-google-oauth20";
+import {join}     from "path";
+import hbs        from "express-handlebars";
 
 // Set-up Mongoose models
 mongoose.Promise = global.Promise; // Required to squash a deprecation warning

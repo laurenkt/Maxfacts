@@ -57,6 +57,9 @@
 		],
 		"no-shadow": [
 			"error", { "hoist": "never" }
+		],
+		"react/display-name": [
+			false
 		]
 	}
 }
