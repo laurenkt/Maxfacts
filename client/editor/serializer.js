@@ -4,11 +4,11 @@ import {html as html_beautify} from "js-beautify";
 import {minify as html_minify} from "html-minifier";
 
 const BLOCK_TAGS = {
-	p: "paragraph",
+	p:  "paragraph",
 	li: "list-item",
 	caption: "caption",
-	ul: "bulleted-list",
-	ol: "numbered-list",
+	ul: "list",
+	ol: "num-list",
 	h1: "heading-1",
 	h2: "heading-2",
 	h3: "heading-3",
@@ -24,10 +24,10 @@ const BLOCK_TAGS = {
 // Add a dictionary of mark tags.
 const MARK_TAGS = {
 	strong: "bold",
-	em: "italic",
-	s: "strikethrough",
-	sub: "sub",
-	sup: "sup",
+	em:     "emphasis",
+	i:      "italic",
+	sub:    "sub",
+	sup:    "sup",
 };
 
 const colspan = data => {
@@ -51,12 +51,12 @@ const rules = [
 	},
 	{
 		deserialize(el, next) {
-			const block = BLOCK_TAGS[el.tagName]
-			if (!block) return
+			const block = BLOCK_TAGS[el.tagName];
+			if (!block) return;
 
 			return {
-				kind: "block",
-				type: block,
+				kind:  "block",
+				type:  block,
 				nodes: next(el.children),
 				data: {attribs: el.attribs},
 			};
@@ -78,20 +78,20 @@ const rules = [
 			}
 
 			switch (obj.type) {
-				case "paragraph":     return <p>{children}</p>;
-				case "bulleted-list": return <ul>{children}</ul>;
-				case "caption":       return <caption>{children}</caption>;
-				case "list-item":     return <li>{children}</li>;
-				case "numbered-list": return <ol>{children}</ol>;
-				case "tr":            return <tr {...colspan(obj)}>{children}</tr>;
-				case "td":            return <td {...colspan(obj)}>{children}</td>;
-				case "th":            return <th {...colspan(obj)}>{children}</th>;
-				case "aside":         return <aside>{children}</aside>;
+				case "paragraph": return <p>{children}</p>;
+				case "list":      return <ul>{children}</ul>;
+				case "caption":   return <caption>{children}</caption>;
+				case "list-item": return <li>{children}</li>;
+				case "num-list":  return <ol>{children}</ol>;
+				case "tr":        return <tr {...colspan(obj.data)}>{children}</tr>;
+				case "td":        return <td {...colspan(obj.data)}>{children}</td>;
+				case "th":        return <th {...colspan(obj.data)}>{children}</th>;
+				case "aside":     return <aside>{children}</aside>;
 				case "figure":
 					const src = obj.data.get("src");
 
 					return (
-						<figure className={className}>
+						<figure>
 							<img src={src} />
 							<figcaption>{children}</figcaption>
 						</figure>
@@ -110,8 +110,8 @@ const rules = [
 			const mark = MARK_TAGS[el.tagName]
 			if (!mark) return
 			return {
-				kind: "mark",
-				type: mark,
+				kind:  "mark",
+				type:  mark,
 				nodes: next(el.children)
 			}
 		},
@@ -119,11 +119,12 @@ const rules = [
 			if (obj.kind != "mark") return;
 
 			switch (obj.type) {
-				case bold:       return <strong>{children}</strong>;
-				case italic:     return <em>{children}</em>;
-				case underlined: return <u>{children}</u>;
-				case sub:        return <sub>{children}</sub>;
-				case sup:        return <sup>{children}</sup>;
+				case "bold":       return <strong>{children}</strong>;
+				case "emphasis":   return <em>{children}</em>;
+				case "italic":     return <i>{children}</i>;
+				case "underlined": return <u>{children}</u>;
+				case "sub":        return <sub>{children}</sub>;
+				case "sup":        return <sup>{children}</sup>;
 			}
 		},
 	},
@@ -139,8 +140,8 @@ const rules = [
 			const caption = el.children.find(child => child.tagName == "figcaption");
 
 			return {
-				kind: "block",
-				type: "figure",
+				kind:  "block",
+				type:  "figure",
 				nodes: next(caption.children),
 				data: {
 					src: img.attribs.src,
@@ -169,8 +170,8 @@ const rules = [
 			}
 
 			return {
-				kind: "block",
-				type: "table",
+				kind:  "block",
+				type:  "table",
 				nodes: next([caption].concat(children)),
 			}
 		}
@@ -180,8 +181,8 @@ const rules = [
 		deserialize(el, next) {
 			if (el.tagName != "a") return
 			return {
-				kind: "inline",
-				type: "link",
+				kind:  "inline",
+				type:  "link",
 				nodes: next(el.children),
 				data: {
 					href: el.attribs.href
@@ -200,7 +201,7 @@ export function serialize(state) {
 		html_serializer.serialize(state),
 		{
 			indent_size: 4,
-			wrap_line_length: 70,
+			wrap_line_length: 60,
 		}
 	);
 };
@@ -208,5 +209,12 @@ export function serialize(state) {
 export function deserialize(html_string) {
 	// Minify the HTML first to make it as easy as possible to normalize (strips irrelevant whitespace)
 	// Then slate can do its magic
-	return html_serializer.deserialize(html_minify(html_string));
+	// Note that Slate refusing to handle whitespace in HTML is a recognised
+	// limitation that they have decided not to alter due to other concerns
+	// See: https://github.com/ianstormtaylor/slate/issues/407
+	return html_serializer.deserialize(
+		html_minify(html_string, {
+			collapseWhitespace: true,
+		})
+	);
 };

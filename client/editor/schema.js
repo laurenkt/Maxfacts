@@ -12,26 +12,25 @@ const colspan = props => {
 export default {
 	nodes: {
 		"paragraph": props => <p {...props.attributes}>{props.children}</p>,
-		"bulleted-list": props => <ul {...props.attributes}>{props.children}</ul>,
+		"list":      props => <ul {...props.attributes}>{props.children}</ul>,
 		"heading-1": props => <h3 {...props.attributes}>{props.children}</h3>,
 		"heading-2": props => <h4 {...props.attributes}>{props.children}</h4>,
 		"heading-3": props => <h5 {...props.attributes}>{props.children}</h5>,
 		"heading-4": props => <h6 {...props.attributes}>{props.children}</h6>,
 		"heading-5": props => <h6 {...props.attributes}>{props.children}</h6>,
 		"heading-6": props => <h6 {...props.attributes}>{props.children}</h6>,
-		"caption": props => <caption {...props.attributes}>{props.children}</caption>,
+		"caption":   props => <caption {...props.attributes}>{props.children}</caption>,
 		"list-item": props => <li {...props.attributes}>{props.children}</li>,
-		"numbered-list": props => <ol {...props.attributes}>{props.children}</ol>,
-		"tr": props => <tr {...colspan(props).attributes}>{props.children}</tr>,
-		"td": props => <td {...colspan(props).attributes}>{props.children}</td>,
-		"th": props => <th {...colspan(props).attributes}>{props.children}</th>,
-		"aside": props => <aside {...props.attributes}>{props.children}</aside>,
-		"link": (props) => {
-			let data = props.node ? props.node.data : props.data;
-			const href = data.get("href");
+		"num-list":  props => <ol {...props.attributes}>{props.children}</ol>,
+		"tr":        props => <tr {...colspan(props).attributes}>{props.children}</tr>,
+		"td":        props => <td {...colspan(props).attributes}>{props.children}</td>,
+		"th":        props => <th {...colspan(props).attributes}>{props.children}</th>,
+		"aside":     props => <aside {...props.attributes}>{props.children}</aside>,
+		"link": props => {
+			const href = props.node.data.get("href");
 			return <a href={href} {...props.attributes}>{props.children}</a>;
 		},
-		"figure": (props) => {
+		"figure": props => {
 			let { node, data, state } = props;
 			let className = "";
 
@@ -57,11 +56,12 @@ export default {
 			</table>,
 	},
 	marks: {
-		bold: props => <strong>{props.children}</strong>,
-		italic: props => <em>{props.children}</em>,
+		bold:       props => <strong>{props.children}</strong>,
+		emphasis:   props => <em>{props.children}</em>,
+		italic:     props => <i>{props.children}</i>,
 		underlined: props => <u>{props.children}</u>,
-		sub: props => <sub>{props.children}</sub>,
-		sup: props => <sup>{props.children}</sup>,
+		sub:        props => <sub>{props.children}</sub>,
+		sup:        props => <sup>{props.children}</sup>,
 	},
 };
 

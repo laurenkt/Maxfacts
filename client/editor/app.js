@@ -34,19 +34,23 @@ class Editor extends React.Component {
 	}
 
 	onEditorChange(state) {
+		console.log("onEditorChange");
 		this.setState({slate_state: state});
 	}
 
 	onTextAreaChange(e) {
+		console.log("onTextAreaChange");
 		this.rows = Math.min(e.target.value.split(/\r?\n/).length, 20);
 		this.setState({html_value: e.target.value});
 	}
 
 	onDocumentChange(document, state) {
+		console.log("onDocumentChange");
 		this.setState({html_value: serialize(state)});
 	}
 
 	onEditModeChange(e) {
+		console.log("onEditModeChange", e.target.checked, this.state.html_value);
 		this.setState({
 			editing_in_html: e.target.checked,
 			slate_state: e.target.checked ? this.state.slate_state : deserialize(this.state.html_value),
@@ -71,7 +75,7 @@ class Editor extends React.Component {
 					style={{display: this.state.editing_in_html ? "block" : "none"}}
 					onChange={this.onTextAreaChange}
 					value={this.state.html_value} />
-				{this.state.html ||
+				{this.state.editing_in_html ||
 					<RichTextEditor
 						schema={Schema}
 						state={this.state.slate_state}
@@ -83,8 +87,8 @@ class Editor extends React.Component {
 }
 
 document.addEventListener("DOMContentLoaded", e => {
-	var textarea  = document.getElementsByTagName("textarea").item(0);
-	var container = document.createElement("div");
+	const textarea  = document.getElementsByTagName("textarea").item(0);
+	const container = document.createElement("div");
 	ReactDOM.render(<Editor name={textarea.getAttribute("name")} value={textarea.value} />, container);
 	
 	textarea.parentNode.replaceChild(container.childNodes[0], textarea);
