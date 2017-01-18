@@ -96,12 +96,19 @@ const rules = [
 							<figcaption>{children}</figcaption>
 						</figure>
 					);
-				case "table": return (
-					<table>
-						{children[0]}
-						<tbody>{children.slice(1)}</tbody>
-					</table>
-				);
+				case "table": 
+					const has_caption = obj.data.get("has_caption");
+					if (has_caption) {
+						return (
+							<table>
+								{children[0]}
+								<tbody>{children.slice(1)}</tbody>
+							</table>
+						);
+					}
+					else {
+						return <table>{children}</table>;
+					}
 			}
 		}
 	},
@@ -172,7 +179,10 @@ const rules = [
 			return {
 				kind:  "block",
 				type:  "table",
-				nodes: next([caption].concat(children)),
+				nodes: next(caption ? [caption].concat(children) : children),
+				data: {
+					has_caption: Boolean(caption),
+				},
 			}
 		}
 	},
