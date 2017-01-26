@@ -16,10 +16,10 @@
 <form method="post" action="#">
 	<p>
 		<label for="title">Title</label>
-		<input type="text" name="title" id="title" value="{{title}}">
+		<input class="large" type="text" name="title" id="title" value="{{title}}">
 	</p>
 	<p>
-		<label for="description">Short description (optional)</label>
+		<label for="description">Subtitle (optional)</label>
 		<input type="text" name="description" id="description" value="{{description}}">
 	</p>
 	<p>
@@ -30,7 +30,8 @@
 		<label for="uri">URL</label>
 		<input type="text" name="uri" id="uri" value="{{uri}}">
 	</p>
-	<p><label for="type">Type</label>
+	<p>
+		<label for="type">Type</label>
 		<select name="type" id="type">
 			<option value="page"      {{lookup selected 'page'}}     >Page</option>
 			<option value="directory" {{lookup selected 'directory'}}>Directory</option>
@@ -39,7 +40,12 @@
 			<option value="level1"    {{lookup selected 'level1'}}   >Level 1</option>
 		</select>
 	</p>
-	<p><label for="has_sublist"><input type="checkbox" name="has_sublist" id="has_sublist" {{#if has_sublist}}checked{{/if}} />Has sub-list?</label></p>
+	<p>
+		<label for="has_sublist">
+			<input type="checkbox" name="has_sublist" id="has_sublist" {{#if has_sublist}}checked{{/if}} />
+				Display child pages in same column as this page
+		</label>
+	</p>
 	{{#if images}}
 		<div class="images-list">
 			<p><strong>Images used</strong>
