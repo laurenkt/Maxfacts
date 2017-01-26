@@ -11,12 +11,12 @@ router.get("/", (req, res) => {
 });
 
 router.get("/upload", (req, res) => {
-	res.render("dashboard/upload", {layout:"dashboard"});
+	res.render("dashboard/images/upload", {layout:"dashboard"});
 });
 
 router.get("/edit/:id(*)", (req, res) => {
 	Image.findOne( { _id: req.params.id } ).then(image => {
-		res.render("dashboard/upload", {uri:image.uri, layout:"dashboard"});
+		res.render("dashboard/images/upload", {uri:image.uri, layout:"dashboard"});
 	});
 });
 
