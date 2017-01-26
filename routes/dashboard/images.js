@@ -23,7 +23,10 @@ router.get("/edit/:id(*)", (req, res) => {
 router.get("/delete/:id(*)", (req, res) => {
 	// Make sure the user has confirmed deletion
 	if (req.query.hasOwnProperty("confirm")) {
-		Content.remove({_id: req.params.id}).exec().then(() => res.redirect("/dashboard/directory"));
+		Image
+			.remove({_id: req.params.id})
+			.exec()
+			.then(() => res.redirect("/dashboard/images"));
 	}
 	else {
 		Image.findOne( {_id: req.params.id }).then(image => {
