@@ -10,12 +10,7 @@
 {{/if}}
 {{#if invalid_uris}}
 <div class="warning">
-	<p>This document has links that go nowhere:</p>
-	<ul>
-		{{#each invalid_uris}}
-			<li><code>{{this}}</code></li>
-		{{/each}}
-	</ul>
+	<p>This document has <strong>{{invalid_uris.length}}</strong> links that go nowhere.</p>
 </div>
 {{/if}}
 <form method="post" action="#">
@@ -45,6 +40,17 @@
 		</select>
 	</p>
 	<p><label for="has_sublist"><input type="checkbox" name="has_sublist" id="has_sublist" {{#if has_sublist}}checked{{/if}} />Has sub-list?</label></p>
+	{{#if images}}
+		<div class="images-list">
+			<p><strong>Images used</strong>
+			<p>
+				{{#each images}}
+					<a href="/dashboard/images/edit/{{_id}}"><img src="/{{uri}}" /></a>
+				{{/each}}
+			</p>
+		</div>
+	{{/if}}
+	<h3>Content</h3>
 	<div><textarea id="body" name="body" rows="8">{{body}}</textarea></div>
 	<p><input type="submit" value="Save"></p>
 </form>

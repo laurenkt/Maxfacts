@@ -13,9 +13,9 @@ export default {
 	nodes: {
 		"paragraph": props => <p {...props.attributes}>{props.children}</p>,
 		"list":      props => <ul {...props.attributes}>{props.children}</ul>,
-		"heading-1": props => <h3 {...props.attributes}>{props.children}</h3>,
-		"heading-2": props => <h4 {...props.attributes}>{props.children}</h4>,
-		"heading-3": props => <h5 {...props.attributes}>{props.children}</h5>,
+		"heading-1": props => <h4 {...props.attributes}>{props.children}</h4>,
+		"heading-2": props => <h5 {...props.attributes}>{props.children}</h5>,
+		"heading-3": props => <h6 {...props.attributes}>{props.children}</h6>,
 		"heading-4": props => <h6 {...props.attributes}>{props.children}</h6>,
 		"heading-5": props => <h6 {...props.attributes}>{props.children}</h6>,
 		"heading-6": props => <h6 {...props.attributes}>{props.children}</h6>,

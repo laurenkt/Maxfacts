@@ -107,6 +107,27 @@ ContentSchema.methods = {
 			.then(valid_links => difference(links, map(valid_links, "uri")));
 	},
 
+	// Retrieves an array of images used in this model
+	getImages: function () {
+		let images = [];
+		const parser = new Parser({
+			onopentag(name, attribs) {
+				if (name == "img" && attribs.src)
+					// Strip leading slash
+					images.push(attribs.src.replace(/^\//, ""));
+			},
+		});
+		parser.write(this.body);
+		parser.end();
+
+		images = uniq(images);
+
+		return this.model("Image")
+			.findFromURIs(images)
+			.select("_id uri")
+			.exec();
+	},
+
 	getBreadcrumbs: function() {
 		return this.model("Content").findFromURIs(this.lineage)
 			.select("title uri")

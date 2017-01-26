@@ -677,6 +677,59 @@ footer {
 			color: white;	
 		}
 	}
+
+	.images-list {
+		border: 3px solid #ddd;
+		background: #eee;
+		padding: 5px;
+		margin-bottom: $small-spacing;
+
+		p {
+			margin: 0;
+		}
+		
+		img {
+			max-height: 100px;
+		}
+	}
+
+	h3 {
+		background: #444;
+		color: white;
+		padding: 10px 10px 0;
+		margin: 0;
+	}
+
+	.content-editor {
+		background: #f2f2f2;
+		border: 3px solid #444;
+		padding: 0 10px 10px;
+
+		.menu {
+			margin: 0 -10px;
+			padding: 5px 10px;
+			background: #bbb;
+
+			&.toolbar-menu {
+				background: #ccc;
+			}
+
+			.button {
+				color: #999;
+
+				&[data-active="true"] {
+					color: black;
+				}
+			}
+
+			.material-icons {
+				font-size: 18px;
+				vertical-align: text-bottom;
+				margin-right: 10px;
+				cursor: pointer;
+			}
+		}
+	}
 }
 
 header {

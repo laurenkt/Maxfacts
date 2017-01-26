@@ -108,11 +108,15 @@ router.get("/:uri(*)", (req, res, next) => {
 			else
 				return content;
 		})
+		.then(content =>
+			// Find invalid URIs and images
+			Promise.all([
+				content.getInvalidLinks().then(uris => content.invalid_uris = uris),
+				content.getImages().then(images => content.images = images),
+			]).then(_ => content)
+		)
 		.then(content => {
-			// Find invalid URIs
-			return content.getInvalidLinks().then(uris => content.invalid_uris = uris).then(_ => content);
-		})
-		.then(content => {
+			console.log(content.images);
 			// Determines whether to show notice about content being saved
 			content.saved = req.query.hasOwnProperty("saved");
 			// Prepare selected structure for template to render the select box

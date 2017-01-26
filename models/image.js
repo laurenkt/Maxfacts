@@ -11,6 +11,14 @@ const ImageSchema = new mongoose.Schema({
 	timestamps: true,
 });
 
+ImageSchema.statics = {
+	findFromURIs(uris) {
+		return this
+			.find()
+			.where("uri").in(uris);
+	},
+};
+
 ImageSchema.pre("save", function(next) {
 	const mimetypes = {
 		"image/jpeg": ".jpg",
