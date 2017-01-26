@@ -20,6 +20,19 @@ router.get("/edit/:id(*)", (req, res) => {
 	});
 });
 
+router.get("/delete/:id(*)", (req, res) => {
+	// Make sure the user has confirmed deletion
+	if (req.query.hasOwnProperty("confirm")) {
+		Content.remove({_id: req.params.id}).exec().then(() => res.redirect("/dashboard/directory"));
+	}
+	else {
+		Image.findOne( {_id: req.params.id }).then(image => {
+			res.render("dashboard/images/delete", {uri:image.uri, layout:"dashboard"});
+		});
+	}
+});
+
+
 router.post("/edit/:id(*)", multer({storage:multer.memoryStorage()}).single("image"), (req, res) => {
 	Image.findOne( { _id: req.params.id } ).then(image => {
 		// Edit URI

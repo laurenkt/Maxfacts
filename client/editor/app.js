@@ -89,6 +89,8 @@ class Editor extends React.Component {
 document.addEventListener("DOMContentLoaded", e => {
 	const textarea  = document.getElementsByTagName("textarea").item(0);
 	const container = document.createElement("div");
+	container.className = "content-editor";
+
 	ReactDOM.render(<Editor name={textarea.getAttribute("name")} value={textarea.value} />, container);
 	
 	textarea.parentNode.replaceChild(container.childNodes[0], textarea);

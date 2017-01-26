@@ -325,26 +325,33 @@ table {
 	}
 }
 
-button.preferred {
-	background-color: #292;
-	border: 3px solid #171;
-	font-size: large;
+button,
+.button {
+	&.preferred {
+		background-color: #292;
+		border: 3px solid #171;
+		font-size: large;
 
-	&:hover {
-		background-color: #198519;
-		border-color: #107010;
+		&:hover {
+			background-color: #198519;
+			border-color: #107010;
+		}
 	}
-}
 
-button.strong {
-	border-radius: 5px;
-	background: rgba(200, 200, 200, 0.3);
-	padding: 2px 6px;
-}
+	&.strong {
+		border-radius: 5px;
+		background: rgba(200, 200, 200, 0.3);
+		padding: 2px 6px;
+	}
 
-button.accent {
-	background: $button-accent;
-	font-size: 120%;
+	&.accent {
+		background: $button-accent;
+		font-size: 120%;
+	}
+
+	&.danger {
+		background: #9a0825;
+	}
 }
 
 aside {
@@ -658,6 +665,17 @@ footer {
 		font-size: 80%;
 		text-align: center;
 		background: #ddd;
+	}
+
+	.delete {
+		font-size: 80%;
+		color: white;
+		font-weight: bold;
+		background: #911;
+		padding: 2px;
+		a {
+			color: white;	
+		}
 	}
 }
 
