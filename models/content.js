@@ -292,5 +292,4 @@ ContentSchema.post("save", function(content) {
 	}
 });
 
-
-module.exports = mongoose.model("Content", ContentSchema);
+export default mongoose.model("Content", ContentSchema);

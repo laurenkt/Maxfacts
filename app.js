@@ -34,19 +34,22 @@ app.set("view engine", "hbs");
 app.set("views", join(__dirname, "templates"));
 
 // Logging in the console
-morgan.token("time", () => `${(new Date()).getHours()}:${(new Date()).getMinutes()}`);
-morgan.token("cstatus", (req, res) => {
-	var code = res.statusCode;
-	var colorer = code >= 500 ? chalk.white
-		: code >= 400 ? chalk.yellow
-		: code >= 300 ? chalk.cyan
-		: code >= 200 ? chalk.green
-		: chalk.white;
+// Don't log in test runner
+if (!process.env.TEST) {
+	morgan.token("time", () => `${(new Date()).getHours()}:${(new Date()).getMinutes()}`);
+	morgan.token("cstatus", (req, res) => {
+		var code = res.statusCode;
+		var colorer = code >= 500 ? chalk.white
+			: code >= 400 ? chalk.yellow
+			: code >= 300 ? chalk.cyan
+			: code >= 200 ? chalk.green
+			: chalk.white;
 
-	return colorer(code);
-});
-app.use(morgan(`\u2753 ${chalk.yellow("Request:")} :method ${chalk.inverse(":url")} (:time)`, {immediate:true}));
-app.use(morgan(`\u2755 ${chalk.green("Response:")} :method ${chalk.inverse(":url")} :cstatus :response-time ms - :res[content-length]`));
+		return colorer(code);
+	});
+	app.use(morgan(`\u2753 ${chalk.yellow("Request:")} :method ${chalk.inverse(":url")} (:time)`, {immediate:true}));
+	app.use(morgan(`\u2755 ${chalk.green("Response:")} :method ${chalk.inverse(":url")} :cstatus :response-time ms - :res[content-length]`));
+}
 
 // Process POST request bodies
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -125,7 +128,10 @@ app.use((err, req, res, _) => {
 
 	// Show more information if development
 	if (app.get("env") === "development") {
-		console.error(err.stack);
+		// Don't bother logging a stack trace for 404 errors
+		if (err.status != 404)
+			console.error(err.stack);
+
 		errInfo = err;
 	}
 
@@ -137,3 +143,4 @@ app.use((err, req, res, _) => {
 });
 
 export default app;
+module.exports = app; // Needed for test runner
