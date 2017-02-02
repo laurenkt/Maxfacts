@@ -5,12 +5,14 @@ import {merge, uniq, map,
 	difference}     from "lodash";
 import DomUtils from "domutils";
 
+mongoose.Promise = global.Promise; // Required to squash a deprecation warning
+
 const ContentSchema = new mongoose.Schema({
 	uri: {
-		type: String,
-		unique: true,
-		minlength:1,
-		required:true,
+		type:      String,
+		unique:    true,
+		minlength: 1,
+		required:  true,
 		set: function(uri) {
 			if (uri != this.uri)
 				this._previousURI = this.uri;
@@ -21,28 +23,80 @@ const ContentSchema = new mongoose.Schema({
 	body:        {type: String},
 	description: {type: String},
 	surtitle:    {type: String},
-	title:      {type: String, default: ""},
-	type:       {type: String, default: "page"},
+	title:       {type: String,  required:true},
+	type:        {type: String,  default: "page"},
 	has_sublist: {type: Boolean, default: false},
-	contents:   {type: [{text: String, id: String}]},
+	contents:    {type: [{text: String, id: String}]},
 }, {
 	timestamps: true,
 });
 
 ContentSchema.index({
-	body: "text",
-	title: "text",
+	body:        "text",
+	title:       "text",
 	description: "text",
 }, {
 	weights: {
-		title: 10,
+		title:       10,
 		description: 7,
-		body: 4,
+		body:        4,
 	},
 });
 
 ContentSchema.statics = {
-	parentUriFragment: uri => uri.split("/").slice(0, -1).join("/"),
+	parentUriFragment(uri) {
+		const parent = uri.split("/").slice(0, -1).join("/");
+
+		if (parent != "")
+			return parent;
+		else
+			return undefined;
+	},
+
+	normalizeURI(uri) {
+		// Force the URI into acceptable format:
+		return uri
+			// All lowercase
+			.toLowerCase()
+			// Convert spaces and underscores to dashes (and multiple dashes)
+			.replace(/[_ -]+/g, "-")
+			// Remove any duplicate slashes
+			.replace(/[\/]+/g, "/")
+			// Remove any leading or trailing slashes or dashes
+			.replace(/(^[\/-]+|[\/-]+$)/g, "")
+			// Remove any remaining characters that don"t conform to the URL
+			.replace(/[^a-z0-9-\/]+/g, "");
+	},
+
+	findLinksInHTML(html) {
+		let links = [];
+		const parser = new Parser({
+			onopentag(name, attribs) {
+				if (name == "a" && attribs.href)
+					// Track link without leading slash
+					links.push(attribs.href.replace(/^\//, ""));
+			},
+		});
+		parser.write(html);
+		parser.end();
+
+		return uniq(links);
+	},
+
+	findImgSrcsInHTML(html) {
+		let images = [];
+		const parser = new Parser({
+			onopentag(name, attribs) {
+				if (name == "img" && attribs.src)
+					// Strip leading slash
+					images.push(attribs.src.replace(/^\//, ""));
+			},
+		});
+		parser.write(html);
+		parser.end();
+
+		return uniq(images);
+	},
 
 	findFromURIs(uris) {
 		return this
@@ -77,7 +131,7 @@ ContentSchema
 	.get(function() {
 		var fragments = [];
 		var parent = this.parent;
-		while (parent != "") {
+		while (parent != undefined) {
 			fragments.push(parent);
 			parent = ContentSchema.statics.parentUriFragment(parent);
 		}
@@ -87,18 +141,7 @@ ContentSchema
 
 ContentSchema.methods = {
 	getInvalidLinks: function() {
-		var links = [];
-		var parser = new Parser({
-			onopentag(name, attribs) {
-				if (name == "a" && attribs.href)
-					// Track link without leading slash
-					links.push(attribs.href.replace(/^\//, ""));
-			},
-		});
-		parser.write(this.body);
-		parser.end();
-
-		links = uniq(links);
+		const links = this.model("Content").findLinksInHTML(this.body);
 
 		return this.model("Content")
 			.findFromURIs(links)
@@ -109,18 +152,7 @@ ContentSchema.methods = {
 
 	// Retrieves an array of images used in this model
 	getImages: function () {
-		let images = [];
-		const parser = new Parser({
-			onopentag(name, attribs) {
-				if (name == "img" && attribs.src)
-					// Strip leading slash
-					images.push(attribs.src.replace(/^\//, ""));
-			},
-		});
-		parser.write(this.body);
-		parser.end();
-
-		images = uniq(images);
+		const images = this.model("Content").findImgSrcsInHTML(this.body);
 
 		return this.model("Image")
 			.findFromURIs(images)

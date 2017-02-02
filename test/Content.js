@@ -35,9 +35,9 @@ describe("Content", () => {
 
 			const result = Content.findLinksInHTML(html);
 			const links = [
-				"/1",
-				"/D",
-				"/e",
+				"1",
+				"D",
+				"e",
 				"h"
 			];
 
@@ -48,12 +48,12 @@ describe("Content", () => {
 			const html = `
 				<a href="/1">A</a>
 				<a href="/1">A</a>
-				<a href="/1">A</a>
+				<a href="1">A</a>
 			`;
 
 			const result = Content.findLinksInHTML(html);
 			const links = [
-				"/1",
+				"1",
 			];
 
 			expect(result).to.have.members(links);
@@ -74,8 +74,8 @@ describe("Content", () => {
 
 			const result = Content.findImgSrcsInHTML(html);
 			const srcs   = [
-				"/a",
-				"/b",
+				"a",
+				"b",
 				"c",
 				"d"
 			];
@@ -86,7 +86,7 @@ describe("Content", () => {
 		it("should only find unique image src's", () => {
 			const html = `
 				<img src="a" />
-				<img src="a" />
+				<img src="/a" />
 				<img src="a" />
 			`;
 
