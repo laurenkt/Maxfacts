@@ -106,7 +106,7 @@ describe("Content", () => {
 			expect( uut("a/b/c") ).to.equal("a/b");
 			expect( uut("a/b")   ).to.equal("a");
 			expect( uut("a/b/c") ).to.equal("a/b");
-			expect( uut("a")     ).to.be.undefined;
+			expect( uut("a")     ).to.equal("");
 		});
 	});
 

@@ -45,12 +45,7 @@ ContentSchema.index({
 
 ContentSchema.statics = {
 	parentUriFragment(uri) {
-		const parent = uri.split("/").slice(0, -1).join("/");
-
-		if (parent != "")
-			return parent;
-		else
-			return undefined;
+		return uri.split("/").slice(0, -1).join("/");
 	},
 
 	normalizeURI(uri) {
@@ -131,7 +126,7 @@ ContentSchema
 	.get(function() {
 		var fragments = [];
 		var parent = this.parent;
-		while (parent != undefined) {
+		while (parent != "") {
 			fragments.push(parent);
 			parent = ContentSchema.statics.parentUriFragment(parent);
 		}

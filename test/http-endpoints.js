@@ -1,9 +1,10 @@
 import {expect} from "chai";
 import request  from "supertest";
 
-describe("HTTP end-points", () => {
+describe("HTTP end-points", function() {
 	// Some set-up needed so the tests can interact with the server on
 	// an HTTP level
+	this.timeout(15000);
 	let server;
 	
 	before(done => server = require("../app.js").listen(3001, done));
@@ -18,6 +19,46 @@ describe("HTTP end-points", () => {
 		});
 	});
 
+	describe("/css/style.css", () => {
+		it("should respond to GET", done => {
+			request(server)
+				.get("/css/style.css")
+				.expect(200, done);
+		});
+	});
+
+	describe("/js/editor/app.js", () => {
+		it("should respond to GET", done => {
+			request(server)
+				.get("/js/editor/app.js")
+				.expect(200, done);
+		});
+	});
+
+	describe("/js/magic-triangle/app.js", () => {
+		it("should respond to GET", done => {
+			request(server)
+				.get("/js/magic-triangle/app.js")
+				.expect(200, done);
+		});
+	});
+
+	describe("/magic-triangle", () => {
+		it("should respond to GET", done => {
+			request(server)
+				.get("/magic-triangle")
+				.expect(200, done);
+		});
+	});
+
+	describe("/search", () => {
+		it("should respond to GET", done => {
+			request(server)
+				.get("/search")
+				.expect(200, done);
+		});
+	});
+
 	describe("/diagnosis", () => {
 		it("should respond to GET", done => {
 			request(server)
@@ -27,10 +68,10 @@ describe("HTTP end-points", () => {
 	});
 
 	describe("/dashboard", () => {
-		it("should respond to GET", done => {
+		it("should 302 redirect a GET", done => {
 			request(server)
-				.get("/diagnosis")
-				.expect(200, done);
+				.get("/dashboard")
+				.expect(302, done);
 		});
 	});
 
