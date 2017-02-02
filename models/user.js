@@ -8,6 +8,9 @@ const UserSchema = new mongoose.Schema({
 });
 
 UserSchema.statics = {
+	doesUserExist(email) {
+		return this.model("User").findOne({email}).exec().then(email => email != null);
+	}
 };
 
 UserSchema.methods = {
