@@ -5,7 +5,7 @@ import User from "../models/user.js";
 const router = express.Router();
 
 router.get(/\/.*/i, ensureLoggedIn("/auth"), (req, res, next) => {
-	User.doesUserExist(req.user + ' aaa')
+	User.doesUserExist(req.user)
 		.then(valid => {
 			if (valid) {
 				res.locals.user = req.user;
