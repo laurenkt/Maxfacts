@@ -80,6 +80,17 @@ class Editor extends React.Component {
 	}
 
 	/**
+	 * Check whether the current selection has an inline in it.
+	 *
+	 * @return {Boolean} hasLinks
+	 */
+
+	hasInline(type) {
+		const state = this.state.slate_state;
+		return state.inlines.some(inline => inline.type == type);
+	}
+
+	/**
 	 * Check if the any of the currently selected blocks are of `type`.
 	 *
 	 * @param {String} type
@@ -106,6 +117,52 @@ class Editor extends React.Component {
 			.apply()
 
 		this.setState({ slate_state:state })
+	}
+
+	onClickInline(e, type) {
+		e.preventDefault()
+
+		let state = this.state.slate_state;
+
+		if (type == 'link') {
+			const hasLinks = this.hasInline('link')
+
+			if (hasLinks) {
+				state = state
+					.transform()
+					.unwrapInline('link')
+					.apply()
+			}
+
+			else if (state.isExpanded) {
+				const href = window.prompt('Enter the URL of the link:')
+				state = state
+					.transform()
+					.wrapInline({
+						type: 'link',
+						data: { href }
+					})
+					.collapseToEnd()
+					.apply()
+			}
+
+			else {
+				const href = window.prompt('Enter the URL of the link:')
+				const text = window.prompt('Enter the text for the link:')
+				state = state
+					.transform()
+					.insertText(text)
+					.extendBackward(text.length)
+					.wrapInline({
+						type: 'link',
+						data: { href }
+					})
+					.collapseToEnd()
+					.apply()
+			}
+
+			this.setState({ slate_state:state })
+		}
 	}
 
 	/**
@@ -187,9 +244,12 @@ class Editor extends React.Component {
 
 	renderToolbar() {
 		return (
-		<div ref={toolbar => this.toolbar = toolbar} className="menu toolbar-menu">
+			<div ref={toolbar => this.toolbar = toolbar} className="menu toolbar-menu">
 				{this.renderMarkButton('bold', 'format_bold')}
 				{this.renderMarkButton('emphasis', 'format_italic')}
+				{this.renderMarkButton('sub', 'trending_down')}
+				{this.renderMarkButton('sup', 'trending_up')}
+				{this.renderInlineButton('link', 'link')}
 				{this.renderBlockButton('heading-1', 'looks_one')}
 				{this.renderBlockButton('heading-2', 'looks_two')}
 				{this.renderBlockButton('heading-3', 'looks_3')}
@@ -203,6 +263,17 @@ class Editor extends React.Component {
 	renderMarkButton(type, icon) {
 		const isActive = this.hasMark(type)
 		const onMouseDown = e => this.onClickMark(e, type)
+
+		return (
+			<span className="button" onMouseDown={onMouseDown} data-active={isActive}>
+				<span className="material-icons">{icon}</span>
+			</span>
+		)
+	}
+
+	renderInlineButton(type, icon) {
+		const isActive = this.hasInline(type)
+		const onMouseDown = e => this.onClickInline(e, type)
 
 		return (
 			<span className="button" onMouseDown={onMouseDown} data-active={isActive}>
