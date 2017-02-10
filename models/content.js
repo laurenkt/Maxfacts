@@ -1,9 +1,11 @@
+// @flow
 import mongoose     from "mongoose";
 import sanitizeHtml from "sanitize-html";
-import {Parser,DomHandler}     from "htmlparser2";
+import {Parser,
+	DomHandler}     from "htmlparser2";
 import {merge, uniq, map,
 	difference}     from "lodash";
-import DomUtils from "domutils";
+import DomUtils     from "domutils";
 
 mongoose.Promise = global.Promise; // Required to squash a deprecation warning
 
@@ -44,11 +46,11 @@ ContentSchema.index({
 });
 
 ContentSchema.statics = {
-	parentUriFragment(uri) {
+	parentUriFragment(uri):string {
 		return uri.split("/").slice(0, -1).join("/");
 	},
 
-	normalizeURI(uri) {
+	normalizeURI(uri):string {
 		// Force the URI into acceptable format:
 		return uri
 			// All lowercase
@@ -63,8 +65,8 @@ ContentSchema.statics = {
 			.replace(/[^a-z0-9-\/]+/g, "");
 	},
 
-	findLinksInHTML(html) {
-		let links = [];
+	findLinksInHTML(html):Array<String> {
+		let links:Array<String> = [];
 		const parser = new Parser({
 			onopentag(name, attribs) {
 				if (name == "a" && attribs.href)
@@ -78,8 +80,8 @@ ContentSchema.statics = {
 		return uniq(links);
 	},
 
-	findImgSrcsInHTML(html) {
-		let images = [];
+	findImgSrcsInHTML(html):Array<String> {
+		let images:Array<String> = [];
 		const parser = new Parser({
 			onopentag(name, attribs) {
 				if (name == "img" && attribs.src)
