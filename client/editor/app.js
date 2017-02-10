@@ -116,7 +116,7 @@ class Editor extends React.Component {
 			.toggleMark(type)
 			.apply()
 
-		this.setState({ slate_state:state })
+		this.setState({ slate_state:state, html_value: serialize(state) })
 	}
 
 	onClickInline(e, type) {
@@ -161,7 +161,7 @@ class Editor extends React.Component {
 					.apply()
 			}
 
-			this.setState({ slate_state:state })
+			this.setState({ slate_state:state, html_value: serialize(state) })
 		}
 	}
 
@@ -239,7 +239,7 @@ class Editor extends React.Component {
 		}
 
 		state = transform.apply()
-		this.setState({ slate_state:state })
+		this.setState({ slate_state:state, html_value: serialize(state) })
 	}
 
 	renderToolbar() {
