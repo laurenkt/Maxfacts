@@ -117,14 +117,14 @@ app.get("/auth/callback",
 
 // If nothing is found
 app.use((req, res, next) => {
-	var err = new Error("Not Found");
+	const err = new Error("Not Found");
 	err.status = 404;
 	next(err); // pass to error handler
 });
 
 // Error handler
 app.use((err, req, res, _) => {
-	var errInfo = {};
+	let errInfo = {};
 
 	// Show more information if development
 	if (app.get("env") === "development") {
@@ -143,4 +143,5 @@ app.use((err, req, res, _) => {
 });
 
 export default app;
-module.exports = app; // Needed for test runner
+// $FlowFixMe: needed for test runner
+module.exports = app;

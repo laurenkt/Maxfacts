@@ -21,7 +21,9 @@ class Editor extends React.Component {
 		this.onDocumentChange = this.onDocumentChange.bind(this);
 		this.onEditModeChange = this.onEditModeChange.bind(this);
 
-		this.rows = Math.min(props.value.split(/\r?\n/).length, 20);
+		this.rows = Math.max(props.value.split(/\r?\n/).length, 20);
+
+		document.addEventListener("scroll", this.onScroll.bind(this));
 	}
 
 	static get propTypes() {
@@ -33,24 +35,39 @@ class Editor extends React.Component {
 		};
 	}
 
+	onScroll(e) {
+		// Only do this when the toolbar exists
+		if (this.toolbar) {
+			// And when its parent is above the viewport (so it would be too)
+			const {top} = this.toolbar.parentNode.getBoundingClientRect();
+			if (top < 0) {
+				const width = this.toolbar.parentNode.clientWidth;
+				const offset_y = window.scrollY - this.toolbar.offsetParent.offsetTop;
+				
+				this.toolbar.style.position = "absolute";
+				this.toolbar.style.top = `${offset_y}px`;
+				this.toolbar.style.width = `${width}px`;
+			}
+			else {
+				this.toolbar.style.position = "inherit";
+			}
+		}
+	}
+
 	onEditorChange(state) {
-		console.log("onEditorChange");
 		this.setState({slate_state: state});
 	}
 
 	onTextAreaChange(e) {
-		console.log("onTextAreaChange");
 		this.rows = Math.min(e.target.value.split(/\r?\n/).length, 20);
 		this.setState({html_value: e.target.value});
 	}
 
 	onDocumentChange(document, state) {
-		console.log("onDocumentChange");
 		this.setState({html_value: serialize(state)});
 	}
 
 	onEditModeChange(e) {
-		console.log("onEditModeChange", e.target.checked, this.state.html_value);
 		this.setState({
 			editing_in_html: e.target.checked,
 			slate_state: e.target.checked ? this.state.slate_state : deserialize(this.state.html_value),
@@ -105,7 +122,24 @@ class Editor extends React.Component {
 		let state = this.state.slate_state;
 		let transform = state.transform()
 		const { document } = state
+		
+		// aside must nest paragraphs rather than replace them
+		if (type == 'aside') {
+			const isActive = this.hasBlock(type)
+			const isType = state.blocks.some((block) => {
+				return !!document.getClosest(block.key, parent => parent.type == type)
+			})
 
+			if (isType) {
+				transform
+					.unwrapBlock(type);
+			}
+			else {
+				transform.wrapBlock(type);
+			}
+		}
+
+		else
 		// Handle everything but list buttons.
 		if (type != 'list' && type != 'num-list') {
 			const isActive = this.hasBlock(type)
@@ -153,7 +187,7 @@ class Editor extends React.Component {
 
 	renderToolbar() {
 		return (
-			<div className="menu toolbar-menu">
+		<div ref={toolbar => this.toolbar = toolbar} className="menu toolbar-menu">
 				{this.renderMarkButton('bold', 'format_bold')}
 				{this.renderMarkButton('emphasis', 'format_italic')}
 				{this.renderBlockButton('heading-1', 'looks_one')}
@@ -161,6 +195,7 @@ class Editor extends React.Component {
 				{this.renderBlockButton('heading-3', 'looks_3')}
 				{this.renderBlockButton('num-list', 'format_list_numbered')}
 				{this.renderBlockButton('list', 'format_list_bulleted')}
+				{this.renderBlockButton('aside', 'comment')}
 			</div>
 		)
 	}
@@ -177,8 +212,15 @@ class Editor extends React.Component {
 	}
 
 	renderBlockButton(type, icon) {
-		const isActive = this.hasBlock(type)
+		let isActive = this.hasBlock(type)
 		const onMouseDown = e => this.onClickBlock(e, type)
+
+		// Aside needs to recognise parent too
+		if (type == 'aside') {
+			isActive = isActive || this.state.slate_state.blocks.some((block) => {
+				return !!this.state.slate_state.document.getClosest(block.key, parent => parent.type == type)
+			})
+		}
 
 		return (
 			<span className="button" onMouseDown={onMouseDown} data-active={isActive}>
@@ -200,7 +242,7 @@ class Editor extends React.Component {
 					</label>
 				</p>
 				<textarea
-					rows={this.rows}
+					rows={Math.max(this.props.value.split(/\r?\n/).length, 20)}
 					name={this.props.name}
 					style={{display: this.state.editing_in_html ? "block" : "none"}}
 					onChange={this.onTextAreaChange}
