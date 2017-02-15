@@ -45,8 +45,8 @@ class Editor extends React.Component {
 				const offset_y = window.scrollY - this.toolbar.offsetParent.offsetTop;
 				
 				this.toolbar.style.position = "absolute";
-				this.toolbar.style.top = `${offset_y}px`;
-				this.toolbar.style.width = `${width}px`;
+				this.toolbar.style.top      = `${offset_y}px`;
+				this.toolbar.style.width    = `${width}px`;
 			}
 			else {
 				this.toolbar.style.position = "inherit";
@@ -119,6 +119,9 @@ class Editor extends React.Component {
 		this.setState({ slate_state:state, html_value: serialize(state) })
 	}
 
+	/**
+	 *
+	 */
 	onClickInline(e, type) {
 		e.preventDefault()
 
@@ -135,30 +138,51 @@ class Editor extends React.Component {
 			}
 
 			else if (state.isExpanded) {
-				const href = window.prompt('Enter the URL of the link:')
-				state = state
-					.transform()
-					.wrapInline({
-						type: 'link',
-						data: { href }
-					})
-					.collapseToEnd()
-					.apply()
+				// Find what text the user has selected
+				const selected_text = state.document.getDescendant(state.focusKey).text.slice(state.startOffset, state.endOffset);
+
+				// Extract any url in a [...], filter out preceding or trailing whitespace
+				const matched_url = selected_text.match(/[ ]*\[(.*?)\][ ]*$/);
+				let suggested_url = '';
+
+				if (matched_url && matched_url.length >= 2)
+					suggested_url = matched_url[1]; // First match
+
+				const href = window.prompt('Enter the URL of the link:', suggested_url)
+
+				// Only if the user didn't cancel
+				if (href) {
+					state = state
+						.transform()
+						.wrapInline({
+							type: 'link',
+							data: { href }
+						})
+						.collapseToEnd()
+						.deleteBackward(matched_url ? matched_url[0].length : 0)
+						.apply()
+				}
 			}
 
 			else {
 				const href = window.prompt('Enter the URL of the link:')
-				const text = window.prompt('Enter the text for the link:')
-				state = state
-					.transform()
-					.insertText(text)
-					.extendBackward(text.length)
-					.wrapInline({
-						type: 'link',
-						data: { href }
-					})
-					.collapseToEnd()
-					.apply()
+
+				if (href) {
+					const text = window.prompt('Enter the text for the link:')
+
+					if (text) {
+						state = state
+							.transform()
+							.insertText(text)
+							.extendBackward(text.length)
+							.wrapInline({
+								type: 'link',
+								data: { href }
+							})
+							.collapseToEnd()
+							.apply()
+					}
+				}
 			}
 
 			this.setState({ slate_state:state, html_value: serialize(state) })
