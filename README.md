@@ -28,6 +28,8 @@ Stylesheets are implemented using Sass with the `.scss` extension - these are au
 
 Javascript in the `client` directory will be compiled with Babel supporting React/JSX.
 
+**Note:** to host the dev server on a particular port it is easiest to map that port to 3000: `sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 3000`
+
 Backups
 -------
 
