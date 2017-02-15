@@ -74,6 +74,10 @@ class Editor extends React.Component {
 		});
 	}
 
+	onPaste(e, data, state) {
+		console.log(data.html);
+	}
+
 	hasMark(type) {
 		const state = this.state.slate_state;
 		return state.marks.some(mark => mark.type == type);
@@ -349,7 +353,8 @@ class Editor extends React.Component {
 						schema={Schema}
 						state={this.state.slate_state}
 						onChange={this.onEditorChange}
-						onDocumentChange={this.onDocumentChange} />}
+						onDocumentChange={this.onDocumentChange}
+						onPaste={this.onPaste} />}
 			</div>
 		);
 	}
