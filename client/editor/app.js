@@ -8,7 +8,7 @@ class Editor extends React.Component {
 	constructor(props) {
 		super(props);
 
-		const initial_state = deserialize(props.value);
+		const initial_state = deserialize(props.value != "" ? props.value : '<p></p>');
 
 		this.state = {
 			slate_state:     initial_state,
