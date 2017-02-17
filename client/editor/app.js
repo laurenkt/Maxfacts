@@ -146,7 +146,7 @@ class Editor extends React.Component {
 	/**
 	 *
 	 */
-	onClickInline(e, type) {
+	onClickInline(e, type, is_editing) {
 		e.preventDefault()
 
 		let state = this.state.slate_state;
@@ -155,10 +155,23 @@ class Editor extends React.Component {
 			const hasLinks = this.hasInline('link')
 
 			if (hasLinks) {
-				state = state
-					.transform()
-					.unwrapInline('link')
-					.apply()
+				if (!is_editing) {
+					state = state
+						.transform()
+						.unwrapInline('link')
+						.apply()
+				}
+				else {
+					const this_link = state.inlines.find(node => node.type == 'link');
+					const suggested_url = this_link.get("data").get("href");
+					const href = window.prompt('Enter the URL of the link:', suggested_url)
+					if (href) {
+						state = state
+							.transform()
+							.setInline({data: {href}})
+							.apply()
+					}
+				}
 			}
 
 			else if (state.isExpanded) {
@@ -298,6 +311,8 @@ class Editor extends React.Component {
 				{this.renderMarkButton('sub', 'trending_down')}
 				{this.renderMarkButton('sup', 'trending_up')}
 				{this.renderInlineButton('link', 'link')}
+				{this.hasInline('link') &&
+					this.renderInlineButton('link', 'edit')}
 				{this.renderBlockButton('heading-1', 'looks_one')}
 				{this.renderBlockButton('heading-2', 'looks_two')}
 				{this.renderBlockButton('heading-3', 'looks_3')}
@@ -321,7 +336,8 @@ class Editor extends React.Component {
 
 	renderInlineButton(type, icon) {
 		const isActive = this.hasInline(type)
-		const onMouseDown = e => this.onClickInline(e, type)
+		const is_editing = icon == 'edit';
+		const onMouseDown = e => this.onClickInline(e, type, is_editing)
 
 		return (
 			<span className="button" onMouseDown={onMouseDown} data-active={isActive}>
