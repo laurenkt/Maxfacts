@@ -74,8 +74,28 @@ class Editor extends React.Component {
 		});
 	}
 
+	/**
+	 * On paste, deserialize the HTML and then insert the fragment.
+	 *
+	 * @param {Event} e
+	 * @param {Object} data
+	 * @param {State} state
+	 */
 	onPaste(e, data, state) {
-		console.log(data.html);
+		// TODO: convert pasted word doc into our doc
+		// will need URL converter
+		// <span color='red'>...</span> is links links
+		if (data.type != "html") return;
+		if (data.isShift) return;
+		
+		console.log('HTML', data.html);
+
+		const { document } = deserialize(data.html);
+	
+		return state
+			.transform()
+			.insertFragment(document)
+			.apply();
 	}
 
 	hasMark(type) {
@@ -350,7 +370,7 @@ class Editor extends React.Component {
 					this.renderToolbar()}
 				{!this.state.editing_in_html &&
 					<RichTextEditor
-						schema={Schema}
+						schema={Schema(this.props.valid_uris)}
 						state={this.state.slate_state}
 						onChange={this.onEditorChange}
 						onDocumentChange={this.onDocumentChange}
@@ -361,11 +381,18 @@ class Editor extends React.Component {
 }
 
 document.addEventListener("DOMContentLoaded", e => {
+	let valid_uris = JSON.parse(document.getElementById("editor_data").innerHTML);
+	valid_uris = valid_uris.uris ? valid_uris.uris : [];
+
 	const textarea  = document.getElementsByTagName("textarea").item(0);
 	const container = document.createElement("div");
 	container.className = "content-editor";
 
-	ReactDOM.render(<Editor name={textarea.getAttribute("name")} value={textarea.value} />, container);
+	ReactDOM.render(<Editor 
+		name={textarea.getAttribute("name")}
+		value={textarea.value}
+		valid_uris={valid_uris}
+	/>, container);
 	
 	textarea.parentNode.replaceChild(container.childNodes[0], textarea);
 });

@@ -29,6 +29,9 @@ app.engine("hbs", hbs({
 	defaultLayout: "main",
 	layoutsDir:    join(__dirname, "templates", "layouts"),
 	partialsDir:   join(__dirname, "templates", "partials"),
+	helpers: {
+		toJSON: obj => JSON.stringify(obj),
+	}
 }));
 app.set("view engine", "hbs");
 app.set("views", join(__dirname, "templates"));

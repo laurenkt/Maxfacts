@@ -16,6 +16,8 @@ const ContentSchema = new mongoose.Schema({
 		minlength: 1,
 		required:  true,
 		set: function(uri) {
+			// Track the previous URI so that when saved we can update all
+			// links to the node with previous URI
 			if (uri != this.uri)
 				this._previousURI = this.uri;
 			
@@ -63,6 +65,14 @@ ContentSchema.statics = {
 			.replace(/(^[\/-]+|[\/-]+$)/g, "")
 			// Remove any remaining characters that don"t conform to the URL
 			.replace(/[^a-z0-9-\/]+/g, "");
+	},
+
+	getAllURIs():Promise<Array<String>> {
+		return this
+			.find()
+			.select("uri")
+			.exec()
+			.then(uris => uris.map(uri => '/' + uri.uri)); // Extract just the URI
 	},
 
 	findLinksInHTML(html):Array<String> {

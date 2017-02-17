@@ -111,12 +111,12 @@ router.get("/:uri(*)", (req, res, next) => {
 		.then(content =>
 			// Find invalid URIs and images
 			Promise.all([
+				Content.getAllURIs().then(uris => content.all_uris = uris),
 				content.getInvalidLinks().then(uris => content.invalid_uris = uris),
 				content.getImages().then(images => content.images = images),
 			]).then(_ => content)
 		)
 		.then(content => {
-			console.log(content.images);
 			// Determines whether to show notice about content being saved
 			content.saved = req.query.hasOwnProperty("saved");
 			// Prepare selected structure for template to render the select box
@@ -132,11 +132,11 @@ router.get("/:uri(*)", (req, res, next) => {
 
 router.post("/:uri(*)", (req, res) => {
 	Content.findOne({uri: req.params.uri}).exec().then(item => {
-		item.uri   = req.body.uri;
-		item.title = req.body.title;
-		item.type  = req.body.type;
-		item.body  = req.body.body;
-		item.surtitle = req.body.surtitle;
+		item.uri         = req.body.uri;
+		item.title       = req.body.title;
+		item.type        = req.body.type;
+		item.body        = req.body.body;
+		item.surtitle    = req.body.surtitle;
 		item.description = req.body.description;
 
 		// Normalize checkboxes

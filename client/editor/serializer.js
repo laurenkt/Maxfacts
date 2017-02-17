@@ -39,6 +39,20 @@ const colspan = data => {
 
 const rules = [
 	{
+		deserialize(el, next) {
+			// Skip certain tags
+			switch (el.tagName) {
+				case "head":
+				case "style":
+					console.log("Stripping", el.tagName, el);
+					return [];
+				default:
+					return;
+			}
+			return;
+		}
+	},
+	{
 		serialize(obj, children) {
 			if (obj.kind != "inline") return;
 			
@@ -225,6 +239,7 @@ export function deserialize(html_string) {
 	return html_serializer.deserialize(
 		html_minify(html_string, {
 			collapseWhitespace: true,
+			removeComments:     true,
 		})
 	);
 };

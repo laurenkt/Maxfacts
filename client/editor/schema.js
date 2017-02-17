@@ -9,7 +9,7 @@ const colspan = props => {
 	return props;
 }
 
-export default {
+export default (valid_uris) => ({
 	nodes: {
 		"paragraph": props => <p {...props.attributes}>{props.children}</p>,
 		"list":      props => <ul {...props.attributes}>{props.children}</ul>,
@@ -28,7 +28,10 @@ export default {
 		"aside":     props => <aside {...props.attributes}>{props.children}</aside>,
 		"link": props => {
 			const href = props.node.data.get("href");
-			return <a href={href} {...props.attributes}>{props.children}</a>;
+
+			const className = valid_uris.includes(href) ? 'found' : 'not_found';
+
+			return <a href={href} className={className} {...props.attributes}>{props.children}</a>;
 		},
 		"figure": props => {
 			let { node, data, state } = props;
@@ -63,5 +66,5 @@ export default {
 		sub:        props => <sub>{props.children}</sub>,
 		sup:        props => <sup>{props.children}</sup>,
 	},
-};
+});
 
