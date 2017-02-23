@@ -176,6 +176,7 @@ class Editor extends React.Component {
 
 			else if (state.isExpanded) {
 				// Find what text the user has selected
+				const current_selection = state.document.selection;
 				const selected_text = state.document.getDescendant(state.focusKey).text.slice(state.startOffset, state.endOffset);
 
 				// Extract any url in a [...], filter out preceding or trailing whitespace
@@ -185,18 +186,30 @@ class Editor extends React.Component {
 				if (matched_url && matched_url.length >= 2)
 					suggested_url = matched_url[1]; // First match
 
+				const chars_to_remove = matched_url ? matched_url[0].length : 0;
+
 				const href = window.prompt('Enter the URL of the link:', suggested_url)
 
 				// Only if the user didn't cancel
 				if (href) {
 					state = state
 						.transform()
+						.insertText(selected_text.slice(0, selected_text.length - chars_to_remove))
+						// For one reason or another Slate seems to collapse the selection when this happens
+						// Reselect the word at the right point
+						.moveTo({
+							anchorKey:    state.anchorKey,
+							anchorOffset: state.startOffset,
+							focusKey:     state.focusKey,
+							focusOffset:  state.startOffset + (selected_text.length - chars_to_remove),
+							isBackward:   false,
+							isFocused:    true,
+						})
 						.wrapInline({
 							type: 'link',
 							data: { href }
 						})
 						.collapseToEnd()
-						.deleteBackward(matched_url ? matched_url[0].length : 0)
 						.apply()
 				}
 			}
