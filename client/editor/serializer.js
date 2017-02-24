@@ -41,14 +41,18 @@ const rules = [
 	{
 		deserialize(el, next) {
 			// Decipher MSWord HTML
-			if (el.tagName == "b" && el.attribs && el.attribs.style) {
-				if (el.attribs.style == "mso-bidi-font-weight:normal")
-					return {
-						kind: "block",
-						type: "heading-1",
-						nodes: next(el.children),
-						data: {attribs: el.attribs},
-					};
+			// Headers: need to reach in through <p> to an immediately nested <b> tag
+			if (el.tagName == "p" && el.children.length > 0) {
+				const child = el.children[0];
+				if (child.tagName == "b" && child.attribs && child.attribs.style) {
+					if (child.attribs.style == "mso-bidi-font-weight:normal")
+						return {
+							kind: "block",
+							type: "heading-1",
+							nodes: next(child.children),
+							data: {attribs: child.attribs},
+						};
+				}
 			}
 			else if (el.tagName == "span" && el.attribs && el.attribs.style) {
 				if (el.attribs.style.match(/color:red/) && el.children.length > 0 && el.children[0].data && el.children[0].data.match) {
