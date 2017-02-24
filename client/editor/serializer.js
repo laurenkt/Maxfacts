@@ -42,15 +42,18 @@ const rules = [
 		deserialize(el, next) {
 			// Decipher MSWord HTML
 			// Headers: need to reach in through <p> to an immediately nested <b> tag
-			if (el.tagName == "p" && el.children.length > 0) {
-				const child = el.children[0];
-				if (child.tagName == "b" && child.attribs && child.attribs.style) {
+			if (el.tagName == "p" && el.children.length == 1) {
+				let child = el;
+				while (child && child.tagName != "b")
+					child = child.children && child.children.length > 0 && child.children[0];
+
+				if (child && child.attribs && child.attribs.style) {
 					if (child.attribs.style == "mso-bidi-font-weight:normal")
 						return {
-							kind: "block",
-							type: "heading-1",
+							kind:  "block",
+							type:  "heading-1",
 							nodes: next(child.children),
-							data: {attribs: child.attribs},
+							data:  {attribs: child.attribs},
 						};
 				}
 			}
@@ -74,6 +77,17 @@ const rules = [
 					}
 				}
 			}
+
+			if (el.tagName == "span") {
+				const children = next(el.children);
+
+				if (children.length == 1) {
+					return children[0];
+				}
+				else if (children.length == 0) {
+					return [];
+				}
+			}
 		}
 	},
 	{
@@ -85,8 +99,7 @@ const rules = [
 					return [];
 				case "o:p":
 					// Strip empty paragraphs
-					console.log('p', el.children);
-					if (el.children.every(child => child.type == "text" && child.data.match(/^[ ]*$/) != null))
+					if (el.children.length == 0 || el.children.every(child => child.type == "text" && child.data.match(/^\s*$/) != null))
 						return []
 				default:
 					return;
@@ -110,10 +123,15 @@ const rules = [
 			const block = BLOCK_TAGS[el.tagName];
 			if (!block) return;
 
+			const nodes = next(el.children);
+
+			if (nodes.length == 0 || (nodes.every(node => node.kind == "text" && node.text.match(/^\s*$/))))
+				return [];
+
 			return {
 				kind:  "block",
 				type:  block,
-				nodes: next(el.children),
+				nodes,
 				data: {attribs: el.attribs},
 			};
 		},
@@ -246,12 +264,15 @@ const rules = [
 		// Special case for links, to grab their href.
 		deserialize(el, next) {
 			if (el.tagName != "a") return
-			return {
-				kind:  "inline",
-				type:  "link",
-				nodes: next(el.children),
-				data: {
-					href: el.attribs.href
+
+			if (el.attribs.href) {
+				return {
+					kind:  "inline",
+					type:  "link",
+					nodes:  next(el.children),
+					data: {
+						href: el.attribs.href
+					}
 				}
 			}
 		}
