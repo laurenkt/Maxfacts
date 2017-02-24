@@ -202,7 +202,10 @@ const rules = [
 	},
 	{
 		deserialize(el, next) {
-			const mark = MARK_TAGS[el.tagName]
+			let tagName = el.tagName;
+			if (tagName == "b") tagName = "strong";
+
+			const mark = MARK_TAGS[tagName]
 			if (!mark) return
 			return {
 				kind:  "mark",
