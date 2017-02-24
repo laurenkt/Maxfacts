@@ -48,13 +48,20 @@ const rules = [
 					child = child.children && child.children.length > 0 && child.children[0];
 
 				if (child && child.attribs && child.attribs.style) {
-					if (child.attribs.style == "mso-bidi-font-weight:normal")
-						return {
-							kind:  "block",
-							type:  "heading-1",
-							nodes: next(child.children),
-							data:  {attribs: child.attribs},
-						};
+					if (child.attribs.style == "mso-bidi-font-weight:normal") {
+						const children = next(child.children);
+
+						if (children.length >= 1) {
+							return {
+								kind:  "block",
+								type:  "heading-1",
+								nodes: next(child.children),
+								data:  {attribs: child.attribs},
+							};
+						}
+						else
+							return [];
+					}
 				}
 			}
 			else if (el.tagName == "span" && el.attribs && el.attribs.style) {
