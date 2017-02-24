@@ -203,6 +203,7 @@ const rules = [
 	{
 		deserialize(el, next) {
 			let tagName = el.tagName;
+			// For MSWord which uses <b> not <strong>
 			if (tagName == "b") tagName = "strong";
 
 			const mark = MARK_TAGS[tagName]

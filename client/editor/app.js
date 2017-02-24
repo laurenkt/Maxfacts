@@ -88,8 +88,6 @@ class Editor extends React.Component {
 		if (data.type != "html") return;
 		if (data.isShift) return;
 		
-		console.log('HTML', data.html);
-
 		const { document } = deserialize(data.html);
 	
 		return state
