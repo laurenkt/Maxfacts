@@ -40,12 +40,50 @@ const colspan = data => {
 const rules = [
 	{
 		deserialize(el, next) {
+			// Decipher MSWord HTML
+			if (el.tagName == "b" && el.attribs && el.attribs.style) {
+				if (el.attribs.style == "mso-bidi-font-weight:normal")
+					return {
+						kind: "block",
+						type: "heading-1",
+						nodes: next(el.children),
+						data: {attribs: el.attribs},
+					};
+			}
+			else if (el.tagName == "span" && el.attribs && el.attribs.style) {
+				if (el.attribs.style.match(/color:red/) && el.children.length > 0 && el.children[0].data && el.children[0].data.match) {
+					const matched_text = el.children[0].data.match(/^[ ]*(.*?)[ ]+\[(.*)\][ ]*$/);
+					if (matched_text) {
+						return {
+							kind:  "inline",
+							type:  "link",
+							nodes: [
+								{
+									kind: 'text',
+									text: matched_text[1]
+								}
+							],
+							data: {
+								href: matched_text[2]
+							}
+						};
+					}
+				}
+			}
+		}
+	},
+	{
+		deserialize(el, next) {
 			// Skip certain tags
 			switch (el.tagName) {
 				case "head":
 				case "style":
-					console.log("Stripping", el.tagName, el);
 					return [];
+				case "o:p":
+					// Strip empty paragraphs
+					console.log('p', el.children);
+					if (el.children.every(child => child.type == "text" && child.data.match(/^[ ]*$/) != null))
+						return []
 				default:
 					return;
 			}
