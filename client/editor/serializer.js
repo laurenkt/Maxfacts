@@ -42,12 +42,19 @@ const rules = [
 		deserialize(el, next) {
 			// Decipher MSWord HTML
 			// Headers: need to reach in through <p> to an immediately nested <b> tag
-			if (el.tagName == "p" && el.children.length == 1) {
+			if (el.tagName == "p" && el.children.length >= 1) {
+				// Search for a child that is a <b>
 				let child = el;
-				while (child && child.tagName != "b")
-					child = child.children && child.children.length > 0 && child.children[0];
+				// Keep looking so long as it's still an object that isn't a <b>
+				while (child && child.tagName != "b") {
+					// Look at next element
+					child = child.children &&         // But only if there are children
+						child.children.length >= 1 && // At least 1
+						child.children.find(node => node.children && node.children.length >= 1) // Look at first non-empty child
 
-				if (child && child.attribs && child.attribs.style) {
+				}
+
+				if (child && child.next == null && child.attribs && child.attribs.style) {
 					if (child.attribs.style == "mso-bidi-font-weight:normal") {
 						const children = next(child.children);
 
