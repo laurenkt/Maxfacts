@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import {Editor as RichTextEditor} from "slate";
+import {Editor as RichTextEditor, Plain} from "slate";
 import {serialize, deserialize} from "./serializer.js";
 import Schema from "./schema.js";
 
@@ -8,7 +8,9 @@ class Editor extends React.Component {
 	constructor(props) {
 		super(props);
 
-		const initial_state = deserialize(props.value != "" ? props.value : '<p></p>');
+		const initial_state = props.value != "" ?
+			deserialize(props.value) :
+			deserialize("<p>Enter content here</p>");
 
 		this.state = {
 			slate_state:     initial_state,

@@ -74,7 +74,10 @@ router.get("/delete/:uri(*)", (req, res) => {
 });
 
 router.get("/new", (req, res) => {
-	res.render("dashboard/content", {layout:"dashboard"});
+	Content.getAllURIs()
+		.then(all_uris =>
+			res.render("dashboard/content", {all_uris, layout:"dashboard"})
+		);
 });
 
 router.post("/new", (req, res) => {
