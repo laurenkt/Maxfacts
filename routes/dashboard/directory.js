@@ -1,6 +1,5 @@
 import express from "express"
 import Content from "../../models/content"
-import {difference} from "lodash"
 
 const router = express.Router()
 
