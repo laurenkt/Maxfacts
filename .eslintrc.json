@@ -1,4 +1,5 @@
 {
+	"parser": "babel-eslint",
 	"env": {
 		"browser": true,
 		"es6": true,
@@ -16,9 +17,11 @@
 		"sourceType": "module"
 	},
 	"plugins": [
-		"react"
+		"react",
+		"promise"
 	],
 	"rules": {
+		"promise/prefer-await-to-then": "error",
 		"no-console": [
 			"error",
 			{
@@ -36,13 +39,9 @@
 			"error",
 			"unix"
 		],
-		"quotes": [
-			"error",
-			"double"
-		],
 		"semi": [
 			"error",
-			"always"
+			"never"
 		],
 		"no-unused-vars": [
 			"error",
@@ -59,7 +58,7 @@
 			"error", { "hoist": "never" }
 		],
 		"react/display-name": [
-			false
+			0
 		]
 	}
 }

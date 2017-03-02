@@ -12,12 +12,12 @@ router.get("/", async (req, res) => {
 	const [diagnosis, treatment, help] = await Promise.all([
 		Content.findFromParentURI("diagnosis").sort("title").exec(),
 		Content.findFromParentURI("treatment").sort("title").exec(),
-		Content.findFromParentURI("help").sort("title").exec()
+		Content.findFromParentURI("help").sort("title").exec(),
 	])
 
 	// Use alternative layout
 	res.render("index", {diagnosis, treatment, help, layout:"home"})
-});
+})
 
 /*
  * Render a particular page
