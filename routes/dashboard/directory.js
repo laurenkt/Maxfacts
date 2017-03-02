@@ -1,68 +1,26 @@
-import express from "express";
-import Content from "../../models/content";
-import {difference} from "lodash";
+import express from "express"
+import Content from "../../models/content"
+import {difference} from "lodash"
 
-const router = express.Router();
+const router = express.Router()
 
-router.get("/", (req, res) => {
-	const hasBody = item => item.body && item.body != "";
+router.get("/", async (req, res) => {
+	const hasBody = item => item.body && item.body != ""
 
-	Content.find().sort("title").exec().then(items => 
-		Promise
-			.all(
-				items.map(item =>
-					Promise.all([
-						item.getInvalidLinks().then(uris => uris.length),
-						hasBody(item) ?
-							Promise.resolve(false) :
-							item.type == "directory" ?
-								Content.findFromParentURI(item.uri).exec().then(children => children.length == 0) :
-								Promise.resolve(true),
-					])
-					.then(([length, is_empty]) => {
-						item.is_empty = is_empty;
-						item.invalid_links_count = length;
-					})
-				)
-			)
-			.then(() => {
-				const number_of_slashes = s => (s.match(/\//g) || []).length;
-				var items_by_slashes = [];
-				
-				items.forEach(item => {
-					if (Array.isArray(items_by_slashes[number_of_slashes(item.uri)]))
-						items_by_slashes[number_of_slashes(item.uri)].push(item);
-					else
-						items_by_slashes[number_of_slashes(item.uri)] = [item];
-				});
+	const items = await Content.find().sort("uri").exec()
 
-				var not_orphans = [];
-				not_orphans.push(...items_by_slashes[0]);
+	await Promise.all(items.map(async item => {
+		item.is_empty = hasBody(item) ? false : 
+			item.type == "directory" ? (await Content.findFromParentURI(item.uri).exec()).length == 0 :
+			true
+		item.invalid_links_count = (await item.getInvalidLinks()).length
+	}))
 
-				items_by_slashes.forEach((items_on_level, num_slashes) => 
-					items_on_level.forEach(item => {
-						item.colspan = num_slashes + 1;
-						item.colspan_remaining = items_by_slashes.length - item.colspan + 1;
-						if (Array.isArray(items_by_slashes[num_slashes+1])) {
-							item.children = items_by_slashes[num_slashes+1].filter(subitem => subitem.parent == item.uri);
-							//console.log(item.uri, ' children ', item.children.map(i=>i.uri));
-							not_orphans.push(...item.children);
-						}
-						else {
-							item.children = [];
-						}
-					})
-				);
-
-				res.render("dashboard/directory", {
-					items:items_by_slashes[0],
-					orphans:difference(items, not_orphans),
-					layout:"dashboard",
-				});
-			})
-	)
-	.catch(console.error.bind(console));
-});
+	res.render("dashboard/directory", {
+		items,
+		layout: "dashboard",
+	})
+})
 
 router.get("/delete/:uri(*)", (req, res) => {
 	if (req.query.hasOwnProperty("confirm")) {
