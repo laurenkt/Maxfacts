@@ -21,41 +21,46 @@ router.get("/", async (req, res) => {
 	})
 })
 
-router.get("/delete/:uri(*)", (req, res) => {
+router.get("/delete/:uri(*)", async (req, res) => {
 	if (req.query.hasOwnProperty("confirm")) {
-		Content.remove({uri: req.params.uri}).exec().then(() => res.redirect("/dashboard/directory"));
+		await Content.remove({uri: req.params.uri}).exec()
+		
+		res.redirect("/dashboard/directory")
 	}
 	else {
-		throw new Error("Deletion must contain confirm token in URL query string");
+		throw new Error("Deletion must contain confirm token in URL query string")
 	}
-});
+})
 
-router.get("/new", (req, res) => {
-	Content.getAllURIs()
-		.then(all_uris =>
-			res.render("dashboard/content", {all_uris, layout:"dashboard"})
-		);
-});
+router.get("/new", async (req, res) => {
+	const all_uris = await Content.getAllURIs()
 
-router.post("/new", (req, res) => {
+	res.render("dashboard/content", {all_uris, layout:"dashboard"})
+})
+
+router.post("/new", async (req, res) => {
 	// Normalize has_sublist checkbox
-	req.body.has_sublist = req.body.has_sublist && req.body.has_sublist === "on";
+	req.body.has_sublist = req.body.has_sublist && req.body.has_sublist === "on"
 
-	var content = new Content(req.body);
-	content.save()
-		.then(saved_content => res.redirect(`/dashboard/directory/${saved_content.uri}?saved`))
-		.catch(err => {
-			// Prepopulate with what was filled in
-			let item = {...req.body};
-			item.error = err;
-			// Prepare selected structure for template to render the select box
-			// This has to be done like this because Handlebars doesn't have a form builder
-			item.selected = {};
-			item.selected[item.type || "page"] = "selected";
-			item.layout = "dashboard";
-			res.render("dashboard/content", item);
-		});
-});
+	var content = new Content(req.body)
+	
+	try {
+		const saved_content = await content.save()
+
+		res.redirect(`/dashboard/directory/${saved_content.uri}?saved`)
+	}
+	catch (err) {
+		// Prepopulate with what was filled in
+		let item = {...req.body}
+		item.error = err
+		// Prepare selected structure for template to render the select box
+		// This has to be done like this because Handlebars doesn't have a form builder
+		item.selected = {}
+		item.selected[item.type || "page"] = "selected"
+		item.layout = "dashboard"
+		res.render("dashboard/content", item)
+	}
+})
 
 router.get("/:uri(*)", (req, res, next) => {
 	Content
