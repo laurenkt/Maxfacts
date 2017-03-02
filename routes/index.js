@@ -34,13 +34,15 @@ router.get("/:uri(*)", async (req, res, next) => {
 	
 	// Only do this step if it's a directory
 	if (content.type == "directory") {
-		const directory = await Promise.all(content.lineage
-			// Get links from all parent stages
-			.map(uri => Content.findFromAdjacentURI(uri).select("-body").sort("title").exec())
-			// Append siblings of the current page
-			.concat([Content.findFromAdjacentURI(content.uri).select("-body").sort("title").exec()])
-			// Append children of the current page (excluding ones with the same name)
-			.concat([Content.findFromParentURI(content.uri).where("title").ne(content.title).select("-body").sort("title").exec()]))
+		const directory = await Promise.all(
+			content.lineage
+				// Get links from all parent stages
+				.map(uri => Content.findFromAdjacentURI(uri).select("-body").sort("title").exec())
+				// Append siblings of the current page
+				.concat([Content.findFromAdjacentURI(content.uri).select("-body").sort("title").exec()])
+				// Append children of the current page (excluding ones with the same name)
+				.concat([Content.findFromParentURI(content.uri).where("title").ne(content.title).select("-body").sort("title").exec()])
+		)
 
 		// Transform directory, adding sublists as necessary
 		// TODO: this is really a promise mess - there must be a clearer way to structure this
