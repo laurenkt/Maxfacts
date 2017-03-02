@@ -18,11 +18,11 @@
 		<label for="title">Title</label>
 		<input class="large" type="text" name="title" id="title" value="{{title}}">
 	</p>
-	<p>
+	<p class="small-entry">
 		<label for="description">Subtitle (optional)</label>
 		<input type="text" name="description" id="description" value="{{description}}">
 	</p>
-	<p>
+	<p class="small-entry">
 		<label for="description">Surtitle (optional)</label>
 		<input type="text" name="surtitle" id="surtitle" value="{{surtitle}}">
 	</p>
@@ -30,15 +30,20 @@
 		<label for="uri">URL</label>
 		<input type="text" name="uri" id="uri" value="{{uri}}">
 	</p>
-	<p>
+	<p class="small-entry">
 		<label for="type">Type</label>
 		<select name="type" id="type">
-			<option value="page"      {{lookup selected 'page'}}     >Page</option>
-			<option value="directory" {{lookup selected 'directory'}}>Directory</option>
-			<option value="level3"    {{lookup selected 'level3'}}   >Level 3</option>
-			<option value="level2"    {{lookup selected 'level2'}}   >Level 2</option>
-			<option value="level1"    {{lookup selected 'level1'}}   >Level 1</option>
+			<option value="page"      {{lookup selected 'page'}}>      Page</option>
+			<option value="directory" {{lookup selected 'directory'}}> Directory</option>
+			<option value="level3"    {{lookup selected 'level3'}}>    Level 3</option>
+			<option value="level2"    {{lookup selected 'level2'}}>    Level 2</option>
+			<option value="level1"    {{lookup selected 'level1'}}>    Level 1</option>
+			<option value="further"   {{lookup selected 'further'}}>   Further Reading</option>
 		</select>
+	</p>
+	<p class="small-entry -mini">
+		<label for="order">Manual order (low-to-high)</label>
+		<input type="text" name="order" id="order" value="{{order}}">
 	</p>
 	<p>
 		<label for="has_sublist">

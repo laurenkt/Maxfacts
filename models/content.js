@@ -24,6 +24,7 @@ const ContentSchema = new mongoose.Schema({
 			return uri;
 		},
 	},
+	order:       {type: Number, default: 0},
 	body:        {type: String},
 	description: {type: String},
 	surtitle:    {type: String},

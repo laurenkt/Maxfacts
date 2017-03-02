@@ -37,11 +37,11 @@ router.get("/:uri(*)", async (req, res, next) => {
 		const directory = await Promise.all(
 			content.lineage
 				// Get links from all parent stages
-				.map(uri => Content.findFromAdjacentURI(uri).select("-body").sort("title").exec())
+				.map(uri => Content.findFromAdjacentURI(uri).select("-body").sort("order title").exec())
 				// Append siblings of the current page
-				.concat([Content.findFromAdjacentURI(content.uri).select("-body").sort("title").exec()])
+				.concat([Content.findFromAdjacentURI(content.uri).select("-body").sort("order title").exec()])
 				// Append children of the current page (excluding ones with the same name)
-				.concat([Content.findFromParentURI(content.uri).where("title").ne(content.title).select("-body").sort("title").exec()])
+				.concat([Content.findFromParentURI(content.uri).where("title").ne(content.title).select("-body").sort("order title").exec()])
 		)
 
 		// Transform directory, adding sublists as necessary
@@ -52,7 +52,7 @@ router.get("/:uri(*)", async (req, res, next) => {
 		await Promise.all(
 			directory.map(column => Promise.all(column
 				.filter(c => c.has_sublist)
-				.map(c => Content.findFromParentURI(c.uri).select("-body").sort("title").exec()
+				.map(c => Content.findFromParentURI(c.uri).select("-body").sort("order title").exec()
 					.then(sublist => c.sublist = sublist))
 				)
 			)
@@ -63,15 +63,6 @@ router.get("/:uri(*)", async (req, res, next) => {
 			directory.pop()
 
 		content.directory = directory.filter(list => list.length > 0) // The rest are the directory (assuming they have at least 1 item)
-
-		// Make sure first level is always in a certain order (Diagnosis, Treatment, Help)
-		// TODO: This is a bit hacky so maybe there should be another solution
-		if (content.directory[0][1].uri === "help") {
-			// Swap with treatment
-			const tmp = content.directory[0][1]
-			content.directory[0][1] = content.directory[0][2]
-			content.directory[0][2] = tmp
-		}
 
 		// Provide a way for the template to lookup whether a URI is selected
 		content.selected = {}

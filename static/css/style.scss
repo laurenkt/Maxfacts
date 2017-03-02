@@ -659,6 +659,25 @@ footer {
 		font-size: 160%;
 	}
 
+	p {
+		clear: left;
+	}
+
+	.small-entry {
+		clear: none;
+		float: left;
+		width: 50%;
+		padding-right: 2%;
+
+		&.-mini {
+			padding-right: 25%;
+		}
+
+		&+.small-entry {
+			padding-right: 0;
+		}
+	}
+
 	.leader {
 		background: #555;
 		text-align: center;

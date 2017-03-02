@@ -141,6 +141,7 @@ router.post("/:uri(*)", (req, res) => {
 		item.body        = req.body.body;
 		item.surtitle    = req.body.surtitle;
 		item.description = req.body.description;
+		item.order       = req.body.order;
 
 		// Normalize checkboxes
 		item.has_sublist = req.body.has_sublist && req.body.has_sublist === "on";
