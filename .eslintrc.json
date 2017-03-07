@@ -21,6 +21,7 @@
 		"promise"
 	],
 	"rules": {
+		"no-var": "error",
 		"promise/prefer-await-to-then": "error",
 		"no-console": [
 			"error",

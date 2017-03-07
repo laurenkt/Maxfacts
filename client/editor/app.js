@@ -91,7 +91,7 @@ class Editor extends React.Component {
 		if (data.isShift) return;
 		
 		const { document } = deserialize(data.html);
-	
+
 		return state
 			.transform()
 			.insertFragment(document)
