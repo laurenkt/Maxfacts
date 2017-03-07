@@ -92,6 +92,8 @@ class Editor extends React.Component {
 		
 		const { document } = deserialize(data.html);
 
+		console.log(data.html);
+
 		return state
 			.transform()
 			.insertFragment(document)

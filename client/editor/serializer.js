@@ -96,6 +96,15 @@ const rules = [
 				const children = next(el.children);
 
 				if (children.length == 1) {
+					if (el.attribs && el.attribs.style && el.attribs.style.match(/font-size:12.0pt/)) {
+						return {
+							kind: "block",
+							type: "aside",
+							nodes: next(el.children),
+							data:  {attribs: el.attribs}
+						}
+					}
+
 					return children[0];
 				}
 				else if (children.length == 0) {

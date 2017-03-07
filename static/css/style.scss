@@ -504,7 +504,7 @@ main {
 
 	header {
 		padding: 20px 20px 10px;
-		margin: $small-spacing 0;
+		margin: $small-spacing 0 $small-spacing*2;
 
 		h2 {
 			margin: 0;
@@ -596,6 +596,24 @@ main {
 			left: -2rem;
 			counter-increment: h3;
 			content: counter(h3);
+		}
+	}
+
+	&.further-reading {
+		header {
+			background: none;
+			border-bottom: 10px solid darken($level2-back, 10%);
+			color: black;
+
+			h2::before {
+				content: "Further reading and information";
+			}
+		}
+
+		aside {
+			background: none;
+			margin: -10px 0 10px;
+			padding: 0;
 		}
 	}
 
