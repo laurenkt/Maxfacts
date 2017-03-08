@@ -28,6 +28,8 @@ const ContentSchema = new mongoose.Schema({
 	body:        {type: String},
 	description: {type: String},
 	surtitle:    {type: String},
+	further_reading_uri:
+	             {type: String},
 	title:       {type: String,  required:true},
 	type:        {type: String,  default: "page"},
 	has_sublist: {type: Boolean, default: false},
@@ -246,18 +248,9 @@ ContentSchema.methods = {
 }
 
 ContentSchema.pre("save", function(next) {
-	// Force the URI into acceptable format:
-	this.uri = this.uri
-	// All lowercase
-		.toLowerCase()
-	// Convert spaces and underscores to dashes (and multiple dashes)
-		.replace(/[_ -]+/g, "-")
-	// Remove any duplicate slashes
-		.replace(/[\/]+/g, "/")
-	// Remove any leading or trailing slashes or dashes
-		.replace(/(^[\/-]+|[\/-]+$)/g, "")
-	// Remove any remaining characters that don"t conform to the URL
-		.replace(/[^a-z0-9-\/]+/g, "")
+	// Force the URIs into acceptable format:
+	this.uri = this.model("Content").normalizeURI(this.uri);
+	this.further_reading_uri = this.model("Content").normalizeURI(this.further_reading_uri);
 
 	// Force the body into an acceptable format
 	// Allow only a super restricted set of tags and attributes

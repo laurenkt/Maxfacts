@@ -42,7 +42,7 @@ router.post("/new", async (req, res) => {
 	// Normalize has_sublist checkbox
 	req.body.has_sublist = req.body.has_sublist && req.body.has_sublist === "on"
 
-	var content = new Content(req.body)
+	const content = new Content(req.body)
 	
 	try {
 		const saved_content = await content.save()
@@ -62,66 +62,57 @@ router.post("/new", async (req, res) => {
 	}
 })
 
-router.get("/:uri(*)", (req, res, next) => {
-	Content
-		.findOne( {uri: req.params.uri} )
-		.exec()
-		.then(content => {
-			if (!content)
-				next();
+router.get("/:uri(*)", async (req, res, next) => {
+	const content = await Content.findOne( {uri: req.params.uri} ).exec()
 
-			else
-				return content;
-		})
-		.then(content =>
-			// Find invalid URIs and images
-			Promise.all([
-				Content.getAllURIs().then(uris => content.all_uris = uris),
-				content.getInvalidLinks().then(uris => content.invalid_uris = uris),
-				content.getImages().then(images => content.images = images),
-			]).then(_ => content)
-		)
-		.then(content => {
-			// Determines whether to show notice about content being saved
-			content.saved = req.query.hasOwnProperty("saved");
-			// Prepare selected structure for template to render the select box
-			// This has to be done like this because Handlebars doesn't have a form builder
-			content.selected = {};
-			content.selected[content.type || "page"] = "selected";
-			// Use alternate page layout for dashboard
-			content.layout = "dashboard";
-			res.render("dashboard/content", content);
-		})
-		.catch(console.error.bind(console));
-});
+	if (!content)
+		return next()
 
-router.post("/:uri(*)", (req, res) => {
-	Content.findOne({uri: req.params.uri}).exec().then(item => {
-		item.uri         = req.body.uri;
-		item.title       = req.body.title;
-		item.type        = req.body.type;
-		item.body        = req.body.body;
-		item.surtitle    = req.body.surtitle;
-		item.description = req.body.description;
-		item.order       = req.body.order;
+	// Find invalid URIs and images
+	await Promise.all([
+		Content.getAllURIs().then(uris => content.all_uris = uris),
+		content.getInvalidLinks().then(uris => content.invalid_uris = uris),
+		content.getImages().then(images => content.images = images),
+	])
 
-		// Normalize checkboxes
-		item.has_sublist = req.body.has_sublist && req.body.has_sublist === "on";
+	// Determines whether to show notice about content being saved
+	content.saved = req.query.hasOwnProperty("saved")
+	// Prepare selected structure for template to render the select box
+	// This has to be done like this because Handlebars doesn't have a form builder
+	content.selected = {}
+	content.selected[content.type || "page"] = "selected"
+	// Use alternate page layout for dashboard
+	content.layout = "dashboard"
+	res.render("dashboard/content", content)
+})
 
-		// Redirect after saving
-		return item.save()
-			.then(() => res.redirect(`/dashboard/directory/${item.uri}?saved`))
-			.catch(err => {
-				item.error = err;
-				// Prepare selected structure for template to render the select box
-				// This has to be done like this because Handlebars doesn't have a form builder
-				item.selected = {};
-				item.selected[item.type || "page"] = "selected";
-				item.layout = "dashboard";
-				res.render("dashboard/content", item);
-			});
-	})
-	.catch(console.error.bind(console));
-});
+/**
+ * Create or update a content item and then redirect back to the edit page
+ */
+router.post("/:uri(*)", async (req, res) => {
+	const item = await Content.findOne({uri: req.params.uri}).exec()
 
-module.exports = router;
+	for (let property in req.body) {
+		item[property] = req.body[property]
+	}
+
+	// Normalize checkboxes
+	item.has_sublist = req.body.has_sublist && req.body.has_sublist === "on"
+
+	// Redirect after saving
+	try {
+		await item.save()
+		res.redirect(`/dashboard/directory/${item.uri}?saved`)
+	}
+	catch (err) {
+		item.error = err
+		// Prepare selected structure for template to render the select box
+		// This has to be done like this because Handlebars doesn't have a form builder
+		item.selected = {}
+		item.selected[item.type || "page"] = "selected"
+		item.layout = "dashboard"
+		res.render("dashboard/content", item)
+	}
+})
+
+module.exports = router
