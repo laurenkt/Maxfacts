@@ -40,11 +40,11 @@ router.get("/:uri(*)", async (req, res, next) => {
 		const directory = await Promise.all(
 			content.lineage
 				// Get links from all parent stages
-				.map(uri => Content.findFromAdjacentURI(uri).select("-body").sort("order title").exec())
+				.map(uri => Content.findFromAdjacentURI(uri).select("-body").where('type').ne('further').sort("order title").exec())
 				// Append siblings of the current page
-				.concat([Content.findFromAdjacentURI(content.uri).select("-body").sort("order title").exec()])
+				.concat([Content.findFromAdjacentURI(content.uri).select("-body").where('type').ne('further').sort("order title").exec()])
 				// Append children of the current page (excluding ones with the same name)
-				.concat([Content.findFromParentURI(content.uri).where("title").ne(content.title).select("-body").sort("order title").exec()])
+				.concat([Content.findFromParentURI(content.uri).where("title").ne(content.title).where('type').ne('further').select("-body").sort("order title").exec()])
 		)
 
 		// Transform directory, adding sublists as necessary
@@ -55,7 +55,7 @@ router.get("/:uri(*)", async (req, res, next) => {
 		await Promise.all(
 			directory.map(column => Promise.all(column
 				.filter(c => c.has_sublist)
-				.map(c => Content.findFromParentURI(c.uri).select("-body").sort("order title").exec()
+				.map(c => Content.findFromParentURI(c.uri).select("-body").where('type').ne('further').sort("order title").exec()
 					.then(sublist => c.sublist = sublist))
 				)
 			)
