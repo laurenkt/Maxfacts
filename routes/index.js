@@ -31,6 +31,9 @@ router.get("/:uri(*)", async (req, res, next) => {
 	content.invalid_uris = await content.getInvalidLinks()
 	content.breadcrumbs  = await content.getBreadcrumbs()
 	content.next_page    = await content.getNextPage()
+
+	if (content.further_reading_uri && content.further_reading_uri !== "")
+		content.further_reading = await Content.findOne( {uri: content.further_reading_uri} )
 	
 	// Only do this step if it's a directory
 	if (content.type == "directory") {

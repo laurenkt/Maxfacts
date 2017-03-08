@@ -12,6 +12,7 @@ $magic-color: #ddd;
 $dashboard-back: #d8295e;
 $green-back: #98e47f;
 $green-front: #171;
+$further-back: white;
 $level3-back: #055a57;
 $level2-back: #ccc;
 $level1-back: white;
@@ -481,6 +482,19 @@ aside {
 
 			> span::before {
 				content: "Detailed information";
+			}
+		}
+	}
+
+	&.-further {
+			border-bottom: 10px solid darken($further-back, 10%);
+
+		p {
+			background: $further-back;
+			color: black;
+
+			> span::before {
+				content: "Further reading and information";
 			}
 		}
 	}
