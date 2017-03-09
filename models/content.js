@@ -178,6 +178,10 @@ ContentSchema.methods = {
 	},
 
 	getNextPage: function() {
+		// No next page for level 3
+		if (this.type == "level3")
+			return;
+
 		return this.model("Content")
 			.find()
 			/// The location can be below or adjacent to the current page
