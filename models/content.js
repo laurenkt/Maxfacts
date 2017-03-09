@@ -177,12 +177,12 @@ ContentSchema.methods = {
 			.exec()
 	},
 
-	getNextPage: function() {
+	getNextPage: async function() {
 		// No next page for level 3
 		if (this.type == "level3")
-			return;
+			return
 
-		return this.model("Content")
+		return (await this.model("Content")
 			.find()
 			/// The location can be below or adjacent to the current page
 			.where("uri", new RegExp(`^(${this.uri}|${this.parent})/[^/]+$`))
@@ -197,8 +197,7 @@ ContentSchema.methods = {
 			.sort("type")
 			// Only need one of them
 			.limit(1)
-			.exec()
-			.then(next_page => next_page[0])
+			.exec())[0]
 	},
 
 	setIDsForHeadings: function() {
@@ -253,8 +252,8 @@ ContentSchema.methods = {
 
 ContentSchema.pre("save", function(next) {
 	// Force the URIs into acceptable format:
-	this.uri = this.model("Content").normalizeURI(this.uri);
-	this.further_reading_uri = this.model("Content").normalizeURI(this.further_reading_uri);
+	this.uri                 = this.model("Content").normalizeURI(this.uri)
+	this.further_reading_uri = this.model("Content").normalizeURI(this.further_reading_uri)
 
 	// Force the body into an acceptable format
 	// Allow only a super restricted set of tags and attributes

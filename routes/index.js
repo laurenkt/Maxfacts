@@ -55,7 +55,7 @@ router.get("/:uri(*)", async (req, res, next) => {
 		await Promise.all(
 			directory.map(column => Promise.all(column
 				.filter(c => c.has_sublist)
-				.forEach(async c =>
+				.map(async c =>
 					c.sublist = await Content.findFromParentURI(c.uri).select("-body").where('type').ne('further').sort("order title").exec()
 				)
 			))
