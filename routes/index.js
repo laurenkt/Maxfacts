@@ -55,10 +55,10 @@ router.get("/:uri(*)", async (req, res, next) => {
 		await Promise.all(
 			directory.map(column => Promise.all(column
 				.filter(c => c.has_sublist)
-				.map(c => Content.findFromParentURI(c.uri).select("-body").where('type').ne('further').sort("order title").exec()
-					.then(sublist => c.sublist = sublist))
+				.forEach(async c =>
+					c.sublist = await Content.findFromParentURI(c.uri).select("-body").where('type').ne('further').sort("order title").exec()
 				)
-			)
+			))
 		)
 
 		// If this page has a sublist, don't display children (they will be displayed in the parent list)
