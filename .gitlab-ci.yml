@@ -15,8 +15,11 @@ cache:
   paths:
   - node_modules/
 
+before_script:
+  - apt-get install -y mongodb
+
 test_async:
   script:
-   - npm install
+   - npm install --silent
    - npm run restore
    - npm test
