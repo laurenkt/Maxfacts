@@ -18,5 +18,5 @@ cache:
 test_async:
   script:
    - npm install
-   - npm restore
+   - npm run restore
    - npm test
