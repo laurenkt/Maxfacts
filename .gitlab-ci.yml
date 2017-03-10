@@ -16,10 +16,11 @@ cache:
 
 # Install mongo restore
 before_script:
- - apt-get -qq update -y; apt-get -qq install -y mongodb; service mongodb start
+ - apt-get -qq update -y; apt-get -qq install -y mongodb
 
 test_async:
   script:
    - npm install --silent
+   - service mongodb start
    - npm run restore
    - npm test
