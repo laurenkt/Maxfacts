@@ -4,10 +4,13 @@ import sanitizeHtml from "sanitize-html"
 
 const router = express.Router()
 
+router.get("/",        requestLandingPage)
+router.get("/:uri(*)", requestSpecificPage)
+
 /**
  * Landing page
  */
-router.get("/", async (req, res) => {
+async function requestLandingPage(req, res) {
 	// The three pillars of the home-page
 	const [diagnosis, treatment, help] = await Promise.all([
 		Content.findFromParentURI("diagnosis").sort("title").exec(),
@@ -17,12 +20,12 @@ router.get("/", async (req, res) => {
 
 	// Use alternative layout
 	res.render("index", {diagnosis, treatment, help, layout:"home"})
-})
+}
 
 /*
  * Render a particular page
  */
-router.get("/:uri(*)", async (req, res, next) => {
+async function requestSpecificPage(req, res, next) {
 	const content = await Content.findOne( { uri: req.params.uri } )
 
 	if (!content)
@@ -108,6 +111,6 @@ router.get("/:uri(*)", async (req, res, next) => {
 
 	// Render different content types with different templates
 	res.render(content.type, content)
-})
+}
 
 module.exports = router
