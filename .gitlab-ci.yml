@@ -16,7 +16,7 @@ cache:
   - node_modules/
 
 before_script:
-    - apt-get update -y; apt-get install -y mongodb
+    - apt-get -qq update -y; apt-get -qq install -y mongodb
 
 test_async:
   script:
