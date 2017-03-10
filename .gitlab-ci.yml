@@ -15,8 +15,9 @@ cache:
   paths:
   - node_modules/
 
+# Install mongo restore
 before_script:
-    - apt-get -qq update -y; apt-get -qq install -y mongodb
+ - apt-get -qq update -y; apt-get -qq install -y mongodb; mongod
 
 test_async:
   script:
