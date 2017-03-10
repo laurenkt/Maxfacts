@@ -22,6 +22,7 @@
 	],
 	"rules": {
 		"no-var": "error",
+		"no-mixed-spaces-and-tabs": ["error", "smart-tabs"],
 		"promise/prefer-await-to-then": "error",
 		"no-console": [
 			"error",
