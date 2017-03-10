@@ -18,8 +18,8 @@ describe("Content", () => {
 		});
 	});
 
-	describe(".findLinksInHTML", () => {
-		it("should find all links in a block of HTML", () => {
+	describe(".getLinksInHTML", () => {
+		it("should get all links in a block of HTML", () => {
 			const html = `
 				<p>A <a href="/1">B</a> C</p>
 				<a
@@ -33,7 +33,7 @@ describe("Content", () => {
 				</div>
 			`;
 
-			const result = Content.findLinksInHTML(html);
+			const result = Content.getLinksInHTML(html);
 			const links = [
 				"1",
 				"D",
@@ -44,14 +44,14 @@ describe("Content", () => {
 			expect(result).to.have.members(links);
 		});
 
-		it("should only find unique links", () => {
+		it("should only get unique links", () => {
 			const html = `
 				<a href="/1">A</a>
 				<a href="/1">A</a>
 				<a href="1">A</a>
 			`;
 
-			const result = Content.findLinksInHTML(html);
+			const result = Content.getLinksInHTML(html);
 			const links = [
 				"1",
 			];
@@ -60,8 +60,8 @@ describe("Content", () => {
 		});
 	});
 
-	describe(".findImgSrcsInHTML", () => {
-		it("should find all image src's in a block of HTML", () => {
+	describe(".getImgSrcsInHTML", () => {
+		it("should get all image src's in a block of HTML", () => {
 			const html = `
 				<img src="/a" />
 				<IMG SRC="/b" />
@@ -72,7 +72,7 @@ describe("Content", () => {
 				</figure>
 			`;
 
-			const result = Content.findImgSrcsInHTML(html);
+			const result = Content.getImgSrcsInHTML(html);
 			const srcs   = [
 				"a",
 				"b",
@@ -83,14 +83,14 @@ describe("Content", () => {
 			expect(result).to.have.members(srcs);
 		});
 
-		it("should only find unique image src's", () => {
+		it("should only get unique image src's", () => {
 			const html = `
 				<img src="a" />
 				<img src="/a" />
 				<img src="a" />
 			`;
 
-			const result = Content.findImgSrcsInHTML(html);
+			const result = Content.getImgSrcsInHTML(html);
 			const srcs   = [
 				"a",
 			];

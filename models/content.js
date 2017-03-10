@@ -70,15 +70,14 @@ ContentSchema.statics = {
 			.replace(/[^a-z0-9-\/]+/g, "")
 	},
 
-	getAllURIs():Promise<Array<String>> {
-		return this
-			.find()
-			.select("uri")
-			.exec()
-			.then(uris => uris.map(uri => '/' + uri.uri)) // Extract just the URI
+	async getAllURIs():Promise<Array<String>> {
+		const all_uris = await this.find().select('uri').exec()
+
+		// Return just a list of the URI parts, prepended with the root URL
+		return all_uris.map(uri => '/' + uri.uri)
 	},
 
-	findLinksInHTML(html):Array<String> {
+	getLinksInHTML(html):Array<String> {
 		let links:Array<String> = []
 		const parser = new Parser({
 			onopentag(name, attribs) {
@@ -93,7 +92,7 @@ ContentSchema.statics = {
 		return uniq(links)
 	},
 
-	findImgSrcsInHTML(html):Array<String> {
+	getImgSrcsInHTML(html):Array<String> {
 		let images:Array<String> = []
 		const parser = new Parser({
 			onopentag(name, attribs) {
@@ -150,19 +149,18 @@ ContentSchema
 	})
 
 ContentSchema.methods = {
-	getInvalidLinks: function() {
-		const links = this.model("Content").findLinksInHTML(this.body)
-
-		return this.model("Content")
-			.findFromURIs(links)
+	async getInvalidLinks() {
+		const links = this.model("Content").getLinksInHTML(this.body)
+		const valid_links = await this.model("Content").findFromURIs(links)
 			.select("uri")
 			.exec()
-			.then(valid_links => difference(links, map(valid_links, "uri")))
+
+		return difference(links, map(valid_links, 'uri'))
 	},
 
 	// Retrieves an array of images used in this model
 	getImages: function () {
-		const images = this.model("Content").findImgSrcsInHTML(this.body)
+		const images = this.model("Content").getImgSrcsInHTML(this.body)
 
 		return this.model("Image")
 			.findFromURIs(images)
