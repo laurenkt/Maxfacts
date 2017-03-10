@@ -16,7 +16,7 @@ cache:
 
 # Install mongo restore
 before_script:
- - apt-get -qq update -y; apt-get -qq install -y mongodb
+ - apt-get -qq update -y; apt-get -qq install -y mongodb; service mongodb start
 
 test_async:
   script:
