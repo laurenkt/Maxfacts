@@ -1,6 +1,13 @@
 Maxfacts
 ========
 
+[![build status](https://git.cs.york.ac.uk/lt696/MaxFacts/badges/master/build.svg)](https://git.cs.york.ac.uk/lt696/MaxFacts/commits/master)
+
+Web application to serve and manage Maxfacts pages.
+
+Installation
+------------
+
 Install dependencies with `npm`:
 
 	cd maxfacts
@@ -10,7 +17,7 @@ Then start the server:
 
 	npm start
 
-If this is the first time running the application you may want to restore from one of the most recent backups.
+If this is the first time running the application you may want to restore from one of the most recent backups (see *Backups* section below).
 
 **Note:** you will need the `MONGOHQ_URL` environment variable set with the MongoDB URL, you can do this in a `.env` file or by prefixing the start command with the variable:
 
@@ -39,6 +46,10 @@ You can make a new backup at any time with:
 
     npm run backup
 
-To restore from a backup, navigate to the directory where the backup is contained and use `mongorestore`:
+To restore from a backup, use
+
+	npm run restore
+
+to restore the most recent backup. Otherwise navigate to the directory where the backup is contained and use `mongorestore`:
 
     mongorestore -d maxfacts maxfacts
