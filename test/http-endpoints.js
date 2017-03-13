@@ -50,10 +50,10 @@ describe("HTTP end-point integrations", function() {
 		})
 	})
 
-	describe("/search", () => {
+	describe("/search?query=test", () => {
 		it("should respond to GET", done => {
 			request(server)
-				.get("/search")
+				.get("/search?query=test")
 				.expect(200, done)
 		})
 	})
