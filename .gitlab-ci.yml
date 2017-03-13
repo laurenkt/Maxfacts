@@ -22,7 +22,9 @@ test_async:
     script:
         - echo "MONGO_URI=localhost/maxfacts" > .env
         - echo "OAUTH_CALLBACK=http://localhost:3000/auth/callback" >> .env
-        - mongod --verbose --logpath /dev/stdout --config /etc/mongodb.conf --smallfiles &
+        - sed -i '/journal=true/d' /etc/mongodb.conf
+        - cat /etc/mongodb.conf
+        - mongod --verbose --logpath /dev/stdout --config /etc/mongodb.conf --nojournal &
         - sleep 1
         - >-
             mongo
