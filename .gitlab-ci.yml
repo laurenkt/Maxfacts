@@ -22,7 +22,7 @@ test_async:
     script:
         - echo "MONGO_URI=localhost/maxfacts" > .env
         - echo "OAUTH_CALLBACK=http://localhost:3000/auth/callback" >> .env
-        - mongod --config /etc/mongodb.conf &
+        - mongod --config /etc/mongodb.conf
         - sleep 1
         - >-
             mongo
