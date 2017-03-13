@@ -6,14 +6,14 @@
     "start": "DEBUG=maxfacts nodemon --exec babel-node -- ./bin/www",
     "backup": "mongodump -d maxfacts -o ./backups/$(date \"+%Y-%m-%d-%Hh-%Mm\")",
     "restore": "mongo maxfacts --eval \"db.dropDatabase();\"; cd backups/$(command ls -t backups | head -1); mongorestore --noIndexRestore -d maxfacts maxfacts",
-    "test": "TEST=maxfacts mocha --compilers js:babel-register",
-    "test:quick": "TEST=maxfacts mocha --grep integrations --invert --compilers js:babel-register",
+    "test": "TEST=maxfacts nyc mocha --compilers js:babel-register",
+    "test:quick": "TEST=maxfacts nyc mocha --grep integrations --invert --compilers js:babel-register",
     "flow": "flow; test $? -eq 0 -o $? -eq 2"
   },
   "config": {
     "ghooks": {
       "pre-commit": "npm run flow && npm run test:quick",
-	  "pre-push": "npm run test"
+      "pre-push": "npm run test"
     }
   },
   "dependencies": {
@@ -70,6 +70,7 @@
     "node-cli": "^0.1.0",
     "node-sass-middleware": "0.8.0",
     "nodemon": "^1.9.2",
+    "nyc": "^10.1.2",
     "react": "^15.4.2",
     "react-addons-css-transition-group": "^15.4.2",
     "react-dom": "^15.4.2",
