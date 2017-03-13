@@ -66,6 +66,15 @@ describe("HTTP end-point integrations", function() {
 		})
 	})
 
+	describe("/diagnosis/diagnoses/mouth-cancer/level1/figure1.jpg", () => {
+
+		it("should respond to GET", done => {
+			request(server)
+				.get("/diagnosis/diagnoses/mouth-cancer/level1/figure1.jpg")
+				.expect(200, done)
+		})
+	})
+
 	describe("/dashboard", () => {
 		it("should 302 redirect a GET", done => {
 			request(server)
