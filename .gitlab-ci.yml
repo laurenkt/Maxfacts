@@ -20,6 +20,8 @@ before_script:
 
 test_async:
     script:
+        - echo "MONGO_URI=localhost/maxfacts" > .env
+        - echo "OAUTH_CALLBACK=http://localhost:3000/auth/callback" >> .env
         - service mongodb start
         - >-
             mongo
