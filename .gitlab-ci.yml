@@ -20,12 +20,17 @@ before_script:
 
 test_async:
     script:
+        # Stop env file missing error
         - echo "MONGO_URI=localhost/maxfacts" > .env
         - echo "OAUTH_CALLBACK=http://localhost:3000/auth/callback" >> .env
+        # Refuses to disable journaling whilst journaling is enabled in cfg
+        # We need to disable journaling though because GitLab CI doesn't want
+        # to load journaled DB into memory
         - sed -i '/journal=true/d' /etc/mongodb.conf
-        - cat /etc/mongodb.conf
         - mongod --config /etc/mongodb.conf --nojournal &
+        # Wait for it to actually be ready
         - sleep 1
+        # in 2.4 text search is disabled by default - need to enable it for our dataset
         - >-
             mongo
             --eval "db.adminCommand({setParameter: true, textSearchEnabled : true})"
