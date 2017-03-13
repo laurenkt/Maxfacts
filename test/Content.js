@@ -38,7 +38,7 @@ describe("Content", () => {
 				"1",
 				"D",
 				"e",
-				"h"
+				"h",
 			]
 
 			expect(result).to.have.members(links)
@@ -77,7 +77,7 @@ describe("Content", () => {
 				"a",
 				"b",
 				"c",
-				"d"
+				"d",
 			]
 
 			expect(result).to.have.members(srcs)
@@ -96,6 +96,98 @@ describe("Content", () => {
 			]
 
 			expect(result).to.have.members(srcs)
+		})
+	})
+
+	describe(".getHTMLWithHeadingIDs", () => {
+		it("should insert appropriate IDs into headings", () => {
+			const html = "<h1>Test</h1><h2>Test_2</h2><h1>Another test</h1>"
+			const expected = "<h1 id=\"test\">Test</h1><h2>Test_2</h2><h1 id=\"another-test\">Another test</h1>"
+
+			const result = Content.getHTMLWithHeadingIDs(html).html
+
+			expect(result).to.equal(expected)
+		})
+
+		it("should generate correct table of contents", () => {
+			const html = "<h1>Test</h1><h2>Test_2</h2><h1>Another test</h1>"
+			const expected = [
+				{"text": "Test", "id": "test"},
+				{"text": "Another test", "id": "another-test"},
+			]
+
+			const result = Content.getHTMLWithHeadingIDs(html).contents
+
+			expect(result).to.deep.equal(expected)
+		})
+	})
+
+	describe(".getSanitizedHTML", () => {
+		it("should strip invalid tags", () => {
+			const html = "<p>A</p><center>B</center><footer /><header /><main /><section /><div /><body /><head /><script /><style />"
+			const expected = "<p>A</p>"
+
+			const result = Content.getSanitizedHTML(html)
+
+			expect(result).to.equal(expected)
+		})
+
+		it("should strip invalid attributes", () => {
+			const html = "<p onClick='alert(0)' onLoad='alert(0)' style='color:red' data-attribs='anything'>A</p>"
+			const expected = "<p>A</p>"
+
+			const result = Content.getSanitizedHTML(html)
+
+			expect(result).to.equal(expected)
+		})
+
+		it("should retain valid tags", () => {
+			const html = `
+				<h1>Test</h1>
+				<h2>Test</h2>
+				<h3>Test</h3>
+				<h4>Test</h4>
+				<h5>Test</h5>
+				<h6>Test</h6>
+				<p>Test</p>
+				<img src />
+				<aside>Test</aside>
+				<i>Test</i>
+				<strong>Test</strong>
+				<em>Test</em>
+				<figure>
+					<img src />
+					<figcaption>Test</figcaption>
+				</figure>
+				<table>
+					<tr>
+						<td></td>
+					</tr>
+				</table>
+				<ol>
+					<li>Test</li>
+				</ol>
+				<ul>
+					<li>Test</li>
+				</ul>
+				<sub>Test</sub>
+				<sup>Test</sup>
+			`
+
+			const result = Content.getSanitizedHTML(html)
+
+			expect(result).to.equal(html)
+		})
+	})
+
+	describe(".replaceHREFsWith", () => {
+		it("should find and replace a given URL", () => {
+			const html = '<a href="/foo"></a>'
+			const expected = '<a href="/bar"></a>'
+
+			const result = Content.replaceHREFsWith(html, "/foo", "/bar")
+
+			expect(result).to.equal(expected)
 		})
 	})
 

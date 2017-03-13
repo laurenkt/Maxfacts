@@ -107,6 +107,99 @@ ContentSchema.statics = {
 		return uniq(images)
 	},
 
+	getSanitizedHTML(html:String):String {
+		// Force the body into an acceptable format
+		// Allow only a super restricted set of tags and attributes
+		let reduced_body = ""
+		for(;;) {
+			reduced_body = sanitizeHtml(html, {
+				allowedTags: ["h1", "h2", "h3", "h4", "h5", "h6", "blockquote", "p", "a", "ul", "ol",
+					"li", "strong", "em", "table", "thead", "caption", "tbody", "tfoot", "tr", "th", "td",
+					"figure", "abbr", "img", "aside", "caption", "cite", "dd", "dfn", "dl", "dt", "figcaption",
+					"sub", "sup", "i"],
+				allowedAttributes: merge({
+					th: ["colspan", "rowspan"],
+					td: ["colspan", "rowspan"],
+				}, sanitizeHtml.defaults.allowedAttributes),
+				exclusiveFilter: frame => {
+					// Remove certain empty tags
+					return ["p", "a", "em", "strong"].includes(frame.tag) && !frame.text.trim() && !frame.children.length
+				},
+				textFilter: (text, stack) => {
+					// Remove things not in a tag at all
+					if (stack.length == 0)
+						// If it"s not in a container class
+						return text
+						// Remove any non-whitespace characters
+							.replace(/[^\s]+/g, "")
+						// Remove any blank lines
+							.replace(/[\n]+/g, "\n") // Unix
+							.replace(/(\r\n)+/g, "\r\n") // Windows
+					else
+						return text
+				},
+			})
+
+			if (reduced_body == html)
+				return reduced_body
+
+			html = reduced_body
+		}
+	},
+
+	getHTMLWithHeadingIDs(html:String) {
+		let new_body
+		let headings = []
+
+		let handler = new DomHandler((err, dom) => {
+			DomUtils.getElements({tag_name:"h1"}, dom, true).forEach(node => {
+				let text = DomUtils.getText(node)
+				let id = text
+					// All lowercase
+						.toLowerCase()
+					// Make sure ampersands are covered
+						.replace(/&amp/g, "and")
+					// Convert spaces and underscores to dashes (and multiple dashes)
+						.replace(/[_ -]+/g, "-")
+					// Remove any duplicate slashes
+						.replace(/[\/]+/g, "/")
+					// Remove any leading or trailing slashes or dashes
+						.replace(/(^[\/-]+|[\/-]+$)/g, "")
+					// Remove any remaining characters that don"t conform to the URL
+						.replace(/[^a-z0-9-\/]+/g, "")
+				
+				node.attribs.id = id
+				headings.push({text, id})
+			})
+			new_body = DomUtils.getOuterHTML(dom)
+		})
+		let parser = new Parser(handler)
+		parser.write(html)
+		parser.done()
+
+		return {
+			html: new_body,
+			contents: headings,
+		}
+	},
+
+	replaceHREFsWith(html:String, from:String, to:String):String {
+		let handler = new DomHandler((err, dom) => {
+			DomUtils.getElements({tag_name:"a"}, dom, true).forEach(node => {
+				if (node.attribs.href && node.attribs.href == from) {
+					// Update HREF
+					node.attribs.href = to
+				}
+			})
+			html = DomUtils.getOuterHTML(dom)
+		})
+		let parser = new Parser(handler)
+		parser.write(html)
+		parser.done()
+
+		return html
+	},
+
 	findFromURIs(uris) {
 		return this
 			.find()
@@ -199,52 +292,14 @@ ContentSchema.methods = {
 	},
 
 	setIDsForHeadings: function() {
-		let new_body
-		let headings = []
+		const heading_data = this.model("Content").getHTMLWithHeadingIDs(this.body)
 
-		let handler = new DomHandler((err, dom) => {
-			DomUtils.getElements({tag_name:"h1"}, dom, true).forEach(node => {
-				let text = DomUtils.getText(node)
-				let id = text
-					// All lowercase
-						.toLowerCase()
-					// Make sure ampersands are covered
-						.replace(/&amp/g, "and")
-					// Convert spaces and underscores to dashes (and multiple dashes)
-						.replace(/[_ -]+/g, "-")
-					// Remove any duplicate slashes
-						.replace(/[\/]+/g, "/")
-					// Remove any leading or trailing slashes or dashes
-						.replace(/(^[\/-]+|[\/-]+$)/g, "")
-					// Remove any remaining characters that don"t conform to the URL
-						.replace(/[^a-z0-9-\/]+/g, "")
-				
-				node.attribs.id = id
-				headings.push({text, id})
-			})
-			new_body = DomUtils.getOuterHTML(dom)
-		})
-		let parser = new Parser(handler)
-		parser.write(this.body)
-		parser.done()
-
-		this.body = new_body
-		this.contents = headings
+		this.body     = heading_data.html
+		this.contents = heading_data.contents
 	},
 
 	replaceHREFsWith: function(from, to) {
-		let handler = new DomHandler((err, dom) => {
-			DomUtils.getElements({tag_name:"a"}, dom, true).forEach(node => {
-				if (node.attribs.href && node.attribs.href == from) {
-					// Update HREF
-					node.attribs.href = to
-				}
-			})
-			this.body = DomUtils.getOuterHTML(dom)
-		})
-		let parser = new Parser(handler)
-		parser.write(this.body)
-		parser.done()
+		return this.model("Content").replaceHREFsWith(this.body, from, to)
 	},
 }
 
@@ -255,41 +310,7 @@ ContentSchema.pre("save", function(next) {
 
 	// Force the body into an acceptable format
 	// Allow only a super restricted set of tags and attributes
-	let reduced_body = ""
-	for(;;) {
-		reduced_body = sanitizeHtml(this.body, {
-			allowedTags: ["h1", "h2", "h3", "h4", "h5", "h6", "blockquote", "p", "a", "ul", "ol",
-				"li", "strong", "em", "table", "thead", "caption", "tbody", "tfoot", "tr", "th", "td",
-				"figure", "abbr", "img", "aside", "caption", "cite", "dd", "dfn", "dl", "dt", "figcaption",
-				"sub", "sup", "i"],
-			allowedAttributes: merge({
-				th: ["colspan", "rowspan"],
-				td: ["colspan", "rowspan"],
-			}, sanitizeHtml.defaults.allowedAttributes),
-			exclusiveFilter: frame => {
-				// Remove certain empty tags
-				return ["p", "a", "em", "strong"].includes(frame.tag) && !frame.text.trim() && !frame.children.length
-			},
-			textFilter: (text, stack) => {
-				// Remove things not in a tag at all
-				if (stack.length == 0)
-					// If it"s not in a container class
-					return text
-					// Remove any non-whitespace characters
-						.replace(/[^\s]+/g, "")
-					// Remove any blank lines
-						.replace(/[\n]+/g, "\n") // Unix
-						.replace(/(\r\n)+/g, "\r\n") // Windows
-				else
-					return text
-			},
-		})
-
-		if (reduced_body == this.body)
-			break
-
-		this.body = reduced_body
-	}
+	this.body = this.model("Content").getSanitizedHTML(this.body)
 
 	// Generate table of contents from <h1> tags
 	// And update IDs of header elements to match text
@@ -299,7 +320,7 @@ ContentSchema.pre("save", function(next) {
 	next()
 })
 
-ContentSchema.post("save", function(content) {
+ContentSchema.post("save", async function(content) {
 	const updateHREFs = page => {
 		page.replaceHREFsWith("/" + content._previousURI, "/" + content.uri)
 		return page.save()
@@ -309,20 +330,15 @@ ContentSchema.post("save", function(content) {
 	if (content._previousURI && content._previousURI != content.uri) {
 		// It was updated
 		// Update links in text
-		content.model("Content")
-			.find({ $text : { $search : content._previousURI } })
-			.exec()
-			.then(matches => Promise.all(matches.map(updateHREFs)))
-			.catch(console.error.bind(console))
+		const matches = await content.model("Content").find({ $text : { $search : content._previousURI } }).exec()
+		matches.forEach(updateHREFs)
 
 		// And update child URIs that contain the parent URI
-		content.model("Content").findAllBelowURI(content._previousURI)
-			.exec()
-			.then(pages => Promise.all(pages.map(page => {
-				page.uri = page.uri.replace(content._previousURI, content.uri)
-				return page.save()
-			})))
-			.catch(console.error.bind(console))
+		const pages = await content.model("Content").findAllBelowURI(content._previousURI).exec()
+		pages.forEach(async page => {
+			page.uri = page.uri.replace(content._previousURI, content.uri)
+			await page.save()
+		})
 	}
 })
 
