@@ -18,7 +18,8 @@
 	},
 	"plugins": [
 		"react",
-		"promise"
+		"promise",
+		"mocha"
 	],
 	"rules": {
 		"no-var": "error",
