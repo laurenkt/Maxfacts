@@ -24,7 +24,7 @@ test_async:
         - echo "OAUTH_CALLBACK=http://localhost:3000/auth/callback" >> .env
         - sed -i '/journal=true/d' /etc/mongodb.conf
         - cat /etc/mongodb.conf
-        - mongod --verbose --logpath /dev/stdout --config /etc/mongodb.conf --nojournal &
+        - mongod --config /etc/mongodb.conf --nojournal &
         - sleep 1
         - >-
             mongo
