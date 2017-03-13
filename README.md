@@ -1,7 +1,7 @@
 Maxfacts
 ========
 
-[![build status](https://git.cs.york.ac.uk/lt696/MaxFacts/badges/master/build.svg)](https://git.cs.york.ac.uk/lt696/MaxFacts/commits/master)
+[![build status](https://git.cs.york.ac.uk/lt696/MaxFacts/badges/master/build.svg)](https://git.cs.york.ac.uk/lt696/MaxFacts/commits/master) [![coverage report](https://git.cs.york.ac.uk/lt696/Maxfacts/badges/master/coverage.svg)](https://git.cs.york.ac.uk/lt696/Maxfacts/commits/master)
 
 Web application to serve and manage Maxfacts pages.
 
