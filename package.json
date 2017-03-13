@@ -5,7 +5,7 @@
   "scripts": {
     "start": "DEBUG=maxfacts nodemon --exec babel-node -- ./bin/www",
     "backup": "mongodump -d maxfacts -o ./backups/$(date \"+%Y-%m-%d-%Hh-%Mm\")",
-	"restore": "cd backups/$(command ls -t backups | head -1); mongorestore -d maxfacts maxfacts",
+	"restore": "mongo maxfacts --eval \"db.dropDatabase();\"; cd backups/$(command ls -t backups | head -1); mongorestore --noIndexRestore -d maxfacts maxfacts",
     "test": "TEST=maxfacts mocha --compilers js:babel-register",
     "flow": "flow; test $? -eq 0 -o $? -eq 2"
   },
