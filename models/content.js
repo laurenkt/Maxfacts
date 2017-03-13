@@ -141,10 +141,12 @@ ContentSchema.statics = {
 			})
 
 			if (reduced_body == html)
-				return reduced_body
+				break
 
 			html = reduced_body
 		}
+
+		return html
 	},
 
 	getHTMLWithHeadingIDs(html:String) {
