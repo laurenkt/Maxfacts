@@ -5,9 +5,14 @@
   "scripts": {
     "start": "DEBUG=maxfacts nodemon --exec babel-node -- ./bin/www",
     "backup": "mongodump -d maxfacts -o ./backups/$(date \"+%Y-%m-%d-%Hh-%Mm\")",
-	"restore": "mongo maxfacts --eval \"db.dropDatabase();\"; cd backups/$(command ls -t backups | head -1); mongorestore --noIndexRestore -d maxfacts maxfacts",
+    "restore": "mongo maxfacts --eval \"db.dropDatabase();\"; cd backups/$(command ls -t backups | head -1); mongorestore --noIndexRestore -d maxfacts maxfacts",
     "test": "TEST=maxfacts mocha --compilers js:babel-register",
     "flow": "flow; test $? -eq 0 -o $? -eq 2"
+  },
+  "config": {
+	"ghooks": {
+		"pre-commit": "npm run test"
+	}
   },
   "dependencies": {
     "body-parser": "~1.15.1",
@@ -51,6 +56,7 @@
     "eslint-plugin-react": "^6.0.0",
     "express-handlebars": "^3.0.0",
     "flow-bin": "^0.38.0",
+    "ghooks": "^2.0.0",
     "html-minifier": "^3.2.3",
     "immutable": "^3.8.1",
     "js-beautify": "^1.6.4",
