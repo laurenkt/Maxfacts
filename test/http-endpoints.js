@@ -1,4 +1,4 @@
-import request  from "supertest"
+import request from "supertest"
 
 describe("HTTP end-point integrations", function() {
 	// Some set-up needed so the tests can interact with the server on
