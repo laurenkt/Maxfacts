@@ -19,6 +19,9 @@ cache:
 before_script:
     - apt-get -qq update -y; apt-get -qq install -y mongodb
 
+variables:
+    DOCKER_DRIVER: overlay
+
 test_async:
     script:
         # Stop env file missing error
