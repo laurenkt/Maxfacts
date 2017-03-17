@@ -28,6 +28,6 @@ test_async:
         - echo "MONGO_URI=mongo/maxfacts" > .env
         - echo "OAUTH_CALLBACK=http://localhost:3000/auth/callback" >> .env
         - cd backups/$(command ls -t backups | head -1)
-        - mongorestore --noIndexRestore -h mongo -d maxfacts maxfacts
+        - mongorestore -h mongo -d maxfacts maxfacts
         - npm install --silent
         - npm test
