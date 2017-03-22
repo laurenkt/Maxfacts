@@ -218,7 +218,7 @@ ContentSchema.statics = {
 	findAllBelowURI(uri) {
 		return this
 			.find()
-			.where("uri", new RegExp(`^${uri}.+$`))
+			.where("uri", new RegExp(`^${uri}/.+$`))
 	},
 
 	findFromAdjacentURI(uri) {
@@ -301,14 +301,16 @@ ContentSchema.methods = {
 	},
 
 	replaceHREFsWith: function(from, to) {
-		return this.model("Content").replaceHREFsWith(this.body, from, to)
+		this.body = this.model("Content").replaceHREFsWith(this.body, from, to)
 	},
 }
 
 ContentSchema.pre("save", function(next) {
 	// Force the URIs into acceptable format:
-	this.uri                 = this.model("Content").normalizeURI(this.uri)
-	this.further_reading_uri = this.model("Content").normalizeURI(this.further_reading_uri)
+	this.uri = this.model("Content").normalizeURI(this.uri)
+
+	if (this.further_reading_uri)
+		this.further_reading_uri = this.model("Content").normalizeURI(this.further_reading_uri)
 
 	// Force the body into an acceptable format
 	// Allow only a super restricted set of tags and attributes
@@ -332,7 +334,12 @@ ContentSchema.post("save", async function(content) {
 	if (content._previousURI && content._previousURI != content.uri) {
 		// It was updated
 		// Update links in text
-		const matches = await content.model("Content").find({ $text : { $search : content._previousURI } }).exec()
+		const matches = await content.model("Content")
+			.find({ 
+				body: { $regex : '/' + content._previousURI },
+				uri:  { $ne: content.uri },
+			})
+			.exec()
 		matches.forEach(updateHREFs)
 
 		// And update child URIs that contain the parent URI
