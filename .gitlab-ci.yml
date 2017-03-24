@@ -30,4 +30,4 @@ test_async:
         - cd backups/$(command ls -t backups | head -1)
         - mongorestore -h mongo -d maxfacts maxfacts
         - npm install --silent
-        - npm test
+        - npm test:integrations
