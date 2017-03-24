@@ -109,6 +109,7 @@ app.use(express.static(join(__dirname, "static")))
 const route = (name) => require(join(__dirname, "routes", name))
 
 app.use("/",               route("images"))
+app.use("/",               route("videos"))
 app.use("/magic-triangle", route("magic_triangle"))
 app.use("/dashboard",      route("dashboard"))
 app.use("/search",         route("search"))

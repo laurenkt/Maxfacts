@@ -9,7 +9,7 @@ import DomUtils     from "domutils"
 
 mongoose.Promise = global.Promise // Required to squash a deprecation warning
 
-const ContentSchema = new mongoose.Schema({
+const schema = new mongoose.Schema({
 	uri: {
 		type:      String,
 		unique:    true,
@@ -38,7 +38,7 @@ const ContentSchema = new mongoose.Schema({
 	timestamps: true,
 })
 
-ContentSchema.index({
+schema.index({
 	body:        "text",
 	title:       "text",
 	description: "text",
@@ -50,7 +50,7 @@ ContentSchema.index({
 	},
 })
 
-ContentSchema.statics = {
+schema.statics = {
 	parentUriFragment(uri):string {
 		return uri.split("/").slice(0, -1).join("/")
 	},
@@ -202,6 +202,25 @@ ContentSchema.statics = {
 		return html
 	},
 
+	getLineageFromURI(uri) {
+		let fragments = []
+		let parent = uri
+		while (parent != "") {
+			fragments.push(parent)
+			parent = this.parentUriFragment(parent)
+		}
+
+		return fragments.reverse()
+	},
+
+	findBreadcrumbsForURI(uri) {
+		return this.findFromURIs(
+				this.getLineageFromURI(this.parentUriFragment(uri))
+			)
+			.select("title uri")
+			.sort("uri")
+	},
+
 	findFromURIs(uris) {
 		return this
 			.find()
@@ -226,24 +245,15 @@ ContentSchema.statics = {
 	},
 }
 
-ContentSchema
+schema
 	.virtual("parent")
-	.get(function() { return ContentSchema.statics.parentUriFragment(this.uri) })
+	.get(function() { return this.constructor.parentUriFragment(this.uri) })
 
-ContentSchema
+schema
 	.virtual("lineage")
-	.get(function() {
-		let fragments = []
-		let parent = this.parent
-		while (parent != "") {
-			fragments.push(parent)
-			parent = ContentSchema.statics.parentUriFragment(parent)
-		}
+	.get(function() { return this.constructor.getLineageFromURI(this.parent) } )
 
-		return fragments.reverse()
-	})
-
-ContentSchema.methods = {
+schema.methods = {
 	async getInvalidLinks() {
 		const links = this.model("Content").getLinksInHTML(this.body)
 		const valid_links = await this.model("Content").findFromURIs(links)
@@ -264,10 +274,7 @@ ContentSchema.methods = {
 	},
 
 	getBreadcrumbs: function() {
-		return this.model("Content").findFromURIs(this.lineage)
-			.select("title uri")
-			.sort("uri")
-			.exec()
+		return this.constructor.findBreadcrumbsForURI(this.uri).exec()
 	},
 
 	getNextPage: async function() {
@@ -305,7 +312,7 @@ ContentSchema.methods = {
 	},
 }
 
-ContentSchema.pre("save", function(next) {
+schema.pre("save", function(next) {
 	// Force the URIs into acceptable format:
 	this.uri = this.model("Content").normalizeURI(this.uri)
 
@@ -324,7 +331,7 @@ ContentSchema.pre("save", function(next) {
 	next()
 })
 
-ContentSchema.post("save", async function(content) {
+schema.post("save", async function(content) {
 	const updateHREFs = page => {
 		page.replaceHREFsWith("/" + content._previousURI, "/" + content.uri)
 		return page.save()
@@ -351,4 +358,4 @@ ContentSchema.post("save", async function(content) {
 	}
 })
 
-export default mongoose.model("Content", ContentSchema)
+export default mongoose.model("Content", schema)

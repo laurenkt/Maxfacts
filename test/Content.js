@@ -18,6 +18,21 @@ describe("Content", () => {
 		})
 	})
 
+	describe(".getLineageFromURI", () => {
+		it("should get the entire lineage of a given URI", () => {
+			const uri = "a/b/c/d/e"
+			const expected = [
+				"a",
+				"a/b",
+				"a/b/c",
+				"a/b/c/d",
+				"a/b/c/d/e",
+			]
+
+			expect(Content.getLineageFromURI(uri)).to.deep.equal(expected)
+		})
+	})
+
 	describe(".getLinksInHTML", () => {
 		it("should get all links in a block of HTML", () => {
 			const html = `
