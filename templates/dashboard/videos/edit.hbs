@@ -1,0 +1,19 @@
+<h2>Videos</h2>
+<form action="#" method="POST">
+	{{#if youtube_id}}
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/{{youtube_id}}" frameborder="0" allowfullscreen></iframe>
+	{{/if}}
+	<p>
+		<label for="name">Name:</label>
+		<input class="large" type="text" name="name" id="name" value="{{name}}">
+	</p>
+	<p>
+		<label for="uri">URI:</label>
+		<input type="text" name="uri" id="uri" value="{{uri}}">
+	</p>
+	<p>
+		<label for="youtube_id">YouTube ID:</label>
+		<input type="text" name="youtube_id" id="youtube_id" value="{{youtube_id}}">
+	</p>
+	<input type="submit" value="Save">
+</form>

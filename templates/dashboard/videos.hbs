@@ -1,0 +1,8 @@
+<h2>Videos</h2>
+<p><a class="button" href="/dashboard/videos/new">Add new video</a></p>
+<ul>
+{{#each items}}
+	<li><code><a href="/dashboard/videos/edit/{{_id}}">{{uri}}</a></code> <span class="delete">[<a href="/dashboard/videos/delete/{{_id}}">delete</a>]</span><br /><img style="max-width: 300px" src="https://i.ytimg.com/vi/{{youtube_id}}/hqdefault.jpg"></li>
+{{/each}}
+</ul>
+

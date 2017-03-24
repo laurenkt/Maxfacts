@@ -19,6 +19,7 @@ router.get(/\/.*/i, ensureLoggedIn("/auth"), async (req, res, next) => {
 
 router.use("/users",     require("./dashboard/users.js"))
 router.use("/images",    require("./dashboard/images.js"))
+router.use("/videos",    require("./dashboard/videos.js"))
 router.use("/directory", require("./dashboard/directory.js"))
 
 router.get("/", requestOverview)
