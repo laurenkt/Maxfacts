@@ -40,14 +40,16 @@ async function requestSpecificPage(req, res, next) {
 	
 	// Only do this step if it's a directory
 	if (content.type == "directory") {
+		const queryForMenus = query => query.where('type').ne('further').sort('order title subtitle surtitle').exec()
+
 		const directory = await Promise.all(
 			content.lineage
 				// Get links from all parent stages
-				.map(uri => Content.findFromAdjacentURI(uri).select("-body").where('type').ne('further').sort("order title").exec())
+				.map(uri => queryForMenus(Content.findFromAdjacentURI(uri).select("-body")))
 				// Append siblings of the current page
-				.concat([Content.findFromAdjacentURI(content.uri).select("-body").where('type').ne('further').sort("order title").exec()])
+				.concat([queryForMenus(Content.findFromAdjacentURI(content.uri).select("-body"))])
 				// Append children of the current page (excluding ones with the same name)
-				.concat([Content.findFromParentURI(content.uri).where("title").ne(content.title).where('type').ne('further').select("-body").sort("order title").exec()])
+				.concat([queryForMenus(Content.findFromParentURI(content.uri).where("title").ne(content.title))])
 		)
 
 		// Transform directory, adding sublists as necessary
