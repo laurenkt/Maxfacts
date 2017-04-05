@@ -40,26 +40,25 @@ async function requestDeletePage(req, res) {
 	}
 }
 
-async function postEdit(req, res) {
-	const video = await Video.findOne({ _id: req.params.id })
-
+async function updateVideoAndRedirect(video, req, res) {
 	video.name       = req.body.name
 	video.uri        = req.body.uri
-	video.youtube_id = req.body.youtube_id
+
+	// Strip any non-ID URL components if a URL has been pasted
+	video.youtube_id = req.body.youtube_id.replace(/(.*)v=/, '').replace(/&(.*)/, '')
 
 	await video.save()
 	res.redirect("/dashboard/videos")
 }
 
+async function postEdit(req, res) {
+	const video = await Video.findOne({ _id: req.params.id })
+	updateVideoAndRedirect(video, req, res)
+}
+
 async function postNew(req, res) {
 	const video = new Video()
-
-	video.name       = req.body.name
-	video.uri        = req.body.uri
-	video.youtube_id = req.body.youtube_id
-
-	await video.save()
-	res.redirect("/dashboard/videos")
+	updateVideoAndRedirect(video, req, res)
 }
 
 module.exports = router
