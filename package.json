@@ -8,13 +8,9 @@
     "restore": "mongo maxfacts --eval \"db.dropDatabase();\"; cd backups/$(command ls -t backups | head -1); mongorestore -d maxfacts maxfacts",
     "test": "TEST=maxfacts nyc --reporter=html --reporter=text mocha --grep integrations --invert --compilers js:babel-register",
     "test:integrations": "TEST=maxfacts nyc --reporter=html --reporter=text mocha --compilers js:babel-register",
-    "flow": "flow; test $? -eq 0 -o $? -eq 2"
-  },
-  "config": {
-    "ghooks": {
-      "pre-commit": "npm run flow && npm run test",
-      "pre-push": "npm run test:integrations"
-    }
+    "flow": "flow; test $? -eq 0 -o $? -eq 2",
+	"precommit": "npm run flow && npm run test",
+	"prepush": "npm run test:integrations"
   },
   "dependencies": {
     "body-parser": "~1.15.1",
@@ -59,8 +55,8 @@
     "eslint-plugin-react": "^6.0.0",
     "express-handlebars": "^3.0.0",
     "flow-bin": "^0.38.0",
-    "ghooks": "^2.0.0",
     "html-minifier": "^3.2.3",
+    "husky": "^0.13.3",
     "immutable": "^3.8.1",
     "js-beautify": "^1.6.4",
     "jsx-control-statements": "^3.1.2",
