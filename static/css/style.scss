@@ -614,20 +614,60 @@ main {
 	}
 
 	&.further-reading {
+		font-size: 110%;
+
 		header {
 			background: none;
 			border-bottom: 10px solid darken($level2-back, 10%);
 			color: black;
+
+			p {
+				list-style: none;
+			}
+
+			ol a {
+				color: black;
+			}
 
 			h2::before {
 				content: "Further reading and information";
 			}
 		}
 
+		p {
+			display: list-item;
+			list-style: square outside none;
+		}
+
+		p ~ p,
+		h3 ~ p {
+			border-top: 3px solid #ddd;
+			padding-top: $small-spacing * 1.5;
+			margin-top: $small-spacing * 1.5;
+		}
+
+		h3 {
+			margin-top: $small-spacing*2;
+		}
+
+		p ~ h3 {
+			border-top: 3px solid #ddd;
+			padding-top: $small-spacing * 2;
+			margin-top: $small-spacing * 1.5;
+		}
+
 		aside {
 			background: none;
 			margin: -10px 0 10px;
 			padding: 0;
+
+			p {
+				border: 0;
+				padding: 0;
+				margin: 0;
+				list-style: none;
+				display: block;
+			}
 		}
 	}
 

@@ -4,6 +4,12 @@
 		{{#description}}
 			<p>{{this}}</p>
 		{{/description}}
+		<h3>Contents</h3>
+		<ol>
+			{{#each contents}}
+				<li><a href="#{{id}}">{{{text}}}</a></li>
+			{{/each}}
+		</ol>
 	</header>
 	{{{shift_headers 2 body}}}
 </main>
