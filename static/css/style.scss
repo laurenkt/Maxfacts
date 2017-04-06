@@ -621,10 +621,6 @@ main {
 			border-bottom: 10px solid darken($level2-back, 10%);
 			color: black;
 
-			p {
-				list-style: none;
-			}
-
 			ol a {
 				color: black;
 			}
@@ -632,11 +628,6 @@ main {
 			h2::before {
 				content: "Further reading and information";
 			}
-		}
-
-		p {
-			display: list-item;
-			list-style: square outside none;
 		}
 
 		p ~ p,
@@ -666,8 +657,6 @@ main {
 				border: 0;
 				padding: 0;
 				margin: 0;
-				list-style: none;
-				display: block;
 			}
 		}
 	}
