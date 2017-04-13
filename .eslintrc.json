@@ -51,6 +51,7 @@
 			"error",
 			{
 				"vars": "all",
+				"varsIgnorePattern": "^_$",
 				"argsIgnorePattern": "^_$"
 			}
 		],

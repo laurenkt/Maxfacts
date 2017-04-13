@@ -2,7 +2,8 @@ import React    from "react"
 import ReactDOM from "react-dom"
 import Schema   from "./schema.js"
 import {Editor as RichTextEditor} from "slate"
-import {serialize, deserialize}   from "./serializer.js"
+import normalize from "./msword_normalizer.js"
+import {serialize, deserialize}   from "./html_serializer.js"
 
 class Editor extends React.Component {
 	constructor(props) {
@@ -109,7 +110,8 @@ class Editor extends React.Component {
 		if (data.type != "html") return
 		if (data.isShift) return
 		
-		const { document } = deserialize(data.html)
+		console.log(data.html)
+		const { document } = deserialize(normalize(data.html))
 
 		return state
 			.transform()

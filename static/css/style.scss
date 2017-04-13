@@ -802,20 +802,12 @@ footer {
 			font-size: 110%;
 		}
 
-		.found::after {
-			content: "✅";
-			opacity: 0.5;
-			font-size: 50%;
-			margin-left: 4px;
+		.found {
+			border-bottom: 1px solid green;
 		}
 
 		.not_found {
-			&::after {
-				content: "❌";
-				opacity: 0.5;
-				font-size: 50%;
-				margin-left: 4px;
-			}
+			border-bottom: 1px solid red;
 		}
 
 		.menu {
