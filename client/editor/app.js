@@ -112,7 +112,7 @@ class Editor extends React.Component {
 		
 		console.log(data.html)
 		const { document } = deserialize(normalize(data.html))
-
+		console.log(normalize(data.html))
 		return state
 			.transform()
 			.insertFragment(document)

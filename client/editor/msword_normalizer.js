@@ -1,6 +1,8 @@
 import {Parser,
 	DomHandler} from "htmlparser2"
 import DomUtils from "domutils"
+import sanitizeHtml from "sanitize-html"
+import {merge} from "lodash"
 
 function multiplePassProcess(input, fn) {
 	let temp = ""
@@ -218,7 +220,7 @@ export function processLinks(html) {
 	return processTagWithFn(html, "span", node => {
 		if (is_red_span(node)) {
 			let name = DomUtils.getText(node)
-			const matches = name.match(/(.*?)([\s]*)\[(.*)\]/)
+			const matches = name.match(/^([^\[]*?)([\s]*)\[(.*)\]/)
 			let uri = ""
 
 			if (matches) {
@@ -249,6 +251,7 @@ export function processLinks(html) {
 				}
 			}
 
+			console.log("Linking '%s' --> '%s'", name, uri || '')
 			node.name = "a"
 			node.attribs = {
 				href: "/" + (uri || ''),
@@ -263,7 +266,7 @@ export function processLinks(html) {
 		}
 	})
 	// TODO:Need to insert extra spaces if following node is not a word boundary
-		.replace(/<\/a>([A-Za-z0-9])/im, "</a> $1")
+		.replace(/<\/a>([A-Za-z0-9\(])/im, "</a> $1")
 }
 
 export function processLists(html) {
@@ -466,13 +469,57 @@ export function stripEmptyTags(html) {
 	 *  - Ignores whitespace or non-breaking space in tags
 	 *  - Uses backreference to ensure it is closed on the same tag that opened
 	 */
-	return multiplePassProcess(html, str => str.replace(/<([^>]+)([ ]*)([^>]*)>((\s|(&nbsp;))*)<\/\1>/igm, ''))
+	return multiplePassProcess(html, str => str.replace(/<([^>]+)([ ]*)([^>]*)>((\s|(&nbsp;))*)<\/\1>/igm, '$4'))
+}
+
+export function stripForbiddenTagsAndAttributes(html) {
+	// Force the body into an acceptable format
+	// Allow only a super restricted set of tags and attributes
+	let reduced_body = ""
+	for(;;) {
+		reduced_body = sanitizeHtml(html, {
+			allowedTags: ["h1", "h2", "h3", "h4", "h5", "h6", "blockquote", "p", "a", "ul", "ol",
+				"li", "strong", "em", "table", "thead", "caption", "tbody", "tfoot", "tr", "th", "td",
+				"figure", "abbr", "img", "aside", "caption", "cite", "dd", "dfn", "dl", "dt", "figcaption",
+				"sub", "sup", "i"],
+			allowedAttributes: merge({
+				th: ["colspan", "rowspan"],
+				td: ["colspan", "rowspan"],
+			}, sanitizeHtml.defaults.allowedAttributes),
+			transformTags: {'b': 'strong'},
+			textFilter: (text, stack) => {
+				// Remove things not in a tag at all
+				if (stack.length == 0)
+					// If it's not in a container class
+					return text
+					// Remove any non-whitespace characters
+						.replace(/[^\s]+/g, "")
+					// Remove any blank lines
+						.replace(/[\n]+/g, "\n") // Unix
+						.replace(/(\r\n)+/g, "\r\n") // Windows
+				else
+					return text
+			},
+		})
+
+		if (reduced_body == html)
+			break
+
+		html = reduced_body
+	}
+
+	return html
 }
 
 export default function normalize(html) {
-	const processes = [processTables, processAsides, processHeadings, processLinks, processFigures, processLists, stripEmptyTags]
+	// Strip empty tags before and after to prevent spurious metadata when processing and after processing
+	const processes = [stripEmptyTags, processTables, processAsides, processHeadings, processFigures, processLists, processLinks, stripForbiddenTagsAndAttributes, stripEmptyTags]
 
-	processes.forEach(proc => html = proc(html))
+	processes.forEach(proc => { console.log('calling %s', proc.name); html = proc(html)
+		//console.log(html)	
+	})
+
+	console.log('finished')
 
 	return html
 }
