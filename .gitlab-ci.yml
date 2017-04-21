@@ -31,4 +31,4 @@ test_async:
         - sleep 10 # Wait for Mongo service to start 
         - mongorestore -h mongo -d maxfacts maxfacts
         - npm install --silent
-        - npm test:integrations
+        - npm run test:integrations
