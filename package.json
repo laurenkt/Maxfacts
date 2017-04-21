@@ -30,7 +30,7 @@
     "multer": "^1.1.0",
     "passport": "^0.3.2",
     "passport-google-oauth20": "^1.0.0",
-    "sanitize-html": "github:comaleaf/sanitize-html#filter-contexts",
+    "sanitize-html": "github:laurenkt/sanitize-html#filter-contexts",
     "serve-favicon": "~2.3.0",
     "sinon": "^1.17.7"
   },
@@ -57,6 +57,7 @@
     "express-handlebars": "^3.0.0",
     "flow-bin": "^0.38.0",
     "html-minifier": "^3.2.3",
+    "htmlparser2": "^3.9.2",
     "husky": "^0.13.3",
     "immutable": "^3.8.1",
     "js-beautify": "^1.6.4",

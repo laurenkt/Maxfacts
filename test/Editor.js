@@ -179,15 +179,13 @@ describe("Editor", () => {
 				expect(processAsides(`
 					<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><o:p>&nbsp;</o:p></span></p>
 					<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%;color:#00B050'>Our
-					video demonstrations show how one can best, safely <span
-					style='mso-spacerun:yes'> </span>and most efficiently provide oral hygiene home
+					video demonstrations show how one can best, safely and most efficiently provide oral hygiene home
 					care for oneself, for a wide range of circumstances</span><span
 					style='font-size:12.0pt;line-height:107%;color:red'>[help-selfhelp-oral-hygiene-video-preamble]<o:p></o:p></span></p>
 				`)).html.to.equal(`
 					<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><o:p>&nbsp;</o:p></span></p>
 					<aside><p><span>Our
-					video demonstrations show how one can best, safely <span
-					style='mso-spacerun:yes'> </span>and most efficiently provide oral hygiene home
+					video demonstrations show how one can best, safely and most efficiently provide oral hygiene home
 					care for oneself, for a wide range of circumstances</span><span
 					style='font-size:12.0pt;line-height:107%;color:red'>[help-selfhelp-oral-hygiene-video-preamble]<o:p></o:p></p></aside>
 				`)
@@ -416,13 +414,21 @@ describe("Editor", () => {
 
 		describe("processLinks", () => {
 			it("should replace red spans with links", () => {
-				expect(processLinks("<span style='color:red'>A [b]</span>")).html.to.equal(`<a href="/b">A</a>`)
+				expect(processLinks("<span style='color:red'>A [b]</span>")).to.equal(`<a href="/b">A</a>`)
 			})
 
 			it("should join separated spans", () => {
 				expect(processLinks(`
 					<span style='color:red'>A</span> <span style='color:red'>[b]</span>
 				`)).html.to.equal(`<a href="/b">A</a>`)
+			})
+
+			it("should join separated spans even if they are not neighbours logically (but are, visually)", () => {
+				expect(processLinks(`
+					<p><span><span style='color:red'>Link</span></span> <span><span style='color:red'>[href]</span></span></p>
+				`)).html.to.equal(`
+					<p><span><a href="/href">Link</a></span> <span></span></p>
+				`)
 			})
 
 			it("should insert spaces where spaces would be eaten by spans", () => {
@@ -462,7 +468,7 @@ describe("Editor", () => {
 						obtained from <a href="/diagnosis-tests-Xray-level2">X-ray</a> images (by plain films at right angles)
 						and <a href="/diagnosis-tests-CT-level2">CT scans</a>
 						.
-						<a href="/"> </a> The imaging will help the
+						<span style="color:red"> </span>The imaging will help the
 						surgeon plan the operation, find, realign the fragments and 
 						avoid missing a fracture segment when operating. Additional
 						suspected or evident injuries to soft tissues such as

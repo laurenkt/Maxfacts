@@ -1,10 +1,11 @@
+// @flow
 import {Parser,
 	DomHandler} from "htmlparser2"
 import DomUtils from "domutils"
 import sanitizeHtml from "sanitize-html"
 import {merge} from "lodash"
 
-function multiplePassProcess(input, fn) {
+function multiplePassProcess(input:string, fn: (string => string)):string {
 	let temp = ""
 
 	while (temp != input) {
@@ -15,18 +16,23 @@ function multiplePassProcess(input, fn) {
 	return input
 }
 
-function processTagWithFn(html, tag_name, fn) {
+function processTagWithFn(html:string, tag_name, fn, filter):string {
 	let handler = new DomHandler((err, dom) => {
-		DomUtils.getElements({tag_name}, dom, true).forEach(fn)
-		html = DomUtils.getOuterHTML(dom)
+		let elements:Array<any> = DomUtils.getElements({tag_name}, dom, true)
+
+		if (filter)
+			elements = elements.filter(filter)
+
+		elements.forEach((el, idx) => fn(el, idx, elements))
+		html = DomUtils.getOuterHTML(dom, {decodeEntities:true})
 	})
-	let parser = new Parser(handler)
+	let parser = new Parser(handler, {decodeEntities:true})
 	parser.write(html)
 	parser.done()
 	return html
 }
 
-export function processTables(html) {
+export function processTables(html:string):string {
 	/**
 	 * 	<table>
 	 * 		<tr>
@@ -135,7 +141,7 @@ export function processTables(html) {
 	})
 }
 
-export function processAsides(html) {
+export function processAsides(html:string):string {
 	const is_green_span = node =>
 		node != null &&
 		node.type == "tag" &&
@@ -164,7 +170,7 @@ export function processAsides(html) {
 	})
 }
 
-export function processHeadings(html) {
+export function processHeadings(html:string):string {
 	// Needs to maintain children but strip any <b> tags
 	/*
 	 * <p ...style=text-align:center...>[HEADING]</p>
@@ -208,7 +214,7 @@ export function processHeadings(html) {
 	})
 }
 
-export function processLinks(html) {
+export function processLinks(html:string):string {
 	const is_red_span = node =>
 		node != null &&
 		node.type == "tag" &&
@@ -217,59 +223,56 @@ export function processLinks(html) {
 		node.attribs.style &&
 		node.attribs.style.match(/color:(\s*)red/i)
 
-	return processTagWithFn(html, "span", node => {
-		if (is_red_span(node)) {
-			let name = DomUtils.getText(node)
-			const matches = name.match(/^([^\[]*?)([\s]*)\[(.*)\]/)
-			let uri = ""
+	//TODO: next to extract list of next links for whole of DOM and then search through spans,
+	//otherwise this will only process links in <p> tags
+	return processTagWithFn(html, "span", (span, idx, all_red_spans) => {
+		let name = DomUtils.getText(span)
+		const matches = name.match(/^((?:\s*(?:[^\s\[]))+)(?:[\s]*)(?:\[(.*)\]){0,1}/)
+		let uri = ""
 
-			if (matches) {
-				name = matches[1]
-				uri = matches[3]
-			}
-			else {
-				// Check next span (walk until next is a span)
-				let next = node.next
-				for (;;) {
-					if (next == null || next.type == "tag")
-						break
-					else
-						next = next.next
-				}
+		if (!matches)
+			return
 
-				if (is_red_span(next)) {
-					uri = DomUtils.getText(next).match(/^\s*\[(.*)\]\s*$/)
-					if (uri != null) {
-						// Set the URI and then erase the node
-						uri = uri[1]
-						DomUtils.removeElement(next)
+		name = matches[1]
 
-						next.type = 'text'
-						next.data = ''
-						next.attribs = undefined
-					}
-				}
-			}
-
-			console.log("Linking '%s' --> '%s'", name, uri || '')
-			node.name = "a"
-			node.attribs = {
-				href: "/" + (uri || ''),
-			}
-			node.children = [{
-				data: name,
-				type: 'text',
-				next: null,
-				prev: null,
-				parent: node.children[0].parent,
-			}]
+		if (matches[2] !== undefined) {
+			uri = matches[2]
 		}
-	})
+		else {
+			// Check next span
+			if ((idx+1) < all_red_spans.length) {
+				const next = all_red_spans[idx+1]
+
+				uri = DomUtils.getText(next).match(/^\s*\[(.*)\]\s*$/)
+				if (uri != null) {
+					// Set the URI and then erase the node
+					uri = uri[1]
+					DomUtils.removeElement(next)
+
+					next.type = 'text'
+					next.data = ''
+					next.attribs = undefined
+				}
+			}
+		}
+
+		span.name = "a"
+		span.attribs = {
+			href: "/" + (uri || ''),
+		}
+		span.children = [{
+			data: name,
+			type: 'text',
+			next: null,
+			prev: null,
+			parent: span.children[0].parent,
+		}]
+	}, is_red_span)
 	// TODO:Need to insert extra spaces if following node is not a word boundary
-		.replace(/<\/a>([A-Za-z0-9\(])/im, "</a> $1")
+		.replace(/<\/a>([A-Za-z0-9\(<])/igm, "</a> $1")
 }
 
-export function processLists(html) {
+export function processLists(html:string):string {
 	/**
 	 * <p...><span style='mso-list:Ignore'>[SYMBOL]...</span>...[LISTITEM]</p>
 	 * <p...><span style='mso-list:Ignore'>[SYMBOL]...</span>...[LISTITEM]</p>
@@ -371,7 +374,7 @@ export function processLists(html) {
 	})
 }
 
-export function processFigures(html) {
+export function processFigures(html:string):string {
 	/*
 	 * 	<p...>
 	 * 		...
@@ -461,7 +464,7 @@ export function processFigures(html) {
 	})
 }
 
-export function stripEmptyTags(html) {
+export function stripEmptyTags(html:string):string {
 	// Need to repeat to remove nested tags
 	/* Regex explanation
 	 *  - [^>] to prevent matching more than one tag
@@ -469,10 +472,10 @@ export function stripEmptyTags(html) {
 	 *  - Ignores whitespace or non-breaking space in tags
 	 *  - Uses backreference to ensure it is closed on the same tag that opened
 	 */
-	return multiplePassProcess(html, str => str.replace(/<([^>]+)([ ]*)([^>]*)>((\s|(&nbsp;))*)<\/\1>/igm, '$4'))
+	return multiplePassProcess(html, str => str.replace(/<([^>]+)(?:[ ]*)(?:[^>]*)>(?:(?:(\s)|(?:&nbsp;))*)<\/\1>/igm, '$2'))
 }
 
-export function stripForbiddenTagsAndAttributes(html) {
+export function stripForbiddenTagsAndAttributes(html:string):string {
 	// Force the body into an acceptable format
 	// Allow only a super restricted set of tags and attributes
 	let reduced_body = ""
@@ -511,15 +514,27 @@ export function stripForbiddenTagsAndAttributes(html) {
 	return html
 }
 
-export default function normalize(html) {
+export default function normalize(html:string):string {
 	// Strip empty tags before and after to prevent spurious metadata when processing and after processing
 	const processes = [stripEmptyTags, processTables, processAsides, processHeadings, processFigures, processLists, processLinks, stripForbiddenTagsAndAttributes, stripEmptyTags]
 
-	processes.forEach(proc => { console.log('calling %s', proc.name); html = proc(html)
-		//console.log(html)	
+	console.log('starting with >')
+	console.group()
+	console.log(html)
+	console.groupEnd()
+
+	processes.forEach(proc => {
+		html = proc(html)
+		console.log('Calling %s >', proc.name)
+		console.group()
+		console.log(html)
+		console.groupEnd()
 	})
 
-	console.log('finished')
+	console.log('finished with >')
+	console.group()
+	console.log(html)
+	console.groupEnd()
 
 	return html
 }
