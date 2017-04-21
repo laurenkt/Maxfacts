@@ -41,11 +41,12 @@ async function requestDeletePage(req, res) {
 }
 
 async function updateVideoAndRedirect(video, req, res) {
-	video.name       = req.body.name
-	video.uri        = req.body.uri
+	video.name   = req.body.name
+	video.uri    = req.body.uri
+	video.titles = req.body.titles
 
 	// Strip any non-ID URL components if a URL has been pasted
-	video.youtube_id = req.body.youtube_id.replace(/(.*)v=/, '').replace(/&(.*)/, '')
+	video.youtube_id = req.body.youtube_id.split(",").map(str => str.replace(/(.*)v=/, '').replace(/&(.*)/, '')).join(',')
 
 	await video.save()
 	res.redirect("/dashboard/videos")

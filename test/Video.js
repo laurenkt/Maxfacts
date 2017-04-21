@@ -9,13 +9,4 @@ describe("Video", () => {
 			done()
 		})
 	})
-
-	it("should be invalid if there is no YouTube ID", done => {
-		const v = new Video()
-		v.validate(err => {
-			expect(err.errors.youtube_id).to.exist
-			done()
-		})
-	})
-
 })
