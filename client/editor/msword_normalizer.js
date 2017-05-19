@@ -5,7 +5,7 @@ import DomUtils from "domutils"
 import sanitizeHtml from "sanitize-html"
 import {merge} from "lodash"
 
-function multiplePassProcess(input:string, fn: (string => string)):string {
+function multiplePassProcess(input:string, fn:any) {
 	let temp = ""
 
 	while (temp != input) {

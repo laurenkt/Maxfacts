@@ -8,70 +8,7 @@
 		<pre>{{error}}</pre>
 	</div>
 {{/if}}
-{{#if invalid_uris}}
-<div class="warning">
-	<p>This document has <strong>{{invalid_uris.length}}</strong> links that go nowhere.</p>
-</div>
-{{/if}}
-<form method="post" action="#">
-	<p>
-		<label for="title">Title</label>
-		<input class="large" type="text" name="title" id="title" value="{{title}}">
-	</p>
-	<p class="small-entry">
-		<label for="description">Subtitle (optional)</label>
-		<input type="text" name="description" id="description" value="{{description}}">
-	</p>
-	<p class="small-entry">
-		<label for="description">Surtitle (optional)</label>
-		<input type="text" name="surtitle" id="surtitle" value="{{surtitle}}">
-	</p>
-	<p>
-		<label for="uri">URI</label>
-		<input type="text" name="uri" id="uri" value="{{uri}}">
-	</p>
-	<p class="small-entry">
-		<label for="type">Type</label>
-		<select name="type" id="type">
-			<option value="page"      {{lookup selected 'page'}}>      Page</option>
-			<option value="directory" {{lookup selected 'directory'}}> Directory</option>
-			<option value="level3"    {{lookup selected 'level3'}}>    Level 3</option>
-			<option value="level2"    {{lookup selected 'level2'}}>    Level 2</option>
-			<option value="level1"    {{lookup selected 'level1'}}>    Level 1</option>
-			<option value="further"   {{lookup selected 'further'}}>   Further Reading</option>
-		</select>
-	</p>
-	<p class="small-entry -mini">
-		<label for="order">Manual order (low-to-high)</label>
-		<input type="text" name="order" id="order" value="{{order}}">
-	</p>
-	<p>
-		<label for="further_reading_uri">Further reading URI</label>
-		<input type="text" name="further_reading_uri" id="further_reading_uri" value="{{further_reading_uri}}">
-	</p>
-	<p>
-		<label for="has_sublist">
-			<input type="checkbox" name="has_sublist" id="has_sublist" {{#if has_sublist}}checked{{/if}} />
-				Display child pages in same column as this page
-		</label>
-	</p>
-	{{#if images}}
-		<div class="images-list">
-			<p><strong>Images used</strong>
-			<p>
-				{{#each images}}
-					<a href="/dashboard/images/edit/{{_id}}"><img src="/{{uri}}" /></a>
-				{{/each}}
-			</p>
-		</div>
-	{{/if}}
-	<h3>Content</h3>
-	<div><textarea id="body" name="body" rows="8">{{body}}</textarea></div>
-	<p><input type="submit" value="Save"></p>
-</form>
 <script type="application/json" id="editor_data">
-	{
-		"uris": {{{toJSON all_uris}}}
-	}
+	{{{toJSON this}}}
 </script>
 <script type="text/javascript" src="/js/editor/app.js"></script>

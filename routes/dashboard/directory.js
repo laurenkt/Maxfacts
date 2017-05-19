@@ -63,17 +63,21 @@ router.post("/new", async (req, res) => {
 })
 
 router.get("/:uri(*)", async (req, res, next) => {
-	const content = await Content.findOne( {uri: req.params.uri} ).exec()
+	let content = await Content.findOne( {uri: req.params.uri} ).exec()
 
 	if (!content)
 		return next()
 
+	const set_key = key => value => content.set(key, value, {strict: false})
+
 	// Find invalid URIs and images
 	await Promise.all([
-		Content.getAllURIs().then(uris => content.all_uris = uris),
-		content.getInvalidLinks().then(uris => content.invalid_uris = uris),
-		content.getImages().then(images => content.images = images),
+		Content.getAllURIs().then(set_key('all_uris')),
+		content.getInvalidLinks().then(set_key('invalid_uris')),
+		content.getImages().then(set_key('images')),
 	])
+
+	content = content.toObject()
 
 	// Determines whether to show notice about content being saved
 	content.saved = req.query.hasOwnProperty("saved")

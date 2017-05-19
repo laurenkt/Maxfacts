@@ -9,35 +9,36 @@ class Editor extends React.Component {
 	constructor(props) {
 		super(props)
 
-		const initial_state = props.value != "" ?
-			deserialize(props.value) :
-			deserialize("<p>Enter content here</p>")
+		const {content} = props
+
+		const initial_state = content.body != "" ?
+			deserialize(content.body) :
+			deserialize("<p></p>")
 
 		this.state = {
-			slate_state:     initial_state,
-			html_value:      serialize(initial_state),
+			id:    content.id,
+			body:  content.body,	
+			slate: initial_state,
 			editing_in_html: false,
 		}
+
+		this.touched = {}
+		this.rows = Math.max(content.body.split(/\r?\n/).length, 20)
 
 		this.onTextAreaChange = this.onTextAreaChange.bind(this)
 		this.onEditorChange   = this.onEditorChange.bind(this)
 		this.onDocumentChange = this.onDocumentChange.bind(this)
 		this.onEditModeChange = this.onEditModeChange.bind(this)
 		this.onKeyDown        = this.onKeyDown.bind(this)
-
-		this.rows = Math.max(props.value.split(/\r?\n/).length, 20)
+		this.onChangeID       = this.onChangeID.bind(this)
+		this.onChangeURI      = this.onChangeURI.bind(this)
 
 		document.addEventListener("scroll", this.onScroll.bind(this))
 	}
 
 	static get propTypes() {
 		return {
-			onChange: React.PropTypes.func,
-			state:    React.PropTypes.object,
-			value:    React.PropTypes.string,
-			id:       React.PropTypes.string,
-			name:     React.PropTypes.string,
-			valid_uris: React.PropTypes.array,
+			content: React.PropTypes.object,
 		}
 	}
 
@@ -77,23 +78,30 @@ class Editor extends React.Component {
 	}
 
 	onEditorChange(state) {
-		this.setState({slate_state: state})
+		this.touched['slate'] = true
+		this.setState({slate: state})
 	}
 
 	onTextAreaChange(e) {
-		this.rows = Math.min(e.target.value.split(/\r?\n/).length, 20)
-		this.setState({html_value: e.target.value})
+		//this.rows = Math.min(e.target.value.split(/\r?\n/).length, 20)
+		//this.setState({html_value: e.target.value})
 	}
 
 	onDocumentChange(document, state) {
-		this.setState({html_value: serialize(state)})
+		//this.setState({html_value: serialize(state)})
 	}
 
 	onEditModeChange(e) {
-		this.setState({
-			editing_in_html: e.target.checked,
-			slate_state: e.target.checked ? this.state.slate_state : deserialize(this.state.html_value),
-		})
+		let new_state = {
+			editing_in_html: e.target.checked
+		}
+
+		if (this.state.editing_in_html)
+			new_state.slate = deserialize(this.state.body)
+		else
+			new_state.body = serialize(this.state.slate)
+
+		this.setState(new_state)
 	}
 
 	/**
@@ -119,7 +127,7 @@ class Editor extends React.Component {
 	}
 
 	hasMark(type) {
-		const state = this.state.slate_state
+		const state = this.state.slate
 		return state.marks.some(mark => mark.type == type)
 	}
 
@@ -130,7 +138,7 @@ class Editor extends React.Component {
 	 */
 
 	hasInline(type) {
-		const state = this.state.slate_state
+		const state = this.state.slate
 		return state.inlines.some(inline => inline.type == type)
 	}
 
@@ -141,7 +149,7 @@ class Editor extends React.Component {
 	 * @return {Boolean}
 	 */
 	hasBlock(type) {
-		const state = this.state.slate_state
+		const state = this.state.slate
 		return state.blocks.some(node => node.type == type)
 	}
 
@@ -153,14 +161,14 @@ class Editor extends React.Component {
 	 */
 	onClickMark(e, type) {
 		e.preventDefault()
-		let state = this.state.slate_state
+		let state = this.state.slate
 
 		state = state
 			.transform()
 			.toggleMark(type)
 			.apply()
 
-		this.setState({ slate_state:state, html_value: serialize(state) })
+		this.setState({slate:state, html_value: serialize(state) })
 	}
 
 	/**
@@ -169,7 +177,7 @@ class Editor extends React.Component {
 	onClickInline(e, type, is_editing) {
 		e.preventDefault()
 
-		let state = this.state.slate_state
+		let state = this.state.slate
 
 		if (type == 'link') {
 			const hasLinks = this.hasInline('link')
@@ -254,7 +262,7 @@ class Editor extends React.Component {
 				}
 			}
 
-			this.setState({ slate_state:state, html_value: serialize(state) })
+			this.setState({slate:state, html_value: serialize(state) })
 		}
 	}
 
@@ -269,7 +277,7 @@ class Editor extends React.Component {
 		const DEFAULT_NODE = "paragraph"
 
 		e.preventDefault()
-		let state = this.state.slate_state
+		let state = this.state.slate
 		let transform = state.transform()
 		const { document } = state
 		
@@ -328,7 +336,7 @@ class Editor extends React.Component {
 		}
 
 		state = transform.apply()
-		this.setState({ slate_state:state, html_value: serialize(state) })
+		this.setState({slate:state, html_value: serialize(state) })
 	}
 
 	renderToolbar() {
@@ -380,8 +388,8 @@ class Editor extends React.Component {
 
 		// Aside needs to recognise parent too
 		if (type == 'aside') {
-			isActive = isActive || this.state.slate_state.blocks.some((block) => {
-				return !!this.state.slate_state.document.getClosest(block.key, parent => parent.type == type)
+			isActive = isActive || this.state.slate.blocks.some((block) => {
+				return !!this.state.slate.document.getClosest(block.key, parent => parent.type == type)
 			})
 		}
 
@@ -392,52 +400,126 @@ class Editor extends React.Component {
 		)
 	}
 
+	onChangeID(e) {
+		this.touched['ID'] = true
+		
+		let new_state = {id: e.target.value}
+
+		if (!this.touched.URI) {
+			new_state.uri = ""
+			let unprocessed = e.target.value
+			let end_part = ""
+			let match
+
+			// Top level
+			if (match = unprocessed.match(/^diagnosis-list(.*)/i)) {
+				new_state.uri = "diagnosis/a-z/"
+				unprocessed = match[1] // remainder of string
+			}
+			else if (match = unprocessed.match(/^help-selfhelp(.*)/i)) {
+				new_state.uri = "help/"
+				unprocessed = match[1]
+			}
+			else if (match = unprocessed.match(/^([a-z]*)-(.*)/i)) {
+				new_state.uri = match[1] + "/"
+				unprocessed = match[2]
+			}
+			else if (match = unprocessed.match(/^[a-z]*$/i)) {
+				new_state.uri = unprocessed
+				unprocessed = ""
+			}
+
+			// Extract page type
+			if (match = unprocessed.match(/(.*)-level1$/i)) {
+				// TODO: use all_uris list to determine if a preamble exists for this, then use /getting-started
+				end_part = ""
+				unprocessed = match[1]
+			}
+			else if (match = unprocessed.match(/(.*)-level2$/i)) {
+				end_part = "/more-info"
+				unprocessed = match[1]
+			}
+			else if (match = unprocessed.match(/(.*)-level3$/i)) {
+				end_part = "/detailed"
+				unprocessed = match[1]
+			}
+
+			// Preprocess some special cases that should always be left together
+			// TODO: FINISH THIS
+			if (match = unprocessed.match(new RegExp("()"
+			))) {
+
+			}
+
+			// Strip first - if there is one
+			if (unprocessed.length > 0 && unprocessed[0] == '-')
+				unprocessed = unprocessed.slice(1)
+
+			// Append unprocessed and end portions
+			new_state.uri += unprocessed
+			new_state.uri += end_part
+		}
+
+		this.setState(new_state)
+	}
+
+	onChangeURI() {
+
+	}
+
 	render() {
 		return (
-			<div className="content-editor">
-				<p className="menu editmode-menu">
-					<label>
-						<input
-							type="checkbox"
-							onChange={this.onEditModeChange}
-							checked={null} />
-						<span className="label-body">Edit in raw HTML</span>
-					</label>
+			<div>
+				<p>
+					<label htmlFor="id">ID</label>
+					<input type="text" name="id" id="id" onChange={this.onChangeID} value={this.state.id} />
 				</p>
-				<textarea
-					rows={Math.max(this.props.value.split(/\r?\n/).length, 20)}
-					name={this.props.name}
-					style={{display: this.state.editing_in_html ? "block" : "none"}}
-					onChange={this.onTextAreaChange}
-					value={this.state.html_value} />
-				{!this.state.editing_in_html && 
-					this.renderToolbar()}
-				{!this.state.editing_in_html &&
-					<RichTextEditor
-						schema={Schema(this.props.valid_uris)}
-						state={this.state.slate_state}
-						onChange={this.onEditorChange}
-						onDocumentChange={this.onDocumentChange}
-						onPaste={this.onPaste}
-						onKeyDown={this.onKeyDown} />}
+				<p>
+					<label htmlFor="uri">URI</label>
+					<input type="text" name="uri" id="uri" onChange={this.onChangeURI} value={this.state.uri} />
+				</p>
+				<div className="content-editor">
+					<p className="menu editmode-menu">
+						<label>
+							<input
+								type="checkbox"
+								onChange={this.onEditModeChange}
+								checked={null} />
+							<span className="label-body">Edit in raw HTML</span>
+						</label>
+					</p>
+					<textarea
+						rows={this.rows}
+						name="body"
+						style={{display: this.state.editing_in_html ? "block" : "none"}}
+						onChange={this.onTextAreaChange}
+						value={this.state.body} />
+					{!this.state.editing_in_html && 
+						this.renderToolbar()}
+					{!this.state.editing_in_html &&
+						<RichTextEditor
+							schema={Schema(this.props.content.all_uris)}
+							state={this.state.slate}
+							onChange={this.onEditorChange}
+							onDocumentChange={this.onDocumentChange}
+							onPaste={this.onPaste}
+							onKeyDown={this.onKeyDown} />}
+				</div>
 			</div>
 		)
 	}
 }
 
 document.addEventListener("DOMContentLoaded", _ => {
-	let valid_uris = JSON.parse(document.getElementById("editor_data").innerHTML)
-	valid_uris = valid_uris.uris ? valid_uris.uris : []
+	let data_node = document.getElementById("editor_data")
+	let content = JSON.parse(data_node.innerHTML)
 
-	const textarea  = document.getElementsByTagName("textarea").item(0)
 	const container = document.createElement("div")
 	container.className = "content-editor"
 
 	ReactDOM.render(<Editor 
-		name={textarea.getAttribute("name")}
-		value={textarea.value}
-		valid_uris={valid_uris}
+		content={content}
 	/>, container)
 	
-	textarea.parentNode.replaceChild(container.childNodes[0], textarea)
+	data_node.parentNode.replaceChild(container.childNodes[0], data_node)
 })
