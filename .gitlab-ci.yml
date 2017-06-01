@@ -7,7 +7,7 @@ image: node:latest
 # Only needed when using a docker container to run your tests in.
 # Check out: http://docs.gitlab.com/ce/ci/docker/using_docker_images.html#what-is-service
 services:
-    - mongo:3.2
+    - mongo:latest
 
 # This folder is cached between builds
 # http://docs.gitlab.com/ce/ci/yaml/README.html#cache
@@ -28,7 +28,6 @@ test_async:
         - echo "MONGO_URI=mongo/maxfacts" > .env
         - echo "OAUTH_CALLBACK=http://localhost:3000/auth/callback" >> .env
         - cd backups/$(command ls -t backups | head -1)
-        - sleep 10 # Wait for Mongo service to start 
-        - mongorestore -h mongo -d maxfacts maxfacts
+        - for i in 1 2 3 4 5 6 7 8 9 10; do mongorestore -h mongo -d maxfacts maxfacts && break || sleep 2; done
         - npm install --silent
         - npm run test:integrations
