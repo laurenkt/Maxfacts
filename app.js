@@ -88,12 +88,6 @@ passport.deserializeUser((obj, cb) => cb(null, obj))
 app.use(passport.initialize())
 app.use(passport.session())
 
-// Babel for React/JSX
-app.use("/js", browserify(join(__dirname, "client"), {
-	noParse: ["react-rte"],
-	transform: ["babelify"],
-}))
-
 // SASS middleware
 app.use(sass({
 	src:  join(__dirname, "static"),
