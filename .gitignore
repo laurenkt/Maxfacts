@@ -1,3 +1,6 @@
+# Distribution files
+dist/
+
 # Generated CSS files
 static/css/style.css
 
