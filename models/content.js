@@ -24,6 +24,14 @@ const schema = new mongoose.Schema({
 			return uri
 		},
 	},
+	id: {
+		type: String,
+		unique: true,
+		set: function(id) {
+			this._idChanged = true
+			return id
+		}
+	},
 	order:       {type: Number, default: 0},
 	body:        {type: String},
 	description: {type: String},
@@ -70,7 +78,7 @@ schema.statics = {
 			.replace(/[^a-z0-9-\/]+/g, "")
 	},
 
-	async getAllURIs():Promise<Array<String>> {
+	async getAllURIs():Array<String> {
 		const all_uris = await this.find().select('uri').exec()
 
 		// Return just a list of the URI parts, prepended with the root URL
@@ -185,12 +193,33 @@ schema.statics = {
 		}
 	},
 
-	replaceHREFsWith(html:String, from:String, to:String):String {
+	async getAllIdUriPairs() {
+		const all_pages = await this.find().select('uri id').exec()
+
+		let uris = []
+		let ids  = []
+
+		all_pages.forEach(page => {
+			if (page.id && page.id !== "") {
+				uris.push("/" + page.uri)
+				ids.push("/" + page.id)
+			}
+		})
+
+		return {ids, uris}
+	},
+
+	replaceHREFsWith(html:String, from:Array<String>, to:Array<String>):String {
 		let handler = new DomHandler((err, dom) => {
 			DomUtils.getElements({tag_name:"a"}, dom, true).forEach(node => {
-				if (node.attribs.href && node.attribs.href == from) {
-					// Update HREF
-					node.attribs.href = to
+				if (!node.attribs.href)
+					return
+
+				for (let i = 0; i < from.length; i++) {
+					if (node.attribs.href == from[i]) {
+						node.attribs.href = to[i]
+						return // don't bother with any other replacements
+					}
 				}
 			})
 			html = DomUtils.getOuterHTML(dom)
@@ -307,17 +336,21 @@ schema.methods = {
 		this.contents = heading_data.contents
 	},
 
-	replaceHREFsWith: function(from, to) {
+	replaceHREFsWith: function(from:Array<String>, to:Array<String>) {
 		this.body = this.model("Content").replaceHREFsWith(this.body, from, to)
 	},
 }
 
-schema.pre("save", function(next) {
+schema.pre("save", async function(next) {
 	// Force the URIs into acceptable format:
 	this.uri = this.model("Content").normalizeURI(this.uri)
 
 	if (this.further_reading_uri)
 		this.further_reading_uri = this.model("Content").normalizeURI(this.further_reading_uri)
+
+	// Update any links to IDs in the body
+	let {ids, uris} = await this.model("Content").getAllIdUriPairs()
+	this.replaceHREFsWith(ids, uris)
 
 	// Force the body into an acceptable format
 	// Allow only a super restricted set of tags and attributes
@@ -332,22 +365,33 @@ schema.pre("save", function(next) {
 })
 
 schema.post("save", async function(content) {
-	const updateHREFs = page => {
-		page.replaceHREFsWith("/" + content._previousURI, "/" + content.uri)
-		return page.save()
-	}
 
-	// Need to update any other content if the URI changed
-	if (content._previousURI && content._previousURI != content.uri) {
+	// Need to replace any pages that use ID or old URI if there is one
+	const has_new_uri = content._previousURI && content._previousURI != content.uri
+
+	let find = []
+	let replace = ['/' + content.uri, '/' + content.uri]
+
+	if (content._idChanged && content.id !== "")
+		find.push('/' + content.id)
+
+	if (has_new_uri)
+		find.push('/' + content._previousURI)
+
+	if (find.length > 0) {
 		// It was updated
 		// Update links in text
 		const matches = await content.model("Content")
 			.find({ 
-				body: { $regex : '/' + content._previousURI },
+				body: { $regex : `(${find.join('|')})` },
 				uri:  { $ne: content.uri },
 			})
 			.exec()
-		matches.forEach(updateHREFs)
+
+		matches.forEach(page => {
+			page.replaceHREFsWith(find, replace)
+			return page.save()
+		})
 
 		// And update child URIs that contain the parent URI
 		const pages = await content.model("Content").findAllBelowURI(content._previousURI).exec()
