@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "DEBUG=maxfacts nodemon --exec babel-node -- --inspect ./bin/www",
+	"start": "babel-node ./bin/www",
+    "start:dev": "DEBUG=maxfacts nodemon --exec babel-node -- --inspect ./bin/www",
     "backup": "mongodump -d maxfacts -o ./backups/$(date \"+%Y-%m-%d-%Hh-%Mm\")",
     "restore": "mongo maxfacts --eval \"db.dropDatabase();\"; cd backups/$(command ls -t backups | head -1); mongorestore -d maxfacts maxfacts",
     "test": "TEST=maxfacts nyc --reporter=html --reporter=text mocha --grep integrations --invert --compilers js:babel-register",
