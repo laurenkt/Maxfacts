@@ -200,9 +200,23 @@ describe("Content", () => {
 			const html = '<a href="/foo"></a>'
 			const expected = '<a href="/bar"></a>'
 
-			const result = Content.replaceHREFsWith(html, "/foo", "/bar")
+			const result = Content.replaceHREFsWith(html, ["/foo"], ["/bar"])
 
 			expect(result).to.equal(expected)
+		})
+
+		it("should find and replace multiple URLs", () => {
+			expect(Content.replaceHREFsWith(`
+				<a href="/one">A</a>
+				<a href="/two">B</a>
+				<a href="/three">C</a>
+				<a href="/four">D</a>
+			`, ["/one", "/four"], ["/1", "/4"])).html.to.equal(`
+				<a href="/1">A</a>
+				<a href="/two">B</a>
+				<a href="/three">C</a>
+				<a href="/4">D</a>
+			`)
 		})
 	})
 

@@ -1,9 +1,30 @@
 import React    from "react"
 import ReactDOM from "react-dom"
 import Schema   from "./schema.js"
-import {Editor as RichTextEditor} from "slate"
+import {Editor as RichTextEditor, Raw} from "slate"
 import normalize from "./msword_normalizer.js"
 import {serialize, deserialize}   from "./html_serializer.js"
+
+const TextField = ({name, value, onChange, defaultValue, children, className}) =>
+	<p className="label-input" key={name}>
+		<label htmlFor={name}>{children}</label>
+		<input type="text" className={className || ''} name={name} id={name} onChange={onChange} value={value} defaultValue={defaultValue} />
+	</p>
+
+function normalizeURI(uri) {
+	// Force the URI into acceptable format:
+	return uri
+		// All lowercase
+		.toLowerCase()
+		// Convert spaces and underscores to dashes (and multiple dashes)
+		.replace(/[_ -]+/g, "-")
+		// Remove any duplicate slashes
+		.replace(/[\/]+/g, "/")
+		// Remove any leading or trailing slashes or dashes
+		.replace(/(^[\/-]+|[\/-]+$)/g, "")
+		// Remove any remaining characters that don"t conform to the URL
+		.replace(/[^a-z0-9-\/]+/g, "")
+}
 
 class Editor extends React.Component {
 	constructor(props) {
@@ -11,27 +32,57 @@ class Editor extends React.Component {
 
 		const {content} = props
 
-		const initial_state = content.body != "" ?
+		const initial_state = (content.body && content.body != "") ?
 			deserialize(content.body) :
-			deserialize("<p></p>")
+			Raw.deserialize({nodes: [
+				{
+					kind: 'block',
+					nodes: [],
+					type: 'paragraph',
+				}
+			]}, {terse: true})
 
 		this.state = {
-			id:    content.id,
-			body:  content.body,	
-			slate: initial_state,
+			id:       content.id,
+			uri:      content.uri,
+			title:    content.title,
+			body:     content.body || "",	
+			description: content.description,
+			surtitle: content.surtitle,
+			order:    content.order,
+			type:     content.type,
+			has_sublist:
+			          content.has_subtlist,
+			further_reading_uri:
+			          content.further_reading_uri,
+			slate:    initial_state,
 			editing_in_html: false,
 		}
 
-		this.touched = {}
-		this.rows = Math.max(content.body.split(/\r?\n/).length, 20)
+		this.touched = {
+			id:       !!content.id,
+			uri:      !!content.uri,
+			title:    !!content.title,
+			body:     !!content.body,
+			description: !!content.description,
+			surtitle: !!content.surtitle,
+			order:    !!content.order,
+			type:     !!content.type,
+			has_sublist:
+			          !!content.has_sublist,
+			further_reading_uri:
+			          !!content.further_reading_uri,
+		}
+		this.rows = Math.max(this.state.body.split(/\r?\n/).length, 20)
 
 		this.onTextAreaChange = this.onTextAreaChange.bind(this)
 		this.onEditorChange   = this.onEditorChange.bind(this)
-		this.onDocumentChange = this.onDocumentChange.bind(this)
+		this.onSubmit         = this.onSubmit.bind(this)
 		this.onEditModeChange = this.onEditModeChange.bind(this)
 		this.onKeyDown        = this.onKeyDown.bind(this)
 		this.onChangeID       = this.onChangeID.bind(this)
 		this.onChangeURI      = this.onChangeURI.bind(this)
+		this.onChangeType     = this.onChangeType.bind(this)
 
 		document.addEventListener("scroll", this.onScroll.bind(this))
 	}
@@ -83,12 +134,14 @@ class Editor extends React.Component {
 	}
 
 	onTextAreaChange(e) {
-		//this.rows = Math.min(e.target.value.split(/\r?\n/).length, 20)
-		//this.setState({html_value: e.target.value})
+		this.touched['body'] = true
+		this.rows = Math.min(e.target.value.split(/\r?\n/).length, 20)
+		this.setState({body: e.target.value})
 	}
 
-	onDocumentChange(document, state) {
-		//this.setState({html_value: serialize(state)})
+	onSubmit() {
+		if (!this.state.editing_in_html)
+			this.setState({body: serialize(this.state.slate)})
 	}
 
 	onEditModeChange(e) {
@@ -401,18 +454,33 @@ class Editor extends React.Component {
 	}
 
 	onChangeID(e) {
-		this.touched['ID'] = true
+		this.touched['id'] = true
 		
 		let new_state = {id: e.target.value}
 
-		if (!this.touched.URI) {
+		if (!this.touched.type) {
+			if (new_state.id.match(/-preamble/i))
+				new_state.type = "directory"
+			else if (new_state.id.match(/-level1$/i))
+				new_state.type = "level1"
+			else if (new_state.id.match(/-level2$/i))
+				new_state.type = "level2"
+			else if (new_state.id.match(/-level3$/i))
+				new_state.type = "level3"
+			else if (new_state.id.match(/-further-reading-and-info/i))
+				new_state.type = "further"
+			else
+				new_state.type = "page"
+		}
+
+		if (!this.touched.uri) {
 			new_state.uri = ""
 			let unprocessed = e.target.value
 			let end_part = ""
 			let match
 
 			// Top level
-			if (match = unprocessed.match(/^diagnosis-list(.*)/i)) {
+			if ((match = unprocessed.match(/^diagnosis-list(.*)/i))) {
 				new_state.uri = "diagnosis/a-z/"
 				unprocessed = match[1] // remainder of string
 			}
@@ -430,7 +498,11 @@ class Editor extends React.Component {
 			}
 
 			// Extract page type
-			if (match = unprocessed.match(/(.*)-level1$/i)) {
+			if (match = unprocessed.match(/(.*)-preamble/i)) {
+				end_part = ""
+				unprocessed = match[1]
+			}
+			else if (match = unprocessed.match(/(.*)-level1$/i)) {
 				// TODO: use all_uris list to determine if a preamble exists for this, then use /getting-started
 				end_part = ""
 				unprocessed = match[1]
@@ -443,41 +515,86 @@ class Editor extends React.Component {
 				end_part = "/detailed"
 				unprocessed = match[1]
 			}
-
-			// Preprocess some special cases that should always be left together
-			// TODO: FINISH THIS
-			if (match = unprocessed.match(new RegExp("()"
-			))) {
-
+			else if (match = unprocessed.match(/(.*)-further-reading-and-info$/i)) {
+				end_part = "/further-reading"
+				unprocessed = match[1]
 			}
 
 			// Strip first - if there is one
 			if (unprocessed.length > 0 && unprocessed[0] == '-')
 				unprocessed = unprocessed.slice(1)
 
+			// Preprocess some special cases that should always be left together
+			// TODO: FINISH THIS
+			const reserved_pairs = [
+				"benign-lump",
+				"bone-lesion",
+				"neoplastic-benign",
+				"neoplastic-malignant",
+				"broken-tooth",
+				"mouth-cancer",
+				"facial-skin-cancer",
+				"salivary-gland-cancer",
+				"cleft-lip-palate",
+				"craniofacial-syndrome",
+				"ectopic-teeth",
+				"facial-appearance",
+				"facial-pain-syndrome",
+				"jaw-disproportion",
+				"jaw-joint",
+				"missing-teeth",
+				"mouth-ulcer",
+				"postoperative-problems",
+				"floor-of-mouth",
+				"upper-arm",
+				"lower-arm",
+				"lower-leg",
+				"haematological-malignancy",
+			]
+
+			reserved_pairs.forEach(fragment => unprocessed = unprocessed.replace(fragment, fragment.replace('-', '_')))
+
 			// Append unprocessed and end portions
-			new_state.uri += unprocessed
+			new_state.uri += unprocessed.replace(/-/g, '/').replace(/_/g, '-')
 			new_state.uri += end_part
+			new_state.uri = normalizeURI(new_state.uri)
 		}
 
 		this.setState(new_state)
 	}
 
-	onChangeURI() {
+	onChangeURI(e) {
+		this.touched['uri'] = true
+		this.setState({uri: e.target.value})
+	}
 
+	onChangeType(e) {
+		this.touched['type'] = true
+		this.setState({type: e.target.value})
 	}
 
 	render() {
 		return (
-			<div>
-				<p>
-					<label htmlFor="id">ID</label>
-					<input type="text" name="id" id="id" onChange={this.onChangeID} value={this.state.id} />
+			<form method="post" action="#" onSubmit={this.onSubmit}>
+				<TextField name="id" value={this.state.id} onChange={this.onChangeID}>ID</TextField>
+				<TextField name="uri" value={this.state.uri} onChange={this.onChangeURI}
+					className={this.touched.uri ? "" : "-suggested"}>URI</TextField>
+				<TextField name="title" defaultValue={this.state.title} className="-large">Title</TextField>
+				<TextField name="description" defaultValue={this.state.description}>Subtitle</TextField>
+				<TextField name="surtitle" defaultValue={this.state.surtitle}>Surtitle</TextField>
+				<p className="label-input">
+					<label htmlFor="type">Type</label>
+					<select name="type" id="type" value={this.state.type} onChange={this.onChangeType}>
+						<option value="page">Uncategorised page</option>
+						<option value="directory">Preamble</option>
+						<option value="level3">Level 3 - detailed information</option>
+						<option value="level2">Level 2 – getting to know more</option>
+						<option value="level1">Level 1 – getting started</option>
+						<option value="further">Further reading</option>
+					</select>
 				</p>
-				<p>
-					<label htmlFor="uri">URI</label>
-					<input type="text" name="uri" id="uri" onChange={this.onChangeURI} value={this.state.uri} />
-				</p>
+				<TextField name="order" defaultValue={this.state.order}>Order</TextField>
+				<TextField name="further_reading_uri" defaultValue={this.state.further_reading_uri}>Further reading URI</TextField>
 				<div className="content-editor">
 					<p className="menu editmode-menu">
 						<label>
@@ -501,11 +618,11 @@ class Editor extends React.Component {
 							schema={Schema(this.props.content.all_uris)}
 							state={this.state.slate}
 							onChange={this.onEditorChange}
-							onDocumentChange={this.onDocumentChange}
 							onPaste={this.onPaste}
 							onKeyDown={this.onKeyDown} />}
 				</div>
-			</div>
+				<p><input type="submit" value="Save" /></p>
+			</form>
 		)
 	}
 }
@@ -521,5 +638,5 @@ document.addEventListener("DOMContentLoaded", _ => {
 		content={content}
 	/>, container)
 	
-	data_node.parentNode.replaceChild(container.childNodes[0], data_node)
+	data_node.parentNode.replaceChild(container, data_node)
 })

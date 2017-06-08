@@ -774,7 +774,7 @@ footer {
 		min-width: 30px;
 	}
 
-	.large {
+	.-large {
 		font-size: 160%;
 	}
 
@@ -857,6 +857,24 @@ footer {
 
 		h6 {
 			font-size: 110%;
+		}
+
+		.label-input {
+			label {
+				width: 30%;
+				float: left;
+				text-align: right;
+				padding: 10px;
+			}
+
+			input {
+				width: 70%;
+				clear: right;
+			}
+		}
+
+		.-suggested {
+			color: #bbb;
 		}
 
 		.found {

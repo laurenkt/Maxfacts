@@ -1,7 +1,7 @@
 import React from "react"
 import {Html} from "slate"
 import {html as html_beautify} from "js-beautify"
-import {minify as html_minify} from "html-minifier"
+import html_clean from "htmlclean"
 
 const BLOCK_TAGS = {
 	p:  "paragraph",
@@ -210,9 +210,6 @@ export function deserialize(html_string) {
 	// limitation that they have decided not to alter due to other concerns
 	// See: https://github.com/ianstormtaylor/slate/issues/407
 	return html_serializer.deserialize(
-		html_minify(html_string, {
-			collapseWhitespace: true,
-			removeComments:     true,
-		})
+		html_clean(html_string)
 	)
 }
