@@ -78,7 +78,7 @@ schema.statics = {
 			.replace(/[^a-z0-9-\/]+/g, "")
 	},
 
-	async getAllURIs():Array<String> {
+	async getAllURIs():Promise<Array<String>> {
 		const all_uris = await this.find().select('uri').exec()
 
 		// Return just a list of the URI parts, prepended with the root URL
@@ -115,7 +115,7 @@ schema.statics = {
 		return uniq(images)
 	},
 
-	getSanitizedHTML(html:String):String {
+	getSanitizedHTML(html:string):string {
 		// Force the body into an acceptable format
 		// Allow only a super restricted set of tags and attributes
 		let reduced_body = ""
@@ -157,7 +157,7 @@ schema.statics = {
 		return html
 	},
 
-	getHTMLWithHeadingIDs(html:String) {
+	getHTMLWithHeadingIDs(html:string) {
 		let new_body
 		let headings = []
 
@@ -193,7 +193,7 @@ schema.statics = {
 		}
 	},
 
-	async getAllIdUriPairs() {
+	async getAllIdUriPairs():Promise<Array<Array<string>>> {
 		const all_pages = await this.find().select('uri id').exec()
 
 		let uris = []
@@ -209,7 +209,7 @@ schema.statics = {
 		return {ids, uris}
 	},
 
-	replaceHREFsWith(html:String, from:Array<String>, to:Array<String>):String {
+	replaceHREFsWith(html:string, from:Array<string>, to:Array<string>):string {
 		let handler = new DomHandler((err, dom) => {
 			DomUtils.getElements({tag_name:"a"}, dom, true).forEach(node => {
 				if (!node.attribs.href)
