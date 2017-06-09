@@ -11,6 +11,14 @@ const TextField = ({name, value, onChange, defaultValue, children, className}) =
 		<input type="text" className={className || ''} name={name} id={name} onChange={onChange} value={value} defaultValue={defaultValue} />
 	</p>
 
+const CheckBox = ({name, checked, defaultChecked, children}) =>
+	<p>
+		<label for={name}>
+			<input type="checkbox" name={name} id={name} checked={checked} defaultChecked={defaultChecked} />
+			{children}
+		</label>
+	</p>
+
 function normalizeURI(uri) {
 	// Force the URI into acceptable format:
 	return uri
@@ -51,6 +59,7 @@ class Editor extends React.Component {
 			surtitle: content.surtitle,
 			order:    content.order,
 			type:     content.type,
+			hide:     content.hide,
 			has_sublist:
 			          content.has_subtlist,
 			further_reading_uri:
@@ -593,8 +602,10 @@ class Editor extends React.Component {
 						<option value="further">Further reading</option>
 					</select>
 				</p>
-				<TextField name="order" defaultValue={this.state.order}>Order</TextField>
+				<TextField name="order" defaultValue={this.state.order || "0"}>Order</TextField>
 				<TextField name="further_reading_uri" defaultValue={this.state.further_reading_uri}>Further reading URI</TextField>
+				<CheckBox name="has_sublist" defaultChecked={this.state.has_sublist}>Display child pages in same column as this page</CheckBox>
+				<CheckBox name="hide" defaultChecked={this.state.hide}>Hide in directory</CheckBox>
 				<div className="content-editor">
 					<p className="menu editmode-menu">
 						<label>

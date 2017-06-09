@@ -45,11 +45,11 @@ async function requestSpecificPage(req, res, next) {
 		const directory = await Promise.all(
 			content.lineage
 				// Get links from all parent stages
-				.map(uri => queryForMenus(Content.findFromAdjacentURI(uri).select("-body")))
+				.map(uri => queryForMenus(Content.findFromAdjacentURI(uri).where("hide", false).select("-body")))
 				// Append siblings of the current page
-				.concat([queryForMenus(Content.findFromAdjacentURI(content.uri).select("-body"))])
+				.concat([queryForMenus(Content.findFromAdjacentURI(content.uri).where("hide", false).select("-body"))])
 				// Append children of the current page (excluding ones with the same name)
-				.concat([queryForMenus(Content.findFromParentURI(content.uri).where("title").ne(content.title))])
+				.concat([queryForMenus(Content.findFromParentURI(content.uri).where("hide", false).where("title").ne(content.title))])
 		)
 
 		// Transform directory, adding sublists as necessary

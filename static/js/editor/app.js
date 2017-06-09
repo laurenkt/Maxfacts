@@ -42025,6 +42025,23 @@ var TextField = function TextField(_ref) {
 	);
 };
 
+var CheckBox = function CheckBox(_ref2) {
+	var name = _ref2.name,
+	    checked = _ref2.checked,
+	    defaultChecked = _ref2.defaultChecked,
+	    children = _ref2.children;
+	return _react2.default.createElement(
+		"p",
+		null,
+		_react2.default.createElement(
+			"label",
+			{ "for": name },
+			_react2.default.createElement("input", { type: "checkbox", name: name, id: name, checked: checked, defaultChecked: defaultChecked }),
+			children
+		)
+	);
+};
+
 function normalizeURI(uri) {
 	// Force the URI into acceptable format:
 	return uri
@@ -42066,6 +42083,7 @@ var Editor = function (_React$Component) {
 			surtitle: content.surtitle,
 			order: content.order,
 			type: content.type,
+			hide: content.hide,
 			has_sublist: content.has_subtlist,
 			further_reading_uri: content.further_reading_uri,
 			slate: initial_state,
@@ -42647,13 +42665,23 @@ var Editor = function (_React$Component) {
 				),
 				_react2.default.createElement(
 					TextField,
-					{ name: "order", defaultValue: this.state.order },
+					{ name: "order", defaultValue: this.state.order || "0" },
 					"Order"
 				),
 				_react2.default.createElement(
 					TextField,
 					{ name: "further_reading_uri", defaultValue: this.state.further_reading_uri },
 					"Further reading URI"
+				),
+				_react2.default.createElement(
+					CheckBox,
+					{ name: "has_sublist", defaultChecked: this.state.has_sublist },
+					"Display child pages in same column as this page"
+				),
+				_react2.default.createElement(
+					CheckBox,
+					{ name: "hide", defaultChecked: this.state.hide },
+					"Hide in directory"
 				),
 				_react2.default.createElement(
 					"div",
