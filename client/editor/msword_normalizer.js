@@ -492,7 +492,7 @@ export function stripForbiddenTagsAndAttributes(html:string):string {
 			transformTags: {'b': 'strong'},
 			textFilter: (text, stack) => {
 				// Remove things not in a tag at all
-				if (stack.length == 0)
+				if (stack && stack.length == 0)
 					// If it's not in a container class
 					return text
 					// Remove any non-whitespace characters

@@ -177,7 +177,10 @@ schema.statics = {
 						.replace(/(^[\/-]+|[\/-]+$)/g, "")
 					// Remove any remaining characters that don"t conform to the URL
 						.replace(/[^a-z0-9-\/]+/g, "")
-				
+
+				if (!node.attribs)
+					node.attribs = {}
+
 				node.attribs.id = id
 				headings.push({text, id})
 			})
@@ -193,7 +196,7 @@ schema.statics = {
 		}
 	},
 
-	async getAllIdUriPairs():Promise<Array<Array<string>>> {
+	async getAllIdUriPairs():Promise<{uris: Array<string>, ids: Array<string>}> {
 		const all_pages = await this.find().select('uri id').exec()
 
 		let uris = []
@@ -212,7 +215,7 @@ schema.statics = {
 	replaceHREFsWith(html:string, from:Array<string>, to:Array<string>):string {
 		let handler = new DomHandler((err, dom) => {
 			DomUtils.getElements({tag_name:"a"}, dom, true).forEach(node => {
-				if (!node.attribs.href)
+				if (!node.attribs || !node.attribs.href)
 					return
 
 				for (let i = 0; i < from.length; i++) {
