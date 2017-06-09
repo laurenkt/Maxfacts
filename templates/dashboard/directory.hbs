@@ -5,6 +5,7 @@
 	{{#each items}}
 		<tr class="{{#if is_empty}}empty{{/if}}">
 			<td>
+				{{#unless id}}*{{/unless}}
 				<small><code>{{uri}}</code></small>
 			</td>
 			<td class="utility"><a href="/dashboard/directory/{{uri}}">Edit</a></td>
