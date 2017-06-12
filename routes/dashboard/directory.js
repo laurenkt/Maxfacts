@@ -3,7 +3,15 @@ import Content from "../../models/content"
 
 const router = express.Router()
 
-router.get("/", async (req, res) => {
+router.get("/",               getPageList)
+router.get("/delete/:uri(*)", getDeletePage)
+router.get("/new",            getNewPage)
+router.get("/:uri(*)",        getPage)
+
+router.post("/new",     postNewPage)
+router.post("/:uri(*)", postPage)
+
+async function getPageList(req, res) {
 	const hasBody = item => item.body && item.body != ""
 
 	const items = await Content.find().sort("uri").exec()
@@ -19,9 +27,9 @@ router.get("/", async (req, res) => {
 		items,
 		layout: "dashboard",
 	})
-})
+}
 
-router.get("/delete/:uri(*)", async (req, res) => {
+async function getDeletePage(req, res) {
 	if (req.query.hasOwnProperty("confirm")) {
 		await Content.remove({uri: req.params.uri}).exec()
 		
@@ -30,15 +38,15 @@ router.get("/delete/:uri(*)", async (req, res) => {
 	else {
 		throw new Error("Deletion must contain confirm token in URL query string")
 	}
-})
+}
 
-router.get("/new", async (req, res) => {
+async function getNewPage(req, res) {
 	const all_uris = await Content.getAllURIs()
 
 	res.render("dashboard/content", {all_uris, layout:"dashboard"})
-})
+}
 
-router.post("/new", async (req, res) => {
+async function postNewPage(req, res) {
 	// Normalize has_sublist checkbox
 	req.body.has_sublist = req.body.has_sublist && req.body.has_sublist === "on"
 
@@ -60,9 +68,9 @@ router.post("/new", async (req, res) => {
 		item.layout = "dashboard"
 		res.render("dashboard/content", item)
 	}
-})
+}
 
-router.get("/:uri(*)", async (req, res, next) => {
+async function getPage(req, res, next) {
 	let content = await Content.findOne( {uri: req.params.uri} ).exec()
 
 	if (!content)
@@ -88,12 +96,12 @@ router.get("/:uri(*)", async (req, res, next) => {
 	// Use alternate page layout for dashboard
 	content.layout = "dashboard"
 	res.render("dashboard/content", content)
-})
+}
 
 /**
  * Create or update a content item and then redirect back to the edit page
  */
-router.post("/:uri(*)", async (req, res) => {
+async function postPage(req, res) {
 	const item = await Content.findOne({uri: req.params.uri}).exec()
 
 	for (let property in req.body) {
@@ -117,6 +125,6 @@ router.post("/:uri(*)", async (req, res) => {
 		item.layout = "dashboard"
 		res.render("dashboard/content", item)
 	}
-})
+}
 
 module.exports = router
