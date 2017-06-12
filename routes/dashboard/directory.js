@@ -7,9 +7,11 @@ router.get("/",               getPageList)
 router.get("/delete/:uri(*)", getDeletePage)
 router.get("/new",            getNewPage)
 router.get("/:uri(*)",        getPage)
+router.get("/broken-links",   getBrokenLinks)
 
-router.post("/new",     postNewPage)
-router.post("/:uri(*)", postPage)
+router.post("/new",          postNewPage)
+router.post("/broken-links", postBrokenLinks)
+router.post("/:uri(*)",      postPage)
 
 async function getPageList(req, res) {
 	const hasBody = item => item.body && item.body != ""
@@ -40,10 +42,59 @@ async function getDeletePage(req, res) {
 	}
 }
 
+async function getBrokenLinks(req, res) {
+	const items = await Content.find().sort('uri').exec()
+
+	let pages = {}
+
+	for (let i = 0; i < items.length; i++) {
+		const invalid_links = await items[i].getInvalidLinks()
+		if (invalid_links.length > 0)
+			pages[items[i].uri] = invalid_links
+	}
+
+	res.render("dashboard/broken-links", {
+		layout: "dashboard",
+		pages	
+	})
+}
+
+async function postBrokenLinks(req, res) {
+	let find = []
+	let replace = []
+
+	for (let uri in req.body) {
+		// if item is an array then there are multiple vals, just take the first
+		if (typeof req.body[uri].find === "function")
+			req.body[uri] = req.body[uri].find(str => str != "")
+
+		if (req.body[uri] != "" && req.body[uri] != undefined) {
+			find.push('/' + uri)
+			replace.push('/' + req.body[uri])
+		}
+	}
+
+	// Now update all pages
+	const all_pages = await Content
+		.find({body: { $regex : `(${find.join('|')})` }})
+		.exec()
+
+	for (let i = 0; i < all_pages.length; i++) {
+		all_pages[i].replaceHREFsWith(find, replace)
+		await all_pages[i].save()
+	}
+
+	res.redirect('/dashboard/directory/broken-links')
+}
+
 async function getNewPage(req, res) {
 	const all_uris = await Content.getAllURIs()
 
-	res.render("dashboard/content", {all_uris, layout:"dashboard"})
+	res.render("dashboard/content", {
+		all_uris,
+		id: req.query.id,
+		layout:"dashboard"
+	})
 }
 
 async function postNewPage(req, res) {

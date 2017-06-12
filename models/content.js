@@ -80,14 +80,14 @@ schema.statics = {
 			.replace(/[^a-z0-9-\/]+/g, "")
 	},
 
-	async getAllURIs():Promise<Array<String>> {
+	async getAllURIs():Promise<Array<string>> {
 		const all_uris = await this.find().select('uri').exec()
 
 		// Return just a list of the URI parts, prepended with the root URL
 		return all_uris.map(uri => '/' + uri.uri)
 	},
 
-	getLinksInHTML(html):Array<String> {
+	getLinksInHTML(html):Array<string> {
 		let links:Array<String> = []
 		const parser = new Parser({
 			onopentag(name, attribs) {
@@ -102,8 +102,8 @@ schema.statics = {
 		return uniq(links)
 	},
 
-	getImgSrcsInHTML(html):Array<String> {
-		let images:Array<String> = []
+	getImgSrcsInHTML(html):Array<string> {
+		let images:Array<string> = []
 		const parser = new Parser({
 			onopentag(name, attribs) {
 				if (name == "img" && attribs.src)
