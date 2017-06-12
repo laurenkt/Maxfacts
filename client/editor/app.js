@@ -2,6 +2,7 @@ import React    from "react"
 import ReactDOM from "react-dom"
 import Schema   from "./schema.js"
 import {Editor as RichTextEditor, Raw} from "slate"
+import SoftBreak from "slate-soft-break"
 import normalize from "./msword_normalizer.js"
 import {serialize, deserialize}   from "./html_serializer.js"
 
@@ -18,6 +19,10 @@ const CheckBox = ({name, checked, defaultChecked, children}) =>
 			{children}
 		</label>
 	</p>
+
+const plugins = [
+	SoftBreak({shift: true}),
+]
 
 function normalizeURI(uri) {
 	// Force the URI into acceptable format:
@@ -629,6 +634,7 @@ class Editor extends React.Component {
 							schema={Schema(this.props.content.all_uris)}
 							state={this.state.slate}
 							onChange={this.onEditorChange}
+							plugins={plugins}
 							onPaste={this.onPaste}
 							onKeyDown={this.onKeyDown} />}
 				</div>
