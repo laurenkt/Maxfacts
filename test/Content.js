@@ -1,5 +1,9 @@
-import {expect} from "chai"
+import chai from "chai"
 import Content  from "../models/content.js"
+import chaiHtml from "chai-html"
+
+const expect = chai.expect
+chai.use(chaiHtml)
 
 describe("Content", () => {
 	it("should be invalid if there is no URI", done => {
