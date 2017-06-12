@@ -36,6 +36,7 @@ const schema = new mongoose.Schema({
 	body:        {type: String},
 	description: {type: String},
 	surtitle:    {type: String},
+	redirect_uri:{type: String},
 	hide:        {type: Boolean, default: false},
 	further_reading_uri:
 	             {type: String},

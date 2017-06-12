@@ -65,6 +65,8 @@ class Editor extends React.Component {
 			order:    content.order,
 			type:     content.type,
 			hide:     content.hide,
+			redirect_uri:
+			          content.redirect_uri,
 			has_sublist:
 			          content.has_subtlist,
 			further_reading_uri:
@@ -596,6 +598,7 @@ class Editor extends React.Component {
 				<TextField name="title" defaultValue={this.state.title} className="-large">Title</TextField>
 				<TextField name="description" defaultValue={this.state.description}>Subtitle</TextField>
 				<TextField name="surtitle" defaultValue={this.state.surtitle}>Surtitle</TextField>
+				<TextField name="redirect_uri" defaultValue={this.state.redirect_uri}>Redirect URI</TextField>
 				<p className="label-input">
 					<label htmlFor="type">Type</label>
 					<select name="type" id="type" value={this.state.type} onChange={this.onChangeType}>

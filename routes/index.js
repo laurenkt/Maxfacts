@@ -31,6 +31,10 @@ async function requestSpecificPage(req, res, next) {
 	if (!content)
 		return next()
 
+	// First check redirect condition
+	if (content.redirect_uri && content.redirect_uri !== "")
+		return res.redirect('/' + content.redirect_uri)
+
 	content.invalid_uris = await content.getInvalidLinks()
 	content.breadcrumbs  = await content.getBreadcrumbs()
 	content.next_page    = await content.getNextPage()

@@ -42135,6 +42135,7 @@ var Editor = function (_React$Component) {
 			order: content.order,
 			type: content.type,
 			hide: content.hide,
+			redirect_uri: content.redirect_uri,
 			has_sublist: content.has_subtlist,
 			further_reading_uri: content.further_reading_uri,
 			slate: initial_state,
@@ -42670,6 +42671,11 @@ var Editor = function (_React$Component) {
 					TextField,
 					{ name: "surtitle", defaultValue: this.state.surtitle },
 					"Surtitle"
+				),
+				_react2.default.createElement(
+					TextField,
+					{ name: "redirect_uri", defaultValue: this.state.redirect_uri },
+					"Redirect URI"
 				),
 				_react2.default.createElement(
 					"p",
