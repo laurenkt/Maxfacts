@@ -1,5 +1,4 @@
 import chai from "chai"
-import {expect} from "chai"
 import chaiHtml from "chai-html"
 import {
 	stripEmptyTags,
@@ -8,8 +7,9 @@ import {
 	processHeadings,
 	processAsides,
 	processTables,
-	processLists} from "../client/editor/msword_normalizer.js"
+	processLists} from "../msword_normalizer.js"
 
+const expect = chai.expect
 chai.use(chaiHtml)
 
 describe("Editor", () => {

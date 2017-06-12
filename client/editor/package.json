@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "build": "webpack --env.dev",
-    "publish": "cp dist/app.js ../../static/js/editor/app.js",
+    "test": "TEST=editor nyc --reporter=html --reporter=text mocha --compilers js:babel-register",
+    "publish": "npm test && cp dist/app.js ../../static/js/editor/app.js",
     "build-publish": "npm run build && npm run publish"
   },
   "author": "",
@@ -19,6 +20,8 @@
     "babel-preset-es2015": "^6.16.0",
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.24.1",
+    "chai": "^4.0.2",
+    "chai-html": "^1.1.4",
     "css-loader": "^0.28.4",
     "domutils": "^1.6.2",
     "eslint": "^3.2.2",
@@ -30,7 +33,9 @@
     "immutable": "^3.8.1",
     "js-beautify": "^1.6.14",
     "lodash": "^4.17.4",
+    "mocha": "^3.4.2",
     "node-sass": "^4.5.3",
+    "nyc": "^11.0.2",
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
     "sanitize-html": "^1.14.1",
