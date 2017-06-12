@@ -1,0 +1,24 @@
+<h2>Broken links</h2>
+
+<form action="#" method="post">
+
+	<p><input type="submit" value="Update" /></p>
+
+	<table class="broken-links">
+	{{#each pages}}
+		<tr>
+			<th colspan="3">{{@key}}</th>
+		</tr>
+		{{#each this}}
+			<tr>
+				<td>{{this}}</td>
+				<td><a href="/dashboard/directory/new?id={{this}}">Create</td>
+				<td><input type="text" name="{{this}}" id="{{this}}" placeholder="Replacement URI" /></td>
+			</tr>
+		{{/each}}
+	{{/each}}
+	</table>
+
+	<p><input type="submit" value="Update" /></p>
+
+</form>
