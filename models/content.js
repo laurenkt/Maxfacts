@@ -6,6 +6,7 @@ import {Parser,
 import {merge, uniq, map,
 	difference}     from "lodash"
 import Video        from "./video.js"
+import Image        from "./image.js"
 import DomUtils     from "domutils"
 
 mongoose.Promise = global.Promise // Required to squash a deprecation warning
@@ -294,8 +295,9 @@ schema.methods = {
 		const links = this.model("Content").getLinksInHTML(this.body).filter(link => !link.match(/^[A-Za-z]+:/))
 		const valid_pages = await this.model("Content").findFromURIs(links).select("uri").exec()
 		const valid_videos = await Video.findFromURIs(links).select("uri").exec()
+		const valid_images = await Image.findFromURIs(links).select("uri").exec()
 
-		const valid_links = valid_pages.concat(valid_videos)// join them
+		const valid_links = valid_pages.concat(valid_videos).concat(valid_images)// join them
 
 		return difference(links, valid_links.map(content => '/' + content.uri))
 	},

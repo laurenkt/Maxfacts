@@ -42614,7 +42614,7 @@ var Editor = function (_React$Component) {
 
 				// Preprocess some special cases that should always be left together
 				// TODO: FINISH THIS
-				);var reserved_pairs = ["benign-lump", "bone-lesion", "neoplastic-benign", "neoplastic-malignant", "broken-tooth", "mouth-cancer", "facial-skin-cancer", "salivary-gland-cancer", "cleft-lip-palate", "craniofacial-syndrome", "ectopic-teeth", "facial-appearance", "facial-pain-syndrome", "jaw-disproportion", "jaw-joint", "missing-teeth", "mouth-ulcer", "postoperative-problems", "floor-of-mouth", "upper-arm", "lower-arm", "lower-leg", "haematological-malignancy"];
+				);var reserved_pairs = ["benign-lump", "bone-lesion", "neoplastic-benign", "neoplastic-malignant", "broken-tooth", "mouth-cancer", "facial-skin-cancer", "salivary-gland-cancer", "cleft-lip-palate", "craniofacial-syndrome", "ectopic-teeth", "facial-appearance", "facial-pain-syndrome", "jaw-disproportion", "jaw-joint", "missing-teeth", "mouth-ulcer", "postoperative-problems", "floor-of-mouth", "upper-arm", "lower-arm", "lower-leg", "haematological-malignancy", "oral-food", "non-oral-food", "ng-tube", "ternary-graphs", "mental-health", "patient-recovery", "saliva-and-eating", "swallowing-anatomy-physiology", "texture-modifiers", "taste-exploitation", "texture-adaption", "oral-hygiene", "extreme-temperatures", "new-developments", "hyperbaric-oxygen", "photodynamic-therapy"];
 
 				reserved_pairs.forEach(function (fragment) {
 					return unprocessed = unprocessed.replace(fragment, fragment.replace('-', '_'));
