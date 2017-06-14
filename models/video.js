@@ -14,7 +14,7 @@ schema.statics = {
 	findFromURIs(uris) {
 		return this
 			.find()
-			.where("uri").in(uris)
+			.where("uri").in(uris.map(uri => uri.replace(/^\//, '')))
 	},
 }
 

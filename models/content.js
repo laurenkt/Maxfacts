@@ -5,6 +5,7 @@ import {Parser,
 	DomHandler}     from "htmlparser2"
 import {merge, uniq, map,
 	difference}     from "lodash"
+import Video        from "./video.js"
 import DomUtils     from "domutils"
 
 mongoose.Promise = global.Promise // Required to squash a deprecation warning
@@ -289,10 +290,12 @@ schema
 
 schema.methods = {
 	async getInvalidLinks() {
-		const links = this.model("Content").getLinksInHTML(this.body)
-		const valid_links = await this.model("Content").findFromURIs(links)
-			.select("uri")
-			.exec()
+		// get non-external links
+		const links = this.model("Content").getLinksInHTML(this.body).filter(link => !link.match(/^[A-Za-z]+:/))
+		const valid_pages = await this.model("Content").findFromURIs(links).select("uri").exec()
+		const valid_videos = await Video.findFromURIs(links).select("uri").exec()
+
+		const valid_links = valid_pages.concat(valid_videos)// join them
 
 		return difference(links, valid_links.map(content => '/' + content.uri))
 	},

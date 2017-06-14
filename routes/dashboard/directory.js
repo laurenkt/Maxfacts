@@ -74,15 +74,11 @@ async function postBrokenLinks(req, res) {
 		}
 	}
 
-	console.log(find, replace)
 
-	console.log('find', {body: { $regex : `(${find.join('|')})` }})
 	// Now update all pages
 	const all_pages = await Content
 		.find({body: { $regex : `(${find.join('|')})` }})
 		.exec()
-
-	console.log('Found', all_pages)
 
 	for (let i = 0; i < all_pages.length; i++) {
 		all_pages[i].replaceHREFsWith(find, replace)
