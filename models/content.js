@@ -93,7 +93,7 @@ schema.statics = {
 			onopentag(name, attribs) {
 				if (name == "a" && attribs.href)
 					// Track link without leading slash
-					links.push(attribs.href.replace(/^\//, ""))
+					links.push(attribs.href)
 			},
 		})
 		parser.write(html)
@@ -108,7 +108,7 @@ schema.statics = {
 			onopentag(name, attribs) {
 				if (name == "img" && attribs.src)
 					// Strip leading slash
-					images.push(attribs.src.replace(/^\//, ""))
+					images.push(attribs.src)
 			},
 		})
 		parser.write(html)
@@ -258,7 +258,7 @@ schema.statics = {
 	findFromURIs(uris) {
 		return this
 			.find()
-			.where("uri").in(uris)
+			.where("uri").in(uris.map(uri => uri.replace(/^\//, '')))
 	},
 
 	findFromParentURI(parent) {
@@ -294,7 +294,7 @@ schema.methods = {
 			.select("uri")
 			.exec()
 
-		return difference(links, map(valid_links, 'uri'))
+		return difference(links, valid_links.map(content => '/' + content.uri))
 	},
 
 	// Retrieves an array of images used in this model

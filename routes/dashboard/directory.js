@@ -69,15 +69,20 @@ async function postBrokenLinks(req, res) {
 			req.body[uri] = req.body[uri].find(str => str != "")
 
 		if (req.body[uri] != "" && req.body[uri] != undefined) {
-			find.push('/' + uri)
-			replace.push('/' + req.body[uri])
+			find.push(uri)
+			replace.push(req.body[uri][0] == '/' ? req.body[uri] : '/' + req.body[uri])
 		}
 	}
 
+	console.log(find, replace)
+
+	console.log('find', {body: { $regex : `(${find.join('|')})` }})
 	// Now update all pages
 	const all_pages = await Content
 		.find({body: { $regex : `(${find.join('|')})` }})
 		.exec()
+
+	console.log('Found', all_pages)
 
 	for (let i = 0; i < all_pages.length; i++) {
 		all_pages[i].replaceHREFsWith(find, replace)

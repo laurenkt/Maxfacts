@@ -46,7 +46,7 @@ describe("Content", () => {
 				>
 				2
 				</a>
-				<A Href="/e">f</a>
+				<A Href="e">f</a>
 				<div>
 					<a title="g" href="h" id="i" />
 				</div>
@@ -54,8 +54,8 @@ describe("Content", () => {
 
 			const result = Content.getLinksInHTML(html)
 			const links = [
-				"1",
-				"D",
+				"/1",
+				"/D",
 				"e",
 				"h",
 			]
@@ -68,10 +68,12 @@ describe("Content", () => {
 				<a href="/1">A</a>
 				<a href="/1">A</a>
 				<a href="1">A</a>
+				<a href="1">B</a>
 			`
 
 			const result = Content.getLinksInHTML(html)
 			const links = [
+				"/1",
 				"1",
 			]
 
@@ -93,8 +95,8 @@ describe("Content", () => {
 
 			const result = Content.getImgSrcsInHTML(html)
 			const srcs   = [
-				"a",
-				"b",
+				"/a",
+				"/b",
 				"c",
 				"d",
 			]
@@ -112,6 +114,7 @@ describe("Content", () => {
 			const result = Content.getImgSrcsInHTML(html)
 			const srcs   = [
 				"a",
+				"/a",
 			]
 
 			expect(result).to.have.members(srcs)
