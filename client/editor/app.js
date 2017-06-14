@@ -566,6 +566,22 @@ class Editor extends React.Component {
 				"lower-arm",
 				"lower-leg",
 				"haematological-malignancy",
+				"oral-food",
+				"non-oral-food",
+				"ng-tube",
+				"ternary-graphs", 
+				"mental-health",
+				"patient-recovery",
+				"saliva-and-eating",
+				"swallowing-anatomy-physiology",
+				"texture-modifiers",
+				"taste-exploitation",
+				"texture-adaption",
+				"oral-hygiene",
+				"extreme-temperatures",
+				"new-developments",
+				"hyperbaric-oxygen",
+				"photodynamic-therapy",
 			]
 
 			reserved_pairs.forEach(fragment => unprocessed = unprocessed.replace(fragment, fragment.replace('-', '_')))
