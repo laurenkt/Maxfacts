@@ -291,8 +291,9 @@ schema
 
 schema.methods = {
 	async getInvalidLinks() {
-		// get non-external links
-		const links = this.model("Content").getLinksInHTML(this.body).filter(link => !link.match(/^[A-Za-z]+:/))
+		const links = this.model("Content").getLinksInHTML(this.body)
+			.filter(link => !link.match(/^[A-Za-z]+:/)) // Filter external URLs
+			.filter(link => !link.match(/\/feedback$/i)) // Filter feedback links
 		const valid_pages = await this.model("Content").findFromURIs(links).select("uri").exec()
 		const valid_videos = await Video.findFromURIs(links).select("uri").exec()
 		const valid_images = await Image.findFromURIs(links).select("uri").exec()

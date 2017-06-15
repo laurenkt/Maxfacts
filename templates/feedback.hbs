@@ -1,0 +1,31 @@
+<main>
+	<h2>Feedback</h2>
+	<p>Improving the project relies on direct feedback from patients and carers (and professionals). Let us know if we've got it right or wrong, or if there's something we haven't thought of.</p>
+	<p>You can send e-mail directly to <a href="mailto:feedback@maxfacts.uk">feedback@maxfacts.uk</a> or use the form below.</p>
+	<form action="#" method="post">
+		{{#if emailaddr}}
+			<p><strong>E-mail address was invalid</strong></p>
+		{{/if}}
+		<p>
+			<label for="email">Provide an e-mail address to receive a response</label>
+			<input type="text" name="email" id="email" placeholder="email@address.example" value="{{emailaddr}}" />
+		</p>
+		<p>
+			<label for="message">Message (max 1000 characters<span id="remaining"></span>)</label>
+			<textarea name="message" id="message" maxlength="1000">{{message}}</textarea>
+		</p>
+		<input type="submit" value="Send" />
+	</form>
+</main>
+<script>
+var message_area = document.getElementById("message")
+
+function updateRemainingIndicator(e) {
+	var remaining = document.getElementById("remaining")
+	var max_length = message_area.getAttribute("maxlength")
+	remaining.innerHTML = ', ' + (max_length - e.target.value.length) + ' remaining'
+}
+
+message_area.onkeyup = updateRemainingIndicator
+message_area.onblur = updateRemainingIndicator
+</script>

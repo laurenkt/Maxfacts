@@ -34,6 +34,7 @@ app.engine("hbs", hbs({
 }))
 app.set("view engine", "hbs")
 app.set("views", join(__dirname, "templates"))
+app.use((req, res, next) => { res.locals.path = req.path; next(); }) // make path available to templates
 
 // Logging in the console
 // Don't log in test runner
@@ -101,6 +102,7 @@ app.use(express.static(join(__dirname, "static")))
 // Loads the named module from the routes/ directory
 const route = (name) => require(join(__dirname, "routes", name))
 
+app.use("/",               route("feedback"))
 app.use("/",               route("images"))
 app.use("/",               route("videos"))
 app.use("/magic-triangle", route("magic_triangle"))
