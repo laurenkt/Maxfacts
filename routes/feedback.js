@@ -23,8 +23,10 @@ async function getFeedback(req, res) {
 
 	if (req.params.uri) {
 		const content = await Content.findOne( { uri: req.params.uri } )
-		breadcrumbs = await content.getBreadcrumbs()
-		breadcrumbs.push(content)
+		if (content) {
+			breadcrumbs = await content.getBreadcrumbs()
+			breadcrumbs.push(content)
+		}
 	}
 
 	res.render('feedback', {

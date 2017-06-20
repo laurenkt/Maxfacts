@@ -290,6 +290,25 @@ schema
 	.get(function() { return this.constructor.getLineageFromURI(this.parent) } )
 
 schema.methods = {
+	getMatchedParagraph(regexp:RegExp) {
+		let elements:Array<any> = []
+
+		let handler = new DomHandler((err, dom) => {
+			elements = DomUtils.getElements({tag_name:'p'}, dom, true)
+		})
+		let parser = new Parser(handler, {decodeEntities:true})
+		parser.write(this.body)
+		parser.done()
+
+		for (let i = 0; i < elements.length; i++) {
+			let match = DomUtils.getText(elements[i]).match(regexp)
+			if (match != null)
+				return match
+		}
+
+		return null
+	},
+
 	async getInvalidLinks() {
 		const links = this.model("Content").getLinksInHTML(this.body)
 			.filter(link => !link.match(/^[A-Za-z]+:/)) // Filter external URLs
