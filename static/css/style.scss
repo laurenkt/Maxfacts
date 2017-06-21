@@ -412,10 +412,6 @@ button,
 	}
 }
 
-aside {
-	@include span-columns(4);
-}
-
 .error, .warning {
 	background: rgb(72, 12, 20);
 	color: white;
@@ -557,21 +553,21 @@ aside {
 	}
 }
 
+// "Commented links"
+aside {
+	padding: 10px;
+	margin: 10px 0;
+	font-size: 90%;
+	background: #ddd;
+
+	p {
+		margin: 0;
+	}
+}
+
 main {
 	@include span-columns(8);
 
-	aside {
-		float: none;
-		width: 100%;
-		padding: 10px;
-		margin: 10px 0;
-		font-size: 90%;
-		background: #ddd;
-
-		p {
-			margin: 0;
-		}
-	}
 
 	header {
 		padding: 20px 20px 10px;
