@@ -1,13 +1,21 @@
 import express from 'express';
+import RateLimit from 'express-rate-limit'
 import Content from '../models/content';
 import {escapeRegExp} from "lodash"
 
 const router = express.Router();
 
-router.get('/', getSearchResults)
+const limiter = new RateLimit({
+	windowMs: 30*60*1000, // 10-minute window
+	max: 20,
+	delayAfter: 1,
+	delayMs: 3 * 1000,   // 3 secs per request
+	message: "Too many search requests sent from this IP, please try again later",
+})
+
+router.get('/', limiter, getSearchResults)
 
 async function getSearchResults(req, res, next) {
-	try {
 	if (req.query.query) {
 		res.locals.query = req.query.query
 
@@ -37,11 +45,7 @@ async function getSearchResults(req, res, next) {
 		res.render('search', {results});
 	}
 	else {
-		res.render("search");
-	}
-	}
-	catch (e) {
-		console.error(e)
+		res.render("search", {results:[]});
 	}
 }
 
