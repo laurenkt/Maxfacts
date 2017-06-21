@@ -1,1 +1,10 @@
 <h2>Overview</h2>
+{{#options}}
+<form method="post" action="#">
+	<p>
+		<label for="placeholder_uri">Placeholder URI</label>
+		<input id="placeholder_uri" name="placeholder_uri" type="text" value="{{placeholder_uri}}" />
+	</p>
+	<input type="submit" value="Save" />
+</form>
+{{/options}}
