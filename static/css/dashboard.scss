@@ -18,6 +18,11 @@ $level2-back: #ccc;
 $level1-back: white;
 $level1-under: #ddd;
 
+h2 {
+	font-size: 20pt;
+	margin-top: $small-spacing;
+}
+
 table {
 	font-size: 90%;
 	width: 100%;
