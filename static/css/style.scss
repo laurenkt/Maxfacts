@@ -779,7 +779,7 @@ main {
 	}
 }
 
-strong a {
+a strong {
 	display: inline-block;
 	background: #292;
 	padding: 10px 20px;
@@ -791,14 +791,15 @@ strong a {
 	color: #fff;
 }
 
-strong a:after {
+a strong:after {
 	content: " »";
 }
 
-strong a:hover {
-	background: #eee;
-	border-color: #ddd;
+a strong:hover {
+	background: #ddd;
+	border-color: #ccc;
 	text-decoration: underline;
+	color:black;
 }
 
 footer {
