@@ -10,7 +10,7 @@
     "test": "TEST=maxfacts nyc --reporter=html --reporter=text mocha --grep integrations --invert --compilers js:babel-register",
     "test:integrations": "TEST=maxfacts nyc --reporter=html --reporter=text mocha --compilers js:babel-register",
     "flow": "flow; test $? -eq 0 -o $? -eq 2",
-    "precommit": "npm run flow && npm run test",
+    "precommit": "npm run test",
     "prepush": "npm run test:integrations"
   },
   "dependencies": {
