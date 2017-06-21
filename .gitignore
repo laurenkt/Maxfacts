@@ -3,6 +3,10 @@ dist/
 
 # Generated CSS files
 static/css/style.css
+static/css/dashboard.css
+
+# Flow
+flow-typed
 
 # Mac utilities
 .DS_Store
