@@ -819,6 +819,14 @@ footer {
 	}
 }
 
+.news {
+	float: right;
+	background: #fffeee;
+	font-size: 90%;
+	padding: 0 $small-spacing;
+	width: 31.7%;
+}
+
 .dashboard {
 	header nav {
 		background: $dashboard-back;
@@ -1054,6 +1062,14 @@ header {
 			color: white;
 			margin: 0 auto;
 		}
+	}
+
+	.notice {
+		padding: 10px 0;
+		background: #585c63;
+		text-align: center;
+		color: white;
+		font-size:90%;
 	}
 }
 
