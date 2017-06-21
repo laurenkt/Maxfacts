@@ -92,7 +92,7 @@ p ~ p {
 	}
 }
 
-p.success {
+.success {
 	background: $green-back;
 	padding: $small-spacing;
 }
@@ -216,11 +216,7 @@ textarea {
 	font-family: monospace;
 }
 
-li.empty {
-	background: yellow;
-}
-
-span.warn {
+.warn {
 	background: #ddd;
 	padding: 3px 6px;
 	border-radius: 5px;
@@ -824,162 +820,6 @@ footer {
 	width: 31.7%;
 }
 
-.dashboard {
-	header nav {
-		background: $dashboard-back;
-	}
-
-	table {
-		width: 100%;
-		max-width: none;
-
-		tr.empty {
-			background: yellow;
-		}
-	}
-
-	td {
-		min-width: 30px;
-	}
-
-	.-large {
-		font-size: 160%;
-	}
-
-	p {
-		clear: left;
-	}
-
-	.small-entry {
-		clear: none;
-		float: left;
-		width: 50%;
-		padding-right: 2%;
-
-		&.-mini {
-			padding-right: 25%;
-		}
-
-		&+.small-entry {
-			padding-right: 0;
-		}
-	}
-
-	.leader {
-		background: #555;
-		text-align: center;
-		color: white;
-	}
-
-	.utility {
-		font-size: 80%;
-		text-align: center;
-		background: #ddd;
-	}
-
-	.delete {
-		font-size: 80%;
-		color: white;
-		font-weight: bold;
-		background: #911;
-		padding: 2px;
-		a {
-			color: white;	
-		}
-	}
-
-	.images-list {
-		border: 3px solid #ddd;
-		background: #eee;
-		padding: 5px;
-		margin-bottom: $small-spacing;
-
-		p {
-			margin: 0;
-		}
-		
-		img {
-			max-height: 100px;
-		}
-	}
-
-	h3 {
-		background: #444;
-		color: white;
-		padding: 10px 10px 0;
-		margin: 0;
-	}
-
-	.content-editor {
-		background: #f2f2f2;
-		border: 3px solid #444;
-		padding: 0 10px 10px;
-
-		h4 {
-			font-size: 200%;
-		}
-
-		h5 {
-			font-size: 130%;
-		}
-
-		h6 {
-			font-size: 110%;
-		}
-
-		.label-input {
-			label {
-				width: 30%;
-				float: left;
-				text-align: right;
-				padding: 10px;
-			}
-
-			input {
-				width: 70%;
-				clear: right;
-			}
-		}
-
-		.-suggested {
-			color: #bbb;
-		}
-
-		.found {
-			border-bottom: 1px solid green;
-		}
-
-		.not_found {
-			border-bottom: 1px solid red;
-		}
-
-		.menu {
-			margin: 0 -10px;
-			padding: 5px 10px;
-			background: #bbb;
-
-			&.toolbar-menu {
-				background: #ccc;
-			}
-
-			.button {
-				color: #999;
-
-				&[data-active="true"] {
-					color: black;
-				}
-			}
-
-			.material-icons {
-				font-size: 18px;
-				vertical-align: text-bottom;
-				margin-right: 10px;
-				cursor: pointer;
-			}
-		}
-	}
-}
-
 header {
 	input[type=search] {
 		background: white url(/images/search.png) 10px center / 12px 12px no-repeat;
@@ -1080,10 +920,7 @@ header {
 	}
 }
 
-
 label.disabled {
 	color: grey;
 	opacity: 0.8;
 }
-
-
