@@ -1,5 +1,6 @@
 import express      from "express"
 import Content      from "../models/content"
+import Option       from "../models/option.js"
 import sanitizeHtml from "sanitize-html"
 
 const router = express.Router()
@@ -34,6 +35,12 @@ async function requestSpecificPage(req, res, next) {
 	// First check redirect condition
 	if (content.redirect_uri && content.redirect_uri !== "")
 		return res.redirect('/' + content.redirect_uri)
+
+	console.log('body', content.body)
+
+	// Use stand-in body if there isn't one
+	if (!content.body)
+		content.body = (await Content.findOne({uri: await Option.get('placeholder_uri')})).body
 
 	content.invalid_uris = await content.getInvalidLinks()
 	content.breadcrumbs  = await content.getBreadcrumbs()
