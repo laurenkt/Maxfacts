@@ -924,3 +924,59 @@ label.disabled {
 	color: grey;
 	opacity: 0.8;
 }
+
+@media only screen and (max-width: 1024px) {
+	header div {
+		padding: 20px;
+	}
+
+	body > section {
+		padding: 0 20px;
+	}
+}
+
+@media only screen and (max-width: 900px) {
+	.news {
+		width: 100%;
+		float: none;
+		padding: 1px 10px;
+	}
+
+	section > main {
+		float: none;
+		width: 100%;
+	}
+
+	.directory-browser {
+		nav {
+			display: none!important;
+		}
+		nav:last-of-type {
+			width: 30%!important;
+			display: block!important;
+		}
+		section {
+			width: 68%!important;
+		}
+	}
+}
+
+@media only screen and (max-width: 750px) {
+	.sections nav {
+		float: none;
+		width: 100%;
+		margin-bottom: $small-spacing;
+	}
+
+	.directory-browser {
+		nav:last-of-type {
+			width: 100%!important;
+			float: none!important;
+		}
+		section {
+			width: 100%!important;
+			float: none!important;
+			padding-left: 0;
+		}
+	}
+}
