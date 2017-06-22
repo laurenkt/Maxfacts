@@ -980,3 +980,24 @@ label.disabled {
 		}
 	}
 }
+
+@media only screen and (max-width: 550px) {
+	header { 
+		h1 {
+			text-align: center;
+		}
+
+		input {
+			margin: $small-spacing auto 0!important;
+			float: none!important;
+			box-sizing: border-box!important;
+			width: 80%!important;
+		}
+
+		form + p {
+			margin-top: $small-spacing!important;
+			text-align: center;
+			width: 80%!important;
+		}
+	}
+}
