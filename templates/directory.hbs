@@ -38,16 +38,30 @@
 	}
 </style>
 <script>
+	// Main content area to reposition
 	var preamble = document.getElementById("floating-preamble")
+	// Track the current padding to make calculating inner height easier
 	var current_padding = 0
-
+	// If using smaller responsive layout, don't reposition (this tracks this)
+	var should_reposition = true
+	// Sometimes extra elements need to be moved, like other nav bars
 	var elements_to_adjust = [preamble]
 
+	// Gets the largest nav column height
+	// Also adds any nav columns after this to elements_to_adjust
+	// Also determines whether the layout is too small to need
+	// adjusting
 	function get_max_nav_height() {
+		should_reposition = true
 		var navs = document.getElementsByTagName('nav')
 		var max = 0
 
 		for (var i = 0; i < navs.length; i++) {
+			// If any navs are hidden it means layout is in small-mode
+			if (navs[i].offsetParent === null)
+				should_reposition = false
+
+			// Whether to adjust size of columsn following the largest
 			if (navs[i].clientHeight >= max)
 				elements_to_adjust = [preamble]
 			else
@@ -59,25 +73,28 @@
 		return max
 	}
 
-	function adjust_height(e) {
+	// Call this to reposition content
+	function adjust_height(_) {
+		// These will need to be compared to calculate new position
 		var viewport_height = document.documentElement.clientHeight || window.innerHeight
+		var scroll_top = document.documentElement.scrollTop || document.body.scrollTop
+		var preamble_top = preamble.getBoundingClientRect().top + scroll_top
 
-		var scroll_position = document.documentElement.scrollTop || document.body.scrollTop
-		var preamble_position = preamble.getBoundingClientRect().top + scroll_position
-
+		// Simplest way to calculate inner height
 		var preamble_height = preamble.clientHeight - current_padding
-		var nav_height = get_max_nav_height()
-		var overshoot = Math.max(0, preamble_height - nav_height)
 
-		console.log('Heights: Nav: %d Preamble %d', nav_height, preamble_height)
+		var nav_height = get_max_nav_height()
 
 		current_padding = Math.max(
 			0,
 			// Recommended position - compensation if viewport is smaller than preamble
-			Math.min(nav_height - preamble_height, scroll_position - preamble_position) - Math.max(0, preamble_height - viewport_height)
+			Math.min(nav_height - preamble_height, scroll_top - preamble_top) - Math.max(0, preamble_height - viewport_height)
 		)
 
 		// Adjust CSS property directly
+		if (!should_reposition)
+			current_padding = 0
+
 		for (var i = 0; i < elements_to_adjust.length; i++) {
 			elements_to_adjust[i].style['padding-top'] = current_padding + 'px'
 		}
