@@ -1,31 +1,90 @@
-{{#each directory}}
-<nav>
-	<ul>
-		{{#each this}}
-			<li><a href="/{{uri}}" class="{{type}} {{lookup ../../selected uri}}">
-				{{#if surtitle}}
-					<span class="surtitle">{{surtitle}}</span>
+<div>
+	{{#each directory}}
+	<nav>
+		<ul>
+			{{#each this}}
+				<li><a href="/{{uri}}" class="{{type}} {{lookup ../../selected uri}}">
+					{{#if surtitle}}
+						<span class="surtitle">{{surtitle}}</span>
+					{{/if}}
+					{{title}}
+					{{#if description}}
+						<span class="subtitle">{{description}}</span>
+					{{/if}}
+				</a></li>
+				{{#if sublist}}
+					{{#each sublist}}
+						<li><a href="/{{uri}}" class="sublist {{type}}">{{title}}</a></li>
+					{{/each}}
 				{{/if}}
-				{{title}}
-				{{#if description}}
-					<span class="subtitle">{{description}}</span>
-				{{/if}}
-			</a></li>
-			{{#if sublist}}
-				{{#each sublist}}
-					<li><a href="/{{uri}}" class="sublist {{type}}">{{title}}</a></li>
-				{{/each}}
-			{{/if}}
-		{{/each}}
-	</ul>
-</nav>
-{{/each}}
-<section>
-	<h3>{{title}}</h3>
-	{{#if body}}
-		{{{shift_headers 3 body}}}
-	{{else}}
-		<p>This section has no content yet.</p>
-	{{/if}}
-	{{> next-section class="-short" }}
-</section>
+			{{/each}}
+		</ul>
+	</nav>
+	{{/each}}
+	<section id="floating-preamble">
+		<h3>{{title}}</h3>
+		{{#if body}}
+			{{{shift_headers 3 body}}}
+		{{else}}
+			<p>This section has no content yet.</p>
+		{{/if}}
+		{{> next-section class="-short" }}
+	</section>
+</div>
+<style>
+	#floating-preamble {
+		transition-property: padding-top;
+		transition-duration: 0s;
+	}
+</style>
+<script>
+	var preamble = document.getElementById("floating-preamble")
+	var current_padding = 0
+
+	var elements_to_adjust = [preamble]
+
+	function get_max_nav_height() {
+		var navs = document.getElementsByTagName('nav')
+		var max = 0
+
+		for (var i = 0; i < navs.length; i++) {
+			if (navs[i].clientHeight >= max)
+				elements_to_adjust = [preamble]
+			else
+				elements_to_adjust.push(navs[i])
+
+			max = Math.max(max, navs[i].clientHeight)
+		}
+
+		return max
+	}
+
+	function adjust_height(e) {
+		var viewport_height = document.documentElement.clientHeight || window.innerHeight
+
+		var scroll_position = document.documentElement.scrollTop || document.body.scrollTop
+		var preamble_position = preamble.getBoundingClientRect().top + scroll_position
+
+		var preamble_height = preamble.clientHeight - current_padding
+		var nav_height = get_max_nav_height()
+		var overshoot = Math.max(0, preamble_height - nav_height)
+
+		console.log('Heights: Nav: %d Preamble %d', nav_height, preamble_height)
+
+		current_padding = Math.max(
+			0,
+			// Recommended position - compensation if viewport is smaller than preamble
+			Math.min(nav_height - preamble_height, scroll_position - preamble_position) - Math.max(0, preamble_height - viewport_height)
+		)
+
+		// Adjust CSS property directly
+		for (var i = 0; i < elements_to_adjust.length; i++) {
+			elements_to_adjust[i].style['padding-top'] = current_padding + 'px'
+		}
+	}
+
+	// When to adjust position
+	document.addEventListener("scroll", adjust_height)
+	document.addEventListener("mousewheel", adjust_height)
+	document.addEventListener("resize", adjust_height)
+</script>
