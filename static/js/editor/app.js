@@ -42084,7 +42084,7 @@ var CheckBox = function CheckBox(_ref2) {
 		null,
 		_react2.default.createElement(
 			"label",
-			{ "for": name },
+			{ htmlFor: name },
 			_react2.default.createElement("input", { type: "checkbox", name: name, id: name, checked: checked, defaultChecked: defaultChecked }),
 			children
 		)
@@ -96492,29 +96492,32 @@ function extend() {
 /***/ (function(module, exports) {
 
 module.exports = {
-	"_from": "cheerio@^0.22.0",
+	"_args": [
+		[
+			"cheerio@0.22.0",
+			"/Users/lauren/Projects/maxfacts/client/editor"
+		]
+	],
+	"_from": "cheerio@0.22.0",
 	"_id": "cheerio@0.22.0",
 	"_inBundle": false,
 	"_integrity": "sha1-qbqoYKP5tZWmuBsahocxIe06Jp4=",
 	"_location": "/cheerio",
 	"_phantomChildren": {},
 	"_requested": {
-		"type": "range",
+		"type": "version",
 		"registry": true,
-		"raw": "cheerio@^0.22.0",
+		"raw": "cheerio@0.22.0",
 		"name": "cheerio",
 		"escapedName": "cheerio",
-		"rawSpec": "^0.22.0",
+		"rawSpec": "0.22.0",
 		"saveSpec": null,
-		"fetchSpec": "^0.22.0"
+		"fetchSpec": "0.22.0"
 	},
-	"_requiredBy": [
-		"/slate"
-	],
+	"_requiredBy": [],
 	"_resolved": "https://registry.npmjs.org/cheerio/-/cheerio-0.22.0.tgz",
-	"_shasum": "a9baa860a3f9b595a6b81b1a86873121ed3a269e",
-	"_spec": "cheerio@^0.22.0",
-	"_where": "/Users/lauren/Projects/maxfacts/client/editor/node_modules/slate",
+	"_spec": "0.22.0",
+	"_where": "/Users/lauren/Projects/maxfacts/client/editor",
 	"author": {
 		"name": "Matt Mueller",
 		"email": "mattmuelle@gmail.com",
@@ -96523,7 +96526,6 @@ module.exports = {
 	"bugs": {
 		"url": "https://github.com/cheeriojs/cheerio/issues"
 	},
-	"bundleDependencies": false,
 	"dependencies": {
 		"css-select": "~1.2.0",
 		"dom-serializer": "~0.1.0",
@@ -96542,7 +96544,6 @@ module.exports = {
 		"lodash.reject": "^4.4.0",
 		"lodash.some": "^4.4.0"
 	},
-	"deprecated": false,
 	"description": "Tiny, fast, and elegant implementation of core jQuery designed specifically for the server",
 	"devDependencies": {
 		"benchmark": "^2.1.0",

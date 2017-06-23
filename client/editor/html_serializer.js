@@ -76,8 +76,8 @@ const rules = [
 				return []
 
 			return {
-				kind:  "block",
-				type:  block,
+				kind: "block",
+				type: block,
 				nodes,
 				data: {attribs: el.attribs},
 			}
@@ -131,8 +131,8 @@ const rules = [
 			const mark = MARK_TAGS[tagName]
 			if (!mark) return
 			return {
-				kind:  "mark",
-				type:  mark,
+				kind: "mark",
+				type: mark,
 				nodes: next(el.children)
 			}
 		},
@@ -161,8 +161,8 @@ const rules = [
 			const caption = el.children.find(child => child.tagName == "figcaption")
 
 			return {
-				kind:  "block",
-				type:  "figure",
+				kind: "block",
+				type: "figure",
 				nodes: next(caption.children),
 				data: {
 					src: img.attribs.src,
@@ -177,9 +177,9 @@ const rules = [
 
 			if (el.attribs.href) {
 				return {
-					kind:  "inline",
-					type:  "link",
-					nodes:  next(el.children),
+					kind: "inline",
+					type: "link",
+					nodes: next(el.children),
 					data: {
 						href: el.attribs.href,
 					},

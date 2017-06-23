@@ -14,7 +14,7 @@ const TextField = ({name, value, onChange, defaultValue, children, className}) =
 
 const CheckBox = ({name, checked, defaultChecked, children}) =>
 	<p>
-		<label for={name}>
+		<label htmlFor={name}>
 			<input type="checkbox" name={name} id={name} checked={checked} defaultChecked={defaultChecked} />
 			{children}
 		</label>
