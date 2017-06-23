@@ -41683,7 +41683,7 @@ function stripForbiddenTagsAndAttributes(html) {
 	var reduced_body = "";
 	for (;;) {
 		reduced_body = (0, _sanitizeHtml2.default)(html, {
-			allowedTags: ["h1", "h2", "h3", "h4", "h5", "h6", "blockquote", "p", "a", "ul", "ol", "li", "strong", "em", "table", "thead", "caption", "tbody", "tfoot", "tr", "th", "td", "figure", "abbr", "img", "aside", "caption", "cite", "dd", "dfn", "dl", "dt", "figcaption", "sub", "sup", "i"],
+			allowedTags: ["h1", "h2", "h3", "h4", "h5", "h6", "blockquote", "p", "a", "ul", "ol", "li", "strong", "em", "table", "thead", "caption", "tbody", "tfoot", "tr", "th", "td", "figure", "abbr", "img", "aside", "caption", "cite", "dd", "dfn", "dl", "dt", "figcaption", "sub", "sup", "i", "span"],
 			allowedAttributes: (0, _lodash.merge)({
 				th: ["colspan", "rowspan"],
 				td: ["colspan", "rowspan"]
@@ -41715,25 +41715,27 @@ function normalize(html) {
 	// Strip empty tags before and after to prevent spurious metadata when processing and after processing
 	var processes = [stripEmptyTags, processTables, processAsides, processHeadings, processFigures, processLists, processLinks, stripForbiddenTagsAndAttributes, stripEmptyTags];
 
-	console.log('starting with >');
-	console.group();
-	console.log(html);
-	console.groupEnd();
+	/*
+ console.log('starting with >')
+ console.group()
+ console.log(html)
+ console.groupEnd()*/
 
 	processes.forEach(function (proc) {
-		html = proc(html);
-		console.log('Calling %s >', proc.name);
-		console.group();
-		console.log(html);
-		console.groupEnd();
-	});
+		html = proc(html
+		/*console.log('Calling %s >', proc.name)
+  console.group()
+  console.log(html)
+  console.groupEnd()*/
+		);
+	}
+	/*
+ console.log('finished with >')
+ console.group()
+ console.log(html)
+ console.groupEnd()*/
 
-	console.log('finished with >');
-	console.group();
-	console.log(html);
-	console.groupEnd();
-
-	return html;
+	);return html;
 }
 
 /***/ }),

@@ -484,7 +484,7 @@ export function stripForbiddenTagsAndAttributes(html:string):string {
 			allowedTags: ["h1", "h2", "h3", "h4", "h5", "h6", "blockquote", "p", "a", "ul", "ol",
 				"li", "strong", "em", "table", "thead", "caption", "tbody", "tfoot", "tr", "th", "td",
 				"figure", "abbr", "img", "aside", "caption", "cite", "dd", "dfn", "dl", "dt", "figcaption",
-				"sub", "sup", "i"],
+				"sub", "sup", "i", "span"],
 			allowedAttributes: merge({
 				th: ["colspan", "rowspan"],
 				td: ["colspan", "rowspan"],
@@ -518,23 +518,24 @@ export default function normalize(html:string):string {
 	// Strip empty tags before and after to prevent spurious metadata when processing and after processing
 	const processes = [stripEmptyTags, processTables, processAsides, processHeadings, processFigures, processLists, processLinks, stripForbiddenTagsAndAttributes, stripEmptyTags]
 
+	/*
 	console.log('starting with >')
 	console.group()
 	console.log(html)
-	console.groupEnd()
+	console.groupEnd()*/
 
 	processes.forEach(proc => {
 		html = proc(html)
-		console.log('Calling %s >', proc.name)
+			/*console.log('Calling %s >', proc.name)
 		console.group()
 		console.log(html)
-		console.groupEnd()
+		console.groupEnd()*/
 	})
-
+		/*
 	console.log('finished with >')
 	console.group()
 	console.log(html)
-	console.groupEnd()
+	console.groupEnd()*/
 
 	return html
 }
