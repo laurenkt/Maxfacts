@@ -23,7 +23,7 @@
 		"mocha"
 	],
 	"rules": {
-		"no-cond-assign": "except-parens",
+		"no-cond-assign": ["error", "except-parens"],
 		"no-var": "error",
 		"no-mixed-spaces-and-tabs": ["error", "smart-tabs"],
 		"promise/prefer-await-to-then": "error",
