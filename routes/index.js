@@ -36,8 +36,6 @@ async function requestSpecificPage(req, res, next) {
 	if (content.redirect_uri && content.redirect_uri !== "")
 		return res.redirect('/' + content.redirect_uri)
 
-	console.log('body', content.body)
-
 	// Use stand-in body if there isn't one
 	if (!content.body)
 		content.body = (await Content.findOne({uri: await Option.get('placeholder_uri')})).body
