@@ -1,12 +1,12 @@
-import React from "react";
+import React from "react"
 
 const colspan = props => {
-	const { data } = props.node;
+	const { data } = props.node
 
 	if (data.get("attribs").colspan)
-		props.attributes.colSpan = data.get("attribs").colspan;
+		props.attributes.colSpan = data.get("attribs").colspan
 
-	return props;
+	return props
 }
 
 export default (valid_uris) => ({
@@ -26,31 +26,37 @@ export default (valid_uris) => ({
 		"td":        props => <td {...colspan(props).attributes}>{props.children}</td>,
 		"th":        props => <th {...colspan(props).attributes}>{props.children}</th>,
 		"aside":     props => <aside {...props.attributes}>{props.children}</aside>,
+		"img":       props => {
+			const src = props.node.data.get("src")
+
+			return <img src={src} />
+		},
+		"hr":        _ => <hr />,
 		"link": props => {
-			const href = props.node.data.get("href");
+			const href = props.node.data.get("href")
 
-			const className = valid_uris.includes(href) ? 'found' : 'not_found';
+			const className = valid_uris.includes(href) ? 'found' : 'not_found'
 
-			return <a href={href} className={className} {...props.attributes}>{props.children}</a>;
+			return <a href={href} className={className} {...props.attributes}>{props.children}</a>
 		},
 		"figure": props => {
-			let { node, data, state } = props;
-			let className = "";
+			let { node, data, state } = props
+			let className = ""
 
 			if (node) {
-				data = node.data;
-				const isFocused = state.selection.hasEdgeIn(node);
-				className = isFocused ? "active" : null;
+				data = node.data
+				const isFocused = state.selection.hasEdgeIn(node)
+				className = isFocused ? "active" : null
 			}
 
-			const src = data.get("src");
+			const src = data.get("src")
 
 			return (
 				<figure {...props.attributes} className={className}>
 					<img src={src} />
 					<figcaption>{props.children}</figcaption>
 				</figure>
-			);
+			)
 		},
 		"table": props =>
 			<table {...props.attributes}>
@@ -66,5 +72,5 @@ export default (valid_uris) => ({
 		sub:        props => <sub>{props.children}</sub>,
 		sup:        props => <sup>{props.children}</sup>,
 	},
-});
+})
 

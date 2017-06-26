@@ -15,6 +15,8 @@ const BLOCK_TAGS = {
 	h4: "heading-4",
 	h5: "heading-5",
 	h6: "heading-6",
+	img: "img",
+	hr: "hr",
 	tr: "tr",
 	td: "td",
 	th: "th",
@@ -54,6 +56,29 @@ const rules = [
 			}
 			return
 		},
+	},
+	{
+		deserialize(el, _) {
+			if (el.tagName != "img") return
+
+			return {
+				kind: "block",
+				type: "img",
+				isVoid: true,
+				data: {src: el.attribs.src},
+			}
+		}
+	},
+	{
+		deserialize(el, _) {
+			if (el.tagName != "hr") return
+
+			return {
+				kind: "block",
+				type: "hr",
+				isVoid: true,
+			}
+		}
 	},
 	{
 		serialize(obj, children) {
@@ -104,10 +129,14 @@ const rules = [
 				case "caption":   return <caption>{children}</caption>
 				case "list-item": return <li>{children}</li>
 				case "num-list":  return <ol>{children}</ol>
+				case "hr":        return <hr />
 				case "tr":        return <tr {...colspan(obj.data)}>{children}</tr>
 				case "td":        return <td {...colspan(obj.data)}>{children}</td>
 				case "th":        return <th {...colspan(obj.data)}>{children}</th>
 				case "aside":     return <aside>{children}</aside>
+				case "img":
+					const imgSrc = obj.data.get("src")
+					return <img src={imgSrc} />
 				case "figure":
 					const src = obj.data.get("src")
 

@@ -40867,6 +40867,8 @@ var BLOCK_TAGS = {
 	h4: "heading-4",
 	h5: "heading-5",
 	h6: "heading-6",
+	img: "img",
+	hr: "hr",
 	tr: "tr",
 	td: "td",
 	th: "th",
@@ -40903,6 +40905,27 @@ var rules = [{
 				})) return [];
 		}
 		return;
+	}
+}, {
+	deserialize: function deserialize(el, _) {
+		if (el.tagName != "img") return;
+
+		return {
+			kind: "block",
+			type: "img",
+			isVoid: true,
+			data: { src: el.attribs.src }
+		};
+	}
+}, {
+	deserialize: function deserialize(el, _) {
+		if (el.tagName != "hr") return;
+
+		return {
+			kind: "block",
+			type: "hr",
+			isVoid: true
+		};
 	}
 }, {
 	serialize: function serialize(obj, children) {
@@ -41012,6 +41035,8 @@ var rules = [{
 					null,
 					children
 				);
+			case "hr":
+				return _react2.default.createElement("hr", null);
 			case "tr":
 				return _react2.default.createElement(
 					"tr",
@@ -41036,6 +41061,9 @@ var rules = [{
 					null,
 					children
 				);
+			case "img":
+				var imgSrc = obj.data.get("src");
+				return _react2.default.createElement("img", { src: imgSrc });
 			case "figure":
 				var src = obj.data.get("src");
 
@@ -41918,6 +41946,14 @@ exports.default = function (valid_uris) {
 					props.attributes,
 					props.children
 				);
+			},
+			"img": function img(props) {
+				var src = props.node.data.get("src");
+
+				return _react2.default.createElement("img", { src: src });
+			},
+			"hr": function hr(_) {
+				return _react2.default.createElement("hr", null);
 			},
 			"link": function link(props) {
 				var href = props.node.data.get("href");
