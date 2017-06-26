@@ -8,7 +8,6 @@ import chalk      from "chalk"
 import bodyParser from "body-parser"
 import mongoose   from "mongoose"
 import mongoStore from "connect-mongo"
-import sass       from "node-sass-middleware"
 import passport   from "passport"
 import {Strategy} from "passport-google-oauth20"
 import {join}     from "path"
@@ -87,14 +86,6 @@ passport.deserializeUser((obj, cb) => cb(null, obj))
 
 app.use(passport.initialize())
 app.use(passport.session())
-
-// SASS middleware
-app.use(sass({
-	src:  join(__dirname, "static"),
-	dest: join(__dirname, "static"),
-	sourceMap: true,
-	error: console.error.bind(console, "sass error: "),
-}))
 
 // Middleware for static files into static/
 app.use(express.static(join(__dirname, "static")))
