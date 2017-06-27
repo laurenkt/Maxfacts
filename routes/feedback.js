@@ -13,10 +13,25 @@ const limiter = new RateLimit({
 	message: "Too many messages sent from this IP, please try again later",
 })
 
+router.get('/register', getRegister)
+router.post('/register', limiter, postRegister)
 router.get('/feedback', getFeedback)
 router.post('/feedback', limiter, postFeedback)
 router.get('/:uri(*)/feedback', getFeedback)
 router.post('/:uri(*)/feedback', limiter, postFeedback)
+
+async function getRegister(req, res) {
+	res.render('register', {})
+}
+
+async function postRegister(req, res) {
+	if (req.body.email && req.body.email !== "" && isemail.validate(req.body.email)) {
+		req.body.message = "AUTOMATED EMAIL REQUEST: ADD TO MAILING LIST: " + req.body.email
+		return postFeedback(req, res)
+	}
+	else 
+		res.render('register', {emailaddr: req.body.email})
+}
 
 async function getFeedback(req, res) {
 	let breadcrumbs = []

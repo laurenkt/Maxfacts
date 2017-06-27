@@ -1,0 +1,14 @@
+<main>
+	<h2>Register for updates</h2>
+	<p>If you'd like to be notified when new content is added to Maxfacts then send your e-mail address below. We'll only use it for this purpose.</p>
+	<form action="#" method="post">
+		{{#if emailaddr}}
+			<p><strong>E-mail address was invalid</strong></p>
+		{{/if}}
+		<p>
+			<label for="email">E-mail</label>
+			<input type="text" name="email" id="email" placeholder="email@address.example" value="{{emailaddr}}" />
+		</p>
+		<input type="submit" value="Submit" />
+	</form>
+</main>
