@@ -5,6 +5,7 @@ import sourcemaps   from 'gulp-sourcemaps'
 import uglifycss    from 'gulp-uglifycss'
 import uglify       from 'gulp-uglify'
 import babel        from 'gulp-babel'
+import imgmin       from 'gulp-imagemin'
 import rename       from 'gulp-rename'
 import del          from 'del'
 
@@ -46,13 +47,23 @@ gulp.task('server', () => {
 		'!node_modules/**/',  // ignore node module JS
 		'!gulpfile.babel.js', // ignore node module JS
 		'**/*.js',
-		'bin/www',
 	])
 		.pipe(sourcemaps.init())
 		.pipe(babel())
 		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest(dirs.dest))
 })
+
+gulp.task('images', () => {
+	return gulp.src('static/images/*')
+		.pipe(imagemin())
+		.pipe(gulp.dest(dirs.dest))
+})
+
+gulp.task('bin', () => {
+	return gulp.src('bin/*')
+		.pipe(gulp.dest(dirs.dest))
+}
 
 gulp.task('templates', () => {
 	return gulp.src('**/*.hbs')
