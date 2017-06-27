@@ -56,18 +56,18 @@ gulp.task('server', () => {
 
 gulp.task('images', () => {
 	return gulp.src('static/images/*')
-		.pipe(imagemin())
+		.pipe(imgmin())
 		.pipe(gulp.dest(dirs.dest))
 })
 
 gulp.task('bin', () => {
 	return gulp.src('bin/*')
 		.pipe(gulp.dest(dirs.dest))
-}
+})
 
 gulp.task('templates', () => {
 	return gulp.src('**/*.hbs')
 		.pipe(gulp.dest(dirs.dest))
 })
 
-gulp.task('default', ['clean', 'css', 'js', 'templates', 'server'])
+gulp.task('default', ['clean', 'bin', 'images', 'css', 'js', 'templates', 'server'])
