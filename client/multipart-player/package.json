@@ -1,0 +1,22 @@
+{
+  "name": "multipart-player",
+  "version": "1.0.0",
+  "main": "app.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack --env.dev",
+    "publish": "cp dist/app.js ../../static/js/multipart-player/app.js && cp dist/app.js.map ../../static/js/multipart-player/app.js.map",
+    "build-publish": "npm run build && npm run publish"
+  },
+  "devDependencies": {
+    "babel-loader": "^7.1.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-youtube": "^7.4.0",
+    "webpack": "^3.0.0",
+    "webpack-config-utils": "^2.3.0"
+  }
+}
