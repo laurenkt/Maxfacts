@@ -33,7 +33,7 @@ gulp.task('js', () => {
 		.pipe(uglify())
 		.pipe(rename({suffix: '.min'}))
 		.pipe(sourcemaps.write('.'))
-		.pipe(gulp.dest(`${dirs.dest}/static`))
+		.pipe(gulp.dest(`${dirs.dest}/static/js`))
 })
 
 gulp.task('server', () => {
