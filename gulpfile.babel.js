@@ -57,12 +57,12 @@ gulp.task('server', () => {
 gulp.task('images', () => {
 	return gulp.src('static/images/*')
 		.pipe(imgmin())
-		.pipe(gulp.dest(dirs.dest))
+		.pipe(gulp.dest(`${dirs.dest}/static/images`))
 })
 
 gulp.task('bin', () => {
 	return gulp.src('bin/*')
-		.pipe(gulp.dest(dirs.dest))
+		.pipe(gulp.dest(`${dirs.dest}/bin`))
 })
 
 gulp.task('templates', () => {
@@ -70,4 +70,4 @@ gulp.task('templates', () => {
 		.pipe(gulp.dest(dirs.dest))
 })
 
-gulp.task('default', ['clean', 'bin', 'images', 'css', 'js', 'templates', 'server'])
+gulp.task('default', ['bin', 'images', 'css', 'js', 'templates', 'server'])
