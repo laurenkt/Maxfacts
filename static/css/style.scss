@@ -18,11 +18,6 @@ $level2-back: #ccc;
 $level1-back: white;
 $level1-under: #ddd;
 
-html {
-	// Fix rubber banding backgrounds in safari
-	background: linear-gradient(to bottom, #eee 1%, #fff 10%, #fff 99%, #32292f 1%);
-}
-
 p ~ p {
 	margin-top: $small-spacing;
 }
