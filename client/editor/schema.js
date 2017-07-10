@@ -33,11 +33,12 @@ export default (valid_uris) => ({
 		},
 		"hr":        _ => <hr />,
 		"link": props => {
-			const href = props.node.data.get("href")
+			const href      = props.node.data.get("href")
+			const className = props.node.data.get("class")
 
-			const className = valid_uris.includes(href) ? 'found' : 'not_found'
+			const implicitClassName = valid_uris.includes(href) ? 'found' : 'not_found'
 
-			return <a href={href} className={className} {...props.attributes}>{props.children}</a>
+			return <a href={href} className={className + ' ' + implicitClassName} {...props.attributes}>{props.children}</a>
 		},
 		"figure": props => {
 			let { node, data, state } = props

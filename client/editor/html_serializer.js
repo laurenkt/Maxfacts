@@ -85,8 +85,10 @@ const rules = [
 			if (obj.kind != "inline") return
 			
 			if (obj.type == "link") {
-				const href = obj.data.get("href")
-				return <a href={href}>{children}</a>
+				const href      = obj.data.get("href")
+				const className = obj.data.get("class")
+
+				return <a href={href} className={className}>{children}</a>
 			}
 		},
 	},
@@ -204,13 +206,16 @@ const rules = [
 		deserialize(el, next) {
 			if (el.tagName != "a") return
 
+			console.log('Deserialize anchor', el.attribs)
+
 			if (el.attribs.href) {
 				return {
-					kind: "inline",
-					type: "link",
-					nodes: next(el.children),
+					kind:   "inline",
+					type:   "link",
+					nodes:  next(el.children),
 					data: {
 						href: el.attribs.href,
+						class: el.attribs.class,
 					},
 				}
 			}

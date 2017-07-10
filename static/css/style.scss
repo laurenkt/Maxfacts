@@ -779,7 +779,7 @@ main {
 	}
 }
 
-a strong {
+a.start {
 	display: inline-block;
 	background: #292;
 	padding: 10px 20px;
@@ -789,17 +789,17 @@ a strong {
 	border-left: 0;
 	border-radius: 5px;
 	color: #fff;
-}
 
-a strong:after {
-	content: " »";
-}
+	&:after {
+		content: " »";
+	}
 
-a strong:hover {
-	background: #ddd;
-	border-color: #ccc;
-	text-decoration: underline;
-	color:black;
+	&:hover {
+		background: #ddd;
+		border-color: #ccc;
+		text-decoration: underline;
+		color:black;
+	}
 }
 
 footer {

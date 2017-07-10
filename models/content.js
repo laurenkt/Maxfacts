@@ -3,7 +3,7 @@ import mongoose     from "mongoose"
 import sanitizeHtml from "sanitize-html"
 import {Parser,
 	DomHandler}     from "htmlparser2"
-import {merge, uniq, map,
+import {mergeWith, uniq, map,
 	difference}     from "lodash"
 import Video        from "./video.js"
 import Image        from "./image.js"
@@ -129,10 +129,14 @@ schema.statics = {
 					"li", "strong", "em", "table", "thead", "caption", "tbody", "tfoot", "tr", "th", "td",
 					"figure", "abbr", "img", "aside", "caption", "cite", "dd", "dfn", "dl", "dt", "figcaption",
 					"sub", "sup", "i", "br", "hr"],
-				allowedAttributes: merge({
+				allowedAttributes: mergeWith({
 					th: ["colspan", "rowspan"],
 					td: ["colspan", "rowspan"],
-				}, sanitizeHtml.defaults.allowedAttributes),
+					a: ["class"],
+				}, sanitizeHtml.defaults.allowedAttributes, (objValue, srcValue) => {
+					if (Array.isArray(objValue) && Array.isArray(srcValue))
+						return srcValue.concat(objValue)
+				}),
 				exclusiveFilter: frame => {
 					// Remove certain empty tags
 					return ["p", "a", "em", "strong"].includes(frame.tag) && !frame.text.trim() && !frame.children.length

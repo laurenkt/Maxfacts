@@ -40933,9 +40933,11 @@ var rules = [{
 
 		if (obj.type == "link") {
 			var href = obj.data.get("href");
+			var className = obj.data.get("class");
+
 			return _react2.default.createElement(
 				"a",
-				{ href: href },
+				{ href: href, className: className },
 				children
 			);
 		}
@@ -41176,13 +41178,16 @@ var rules = [{
 	deserialize: function deserialize(el, next) {
 		if (el.tagName != "a") return;
 
+		console.log('Deserialize anchor', el.attribs);
+
 		if (el.attribs.href) {
 			return {
 				kind: "inline",
 				type: "link",
 				nodes: next(el.children),
 				data: {
-					href: el.attribs.href
+					href: el.attribs.href,
+					class: el.attribs.class
 				}
 			};
 		}
@@ -41957,12 +41962,13 @@ exports.default = function (valid_uris) {
 			},
 			"link": function link(props) {
 				var href = props.node.data.get("href");
+				var className = props.node.data.get("class");
 
-				var className = valid_uris.includes(href) ? 'found' : 'not_found';
+				var implicitClassName = valid_uris.includes(href) ? 'found' : 'not_found';
 
 				return _react2.default.createElement(
 					"a",
-					_extends({ href: href, className: className }, props.attributes),
+					_extends({ href: href, className: className + ' ' + implicitClassName }, props.attributes),
 					props.children
 				);
 			},
