@@ -10,13 +10,13 @@ require('dotenv').config()
 // Validate environment variables
 const joi = require('joi')
 const env_schema = joi.object({
-	MONGO_URI: joi.string().required(),
+	MONGO_URI:      joi.string().required(),
 	OAUTH_CALLBACK: joi.string().required(),
-	MAILER_HOST: joi.string().required(),
-	MAILER_PORT: joi.number().required(),
-	MAILER_USER: joi.string().required(),
-	MAILER_PASS: joi.string().required(),
-}).required()
+	MAILER_HOST:    joi.string().required(),
+	MAILER_PORT:    joi.number().required(),
+	MAILER_USER:    joi.string().required(),
+	MAILER_PASS:    joi.string().required(),
+}).unknown().required()
 
 const {error} = joi.validate(process.env, env_schema)
 if (error) {
