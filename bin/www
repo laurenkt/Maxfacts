@@ -12,6 +12,8 @@ const joi = require('joi')
 const env_schema = joi.object({
 	MONGO_URI:      joi.string().required(),
 	OAUTH_CALLBACK: joi.string().required(),
+	OAUTH_CLIENTID: joi.string().required(),
+	OAUTH_SECRET:   joi.string().required(),
 	MAILER_HOST:    joi.string().required(),
 	MAILER_PORT:    joi.number().required(),
 	MAILER_USER:    joi.string().required(),

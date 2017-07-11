@@ -62,11 +62,10 @@ app.use(session({
 }))
 
 passport.use(new Strategy({
-	clientID:     "374535397413-efev3hqdb8p7lprvjcp9h2bp3cpvnd5n.apps.googleusercontent.com",
-	clientSecret: "ZsuO8H9cLXvDUfieYLkUDHiT",
+	clientID:     process.env.OAUTH_CLIENTID,
+	clientSecret: process.env.OAUTH_SECRET,
 	callbackURL:  process.env.OAUTH_CALLBACK,
-},
-(accessToken, refreshToken, profile, cb) => {
+}, (accessToken, refreshToken, profile, cb) => {
 	const email = profile.emails[0].value
 	// Must be a York e-mail
 	if (email.match(/.*@york\.ac\.uk/i) !== null) {
