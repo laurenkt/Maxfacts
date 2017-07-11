@@ -4,49 +4,68 @@
  * Module dependencies.
  */
 
-const app   = require("../app.js");
-const http  = require("http")
-const debug = require("debug")("maxfacts:server");
+// Import environment variables from .env
+require('dotenv').config()
+
+// Validate environment variables
+const joi = require('joi')
+const env_schema = joi.object({
+	MONGO_URI: joi.string().required(),
+	OAUTH_CALLBACK: joi.string().required(),
+	MAILER_HOST: joi.string().required(),
+	MAILER_PORT: joi.number().required(),
+	MAILER_USER: joi.string().required(),
+	MAILER_PASS: joi.string().required(),
+}).required()
+
+const {error} = joi.validate(process.env, env_schema)
+if (error) {
+	throw new Error("Config validation error: " + error.message)
+}
+
+const app   = require('../app.js')
+const http  = require('http')
+const debug = require('debug')('maxfacts:server')
 
 /**
  * Get port from environment and store in Express.
  */
 
-const port = normalizePort(process.env.PORT || "3000");
-app.set("port", port);
+const port = normalizePort(process.env.PORT || "3000")
+app.set("port", port)
 
 /**
  * Create HTTP server.
  */
 
-const server = http.createServer(app);
+const server = http.createServer(app)
 
 /**
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port);
-server.on("error", onError);
-server.on("listening", onListening);
+server.listen(port)
+server.on("error", onError)
+server.on("listening", onListening)
 
 /**
  * Normalize a port into a number, string, or false.
  */
 
 function normalizePort(val) {
-	let parsed_port = parseInt(val, 10);
+	let parsed_port = parseInt(val, 10)
 
 	if (isNaN(parsed_port)) {
 		// named pipe
-		return val;
+		return val
 	}
 
 	if (parsed_port >= 0) {
 		// port number
-		return parsed_port;
+		return parsed_port
 	}
 
-	return false;
+	return false
 }
 
 /**
@@ -55,25 +74,25 @@ function normalizePort(val) {
 
 function onError(error) {
 	if (error.syscall !== "listen") {
-		throw error;
+		throw error
 	}
 
-	var bind = typeof port === "string"
+	const bind = typeof port === "string"
 		? "Pipe " + port
-		: "Port " + port;
+		: "Port " + port
 
 	// handle specific listen errors with friendly messages
 	switch (error.code) {
 		case "EACCES":
-			console.error(bind + " requires elevated privileges");
-			process.exit(1);
-			break;
+			console.error(bind + " requires elevated privileges")
+			process.exit(1)
+			break
 		case "EADDRINUSE":
-			console.error(bind + " is already in use");
-			process.exit(1);
-			break;
+			console.error(bind + " is already in use")
+			process.exit(1)
+			break
 		default:
-			throw error;
+			throw error
 	}
 }
 
@@ -82,9 +101,9 @@ function onError(error) {
  */
 
 function onListening() {
-	var addr = server.address();
-	var bind = typeof addr === "string"
+	const addr = server.address()
+	const bind = typeof addr === "string"
 		? "pipe " + addr
-		: "port " + addr.port;
-	debug("Listening on " + bind);
+		: "port " + addr.port
+	debug("Listening on " + bind)
 }
