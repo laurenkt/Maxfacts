@@ -70,4 +70,9 @@ gulp.task('templates', () => {
 		.pipe(gulp.dest(dirs.dest))
 })
 
-gulp.task('default', ['bin', 'images', 'css', 'js', 'templates', 'server'])
+gulp.task('other', () => {
+	return gulp.src('static/*')
+		.pipe(gulp.dest(`${dirs.dest}/static`))
+})
+
+gulp.task('default', ['bin', 'images', 'css', 'other', 'js', 'templates', 'server'])

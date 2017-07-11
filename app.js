@@ -95,6 +95,7 @@ app.use("/",               route("videos"))
 app.use("/magic-triangle", route("magic_triangle"))
 app.use("/dashboard",      route("dashboard"))
 app.use("/search",         route("search"))
+app.use("/map.xml",        route("map"))
 app.use("/",               route("index"))
 
 app.get("/auth", passport.authenticate("google", { scope: ["email"] } ))
