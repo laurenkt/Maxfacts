@@ -9,7 +9,27 @@ import passport   from "passport"
 import {Strategy} from "passport-google-oauth20"
 import {join}     from "path"
 import hbs        from "express-handlebars"
+import joi        from "joi"
+import {config}   from "dotenv"
 
+// Load and validate environment variables
+config() // loads from .env file
+
+const env_schema = joi.object({
+	MONGO_URI:      joi.string().required(),
+	OAUTH_CALLBACK: joi.string().required(),
+	OAUTH_CLIENTID: joi.string().required(),
+	OAUTH_SECRET:   joi.string().required(),
+	MAILER_HOST:    joi.string().required(),
+	MAILER_PORT:    joi.number().required(),
+	MAILER_USER:    joi.string().required(),
+	MAILER_PASS:    joi.string().required(),
+}).unknown().required()
+
+const {error} = joi.validate(process.env, env_schema)
+if (error) {
+	throw new Error("Config validation error: " + error.message)
+}
 // Set-up Mongoose models
 mongoose.Promise = global.Promise // Required to squash a deprecation warning
 mongoose.connect(process.env.MONGO_URI).connection

@@ -4,27 +4,6 @@
  * Module dependencies.
  */
 
-// Import environment variables from .env
-require('dotenv').config()
-
-// Validate environment variables
-const joi = require('joi')
-const env_schema = joi.object({
-	MONGO_URI:      joi.string().required(),
-	OAUTH_CALLBACK: joi.string().required(),
-	OAUTH_CLIENTID: joi.string().required(),
-	OAUTH_SECRET:   joi.string().required(),
-	MAILER_HOST:    joi.string().required(),
-	MAILER_PORT:    joi.number().required(),
-	MAILER_USER:    joi.string().required(),
-	MAILER_PASS:    joi.string().required(),
-}).unknown().required()
-
-const {error} = joi.validate(process.env, env_schema)
-if (error) {
-	throw new Error("Config validation error: " + error.message)
-}
-
 const app   = require('../app.js')
 const http  = require('http')
 const debug = require('debug')('maxfacts:server')
