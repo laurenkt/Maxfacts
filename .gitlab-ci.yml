@@ -29,5 +29,6 @@ web_server:
         - echo "OAUTH_CALLBACK=http://localhost:3000/auth/callback" >> .env
         - cd backups/$(command ls -t backups | head -1)
         - for i in 1 2 3 4 5 6 7 8 9 10; do mongorestore -h mongo -d maxfacts maxfacts && break || sleep 2; done
-        - npm install --silent
+        - npm install -g yarn
+        - yarn install
         - npm run test:integrations
