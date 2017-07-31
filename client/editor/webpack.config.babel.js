@@ -1,11 +1,10 @@
 /* eslint no-console:"off" */
+import webpack from 'webpack'
 
 module.exports = env => {
 	const config = {
-		entry: "./app.js",
 		output: {
-			filename: "dist/app.js",
-			publicPath: "/dist/",
+			filename: "editor.js",
 		},
 		devtool: '#source-map',
 		module: {
@@ -15,9 +14,6 @@ module.exports = env => {
 				{test: /\.png/,   loaders: ["url-loader"]},
 			],
 		},
-		node: {
-			fs: "empty",
-		}
 	};
 	if (env.debug) {
 		console.log(config);

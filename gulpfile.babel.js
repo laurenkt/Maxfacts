@@ -6,15 +6,44 @@ import uglifycss    from 'gulp-uglifycss'
 import uglify       from 'gulp-uglify'
 import babel        from 'gulp-babel'
 import imgmin       from 'gulp-imagemin'
-import rename       from 'gulp-rename'
 import del          from 'del'
+import webpack      from 'webpack'
+import webpackGulp  from 'webpack2-stream-watch'
 
 const dirs = {
 	dest: 'build',
 }
 
+const apps = [
+	'editor',
+	'multipart-player',
+	'recipe-browser',
+]
+
 gulp.task('clean', () => {
 	return del(dirs.dest)
+})
+
+gulp.task('watch', () => {
+	gulp.watch('./static/css/**/*.scss', ['css'])
+	gulp.watch('./templates/**/*.hbs',   ['templates'])
+	gulp.watch('./static/images/**/*',   ['images'])
+
+	apps.forEach(app => {
+		gulp.watch(`./client/${app}/**/*`, [app])
+	})
+
+	gulp.watch([
+		'./**/*.js',
+		'!./static/**/*.js',        // ignore client JS
+		'!./flow-typed/**/*.js',    // ignore client JS
+		'!./coverage/**/*.js',      // ignore client JS
+		'!./test/**/*.js',          // ignore client JS
+		'!./client/**/*.js',        // ignore client JS
+		'!./build/**/*.js',         // ignore built JS
+		'!./node_modules/**/*.js',  // ignore node module JS
+		'!./gulpfile.babel.js',     // ignore node module JS
+	], ['server'])
 })
 
 gulp.task('css', () => {
@@ -27,13 +56,34 @@ gulp.task('css', () => {
 		.pipe(gulp.dest(`${dirs.dest}/static/css`))
 })
 
-gulp.task('js', () => {
-	return gulp.src('static/js/*/app.js')
-		.pipe(sourcemaps.init())
-		.pipe(uglify())
-		.pipe(rename({suffix: '.min'}))
-		.pipe(sourcemaps.write('.'))
-		.pipe(gulp.dest(`${dirs.dest}/static/js`))
+apps.forEach(app => {
+	const webpackConfig = require(`./client/${app}/webpack.config.babel.js`)(process.env)
+
+	if (!process.env.DEBUG) {
+		webpackConfig.plugins = [
+			new webpack.LoaderOptionsPlugin({
+				minimize: true,
+				debug: false
+			}),
+			new webpack.optimize.UglifyJsPlugin({
+				beautify: false,
+				mangle: {
+					screw_ie8: true,
+					keep_fnames: true
+				},
+				compress: {
+					screw_ie8: true
+				},
+				comments: false
+			})
+		]	
+	}
+
+	gulp.task(app, () => {
+		return gulp.src(`client/${app}/app.js`)
+			.pipe(webpackGulp(webpackConfig, webpack))
+			.pipe(gulp.dest(`${dirs.dest}/static/js`))
+	})
 })
 
 gulp.task('server', () => {
@@ -74,5 +124,7 @@ gulp.task('other', () => {
 	return gulp.src('static/*')
 		.pipe(gulp.dest(`${dirs.dest}/static`))
 })
+
+gulp.task('js', apps)
 
 gulp.task('default', ['bin', 'images', 'css', 'other', 'js', 'templates', 'server'])
