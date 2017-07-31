@@ -8,6 +8,7 @@ import mongoStore from "connect-mongo"
 import passport   from "passport"
 import {Strategy} from "passport-google-oauth20"
 import {join}     from "path"
+import fs         from "fs"
 import hbs        from "express-handlebars"
 import joi        from "joi"
 import {config}   from "dotenv"
@@ -109,14 +110,16 @@ app.use(express.static(join(__dirname, "static")))
 // Loads the named module from the routes/ directory
 const route = (name) => require(join(__dirname, "routes", name))
 
-app.use("/",               route("feedback"))
-app.use("/",               route("images"))
-app.use("/",               route("videos"))
-app.use("/magic-triangle", route("magic_triangle"))
-app.use("/dashboard",      route("dashboard"))
-app.use("/search",         route("search"))
-app.use("/map.xml",        route("map"))
-app.use("/",               route("index"))
+app.use("/",                   route("feedback"))
+app.use("/",                   route("images"))
+app.use("/",                   route("videos"))
+app.use(
+	"/help/oral-food/recipes", route("recipes"))
+app.use("/magic-triangle",     route("magic_triangle"))
+app.use("/dashboard",          route("dashboard"))
+app.use("/search",             route("search"))
+app.use("/map.xml",            route("map"))
+app.use("/",                   route("index"))
 
 app.get("/auth", passport.authenticate("google", { scope: ["email"] } ))
 app.get("/auth/callback",

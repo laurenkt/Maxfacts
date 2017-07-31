@@ -1,0 +1,34 @@
+<main>
+	<h2>{{title}}</h2>
+	{{#each description}}
+		<p>{{this}}</p>
+	{{/each}}
+	{{#if ingredients}}
+		<h3>Ingredients</h3>
+		<ul>
+		{{#each ingredients}}
+			<li>{{this}}</li>
+		{{/each}}
+		</ul>
+	{{/if}}
+	{{#if method}}
+		<h3>Method</h3>
+		<ol>
+			{{#each method}}
+				<li>{{this}}</li>
+			{{/each}}
+		</ol>
+	{{/if}}
+	{{#if tips}}
+		<h3>Tips</h3>
+		{{#each tips}}
+			<p>{{this}}</p>
+		{{/each}}
+	{{/if}}
+	{{#if variations}}
+		<h3>Variations</h3>
+		{{#each variations}}
+			<p>{{this}}</p>
+		{{/each}}
+	{{/if}}
+</main>

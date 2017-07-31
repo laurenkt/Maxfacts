@@ -1005,3 +1005,68 @@ label.disabled {
 		}
 	}
 }
+
+.recipe-box {
+	p {
+		width: 48%;
+		float: left;
+		background: rgb(243, 241, 246);
+		text-align: center;
+		border: 2px solid rgb(187, 179, 204);
+		border-radius: 10px;
+		margin: 0 1% 10px 0;	
+
+		a {
+			font-size: 14pt;
+			display: block;
+			padding: 14px 0;
+
+			&:hover {
+				border-radius: 10px;
+				background-color: white;
+			}
+		}
+
+		~ p a::first-letter {
+			display: block;
+			padding-left: 30px;
+			background: transparent url(/images/pdf.png) 0 center/24px 24px no-repeat;
+		}
+	}
+}
+
+.recipe {
+	margin-top: 20px;
+	background: #eee;
+	padding: 10px 10px 10px;
+
+	.tags {
+		font-size: 90%;
+		margin-bottom: 0;
+
+		.tag {
+			background: white;
+			padding: 4px 8px;
+			margin-right: 10px;
+		}
+	}
+}
+
+.search-tags {
+	a {
+		border-radius: 8px;
+		padding: 4px 7px;	
+		margin-right: 4px;
+		background: white;
+		box-shadow: 1px 1px 0 #bbb;
+
+		&:hover {
+			background: rgb(217, 217, 217);
+		}
+
+		&.-selected {
+			background: $accent-color;
+			color: white;
+		}
+	}
+}

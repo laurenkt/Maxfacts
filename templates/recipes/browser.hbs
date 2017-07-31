@@ -1,0 +1,15 @@
+<main>
+	<h2>Recipes</h2>
+	<div id="recipe-browser">
+	{{#each recipes}}
+		<div class="display-recipe">
+			<h3>{{title}}</h3>
+		</div>
+	{{/each}}
+	</div>
+</main>
+<script type="application/json" id="recipe_data">
+	{{{toJSON recipes}}}
+</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.min.js"></script>
+<script src="/js/recipe-browser.js"></script>
