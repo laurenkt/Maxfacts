@@ -60,7 +60,7 @@ const StatelessCell = props => {
 	);
 };
 
-StatelessCell.PropTypes = {
+StatelessCell.propTypes = {
 	children:      React.PropTypes.array,
 	title:         React.PropTypes.string,
 	context:       React.PropTypes.object.isRequired,
