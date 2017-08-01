@@ -18,9 +18,12 @@ function dateToLastmod(date) {
 }
 
 async function requestSiteMap(req, res) {
-	const all_content = await Content.find().sort('uri').exec()
+	let   all_content = await Content.find().sort('uri').exec()
 	const all_videos  = await Video.find().sort('uri').exec()
 	const all_recipes = await Recipe.find().sort('uri').exec()
+
+	// Remove blank pages
+	all_content = all_content.filter(c => c.body)
 
 	// Put full URI on recipes and extract timestamp if one does not exist
 	all_recipes.forEach(r => {
