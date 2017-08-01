@@ -51,7 +51,7 @@ class RecipeBrowser extends React.Component {
 
 	renderRecipe(recipe) {
 		return <div className="recipe">
-			<h3><a href={recipe.uri}>{recipe.title}</a></h3>
+			<h3><a href={recipe.id}>{recipe.title}</a></h3>
 			<p className="tags">{recipe.tags.sort().map(tag => <span className="tag">{tag}</span>)}</p>
 		</div>
 	}

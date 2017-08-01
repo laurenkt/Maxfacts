@@ -1,6 +1,7 @@
 import express from 'express'
 import Content from '../models/content'
 import Video   from '../models/video'
+import Recipe  from '../models/recipe'
 import {maxBy} from 'lodash'
 
 const router = express.Router()
@@ -19,6 +20,15 @@ function dateToLastmod(date) {
 async function requestSiteMap(req, res) {
 	const all_content = await Content.find().sort('uri').exec()
 	const all_videos  = await Video.find().sort('uri').exec()
+	const all_recipes = await Recipe.find().sort('uri').exec()
+
+	// Put full URI on recipes and extract timestamp if one does not exist
+	all_recipes.forEach(r => {
+		r.uri = 'help/oral-food/recipes/' + r.id
+
+		if (!r.updatedAt)
+			r.updatedAt = r._id.getTimestamp()
+	})
 
 	const content_mapper = content => ({
 		uri:        content.uri,
@@ -30,6 +40,7 @@ async function requestSiteMap(req, res) {
 
 	let routes = all_content.map(content_mapper)
 	routes = routes.concat(all_videos.map(content_mapper))
+	routes = routes.concat(all_recipes.map(content_mapper))
 
 	// Normalize the priorities and make sure highest priority is lowest number
 	// (currently it is the other way round)

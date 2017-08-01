@@ -2,8 +2,9 @@
 	<h2>Recipes</h2>
 	<div id="recipe-browser">
 	{{#each recipes}}
-		<div class="display-recipe">
-			<h3>{{title}}</h3>
+		<div className="recipe">
+			<h3><a href="{{id}}">{{title}}</a></h3>
+			<p className="tags">{{#each tags}}<span className="tag">{{this}}</span>{{/each}}</p>
 		</div>
 	{{/each}}
 	</div>

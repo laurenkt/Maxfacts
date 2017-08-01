@@ -17,7 +17,7 @@ function requestIndex(req, res) {
 }
 
 async function requestBrowser(req, res, next) {
-	const recipes = await Recipe.find({}).select('title uri tags').sort('title')
+	const recipes = await Recipe.find({}).select('title id tags').sort('title')
 
 	res.render('recipes/browser', {
 		recipes,
@@ -30,7 +30,7 @@ async function requestBrowser(req, res, next) {
 }
 
 async function requestRecipe(req, res, next) {
-	const recipe = await Recipe.findOne( { uri: req.params.uri } )
+	const recipe = await Recipe.findOne( { id: req.params.uri } )
 
 	if (!recipe)
 		return next()
