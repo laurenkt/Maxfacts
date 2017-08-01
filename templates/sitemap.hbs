@@ -2,7 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
 {{#each routes}}
 	<url>
-		<loc>http://maxfacts.uk/{{uri}}</loc> 
+		<loc>http://maxfacts.uk/{{uri}}</loc>
+		<lastmod>{{lastmod}}</lastmod>
+		<priority>{{priority}}</priority>
+		<changefreq>{{changefreq}}</changefreq>
 	</url>
 {{/each}}
 </urlset>
