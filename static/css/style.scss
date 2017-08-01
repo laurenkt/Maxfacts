@@ -18,6 +18,8 @@ $level2-back: #ccc;
 $level1-back: white;
 $level1-under: #ddd;
 
+$small-spacing: 0.75em;
+
 p ~ p {
 	margin-top: $small-spacing;
 }
@@ -168,8 +170,8 @@ body {
 body > section {
 	@include outer-container;
 
-	max-width: 64rem;
-	margin: 0 auto 2rem;
+	max-width: 64em;
+	margin: 0 auto 2em;
 	width: 100%;
 	flex: 1;
 
@@ -185,13 +187,13 @@ body > section {
 }
 
 h2 {
-	font-size: 2.5rem;
-	margin: 1.5rem 0 0.75rem;
+	font-size: 2.5em;
+	margin: 1.5em 0 0.75em;
 }
 
 h3 {
-	font-size: 1.5rem;
-	margin: 0 0 0.75rem;
+	font-size: 1.5em;
+	margin: 0 0 0.75em;
 
 }
 
@@ -228,7 +230,7 @@ textarea {
 	margin-top: $small-spacing;
 
 	h3 {
-		margin-top: 1rem;
+		margin-top: 1em;
 	}
 
 	nav {
@@ -316,7 +318,8 @@ textarea {
 }
 
 .sections {
-	margin-top: 1.5rem;
+	margin-top: 1.5em;
+	clear: both;
 
 	@include outer-container;
 
@@ -337,14 +340,27 @@ textarea {
 	}
 
 	nav {
-		@include span-columns(4);
+		display: block;
+		float: left;
+		margin-right: 1.5%;
+		width: 28.8%;
+		padding: 1.5%;
 		background: lightgrey;
-		padding: $small-spacing;
+		box-sizing: content-box;
+
+		@supports (box-sizing: border-box) {
+			box-sizing: border-box;
+			width: 32.33%;
+		}
 
 		ul {
 			list-style: none;
 			margin: 0;
 			padding: 0;
+		}
+
+		&:last-of-type {
+			margin-right: 0;
 		}
 	}
 }
@@ -654,14 +670,14 @@ main {
 			}
 			
 			h3::before {
-				counter-increment: none;
+				counter-incement: none;
 			}
 		}
 
 		h3::before {
 			position: absolute;
-			left: -2rem;
-			counter-increment: h3;
+			left: -2em;
+			counter-incement: h3;
 			content: counter(h3);
 		}
 	}
@@ -818,10 +834,11 @@ footer {
 
 .news {
 	float: right;
+	box-sizing: content-box;
 	background: #f9dec5;
 	font-size: 90%;
 	padding: 0 $small-spacing;
-	width: 31.7%;
+	width: 28%;
 }
 
 header {
@@ -832,38 +849,42 @@ header {
 		border: 2px solid black;
 		border-radius: 10px;
 		float: right;
-		width: 12rem;
+		width: 12em;
 	}
 
 	div {
 		padding: 20px 0;
 
-		background: $blackout-color;
+		background: black;
 		background: linear-gradient(to bottom, $blackout-color 0%, #000000 100%);
 
 		> * {
-			padding: 0 0.75rem;
+			padding: 0 0.75em;
 		}
 	}
 
 	div *,
 	nav {
 		margin: 0 auto;
-		max-width: 64rem;
+		max-width: 64em;
 	}
 
 	h1 {
 		color: white;
-		line-height: 3rem;
+		line-height: 3em;
 		font-size: 1.5em;
+		max-width: 25.6em;
 
 		a {
 			text-indent: -30em;
-			display: inline-block;
-			background: transparent url(/images/maxfacts.png) top left / 100% 100% no-repeat;
+			line-height: 42px;
+			display: block;
+			background: transparent url(/images/maxfacts.png);
+			background: transparent url(/images/maxfacts.png) -125px 0/375px 42px no-repeat;
 			height: 42px;
 			width: 250px;
 			color: white;
+			margin: 0 auto 0 0;
 
 			&:hover {
 				color: white;
@@ -887,7 +908,7 @@ header {
 	}
 
 	&.fill {
-		margin-bottom: 2rem;
+		margin-bottom: 2em;
 		div {
 			> * {
 				padding: 0;
@@ -896,7 +917,7 @@ header {
 
 		h1 {
 			font-size: 2.5em;
-			margin-bottom: 0.5rem;
+			margin-bottom: 0.5em;
 		}
 
 		p {
