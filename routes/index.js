@@ -1,12 +1,13 @@
-import express      from "express"
-import Content      from "../models/content"
-import Option       from "../models/option.js"
-import sanitizeHtml from "sanitize-html"
+import express      from 'express'
+import Content      from '../models/content'
+import Option       from '../models/option.js'
+import sanitizeHtml from 'sanitize-html'
+import XXHash       from 'xxhash'
 
 const router = express.Router()
 
-router.get("/",        requestLandingPage)
-router.get("/:uri(*)", requestSpecificPage)
+router.get('/',        requestLandingPage)
+router.get('/:uri(*)', requestSpecificPage)
 
 /**
  * Landing page
@@ -14,13 +15,13 @@ router.get("/:uri(*)", requestSpecificPage)
 async function requestLandingPage(req, res) {
 	// The three pillars of the home-page
 	const [diagnosis, treatment, help] = await Promise.all([
-		Content.findFromParentURI("diagnosis").sort("title").exec(),
-		Content.findFromParentURI("treatment").sort("title").exec(),
-		Content.findFromParentURI("help").sort("title").exec(),
+		Content.findFromParentURI('diagnosis').sort('title').exec(),
+		Content.findFromParentURI('treatment').sort('title').exec(),
+		Content.findFromParentURI('help').sort('title').exec(),
 	])
 
 	// Use alternative layout
-	res.render("index", {diagnosis, treatment, help, layout:"home"})
+	res.render('index', {diagnosis, treatment, help, layout:'home'})
 }
 
 /*
@@ -119,6 +120,15 @@ async function requestSpecificPage(req, res, next) {
 			})
 		},
 	}
+
+	// Headers
+	res.set('last-modified', content.updatedAt)
+	res.set('etag', Content.etagFromBuffer(
+		// Don't forget to hash the directory not just the preamble (page should
+		// update when other pages are added to directory)
+		content.title + content.body + (content.directory || ''),
+		content.updatedAt.getTime(),
+	))
 
 	// Render different content types with different templates
 	res.render(content.type, content)

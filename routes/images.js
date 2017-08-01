@@ -1,5 +1,6 @@
 import express from 'express'
-import Image from '../models/image'
+import Image   from '../models/image'
+import Content from '../models/content'
 
 const router = express.Router()
 
@@ -12,6 +13,11 @@ async function requestImage(req, res, next) {
 		return next()
 
 	res.set('Content-Type', image.mimetype)
+	res.set('last-modified', image.updatedAt)
+	res.set('etag', Content.etagFromBuffer(
+		image.buffer,
+		image.updatedAt.getTime()
+	))
 	res.send(image.buffer)
 }
 

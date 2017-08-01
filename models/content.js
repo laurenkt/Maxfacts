@@ -1,13 +1,16 @@
 // @flow
-import mongoose     from "mongoose"
-import sanitizeHtml from "sanitize-html"
+import mongoose     from 'mongoose'
+import sanitizeHtml from 'sanitize-html'
 import {Parser,
-	DomHandler}     from "htmlparser2"
-import {mergeWith, uniq, map,
-	difference}     from "lodash"
-import Video        from "./video.js"
-import Image        from "./image.js"
-import DomUtils     from "domutils"
+	DomHandler}     from 'htmlparser2'
+import {mergeWith,
+	uniq,
+	map,
+	difference}     from 'lodash'
+import Video        from './video.js'
+import Image        from './image.js'
+import DomUtils     from 'domutils'
+import XXHash       from 'xxhash'
 
 mongoose.Promise = global.Promise // Required to squash a deprecation warning
 
@@ -282,6 +285,19 @@ schema.statics = {
 
 	findFromAdjacentURI(uri) {
 		return this.findFromParentURI(this.parentUriFragment(uri))
+	},
+
+	etagFromBuffer(buffer:Buffer|string, seed:number):string {
+		if (typeof buffer !== 'Buffer')
+			buffer = Buffer.from(buffer)
+
+		return XXHash.hash64(
+			buffer,
+			// Convert to 32-bit int for hash
+			seed >>> 0,
+			// Hex output easily readable
+			'hex'
+		)
 	},
 }
 
