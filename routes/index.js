@@ -84,14 +84,12 @@ async function requestSpecificPage(req, res, next) {
 
 		// Provide a way for the template to lookup whether a URI is selected
 		content.selected = {}
-		content.lineage.forEach(uri => content.selected[uri] = "selected")
+		content.lineage.forEach(uri => content.selected[uri] = "-selected")
 		// The current page too
-		content.selected[content.uri] = "selected"
+		content.selected[content.uri] = "-selected"
 
 		// Pass on how many levels there are in this branch
-		// TODO: is this being used for anything?
-		// And how deep we are into the branch
-		content.classes = `directory-browser levels-${content.directory.length} deepness-${content.lineage.length}`
+		content.classes = `directory-browser -depth-${content.directory.length}`
 	}
 
 	// Render page
@@ -120,15 +118,6 @@ async function requestSpecificPage(req, res, next) {
 			})
 		},
 	}
-
-	// Headers
-	res.set('last-modified', content.updatedAt)
-	res.set('etag', Content.etagFromBuffer(
-		// Don't forget to hash the directory not just the preamble (page should
-		// update when other pages are added to directory)
-		content.title + content.body + (content.directory || ''),
-		content.updatedAt.getTime(),
-	))
 
 	// Render different content types with different templates
 	res.render(content.type, content)
