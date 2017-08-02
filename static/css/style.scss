@@ -78,8 +78,8 @@ p ~ p {
 		li a {
 			padding: 10px;
 			display: block;
-			background: white url(/images/chevron.png) center right no-repeat;
-			background-size: auto 1em;
+			background: white url(/images/chevron.png) center right / auto 1em no-repeat;
+			background: white url(/images/chevron@IE.png) center right no-repeat\9;
 
 			&:hover {
 				background-color: #eee;
@@ -87,8 +87,8 @@ p ~ p {
 			}
 
 			&.selected {
-				background: $accent-color url(/images/chevron-highlighted.png) center right no-repeat;
-				background-size: auto 1em;
+				background: $accent-color url(/images/chevron-highlighted.png) center right / auto 1em no-repeat;
+				background: $accent-color url(/images/chevron-highlighted@IE.png) center right no-repeat\9;
 				color: white;
 			}
 
@@ -841,14 +841,26 @@ a.start {
 footer {
 	clear: both;
 	background: #eee;
-	margin: 1em 0 0;
-	padding: 2em 0;
-	border-top: 10px solid #f5f5f5;
+	margin: 0;
+	padding: 0;
+	border-top: 1em solid white;
+	border-top: 3em solid white\9; // IE
 
 	p {
-		padding: 1em 0;
+		padding: 2.5em 0;
 		margin: 0 auto 0;
 		text-align: center;
+		text-transform: uppercase;
+		letter-spacing: 0.5px;
+		font-size: 75%;
+
+		a {
+			margin: 0 0.5em;
+
+			&:first-of-type {
+				font-weight: bold;
+			}
+		}
 	}
 }
 
