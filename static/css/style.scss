@@ -246,93 +246,109 @@ textarea {
 	opacity: 0.5;
 }
 
-.directory-browser {
-	margin-top: $small-spacing;
-
-	h3 {
-		margin-top: 1em;
-	}
-
-	nav {
-		margin-right: 1px;
-		padding-right: 1px;
-		white-space: nowrap;
-		@include nav-column(3);
-
-		ul li a {
-			overflow: hidden;
+@mixin nav_underlap($width) {
+	width: $width;
+	max-width: $width;
+	overflow: hidden;
+	a {
+		background: linear-gradient(to right, #f6f6f6 80%, #eee);
+		&.-selected {
+			background: linear-gradient(to right, $accent-color 80%, darken($accent-color, 7));
 		}
 	}
+}
 
-	nav + nav {
-		@include nav-column(4);
+.directory-browser {
+	display: table;
+	width: 100%;
+	margin-top: $small-spacing;
+
+	nav,
+	section {
+		display: table-cell;
+		vertical-align: top;
 	}
 
 	section {
-		@include span-columns(5);
-		padding-left: 1.3%;
+		border-top: 10px solid white;
+		padding: 0 0 0 $small-spacing;
+		width: 50%;
 	}
 
-	&.deepness-1, &.deepness-2 {
-		nav:first-of-type {
-			@include nav-column(2);
-			
-			ul li a {
-				background-image: none!important;
-			}
-		}
-
-		nav + nav {
-			@include nav-column(4);
-		}
-
-		section {
-			@include span-columns(6);
+	&.-depth-3 {
+		.-index-0 {
+			@include nav_underlap(100px);
 		}
 	}
 
-	&.levels-3 {
-		nav:first-of-type + nav {
-			@include nav-column(2);
-
-			ul li a {
-				background-image: none!important;
-			}
+	&.-depth-4 {
+		.-index-0 {
+			@include nav_underlap(100px);
 		}
-
-		nav + nav {
-			@include nav-column(3);
-		}
-
-		section {
-			@include span-columns(5);
+	
+		.-index-1 {
+			@include nav_underlap(120px);
 		}
 	}
 
-	&.levels-4 {
-		nav:first-of-type,
-		nav:first-of-type + nav {
-			@include nav-column(1);
+	nav {
+		white-space: nowrap;
+		border-right: 2px solid white;
 
-			ul li a {
-				background-image: none!important;
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+
+			li {
+				padding: 0 0 0 0;
+
+				ul {
+					font-size: 80%;
+
+					li a {
+						padding: 3px;
+						background: none;
+					}
+				}
 			}
-		}
 
-		nav:first-of-type + nav + nav {
-			@include nav-column(2.5);
+			li a {
+				padding: 10px 25px 10px 10px;
+				margin-bottom: 2px;
+				display: block;
+				background: #f6f6f6 url(/images/chevron.png) center right / auto 1em no-repeat;
+				background: #f6f6f6 url(/images/chevron@IE.png) center right no-repeat\9;
 
-			ul li a {
-				background-image: none!important;
+				&:hover {
+					background-color: #eee;
+					text-decoration: underline;
+				}
+
+				&.-selected {
+					background: $accent-color url(/images/chevron-highlighted.png) center right / auto 1em no-repeat;
+					background: $accent-color url(/images/chevron-highlighted@IE.png) center right no-repeat\9;
+					color: white;
+				}
+
+				&.sublist {
+					font-size: 80%;
+					padding: 8px 10px;
+					margin: 0 10px 1px;
+
+					&::before {
+						content: "–";
+						margin-right: 8px;
+					}
+				}
+
+				.subtitle,
+				.surtitle {
+					color: #888;
+					font-size: 80%;
+					display: block;
+				}
 			}
-		}
-
-		nav + nav {
-			@include nav-column(2.5);
-		}
-
-		section {
-			@include span-columns(5);
 		}
 	}
 }

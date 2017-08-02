@@ -1,6 +1,6 @@
 <div>
 	{{#each directory}}
-	<nav>
+	<nav class="-index-{{@index}}">
 		<ul>
 			{{#each this}}
 				<li><a href="/{{uri}}" class="{{type}} {{lookup ../../selected uri}}">
@@ -47,6 +47,12 @@
 	// Sometimes extra elements need to be moved, like other nav bars
 	var elements_to_adjust = [preamble]
 
+	// When in a display: table, cells have the 'height' of the container
+	// Need to find the real height instead
+	function get_real_height(el) {
+		return el.lastElementChild.getBoundingClientRect().bottom - el.getBoundingClientRect().top
+	}
+
 	// Gets the largest nav column height
 	// Also adds any nav columns after this to elements_to_adjust
 	// Also determines whether the layout is too small to need
@@ -61,13 +67,15 @@
 			if (navs[i].offsetParent === null)
 				should_reposition = false
 
+			let height = get_real_height(navs[i])
+
 			// Whether to adjust size of columsn following the largest
-			if (navs[i].clientHeight >= max)
+			if (height >= max)
 				elements_to_adjust = [preamble]
 			else
 				elements_to_adjust.push(navs[i])
 
-			max = Math.max(max, navs[i].clientHeight)
+			max = Math.max(max, height)
 		}
 
 		return max
@@ -77,18 +85,21 @@
 	function adjust_height(_) {
 		// These will need to be compared to calculate new position
 		var viewport_height = document.documentElement.clientHeight || window.innerHeight
-		var scroll_top = document.documentElement.scrollTop || document.body.scrollTop
-		var preamble_top = preamble.getBoundingClientRect().top + scroll_top
+		var scroll_top      = document.documentElement.scrollTop || document.body.scrollTop
+		var preamble_top    = preamble.getBoundingClientRect().top + scroll_top
 
 		// Simplest way to calculate inner height
-		var preamble_height = preamble.clientHeight - current_padding
+		var preamble_height = get_real_height(preamble) - current_padding
 
 		var nav_height = get_max_nav_height()
+
+		console.log('preamble_top', preamble_top)
 
 		current_padding = Math.max(
 			0,
 			// Recommended position - compensation if viewport is smaller than preamble
-			Math.min(nav_height - preamble_height, scroll_top - preamble_top) - Math.max(0, preamble_height - viewport_height)
+			Math.min(scroll_top - preamble_top, nav_height - preamble_height)
+			//Math.min(nav_height - preamble_height, scroll_top - preamble_top) - Math.max(0, preamble_height - viewport_height)
 		)
 
 		// Adjust CSS property directly
@@ -101,7 +112,7 @@
 	}
 
 	// When to adjust position
-	document.addEventListener("scroll", adjust_height)
+	document.addEventListener("scroll",     adjust_height)
 	document.addEventListener("mousewheel", adjust_height)
-	document.addEventListener("resize", adjust_height)
+	document.addEventListener("resize",     adjust_height)
 </script>
