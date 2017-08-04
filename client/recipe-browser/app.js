@@ -2,10 +2,6 @@ import React    from "react"
 import ReactDOM from "react-dom"
 import uniq     from "lodash/uniq"
 
-const tags = ['cold', 'frozen', 'hot', 'jelly', 'liquid',
-	'liquid with texture', 'lukewarm', 'mousse', 'sauce',
-	'savoury', 'smooth', 'soft', 'soft with texture', 'sweet']
-
 const temperature = ['hot', 'cold', 'lukewarm', 'frozen'].sort()
 const texture     = ['jelly', 'liquid', 'mousse', 'sauce', 'smooth', 'soft', 'soft with texture'].sort()
 const flavour     = ['savoury', 'sweet'].sort()
@@ -60,7 +56,6 @@ class RecipeBrowser extends React.Component {
 		const filtered = this.props.recipes
 		// Tags
 			.filter(recipe => {
-				let retval
 				if (this.state.selected.length === 0)
 					return true
 				else
