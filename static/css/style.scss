@@ -208,7 +208,7 @@ body > section {
 
 h2 {
 	font-size: 2.5em;
-	margin: 1.5em 0 0.75em;
+	margin: 20px 0 10px;
 }
 
 h3 {
@@ -260,7 +260,7 @@ textarea {
 
 .directory-browser {
 	display: table;
-	width: 100%;
+	width: auto;
 	margin-top: $small-spacing;
 
 	nav,
@@ -1022,15 +1022,42 @@ label.disabled {
 	}
 
 	.directory-browser {
+		width: auto;
 		nav {
-			display: none!important;
+			display: none;
 		}
-		nav:last-of-type {
-			width: 30%!important;
-			display: block!important;
+		&.-depth-3 {
+			nav.-index-2 {
+				display: block;
+				
+				ul {
+					white-space: normal;
+					li {
+						display: inline;
+
+						a {
+							display: inline-block;
+							padding: 1px;
+							background: none;
+							.subtitle {
+								display: inline;
+							}
+
+							&.-selected {
+								font-weight: bold;
+								color:black;
+ 							}
+						}
+					}
+				}
+				
+			}
 		}
+
 		section {
-			width: 68%!important;
+			display: block;
+			width: auto;
+			padding: 0;
 		}
 	}
 }
@@ -1043,14 +1070,8 @@ label.disabled {
 	}
 
 	.directory-browser {
-		nav:last-of-type {
-			width: 100%!important;
-			float: none!important;
-		}
 		section {
-			width: 100%!important;
-			float: none!important;
-			padding-left: 0;
+			display: block;
 		}
 	}
 }
