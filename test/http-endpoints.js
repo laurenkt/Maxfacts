@@ -18,27 +18,34 @@ describe("HTTP end-point integrations", function() {
 		})
 	})
 
-	/* can't test this at express end now, a gulp compilation step must be performed first
-	describe("/css/style.css", () => {
+	describe("/js/multipart-player.js", () => {
 		it("should respond to GET", done => {
 			request(server)
-				.get("/css/style.css")
-				.expect(200, done)
-		})
-	}) */
-
-	describe("/js/editor/app.js", () => {
-		it("should respond to GET", done => {
-			request(server)
-				.get("/js/editor/app.js")
+				.get("/js/multipart-player.js")
 				.expect(200, done)
 		})
 	})
 
-	describe("/js/magic-triangle/app.js", () => {
+	describe("/js/recipe-browser.js", () => {
 		it("should respond to GET", done => {
 			request(server)
-				.get("/js/magic-triangle/app.js")
+				.get("/js/recipe-browser.js")
+				.expect(200, done)
+		})
+	})
+
+	describe("/js/editor.js", () => {
+		it("should respond to GET", done => {
+			request(server)
+				.get("/js/editor.js")
+				.expect(200, done)
+		})
+	})
+
+	describe("/js/magic-triangle.js", () => {
+		it("should respond to GET", done => {
+			request(server)
+				.get("/js/magic-triangle.js")
 				.expect(200, done)
 		})
 	})

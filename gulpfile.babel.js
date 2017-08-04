@@ -28,6 +28,7 @@ gulp.task('watch', () => {
 	gulp.watch('./static/css/**/*.scss', ['css'])
 	gulp.watch('./templates/**/*.hbs',   ['templates'])
 	gulp.watch('./static/images/**/*',   ['images'])
+	gulp.watch('./test/*.js',            ['tests'])
 
 	apps.forEach(app => {
 		gulp.watch(`./client/${app}/**/*`, [app])
@@ -120,6 +121,14 @@ gulp.task('templates', () => {
 		.pipe(gulp.dest(dirs.dest))
 })
 
+gulp.task('tests', () => {
+	return gulp.src('test/*.js')
+		.pipe(sourcemaps.init())
+		.pipe(babel())
+		.pipe(sourcemaps.write('.'))
+		.pipe(gulp.dest(`${dirs.dest}/test`))
+})
+
 gulp.task('other', () => {
 	return gulp.src('static/*')
 		.pipe(gulp.dest(`${dirs.dest}/static`))
@@ -127,4 +136,4 @@ gulp.task('other', () => {
 
 gulp.task('js', apps)
 
-gulp.task('default', ['bin', 'images', 'css', 'other', 'js', 'templates', 'server'])
+gulp.task('default', ['bin', 'images', 'css', 'other', 'js', 'templates', 'server', 'tests'])
