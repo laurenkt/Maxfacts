@@ -1,10 +1,14 @@
 /* eslint no-console:"off" */
-import webpack from 'webpack'
 
 module.exports = env => {
 	const config = {
 		output: {
 			filename: "editor.js",
+		},
+		externals: {
+			'react': 'React',
+			'react-dom:': 'ReactDOM',
+			'slate': 'Slate',
 		},
 		devtool: '#source-map',
 		module: {
@@ -14,10 +18,10 @@ module.exports = env => {
 				{test: /\.png/,   loaders: ["url-loader"]},
 			],
 		},
-	};
-	if (env.debug) {
-		console.log(config);
-		debugger; // eslint-disable-line
 	}
-	return config;
-};
+	if (env.debug) {
+		console.log(config)
+		debugger // eslint-disable-line
+	}
+	return config
+}
