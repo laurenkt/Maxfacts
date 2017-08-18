@@ -25,6 +25,7 @@ gulp.task('clean', () => {
 })
 
 gulp.task('watch', () => {
+	gulp.watch('./static/js/**/*.js',    ['static_js'])
 	gulp.watch('./static/css/**/*.scss', ['css'])
 	gulp.watch('./templates/**/*.hbs',   ['templates'])
 	gulp.watch('./static/images/**/*',   ['images'])
@@ -111,6 +112,11 @@ gulp.task('images', () => {
 		.pipe(gulp.dest(`${dirs.dest}/static/images`))
 })
 
+gulp.task('static_js', () => {
+	return gulp.src('static/js/*.js')
+		.pipe(gulp.dest(`${dirs.dest}/static/js`))
+})
+
 gulp.task('bin', () => {
 	return gulp.src('bin/*')
 		.pipe(gulp.dest(`${dirs.dest}/bin`))
@@ -134,6 +140,6 @@ gulp.task('other', () => {
 		.pipe(gulp.dest(`${dirs.dest}/static`))
 })
 
-gulp.task('js', apps)
+gulp.task('js', apps.concat('static_js'))
 
 gulp.task('default', ['bin', 'images', 'css', 'other', 'js', 'templates', 'server', 'tests'])
