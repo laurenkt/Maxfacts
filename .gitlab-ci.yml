@@ -31,4 +31,5 @@ web_server:
         - cd backups/$(command ls -t backups | head -1)
         - for i in 1 2 3 4 5 6 7 8 9 10; do mongorestore -h mongo -d maxfacts maxfacts && break || sleep 2; done
         - cd ../..
+        - gulp clean && gulp
         - npm run test:integrations
