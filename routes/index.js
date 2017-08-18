@@ -89,7 +89,7 @@ async function requestSpecificPage(req, res, next) {
 		content.selected[content.uri] = "-selected"
 
 		// Pass on how many levels there are in this branch
-		content.classes = `directory-browser -depth-${content.directory.length}`
+		content.depth = content.directory.length
 	}
 
 	// Render page
