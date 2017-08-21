@@ -8,7 +8,7 @@ module.exports = env => {
 		externals: {
 			'react': 'React',
 			'react-dom:': 'ReactDOM',
-			'slate': 'Slate',
+			//'slate': 'Slate',
 		},
 		devtool: '#source-map',
 		module: {
