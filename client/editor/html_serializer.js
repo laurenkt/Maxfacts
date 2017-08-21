@@ -46,12 +46,12 @@ const rules = [
 		deserialize(el, _) {
 			// Skip certain tags
 			switch (el.tagName) {
-				case "head":
-				case "style":
+				case "HEAD":
+				case "STYLE":
 					return []
-				case "o:p":
+				case "O:P":
 					// Strip empty paragraphs
-					if (el.children.length == 0 || el.children.every(child => child.type == "text" && child.data.match(/^\s*$/) != null))
+					if (el.childNodes.length == 0 || el.childNodes.every(child => child.type == "text" && child.data.match(/^\s*$/) != null))
 						return []
 			}
 			return
@@ -59,19 +59,19 @@ const rules = [
 	},
 	{
 		deserialize(el, _) {
-			if (el.tagName != "img") return
+			if (el.tagName != "IMG") return
 
 			return {
 				kind: "block",
 				type: "img",
 				isVoid: true,
-				data: {src: el.attribs.src},
+				data: {src: el.attributes.getNamedItem('src').value},
 			}
 		}
 	},
 	{
 		deserialize(el, _) {
-			if (el.tagName != "hr") return
+			if (el.tagName != "HR") return
 
 			return {
 				kind: "block",
@@ -94,19 +94,27 @@ const rules = [
 	},
 	{
 		deserialize(el, next) {
-			const block = BLOCK_TAGS[el.tagName]
+			const block = BLOCK_TAGS[el.tagName.toLowerCase()]
 			if (!block) return
 
-			const nodes = next(el.children)
+			const nodes = next(el.childNodes)
 
 			if (nodes.length == 0 || (nodes.every(node => node.kind == "text" && node.text.match(/^\s*$/))))
 				return []
+
+			let attribs = {}
+
+			console.log('el.attributes', el.attributes)
+			for (let i = 0; i < el.attributes.length; i++) {
+				attribs[el.attributes[i].name] = el.attributes[i].value
+			}
+			console.log('attribs', attribs)
 
 			return {
 				kind: "block",
 				type: block,
 				nodes,
-				data: {attribs: el.attribs},
+				data: {attribs: attribs},
 			}
 		},
 		serialize(obj, children) {
@@ -157,14 +165,14 @@ const rules = [
 		deserialize(el, next) {
 			let tagName = el.tagName
 			// For MSWord which uses <b> not <strong>
-			if (tagName == "b") tagName = "strong"
+			if (tagName == "B") tagName = "STRONG"
 
-			const mark = MARK_TAGS[tagName]
+			const mark = MARK_TAGS[tagName.toLowerCase()]
 			if (!mark) return
 			return {
 				kind: "mark",
 				type: mark,
-				nodes: next(el.children)
+				nodes: next(el.childNodes)
 			}
 		},
 		serialize(obj, children) {
@@ -183,20 +191,20 @@ const rules = [
 	{
 		// Special case for figures
 		deserialize(el, next) {
-			if (el.tagName != "figure") return
+			if (el.tagName != "FIGURE") return
 
 			// Find img
-			const img = el.children.find(child => child.tagName == "img")
+			const img = Array.prototype.find.call(el.childNodes, child => child.tagName == "IMG")
 
 			// Find caption
-			const caption = el.children.find(child => child.tagName == "figcaption")
+			const caption = Array.prototype.find.call(el.childNodes, child => child.tagName == "FIGCAPTION")
 
 			return {
 				kind: "block",
 				type: "figure",
-				nodes: next(caption.children),
+				nodes: next(caption.childNodes),
 				data: {
-					src: img.attribs.src,
+					src: img.attributes.getNamedItem('src').value,
 				},
 			}
 		}
@@ -204,18 +212,16 @@ const rules = [
 	{
 		// Special case for links, to grab their href.
 		deserialize(el, next) {
-			if (el.tagName != "a") return
+			if (el.tagName != "A") return
 
-			console.log('Deserialize anchor', el.attribs)
-
-			if (el.attribs.href) {
+			if (el.attributes.getNamedItem('href')) {
 				return {
 					kind:   "inline",
 					type:   "link",
-					nodes:  next(el.children),
+					nodes:  next(el.childNodes),
 					data: {
-						href: el.attribs.href,
-						class: el.attribs.class,
+						href: el.attributes.getNamedItem('href').value,
+						class: el.attributes.getNamedItem('class') ? el.attributes.getNamedItem('class').value : undefined,
 					},
 				}
 			}

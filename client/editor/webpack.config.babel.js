@@ -6,9 +6,9 @@ module.exports = env => {
 			filename: "editor.js",
 		},
 		externals: {
-			'react': 'React',
-			'react-dom:': 'ReactDOM',
-			//'slate': 'Slate',
+			'react'     : 'React',
+			'react-dom' : 'ReactDOM',
+			'slate'     : 'Slate',
 		},
 		devtool: '#source-map',
 		module: {
