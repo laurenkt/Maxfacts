@@ -1,0 +1,18 @@
+<h2>Pages with no authorship details</h2>
+
+<form action="#" method="post">
+
+	<p><input type="submit" value="Update" /></p>
+
+	<table class="broken-links">
+	{{#each pages}}
+		<tr>
+			<td>{{#each parents}}{{this}} &rarr; {{/each}}<a href="/{{uri}}">{{title}}</a> <small>({{type}})</small></td>
+			<td><input type="text" name="{{uri}}" id="{{uri}}" placeholder="Authorship" /></td>
+		</tr>
+	{{/each}}
+	</table>
+
+	<p><input type="submit" value="Update" /></p>
+
+</form>

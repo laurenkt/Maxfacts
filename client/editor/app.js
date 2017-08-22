@@ -7,18 +7,16 @@ import normalize from "./msword_normalizer.js"
 import {serialize, deserialize}   from "./html_serializer.js"
 
 const TextField = ({name, value, onChange, defaultValue, children, className}) =>
-	<p className="label-input" key={name}>
-		<label htmlFor={name}>{children}</label>
-		<input type="text" className={className || ''} name={name} id={name} onChange={onChange} value={value} defaultValue={defaultValue} />
-	</p>
+	<tr className="label-input" key={name}>
+		<td><label htmlFor={name}>{children}</label></td>
+		<td><input type="text" className={className || ''} name={name} id={name} onChange={onChange} value={value} defaultValue={defaultValue} /></td>
+	</tr>
 
 const CheckBox = ({name, checked, defaultChecked, children}) =>
-	<p>
-		<label htmlFor={name}>
-			<input type="checkbox" name={name} id={name} checked={checked} defaultChecked={defaultChecked} />
-			{children}
-		</label>
-	</p>
+	<tr className="checkbox">
+		<td><input type="checkbox" name={name} id={name} checked={checked} defaultChecked={defaultChecked} /></td>
+		<td><label htmlFor={name}>{children}</label></td>
+	</tr>
 
 const plugins = [
 	SoftBreak({shift: true}),
@@ -56,23 +54,21 @@ class Editor extends React.Component {
 			]}, {terse: true})
 
 		this.state = {
-			id:       content.id,
-			uri:      content.uri,
-			title:    content.title,
-			body:     content.body || "",	
-			description: content.description,
-			surtitle: content.surtitle,
-			order:    content.order,
-			type:     content.type,
-			hide:     content.hide,
-			redirect_uri:
-			          content.redirect_uri,
-			has_sublist:
-			          content.has_subtlist,
-			further_reading_uri:
-			          content.further_reading_uri,
-			slate:    initial_state,
-			editing_in_html: false,
+			id:                   content.id,
+			uri:                  content.uri,
+			title:                content.title,
+			body:                 content.body || "",
+			description:          content.description,
+			surtitle:             content.surtitle,
+			order:                content.order,
+			type:                 content.type,
+			hide:                 content.hide,
+			redirect_uri:         content.redirect_uri,
+			has_sublist:          content.has_subtlist,
+			further_reading_uri:  content.further_reading_uri,
+			authorship:           content.authorship,
+			slate:                initial_state,
+			editing_in_html:      false,
 		}
 
 		this.touched = {
@@ -88,6 +84,8 @@ class Editor extends React.Component {
 			          !!content.has_sublist,
 			further_reading_uri:
 			          !!content.further_reading_uri,
+			authorship:
+			          !!content.authorship,
 		}
 		this.rows = Math.max(this.state.body.split(/\r?\n/).length, 20)
 
@@ -608,6 +606,7 @@ class Editor extends React.Component {
 	render() {
 		return (
 			<form method="post" action="#" onSubmit={this.onSubmit}>
+				<table>
 				<TextField name="id" value={this.state.id} onChange={this.onChangeID}>ID</TextField>
 				<TextField name="uri" value={this.state.uri} onChange={this.onChangeURI}
 					className={this.touched.uri ? "" : "-suggested"}>URI</TextField>
@@ -615,49 +614,55 @@ class Editor extends React.Component {
 				<TextField name="description" defaultValue={this.state.description}>Subtitle</TextField>
 				<TextField name="surtitle" defaultValue={this.state.surtitle}>Surtitle</TextField>
 				<TextField name="redirect_uri" defaultValue={this.state.redirect_uri}>Redirect URI</TextField>
-				<p className="label-input">
-					<label htmlFor="type">Type</label>
-					<select name="type" id="type" value={this.state.type} onChange={this.onChangeType}>
-						<option value="page">Uncategorised page</option>
-						<option value="directory">Preamble</option>
-						<option value="level3">Level 3 - detailed information</option>
-						<option value="level2">Level 2 – getting to know more</option>
-						<option value="level1">Level 1 – getting started</option>
-						<option value="further">Further reading</option>
-					</select>
-				</p>
 				<TextField name="order" defaultValue={this.state.order || "0"}>Order</TextField>
 				<TextField name="further_reading_uri" defaultValue={this.state.further_reading_uri}>Further reading URI</TextField>
+				<TextField name="authorship" defaultValue={this.state.authorship}>Authorship</TextField>
+				<tr className="label-input">
+					<td><label htmlFor="type">Type</label></td>
+					<td>
+						<select name="type" id="type" value={this.state.type} onChange={this.onChangeType}>
+							<option value="page">Uncategorised page</option>
+							<option value="directory">Preamble</option>
+							<option value="level3">Level 3 - detailed information</option>
+							<option value="level2">Level 2 – getting to know more</option>
+							<option value="level1">Level 1 – getting started</option>
+							<option value="further">Further reading</option>
+						</select>
+					</td>
+				</tr>
 				<CheckBox name="has_sublist" defaultChecked={this.state.has_sublist}>Display child pages in same column as this page</CheckBox>
 				<CheckBox name="hide" defaultChecked={this.state.hide}>Hide in directory</CheckBox>
-				<div className="content-editor">
-					<p className="menu editmode-menu">
-						<label>
-							<input
-								type="checkbox"
-								onChange={this.onEditModeChange}
-								checked={null} />
-							<span className="label-body">Edit in raw HTML</span>
-						</label>
-					</p>
-					<textarea
-						rows={this.rows}
-						name="body"
-						style={{display: this.state.editing_in_html ? "block" : "none"}}
-						onChange={this.onTextAreaChange}
-						value={this.state.body} />
-					{!this.state.editing_in_html && 
-						this.renderToolbar()}
-					{!this.state.editing_in_html &&
-						<RichTextEditor
-							schema={Schema(this.props.content.all_uris)}
-							state={this.state.slate}
-							onChange={this.onEditorChange}
-							plugins={plugins}
-							onPaste={this.onPaste}
-							onKeyDown={this.onKeyDown} />}
-				</div>
-				<p><input type="submit" value="Save" /></p>
+				<tr><td colSpan="2">
+					<div className="rich-text-editor">
+						<p className="menu editmode-menu">
+							<label>
+								<input
+									type="checkbox"
+									onChange={this.onEditModeChange}
+									checked={null} />
+								<span className="label-body">Edit in raw HTML</span>
+							</label>
+						</p>
+						<textarea
+							rows={this.rows}
+							name="body"
+							style={{display: this.state.editing_in_html ? "block" : "none"}}
+							onChange={this.onTextAreaChange}
+							value={this.state.body} />
+						{!this.state.editing_in_html && 
+							this.renderToolbar()}
+						{!this.state.editing_in_html &&
+							<RichTextEditor
+								schema={Schema(this.props.content.all_uris)}
+								state={this.state.slate}
+								onChange={this.onEditorChange}
+								plugins={plugins}
+								onPaste={this.onPaste}
+								onKeyDown={this.onKeyDown} />}
+					</div>
+				</td></tr>
+				<tr><td><input type="submit" value="Save" /></td></tr>
+				</table>
 			</form>
 		)
 	}

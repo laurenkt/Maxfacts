@@ -47,6 +47,14 @@ app.engine("hbs", hbs({
 	partialsDir:   join(__dirname, "templates", "partials"),
 	helpers: {
 		toJSON: obj => JSON.stringify(obj),
+		date:   date => date.toLocaleString('en-GB', {
+			weekday: 'short',
+			year: 'numeric',
+			month: 'long',
+			day: 'numeric',
+			timeZone: 'UTC',
+			timeZoneName: 'short'
+		}).slice(0, -5), // remove time-zone
 	},
 }))
 app.set("view engine", "hbs")

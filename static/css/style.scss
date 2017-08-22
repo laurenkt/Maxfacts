@@ -195,15 +195,6 @@ body > section {
 	width: 100%;
 	flex: 1;
 
-	.sidebar {
-		@include nav-column(3);
-		padding: 10px 10px 10px 0;
-		margin-right: 20px;
-
-		li ul {
-			margin-left: 20px;
-		}
-	}
 }
 
 h2 {
@@ -488,11 +479,6 @@ button,
 	}
 }
 
-.editor {
-	font-family: sans-serif;
-	min-height: 200px;
-}
-
 .next-section {
 	margin-top: $small-spacing;
 	background: #eee;
@@ -614,6 +600,40 @@ aside {
 		&~ p {
 			margin-top: 10px;
 		}
+	}
+}
+
+.article-metadata {
+	text-align: right;
+	padding-top: 70px;
+	width: 28%;
+	float: right;
+	background: white;
+	color: #999;
+
+	a {
+		color: #777;
+		text-decoration: underline;
+
+		&:hover {
+			color: black;
+		}
+	}
+	
+	p {
+		font-size: 12pt;
+	}
+
+	ul {
+		margin-top: 10px;
+		font-size: 11pt;
+		list-style: none;
+	}
+
+	h3 {
+		font-size: 12pt;
+		padding-bottom: 10px;
+		border-bottom: 2px solid #ddd;
 	}
 }
 
@@ -953,6 +973,11 @@ header {
 		a {
 			color: white;
 			text-decoration: underline;
+
+			&:hover {
+				color: white;
+				text-shadow: 1px 1px black;
+			}
 		}
 	}
 

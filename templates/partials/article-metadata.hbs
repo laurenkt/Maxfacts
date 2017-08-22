@@ -1,0 +1,13 @@
+{{#if body}}
+<aside class="article-metadata">
+	<h3>About this page</h3>
+	<p>Last updated {{date updatedAt}}
+	{{#if authorship}}
+	<ul class="authorship">
+		{{#each authorship}}
+		<li>{{this}}</li>
+		{{/each}}
+	</ul>
+	{{/if}}
+</aside>
+{{/if}}

@@ -48,6 +48,11 @@ const schema = new mongoose.Schema({
 	title:       {type: String,  required:true},
 	type:        {type: String,  default: "page"},
 	has_sublist: {type: Boolean, default: false},
+	authorship:  {
+		type: String,
+		get:  str =>    typeof str === 'string' ? str.split(/[:space:]*;[:space:]*/) : str,
+		set:  input => input.join !== undefined ? input.join(';') : input,
+	},
 	contents:    {type: [{text: String, id: String}]},
 }, {
 	timestamps: true,

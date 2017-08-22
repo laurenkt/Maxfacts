@@ -8,9 +8,11 @@ router.get("/delete/:uri(*)", getDeletePage)
 router.get("/new",            getNewPage)
 router.get("/:uri(*)",        getPage)
 router.get("/broken-links",   getBrokenLinks)
+router.get("/unattributed",   getUnattributed)
 
 router.post("/new",          postNewPage)
 router.post("/broken-links", postBrokenLinks)
+router.post("/unattributed", postUnattributed)
 router.post("/:uri(*)",      postPage)
 
 async function getPageList(req, res) {
@@ -59,6 +61,25 @@ async function getBrokenLinks(req, res) {
 	})
 }
 
+async function getUnattributed(req, res) {
+	const pages = await Content
+		.find({ $or: [{authorship: {$exists: false}}, {authorship: ''}] })
+		.where('type')
+		.in(['level1', 'level2', 'level3', 'page'])
+		.where('body')
+		.ne('')
+		.select('uri title type')
+		.sort('uri')
+		.exec()
+
+	pages.forEach(page => page.parents = page.uri.split('/').slice(0, -1))
+
+	res.render("dashboard/unattributed", {
+		layout: "dashboard",
+		pages	
+	})
+}
+
 async function postBrokenLinks(req, res) {
 	let find = []
 	let replace = []
@@ -86,6 +107,18 @@ async function postBrokenLinks(req, res) {
 	}
 
 	res.redirect('/dashboard/directory/broken-links')
+}
+
+async function postUnattributed(req, res) {
+	for (let uri in req.body) {
+		if (req.body[uri]) {
+			let content = await Content.findOne({uri}).exec()
+			content.authorship = req.body[uri]
+			await content.save()
+		}
+	}
+
+	res.redirect('/dashboard/directory/unattributed')
 }
 
 async function getNewPage(req, res) {

@@ -55,6 +55,40 @@ p {
 	clear: left;
 }
 
+.sidebar {
+	float: left;
+	width: 22%;
+	padding: 10px 10px 10px 0;
+	margin-right: 20px;
+
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+
+		li {
+			padding: 0;
+			margin: 0;
+			font-weight: bold;
+
+			li {
+				font-weight: normal;
+
+				a {
+					background: white;
+				}
+			}
+		}
+		
+		a {
+			display: block;
+			background: #eee;
+			padding: 5px 10px;
+			margin: 1px 0;
+		}
+	}
+}
+
 .small-entry {
 	clear: none;
 	float: left;
@@ -116,9 +150,40 @@ h3 {
 }
 
 .content-editor {
-	background: #f2f2f2;
-	border: 3px solid #444;
-	padding: 0 10px 10px;
+	form > table {
+		td {
+			border: 0;
+			padding: 3px 6px;
+		}
+		tr.checkbox td:first-of-type {
+			text-align: right;
+		}
+	}
+
+	.rich-text-editor {
+		background: white;
+		border: 15px solid #ddd;
+		padding: 0 10px 10px;
+	}
+
+	input[type=text] {
+		border: 0;
+		border-radius: 0;
+		background: white;
+		box-shadow: none;
+		border-bottom: 1px solid white;
+		color: #999;
+		padding: 3px 6px;
+
+		&:focus {
+			border-bottom: 1px solid black;
+			color: black;
+		}
+	}
+
+	select {
+		margin-bottom: 0;
+	}
 
 	h4 {
 		font-size: 200%;
@@ -132,17 +197,16 @@ h3 {
 		font-size: 110%;
 	}
 
+	label {
+		margin-bottom: 0;
+	}
+
 	.label-input {
 		label {
-			width: 30%;
-			float: left;
 			text-align: right;
-			padding: 10px;
 		}
 
 		input {
-			width: 65%;
-			clear: right;
 		}
 	}
 
@@ -164,6 +228,7 @@ h3 {
 		background: #bbb;
 
 		&.toolbar-menu {
+			box-sizing: border-box;
 			background: #ccc;
 		}
 
