@@ -62,12 +62,7 @@ async function getBrokenLinks(req, res) {
 }
 
 async function getUnattributed(req, res) {
-	const pages = await Content
-		.find({ $or: [{authorship: {$exists: false}}, {authorship: ''}] })
-		.where('type')
-		.in(['level1', 'level2', 'level3', 'page'])
-		.where('body')
-		.ne('')
+	const pages = await Content.findWithNoAuthorship()
 		.select('uri title type')
 		.sort('uri')
 		.exec()

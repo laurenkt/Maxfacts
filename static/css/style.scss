@@ -1122,7 +1122,7 @@ label.disabled {
 	}
 }
 
-.recipe-box {
+.link-box {
 	p {
 		width: 48%;
 		float: left;
@@ -1141,12 +1141,14 @@ label.disabled {
 				border-radius: 10px;
 				background-color: white;
 			}
-		}
 
-		~ p a::first-letter {
-			display: block;
-			padding-left: 30px;
-			background: transparent url(/images/pdf.png) 0 center/24px 24px no-repeat;
+			&.-pdf {
+				&::first-letter {
+					display: block;
+					padding-left: 30px;
+					background: transparent url(/images/pdf.png) 0 center/24px 24px no-repeat;
+				}	
+			}
 		}
 	}
 }

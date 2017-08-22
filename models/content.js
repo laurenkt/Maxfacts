@@ -228,6 +228,15 @@ schema.statics = {
 		return {ids, uris}
 	},
 
+	findWithNoAuthorship() {
+		return this
+			.find({ $or: [{authorship: {$exists: false}}, {authorship: ''}] })
+			.where('type')
+			.in(['level1', 'level2', 'level3', 'page'])
+			.where('body')
+			.ne('')
+	},
+
 	replaceHREFsWith(html:string, from:Array<string>, to:Array<string>):string {
 		let handler = new DomHandler((err, dom) => {
 			DomUtils.getElements({tag_name:"a"}, dom, true).forEach(node => {

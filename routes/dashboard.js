@@ -2,6 +2,7 @@ import express from "express"
 import { ensureLoggedIn } from "connect-ensure-login"
 import User from "../models/user.js"
 import Option from "../models/option.js"
+import Content from "../models/content.js"
 
 const router = express.Router()
 
@@ -29,9 +30,12 @@ router.post("/", postOverview)
 async function getOverview(req, res) {
 	const options = await Option.all()
 
+	const unattributed = (await Content.findWithNoAuthorship().select('uri').exec()).length
+
 	res.render("dashboard/overview", {
 		layout: "dashboard",
-		options
+		options,
+		unattributed
 	})
 }
 
