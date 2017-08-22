@@ -1,7 +1,12 @@
 <h2>Overview</h2>
-{{#if unattributed}}
-	{{unattributed}} unattributed pages
-{{/if}}
+<div class="link-box">
+	{{#if unattributed}}
+		<p><a href="/dashboard/directory/unattributed">{{unattributed}} unattributed pages</a></p>
+	{{/if}}
+	{{#if broken_links}}
+		<p><a href="/dashboard/directory/broken-links">{{broken_links}} pages with broken links</a></p>
+	{{/if}}
+</div>
 {{#options}}
 <form method="post" action="#">
 	<p>

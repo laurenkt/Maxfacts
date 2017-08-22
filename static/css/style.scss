@@ -1123,9 +1123,12 @@ label.disabled {
 }
 
 .link-box {
+	@include clearfix
+
 	p {
 		width: 48%;
 		float: left;
+		clear: none;
 		background: rgb(243, 241, 246);
 		text-align: center;
 		border: 2px solid rgb(187, 179, 204);

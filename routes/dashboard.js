@@ -32,10 +32,19 @@ async function getOverview(req, res) {
 
 	const unattributed = (await Content.findWithNoAuthorship().select('uri').exec()).length
 
+	const all_pages = await Content.find().where('body').ne('').exec()
+
+	let broken_links = 0
+	for (let i = 0; i < all_pages.length; i++) {
+		if ((await all_pages[i].getInvalidLinks()).length > 0)
+			broken_links++
+	}
+
 	res.render("dashboard/overview", {
 		layout: "dashboard",
 		options,
-		unattributed
+		unattributed,
+		broken_links
 	})
 }
 
