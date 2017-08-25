@@ -74,6 +74,14 @@ describe("HTTP end-point integrations", function() {
 		})
 	})
 
+	describe("/help/oral-food/recipes/apple-sauce-ice-cream", () => {
+		it("should respond to GET", done => {
+			request(server)
+				.get("/help/oral-food/recipes/apple-sauce-ice-cream")
+				.expect(200, done)
+		})
+	})
+
 	describe("/diagnosis/diagnoses/mouth-cancer/level1/figure1.jpg", () => {
 
 		it("should respond to GET", done => {
