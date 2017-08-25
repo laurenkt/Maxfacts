@@ -12,7 +12,7 @@
     "test:integrations": "TEST=maxfacts nyc --reporter=html --reporter=text mocha build/test && npm run test:editor",
     "flow": "flow; test $? -eq 0 -o $? -eq 2",
     "precommit": "npm run test",
-    "prepush": "npm run test:integrations",
+    "prepush": "gulp clean && gulp && npm run test:integrations",
     "deploy": "gulp clean && gulp && cp .env build/.env && pm2 delete www && npm run restore && pm2 start build/bin/www"
   },
   "dependencies": {
