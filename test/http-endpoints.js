@@ -18,6 +18,14 @@ describe("HTTP end-point integrations", function() {
 		})
 	})
 
+	describe("/css/style.css", () => {
+		it("should respond to GET", done => {
+			request(server)
+				.get("/css/style.css")
+				.expect(200, done)
+		})
+	})
+
 	describe("/js/multipart-player.js", () => {
 		it("should respond to GET", done => {
 			request(server)
@@ -70,6 +78,22 @@ describe("HTTP end-point integrations", function() {
 		it("should respond to GET", done => {
 			request(server)
 				.get("/diagnosis")
+				.expect(200, done)
+		})
+	})
+
+	describe("/help/physiotherapy/videos/shoulder", () => {
+		it("should respond to GET", done => {
+			request(server)
+				.get("/help/physiotherapy/videos/shoulder")
+				.expect(200, done)
+		})
+	})
+
+	describe("/help/oral-food/cooking-videos/gelatin", () => {
+		it("should respond to GET", done => {
+			request(server)
+				.get("/help/oral-food/cooking-videos/gelatin")
 				.expect(200, done)
 		})
 	})
