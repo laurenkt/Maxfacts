@@ -1,35 +1,48 @@
-# This file is a template, and might need editing before it works on your project.
-# Official framework image. Look for the different tagged releases at:
-# https://hub.docker.com/r/library/node/tags/
-image: node:latest
+image: node:8.4
 
 # Pick zero or more services to be used on all builds.
 # Only needed when using a docker container to run your tests in.
 # Check out: http://docs.gitlab.com/ce/ci/docker/using_docker_images.html#what-is-service
 services:
-    - mongo:latest
+    - docker:dind
+    - mongo:3.2
 
 # This folder is cached between builds
 # http://docs.gitlab.com/ce/ci/yaml/README.html#cache
-# cache:
-#    paths:
-#        - node_modules/
-
-# Install mongo restore
-before_script:
-    - apt-get -qq update -y; apt-get -qq install -y mongodb
+cache:
+    paths:
+        - node_modules/
 
 variables:
     DOCKER_DRIVER: overlay
+    DEPLOY_SERVER: maxfacts.york.ac.uk
 
-web_server:
+stages:
+    - test
+    - deploy
+
+build_and_test:
+    stage: test
     script:
+        # Needed for mongorestore
+        - 'which mongorestore || ( apt-get -qq update -y; apt-get -qq install -y mongodb )'
         # Stop env file missing error
         - cp .env.example .env
-        - npm install -g yarn gulp
+        - mongorestore -h mongo -d maxfacts data/dump/maxfacts
         - yarn install
-        - cd backups/$(command ls -t backups | head -1)
-        - for i in 1 2 3 4 5 6 7 8 9 10; do mongorestore -h mongo -d maxfacts maxfacts && break || sleep 2; done
-        - cd ../..
-        - gulp clean && gulp
+        - node_modules/.bin/gulp
         - npm run test:integrations
+
+deploy:
+    stage: deploy
+    only:
+        - schedules
+    script:
+        # Install ssh-agent if not already installed, it is required by Docker.
+        # (change apt-get to yum if you use a CentOS-based image)
+        - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+          # Run ssh-agent (inside the build environment)
+        - eval $(ssh-agent -s)
+          # Add the SSH key stored in SSH_PRIVATE_KEY variable to the agent store
+        - ssh-add <(echo "$SSH_PRIVATE_KEY")
+        - ssh $DEPLOY_SERVER 'cd Maxfacts && git pull && npm run deploy'
