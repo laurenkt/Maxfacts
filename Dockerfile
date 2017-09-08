@@ -12,7 +12,7 @@ RUN yarn global add gulp-cli
 
 COPY build $HOME/app
 COPY package.json yarn.lock start.sh .env $HOME/app/
-COPY backups $HOME/app/backups
+COPY data/dump $HOME/app/data/dump
 RUN chown -R node:node $HOME/app
 
 USER node
