@@ -5,7 +5,8 @@
   "scripts": {
     "start": "./bin/www",
     "start:dev": "DEBUG=maxfacts nodemon -- --inspect ./build/bin/www",
-    "backup": "mongodump -d maxfacts -o ./backups/$(date \"+%Y-%m-%d-%Hh-%Mm\")",
+    "backup": "rm -rf data/dump && mongodump -d maxfacts -o data/dump",
+	"backup:copy": "npm run backup && copy; cp -R data/dump /shared/storage/cs/staffstore/lt696/maxfacts-backups/$(date \"+%Y-%m-%d-%Hh-%Mm\")",
     "restore": "mongo maxfacts --eval \"db.dropDatabase();\"; cd backups/$(command ls -t backups | head -1); mongorestore -d maxfacts maxfacts",
     "test:editor": "TEST=maxfacts nyc --reporter=html --reporter=text mocha client/editor/test --compilers js:babel-register",
     "test": "TEST=maxfacts nyc --reporter=html --reporter=text mocha build/test --grep integrations --invert && npm run test:editor",
