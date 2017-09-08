@@ -3,11 +3,20 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+<<<<<<< HEAD
     "start": "./build/bin/www",
     "start:dev": "DEBUG=maxfacts nodemon -- --inspect ./build/bin/www",
     "backup": "mongodump -d maxfacts -o ./backups/$(date \"+%Y-%m-%d-%Hh-%Mm\")",
     "restore": "mongo maxfacts --eval \"db.dropDatabase();\"; cd backups/$(command ls -t backups | head -1); mongorestore -d maxfacts maxfacts",
 	"test:editor": "TEST=maxfacts nyc --reporter=html --reporter=text mocha client/editor/test --compilers js:babel-register",
+=======
+    "start": "./bin/www",
+    "start:dev": "DEBUG=maxfacts nodemon -- --inspect ./build/bin/www",
+    "backup": "rm -rf data/dump && mongodump -d maxfacts -o data/dump",
+	"backup:copy": "npm run backup && copy; cp -R data/dump /shared/storage/cs/staffstore/lt696/maxfacts-backups/$(date \"+%Y-%m-%d-%Hh-%Mm\")",
+    "restore": "mongo maxfacts --eval \"db.dropDatabase();\"; cd backups/$(command ls -t backups | head -1); mongorestore -d maxfacts maxfacts",
+    "test:editor": "TEST=maxfacts nyc --reporter=html --reporter=text mocha client/editor/test --compilers js:babel-register",
+>>>>>>> b25ed3f5cebcfd8fc92958a22f5533ea0f20d01c
     "test": "TEST=maxfacts nyc --reporter=html --reporter=text mocha build/test --grep integrations --invert && npm run test:editor",
     "test:integrations": "TEST=maxfacts nyc --reporter=html --reporter=text mocha build/test && npm run test:editor",
     "flow": "flow; test $? -eq 0 -o $? -eq 2",
@@ -43,6 +52,10 @@
     "express-handlebars": "^3.0.0",
     "express-rate-limit": "^2.8.0",
     "express-session": "^1.14.0",
+<<<<<<< HEAD
+=======
+    "file-loader": "^0.11.2",
+>>>>>>> b25ed3f5cebcfd8fc92958a22f5533ea0f20d01c
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-babel": "^6.1.2",
