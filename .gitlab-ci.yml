@@ -1,13 +1,13 @@
 # This file is a template, and might need editing before it works on your project.
 # Official framework image. Look for the different tagged releases at:
 # https://hub.docker.com/r/library/node/tags/
-image: node:latest
+image: node:8.4
 
 # Pick zero or more services to be used on all builds.
 # Only needed when using a docker container to run your tests in.
 # Check out: http://docs.gitlab.com/ce/ci/docker/using_docker_images.html#what-is-service
 services:
-    - mongo:latest
+    - mongo:3.2
 
 # This folder is cached between builds
 # http://docs.gitlab.com/ce/ci/yaml/README.html#cache
@@ -27,9 +27,5 @@ web_server:
         # Stop env file missing error
         - cp .env.example .env
         - npm install -g yarn gulp
-        - yarn install
-        - cd backups/$(command ls -t backups | head -1)
-        - for i in 1 2 3 4 5 6 7 8 9 10; do mongorestore -h mongo -d maxfacts maxfacts && break || sleep 2; done
-        - cd ../..
-        - gulp clean && gulp
+        - mongorestore -h mongo -d maxfacts backups/$(command ls -t backups | head -1)/maxfacts
         - npm run test:integrations
