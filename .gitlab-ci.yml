@@ -28,4 +28,5 @@ web_server:
         - cp .env.example .env
         - npm install -g yarn gulp
         - mongorestore -h mongo -d maxfacts backups/$(command ls -t backups | head -1)/maxfacts
+        - gulp
         - npm run test:integrations
