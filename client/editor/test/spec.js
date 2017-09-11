@@ -1,6 +1,11 @@
 const chai     = require('chai')
 const chaiHtml = require('chai-html')
 
+// babel-register is needed as the sub-modules are written in ECMASCript 2015
+// and mocha won't be able to read them currently.
+// It's not possible to specify a loader for the tests on the mocha
+// command line without it applying it ALL the tests (it should only
+// apply to these tests)
 require('babel-register')
 
 const {
