@@ -1,13 +1,16 @@
-import chai from "chai"
-import chaiHtml from "chai-html"
-import {
+const chai     = require('chai')
+const chaiHtml = require('chai-html')
+
+require('babel-register')
+
+const {
 	stripEmptyTags,
 	processLinks,
 	processFigures,
 	processHeadings,
 	processAsides,
 	processTables,
-	processLists} from "../msword_normalizer.js"
+	processLists} = require("../msword_normalizer.js")
 
 const expect = chai.expect
 chai.use(chaiHtml)
