@@ -6,7 +6,8 @@ const chaiHtml = require('chai-html')
 // It's not possible to specify a loader for the tests on the mocha
 // command line without it applying it ALL the tests (it should only
 // apply to these tests)
-require('babel-register')
+// Don't convert built files
+require('babel-register', {ignore: /build/})
 
 const {
 	stripEmptyTags,
