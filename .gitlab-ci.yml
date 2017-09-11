@@ -14,7 +14,7 @@ cache:
 
 variables:
     DOCKER_DRIVER: overlay
-    DEPLOY_SERVER: maxfacts.york.ac.uk
+    DEPLOY_SERVER: lt696@maxfacts.york.ac.uk
 
 stages:
     - test
