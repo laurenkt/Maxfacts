@@ -33,8 +33,11 @@ if (error) {
 }
 // Set-up Mongoose models
 mongoose.Promise = global.Promise // Required to squash a deprecation warning
-mongoose.connect(process.env.MONGO_URI, {useMongoClient:true}).connection
-	.on("error", console.error.bind(console, "connection error:"))
+async function connect() {
+	await mongoose.connect(`mongodb://${process.env.MONGO_URI}`, {useMongoClient:true})
+}
+
+connect().catch(console.error.bind(console, "connection error:"))
 
 // Start Express
 const app = express()
