@@ -123,7 +123,6 @@ app.use(express.static(process.env.STATIC_FS))
 const route = (name) => require(join(__dirname, 'routes', name))
 
 app.use('/',                   route('feedback'))
-app.use('/',                   route('images'))
 app.use('/',                   route('videos'))
 app.use(
 	'/help/oral-food/recipes', route('recipes'))
