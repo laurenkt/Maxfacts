@@ -24,6 +24,7 @@ const env_schema = joi.object({
 	MAILER_PORT:    joi.number().required(),
 	MAILER_USER:    joi.string().required(),
 	MAILER_PASS:    joi.string().required(),
+	STATIC_FS:      joi.string().required(),
 }).unknown().required()
 
 const {error} = joi.validate(process.env, env_schema)
@@ -116,6 +117,7 @@ app.use(passport.session())
 
 // Middleware for static files into static/
 app.use(express.static(join(__dirname, 'static')))
+app.use(express.static(process.env.STATIC_FS))
 
 // Loads the named module from the routes/ directory
 const route = (name) => require(join(__dirname, 'routes', name))
