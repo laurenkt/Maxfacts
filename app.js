@@ -115,10 +115,6 @@ passport.deserializeUser((obj, cb) => cb(null, obj))
 app.use(passport.initialize())
 app.use(passport.session())
 
-// Middleware for static files into static/
-app.use(express.static(join(__dirname, 'static')))
-app.use(express.static(process.env.STATIC_FS))
-
 // Loads the named module from the routes/ directory
 const route = (name) => require(join(__dirname, 'routes', name))
 
@@ -135,6 +131,10 @@ app.use('/',                   route('index'))
 app.get('/auth', passport.authenticate('google', { scope: ['email'] } ))
 app.get('/auth/callback',
 	passport.authenticate('google', { successReturnToOrRedirect: '/', failureRedirect: '/error' }))
+
+// Middleware for static files into static/
+app.use(express.static(join(__dirname, 'static')))
+app.use(express.static(process.env.STATIC_FS))
 
 // If nothing is found
 app.use((req, res, next) => {
