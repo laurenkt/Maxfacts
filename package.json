@@ -3,7 +3,7 @@
 	"version": "0.0.0",
 	"private": true,
 	"scripts": {
-		"start": "./bin/www",
+		"start": "./build/bin/www",
 		"start:dev": "DEBUG=maxfacts nodemon -- --inspect ./build/bin/www",
 		"backup": "rm -rf data/dump && mongodump -d maxfacts -o data/dump",
 		"backup:copy": "npm run backup && copy; cp -R data/dump /shared/storage/cs/staffstore/lt696/maxfacts-backups/$(date \"+%Y-%m-%d-%Hh-%Mm\")",
