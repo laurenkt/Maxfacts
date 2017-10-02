@@ -16,6 +16,9 @@ variables:
     DOCKER_DRIVER: overlay
     DEPLOY_SERVER: lt696@maxfacts.york.ac.uk
 
+before_script:
+    - rm -rf /var/lib/apt/lists/*
+
 stages:
     - test
     - deploy
