@@ -10,6 +10,19 @@ import del          from 'del'
 import webpack      from 'webpack'
 import webpackGulp  from 'webpack2-stream-watch'
 
+// To debug cryptic child process errors
+(function() {
+    var childProcess = require("child_process");
+    var oldSpawn = childProcess.spawn;
+    function mySpawn() {
+        console.log('spawn called');
+        console.log(arguments);
+        var result = oldSpawn.apply(this, arguments);
+        return result;
+    }
+    childProcess.spawn = mySpawn;
+})()
+
 const dirs = {
 	dest: 'build',
 }
