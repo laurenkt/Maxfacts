@@ -19,9 +19,29 @@ variables:
 before_script:
     - rm -rf /var/lib/apt/lists/*
     - echo "http://dl-3.alpinelinux.org/alpine/v3.6/main" >> /etc/apk/repositories
-    - apk add --update --no-cache yarn mongodb-tools openssh
-    - apk add --update --no-cache build-base python
+    - >
+        apk add --update --no-cache \
+		add  \
+        automake \
+		git \
+		alpine-sdk  \
+		nasm  \
+		autoconf  \
+		build-base \
+		zlib \
+		zlib-dev \
+		libpng \
+		libpng-dev\
+		libwebp \
+		libwebp-dev \
+		libjpeg-turbo \
+		libjpeg-turbo-dev \
+        yarn \
+        mongodb-tools \
+        openssh \
+        python
     - yarn global add node-gyp # Fixes optipng errors
+    - yarn global add node-optipng # Fixes optipng errors
 
 stages:
     - test
