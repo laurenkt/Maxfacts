@@ -21,7 +21,6 @@ before_script:
     - echo "http://dl-3.alpinelinux.org/alpine/v3.6/main" >> /etc/apk/repositories
     - >
         apk add --update --no-cache
-        add 
         automake
         git
         alpine-sdk 
