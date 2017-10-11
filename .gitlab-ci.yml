@@ -21,6 +21,7 @@ before_script:
     - echo "http://dl-3.alpinelinux.org/alpine/v3.6/main" >> /etc/apk/repositories
     - apk add --update --no-cache yarn mongodb-tools openssh
     - apk add --update --no-cache build-base python
+    - yarn global add node-gyp # Fixes optipng errors
 
 stages:
     - test
