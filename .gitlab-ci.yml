@@ -31,7 +31,7 @@ before_script:
         zlib
         zlib-dev
         libpng
-        libpng-de
+        libpng-dev
         libwebp
         libwebp-dev
         libjpeg-turbo
