@@ -40,7 +40,7 @@ before_script:
         openssh
         python
     - yarn global add node-gyp # Fixes optipng errors
-    - yarn global add node-optipng # Fixes optipng errors
+    - yarn global add optipng-bin # Fixes optipng errors
 
 stages:
     - test
