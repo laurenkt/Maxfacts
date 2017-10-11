@@ -18,7 +18,7 @@ variables:
 
 before_script:
     - rm -rf /var/lib/apt/lists/*
-    - echo "http://dl-3.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories
+    - echo "http://dl-3.alpinelinux.org/alpine/v3.6/main" >> /etc/apk/repositories
     - apk add --update --no-cache yarn mongodb-tools openssh
     - apk add --update --no-cache build-base python
 
