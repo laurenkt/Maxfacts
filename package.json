@@ -7,7 +7,7 @@
 		"start:dev": "DEBUG=maxfacts nodemon -- --inspect ./build/bin/www",
 		"backup": "rm -rf data/dump && mongodump -d maxfacts -o data/dump",
 		"backup:copy": "npm run backup && copy; cp -R data/dump /shared/storage/cs/staffstore/lt696/maxfacts-backups/$(date \"+%Y-%m-%d-%Hh-%Mm\")",
-		"restore": "mongo maxfacts --eval \"db.dropDatabase();\"; cd backups/$(command ls -t backups | head -1); mongorestore -d maxfacts maxfacts",
+		"restore": "mongo maxfacts --eval \"db.dropDatabase();\"; cd data/dump; mongorestore -d maxfacts maxfacts",
 		"test": "TEST=maxfacts nyc --reporter=html --reporter=text mocha build/test client/editor/test --grep integrations --invert",
 		"test:integrations": "TEST=maxfacts nyc --reporter=html --reporter=text mocha build/test client/editor/test",
 		"flow": "flow; test $? -eq 0 -o $? -eq 2",
