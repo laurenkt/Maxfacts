@@ -1,4 +1,4 @@
 #!/bin/sh
 
-mongorestore -h mongo -d maxfacts backups/$(command ls -t backups | head -1)/maxfacts
+mongorestore -h mongo -d maxfacts data/dump/maxfacts
 npm start
