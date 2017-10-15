@@ -59,3 +59,8 @@ client/components
 
 # Debug log from npm
 npm-debug.log
+
+# Private and data files
+data/db
+data/storage
+private
