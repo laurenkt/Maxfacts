@@ -59,7 +59,7 @@ gulp.task('css', () => {
 })
 
 apps.forEach(app => {
-	const webpackConfig = require(`./client/${app}/webpack.config.babel.js`)(process.env)
+	const webpackConfig = require(`./client/${app}/webpack.config.js`)(process.env)
 
 	if (!process.env.DEBUG) {
 		webpackConfig.plugins = [
