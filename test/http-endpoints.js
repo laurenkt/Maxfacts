@@ -4,10 +4,10 @@ describe("HTTP end-point integrations", function() {
 	// Some set-up needed so the tests can interact with the server on
 	// an HTTP level
 	this.timeout(15000)
-	let server
+	let server = 'http://localhost:3000'
 	
-	before(done => server = require("../app.js").listen(3001, done))
-	after(done => server.close(done))
+	//before(done => server = require("../app.js").listen(3001, done))
+	//after(done => server.close(done))
 
 	// Set-up done, do the testing
 	describe("/", () => {

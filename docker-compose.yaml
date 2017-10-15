@@ -2,6 +2,8 @@ version: '2'
 services:
     app:
         build: .
+        volumes:
+            - ./data/storage:/opt/lt696dev/content
         links:
             - mongo
     mongo:
