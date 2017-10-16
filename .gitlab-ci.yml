@@ -28,7 +28,6 @@ build_and_test:
     script:
         # Stop env file missing error
         - cp .env.example .env
-        - mongorestore -h mongo -d maxfacts data/dump/maxfacts
         - yarn install
         - node_modules/.bin/gulp
         - docker build -t maxfacts .
