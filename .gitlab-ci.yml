@@ -1,4 +1,4 @@
-image: node:8.4-alpine
+image: docker:latest
 
 # Pick zero or more services to be used on all builds.
 # Only needed when using a docker container to run your tests in.
@@ -13,34 +13,11 @@ services:
 #        - node_modules/
 
 variables:
-    DOCKER_DRIVER: overlay
+    DOCKER_DRIVER: overlay2
     DEPLOY_SERVER: lt696@maxfacts.york.ac.uk
 
 before_script:
-    - rm -rf /var/lib/apt/lists/*
-    - echo "http://dl-3.alpinelinux.org/alpine/v3.6/main" >> /etc/apk/repositories
-    - >
-        apk add --update --no-cache
-        automake
-        git
-        alpine-sdk 
-        nasm 
-        autoconf
-        build-base
-        zlib
-        zlib-dev
-        libpng
-        libpng-dev
-        libwebp
-        libwebp-dev
-        libjpeg-turbo
-        libjpeg-turbo-dev
-        yarn
-        mongodb-tools
-        openssh
-        python
-    - yarn global add node-gyp # Fixes optipng errors
-    - yarn global add optipng-bin # Fixes optipng errors
+    - echo 'before_script'
 
 stages:
     - test
@@ -54,7 +31,9 @@ build_and_test:
         - mongorestore -h mongo -d maxfacts data/dump/maxfacts
         - yarn install
         - node_modules/.bin/gulp
-        - npm run test:integrations
+        - docker build -t maxfacts .
+        - docker run maxfacts -d
+        - yarn run docker:test
 
 deploy:
     stage: deploy
