@@ -55,7 +55,7 @@ build_and_test:
         - node_modules/.bin/gulp
         - docker build -t maxfacts .
         - docker run -d maxfacts
-        - yarn run docker:test
+        - docker exec -it $(docker container ls -qf "name=maxfacts") yarn run test:integrations
 
 deploy:
     stage: deploy
