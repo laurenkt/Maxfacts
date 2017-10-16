@@ -54,7 +54,7 @@ build_and_test:
         - yarn install
         - node_modules/.bin/gulp
         - docker build -t maxfacts .
-        - docker run maxfacts -d
+        - docker run -d maxfacts
         - yarn run docker:test
 
 deploy:
