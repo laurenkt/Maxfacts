@@ -11,8 +11,6 @@ RUN apk add --update --no-cache build-base python
 RUN yarn global add gulp-cli
 
 COPY build $HOME/app
-COPY package.json yarn.lock start.sh .env $HOME/app/
-COPY data/dump $HOME/app/data/dump
 RUN chown -R node:node $HOME/app
 
 USER node
@@ -20,5 +18,5 @@ WORKDIR $HOME/app
 
 RUN yarn install
 
-RUN chmod +x start.sh
-CMD cd /home/node/app && ./start.sh
+RUN chmod +x bin/docker-start.sh
+CMD cd /home/node/app && ./bin/docker-start.sh

@@ -1,4 +1,5 @@
 #!/bin/sh
 
 mongorestore -h mongo -d maxfacts data/dump/maxfacts
-npm start
+yarn install
+yarn start

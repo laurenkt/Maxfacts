@@ -24,12 +24,13 @@ gulp.task('clean', () => {
 	return del(dirs.dest)
 })
 
-gulp.task('watch', () => {
+gulp.task('watch', ['default'], () => {
 	gulp.watch('./static/js/**/*.js',    ['static_js'])
 	gulp.watch('./static/css/**/*.scss', ['css'])
 	gulp.watch('./templates/**/*.hbs',   ['templates'])
 	gulp.watch('./static/images/**/*',   ['images'])
 	gulp.watch('./test/*.js',            ['tests'])
+	gulp.watch('./data/dump/**/*',       ['data'])
 
 	apps.forEach(app => {
 		gulp.watch(`./client/${app}/**/*`, [app])
@@ -88,7 +89,16 @@ apps.forEach(app => {
 	})
 })
 
-gulp.task('server', () => {
+gulp.task('server-env', () => {
+	return gulp.src([
+		'./package.json',
+		'./.env',
+		'./yarn.lock',
+	])
+		.pipe(gulp.dest(dirs.dest))
+})
+
+gulp.task('server', ['server-env'], () => {
 	return gulp.src([
 		'!static/**/',        // ignore client JS
 		'!flow-typed/**/',    // ignore client JS
@@ -104,6 +114,11 @@ gulp.task('server', () => {
 		.pipe(babel())
 		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest(dirs.dest))
+})
+
+gulp.task('data', () => {
+	return gulp.src(['data/dump/**/*'])
+		.pipe(gulp.dest(`${dirs.dest}/data/dump`))
 })
 
 gulp.task('images', () => {
