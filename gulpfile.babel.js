@@ -5,6 +5,7 @@ import sourcemaps   from 'gulp-sourcemaps'
 import uglifycss    from 'gulp-uglifycss'
 import uglify       from 'gulp-uglify'
 import babel        from 'gulp-babel'
+import concat       from 'gulp-concat'
 import imgmin       from 'gulp-imagemin'
 import del          from 'del'
 import webpack      from 'webpack'
@@ -146,6 +147,7 @@ gulp.task('tests', () => {
 	return gulp.src('test/*.js')
 		.pipe(sourcemaps.init())
 		.pipe(babel())
+		.pipe(concat('tests.js'))
 		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest(`${dirs.dest}/test`))
 })
