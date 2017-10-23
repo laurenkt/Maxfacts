@@ -4,7 +4,7 @@ describe("HTTP end-point integrations", function() {
 	// Some set-up needed so the tests can interact with the server on
 	// an HTTP level
 	this.timeout(15000)
-	let server = 'http://localhost:3000'
+	let server = `http://${process.env.HOSTNAME || 'localhost'}:3000`
 	
 	//before(done => server = require("../app.js").listen(3001, done))
 	//after(done => server.close(done))
