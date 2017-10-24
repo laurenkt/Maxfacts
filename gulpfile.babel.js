@@ -159,4 +159,4 @@ gulp.task('other', () => {
 
 gulp.task('js', apps.concat('static_js'))
 
-gulp.task('default', ['bin', 'images', 'css', 'other', 'js', 'templates', 'server', 'tests'])
+gulp.task('default', ['bin', 'images', 'css', 'other', 'js', 'data', 'templates', 'server', 'tests'])
