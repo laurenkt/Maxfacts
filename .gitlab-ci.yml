@@ -52,7 +52,8 @@ build_and_test:
         - yarn install
         - node_modules/.bin/gulp
         - docker build -t maxfacts .
-        - docker exec $(docker run -d maxfacts) yarn run test:integrations
+        # Sleep is to wait for container to be set-up and ready
+        - docker exec $(docker run -d maxfacts; sleep 15) yarn run test:integrations
 
 deploy:
     stage: deploy
