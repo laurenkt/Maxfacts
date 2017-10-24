@@ -17,13 +17,6 @@ variables:
     DEPLOY_SERVER: lt696@maxfacts.york.ac.uk
 
 before_script:
-    - rm -rf /var/lib/apt/lists/*
-    - echo "http://dl-1.alpinelinux.org/alpine/latest-stable/main" >> /etc/apk/repositories
-    - echo "http://dl-2.alpinelinux.org/alpine/latest-stable/main" >> /etc/apk/repositories
-    - echo "http://dl-3.alpinelinux.org/alpine/latest-stable/main" >> /etc/apk/repositories
-    - echo "http://dl-4.alpinelinux.org/alpine/latest-stable/main" >> /etc/apk/repositories
-    - echo "http://dl-5.alpinelinux.org/alpine/latest-stable/main" >> /etc/apk/repositories
-    - echo "http://dl-6.alpinelinux.org/alpine/latest-stable/main" >> /etc/apk/repositories
     - >
         apk add --update --no-cache
         automake
