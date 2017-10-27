@@ -918,6 +918,19 @@ footer {
 			}
 		}
 	}
+
+	.baoms {
+		clear: left;
+		display: block;
+		margin-top: $small-spacing;
+		text-transform: none;
+
+		a {
+			padding: 7px 0 7px 86px;
+			background: transparent url(/BAOMS.png) left center / 80px auto no-repeat;
+			font-weight: normal!important;
+		}
+	}
 }
 
 .news {
