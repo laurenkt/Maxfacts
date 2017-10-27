@@ -31,6 +31,7 @@ export default (valid_uris) => ({
 
 			return <img src={src} />
 		},
+		"br":        _ => <br />,
 		"hr":        _ => <hr />,
 		"link": props => {
 			const href      = props.node.data.get("href")
