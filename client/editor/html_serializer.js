@@ -16,6 +16,7 @@ const BLOCK_TAGS = {
 	h5: "heading-5",
 	h6: "heading-6",
 	img: "img",
+	br: "br",
 	hr: "hr",
 	tr: "tr",
 	td: "td",
@@ -71,12 +72,31 @@ const rules = [
 	},
 	{
 		deserialize(el, _) {
+			if (el.tagName != "BR") return
+
+			return {
+				kind: "text",
+				text: "\n",
+			}
+		},
+		serialize(obj, children) {
+			if (obj.type !== 'text') return
+			if (children !== '\n') return
+
+			return (
+				<br />
+			)
+		}
+	},
+	{
+		deserialize(el, _) {
 			if (el.tagName != "HR") return
 
 			return {
 				kind: "block",
 				type: "hr",
 				isVoid: true,
+				nodes: [],
 			}
 		}
 	},
@@ -99,7 +119,7 @@ const rules = [
 
 			const nodes = next(el.childNodes)
 
-			if (nodes.length == 0 || (nodes.every(node => node.kind == "text" && node.text.match(/^\s*$/))))
+			if (nodes.length == 0 || nodes.every(node => node.kind == "text" && node.text.match(/^\s*$/)))
 				return []
 
 			let attribs = {}
