@@ -43,6 +43,7 @@ class Player extends React.Component {
 	render() {
 		const filenames = this.props.video.filename.split(',')
 		const titles = this.props.video.titles.split("\n")
+		const thumbnails = this.props.video.thumbnail.split(',')
 		const {finished, current_idx} = this.state
 
 		const renderTitle = (title, idx) =>
@@ -63,16 +64,16 @@ class Player extends React.Component {
 				<div className="video-content">
 					{finished && 
 						<div className="video-endcard">
-							<a href="#" className="-this" onClick={() => this.setState({finished: false, current_idx: current_idx})}>
-								<h4>{titles[current_idx]}</h4>
+							<a href="#" className="-this" onClick={this.onClickTitle(current_idx)}>
+								<h4>Replay previous</h4>
+									<img src={thumbnails[current_idx]} />
 								<p>Repeat this exercise 5 times</p>
-								<img style={{maxWidth: '200px'}} src={`http://img.youtube.com/vi/bla/maxresdefault.jpg`} />
 							</a>
 							{(current_idx+1 < filenames.length) &&
-								<a href="#" className="-next" onClick={() => this.setState({finished: false, current_idx: current_idx+1})}>
-									<h4>Play next exercise</h4>
+								<a href="#" className="-next" onClick={this.onClickTitle(current_idx + 1)}>
+									<h4>Play next</h4>
+									<img src={thumbnails[current_idx + 1]} />
 									<p>{titles[current_idx+1]}</p>
-									<img style={{maxWidth: '200px'}} src={`http://img.youtube.com/vi/bla/maxresdefault.jpg`} />
 								</a>}
 							{(current_idx+1 >= filenames.length) &&
 								<div className="-next">

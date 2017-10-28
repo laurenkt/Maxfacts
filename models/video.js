@@ -6,6 +6,7 @@ const schema = new mongoose.Schema({
 	name:       String,
 	youtube_id: String,
 	filename:   String,
+	thumbnail:  String,
 	titles:     String,
 }, {
 	timestamps: true,

@@ -47,7 +47,8 @@ async function updateVideoAndRedirect(video, req, res) {
 
 	// Strip any non-ID URL components if a URL has been pasted
 	video.youtube_id = req.body.youtube_id.split(',').map(str => str.replace(/(.*)v=/, '').replace(/&(.*)/, '')).join(',')
-	video.filename   = req.body.filename.split(',').map(str => str.replace(/(.*)v=/, '').replace(/&(.*)/, '')).join(',')
+	video.filename   = req.body.filename
+	video.thumbnail  = req.body.thumbnail
 
 	await video.save()
 	res.redirect('/dashboard/videos')
