@@ -14,7 +14,9 @@ async function requestVideo(req, res, next) {
 
 	video.breadcrumbs = await Content.findBreadcrumbsForURI(video.uri)
 
-	if (video.youtube_ids.length > 1)
+	console.log('vide', video)
+
+	if (video.youtube_ids.length > 1 || video.filenames.length > 1)
 		res.render("video-multipart", video)
 	else
 		res.render("video", video)

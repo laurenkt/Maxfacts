@@ -149,17 +149,51 @@ html,body {
 	}
 }
 
+.video-player {
+	background: #eee;
+
+	* {
+		box-sizing: border-box;
+	}
+
+	.video-content {
+		padding: $small-spacing;
+	}
+
+	video {
+		margin: 0 auto;
+		display: block;
+	}
+}
+
+.video-select-exercise {
+	background: white;
+
+	h3 {
+		font-size: 12pt;	
+		margin: $small-spacing 0 0;
+		padding: 15px 0 5px 0;
+	}
+
+	.help {
+		font-weight: normal;
+		opacity: 0.6;
+		font-size: 80%;
+	}
+}
+
 .video-titles {
 	display: table;
 	width: 100%;
-	max-width: 640px;
 	list-style-type: none;
-	margin-left: 0;
+	margin: 0;
 	padding-left: 0;
-	border: 1px solid #aaa;
-	border-spacing:1px;
+	border: 0;
+	border-spacing: 0;
+	border-collapse: collapse;
 
 	li {
+		border-right: 1px solid #eee;
 		display: table-cell;
 		text-align: center;
 		vertical-align: center;
@@ -168,24 +202,25 @@ html,body {
 			display: block;
 			width: 100%;
 			height: 100%;
-			padding: 5px;
+			padding: 5px 0;
+			border-right: 1px solid white;
+			background: #ddd;
 
 			&:hover {
-				background: #eee;
+				background: $accent-color;
+				color: white;
 			}
 		}
 
 		&.active {
-			background: $accent-color;
 			a {
-				color: white;
+				background: #eee;
 			}
 		}
 	}
 }
 
 .video-endcard {
-	max-width: 640px;
 	display: table;
 	width: 100%;
 	border-spacing: 20px;

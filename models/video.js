@@ -5,6 +5,7 @@ const schema = new mongoose.Schema({
 	uri:        {type: String, unique: true, required:true},
 	name:       String,
 	youtube_id: String,
+	filename:   String,
 	titles:     String,
 }, {
 	timestamps: true,
@@ -21,6 +22,11 @@ schema.statics = {
 schema.virtual('youtube_ids')
 	.get(function() {
 		return this.youtube_id.split(',')
+	})
+
+schema.virtual('filenames')
+	.get(function() {
+		return this.filename.split(',')
 	})
 
 schema.pre("save", function(next) {
