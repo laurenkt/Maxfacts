@@ -62,11 +62,17 @@ const rules = [
 		deserialize(el, _) {
 			if (el.tagName != "IMG") return
 
+			const empty = {value: undefined}
+
 			return {
 				kind: "block",
 				type: "img",
 				isVoid: true,
-				data: {src: el.attributes.getNamedItem('src').value},
+				data: {
+					src:    el.attributes.getNamedItem('src').value,
+					width:  (el.attributes.getNamedItem('width')  || empty).value,
+					height: (el.attributes.getNamedItem('height') || empty).value,
+				},
 			}
 		}
 	},
@@ -165,8 +171,7 @@ const rules = [
 				case "th":        return <th {...colspan(obj.data)}>{children}</th>
 				case "aside":     return <aside>{children}</aside>
 				case "img":
-					const imgSrc = obj.data.get("src")
-					return <img src={imgSrc} />
+					return <img src={obj.data.get('src')} height={obj.data.get('height')} width={obj.data.get('width')} />
 				case "figure":
 					const src = obj.data.get("src")
 

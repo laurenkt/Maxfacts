@@ -11,6 +11,7 @@ import {join}     from 'path'
 import hbs        from 'express-handlebars'
 import joi        from 'joi'
 import {config}   from 'dotenv'
+import flash      from 'express-flash-2'
 
 // Load and validate environment variables
 config() // loads from .env file
@@ -114,6 +115,9 @@ passport.deserializeUser((obj, cb) => cb(null, obj))
 
 app.use(passport.initialize())
 app.use(passport.session())
+
+// Flashing data to session
+app.use(flash())
 
 // Handle user session
 import User from "./models/user.js"

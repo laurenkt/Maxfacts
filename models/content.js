@@ -133,14 +133,15 @@ schema.statics = {
 		let reduced_body = ""
 		for(;;) {
 			reduced_body = sanitizeHtml(html, {
-				allowedTags: ["h1", "h2", "h3", "h4", "h5", "h6", "blockquote", "p", "a", "ul", "ol",
-					"li", "strong", "em", "table", "thead", "caption", "tbody", "tfoot", "tr", "th", "td",
-					"figure", "abbr", "img", "aside", "caption", "cite", "dd", "dfn", "dl", "dt", "figcaption",
-					"sub", "sup", "i", "br", "hr"],
+				allowedTags: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'p', 'a', 'ul', 'ol',
+					'li', 'strong', 'em', 'table', 'thead', 'caption', 'tbody', 'tfoot', 'tr', 'th', 'td',
+					'figure', 'abbr', 'img', 'aside', 'caption', 'cite', 'dd', 'dfn', 'dl', 'dt', 'figcaption',
+					'sub', 'sup', 'i', 'br', 'hr'],
 				allowedAttributes: mergeWith({
-					th: ["colspan", "rowspan"],
-					td: ["colspan", "rowspan"],
-					a: ["class"],
+					th: ['colspan', 'rowspan'],
+					td: ['colspan', 'rowspan'],
+					a: ['class'],
+					img: ['width', 'height']
 				}, sanitizeHtml.defaults.allowedAttributes, (objValue, srcValue) => {
 					if (Array.isArray(objValue) && Array.isArray(srcValue))
 						return srcValue.concat(objValue)
