@@ -1,23 +1,12 @@
 import express from "express"
 import { ensureLoggedIn } from "connect-ensure-login"
-import User from "../models/user.js"
 import Option from "../models/option.js"
 import Content from "../models/content.js"
 
 const router = express.Router()
 
-router.get(/\/.*/i, ensureLoggedIn("/auth"), async (req, res, next) => {
-	const is_user_valid = await User.doesUserExist(req.user)
-	
-	if (is_user_valid) {
-		res.locals.user = req.user
-		next()
-	}
-	else {
-		res.status(403)
-		res.render("dashboard/forbidden", {email:req.user, layout: "dashboard"})
-	}
-})
+// Require log-in
+router.use(ensureLoggedIn("/auth"))
 
 router.use("/users",     require("./dashboard/users.js"))
 router.use("/images",    require("./dashboard/images.js"))

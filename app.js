@@ -115,6 +115,23 @@ passport.deserializeUser((obj, cb) => cb(null, obj))
 app.use(passport.initialize())
 app.use(passport.session())
 
+// Handle user session
+import User from "./models/user.js"
+app.use(async (req, res, next) => {
+	if (!req.user) next()
+
+	const is_user_valid = await User.doesUserExist(req.user)
+	
+	if (is_user_valid) {
+		res.locals.user = req.user
+		next()
+	}
+	else {
+		res.status(403)
+		res.render("dashboard/forbidden", {email:req.user, layout: "dashboard"})
+	}
+})
+
 // Loads the named module from the routes/ directory
 const route = (name) => require(join(__dirname, 'routes', name))
 
