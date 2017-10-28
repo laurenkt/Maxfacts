@@ -118,13 +118,13 @@ app.use(passport.session())
 // Handle user session
 import User from "./models/user.js"
 app.use(async (req, res, next) => {
-	if (!req.user) next()
+	if (!req.user) return next()
 
 	const is_user_valid = await User.doesUserExist(req.user)
 	
 	if (is_user_valid) {
 		res.locals.user = req.user
-		next()
+		return next()
 	}
 	else {
 		res.status(403)
