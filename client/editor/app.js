@@ -605,7 +605,7 @@ class Editor extends React.Component {
 
 	render() {
 		return (
-			<form method="post" action="#" onSubmit={this.onSubmit}>
+			<form method="post" on="#" onSubmit={this.onSubmit}>
 				<table>
 				<TextField name="id" value={this.state.id} onChange={this.onChangeID}>ID</TextField>
 				<TextField name="uri" value={this.state.uri} onChange={this.onChangeURI}

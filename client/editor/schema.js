@@ -27,9 +27,11 @@ export default (valid_uris) => ({
 		"th":        props => <th {...colspan(props).attributes}>{props.children}</th>,
 		"aside":     props => <aside {...props.attributes}>{props.children}</aside>,
 		"img":       props => {
-			const src = props.node.data.get("src")
+			const src    = props.node.data.get('src')
+			const height = props.node.data.get('height')
+			const width  = props.node.data.get('width')
 
-			return <img src={src} />
+			return <img src={src} height={height} width={width} />
 		},
 		"br":        _ => <br />,
 		"hr":        _ => <hr />,

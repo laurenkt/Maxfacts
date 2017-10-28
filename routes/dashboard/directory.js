@@ -135,7 +135,8 @@ async function postNewPage(req, res) {
 	try {
 		const saved_content = await content.save()
 
-		res.redirect(`/dashboard/directory/${saved_content.uri}?saved`)
+		res.flash('saved', content)
+		res.redirect(`/dashboard/directory/${saved_content.uri}`)
 	}
 	catch (err) {
 		// Prepopulate with what was filled in
@@ -194,7 +195,8 @@ async function postPage(req, res) {
 	// Redirect after saving
 	try {
 		await item.save()
-		res.redirect(`/dashboard/directory/${item.uri}?saved`)
+		res.flash('saved', item)
+		res.redirect(`/dashboard/directory/${item.uri}`)
 	}
 	catch (err) {
 		item.error = err
