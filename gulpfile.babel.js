@@ -45,14 +45,14 @@ gulp.task('watch', ['default'], () => {
 		'!./coverage/**/*.js',      // ignore client JS
 		'!./test/**/*.js',          // ignore client JS
 		'!./client/**/*.js',        // ignore client JS
-		'!./build/**/*.js',         // ignore built JS
+		'!./build/**/*',         	// ignore built files
 		'!./node_modules/**/*.js',  // ignore node module JS
 		'!./gulpfile.babel.js',     // ignore node module JS
 	], ['server'])
 })
 
 gulp.task('css', () => {
-	return gulp.src('static/css/*.scss')
+	return gulp.src('./static/css/*.scss')
 		.pipe(sourcemaps.init())
 		.pipe(sass.sync().on('error', sass.logError))
 		.pipe(autoprefixer())
@@ -119,33 +119,33 @@ gulp.task('server', ['server-env'], () => {
 })
 
 gulp.task('data', () => {
-	return gulp.src(['data/dump/**/*'])
+	return gulp.src('./data/dump/**/*')
 		.pipe(gulp.dest(`${dirs.dest}/data/dump`))
 })
 
 gulp.task('images', () => {
-	return gulp.src('static/images/*')
+	return gulp.src('./static/images/*')
 		.pipe(imgmin())
 		.pipe(gulp.dest(`${dirs.dest}/static/images`))
 })
 
 gulp.task('static_js', () => {
-	return gulp.src('static/js/*.js')
+	return gulp.src('./static/js/*.js')
 		.pipe(gulp.dest(`${dirs.dest}/static/js`))
 })
 
 gulp.task('bin', () => {
-	return gulp.src('bin/*')
+	return gulp.src('./bin/*')
 		.pipe(gulp.dest(`${dirs.dest}/bin`))
 })
 
 gulp.task('templates', () => {
-	return gulp.src('**/*.hbs')
-		.pipe(gulp.dest(dirs.dest))
+	return gulp.src('./templates/**/*.hbs')
+		.pipe(gulp.dest(`${dirs.dest}/templates`))
 })
 
 gulp.task('tests', () => {
-	return gulp.src('test/*.js')
+	return gulp.src('./test/*.js')
 		.pipe(sourcemaps.init())
 		.pipe(babel())
 		.pipe(concat('tests.js'))
@@ -154,7 +154,7 @@ gulp.task('tests', () => {
 })
 
 gulp.task('other', () => {
-	return gulp.src('static/*')
+	return gulp.src('./static/*')
 		.pipe(gulp.dest(`${dirs.dest}/static`))
 })
 
