@@ -10,6 +10,7 @@ import imgmin       from 'gulp-imagemin'
 import del          from 'del'
 import webpack      from 'webpack'
 import webpackGulp  from 'webpack2-stream-watch'
+import {exec}       from 'child_process'
 
 const dirs = {
 	dest: 'build',
@@ -26,29 +27,29 @@ gulp.task('clean', () => {
 })
 
 gulp.task('watch', ['default'], () => {
-	gulp.watch('./static/js/**/*.js',    ['static_js'])
-	gulp.watch('./static/css/**/*.scss', ['css'])
-	gulp.watch('./templates/**/*.hbs',   ['templates'])
-	gulp.watch('./static/images/**/*',   ['images'])
-	gulp.watch('./test/*.js',            ['tests'])
-	gulp.watch('./data/dump/**/*',       ['data'])
-	gulp.watch('./bin/*',                ['bin'])
+	const watchers = [
+		gulp.watch('./static/js/**/*.js',    ['static_js']),
+		gulp.watch('./static/css/**/*.scss', ['css']),
+		gulp.watch('./templates/**/*.hbs',   ['templates']),
+		gulp.watch('./static/images/**/*',   ['images']),
+		gulp.watch('./test/*.js',            ['tests']),
+		gulp.watch('./data/dump/**/*',       ['data']),
+		gulp.watch('./bin/*',                ['bin']),
+		gulp.watch([
+			'./**/*.js',
+			'!./static/**/*.js',        // ignore client JS
+			'!./flow-typed/**/*.js',    // ignore client JS
+			'!./coverage/**/*.js',      // ignore client JS
+			'!./test/**/*.js',          // ignore client JS
+			'!./client/**/*.js',        // ignore client JS
+			'!./build/**/*',         	// ignore built files
+			'!./node_modules/**/*.js',  // ignore node module JS
+			'!./gulpfile.babel.js',     // ignore node module JS
+		], ['server']),
+		// Also processes for each client app
+	].concat(apps.map(app => gulp.watch(`./client/${app}/**/*`, [app])))
 
-	apps.forEach(app => {
-		gulp.watch(`./client/${app}/**/*`, [app])
-	})
-
-	gulp.watch([
-		'./**/*.js',
-		'!./static/**/*.js',        // ignore client JS
-		'!./flow-typed/**/*.js',    // ignore client JS
-		'!./coverage/**/*.js',      // ignore client JS
-		'!./test/**/*.js',          // ignore client JS
-		'!./client/**/*.js',        // ignore client JS
-		'!./build/**/*',         	// ignore built files
-		'!./node_modules/**/*.js',  // ignore node module JS
-		'!./gulpfile.babel.js',     // ignore node module JS
-	], ['server'])
+	watchers.forEach(watcher => watcher.on('change', _ => exec('yarn run docker:restart')))
 })
 
 gulp.task('css', () => {
