@@ -15,6 +15,14 @@ services:
         ports:
             - '27017:27017'
         command: mongod --logpath=/dev/null # --smallfiles --fork --quiet
+    restore:
+        build:
+            context: .
+            dockerfile: mongo.Dockerfile
+        volumes:
+            - ./data/dump:/data/dump
+        links:
+            - mongo
     nginx:
         #TODO: logs
         image: nginx:1.13-alpine
