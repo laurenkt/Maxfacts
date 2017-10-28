@@ -5,9 +5,10 @@
 	"scripts": {
 		"start": "./bin/www",
 		"start:dev": "DEBUG=maxfacts nodemon -- --inspect ./build/bin/www",
-		"backup": "rm -rf data/dump && mongodump -d maxfacts -o data/dump",
+		"backup": "rm -rf data/dump && mongodump -h mongo -d maxfacts -o data/dump && mv data/dump/maxfacts/* data/dump && rm -r data/dump/maxfacts",
 		"backup:copy": "npm run backup && copy; cp -R data/dump /shared/storage/cs/staffstore/lt696/maxfacts-backups/$(date \"+%Y-%m-%d-%Hh-%Mm\")",
 		"restore": "mongo maxfacts --eval \"db.dropDatabase();\"; cd data/dump; mongorestore -d maxfacts maxfacts",
+		"docker:backup": "docker exec -it $(docker container ls -qf\"name=maxfacts_app\")",
 		"docker:test": "docker exec -it $(docker container ls -qf \"name=maxfacts_app\") npm run test:integrations",
 		"test": "TEST=maxfacts nyc --reporter=html --reporter=text mocha build/test client/editor/test --grep integrations --invert",
 		"test:integrations": "HOSTNAME=$(hostname -i) TEST=maxfacts nyc --reporter=html --reporter=text mocha test",
