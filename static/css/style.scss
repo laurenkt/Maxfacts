@@ -163,8 +163,9 @@ html,body {
 	video {
 		margin: 0 auto;
 		display: block;
-		width: 854px;  // 480p
-		height: 480px;
+		width: 100%;
+		max-width: 854px;  // 480p
+		max-height: 480px;
 	}
 }
 
