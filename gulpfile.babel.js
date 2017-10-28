@@ -32,6 +32,7 @@ gulp.task('watch', ['default'], () => {
 	gulp.watch('./static/images/**/*',   ['images'])
 	gulp.watch('./test/*.js',            ['tests'])
 	gulp.watch('./data/dump/**/*',       ['data'])
+	gulp.watch('./bin/*',                ['bin'])
 
 	apps.forEach(app => {
 		gulp.watch(`./client/${app}/**/*`, [app])

@@ -1,0 +1,10 @@
+version: '2'
+services:
+    app:
+        environment:
+            - OAUTH_CALLBACK=http://lt696dev.york.ac.uk/auth/callback
+        volumes:
+            - /home/node/app
+    nginx:
+        ports:
+            - '80:80'
