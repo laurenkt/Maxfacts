@@ -14,10 +14,7 @@ async function requestVideo(req, res, next) {
 
 	video.breadcrumbs = await Content.findBreadcrumbsForURI(video.uri)
 
-	if (video.youtube_ids.length > 1)
-		res.render("video-multipart", video)
-	else
-		res.render("video", video)
+	res.render('video-multipart', video)
 }
 
 module.exports = router

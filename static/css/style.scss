@@ -149,17 +149,54 @@ html,body {
 	}
 }
 
+.video-player {
+	background: #eee;
+
+	* {
+		box-sizing: border-box;
+	}
+
+	.video-content {
+		padding: $small-spacing;
+	}
+
+	video {
+		margin: 0 auto;
+		display: block;
+		width: 100%;
+		max-width: 854px;  // 480p
+		max-height: 480px;
+	}
+}
+
+.video-select-exercise {
+	background: white;
+
+	h3 {
+		font-size: 12pt;	
+		margin: $small-spacing 0 0;
+		padding: 15px 0 5px 0;
+	}
+
+	.help {
+		font-weight: normal;
+		opacity: 0.5;
+		font-size: 80%;
+	}
+}
+
 .video-titles {
 	display: table;
 	width: 100%;
-	max-width: 640px;
 	list-style-type: none;
-	margin-left: 0;
+	margin: 0;
 	padding-left: 0;
-	border: 1px solid #aaa;
-	border-spacing:1px;
+	border: 0;
+	border-spacing: 0;
+	border-collapse: collapse;
 
 	li {
+		border-right: 1px solid #eee;
 		display: table-cell;
 		text-align: center;
 		vertical-align: center;
@@ -168,31 +205,77 @@ html,body {
 			display: block;
 			width: 100%;
 			height: 100%;
-			padding: 5px;
+			padding: 5px 0;
+			border-right: 1px solid white;
+			background: #ddd;
 
 			&:hover {
-				background: #eee;
+				background: $accent-color;
+				color: white;
 			}
 		}
 
 		&.active {
-			background: $accent-color;
 			a {
-				color: white;
+				background: #eee;
+
+				&:hover {
+					color: black;
+				}
 			}
 		}
 	}
 }
 
+@keyframes pulse {
+	from {
+		transform: scale3d(1, 1, 1);
+	}
+
+	50% {
+		transform: scale3d(1.03, 1.03, 1.03);
+	}
+
+	to {
+		transform: scale3d(1, 1, 1);
+	}
+}
+
 .video-endcard {
-	max-width: 640px;
 	display: table;
 	width: 100%;
-	border-spacing: 20px;
+	height: 480px;
+	border-spacing: 0 10px;
+	border-collapse: separate;
+
+	a {
+		transform: scale3d(1, 1, 1);
+		transition: transform 0.6s, color 0.6s;
+	}
 
 	a:hover {
 		text-decoration: none;
-		background: #ddd;
+		background: white;
+		background: radial-gradient(ellipse at center, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 40%,rgba(255,255,255,0) 69%,rgba(255,255,255,0) 100%);
+		color: black;
+		transform: scale3d(1.1, 1.1, 1.1);
+	}
+
+	h4, p, img {
+		padding: 5px;
+		margin: 0;
+	}
+
+	img {
+		width: 100%;
+		height: 283px;
+	}
+
+	.-next {
+		animation-name: pulse;
+		animation-iteration-count: infinite;
+		animation-duration: 2s;
+		animation-fill-mode: both;
 	}
 
 	.-next,
@@ -201,8 +284,13 @@ html,body {
 		width: 50%;
 		text-align: center;
 		vertical-align: middle;
-		background: #eee;
-		padding: 20px;
+	}
+
+	&:hover {
+		// Don't pulse whilst one is hovered
+		a {
+			animation-name: none;
+		}
 	}
 }
 
