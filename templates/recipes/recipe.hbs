@@ -7,28 +7,44 @@
 		<h3>Ingredients</h3>
 		<ul>
 		{{#each ingredients}}
-			<li>{{this}}</li>
+			{{#if heading}}
+				</ul><h4>{{heading}}</h4><ul>
+			{{else}}
+				<li>{{this}}</li>
+			{{/if}}
 		{{/each}}
 		</ul>
 	{{/if}}
 	{{#if method}}
 		<h3>Method</h3>
 		<ol>
-			{{#each method}}
+		{{#each method}}
+			{{#if heading}}
+				</ol><h4>{{heading}}</h4><ol>
+			{{else}}
 				<li>{{this}}</li>
-			{{/each}}
+			{{/if}}
+		{{/each}}
 		</ol>
 	{{/if}}
 	{{#if tips}}
 		<h3>Tips</h3>
 		{{#each tips}}
-			<p>{{this}}</p>
+			{{#if heading}}
+				<h4>{{heading}}</h4>
+			{{else}}
+				<p>{{this}}</p>
+			{{/if}}
 		{{/each}}
 	{{/if}}
 	{{#if variations}}
 		<h3>Variations</h3>
 		{{#each variations}}
-			<p>{{this}}</p>
+			{{#if heading}}
+				<h4>{{heading}}</h4>
+			{{else}}
+				<p>{{this}}</p>
+			{{/if}}
 		{{/each}}
 	{{/if}}
 </main>
