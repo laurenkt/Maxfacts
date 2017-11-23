@@ -42,6 +42,8 @@ async function requestRecipe(req, res, next) {
 		{title: "Browser",          uri: "help/oral-food/recipes/browse"},
 	]
 
+	console.log(recipe)
+
 	res.render('recipes/recipe', recipe)
 }
 

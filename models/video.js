@@ -22,12 +22,12 @@ schema.statics = {
 
 schema.virtual('youtube_ids')
 	.get(function() {
-		return this.youtube_id.split(',')
+		return (this.youtube_id || '').split(',')
 	})
 
 schema.virtual('filenames')
 	.get(function() {
-		return this.filename.split(',')
+		return (this.filename || '').split(',')
 	})
 
 schema.pre("save", function(next) {

@@ -8,11 +8,11 @@ const schema = new mongoose.Schema({
 	},
 	title:        String,
 	tags:         [String],
-	description:  [String],
-	ingredients:  [String],
-	method:       [String],
-	variations:   [String],
-	tip:          [String],
+	description:  mongoose.Schema.Types.Mixed,
+	ingredients:  mongoose.Schema.Types.Mixed,
+	method:       mongoose.Schema.Types.Mixed,
+	variations:   mongoose.Schema.Types.Mixed,
+	tip:          mongoose.Schema.Types.Mixed,
 }, {
 	timestamps:   true,
 })
