@@ -1,10 +1,5 @@
 image: docker:latest
 
-# Pick zero or more services to be used on all builds.
-# Only needed when using a docker container to run your tests in.
-# Check out: http://docs.gitlab.com/ce/ci/docker/using_docker_images.html#what-is-service
-services:
-    - mongo:3.2
 
 # This folder is cached between builds
 # http://docs.gitlab.com/ce/ci/yaml/README.html#cache
@@ -45,6 +40,8 @@ stages:
     - deploy
 
 build_and_test:
+    services:
+        - mongo:3.2
     stage: test
     script:
         # Stop env file missing error
@@ -52,6 +49,9 @@ build_and_test:
         - yarn install
         - node_modules/.bin/gulp
         - docker build -t maxfacts .
+        # Restore data to test image
+        - docker build -t maxfacts_data -f mongo.Dockerfile
+        - docker run -d maxfacts_data
         # Sleep is to wait for container to be set-up and ready
         - docker exec $(docker run -d maxfacts; sleep 15) yarn run test:integrations
 

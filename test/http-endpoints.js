@@ -5,11 +5,24 @@ describe("HTTP end-point integrations", function() {
 	// an HTTP level
 	this.timeout(15000)
 	let server = `http://${process.env.HOSTNAME || 'localhost'}:3000`
+	console.log(`Running integrations against URL "${server}"`)
 	
 	//before(done => server = require("../app.js").listen(3001, done))
 	//after(done => server.close(done))
 
 	// Set-up done, do the testing
+	describe("/", () => {
+		it("should respond to localhost GET", done => {
+			request("http://localhost:3000")
+				.get("/")
+				.expect(200, done)
+		})
+		it("should respond to 127.0.0.1 GET", done => {
+			request("http://127.0.0.1:3000")
+				.get("/")
+				.expect(200, done)
+		})
+	})
 	describe("/", () => {
 		it("should respond to GET", done => {
 			request(server)
