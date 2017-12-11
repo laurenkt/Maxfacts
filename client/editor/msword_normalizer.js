@@ -412,7 +412,10 @@ export function processFigures(html:string):string {
 		node.name == "span" &&
 		node.attribs &&
 		node.attribs.style &&
-		node.attribs.style.match(/color:(\s*)#00B0F0/i)
+		(
+			node.attribs.style.match(/color:(\s*)#00B0F0/i) ||
+			node.attribs.style.match(/color:(\s*)#34ADEF/i)
+		)
 
 	const is_figure = node =>
 		DomUtils.existsOne(is_blue_span, node.children)
