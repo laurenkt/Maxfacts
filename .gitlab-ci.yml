@@ -50,7 +50,7 @@ build_and_test:
         - node_modules/.bin/gulp
         - docker build -t maxfacts .
         # Restore data to test image
-        - docker build -t maxfacts_data -f mongo.Dockerfile
+        - docker build -t maxfacts_data -f mongo.Dockerfile .
         - docker run -d maxfacts_data
         # Sleep is to wait for container to be set-up and ready
         - docker exec $(docker run -d maxfacts; sleep 15) yarn run test:integrations
