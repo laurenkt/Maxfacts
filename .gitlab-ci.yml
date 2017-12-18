@@ -57,6 +57,7 @@ build_and_test:
         - sleep 15
         - echo $DOCKER_HOST
         - docker inspect maxfacts
+        - docker container ls
         # Sleep is to wait for container to be set-up and ready
         - docker exec $(docker container ls -qf "name=maxfacts") yarn run test:integrations
 
