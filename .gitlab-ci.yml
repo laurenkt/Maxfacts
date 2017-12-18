@@ -53,13 +53,14 @@ build_and_test:
         - docker build -t maxfacts_data -f mongo.Dockerfile .
         - docker run -d maxfacts_data
         - sleep 15
-        - docker run -d maxfacts
+        - DOCKER_NAME=$(docker run -d maxfacts)
         - sleep 15
         - echo $DOCKER_HOST
+        - echo $DOCKER_CONTAINER_NAME
         - docker inspect maxfacts
         - docker container ls
         # Sleep is to wait for container to be set-up and ready
-        - docker exec $(docker container ls -qf "name=maxfacts") yarn run test:integrations
+        - docker exec $DOCKER_CONTAINER_NAME yarn run test:integrations
 
 deploy:
     stage: deploy
