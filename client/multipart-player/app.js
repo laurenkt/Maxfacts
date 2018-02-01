@@ -1,6 +1,5 @@
 import React    from "react"
 import ReactDOM from "react-dom"
-import YouTube from "react-youtube"
 
 class Player extends React.Component {
 	constructor(props) {
@@ -22,7 +21,7 @@ class Player extends React.Component {
 		}
 	}
 
-	onEnd(e) {
+	onEnd(_) {
 		this.setState({finished:true})
 	}
 
@@ -55,12 +54,13 @@ class Player extends React.Component {
 
 		return (
 			<div className="video-player">
-				<div className="video-select-exercise">
-					<h3>Exercises <span className="help">click to play</span></h3>
-					<ol className="video-titles">
-						{titles.map(renderTitle)}
-					</ol>
-				</div>
+				{titles.length > 1 &&
+					<div className="video-select-exercise">
+						<h3>Exercises <span className="help">click to play</span></h3>
+						<ol className="video-titles">
+							{titles.map(renderTitle)}
+						</ol>
+					</div>}
 				<div className="video-content">
 					{finished && 
 						<div className="video-endcard">
