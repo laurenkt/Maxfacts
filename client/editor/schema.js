@@ -53,7 +53,7 @@ export default (valid_uris) => ({
 				className = isFocused ? "active" : null
 			}
 
-			const src = data.get("src")
+			const src = data.get("src") || ''
 
 			return (
 				<figure {...props.attributes} className={className}>
