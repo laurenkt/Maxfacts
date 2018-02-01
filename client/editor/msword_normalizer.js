@@ -412,10 +412,19 @@ export function processFigures(html:string):string {
 		node.name == "span" &&
 		node.attribs &&
 		node.attribs.style &&
-		(
+		(console.log('style', node.attribs.style, !!(
 			node.attribs.style.match(/color:(\s*)#00B0F0/i) ||
+			node.attribs.style.match(/color:(\s*)#49ADEB/i) ||
+			node.attribs.style.match(/color:(\s*)#149FEC/i) ||
+			node.attribs.style.match(/color:(\s*)#62AEEE/i) ||
 			node.attribs.style.match(/color:(\s*)#34ADEF/i)
-		)
+		)), !!(
+			node.attribs.style.match(/color:(\s*)#00B0F0/i) ||
+			node.attribs.style.match(/color:(\s*)#49ADEB/i) ||
+			node.attribs.style.match(/color:(\s*)#149FEC/i) ||
+			node.attribs.style.match(/color:(\s*)#62AEEE/i) ||
+			node.attribs.style.match(/color:(\s*)#34ADEF/i)
+		))
 
 	const is_figure = node =>
 		DomUtils.existsOne(is_blue_span, node.children)
@@ -427,7 +436,9 @@ export function processFigures(html:string):string {
 	return processTagWithFn(html, "p", node => {
 		if (is_figure(node)) {
 			const text  = DomUtils.getText(node)
-			const match = text.match(/Figure(?:.*?)([0-9]+)(?:[^{]*)\{([^}]*)\}/im)
+			const match = text.match(/Figure(?:(?:.|[\r\n])*?)([0-9]+)(?:[^{]*)\{([^}]*)\}/im)
+
+			console.log('matching', text, match);
 
 			if (match) {
 				let caption = ""
