@@ -73,7 +73,10 @@
 		"morgan": "~1.8.2",
 		"multer": "^1.1.0",
 		"nodemailer": "^4.0.1",
+<<<<<<< HEAD
 		"nodemon": "^1.14.12",
+=======
+>>>>>>> afa380ee858d3de905538f92a2f00a640b3b702e
 		"nyc": "^11.0.2",
 		"passport": "^0.3.2",
 		"passport-google-oauth20": "^1.0.0",
@@ -96,6 +99,10 @@
 		"husky": "^0.13.3",
 		"node-cli": "^0.1.0",
 		"node-sass-middleware": "^0.11.0",
+<<<<<<< HEAD
+=======
+		"nodemon": "^1.9.2",
+>>>>>>> afa380ee858d3de905538f92a2f00a640b3b702e
 		"react": "^15.6.1",
 		"react-dom": "^15.6.1",
 		"react-youtube": "^7.4.0",
