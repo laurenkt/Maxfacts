@@ -21,4 +21,4 @@ RUN chmod +x bin/docker-start.sh
 
 EXPOSE 3000
 
-CMD cd /home/node/app && ./bin/docker-start.sh
+CMD yarn start
