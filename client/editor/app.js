@@ -97,6 +97,7 @@ class Editor extends React.Component {
 		this.onChangeID       = this.onChangeID.bind(this)
 		this.onChangeURI      = this.onChangeURI.bind(this)
 		this.onChangeType     = this.onChangeType.bind(this)
+		this.onChangeTitle    = this.onChangeTitle.bind(this)
 
 		document.addEventListener("scroll", this.onScroll.bind(this))
 	}
@@ -588,6 +589,11 @@ class Editor extends React.Component {
 			new_state.uri += unprocessed.replace(/-/g, '/').replace(/_/g, '-')
 			new_state.uri += end_part
 			new_state.uri = normalizeURI(new_state.uri)
+
+			if (!this.touched.title) {
+				const last_part = new_state.uri.split('/').slice(-1)[0]
+				new_state.title = last_part[0].toUpperCase() + last_part.slice(1)
+			}
 		}
 
 		this.setState(new_state)
@@ -603,6 +609,11 @@ class Editor extends React.Component {
 		this.setState({type: e.target.value})
 	}
 
+	onChangeTitle(e) {
+		this.touched['title'] = true
+		this.setState({title: e.target.value})
+	}
+
 	render() {
 		return (
 			<form method="post" on="#" onSubmit={this.onSubmit}>
@@ -610,7 +621,7 @@ class Editor extends React.Component {
 				<TextField name="id" value={this.state.id} onChange={this.onChangeID}>ID</TextField>
 				<TextField name="uri" value={this.state.uri} onChange={this.onChangeURI}
 					className={this.touched.uri ? "" : "-suggested"}>URI</TextField>
-				<TextField name="title" defaultValue={this.state.title} className="-large">Title</TextField>
+				<TextField name="title" value={this.state.title} onChange={this.onChangeTitle} className="-large">Title</TextField>
 				<TextField name="description" defaultValue={this.state.description}>Subtitle</TextField>
 				<TextField name="surtitle" defaultValue={this.state.surtitle}>Surtitle</TextField>
 				<TextField name="redirect_uri" defaultValue={this.state.redirect_uri}>Redirect URI</TextField>
@@ -626,6 +637,7 @@ class Editor extends React.Component {
 							<option value="level3">Level 3 - detailed information</option>
 							<option value="level2">Level 2 – getting to know more</option>
 							<option value="level1">Level 1 – getting started</option>
+							<option value="alphabetical">Alphabetical</option>
 							<option value="further">Further reading</option>
 						</select>
 					</td>

@@ -3,6 +3,7 @@ import Content      from '../models/content'
 import Option       from '../models/option.js'
 import sanitizeHtml from 'sanitize-html'
 import XXHash       from 'xxhash'
+import {zipObject}  from 'lodash'
 
 const router = express.Router()
 
@@ -90,6 +91,11 @@ async function requestSpecificPage(req, res, next) {
 
 		// Pass on how many levels there are in this branch
 		content.depth = content.directory.length
+	}
+	else if (content.type == "alphabetical") {
+		const children = await content.getChildren()
+		const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('')
+		content.alphabetical = zipObject(alphabet, alphabet.map(letter => children.filter(c => c.title[0] == letter)))
 	}
 
 	// Render page

@@ -9,11 +9,16 @@ router.get("/new",            getNewPage)
 router.get("/:uri(*)",        getPage)
 router.get("/broken-links",   getBrokenLinks)
 router.get("/unattributed",   getUnattributed)
+router.get("/graph",          getGraph)
 
 router.post("/new",          postNewPage)
 router.post("/broken-links", postBrokenLinks)
 router.post("/unattributed", postUnattributed)
 router.post("/:uri(*)",      postPage)
+
+async function getGraph(req, res) {
+	return req;
+}
 
 async function getPageList(req, res) {
 	const hasBody = item => item.body && item.body != ""
@@ -121,7 +126,7 @@ async function getNewPage(req, res) {
 
 	res.render("dashboard/content", {
 		all_uris,
-		id: req.query.id,
+		id: req.query.id ? req.query.id.replace(/\//, '') : undefined,
 		layout:"dashboard"
 	})
 }

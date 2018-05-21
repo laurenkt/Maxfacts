@@ -269,6 +269,7 @@ export function processLinks(html:string):string {
 		}]
 	}, is_red_span)
 	// TODO:Need to insert extra spaces if following node is not a word boundary
+	// TODO: resolve problems e.g. treatment-surgery-salivary-gland-cancer-level1.docx
 		.replace(/<\/a>([A-Za-z0-9\(<])/igm, "</a> $1")
 }
 

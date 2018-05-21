@@ -125,6 +125,23 @@ li {
 	padding: $small-spacing;
 }
 
+.alphabetical {
+	.alphabetical--item {
+		h3 {
+			font-size: 1.3em;
+			background: #eee;
+			padding: 10px;
+			margin: 0;
+		}
+
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 10px;
+		}
+	}
+}
+
 a:hover {
 	text-decoration: underline;
 }

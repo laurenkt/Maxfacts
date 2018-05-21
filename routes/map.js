@@ -2,10 +2,11 @@ import express from 'express'
 import Content from '../models/content'
 import Video   from '../models/video'
 import Recipe  from '../models/recipe'
-import {maxBy} from 'lodash'
+import {maxBy, groupBy, values} from 'lodash'
 
 const router = express.Router()
-router.get('/', requestSiteMap)
+router.get('/',    requestSiteMap)
+router.get('/dot', requestDotGraph)
 module.exports = router
 
 function dateToLastmod(date) {
@@ -15,6 +16,55 @@ function dateToLastmod(date) {
 		date.getUTCDate().toString().padStart(2, '0')    + 'T' +
 		date.getUTCHours().toString().padStart(2, '0')   + ':' + 
 		date.getUTCMinutes().toString().padStart(2, '0') + '+00:00'
+}
+
+async function requestDotGraph(req, res) {
+	let all_content = await Content.find().sort('uri').exec()
+	let all_links = all_content.map(c => {
+		let links = c.getLinksInHTML()
+			.filter(link => !link.match(/^([A-Za-z]+:)?\/\//)) // Filter external URLs
+			.filter(link => !link.match(/\/feedback$/i)) // Filter feedback links
+
+		return links.map(link => `	"/${c.uri}" -> "${link}" [weight=0.1];\n`).join('')
+	})
+
+	const depth_groups = groupBy(all_content, c => c.uri.split('/').length)
+	const ranks = values(depth_groups).map((group, idx) => `	{
+		rank=same;
+${group.map(c => `		"/${c.uri}" [fontsize=${10 + (6-idx)*3},label="${c.title} (${c.type})"];\n`).join('')}
+	}\n`)
+
+	const all_next_pages = await Promise.all(all_content.map(async c => {
+		const next_page = await c.getNextPage()
+		if (next_page)
+			return `	"/${c.uri}" -> "/${next_page.uri}";\n`
+		else
+			return ''
+	}))
+
+	const all_subpages = await Promise.all(all_content.map(async parent => {
+		// Only show sub-pages for directories
+		if (parent.type != 'directory')
+			return ''
+
+		const children = await parent.getChildren()
+		return children.map(child => `	"/${parent.uri}" -> "/${child.uri}";\n`).join('')
+	}))
+
+	res.type('text')
+	res.send(`
+digraph {
+	ratio=auto;
+	/*splines=true;*/
+	overlap=false;
+	fontname="Helvetica";
+
+${ranks.join('')}
+${all_subpages.join('')}
+${all_next_pages.join('')}
+${all_links.join('')}	
+}
+	`)
 }
 
 async function requestSiteMap(req, res) {

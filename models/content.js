@@ -50,7 +50,7 @@ const schema = new mongoose.Schema({
 	has_sublist: {type: Boolean, default: false},
 	authorship:  {
 		type: String,
-		get:  str =>    typeof str === 'string' ? str.split(/[:space:]*;[:space:]*/) : str,
+		get:  str =>   typeof str === 'string' ? str.split(/[:space:]*;[:space:]*/) : str,
 		set:  input => input.join !== undefined ? input.join(';') : input,
 	},
 	contents:    {type: [{text: String, id: String}]},
@@ -325,11 +325,24 @@ schema
 	.get(function() { return this.constructor.getLineageFromURI(this.parent) } )
 
 schema.methods = {
+	getLinksInHTML() {
+		return this.model('Content').getLinksInHTML(this.body)
+	},
+
 	getMatchedParagraph(regexp:RegExp) {
 		let elements:Array<any> = []
 
 		let handler = new DomHandler((err, dom) => {
-			elements = DomUtils.getElements({tag_name:'p'}, dom, true)
+			elements =
+				DomUtils.getElements({tag_name:'p'}, dom, true).concat(
+					DomUtils.getElements({tag_name:'li'}, dom, true),
+					DomUtils.getElements({tag_name:'td'}, dom, true),
+					DomUtils.getElements({tag_name:'h1'}, dom, true),
+					DomUtils.getElements({tag_name:'h2'}, dom, true),
+					DomUtils.getElements({tag_name:'h3'}, dom, true),
+					DomUtils.getElements({tag_name:'h4'}, dom, true),
+					DomUtils.getElements({tag_name:'h5'}, dom, true),
+				)
 		})
 		let parser = new Parser(handler, {decodeEntities:true})
 		parser.write(this.body)
@@ -369,6 +382,10 @@ schema.methods = {
 
 	getBreadcrumbs: function() {
 		return this.constructor.findBreadcrumbsForURI(this.uri).exec()
+	},
+
+	async getChildren() {
+		return this.model('Content').findFromParentURI(this.uri).exec()
 	},
 
 	getNextPage: async function() {
