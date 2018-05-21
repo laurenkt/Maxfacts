@@ -22,6 +22,12 @@ p ~ p {
 	margin-top: $small-spacing;
 }
 
+li {
+	ul, ol {
+		margin-bottom: 0;
+	}
+}
+
 @mixin clearfix {
 	&:before,
 	&:after {
