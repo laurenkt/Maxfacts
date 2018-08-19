@@ -33,6 +33,14 @@ export default (valid_uris) => ({
 
 			return <img src={src} height={height} width={width} />
 		},
+		"video":       props => {
+			const src    = props.node.data.get('src')
+
+			return <video controls="controls">
+				<source src={src} type="video/mp4" />
+				This browser not capable of playing embedded video.
+			</video>;
+		},
 		"br":        _ => <br />,
 		"hr":        _ => <hr />,
 		"link": props => {
@@ -46,18 +54,23 @@ export default (valid_uris) => ({
 		"figure": props => {
 			let { node, data, state } = props
 			let className = ""
+			let src = ''
 
 			if (node) {
 				data = node.data
 				const isFocused = state.selection.hasEdgeIn(node)
 				className = isFocused ? "active" : null
+				src = data.get('src');
 			}
-
-			const src = data.get("src") || ''
 
 			return (
 				<figure {...props.attributes} className={className}>
-					<img src={src} />
+					{(src.match(/\.mp4$/i) &&
+						<video controls="controls">
+							<source src={src} type="video/mp4" />
+							This browser not capable of playing embedded video.
+						</video>) ||
+						<img src={src} />}
 					<figcaption>{props.children}</figcaption>
 				</figure>
 			)

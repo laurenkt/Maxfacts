@@ -87,7 +87,9 @@ apps.forEach(app => {
 
 	gulp.task(app, () => {
 		return gulp.src(`client/${app}/app.js`)
+			.pipe(sourcemaps.init())
 			.pipe(webpackGulp(webpackConfig, webpack))
+			.pipe(sourcemaps.write('.'))
 			.pipe(gulp.dest(`${dirs.dest}/static/js`))
 	})
 })

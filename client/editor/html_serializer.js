@@ -24,6 +24,7 @@ const BLOCK_TAGS = {
 	tbody: "tbody",
 	table: "table",
 	aside: "aside",
+	video: "video",
 }
 
 // Add a dictionary of mark tags.
@@ -57,24 +58,6 @@ const rules = [
 			}
 			return
 		},
-	},
-	{
-		deserialize(el, _) {
-			if (el.tagName != "IMG") return
-
-			const empty = {value: undefined}
-
-			return {
-				kind: "block",
-				type: "img",
-				isVoid: true,
-				data: {
-					src:    el.attributes.getNamedItem('src').value,
-					width:  (el.attributes.getNamedItem('width')  || empty).value,
-					height: (el.attributes.getNamedItem('height') || empty).value,
-				},
-			}
-		}
 	},
 	{
 		deserialize(el, _) {
@@ -130,11 +113,11 @@ const rules = [
 
 			let attribs = {}
 
-			console.log('el.attributes', el.attributes)
+			//console.log('el.attributes', el.attributes)
 			for (let i = 0; i < el.attributes.length; i++) {
 				attribs[el.attributes[i].name] = el.attributes[i].value
 			}
-			console.log('attribs', attribs)
+			//console.log('attribs', attribs)
 
 			return {
 				kind: "block",
@@ -170,6 +153,12 @@ const rules = [
 				case "td":        return <td {...colspan(obj.data)}>{children}</td>
 				case "th":        return <th {...colspan(obj.data)}>{children}</th>
 				case "aside":     return <aside>{children}</aside>
+				case "video":
+					console.log('Video element serialize', obj)
+					return <video controls="controls">
+						<source src={obj.data.get('src')} type="video/mp4" />
+						This browser not capable of playing embedded video.
+					</video>;
 				case "img":
 					return <img src={obj.data.get('src')} height={obj.data.get('height')} width={obj.data.get('width')} />
 				case "figure":
@@ -177,7 +166,12 @@ const rules = [
 
 					return (
 						<figure>
-							<img src={src} />
+							{(src.match(/\.mp4$/i) &&
+								<video controls="controls">
+									<source src={src} type="video/mp4" />
+									This browser not capable of playing embedded video.
+								</video>) ||
+								<img src={src} />}
 							<figcaption>{children}</figcaption>
 						</figure>
 					)
@@ -218,8 +212,15 @@ const rules = [
 		deserialize(el, next) {
 			if (el.tagName != "FIGURE") return
 
+			console.log('Deserialize figure', el);
+
 			// Find img
 			const img = Array.prototype.find.call(el.childNodes, child => child.tagName == "IMG")
+			const video = Array.prototype.find.call(el.childNodes, child => child.tagName == "VIDEO")
+
+			const src = img ? img.attributes.getNamedItem('src').value :
+				video ? video.childNodes[0].attributes.getNamedItem('src').value :
+				'';
 
 			// Find caption
 			const caption = Array.prototype.find.call(el.childNodes, child => child.tagName == "FIGCAPTION")
@@ -229,7 +230,28 @@ const rules = [
 				type: "figure",
 				nodes: next(caption.childNodes),
 				data: {
-					src: img.attributes.getNamedItem('src').value,
+					src,
+				},
+			}
+		}
+	},
+	{
+		deserialize(el, _) {
+			if (el.tagName != "IMG" && el.tagName != "VIDEO") return
+
+			console.log('Found video', el);
+
+			const empty = {value: undefined}
+
+			return {
+				kind: "block",
+				type: el.tagName.toLowerCase(),
+				isVoid: true,
+				data: {
+					src:    el.attributes.getNamedItem('src').value,
+					width:  (el.attributes.getNamedItem('width')  || empty).value,
+					height: (el.attributes.getNamedItem('height') || empty).value,
+					controls: (el.attributes.getNamedItem('controls') || empty).value,
 				},
 			}
 		}
@@ -274,6 +296,7 @@ export function deserialize(html_string) {
 	// Note that Slate refusing to handle whitespace in HTML is a recognised
 	// limitation that they have decided not to alter due to other concerns
 	// See: https://github.com/ianstormtaylor/slate/issues/407
+	console.log('html_clean', html_clean(html_string))
 	return html_serializer.deserialize(
 		html_clean(html_string)
 	)
