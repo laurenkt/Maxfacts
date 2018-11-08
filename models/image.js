@@ -1,21 +1,21 @@
-const mongoose     = require("mongoose")
+import mongoose from "mongoose"
 
 const mimetypes = {
-	"image/jpeg":      ".jpg",
-	"image/png":       ".png",
+	"image/jpeg": ".jpg",
+	"image/png": ".png",
 	"application/pdf": ".pdf",
 }
 
 const ImageSchema = new mongoose.Schema({
-	uri:          {type: String, unique: true, minlength:1, required:true},
-	originalname: {type: String},
-	buffer:       {type: Buffer},
-	encoding:     {type: String},
-	mimetype:     {type: String, validate: str => mimetypes.hasOwnProperty(str)},
-	size:         {type: Number},
+	uri: { type: String, unique: true, minlength: 1, required: true },
+	originalname: { type: String },
+	buffer: { type: Buffer },
+	encoding: { type: String },
+	mimetype: { type: String, validate: str => mimetypes.hasOwnProperty(str) },
+	size: { type: Number },
 }, {
-	timestamps: true,
-})
+		timestamps: true,
+	})
 
 ImageSchema.statics = {
 	findFromURIs(uris) {
@@ -43,11 +43,11 @@ ImageSchema.statics = {
 	},
 }
 
-ImageSchema.pre("save", function(next) {
+ImageSchema.pre("save", function (next) {
 	// Force the URI into acceptable format:
 	this.uri = this.model("Image").normalizeURI(this.uri, this.mimetype)
 
 	next()
 })
 
-module.exports = mongoose.model("Image", ImageSchema)
+export default mongoose.model("Image", ImageSchema)

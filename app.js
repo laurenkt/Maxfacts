@@ -1,41 +1,42 @@
-import express    from 'express'
-import session    from 'express-session'
-import morgan     from 'morgan'
-import chalk      from 'chalk'
+import express from 'express'
+import session from 'express-session'
+import morgan from 'morgan'
+import chalk from 'chalk'
 import bodyParser from 'body-parser'
-import mongoose   from 'mongoose'
+import mongoose from 'mongoose'
 import mongoStore from 'connect-mongo'
-import passport   from 'passport'
-import {Strategy} from 'passport-google-oauth20'
-import {join}     from 'path'
-import hbs        from 'express-handlebars'
-import joi        from 'joi'
-import {config}   from 'dotenv'
-import flash      from 'express-flash-2'
+import passport from 'passport'
+// @ts-ignore
+import { Strategy } from 'passport-google-oauth20'
+import { join } from 'path'
+import hbs from 'express-handlebars'
+import joi from 'joi'
+import { config } from 'dotenv'
+import flash from 'express-flash-2'
 
 // Load and validate environment variables
 config() // loads from .env file
 
 const env_schema = joi.object({
-	MONGO_URI:      joi.string().required(),
+	MONGO_URI: joi.string().required(),
 	OAUTH_CALLBACK: joi.string().required(),
 	OAUTH_CLIENTID: joi.string().required(),
-	OAUTH_SECRET:   joi.string().required(),
-	MAILER_HOST:    joi.string().required(),
-	MAILER_PORT:    joi.number().required(),
-	MAILER_USER:    joi.string().required(),
-	MAILER_PASS:    joi.string().required(),
-	STATIC_FS:      joi.string().required(),
+	OAUTH_SECRET: joi.string().required(),
+	MAILER_HOST: joi.string().required(),
+	MAILER_PORT: joi.number().required(),
+	MAILER_USER: joi.string().required(),
+	MAILER_PASS: joi.string().required(),
+	STATIC_FS: joi.string().required(),
 }).unknown().required()
 
-const {error} = joi.validate(process.env, env_schema)
+const { error } = joi.validate(process.env, env_schema)
 if (error) {
 	throw new Error('Config validation error: ' + error.message)
 }
 // Set-up Mongoose models
 mongoose.Promise = global.Promise // Required to squash a deprecation warning
 async function connect() {
-	await mongoose.connect(`mongodb://${process.env.MONGO_URI}`, {useMongoClient:true})
+	await mongoose.connect(`mongodb://${process.env.MONGO_URI}`, { useMongoClient: true })
 }
 
 connect().catch(console.error.bind(console, 'connection error:'))
@@ -45,13 +46,13 @@ const app = express()
 
 // Views in templates/ using handlebars.js
 app.engine('hbs', hbs({
-	extname:       '.hbs',
+	extname: '.hbs',
 	defaultLayout: 'main',
-	layoutsDir:    join(__dirname, 'templates', 'layouts'),
-	partialsDir:   join(__dirname, 'templates', 'partials'),
+	layoutsDir: join(__dirname, 'templates', 'layouts'),
+	partialsDir: join(__dirname, 'templates', 'partials'),
 	helpers: {
 		toJSON: obj => JSON.stringify(obj),
-		date:   date => date.toLocaleString('en-GB', {
+		date: date => date.toLocaleString('en-GB', {
 			weekday: 'short',
 			year: 'numeric',
 			month: 'long',
@@ -73,13 +74,13 @@ if (!process.env.TEST) {
 		const code = res.statusCode
 		const colorer = code >= 500 ? chalk.white
 			: code >= 400 ? chalk.yellow
-			: code >= 300 ? chalk.cyan
-			: code >= 200 ? chalk.green
-			: chalk.white
+				: code >= 300 ? chalk.cyan
+					: code >= 200 ? chalk.green
+						: chalk.white
 
 		return colorer(code)
 	})
-	app.use(morgan(`\u2753 ${chalk.yellow('Request:')} :method ${chalk.inverse(':url')} (:time)`, {immediate:true}))
+	app.use(morgan(`\u2753 ${chalk.yellow('Request:')} :method ${chalk.inverse(':url')} (:time)`, { immediate: true }))
 	app.use(morgan(`\u2755 ${chalk.green('Response:')} :method ${chalk.inverse(':url')} :cstatus :response-time ms - :res[content-length]`))
 }
 
@@ -91,13 +92,13 @@ app.use(session({
 	secret: 'f8e1a0f9-e7a9-4e0d-8a2e-0624a3f62510', // Just a generated UUID
 	saveUninitialized: false,
 	resave: false,
-	store: new (mongoStore(session))({mongooseConnection: mongoose.connection}), // Store session data in mongodb
+	store: new (mongoStore(session))({ mongooseConnection: mongoose.connection }), // Store session data in mongodb
 }))
 
 passport.use(new Strategy({
-	clientID:     process.env.OAUTH_CLIENTID,
+	clientID: process.env.OAUTH_CLIENTID,
 	clientSecret: process.env.OAUTH_SECRET,
-	callbackURL:  process.env.OAUTH_CALLBACK,
+	callbackURL: process.env.OAUTH_CALLBACK,
 }, (accessToken, refreshToken, profile, cb) => {
 	const email = profile.emails[0].value
 	// Must be a York e-mail
@@ -105,12 +106,12 @@ passport.use(new Strategy({
 		cb(null, email)
 	}
 	else {
-		cb({error: 'Invalid email'}, null)
+		cb({ error: 'Invalid email' }, null)
 	}
 }
 ))
 
-passport.serializeUser((user, cb)  => cb(null, user))
+passport.serializeUser((user, cb) => cb(null, user))
 passport.deserializeUser((obj, cb) => cb(null, obj))
 
 app.use(passport.initialize())
@@ -125,31 +126,31 @@ app.use(async (req, res, next) => {
 	if (!req.user) return next()
 
 	const is_user_valid = await User.doesUserExist(req.user)
-	
+
 	if (is_user_valid) {
 		res.locals.user = req.user
 		return next()
 	}
 	else {
 		res.status(403)
-		res.render("dashboard/forbidden", {email:req.user, layout: "dashboard"})
+		res.render("dashboard/forbidden", { email: req.user, layout: "dashboard" })
 	}
 })
 
 // Loads the named module from the routes/ directory
 const route = (name) => require(join(__dirname, 'routes', name))
 
-app.use('/',                   route('feedback'))
-app.use('/',                   route('videos'))
+app.use('/', route('feedback'))
+app.use('/', route('videos'))
 app.use(
 	'/help/oral-food/recipes', route('recipes'))
-app.use('/magic-triangle',     route('magic_triangle'))
-app.use('/dashboard',          route('dashboard'))
-app.use('/search',             route('search'))
-app.use('/map.xml',            route('map'))
-app.use('/',                   route('index'))
+app.use('/magic-triangle', route('magic_triangle'))
+app.use('/dashboard', route('dashboard'))
+app.use('/search', route('search'))
+app.use('/map.xml', route('map'))
+app.use('/', route('index'))
 
-app.get('/auth', passport.authenticate('google', { scope: ['email'] } ))
+app.get('/auth', passport.authenticate('google', { scope: ['email'] }))
 app.get('/auth/callback',
 	passport.authenticate('google', { successReturnToOrRedirect: '/', failureRedirect: '/error' }))
 
@@ -160,6 +161,7 @@ app.use(express.static(process.env.STATIC_FS))
 // If nothing is found
 app.use((req, res, next) => {
 	const err = new Error('Not Found')
+	// @ts-ignore
 	err.status = 404
 	next(err) // pass to error handler
 })

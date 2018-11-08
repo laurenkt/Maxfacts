@@ -1,24 +1,23 @@
-FROM node:8.4-alpine
+FROM node:10.9-alpine
 
 ENV HOME=/home/node
 ENV NODE_ENV=production
 
-# Dependencies for yarn, mongorestore, and xxhash
-RUN apk add --update --no-cache yarn mongodb-tools build-base python
+RUN apk add --update --no-cache mongodb-tools build-base python git openssh \
+    nasm autoconf automake zlib-dev
 
-# Get gulp
-RUN yarn global add gulp-cli
+RUN npm -g install gulp-cli ts-node ts-node-dev typescript
 
-COPY build $HOME/app
-RUN chown -R node:node $HOME/app
+COPY . $HOME/app
+RUN chown -R node:node $HOME/app $HOME/.npm
+RUN chown -R node:$(id -gn node) /home/node/.config
 
 USER node
 WORKDIR $HOME/app
 
-RUN yarn install
-
-RUN chmod +x bin/docker-start.sh
+RUN npm install
+RUN cp -R node_modules /tmp/node_modules
 
 EXPOSE 3000
 
-CMD yarn start
+CMD npm start

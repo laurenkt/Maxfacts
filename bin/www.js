@@ -1,11 +1,10 @@
-#!/usr/bin/env node
-
 /**
  * Module dependencies.
  */
 
-const app   = require('../app.js')
-const http  = require('http')
+import app from '../app'
+import * as http from 'http'
+
 const debug = require('debug')('maxfacts:server')
 
 /**

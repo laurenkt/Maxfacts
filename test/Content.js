@@ -1,5 +1,5 @@
 import chai from "chai"
-import Content  from "../models/content.js"
+import Content from "../models/content.js"
 import chaiHtml from "chai-html"
 
 const expect = chai.expect
@@ -94,7 +94,7 @@ describe("Content", () => {
 			`
 
 			const result = Content.getImgSrcsInHTML(html)
-			const srcs   = [
+			const srcs = [
 				"/a",
 				"/b",
 				"c",
@@ -112,7 +112,7 @@ describe("Content", () => {
 			`
 
 			const result = Content.getImgSrcsInHTML(html)
-			const srcs   = [
+			const srcs = [
 				"a",
 				"/a",
 			]
@@ -134,8 +134,8 @@ describe("Content", () => {
 		it("should generate correct table of contents", () => {
 			const html = "<h1>Test</h1><h2>Test_2</h2><h1>Another test</h1>"
 			const expected = [
-				{"text": "Test", "id": "test"},
-				{"text": "Another test", "id": "another-test"},
+				{ "text": "Test", "id": "test" },
+				{ "text": "Another test", "id": "another-test" },
 			]
 
 			const result = Content.getHTMLWithHeadingIDs(html).contents
@@ -231,10 +231,10 @@ describe("Content", () => {
 		it("should be able to determine the parent URI fragment", () => {
 			const uut = Content.parentUriFragment
 
-			expect( uut("a/b/c") ).to.equal("a/b")
-			expect( uut("a/b")   ).to.equal("a")
-			expect( uut("a/b/c") ).to.equal("a/b")
-			expect( uut("a")     ).to.equal("")
+			expect(uut("a/b/c")).to.equal("a/b")
+			expect(uut("a/b")).to.equal("a")
+			expect(uut("a/b/c")).to.equal("a/b")
+			expect(uut("a")).to.equal("")
 		})
 	})
 
@@ -242,17 +242,17 @@ describe("Content", () => {
 		it("should normalize URIs correctly", () => {
 			const uut = Content.normalizeURI
 
-			expect (uut("/a/b/c"))    .to.equal("a/b/c")
-			expect (uut("a/B/c"))     .to.equal("a/b/c")
-			expect (uut("a//b//c"))   .to.equal("a/b/c")
-			expect (uut("a!//b$(/c")) .to.equal("a/b/c")
-			expect (uut("a/b/c d/"))  .to.equal("a/b/c-d")
-			expect (uut("a"))         .to.equal("a")
-			expect (uut("/a"))        .to.equal("a")
-			expect (uut("////a"))     .to.equal("a")
-			expect (uut("// / // a")) .to.equal("a")
-			expect (uut(" a "))       .to.equal("a")
-			expect (uut("a b c"))     .to.equal("a-b-c")
+			expect(uut("/a/b/c")).to.equal("a/b/c")
+			expect(uut("a/B/c")).to.equal("a/b/c")
+			expect(uut("a//b//c")).to.equal("a/b/c")
+			expect(uut("a!//b$(/c")).to.equal("a/b/c")
+			expect(uut("a/b/c d/")).to.equal("a/b/c-d")
+			expect(uut("a")).to.equal("a")
+			expect(uut("/a")).to.equal("a")
+			expect(uut("////a")).to.equal("a")
+			expect(uut("// / // a")).to.equal("a")
+			expect(uut(" a ")).to.equal("a")
+			expect(uut("a b c")).to.equal("a-b-c")
 		})
 	})
 })

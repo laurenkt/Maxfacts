@@ -1,12 +1,15 @@
 version: '2'
+volumes:
+    node_modules:
 services:
     app:
         image: laurenkt/maxfacts:latest
         volumes:
-            - ./data/storage:/opt/lt696dev/content
-            - ./build:/home/node/app
-            - ./data/dump:/home/node/app/data/dump
-            - /home/node/app/node_modules # use node_modules local to the image to avoid platform conflicts
+            - ./data/storage:/opt/lt696dev/content:delegated
+            #- .:/home/node/app:delegated
+            - ./data/dump:/home/node/app/data/dump:delegated
+            - node_modules:/home/node/app_node_modules
+            #- /home/node/app/node_modules # use node_modules local to the image to avoid platform conflicts
         links:
             - mongo
     mongo:
@@ -21,7 +24,7 @@ services:
             context: .
             dockerfile: mongo.Dockerfile
         volumes:
-            - ./data/dump:/data/dump
+            - ./data/dump:/data/dump:delegated
         links:
             - mongo
     nginx:
@@ -32,4 +35,4 @@ services:
         links:
             - app
         volumes:
-            - ./nginx.conf:/etc/nginx/conf.d/default.conf
+            - ./nginx.conf:/etc/nginx/conf.d/default.conf:delegated

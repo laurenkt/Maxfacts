@@ -1,11 +1,10 @@
-// @flow
 import {Parser,
 	DomHandler} from "htmlparser2"
 import DomUtils from "domutils"
 import sanitizeHtml from "sanitize-html"
 import {merge} from "lodash"
 
-function multiplePassProcess(input:string, fn:any) {
+function multiplePassProcess(input, fn) {
 	let temp = ""
 
 	while (temp != input) {
@@ -16,9 +15,9 @@ function multiplePassProcess(input:string, fn:any) {
 	return input
 }
 
-function processTagWithFn(html:string, tag_name, fn, filter):string {
+function processTagWithFn(html, tag_name, fn, filter) {
 	let handler = new DomHandler((err, dom) => {
-		let elements:Array<any> = DomUtils.getElements({tag_name}, dom, true)
+		let elements = DomUtils.getElements({tag_name}, dom, true)
 
 		if (filter)
 			elements = elements.filter(filter)
@@ -32,7 +31,7 @@ function processTagWithFn(html:string, tag_name, fn, filter):string {
 	return html
 }
 
-export function processTables(html:string):string {
+export function processTables(html) {
 	/**
 	 * 	<table>
 	 * 		<tr>
@@ -141,7 +140,7 @@ export function processTables(html:string):string {
 	})
 }
 
-export function processAsides(html:string):string {
+export function processAsides(html) {
 	const is_green_span = node =>
 		node != null &&
 		node.type == "tag" &&
@@ -170,7 +169,7 @@ export function processAsides(html:string):string {
 	})
 }
 
-export function processHeadings(html:string):string {
+export function processHeadings(html) {
 	// Needs to maintain children but strip any <b> tags
 	/*
 	 * <p ...style=text-align:center...>[HEADING]</p>
@@ -214,7 +213,7 @@ export function processHeadings(html:string):string {
 	})
 }
 
-export function processLinks(html:string):string {
+export function processLinks(html) {
 	const is_red_span = node =>
 		node != null &&
 		node.type == "tag" &&
@@ -273,7 +272,7 @@ export function processLinks(html:string):string {
 		.replace(/<\/a>([A-Za-z0-9\(<])/igm, "</a> $1")
 }
 
-export function processLists(html:string):string {
+export function processLists(html) {
 	/**
 	 * <p...><span style='mso-list:Ignore'>[SYMBOL]...</span>...[LISTITEM]</p>
 	 * <p...><span style='mso-list:Ignore'>[SYMBOL]...</span>...[LISTITEM]</p>
@@ -375,7 +374,7 @@ export function processLists(html:string):string {
 	})
 }
 
-export function processFigures(html:string):string {
+export function processFigures(html) {
 	/*
 	 * 	<p...>
 	 * 		...
@@ -479,7 +478,7 @@ export function processFigures(html:string):string {
 	})
 }
 
-export function stripEmptyTags(html:string):string {
+export function stripEmptyTags(html) {
 	// Need to repeat to remove nested tags
 	/* Regex explanation
 	 *  - [^>] to prevent matching more than one tag
@@ -490,7 +489,7 @@ export function stripEmptyTags(html:string):string {
 	return multiplePassProcess(html, str => str.replace(/<([^>]+)(?:[ ]*)(?:[^>]*)>(?:(?:(\s)|(?:&nbsp;))*)<\/\1>/igm, '$2'))
 }
 
-export function stripForbiddenTagsAndAttributes(html:string):string {
+export function stripForbiddenTagsAndAttributes(html) {
 	// Force the body into an acceptable format
 	// Allow only a super restricted set of tags and attributes
 	let reduced_body = ""
@@ -529,7 +528,7 @@ export function stripForbiddenTagsAndAttributes(html:string):string {
 	return html
 }
 
-export default function normalize(html:string):string {
+export default function normalize(html) {
 	// Strip empty tags before and after to prevent spurious metadata when processing and after processing
 	const processes = [stripEmptyTags, processTables, processAsides, processHeadings, processFigures, processLists, processLinks, stripForbiddenTagsAndAttributes, stripEmptyTags]
 

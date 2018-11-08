@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "noImplicitAny": false,
+        "removeComments": true,
+        "target": "es2018",
+        "preserveConstEnums": true,
+        "sourceMap": true,
+        "esModuleInterop": true,
+    },
+    "include": [
+        "./**/*.ts"
+    ]
+}

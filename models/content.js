@@ -1,81 +1,85 @@
 // @flow
-import mongoose     from 'mongoose'
+import mongoose from 'mongoose'
 import sanitizeHtml from 'sanitize-html'
-import {Parser,
-	DomHandler}     from 'htmlparser2'
-import {mergeWith,
+import {
+	Parser,
+	DomHandler
+} from 'htmlparser2'
+import {
+	mergeWith,
 	uniq,
 	map,
-	difference}     from 'lodash'
-import Video        from './video.js'
-import Image        from './image.js'
-import DomUtils     from 'domutils'
-import XXHash       from 'xxhash'
+	difference
+} from 'lodash'
+import Video from './video'
+import Image from './image'
+import DomUtils from 'domutils'
+import XXHash from 'xxhash'
 
 mongoose.Promise = global.Promise // Required to squash a deprecation warning
 
 const schema = new mongoose.Schema({
 	uri: {
-		type:      String,
-		unique:    true,
+		type: String,
+		unique: true,
 		minlength: 1,
-		required:  true,
-		set: function(uri) {
+		required: true,
+		set: function (uri) {
 			// Track the previous URI so that when saved we can update all
 			// links to the node with previous URI
 			if (uri != this.uri)
 				this._previousURI = this.uri
-			
+
 			return uri
 		},
 	},
 	id: {
 		type: String,
 		unique: true,
-		set: function(id) {
+		set: function (id) {
 			this._idChanged = true
 			return id
 		}
 	},
-	order:       {type: Number, default: 0},
-	body:        {type: String},
-	description: {type: String},
-	surtitle:    {type: String},
-	redirect_uri:{type: String},
-	hide:        {type: Boolean, default: false},
+	order: { type: Number, default: 0 },
+	body: { type: String },
+	description: { type: String },
+	surtitle: { type: String },
+	redirect_uri: { type: String },
+	hide: { type: Boolean, default: false },
 	further_reading_uri:
-	             {type: String},
-	title:       {type: String,  required:true},
-	type:        {type: String,  default: "page"},
-	has_sublist: {type: Boolean, default: false},
-	authorship:  {
+		{ type: String },
+	title: { type: String, required: true },
+	type: { type: String, default: "page" },
+	has_sublist: { type: Boolean, default: false },
+	authorship: {
 		type: String,
-		get:  str =>   typeof str === 'string' ? str.split(/[:space:]*;[:space:]*/) : str,
-		set:  input => input.join !== undefined ? input.join(';') : input,
+		get: str => typeof str === 'string' ? str.split(/[:space:]*;[:space:]*/) : str,
+		set: input => input.join !== undefined ? input.join(';') : input,
 	},
-	contents:    {type: [{text: String, id: String}]},
+	contents: { type: [{ text: String, id: String }] },
 }, {
-	timestamps: true,
-})
+		timestamps: true,
+	})
 
 schema.index({
-	body:        "text",
-	title:       "text",
+	body: "text",
+	title: "text",
 	description: "text",
 }, {
-	weights: {
-		title:       10,
-		description: 7,
-		body:        4,
-	},
-})
+		weights: {
+			title: 10,
+			description: 7,
+			body: 4,
+		},
+	})
 
 schema.statics = {
-	parentUriFragment(uri):string {
+	parentUriFragment(uri) {
 		return uri.split("/").slice(0, -1).join("/")
 	},
 
-	normalizeURI(uri):string {
+	normalizeURI(uri) {
 		// Force the URI into acceptable format:
 		return uri
 			// All lowercase
@@ -90,15 +94,15 @@ schema.statics = {
 			.replace(/[^a-z0-9-\/]+/g, "")
 	},
 
-	async getAllURIs():Promise<Array<string>> {
+	async getAllURIs() {
 		const all_uris = await this.find().select('uri').exec()
 
 		// Return just a list of the URI parts, prepended with the root URL
 		return all_uris.map(uri => '/' + uri.uri)
 	},
 
-	getLinksInHTML(html):Array<string> {
-		let links:Array<String> = []
+	getLinksInHTML(html) {
+		let links = []
 		const parser = new Parser({
 			onopentag(name, attribs) {
 				if (name == "a" && attribs.href)
@@ -112,8 +116,8 @@ schema.statics = {
 		return uniq(links)
 	},
 
-	getImgSrcsInHTML(html):Array<string> {
-		let images:Array<string> = []
+	getImgSrcsInHTML(html) {
+		let images = []
 		const parser = new Parser({
 			onopentag(name, attribs) {
 				if (name == "img" && attribs.src)
@@ -127,11 +131,11 @@ schema.statics = {
 		return uniq(images)
 	},
 
-	getSanitizedHTML(html:string):string {
+	getSanitizedHTML(html) {
 		// Force the body into an acceptable format
 		// Allow only a super restricted set of tags and attributes
 		let reduced_body = ""
-		for(;;) {
+		for (; ;) {
 			reduced_body = sanitizeHtml(html, {
 				allowedTags: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'p', 'a', 'ul', 'ol',
 					'li', 'strong', 'em', 'table', 'thead', 'caption', 'tbody', 'tfoot', 'tr', 'th', 'td',
@@ -157,9 +161,9 @@ schema.statics = {
 					if (stack.length == 0)
 						// If it"s not in a container class
 						return text
-						// Remove any non-whitespace characters
+							// Remove any non-whitespace characters
 							.replace(/[^\s]+/g, "")
-						// Remove any blank lines
+							// Remove any blank lines
 							.replace(/[\n]+/g, "\n") // Unix
 							.replace(/(\r\n)+/g, "\r\n") // Windows
 					else
@@ -176,32 +180,32 @@ schema.statics = {
 		return html
 	},
 
-	getHTMLWithHeadingIDs(html:string) {
+	getHTMLWithHeadingIDs(html) {
 		let new_body
 		let headings = []
 
 		let handler = new DomHandler((err, dom) => {
-			DomUtils.getElements({tag_name:"h1"}, dom, true).forEach(node => {
+			DomUtils.getElements({ tag_name: "h1" }, dom, true).forEach(node => {
 				let text = DomUtils.getText(node)
 				let id = text
 					// All lowercase
-						.toLowerCase()
+					.toLowerCase()
 					// Make sure ampersands are covered
-						.replace(/&amp/g, "and")
+					.replace(/&amp/g, "and")
 					// Convert spaces and underscores to dashes (and multiple dashes)
-						.replace(/[_ -]+/g, "-")
+					.replace(/[_ -]+/g, "-")
 					// Remove any duplicate slashes
-						.replace(/[\/]+/g, "/")
+					.replace(/[\/]+/g, "/")
 					// Remove any leading or trailing slashes or dashes
-						.replace(/(^[\/-]+|[\/-]+$)/g, "")
+					.replace(/(^[\/-]+|[\/-]+$)/g, "")
 					// Remove any remaining characters that don"t conform to the URL
-						.replace(/[^a-z0-9-\/]+/g, "")
+					.replace(/[^a-z0-9-\/]+/g, "")
 
 				if (!node.attribs)
 					node.attribs = {}
 
 				node.attribs.id = id
-				headings.push({text, id})
+				headings.push({ text, id })
 			})
 			new_body = DomUtils.getOuterHTML(dom)
 		})
@@ -215,11 +219,11 @@ schema.statics = {
 		}
 	},
 
-	async getAllIdUriPairs():Promise<{uris: Array<string>, ids: Array<string>}> {
+	async getAllIdUriPairs() {
 		const all_pages = await this.find().select('uri id').exec()
 
 		let uris = []
-		let ids  = []
+		let ids = []
 
 		all_pages.forEach(page => {
 			if (page.id && page.id !== "") {
@@ -228,21 +232,21 @@ schema.statics = {
 			}
 		})
 
-		return {ids, uris}
+		return { ids, uris }
 	},
 
 	findWithNoAuthorship() {
 		return this
-			.find({ $or: [{authorship: {$exists: false}}, {authorship: ''}] })
+			.find({ $or: [{ authorship: { $exists: false } }, { authorship: '' }] })
 			.where('type')
 			.in(['level1', 'level2', 'level3', 'page'])
 			.where('body')
 			.ne('')
 	},
 
-	replaceHREFsWith(html:string, from:Array<string>, to:Array<string>):string {
+	replaceHREFsWith(html, from, to) {
 		let handler = new DomHandler((err, dom) => {
-			DomUtils.getElements({tag_name:"a"}, dom, true).forEach(node => {
+			DomUtils.getElements({ tag_name: "a" }, dom, true).forEach(node => {
 				if (!node.attribs || !node.attribs.href)
 					return
 
@@ -275,8 +279,8 @@ schema.statics = {
 
 	findBreadcrumbsForURI(uri) {
 		return this.findFromURIs(
-				this.getLineageFromURI(this.parentUriFragment(uri))
-			)
+			this.getLineageFromURI(this.parentUriFragment(uri))
+		)
 			.select("title uri")
 			.sort("uri")
 	},
@@ -290,7 +294,7 @@ schema.statics = {
 	findFromParentURI(parent) {
 		return this
 			.find()
-		// Only match URIs prefixed with the parent without any following slashes
+			// Only match URIs prefixed with the parent without any following slashes
 			.where("uri", new RegExp(parent != "" ? `^${parent}/[^/]+$` : "^[^/]+$"))
 	},
 
@@ -304,7 +308,7 @@ schema.statics = {
 		return this.findFromParentURI(this.parentUriFragment(uri))
 	},
 
-	etagFromBuffer(buffer:Buffer|string, seed:number):string {
+	etagFromBuffer(buffer, seed) {
 		if (typeof buffer !== 'Buffer')
 			buffer = Buffer.from(buffer)
 
@@ -320,33 +324,33 @@ schema.statics = {
 
 schema
 	.virtual("parent")
-	.get(function() { return this.constructor.parentUriFragment(this.uri) })
+	.get(function () { return this.constructor.parentUriFragment(this.uri) })
 
 schema
 	.virtual("lineage")
-	.get(function() { return this.constructor.getLineageFromURI(this.parent) } )
+	.get(function () { return this.constructor.getLineageFromURI(this.parent) })
 
 schema.methods = {
 	getLinksInHTML() {
 		return this.model('Content').getLinksInHTML(this.body)
 	},
 
-	getMatchedParagraph(regexp:RegExp) {
-		let elements:Array<any> = []
+	getMatchedParagraph(regexp) {
+		let elements = []
 
 		let handler = new DomHandler((err, dom) => {
 			elements =
-				DomUtils.getElements({tag_name:'p'}, dom, true).concat(
-					DomUtils.getElements({tag_name:'li'}, dom, true),
-					DomUtils.getElements({tag_name:'td'}, dom, true),
-					DomUtils.getElements({tag_name:'h1'}, dom, true),
-					DomUtils.getElements({tag_name:'h2'}, dom, true),
-					DomUtils.getElements({tag_name:'h3'}, dom, true),
-					DomUtils.getElements({tag_name:'h4'}, dom, true),
-					DomUtils.getElements({tag_name:'h5'}, dom, true),
+				DomUtils.getElements({ tag_name: 'p' }, dom, true).concat(
+					DomUtils.getElements({ tag_name: 'li' }, dom, true),
+					DomUtils.getElements({ tag_name: 'td' }, dom, true),
+					DomUtils.getElements({ tag_name: 'h1' }, dom, true),
+					DomUtils.getElements({ tag_name: 'h2' }, dom, true),
+					DomUtils.getElements({ tag_name: 'h3' }, dom, true),
+					DomUtils.getElements({ tag_name: 'h4' }, dom, true),
+					DomUtils.getElements({ tag_name: 'h5' }, dom, true),
 				)
 		})
-		let parser = new Parser(handler, {decodeEntities:true})
+		let parser = new Parser(handler, { decodeEntities: true })
 		parser.write(this.body)
 		parser.done()
 
@@ -382,7 +386,7 @@ schema.methods = {
 			.exec()
 	},
 
-	getBreadcrumbs: function() {
+	getBreadcrumbs: function () {
 		return this.constructor.findBreadcrumbsForURI(this.uri).exec()
 	},
 
@@ -390,7 +394,7 @@ schema.methods = {
 		return this.model('Content').findFromParentURI(this.uri).exec()
 	},
 
-	getNextPage: async function() {
+	getNextPage: async function () {
 		// No next page for level 3
 		if (this.type == "level3")
 			return
@@ -404,8 +408,8 @@ schema.methods = {
 			// Only allow a type that could follow the current type
 			.where("type").in(
 				this.type == "level1" ? ["level2", "level3"] :
-				this.type == "level2" ? ["level3"] :
-				["level1", "level2", "level3"])
+					this.type == "level2" ? ["level3"] :
+						["level1", "level2", "level3"])
 			// Make sure to favour the order of the types
 			.sort("type")
 			// Only need one of them
@@ -413,19 +417,19 @@ schema.methods = {
 			.exec())[0]
 	},
 
-	setIDsForHeadings: function() {
+	setIDsForHeadings: function () {
 		const heading_data = this.model("Content").getHTMLWithHeadingIDs(this.body)
 
-		this.body     = heading_data.html
+		this.body = heading_data.html
 		this.contents = heading_data.contents
 	},
 
-	replaceHREFsWith: function(from:Array<String>, to:Array<String>) {
+	replaceHREFsWith: function (from, to) {
 		this.body = this.model("Content").replaceHREFsWith(this.body, from, to)
 	},
 }
 
-schema.pre("save", async function(next) {
+schema.pre("save", async function (next) {
 	// Force the URIs into acceptable format:
 	this.uri = this.model("Content").normalizeURI(this.uri)
 
@@ -433,7 +437,7 @@ schema.pre("save", async function(next) {
 		this.further_reading_uri = this.model("Content").normalizeURI(this.further_reading_uri)
 
 	// Update any links to IDs in the body
-	let {ids, uris} = await this.model("Content").getAllIdUriPairs()
+	let { ids, uris } = await this.model("Content").getAllIdUriPairs()
 	this.replaceHREFsWith(ids, uris)
 
 	// Force the body into an acceptable format
@@ -448,7 +452,7 @@ schema.pre("save", async function(next) {
 	next()
 })
 
-schema.post("save", async function(content) {
+schema.post("save", async function (content) {
 
 	// Need to replace any pages that use ID or old URI if there is one
 	const has_new_uri = content._previousURI && content._previousURI != content.uri
@@ -466,9 +470,9 @@ schema.post("save", async function(content) {
 		// It was updated
 		// Update links in text
 		const matches = await content.model("Content")
-			.find({ 
-				body: { $regex : `(${find.join('|')})` },
-				uri:  { $ne: content.uri },
+			.find({
+				body: { $regex: `(${find.join('|')})` },
+				uri: { $ne: content.uri },
 			})
 			.exec()
 

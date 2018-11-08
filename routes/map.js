@@ -55,7 +55,7 @@ ${group.map(c => `		"/${c.uri}" [fontsize=${10 + (6-idx)*3},label="${c.title} ($
 	res.send(`
 digraph {
 	ratio=auto;
-	/*splines=true;*/
+	splines=true;
 	overlap=false;
 	fontname="Helvetica";
 

@@ -1,22 +1,14 @@
-const chai     = require('chai')
-const chaiHtml = require('chai-html')
+import chai     from 'chai'
+import chaiHtml from 'chai-html'
 
-// babel-register is needed as the sub-modules are written in ECMASCript 2015
-// and mocha won't be able to read them currently.
-// It's not possible to specify a loader for the tests on the mocha
-// command line without it applying it ALL the tests (it should only
-// apply to these tests)
-// Don't convert built files
-require('babel-register', {ignore: /build/})
-
-const {
+import {
 	stripEmptyTags,
 	processLinks,
 	processFigures,
 	processHeadings,
 	processAsides,
 	processTables,
-	processLists} = require("../msword_normalizer.js")
+	processLists} from "../msword_normalizer.js";
 
 const expect = chai.expect
 chai.use(chaiHtml)
