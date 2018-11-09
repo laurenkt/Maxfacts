@@ -9,6 +9,7 @@ RUN apk add --update --no-cache mongodb-tools build-base python git openssh \
 RUN npm -g install gulp-cli ts-node ts-node-dev typescript
 
 COPY . $HOME/app
+COPY ./build/static $HOME/app/static
 RUN chown -R node:node $HOME/app $HOME/.npm
 RUN chown -R node:$(id -gn node) /home/node/.config
 
