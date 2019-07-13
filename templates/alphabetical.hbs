@@ -3,18 +3,17 @@
 	{{{shift_headers 2 body}}}
 	<div class="alphabetical">
 		{{#each alphabetical}}
-			{{#if length}}
-				<div class="alphabetical--item">
-					<h3>{{@key}}</h3>
-					<ul>
-						{{#each this}}
-							<li><a href="/{{uri}}">{{title}}</a></li>
-						{{/each}}
-					</ul>
-				</div>
-			{{/if}}
+		{{#if length}}
+		<div class="alphabetical--item">
+			<h3>{{@key}}</h3>
+			<ul>
+				{{#each this}}
+				<li><a href="/{{uri}}">{{title}}</a></li>
+				{{/each}}
+			</ul>
+		</div>
+		{{/if}}
 		{{/each}}
 	</div>
 	{{> next-section}}
 </main>
-{{> article-metadata}}
