@@ -3,3 +3,5 @@ services:
     app:
         image: maxfacts:latest
         command: sh -c "cp -R /tmp/node_modules ./node_modules && npm run start"
+        volumes:
+            - ./data/storage:/Users/lauren/Projects/maxfacts-statics/build:delegated
