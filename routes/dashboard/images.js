@@ -1,12 +1,13 @@
 import express from "express";
 import Image from "../../models/image";
 import multer  from "multer";
+import recursive from "recursive-readdir";
 
 const router = express.Router();
 
 router.get("/", (req, res) => {
-	Image.find({}, {}, { sort: { uri: 1 } }, (err, items) => {
-		res.render("dashboard/images", {items: items, layout:"dashboard"});
+	recursive(process.env.STATIC_FS, function (err, files) {
+		res.json(files);
 	});
 });
 

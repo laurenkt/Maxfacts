@@ -32,10 +32,14 @@ async function getPageList(req, res) {
 		item.invalid_links_count = (await item.getInvalidLinks()).length
 	}))
 
-	res.render("dashboard/directory", {
-		items,
-		layout: "dashboard",
-	})
+	if (req.accepts("text/html")) {
+		res.render("dashboard/directory", {
+			items,
+			layout: "dashboard",
+		})
+	} else {
+		res.json(items);
+	}
 }
 
 async function getDeletePage(req, res) {
