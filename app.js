@@ -85,7 +85,7 @@ if (!process.env.TEST) {
 }
 
 // Process POST request bodies
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }))
 
 // Sessions
 app.use(session({
