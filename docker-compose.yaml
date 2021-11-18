@@ -13,20 +13,20 @@ services:
         links:
             - mongo
     mongo:
-        image: mongo:3.2
+        image: maxfacts-data:latest
         volumes:
             - ./data/db:/data/db
         ports:
             - '27017:27017'
-        command: mongod --logpath=/dev/null # --smallfiles --fork --quiet
-    restore:
-        build:
-            context: .
-            dockerfile: mongo.Dockerfile
-        volumes:
-            - ./data/dump:/data/dump:delegated
-        links:
-            - mongo
+        # command: mongod --logpath=/dev/null # --smallfiles --fork --quiet
+    #restore:
+    #    build:
+    #        context: .
+    #        dockerfile: mongo.Dockerfile
+     #   volumes:
+     #       - ./data/dump:/data/dump:delegated
+     #   links:
+     #       - mongo
     nginx:
         #TODO: logs
         image: nginx:1.13-alpine
