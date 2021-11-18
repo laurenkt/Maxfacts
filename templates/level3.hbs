@@ -4,12 +4,14 @@
 		{{#description}}
 			<p>{{this}}</p>
 		{{/description}}
+		{{#if contents.length}}
 		<h3>Contents</h3>
 		<ol>
 			{{#each contents}}
 				<li><a href="#{{id}}">{{{text}}}</a></li>
 			{{/each}}
 		</ol>
+		{{/if}}
 	</header>
 	{{{shift_headers 2 body}}}
 	{{> next-section}}
