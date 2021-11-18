@@ -6,7 +6,9 @@ import Content from "../models/content.js"
 const router = express.Router()
 
 // Require log-in
-router.use(ensureLoggedIn("/auth"))
+if (!process.env.ALLOW_DASHBOARD) {
+	router.use(ensureLoggedIn("/auth"))
+}
 
 router.use("/users",     require("./dashboard/users.js"))
 router.use("/images",    require("./dashboard/images.js"))
