@@ -110,6 +110,76 @@ resource "aws_s3_bucket" "lt696-testbed" {
   }
 }
 
+resource "aws_route53_zone" "maxfacts-route53-zone" {
+  name = "maxfacts.uk"
+
+  tags = {
+    "application" = "maxfacts"
+    classification = "route35"
+    subclassification = "hosted_zone"
+  }
+}
+
+resource "aws_acm_certificate" "maxfacts-certificate" {
+  domain_name = "maxfacts.uk"
+  subject_alternative_names = ["www.maxfacts.uk", "production.maxfacts.uk", "staging.maxfacts.uk"]
+}
+
+resource "aws_alb" "maxfacts-lb" {
+  enable_deletion_protection = true
+  tags = {
+    application = "maxfacts"
+    classification = "elb"
+    subclassification = "application-load-balancer"
+  }
+}
+
+resource "aws_alb_listener" "maxfacts-lb-listener-http" {
+  load_balancer_arn = aws_alb.maxfacts-lb.arn
+  port = 80
+  default_action {
+    type = "redirect"
+    redirect {
+      host = "#{host}"
+      path = "/#{path}"
+      protocol = "HTTPS"
+      port = 443
+      query = "#{query}"
+      status_code = "HTTP_301"
+    }
+  }
+}
+
+resource "aws_alb_target_group" "maxfacts-lb-target-group-https" {
+  port = 80
+  protocol = "HTTP"
+  vpc_id = aws_vpc.maxfacts-vpc.id
+  target_type = "ip"
+  name = "maxfacts"
+
+  health_check {
+    enabled = true
+    healthy_threshold = 5
+    interval = 30
+    matcher = "200"
+    path = "/"
+    port = "traffic-port"
+    protocol = "HTTP"
+    timeout = 5
+    unhealthy_threshold = 2
+  }
+}
+
+resource "aws_alb_listener" "maxfacts-lb-listener-https" {
+  certificate_arn = aws_acm_certificate.maxfacts-certificate.arn
+  load_balancer_arn = aws_alb.maxfacts-lb.arn
+  port = 443
+  default_action {
+    type = "forward"
+    target_group_arn = aws_alb_target_group.maxfacts-lb-target-group-https.arn
+  }
+}
+
 resource "aws_cloudfront_cache_policy" "cache_policy" {
   comment = "Default policy when CF compression is enabled"
   min_ttl = 1
