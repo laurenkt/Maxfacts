@@ -1,2 +1,7 @@
 .git
 node_modules
+docker*
+Dockerfile
+*Dockerfile
+.dockerignore
+data/db

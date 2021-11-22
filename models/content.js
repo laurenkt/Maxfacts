@@ -1,6 +1,6 @@
 // @flow
 import mongoose from 'mongoose'
-import sanitizeHtml from 'sanitize-html'
+// import sanitizeHtml from 'sanitize-html'
 import {
 	Parser,
 	DomHandler
@@ -14,7 +14,7 @@ import {
 import Video from './video'
 import Image from './image'
 import DomUtils from 'domutils'
-import XXHash from 'xxhash'
+import etag from 'etag'
 
 mongoose.Promise = global.Promise // Required to squash a deprecation warning
 
@@ -132,6 +132,7 @@ schema.statics = {
 	},
 
 	getSanitizedHTML(html) {
+		const sanitizeHtml = x => x // TODO restore this
 		// Force the body into an acceptable format
 		// Allow only a super restricted set of tags and attributes
 		let reduced_body = ""
@@ -312,13 +313,7 @@ schema.statics = {
 		if (typeof buffer !== 'Buffer')
 			buffer = Buffer.from(buffer)
 
-		return XXHash.hash64(
-			buffer,
-			// Convert to 32-bit int for hash
-			seed >>> 0,
-			// Hex output easily readable
-			'hex'
-		)
+		return etag(buffer)
 	},
 }
 

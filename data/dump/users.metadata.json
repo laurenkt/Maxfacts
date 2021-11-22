@@ -1,1 +1,1 @@
-{"options":{},"indexes":[{"v":1,"key":{"_id":1},"name":"_id_","ns":"maxfacts.users"},{"v":1,"unique":true,"key":{"email":1},"name":"email_1","ns":"maxfacts.users","background":true}]}
+{"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_"},{"v":{"$numberInt":"2"},"key":{"email":{"$numberInt":"1"}},"name":"email_1","background":true,"unique":true}],"uuid":"83342a79427b411a8807f6c3522051b5","collectionName":"users","type":"collection"}

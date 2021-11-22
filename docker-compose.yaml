@@ -8,12 +8,12 @@ services:
             - ./data/storage:/opt/lt696dev/content:delegated
             #- .:/home/node/app:delegated
             - ./data/dump:/home/node/app/data/dump:delegated
-            - node_modules:/home/node/app_node_modules
+            #- node_modules:/home/node/app_node_modules
             #- /home/node/app/node_modules # use node_modules local to the image to avoid platform conflicts
         links:
             - mongo
     mongo:
-        image: mongo:3.2
+        image: mongo:latest
         volumes:
             - ./data/db:/data/db
         ports:

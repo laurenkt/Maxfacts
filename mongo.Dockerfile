@@ -1,11 +1,10 @@
-FROM alpine:3.6
+FROM arm64v8/alpine:3.14
 
-RUN apk add --update --no-cache mongodb-tools
+RUN apk add --update --no-cache mongodb-tools bash
 
 COPY data/dump /data/dump
 COPY bin /bin
 
-RUN chmod +x /bin/mongorestore.sh /bin/waitforit-linux_amd64
+RUN chmod +x /bin/*
 
 CMD /bin/mongorestore.sh
-	

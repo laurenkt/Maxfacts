@@ -2,6 +2,10 @@ version: '2'
 services:
     app:
         image: maxfacts:latest
-        command: sh -c "cp -R /tmp/node_modules ./node_modules && npm run start"
+        build:
+            context: .
+            dockerfile: Dockerfile
+        command: sh -c "chmod +x bin/* && bin/wait-for-it.sh mongo:27017 -t 30 -- npm run start"
         volumes:
             - ./data/storage:/Users/lauren/Projects/maxfacts-statics/build:delegated
+            - ~/Projects/maxfacts-output:/output/dump

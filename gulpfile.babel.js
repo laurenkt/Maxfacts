@@ -24,7 +24,7 @@ gulp.task('css', () => {
 	return gulp
 		.src('./static/css/*.scss')
 		.pipe(sourcemaps.init())
-		.pipe(sass.sync().on('error', sass.logError))
+		.pipe(sass(require('sass')).sync())
 		.pipe(autoprefixer())
 		.pipe(uglifycss())
 		.pipe(sourcemaps.write('.'))

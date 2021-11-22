@@ -13,6 +13,9 @@ import hbs from 'express-handlebars'
 import joi from 'joi'
 import { config } from 'dotenv'
 import flash from 'express-flash-2'
+import Handlebars from 'handlebars'
+import {allowInsecurePrototypeAccess} from '@handlebars/allow-prototype-access'
+
 
 // Load and validate environment variables
 config() // loads from .env file
@@ -46,6 +49,7 @@ const app = express()
 
 // Views in templates/ using handlebars.js
 app.engine('hbs', hbs({
+	handlebars: allowInsecurePrototypeAccess(Handlebars),
 	extname: '.hbs',
 	defaultLayout: 'main',
 	layoutsDir: join(__dirname, 'templates', 'layouts'),
@@ -140,6 +144,7 @@ app.use(async (req, res, next) => {
 // Loads the named module from the routes/ directory
 const route = (name) => require(join(__dirname, 'routes', name))
 
+app.use('/dump', route('dump'))
 app.use('/', route('feedback'))
 app.use('/', route('videos'))
 app.use(

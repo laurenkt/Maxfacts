@@ -64,3 +64,8 @@ npm-debug.log
 data/db
 data/storage
 private
+
+terraform.tfstate
+terraform.tfstate.backup
+.terraform*
+.idea

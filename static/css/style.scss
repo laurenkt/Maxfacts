@@ -318,7 +318,7 @@ html,body {
 }
 
 body > section {
-	@include clearfix
+	@include clearfix;
 
 	max-width: 64em;
 	margin: 0 auto 2em;
@@ -1271,7 +1271,7 @@ label.disabled {
 }
 
 .link-box {
-	@include clearfix
+	@include clearfix;
 
 	p {
 		width: 48%;

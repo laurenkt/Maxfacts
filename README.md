@@ -53,3 +53,11 @@ To restore from a backup, use
 to restore the most recent backup. Otherwise navigate to the directory where the backup is contained and use `mongorestore`:
 
     mongorestore -d maxfacts maxfacts
+
+AWS
+---
+
+Login
+
+1. Use [saml2aws](https://wiki.york.ac.uk/display/CLOUD/2.+Command+Line+Access)
+2. `aws --profile saml ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 025081378045.dkr.ecr.eu-west-1.amazonaws.com`
