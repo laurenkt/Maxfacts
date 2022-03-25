@@ -53,3 +53,11 @@ jobs:
           node-version: '14'
       - run: npm install
       - run: npm test
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://github.com
+    steps:
+      - name: deploy
+        run: echo Test
