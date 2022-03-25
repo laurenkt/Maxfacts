@@ -20,7 +20,6 @@ jobs:
           key: ${{ runner.os }}-buildx-${{ github.sha }}
           restore-keys: |
             ${{ runner.os }}-buildx-
-      - name: Build Project
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
