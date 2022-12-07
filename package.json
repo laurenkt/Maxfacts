@@ -51,7 +51,7 @@
         "dotenv": "^4.0.0",
         "esm": "^3.0.80",
         "etag": "^1.8.1",
-        "express": "^4.16.3",
+        "express": "^4.17.3",
         "express-flash-2": "^1.0.1",
         "express-handlebars": "^3.0.0",
         "express-rate-limit": "^2.13.1",
