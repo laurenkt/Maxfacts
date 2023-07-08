@@ -54,6 +54,15 @@ to restore the most recent backup. Otherwise navigate to the directory where the
 
     mongorestore -d maxfacts maxfacts
 
+Output dump
+---
+
+There is a dump.js endpoint which can dump website contents to `/output/dump`
+
+Accessing static content:
+
+Static web hosting for S3 (option in S3 bucket properties): http://lt696-testbed.s3-website-eu-west-1.amazonaws.com/
+
 AWS
 ---
 
