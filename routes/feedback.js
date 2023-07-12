@@ -61,8 +61,8 @@ let transporter = nodemailer.createTransport({
 	}
 })
 
-function postFeedback(req, res) {
-	let from = "maxfactsuk@gmail.com"
+async function postFeedback(req, res) {
+	let from = "no-reply@maxfacts.uk"
 	let sender = from
 
 	if (req.body.email && req.body.email !== "") {
@@ -83,20 +83,26 @@ Regarding: ${'http://maxfacts.uk/' + (req.params.uri || '')}
 Message:
 
 ${req.body.message.substr(0, 1000)}`
-	
+
  	// don't need to keep connection open to send email
 	// in fact, we shouldn't as it leaks information about the email sending
 	// to the client
 	res.render('feedback-confirmation', {})
-	
-	transporter.sendMail({
-		from,
-		sender,
-		replyTo: from,
-		to: "feedback@maxfacts.uk",
-		subject: "Feedback",
-		text
-	})
+
+	try {
+	    let mail = {
+			from,
+			sender,
+			to: "feedback@maxfacts.uk",
+			subject: "Feedback",
+			text
+		}
+		process.stdout.write(JSON.stringify(mail))
+		await transporter.sendMail(mail)
+	} catch (e) {
+		process.stdout.write("error encountered")
+		process.stdout.write(JSON.stringify(e))
+	}
 }
 
 module.exports = router
