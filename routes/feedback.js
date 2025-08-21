@@ -66,10 +66,7 @@ async function postFeedback(req, res) {
 	let sender = from
 
 	if (req.body.email && req.body.email !== "") {
-		if (isemail.validate(req.body.email)) {
-			from = req.body.email
-		}
-		else {
+		if (!isemail.validate(req.body.email)) {
 			return getFeedback(req, res)
 		}
 	}
@@ -79,7 +76,7 @@ async function postFeedback(req, res) {
 
 	const text = `
 From: ${req.body.email || 'not specified'}
-Regarding: ${'http://maxfacts.uk/' + (req.params.uri || '')}
+Regarding: ${'https://maxfacts.uk/' + (req.params.uri || '')}
 Message:
 
 ${req.body.message.substr(0, 1000)}`
@@ -98,10 +95,13 @@ ${req.body.message.substr(0, 1000)}`
 			text
 		}
 		process.stdout.write(JSON.stringify(mail))
+		process.stdout.write("\n")
 		await transporter.sendMail(mail)
 	} catch (e) {
 		process.stdout.write("error encountered")
+		process.stdout.write("\n")
 		process.stdout.write(JSON.stringify(e))
+		process.stdout.write("\n")
 	}
 }
 
