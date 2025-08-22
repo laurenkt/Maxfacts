@@ -14,8 +14,7 @@
         "docker:backup": "docker exec -it $(docker container ls -qf\"name=maxfacts\") npm run backup",
         "docker:test": "docker exec -it $(docker container ls -qf \"name=maxfacts_app\") npm run test:integrations",
         "test": "TEST=maxfacts node_modules/.bin/nyc --reporter=html --reporter=text mocha --compilers js:@babel/register test --grep integrations --invert",
-        "test:integrations": "HOSTNAME=$(hostname -i) TEST=maxfacts node_modules/.bin/nyc --compilers js:@babel/register --reporter=html --reporter=text mocha test",
-        "precommit": "npm run test"
+        "test:integrations": "HOSTNAME=$(hostname -i) TEST=maxfacts node_modules/.bin/nyc --compilers js:@babel/register --reporter=html --reporter=text mocha test"
     },
     "dependencies": {
         "@babel/core": "^7.1.5",
@@ -102,7 +101,6 @@
         "eslint-plugin-mocha": "^4.12.1",
         "eslint-plugin-promise": "^3.8.0",
         "eslint-plugin-react": "^7.11.1",
-        "husky": "^0.13.3",
         "node-cli": "^0.1.0",
         "react": "^15.6.1",
         "react-dom": "^15.6.1",
