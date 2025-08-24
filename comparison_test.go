@@ -14,7 +14,6 @@ import (
 	"testing"
 	"time"
 
-	"github.com/gorilla/mux"
 	"github.com/laurenkt/gohtmldiff"
 	"github.com/maxfacts/maxfacts/handlers"
 	"github.com/maxfacts/maxfacts/pkg/mongodb"
@@ -25,7 +24,7 @@ import (
 
 var (
 	testDB             *mongo.Database
-	testRouter         *mux.Router
+	testHandler        http.Handler
 	testSitemapHandler *handlers.SitemapHandler
 	testAll            = flag.Bool("all", false, "Test all URLs from sitemap instead of just configured endpoints")
 	testOnly           = flag.String("only", "", "Test only a specific URL path (e.g., -only /help)")
@@ -88,7 +87,7 @@ func TestMain(m *testing.M) {
 	testDB = client.Database("maxfacts")
 
 	// Use the same router setup as main.go
-	testRouter = SetupRouter(testDB)
+	testHandler = SetupRouter(testDB)
 
 	// Initialize sitemap handler for shared URL collection
 	testSitemapHandler = handlers.NewSitemapHandler(testDB)
@@ -133,8 +132,8 @@ func TestURLComparison(t *testing.T) {
 // testURLsWithFutures tests URLs using parallel fetching with ordered results
 func testURLsWithFutures(t *testing.T, paths []string, referenceURL string) {
 	// Create futures pattern: slice of channels for ordered processing
-	const maxConcurrency = 20
-	const rateLimit = 25 * time.Millisecond
+	const maxConcurrency = 15
+	const rateLimit = 30 * time.Millisecond
 
 	semaphore := make(chan struct{}, maxConcurrency)
 	rateLimiter := time.NewTicker(rateLimit)
@@ -290,7 +289,7 @@ func getLocalResponse(path string) (string, int, error) {
 	rr := httptest.NewRecorder()
 
 	// Serve the request
-	testRouter.ServeHTTP(rr, req)
+	testHandler.ServeHTTP(rr, req)
 
 	return rr.Body.String(), rr.Code, nil
 }
@@ -326,7 +325,7 @@ func getLocalBinaryResponse(path string) ([]byte, int, error) {
 	rr := httptest.NewRecorder()
 
 	// Serve the request
-	testRouter.ServeHTTP(rr, req)
+	testHandler.ServeHTTP(rr, req)
 
 	return rr.Body.Bytes(), rr.Code, nil
 }

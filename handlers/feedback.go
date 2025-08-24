@@ -8,7 +8,6 @@ import (
 	"text/template"
 	"time"
 
-	"github.com/gorilla/mux"
 	"github.com/maxfacts/maxfacts/models"
 	templatehelpers "github.com/maxfacts/maxfacts/pkg/template"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -59,8 +58,9 @@ func (h *FeedbackHandler) Feedback(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	vars := mux.Vars(r)
-	uri := strings.TrimSpace(vars["uri"])
+	// Extract URI from path (removing /feedback suffix)
+	uri := strings.TrimSuffix(strings.TrimPrefix(r.URL.Path, "/"), "/feedback")
+	uri = strings.TrimSpace(uri)
 
 	if r.Method == "GET" {
 		h.getFeedback(ctx, w, r, uri)

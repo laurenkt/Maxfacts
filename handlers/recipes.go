@@ -2,11 +2,11 @@ package handlers
 
 import (
 	"context"
+	"strings"
 	"text/template"
 	"log"
 	"net/http"
 
-	"github.com/gorilla/mux"
 	"github.com/maxfacts/maxfacts/models"
 	templatehelpers "github.com/maxfacts/maxfacts/pkg/template"
 	"go.mongodb.org/mongo-driver/bson/primitive"
@@ -140,8 +140,8 @@ func (h *RecipeHandler) Browse(w http.ResponseWriter, r *http.Request) {
 // Recipe handles individual recipe pages
 func (h *RecipeHandler) Recipe(w http.ResponseWriter, r *http.Request) {
 	ctx := context.Background()
-	vars := mux.Vars(r)
-	id := vars["id"]
+	// Extract recipe ID from path (everything after /help/oral-food/recipes/)
+	id := strings.TrimPrefix(r.URL.Path, "/help/oral-food/recipes/")
 
 	recipe, err := h.recipeModel.FindOne(ctx, id)
 	if err == mongo.ErrNoDocuments {

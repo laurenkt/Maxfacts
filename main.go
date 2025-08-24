@@ -7,26 +7,21 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
+	"strings"
 	"time"
 
-	"github.com/gorilla/mux"
 	"github.com/maxfacts/maxfacts/handlers"
 	"github.com/maxfacts/maxfacts/pkg/mongodb"
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
-// createStaticMiddleware creates middleware that serves static files from multiple directories
-// Mimics Node.js express.static() behavior by checking multiple directories in order
-func createStaticMiddleware() func(http.Handler) http.Handler {
-	return func(next http.Handler) http.Handler {
-		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-			// Skip non-GET requests
-			if r.Method != http.MethodGet {
-				next.ServeHTTP(w, r)
-				return
-			}
-			
-			// List of directories to check in order (like Node.js)
+
+// staticFileHandler creates a handler that checks for static files first
+func staticFileHandler(nextHandler http.HandlerFunc) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		// Only check for static files on GET requests
+		if r.Method == http.MethodGet {
+			path := r.URL.Path
 			staticDirs := []string{
 				"./static",
 				"./build/static",
@@ -39,25 +34,25 @@ func createStaticMiddleware() func(http.Handler) http.Handler {
 			
 			// Try to serve from each directory
 			for _, dir := range staticDirs {
-				filePath := filepath.Join(dir, r.URL.Path)
+				filePath := filepath.Join(dir, path)
 				
 				// Check if file exists and is not a directory
 				if fileInfo, err := os.Stat(filePath); err == nil && !fileInfo.IsDir() {
-					log.Printf("[STATIC] Serving %s from %s", r.URL.Path, dir)
+					log.Printf("[STATIC] Serving %s from %s", path, dir)
 					http.ServeFile(w, r, filePath)
 					return
 				}
 			}
-			
-			// File not found in any static directory, continue to next handler
-			next.ServeHTTP(w, r)
-		})
+		}
+		
+		// File not found, continue with next handler
+		nextHandler(w, r)
 	}
 }
 
 // SetupRouter creates and configures the application router
-func SetupRouter(db *mongo.Database) *mux.Router {
-	r := mux.NewRouter()
+func SetupRouter(db *mongo.Database) http.Handler {
+	mux := http.NewServeMux()
 
 	// Initialize handlers with database
 	contentHandler := handlers.NewContentHandler(db)
@@ -67,40 +62,53 @@ func SetupRouter(db *mongo.Database) *mux.Router {
 	videoHandler := handlers.NewVideoHandler(db)
 	feedbackHandler := handlers.NewFeedbackHandler(db)
 
-	// Content routes
-	r.HandleFunc("/", logHandler("Index", contentHandler.Index)).Methods("GET")
-	r.HandleFunc("/search", logHandler("Search", searchHandler.Search)).Methods("GET")
-	r.HandleFunc("/map.xml", logHandler("Sitemap", sitemapHandler.Sitemap)).Methods("GET")
+	// Register specific routes first
+	mux.HandleFunc("GET /search", logHandler("Search", searchHandler.Search))
+	mux.HandleFunc("GET /map.xml", logHandler("Sitemap", sitemapHandler.Sitemap))
+	mux.HandleFunc("GET /feedback", logHandler("Feedback", feedbackHandler.Feedback))
+	mux.HandleFunc("POST /feedback", logHandler("Feedback", feedbackHandler.Feedback))
+	mux.HandleFunc("GET /help/oral-food/recipes", logHandler("RecipeIndex", recipeHandler.Index))
+	mux.HandleFunc("GET /help/oral-food/recipes/browse", logHandler("RecipeBrowse", recipeHandler.Browse))
 	
-	// Feedback routes (must be before content catch-all)
-	r.HandleFunc("/feedback", logHandler("Feedback", feedbackHandler.Feedback)).Methods("GET", "POST")
-	r.HandleFunc("/{uri:.*}/feedback", logHandler("URIFeedback", feedbackHandler.Feedback)).Methods("GET", "POST")
-	
-	// Recipe routes
-	r.HandleFunc("/help/oral-food/recipes", logHandler("RecipeIndex", recipeHandler.Index)).Methods("GET")
-	r.HandleFunc("/help/oral-food/recipes/browse", logHandler("RecipeBrowse", recipeHandler.Browse)).Methods("GET")
-	r.HandleFunc("/help/oral-food/recipes/{id:.*}", logHandler("Recipe", recipeHandler.Recipe)).Methods("GET")
+	// Catch-all pattern for everything else (including home page)
+	mux.HandleFunc("/", staticFileHandler(func(w http.ResponseWriter, r *http.Request) {
+		path := r.URL.Path
+		
+		// Handle home page first
+		if path == "/" {
+			log.Printf("[HANDLER] Index handling: %s %s", r.Method, path)
+			contentHandler.Index(w, r)
+			return
+		}
+		
+		// Handle feedback routes with URI prefix
+		if strings.HasSuffix(path, "/feedback") && len(path) > 9 {
+			log.Printf("[HANDLER] URIFeedback handling: %s %s", r.Method, path)
+			feedbackHandler.Feedback(w, r)
+			return
+		}
+		
+		// Handle recipe routes
+		if strings.HasPrefix(path, "/help/oral-food/recipes/") && path != "/help/oral-food/recipes/browse" {
+			log.Printf("[HANDLER] Recipe handling: %s %s", r.Method, path)
+			recipeHandler.Recipe(w, r)
+			return
+		}
+		
+		// Handle video routes (*.mp4 files)
+		if strings.HasSuffix(path, ".mp4") {
+			log.Printf("[HANDLER] Video handling: %s %s", r.Method, path)
+			videoHandler.Video(w, r)
+			return
+		}
+		
+		// Default to content page handler
+		log.Printf("[HANDLER] ContentPage handling: %s %s", r.Method, path)
+		contentHandler.Page(w, r)
+	}))
 
-	// Video routes
-	r.HandleFunc("/{uri:.*\\.mp4}", logHandler("Video", videoHandler.Video)).Methods("GET")
-	
-	// Static files middleware - mimics Node.js express.static behavior
-	// Check multiple directories in order: build/static, static/, STATIC_FS
-	r.Use(createStaticMiddleware())
-	
-	// Catch-all for content pages (must be last)
-	r.HandleFunc("/{uri:.*}", logHandler("ContentPage", contentHandler.Page)).Methods("GET")
-
-	// Add logging middleware to the router
-	r.Use(loggingMiddleware)
-	
-	// Add final 404 handler that logs
-	r.NotFoundHandler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		log.Printf("[404] No handler matched for: %s %s", r.Method, r.URL.Path)
-		http.NotFound(w, r)
-	})
-
-	return r
+	// Wrap with logging middleware
+	return loggingMiddleware(mux)
 }
 
 func main() {
@@ -120,13 +128,13 @@ func main() {
 	db := client.Database("maxfacts")
 
 	// Setup routes
-	r := SetupRouter(db)
+	handler := SetupRouter(db)
 
 	// Start server
 	port := cmp.Or(os.Getenv("PORT"), "3000")
 
 	log.Printf("Server starting on port %s", port)
-	if err := http.ListenAndServe(":"+port, r); err != nil {
+	if err := http.ListenAndServe(":"+port, handler); err != nil {
 		log.Fatal("Server failed to start:", err)
 	}
 }

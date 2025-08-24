@@ -2,11 +2,11 @@ package handlers
 
 import (
 	"context"
+	"strings"
 	"text/template"
 	"log"
 	"net/http"
 
-	"github.com/gorilla/mux"
 	"github.com/maxfacts/maxfacts/models"
 	templatehelpers "github.com/maxfacts/maxfacts/pkg/template"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -46,8 +46,9 @@ func NewVideoHandler(db *mongo.Database) *VideoHandler {
 // Video handles video page requests
 func (h *VideoHandler) Video(w http.ResponseWriter, r *http.Request) {
 	ctx := context.Background()
-	vars := mux.Vars(r)
-	uri := vars["uri"]
+	// Extract URI from path (removing leading slash and .mp4 extension)
+	uri := strings.TrimPrefix(r.URL.Path, "/")
+	uri = strings.TrimSuffix(uri, ".mp4")
 
 	video, err := h.videoModel.FindOne(ctx, uri)
 	if err == mongo.ErrNoDocuments {

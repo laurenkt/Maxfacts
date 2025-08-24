@@ -9,7 +9,6 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/gorilla/mux"
 	"github.com/maxfacts/maxfacts/models"
 	templatehelpers "github.com/maxfacts/maxfacts/pkg/template"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -96,8 +95,8 @@ func (h *ContentHandler) Index(w http.ResponseWriter, r *http.Request) {
 // Page handles individual content pages
 func (h *ContentHandler) Page(w http.ResponseWriter, r *http.Request) {
 	ctx := context.Background()
-	vars := mux.Vars(r)
-	uri := vars["uri"]
+	// Extract URI from path (removing leading slash)
+	uri := strings.TrimPrefix(r.URL.Path, "/")
 	
 	// Find the content
 	content, err := h.contentModel.FindOne(ctx, uri)

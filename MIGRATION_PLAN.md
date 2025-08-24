@@ -34,7 +34,7 @@
    - `go mod init github.com/maxfacts/maxfacts`
    - Add MongoDB driver: `go.mongodb.org/mongo-driver`
    - Add HTML parser: `golang.org/x/net/html`
-   - Add router: `github.com/gorilla/mux` or `chi`
+   - Uses Go standard library `net/http.ServeMux` (no third-party router needed)
 
 2. **Create MongoDB connection layer**
    - Connection to existing MongoDB using connection string
@@ -118,7 +118,7 @@
 The Go version includes comprehensive comparison tests that validate output against the running Node.js version:
 
 **Test Setup (`comparison_test.go`)**:
-- Runs the Go server locally using test router
+- Runs the Go server locally using test handler
 - Compares responses against a reference Node.js server (default: `http://localhost:8080`)
 - Uses environment variables for configuration:
   - `MONGO_URI`: MongoDB connection string
