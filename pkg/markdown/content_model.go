@@ -129,12 +129,18 @@ func (m *ContentModel) FindFromParentURI(ctx context.Context, parentURI string) 
 		}
 	}
 	
-	// Sort results by Order field, then by Title
+	// Sort results by Order field, then by Title, then by Description, then by Surtitle
 	sort.Slice(results, func(i, j int) bool {
 		if results[i].Order != results[j].Order {
 			return results[i].Order < results[j].Order
 		}
-		return results[i].Title < results[j].Title
+		if results[i].Title != results[j].Title {
+			return results[i].Title < results[j].Title
+		}
+		if results[i].Description != results[j].Description {
+			return results[i].Description < results[j].Description
+		}
+		return results[i].Surtitle < results[j].Surtitle
 	})
 	
 	return results, nil
@@ -168,12 +174,18 @@ func (m *ContentModel) findTopLevelItems(ctx context.Context) ([]Content, error)
 		}
 	}
 	
-	// Sort results by Order field, then by Title
+	// Sort results by Order field, then by Title, then by Description, then by Surtitle
 	sort.Slice(results, func(i, j int) bool {
 		if results[i].Order != results[j].Order {
 			return results[i].Order < results[j].Order
 		}
-		return results[i].Title < results[j].Title
+		if results[i].Title != results[j].Title {
+			return results[i].Title < results[j].Title
+		}
+		if results[i].Description != results[j].Description {
+			return results[i].Description < results[j].Description
+		}
+		return results[i].Surtitle < results[j].Surtitle
 	})
 	
 	return results, nil

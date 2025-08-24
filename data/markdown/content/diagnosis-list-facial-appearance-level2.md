@@ -4,9 +4,25 @@ uri: diagnosis/a-z/facial-appearance/more-info
 title: Facial appearance
 type: level2
 authorship: Authored by David A. Mitchell; Proof-read/edited by Angelika Sebald
+order: 0
 further_reading_uri: diagnosis/a-z/further-reading
 updated_at: 2019-12-13T13:42:55Z
 created_at: 2018-05-21T10:48:30Z
+contents:
+  - text: "Rhytidectomy"
+    id: rhytidectomy
+  - text: "Blepharoplasty"
+    id: blepharoplasty
+  - text: "Brow lift"
+    id: brow-lift
+  - text: "Otoplasty (pinnaplasty)"
+    id: otoplasty-pinnaplasty
+  - text: "Rhinoplasty"
+    id: rhinoplasty
+  - text: "Genioplasty (movement or reshaping of the chin)"
+    id: genioplasty-movement-or-reshaping-of-the-chin
+  - text: "Miscellaneous procedures and conditions"
+    id: miscellaneous-procedures-and-conditions
 ---
 
 <p>Below we discuss in a little more detail the background

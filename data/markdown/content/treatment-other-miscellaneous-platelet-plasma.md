@@ -4,6 +4,7 @@ uri: treatment/other/miscellaneous/platelet-plasma
 title: Platelet-rich plasma
 type: page
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 updated_at: 2019-12-15T11:40:08Z
 created_at: 2018-08-18T16:37:40Z
 ---

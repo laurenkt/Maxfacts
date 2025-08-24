@@ -5,6 +5,7 @@ title: Clinical application
 type: level2
 surtitle: Chemotherapy
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 updated_at: 2017-09-29T12:37:54Z
 created_at: 2016-08-03T08:37:34Z
 ---

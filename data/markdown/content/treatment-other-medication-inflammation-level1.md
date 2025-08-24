@@ -4,6 +4,7 @@ uri: treatment/other/medication/inflammation
 title: Inflammation
 type: level1
 authorship: Authored by David A. Mitchell & Angelika Sebald
+order: 0
 updated_at: 2018-02-02T09:29:36Z
 created_at: 2016-12-13T16:58:19Z
 ---

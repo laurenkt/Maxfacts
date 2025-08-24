@@ -4,6 +4,7 @@ uri: diagnosis/a-z/abscess/more-info
 title: Abscess
 type: level2
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 updated_at: 2017-08-23T11:49:50Z
 created_at: 2017-02-16T16:03:51Z
 ---

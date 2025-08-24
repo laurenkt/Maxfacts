@@ -25,6 +25,15 @@ func parseAuthorship(authorship string) []string {
 
 // convertMarkdownToModelContent converts markdown.Content to models.Content
 func convertMarkdownToModelContent(md *markdown.Content) *models.Content {
+	// Convert Contents from markdown to models format
+	var contents []models.ContentItem
+	for _, item := range md.Contents {
+		contents = append(contents, models.ContentItem{
+			Text: item.Text,
+			ID:   item.ID,
+		})
+	}
+
 	return &models.Content{
 		URI:               md.URI,
 		Title:             md.Title,
@@ -38,6 +47,7 @@ func convertMarkdownToModelContent(md *markdown.Content) *models.Content {
 		HasSublist:        md.HasSublist,
 		Authorship:        md.Authorship,
 		Order:             md.Order,
+		Contents:          contents,
 		UpdatedAt:         md.UpdatedAt,
 		CreatedAt:         md.CreatedAt,
 	}

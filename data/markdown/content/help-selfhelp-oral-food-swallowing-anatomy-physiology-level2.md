@@ -4,9 +4,15 @@ uri: help/oral-food/swallowing-anatomy-physiology
 title: Swallowing
 type: level2
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 further_reading_uri: help/oral-food/further-reading
 updated_at: 2018-11-09T13:20:01Z
 created_at: 2017-02-02T16:26:52Z
+contents:
+  - text: "The normal swallowing process"
+    id: the-normal-swallowing-process
+  - text: "Development of swallowing abilities"
+    id: development-of-swallowing-abilities
 ---
 
 <p>Swallowing is one of our bodies’ functions that we rarely pay

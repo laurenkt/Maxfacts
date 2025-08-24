@@ -4,6 +4,7 @@ uri: diagnosis/a-z/facial-pain-syndrome
 title: Facial pain syndrome
 type: level1
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 updated_at: 2018-08-18T16:19:18Z
 created_at: 2016-12-06T12:17:09Z
 ---

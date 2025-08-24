@@ -4,6 +4,7 @@ uri: diagnosis/a-z/fistula/more-info
 title: Fistula
 type: level2
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 further_reading_uri: diagnosis/a-z/further-reading
 updated_at: 2018-08-19T09:48:00Z
 created_at: 2018-08-18T12:51:56Z

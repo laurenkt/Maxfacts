@@ -4,9 +4,21 @@ uri: diagnosis/a-z/craniofacial-anomalies/detailed
 title: Craniofacial anomalies
 type: level3
 authorship: Authored by Angelika Sebald & David A. Mitchell
+order: 0
 further_reading_uri: diagnosis/a-z/further-reading
 updated_at: 2018-08-19T09:46:04Z
 created_at: 2018-08-18T13:03:49Z
+contents:
+  - text: "Craniosynostosis"
+    id: craniosynostosis
+  - text: "Craniofacial microsomia"
+    id: craniofacial-microsomia
+  - text: "Positional malformations"
+    id: positional-malformations
+  - text: "Craniofacial syndromes"
+    id: craniofacial-syndromes
+  - text: "History, examination and diagnostic tests"
+    id: history-examination-and-diagnostic-tests
 ---
 
 <p>The diverse group of craniofacial anomalies comprises some of

@@ -4,9 +4,17 @@ uri: help/oral-food/ttt
 title: Taste, texture and temperature
 type: level3
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 further_reading_uri: help/oral-food/further-reading
 updated_at: 2018-08-18T16:12:54Z
 created_at: 2016-08-23T09:35:49Z
+contents:
+  - text: "Taste"
+    id: taste
+  - text: "Texture"
+    id: texture
+  - text: "Temperature"
+    id: temperature
 ---
 
 <p>Our experience of eating is a complex mixture of contributions

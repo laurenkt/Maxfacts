@@ -3,6 +3,7 @@ id: diagnosis-list-tumour-preamble
 uri: diagnosis/a-z/tumour
 title: Tumour
 type: directory
+order: 0
 updated_at: 2017-08-21T10:42:50Z
 created_at: 2016-12-06T12:26:28Z
 ---

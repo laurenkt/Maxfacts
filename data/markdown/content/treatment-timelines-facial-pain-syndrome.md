@@ -4,8 +4,32 @@ uri: treatment/timelines/facial-pain-syndrome
 title: Facial pain syndrome
 type: page
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 updated_at: 2019-12-13T14:04:46Z
 created_at: 2017-02-23T15:56:04Z
+contents:
+  - text: "Idiopathic / atypical facial pain"
+    id: idiopathic-/-atypical-facial-pain
+  - text: "Trigeminal neuralgia"
+    id: trigeminal-neuralgia
+  - text: "Odontalgia / atypical odontalgia"
+    id: odontalgia-/-atypical-odontalgia
+  - text: "Pulpitis"
+    id: pulpitis
+  - text: "Periapical periodontitis and abscess"
+    id: periapical-periodontitis-and-abscess
+  - text: "Glossodynia and sore mouth (also known as ‘burning mouth syndrome’ or ‘oral dysaesthesia’)"
+    id: glossodynia-and-sore-mouth-also-known-as-burning-mouth-syndrome-or-oral-dysaesthesia
+  - text: "Cracked tooth syndrome"
+    id: cracked-tooth-syndrome
+  - text: "Trigeminal herpes zoster"
+    id: trigeminal-herpes-zoster
+  - text: "Postherpetic neuralgia"
+    id: postherpetic-neuralgia
+  - text: "Secondary neuralgia from central nervous system lesions"
+    id: secondary-neuralgia-from-central-nervous-system-lesions
+  - text: "Glossopharyngeal neuralgia"
+    id: glossopharyngeal-neuralgia
 ---
 
 <h1 id="idiopathic-/-atypical-facial-pain"> Idiopathic / atypical facial pain</h1>

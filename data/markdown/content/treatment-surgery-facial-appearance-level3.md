@@ -4,9 +4,23 @@ uri: treatment/surgery/facial-appearance/detailed
 title: Facial appearance
 type: level3
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 further_reading_uri: treatment/surgery/further-reading
 updated_at: 2019-12-13T13:55:01Z
 created_at: 2019-12-13T13:54:52Z
+contents:
+  - text: "Rhytidectomy"
+    id: rhytidectomy-
+  - text: "Facelift procedures for the lower face and midface"
+    id: facelift-procedures-for-the-lower-face-and-midface
+  - text: "Blepharoplasty and related procedures"
+    id: blepharoplasty-and-related-procedures-
+  - text: "Otoplasty (pinnaplasty)"
+    id: otoplasty-pinnaplasty
+  - text: "Rhinoplasty"
+    id: rhinoplasty
+  - text: "Genioplasty"
+    id: genioplasty
 ---
 
 <p>Below we give a brief description of some aspects of the

@@ -4,6 +4,7 @@ uri: treatment/surgery/postoperative-problems/abdomen
 title: Abdomen
 type: page
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 further_reading_uri: treatment/surgery/further-reading
 updated_at: 2018-08-18T15:53:47Z
 created_at: 2018-08-18T15:24:01Z

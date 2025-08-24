@@ -4,10 +4,18 @@ uri: diagnosis/drugs/other
 title: Other drugs
 type: level2
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 hide: true
 further_reading_uri: diagnosis/drugs/further-reading
 updated_at: 2017-08-23T12:00:10Z
 created_at: 2016-12-06T13:42:05Z
+contents:
+  - text: "Opioids"
+    id: opioids
+  - text: "Tranquilizers"
+    id: tranquilizers
+  - text: "Stimulants"
+    id: stimulants
 ---
 
 <p>The biochemical and physiological effects of drugs are, obviously,

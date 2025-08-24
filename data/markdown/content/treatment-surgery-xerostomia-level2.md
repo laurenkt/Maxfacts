@@ -5,9 +5,17 @@ title: Dry mouth
 type: level2
 description: Xerostomia
 authorship: Authored by Guy Carpenter;Proof-read/edited by Angelika Sebald & David A. Mitchell
+order: 0
 further_reading_uri: treatment/surgery/further-reading
 updated_at: 2018-08-18T15:54:59Z
 created_at: 2018-03-26T10:08:24Z
+contents:
+  - text: "Dry-mouth treatment by medication"
+    id: dry-mouth-treatment-by-medication
+  - text: "Attempts to avoid xerostomia as a long-term effect of radiotherapy"
+    id: attempts-to-avoid-xerostomia-as-a-long-term-effect-of-radiotherapy
+  - text: "Management of (and self-help for) dry mouth"
+    id: management-of-and-self-help-for-dry-mouth
 ---
 
 <h1 id="dry-mouth-treatment-by-medication">Dry-mouth treatment by medication</h1>

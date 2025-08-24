@@ -4,6 +4,7 @@ uri: treatment/other/medication/miscellaneous/anticoagulant
 title: Anticoagulant medications
 type: page
 authorship: Authored by Angelika Sebald;Proof-read/edited by David. A Mitchell
+order: 0
 updated_at: 2018-08-18T12:55:20Z
 created_at: 2018-05-21T14:55:53Z
 ---

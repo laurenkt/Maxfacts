@@ -5,6 +5,7 @@ title: Neuropathies
 type: level1
 description: Nerve damage
 authorship: Authored by Angelika Sebald and David A. Mitchell
+order: 0
 updated_at: 2018-05-21T11:26:09Z
 created_at: 2017-02-16T16:58:36Z
 ---

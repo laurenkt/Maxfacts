@@ -4,6 +4,7 @@ uri: treatment/other/medication/miscellaneous/mupirocin
 title: Mupirocin
 type: page
 authorship: Authored by Angelika Sebald and David. A Mitchell
+order: 0
 updated_at: 2018-08-18T16:16:46Z
 created_at: 2018-08-18T16:16:46Z
 ---

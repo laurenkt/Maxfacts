@@ -4,9 +4,17 @@ uri: diagnosis/tests/urine-tests
 title: Urine tests
 type: level2
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 further_reading_uri: diagnosis/tests/further-reading
 updated_at: 2019-07-13T09:24:51Z
 created_at: 2016-12-06T13:45:01Z
+contents:
+  - text: "Urine glucose test"
+    id: urine-glucose-test
+  - text: "24h urea and/or creatinine urine test"
+    id: 24h-urea-and/or-creatinine-urine-test
+  - text: "Bence Jones protein"
+    id: bence-jones-protein
 ---
 
 <p>Hundreds of waste substances and fluid are excreted from the

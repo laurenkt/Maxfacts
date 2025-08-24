@@ -4,6 +4,7 @@ uri: help/mental-health/getting-started
 title: Mental health
 type: level1
 authorship: Authored by Angelika Sebald and Sarah Allen;Proof-read/edited by David A. Mitchell
+order: 0
 updated_at: 2019-12-15T11:19:54Z
 created_at: 2019-12-13T14:14:31Z
 ---

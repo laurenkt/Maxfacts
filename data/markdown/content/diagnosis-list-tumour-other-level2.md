@@ -4,9 +4,25 @@ uri: diagnosis/a-z/tumour/other/more-info
 title: Other tumours
 type: level2
 authorship: Authored by David A. Mitchell & Angelika Sebald
+order: 0
 further_reading_uri: diagnosis/a-z/further-reading
 updated_at: 2018-02-02T09:22:34Z
 created_at: 2018-02-01T11:32:36Z
+contents:
+  - text: "General aspects"
+    id: general-aspects
+  - text: "Liposarcoma"
+    id: liposarcoma
+  - text: "Leiomyosarcoma"
+    id: leiomyosarcoma
+  - text: "Rhabdomyosarcoma"
+    id: rhabdomyosarcoma
+  - text: "Angiosarcoma"
+    id: angiosarcoma
+  - text: "Kaposi sarcoma"
+    id: kaposi-sarcoma
+  - text: "Neurofibrosarcoma and malignant Schwannoma"
+    id: neurofibrosarcoma-and-malignant-schwannoma
 ---
 
 <h1 id="general-aspects">General aspects</h1>

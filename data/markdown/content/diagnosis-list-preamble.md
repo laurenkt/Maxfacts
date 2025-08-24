@@ -3,6 +3,7 @@ id: diagnosis-list-preamble
 uri: diagnosis/a-z
 title: A–Z of diagnoses
 type: directory
+order: 0
 updated_at: 2017-06-09T15:29:29Z
 created_at: 2016-08-11T10:17:50Z
 ---

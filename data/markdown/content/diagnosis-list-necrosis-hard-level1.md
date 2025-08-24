@@ -4,6 +4,7 @@ uri: diagnosis/a-z/necrosis/hard
 title: Hard tissue necrosis
 type: level1
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 updated_at: 2018-05-21T11:18:50Z
 created_at: 2016-07-29T15:37:41Z
 ---

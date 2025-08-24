@@ -4,6 +4,7 @@ uri: treatment/surgery/ectopic-teeth
 title: Ectopic (displaced) teeth
 type: level1
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 updated_at: 2019-07-13T11:12:26Z
 created_at: 2016-12-14T14:48:53Z
 ---

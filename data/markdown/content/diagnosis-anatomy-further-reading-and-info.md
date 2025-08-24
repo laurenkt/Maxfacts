@@ -3,8 +3,16 @@ id: diagnosis-anatomy-further-reading-and-info
 uri: diagnosis/anatomy/further-reading
 title: Anatomy
 type: further
+order: 0
 updated_at: 2019-12-13T14:20:48Z
 created_at: 2019-12-13T14:20:48Z
+contents:
+  - text: "Textbooks"
+    id: textbooks
+  - text: "Journal articles (peer reviewed literature)"
+    id: journal-articles-peer-reviewed-literature
+  - text: "Electronic resources"
+    id: electronic-resources
 ---
 
 <h1 id="textbooks">Textbooks</h1>

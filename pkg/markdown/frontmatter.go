@@ -9,24 +9,31 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
+// ContentItem represents a table of contents item
+type ContentItem struct {
+	Text string `yaml:"text"`
+	ID   string `yaml:"id"`
+}
+
 // Content represents a markdown file with frontmatter
 type Content struct {
 	// Frontmatter fields
-	ID                string    `yaml:"id"`
-	URI               string    `yaml:"uri"`
-	Title             string    `yaml:"title"`
-	Type              string    `yaml:"type"`
-	Body              string    `yaml:"body,omitempty"`
-	Description       string    `yaml:"description,omitempty"`
-	Surtitle          string    `yaml:"surtitle,omitempty"`
-	RedirectURI       string    `yaml:"redirect_uri,omitempty"`
-	Hide              bool      `yaml:"hide"`
-	FurtherReadingURI string    `yaml:"further_reading_uri,omitempty"`
-	HasSublist        bool      `yaml:"has_sublist"`
-	Authorship        string    `yaml:"authorship,omitempty"`
-	Order             int       `yaml:"order"`
-	UpdatedAt         time.Time `yaml:"updated_at,omitempty"`
-	CreatedAt         time.Time `yaml:"created_at,omitempty"`
+	ID                string        `yaml:"id"`
+	URI               string        `yaml:"uri"`
+	Title             string        `yaml:"title"`
+	Type              string        `yaml:"type"`
+	Body              string        `yaml:"body,omitempty"`
+	Description       string        `yaml:"description,omitempty"`
+	Surtitle          string        `yaml:"surtitle,omitempty"`
+	RedirectURI       string        `yaml:"redirect_uri,omitempty"`
+	Hide              bool          `yaml:"hide"`
+	FurtherReadingURI string        `yaml:"further_reading_uri,omitempty"`
+	HasSublist        bool          `yaml:"has_sublist"`
+	Authorship        string        `yaml:"authorship,omitempty"`
+	Order             int           `yaml:"order"`
+	Contents          []ContentItem `yaml:"contents,omitempty"`
+	UpdatedAt         time.Time     `yaml:"updated_at,omitempty"`
+	CreatedAt         time.Time     `yaml:"created_at,omitempty"`
 	
 	// Content body (after frontmatter)
 	MarkdownBody string `yaml:"-"`
@@ -41,6 +48,10 @@ func ParseFrontmatter(content string) (*Content, error) {
 
 	// Find the end of frontmatter
 	scanner := bufio.NewScanner(strings.NewReader(content))
+	// Set a larger buffer for very long lines (1MB should be enough)
+	buf := make([]byte, 0, 64*1024)
+	scanner.Buffer(buf, 1024*1024)
+	
 	var frontmatterLines []string
 	var bodyLines []string
 	inFrontmatter := false

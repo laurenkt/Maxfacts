@@ -4,9 +4,17 @@ uri: treatment/surgery/preprosthetic-surgery/detailed
 title: Preprosthetic surgery
 type: level3
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 further_reading_uri: treatment/surgery/further-reading
 updated_at: 2019-07-14T10:16:57Z
 created_at: 2019-07-13T11:24:45Z
+contents:
+  - text: "Soft tissue surgery"
+    id: soft-tissue-surgery
+  - text: "Hard tissue surgery"
+    id: hard-tissue-surgery
+  - text: "Surgery for osseointegrated implants"
+    id: surgery-for-osseointegrated-implants
 ---
 
 <p>Below aspects of soft and hard tissue surgery in preparation

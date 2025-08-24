@@ -3,6 +3,7 @@ id: diagnosis-list-cancer-preamble
 uri: diagnosis/a-z/cancer
 title: Cancer
 type: directory
+order: 0
 updated_at: 2017-08-21T10:42:08Z
 created_at: 2016-12-06T12:03:44Z
 ---

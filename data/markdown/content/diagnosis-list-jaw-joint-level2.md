@@ -4,8 +4,16 @@ uri: diagnosis/a-z/jaw-joint/more-info
 title: Jaw joint problems
 type: level2
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 updated_at: 2017-08-23T11:56:45Z
 created_at: 2017-05-05T10:19:51Z
+contents:
+  - text: "Normal function of the jaw joint"
+    id: normal-function-of-the-jaw-joint
+  - text: "Symptoms and signs of abnormal jaw joint function"
+    id: symptoms-and-signs-of-abnormal-jaw-joint-function
+  - text: "Imaging studies of the temporomandibular joint"
+    id: imaging-studies-of-the-temporomandibular-joint
 ---
 
 <p>Here we contrast the normal joint function with general signs

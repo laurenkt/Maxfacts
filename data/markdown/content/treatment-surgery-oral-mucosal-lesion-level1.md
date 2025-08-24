@@ -4,6 +4,7 @@ uri: treatment/surgery/oral-mucosal-lesions
 title: Oral mucosal lesions
 type: level1
 authorship: Authored by Angelika Sebald and David A. Mitchell
+order: 0
 updated_at: 2019-12-13T13:59:25Z
 created_at: 2017-11-24T13:59:48Z
 ---

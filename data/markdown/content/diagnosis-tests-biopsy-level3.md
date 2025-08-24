@@ -4,9 +4,27 @@ uri: diagnosis/tests/biopsy/detailed
 title: Biopsy
 type: level3
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 further_reading_uri: diagnosis/tests/further-reading
 updated_at: 2019-07-14T10:04:34Z
 created_at: 2017-09-29T12:38:12Z
+contents:
+  - text: "The biopsy sample on the way to the laboratory"
+    id: the-biopsy-sample-on-the-way-to-the-laboratory
+  - text: "The biopsy sample in the laboratory: cutting the specimen and preparing sections for slicing thinly"
+    id: the-biopsy-sample-in-the-laboratory-cutting-the-specimen-and-preparing-sections-for-slicing-thinly
+  - text: "The biopsy sample in the laboratory: mounting the slices on glass plates and staining them"
+    id: the-biopsy-sample-in-the-laboratory-mounting-the-slices-on-glass-plates-and-staining-them
+  - text: "The biopsy sample under the microscope"
+    id: the-biopsy-sample-under-the-microscope
+  - text: "Frozen section"
+    id: frozen-section
+  - text: "Cytology"
+    id: cytology
+  - text: "Common uses of biopsies in oral &amp; maxillofacial surgery"
+    id: common-uses-of-biopsies-in-oral-and-maxillofacial-surgery
+  - text: "The communication channels: pathologist =&gt; surgeon =&gt; patient"
+    id: the-communication-channels-pathologist-gt-surgeon-gt-patient
 ---
 
 <p>Once a biopsy is taken in an outpatient setting or in operating

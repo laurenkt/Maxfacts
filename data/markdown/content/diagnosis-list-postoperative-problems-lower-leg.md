@@ -4,6 +4,7 @@ uri: diagnosis/a-z/postoperative-problems/lower-leg
 title: Lower leg
 type: page
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 updated_at: 2018-08-18T13:51:26Z
 created_at: 2016-12-06T12:39:48Z
 ---

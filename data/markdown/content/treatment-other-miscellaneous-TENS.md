@@ -4,6 +4,7 @@ uri: treatment/other/miscellaneous/tens
 title: Transcutaneous electrical nerve stimulation, TENS
 type: page
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 updated_at: 2019-12-15T11:40:28Z
 created_at: 2018-08-18T16:24:44Z
 ---

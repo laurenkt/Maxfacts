@@ -4,9 +4,13 @@ uri: help/oral-food/nutrition
 title: Nutrition
 type: level2
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 further_reading_uri: help/oral-food/further-reading
 updated_at: 2019-03-03T13:49:21Z
 created_at: 2017-02-02T16:25:14Z
+contents:
+  - text: "The components of our diets"
+    id: the-components-of-our-diets
 ---
 
 <p>Apart from the sensual and social pleasures of eating &amp; drinking,

@@ -3,9 +3,49 @@ id: diagnosis-list-further-reading-and-info
 uri: diagnosis/a-z/further-reading
 title: Diagnosis
 type: further
+order: 0
 hide: true
 updated_at: 2019-12-15T11:05:49Z
 created_at: 2017-06-14T19:41:49Z
+contents:
+  - text: "General"
+    id: general
+  - text: "Benign lumps"
+    id: benign-lumps
+  - text: "Bone lesions (benign and malignant)"
+    id: bone-lesions-benign-and-malignant
+  - text: "Cancer – facial skin, mouth and salivary glands"
+    id: cancer--facial-skin-mouth-and-salivary-glands
+  - text: "Cleft lip / palate and craniofacial syndromes"
+    id: cleft-lip-/-palate-and-craniofacial-syndromes
+  - text: "Cysts"
+    id: cysts
+  - text: "Dysphagia"
+    id: dysphagia
+  - text: "Dysplasia / oral mucosal lesions"
+    id: dysplasia-/-oral-mucosal-lesions
+  - text: "Ectopic teeth"
+    id: ectopic-teeth
+  - text: "Facial appearance and jaw disproportion"
+    id: facial-appearance-and-jaw-disproportion
+  - text: "Infection (including abscess, fistula)"
+    id: infection-including-abscess-fistula
+  - text: "Jaw joint and facial pain, neuropathies"
+    id: jaw-joint-and-facial-pain-neuropathies
+  - text: "Necrosis (hard and soft tissues)"
+    id: necrosis-hard-and-soft-tissues
+  - text: "Salivary gland problems"
+    id: salivary-gland-problems
+  - text: "Trauma, hard and soft tissues"
+    id: trauma-hard-and-soft-tissues
+  - text: "Trismus"
+    id: trismus
+  - text: "Tumour (metastases, haematological, other)"
+    id: tumour-metastases-haematological-other
+  - text: "Vascular abnormalities"
+    id: vascular-abnormalities
+  - text: "Xerostomia (dry mouth)"
+    id: xerostomia-dry-mouth
 ---
 
 <h1 id="general">General</h1>

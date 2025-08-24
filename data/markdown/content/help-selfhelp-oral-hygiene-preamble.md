@@ -3,6 +3,7 @@ id: help-selfhelp-oral-hygiene-preamble
 uri: help/oral-hygiene
 title: Oral hygiene
 type: directory
+order: 0
 updated_at: 2017-06-26T13:05:45Z
 created_at: 2016-08-16T13:35:51Z
 ---

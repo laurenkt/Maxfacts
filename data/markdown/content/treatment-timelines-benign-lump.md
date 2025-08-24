@@ -4,6 +4,7 @@ uri: treatment/timelines/benign-lump
 title: Benign lump
 type: page
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 updated_at: 2019-07-14T10:19:09Z
 created_at: 2017-02-23T15:50:29Z
 ---

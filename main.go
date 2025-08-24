@@ -9,6 +9,7 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
+	"regexp"
 	"sort"
 	"strings"
 	"time"
@@ -323,9 +324,8 @@ func convertContentToMarkdown(content models.Content) string {
 		sb.WriteString(fmt.Sprintf("authorship: %s\n", content.Authorship))
 	}
 	
-	if content.Order > 0 {
-		sb.WriteString(fmt.Sprintf("order: %d\n", content.Order))
-	}
+	// Always export order field to ensure proper sorting
+	sb.WriteString(fmt.Sprintf("order: %d\n", content.Order))
 	
 	if content.Hide {
 		sb.WriteString("hide: true\n")
@@ -349,6 +349,23 @@ func convertContentToMarkdown(content models.Content) string {
 	
 	if !content.CreatedAt.IsZero() {
 		sb.WriteString(fmt.Sprintf("created_at: %s\n", content.CreatedAt.Format(time.RFC3339)))
+	}
+	
+	// Add contents (table of contents) if present
+	if len(content.Contents) > 0 {
+		sb.WriteString("contents:\n")
+		for _, item := range content.Contents {
+			// Clean up the text by removing carriage returns and extra whitespace
+			cleanText := strings.ReplaceAll(item.Text, "\r\n", " ")
+			cleanText = strings.ReplaceAll(cleanText, "\n", " ")
+			cleanText = strings.TrimSpace(cleanText)
+			// Collapse multiple spaces into single spaces
+			cleanText = regexp.MustCompile(`\s+`).ReplaceAllString(cleanText, " ")
+			
+			// Quote the text to handle YAML special characters and HTML entities
+			sb.WriteString(fmt.Sprintf("  - text: \"%s\"\n", strings.ReplaceAll(cleanText, "\"", "\\\"")))
+			sb.WriteString(fmt.Sprintf("    id: %s\n", item.ID))
+		}
 	}
 	
 	sb.WriteString("---\n\n")

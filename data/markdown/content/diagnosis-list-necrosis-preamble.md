@@ -3,6 +3,7 @@ id: diagnosis-list-necrosis-preamble
 uri: diagnosis/a-z/necrosis
 title: Necrosis
 type: directory
+order: 0
 updated_at: 2017-06-14T19:49:04Z
 created_at: 2016-12-06T12:19:16Z
 ---

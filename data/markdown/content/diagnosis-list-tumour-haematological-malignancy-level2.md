@@ -4,9 +4,15 @@ uri: diagnosis/a-z/tumour/blood-malignancy/more-info
 title: Blood malignancy
 type: level2
 authorship: Authored by David A. Mitchell & Angelika Sebald
+order: 0
 further_reading_uri: diagnosis/a-z/further-reading
 updated_at: 2018-03-27T08:28:37Z
 created_at: 2018-02-01T11:28:45Z
+contents:
+  - text: "Oral and maxillofacial signs &amp; symptoms of haematological malignancies"
+    id: oral-and-maxillofacial-signs-and-symptoms-of-haematological-malignancies
+  - text: "Oral and maxillofacial conditions arising from the treatment of haematological malignancies"
+    id: oral-and-maxillofacial-conditions-arising-from-the-treatment-of-haematological-malignancies
 ---
 
 <p>The first part of this section outlines maxillofacial signs and

@@ -4,6 +4,7 @@ uri: treatment/surgery/salivary-gland-problems/getting-started
 title: Salivary gland problems
 type: level1
 authorship: Authored by Angelika Sebald and David A. Mitchell
+order: 0
 updated_at: 2018-05-21T13:56:32Z
 created_at: 2018-03-27T08:27:27Z
 ---

@@ -3,6 +3,7 @@ id: coming-soon
 uri: coming-soon
 title: Coming soon
 type: page
+order: 0
 hide: true
 updated_at: 2017-11-24T13:59:34Z
 created_at: 2017-10-28T16:15:12Z

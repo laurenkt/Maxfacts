@@ -4,6 +4,7 @@ uri: treatment/surgery/postoperative-problems/foot
 title: Foot
 type: page
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 further_reading_uri: treatment/surgery/further-reading
 updated_at: 2019-07-14T10:28:54Z
 created_at: 2019-07-13T11:17:26Z

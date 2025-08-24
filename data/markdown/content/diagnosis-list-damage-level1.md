@@ -4,6 +4,7 @@ uri: diagnosis/a-z/damage/getting-started
 title: Damage
 type: level1
 authorship: Authored by Angelika Sebald & David A. Mitchell
+order: 0
 updated_at: 2017-10-30T15:08:36Z
 created_at: 2017-02-02T15:44:33Z
 ---

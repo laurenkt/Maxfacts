@@ -4,8 +4,16 @@ uri: treatment/other/new-developments/immunotherapies/more-info
 title: Immunotherapies
 type: level2
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 updated_at: 2019-03-03T14:01:27Z
 created_at: 2019-03-02T16:41:47Z
+contents:
+  - text: "An overview of white blood cells and other key components in the immune system"
+    id: an-overview-of-white-blood-cells-and-other-key-components-in-the-immune-system
+  - text: "Basic steps of the normal immune responses"
+    id: basic-steps-of-the-normal-immune-responses
+  - text: "Strategies to exploit the immune system for therapy of malignancies"
+    id: strategies-to-exploit-the-immune-system-for-therapy-of-malignancies
 ---
 
 <p>The immune system’s role in the defence of the body requires

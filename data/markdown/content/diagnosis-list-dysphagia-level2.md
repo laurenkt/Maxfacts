@@ -4,8 +4,18 @@ uri: diagnosis/a-z/dysphagia/more-info
 title: Dysphagia
 type: level2
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 updated_at: 2017-08-23T11:55:22Z
 created_at: 2016-07-29T15:26:46Z
+contents:
+  - text: "Causes of dysphagia"
+    id: causes-of-dysphagia
+  - text: "Possible symptoms of dysphagia"
+    id: possible-symptoms-of-dysphagia
+  - text: "Potential consequences and problems"
+    id: potential-consequences-and-problems
+  - text: "Dealing with food and drink"
+    id: dealing-with-food-and-drink
 ---
 
 <h1 id="causes-of-dysphagia">Causes of dysphagia</h1>

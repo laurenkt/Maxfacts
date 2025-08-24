@@ -4,8 +4,16 @@ uri: treatment/other/medication/pain/more-info
 title: Pain
 type: level2
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 updated_at: 2018-11-11T15:09:12Z
 created_at: 2018-08-18T16:22:00Z
+contents:
+  - text: "Mechanics, neurons and general principles"
+    id: mechanics-neurons-and-general-principles
+  - text: "Acute pain"
+    id: acute-pain
+  - text: "Chronic pain"
+    id: chronic-pain
 ---
 
 <p>To understand better <a href="/treatment/other/medication/pain/detailed">how pain can be managed</a>,

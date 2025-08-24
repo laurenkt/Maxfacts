@@ -4,6 +4,7 @@ uri: treatment/surgery/preprosthetic-surgery/getting-started
 title: Preprosthetic surgery
 type: level1
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 updated_at: 2019-07-14T10:16:38Z
 created_at: 2018-08-18T12:48:09Z
 ---

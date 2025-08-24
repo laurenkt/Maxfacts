@@ -4,6 +4,7 @@ uri: treatment/other/medication/miscellaneous/antacid
 title: Antacid medications
 type: page
 authorship: Authored by Angelika Sebald and David A. Mitchell
+order: 0
 updated_at: 2019-12-13T14:02:07Z
 created_at: 2018-08-18T16:36:31Z
 ---

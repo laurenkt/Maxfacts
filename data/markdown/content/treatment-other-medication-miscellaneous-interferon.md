@@ -4,6 +4,7 @@ uri: treatment/other/medication/miscellaneous/interferon
 title: Interferon
 type: page
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 updated_at: 2019-07-13T11:03:28Z
 created_at: 2018-05-21T16:08:18Z
 ---

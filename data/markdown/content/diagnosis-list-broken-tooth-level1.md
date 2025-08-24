@@ -4,6 +4,7 @@ uri: diagnosis/a-z/broken-tooth
 title: Broken tooth
 type: level1
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 further_reading_uri: diagnosis/a-z/further-reading
 updated_at: 2018-02-01T12:14:33Z
 created_at: 2016-12-06T12:03:35Z

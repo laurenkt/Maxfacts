@@ -4,8 +4,16 @@ uri: treatment/other/new-developments/integrins
 title: Integrins
 type: page
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 updated_at: 2019-12-13T14:18:21Z
 created_at: 2019-07-13T09:55:47Z
+contents:
+  - text: "Structure and function of integrins"
+    id: structure-and-function-of-integrins
+  - text: "Integrins in healthy and in malignant cells"
+    id: integrins-in-healthy-and-in-malignant-cells
+  - text: "Integrins in the evaluation of surgical margins in maxillofacial surgery"
+    id: integrins-in-the-evaluation-of-surgical-margins-in-maxillofacial-surgery
 ---
 
 <p>Integrins are a family of proteins that form a component

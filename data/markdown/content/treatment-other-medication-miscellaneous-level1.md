@@ -3,6 +3,7 @@ id: treatment-other-medication-miscellaneous-level1
 uri: treatment/other/medication/miscellaneous
 title: Miscellaneous
 type: alphabetical
+order: 0
 further_reading_uri: treatment/other/further-reading
 updated_at: 2018-11-09T13:46:52Z
 created_at: 2016-12-13T16:58:35Z

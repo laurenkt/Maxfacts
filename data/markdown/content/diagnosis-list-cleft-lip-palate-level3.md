@@ -4,9 +4,19 @@ uri: diagnosis/a-z/cleft-lip-palate/detailed
 title: Cleft lip/palate
 type: level3
 authorship: Authored by David A. Mitchell; Proof-read/edited by Angelika Sebald
+order: 0
 further_reading_uri: diagnosis/a-z/further-reading
 updated_at: 2018-02-01T20:10:54Z
 created_at: 2017-09-29T12:38:54Z
+contents:
+  - text: "Classification"
+    id: classification
+  - text: "Prevalence"
+    id: prevalence
+  - text: "Aetiology"
+    id: aetiology
+  - text: "Issues in the management of cleft lip and palate"
+    id: issues-in-the-management-of-cleft-lip-and-palate
 ---
 
 <h1 id="classification">Classification</h1>

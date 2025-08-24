@@ -4,8 +4,14 @@ uri: treatment/other/new-developments/tors
 title: TORS, trans-oral robotic surgery
 type: page
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 updated_at: 2019-03-03T14:01:57Z
 created_at: 2018-11-09T13:10:54Z
+contents:
+  - text: "The basics of robotic surgery"
+    id: the-basics-of-robotic-surgery
+  - text: "The state of affairs for transoral robotic surgery in oral and maxillofacial surgery in 2019"
+    id: the-state-of-affairs-for-transoral-robotic-surgery-in-oral-and-maxillofacial-surgery-in-2019
 ---
 
 <h1 id="the-basics-of-robotic-surgery">The basics of robotic surgery</h1>

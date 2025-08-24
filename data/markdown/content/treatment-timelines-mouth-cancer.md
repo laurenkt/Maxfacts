@@ -4,8 +4,16 @@ uri: treatment/timelines/cancer/mouth-cancer
 title: Mouth cancer
 type: page
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 updated_at: 2019-07-13T11:35:58Z
 created_at: 2017-02-23T15:52:34Z
+contents:
+  - text: "After relatively minor surgical intervention"
+    id: after-relatively-minor-surgical-intervention
+  - text: "After major surgical intervention and reconstruction"
+    id: after-major-surgical-intervention-and-reconstruction
+  - text: "After major surgical intervention, reconstruction and radiotherapy"
+    id: after-major-surgical-intervention-reconstruction-and-radiotherapy
 ---
 
 <p>Speed and quality of recovery from mouth cancer depends on the

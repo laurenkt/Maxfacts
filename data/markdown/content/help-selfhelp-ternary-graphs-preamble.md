@@ -3,6 +3,7 @@ id: help-selfhelp-ternary-graphs-preamble
 uri: help/magic-triangle
 title: Magic triangle self-assessment
 type: directory
+order: 0
 further_reading_uri: help/magic-triangle/further-reading
 updated_at: 2017-07-10T16:10:44Z
 created_at: 2016-08-11T14:24:01Z

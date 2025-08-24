@@ -4,9 +4,17 @@ uri: treatment/surgery/abscess/more-info
 title: Abscess
 type: level2
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 further_reading_uri: treatment/surgery/further-reading
 updated_at: 2017-08-23T12:06:10Z
 created_at: 2017-02-16T16:14:16Z
+contents:
+  - text: "Cervicofacial abscess"
+    id: cervicofacial-abscess
+  - text: "Ludwig’s angina"
+    id: ludwigs-angina
+  - text: "Necrotising fasciitis"
+    id: necrotising-fasciitis
 ---
 
 <p>One of the most dangerous mistakes anyone in healthcare can make

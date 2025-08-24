@@ -4,6 +4,7 @@ uri: treatment/timelines/palliative-care/getting-started
 title: Palliative & end of life care
 type: level1
 authorship: Authored by Angelika Sebald and David A. Mitchell
+order: 0
 updated_at: 2019-03-02T14:10:44Z
 created_at: 2018-11-09T15:11:48Z
 ---

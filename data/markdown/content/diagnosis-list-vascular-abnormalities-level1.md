@@ -4,6 +4,7 @@ uri: diagnosis/a-z/vascular-abnormalities
 title: Vascular abnormalities
 type: level1
 authorship: Authored by Angelika Sebald and David A. Mitchell
+order: 0
 updated_at: 2019-03-03T13:46:08Z
 created_at: 2018-11-09T12:52:30Z
 ---

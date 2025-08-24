@@ -4,9 +4,17 @@ uri: diagnosis/a-z/necrosis/soft/more-info
 title: Soft tissue necrosis
 type: level2
 authorship: Authored by Angelika Sebald and David A. Mitchell
+order: 0
 further_reading_uri: diagnosis/a-z/further-reading
 updated_at: 2018-08-18T12:26:40Z
 created_at: 2018-05-21T11:22:54Z
+contents:
+  - text: "Necrosis and apoptosis - processes"
+    id: necrosis-and-apoptosis-processes
+  - text: "Necrosis and apoptosis – a few general remarks"
+    id: necrosis-and-apoptosis--a-few-general-remarks
+  - text: "Soft tissue necrosis in the maxillofacial region"
+    id: soft-tissue-necrosis-in-the-maxillofacial-region
 ---
 
 <p>Below we discuss the following three topics in a little more

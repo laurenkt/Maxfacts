@@ -4,9 +4,19 @@ uri: diagnosis/tests/ct-scans
 title: CT scans
 type: level3
 authorship: Authored by Angelika Sebald and Aneurin Kennerley;Proof-read/edited by David A. Mitchell
+order: 0
 further_reading_uri: diagnosis/tests/further-reading
 updated_at: 2019-07-13T09:21:20Z
 created_at: 2017-06-14T20:08:25Z
+contents:
+  - text: "The data: pixels &amp; voxels"
+    id: the-data-pixels-and-voxels
+  - text: "Basic working principles of X-ray based CT scans"
+    id: basic-working-principles-of-x-ray-based-ct-scans
+  - text: "Some technical details about CT artefacts"
+    id: some-technical-details-about-ct-artefacts
+  - text: "Common maxillofacial applications of X-ray based CT scans"
+    id: common-maxillofacial-applications-of-x-ray-based-ct-scans
 ---
 
 <p>Tomography is defined as a technique for obtaining a representation

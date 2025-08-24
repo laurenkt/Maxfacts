@@ -4,8 +4,18 @@ uri: treatment/timelines/bone-lesion
 title: Bone lesion
 type: page
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 updated_at: 2019-07-14T10:19:32Z
 created_at: 2017-02-23T15:51:06Z
+contents:
+  - text: "Infections, inflammatory and other non-neoplastic bone lesions"
+    id: infections-inflammatory-and-other-non-neoplastic-bone-lesions
+  - text: "Benign neoplastic bone lesions (benign bone tumours)"
+    id: benign-neoplastic-bone-lesions-benign-bone-tumours
+  - text: "Bizarre parosteal osteochondromatous proliferation (Nora’s lesion)"
+    id: bizarre-parosteal-osteochondromatous-proliferation-noras-lesion
+  - text: "Malignant neoplastic bone lesions (bone cancers)"
+    id: malignant-neoplastic-bone-lesions-bone-cancers
 ---
 
 <p>The timelines for resolution (where possible) for bone lesions

@@ -4,9 +4,17 @@ uri: diagnosis/a-z/vascular-abnormalities/detailed
 title: Vascular abnormalities
 type: level3
 authorship: Authored by Angelika Sebald and David A. Mitchell
+order: 0
 further_reading_uri: diagnosis/a-z/further-reading
 updated_at: 2019-03-03T13:46:31Z
 created_at: 2019-03-02T15:14:53Z
+contents:
+  - text: "Development of vasculature"
+    id: development-of-vasculature
+  - text: "Pathogenesis of haemangioma"
+    id: pathogenesis-of-haemangioma
+  - text: "Pathogenesis of vascular malformations"
+    id: pathogenesis-of-vascular-malformations
 ---
 
 <p>Below a brief description of the normal development of the vascular

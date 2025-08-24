@@ -4,8 +4,16 @@ uri: diagnosis/a-z/bone-lesion/more-info
 title: Bone lesion
 type: level2
 authorship: Authored by Angelika Sebald & David A. Mitchell
+order: 0
 updated_at: 2018-05-21T10:27:45Z
 created_at: 2017-10-27T14:37:47Z
+contents:
+  - text: "Inflammatory and other non-neoplastic bone lesions"
+    id: inflammatory-and-other-non-neoplastic-bone-lesions
+  - text: "Benign neoplastic bone lesions (benign bone tumours)"
+    id: benign-neoplastic-bone-lesions-benign-bone-tumours
+  - text: "Malignant neoplastic bone lesions (bone cancers)"
+    id: malignant-neoplastic-bone-lesions-bone-cancers
 ---
 
 <p>This section takes a slightly closer look at, and gives an overview

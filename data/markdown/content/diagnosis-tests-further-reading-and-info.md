@@ -3,9 +3,27 @@ id: diagnosis-tests-further-reading-and-info
 uri: diagnosis/tests/further-reading
 title: Tests
 type: further
+order: 0
 hide: true
 updated_at: 2019-12-15T11:06:45Z
 created_at: 2017-06-14T20:05:25Z
+contents:
+  - text: "General"
+    id: general
+  - text: "Magnetic resonance imaging, MRI"
+    id: magnetic-resonance-imaging-mri
+  - text: "Biopsy"
+    id: biopsy
+  - text: "X-ray and CT scans"
+    id: x-ray-and-ct-scans
+  - text: "PET scans"
+    id: pet-scans
+  - text: "Ultrasound"
+    id: ultrasound
+  - text: "Blood and urine tests"
+    id: blood-and-urine-tests
+  - text: "Medical history and examination"
+    id: medical-history-and-examination
 ---
 
 <h1 id="general">General</h1>

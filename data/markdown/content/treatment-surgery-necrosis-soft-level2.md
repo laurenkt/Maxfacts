@@ -4,9 +4,19 @@ uri: treatment/surgery/necrosis/soft-tissue/more-info
 title: Soft tissue necrosis
 type: level2
 authorship: Authored by Angelika Sebald and David A. Mitchell
+order: 0
 further_reading_uri: treatment/surgery/further-reading
 updated_at: 2019-03-03T14:04:24Z
 created_at: 2019-03-02T15:41:36Z
+contents:
+  - text: "Débridement"
+    id: dbridement
+  - text: "Surgical débridement"
+    id: surgical-dbridement
+  - text: "Surgical resection and reconstruction"
+    id: surgical-resection-and-reconstruction
+  - text: "Treatments of soft tissue necrosis in the maxillofacial region - overview"
+    id: treatments-of-soft-tissue-necrosis-in-the-maxillofacial-region-overview
 ---
 
 <h1 id="dbridement">Débridement</h1>

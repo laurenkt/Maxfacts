@@ -4,9 +4,27 @@ uri: treatment/surgery/cancer/facial-skin-cancer/detailed
 title: Facial skin cancer
 type: level3
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 further_reading_uri: treatment/surgery/further-reading
 updated_at: 2018-08-18T15:46:39Z
 created_at: 2017-06-09T12:02:38Z
+contents:
+  - text: "Surgical excision of BCC, SCC and malignant melanoma"
+    id: surgical-excision-of-bcc-scc-and-malignant-melanoma
+  - text: "Reconstruction of the scalp"
+    id: reconstruction-of-the-scalp
+  - text: "Reconstruction of the forehead"
+    id: reconstruction-of-the-forehead
+  - text: "Reconstruction of the temple"
+    id: reconstruction-of-the-temple
+  - text: "Reconstruction of the cheek"
+    id: reconstruction-of-the-cheek
+  - text: "Reconstruction of the ear"
+    id: reconstruction-of-the-ear
+  - text: "Reconstruction of the nose"
+    id: reconstruction-of-the-nose
+  - text: "Reconstruction of lip and chin"
+    id: reconstruction-of-lip-and-chin
 ---
 
 <p>Having discussed general aspects of excision and repair of facial

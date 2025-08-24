@@ -3,6 +3,7 @@ id: treatment-rest-dentistry-preamble
 uri: treatment/restorative-dentistry
 title: Restorative dentistry
 type: directory
+order: 0
 updated_at: 2019-12-13T14:05:20Z
 created_at: 2016-08-11T11:32:49Z
 ---

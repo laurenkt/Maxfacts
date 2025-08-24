@@ -4,9 +4,27 @@ uri: treatment/restorative-dentistry/endodontics/detailed
 title: Endodontics
 type: level3
 authorship: Authored by Bethany Rushworth;Proof-read/edited by Angelika Sebald and David A. Mitchell
+order: 0
 further_reading_uri: treatment/restorative-dentistry/further-reading
 updated_at: 2019-07-13T09:50:14Z
 created_at: 2018-08-18T16:07:11Z
+contents:
+  - text: "Assessment"
+    id: assessment
+  - text: "Indications"
+    id: indications
+  - text: "Contraindications"
+    id: contraindications
+  - text: "Risks and other considerations"
+    id: risks-and-other-considerations
+  - text: "Aims of treatment"
+    id: aims-of-treatment
+  - text: "Procedure"
+    id: procedure
+  - text: "Restoration"
+    id: restoration
+  - text: "Success"
+    id: success
 ---
 
 <p>The pulp maintains a tooth’s nociceptive (denoting pain from

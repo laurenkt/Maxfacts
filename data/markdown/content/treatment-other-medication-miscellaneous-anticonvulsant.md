@@ -4,6 +4,7 @@ uri: treatment/other/medication/miscellaneous/anticonvulsant
 title: Anticonvulsant medications
 type: page
 authorship: Authored by Angelika Sebald and David A. Mitchell
+order: 0
 updated_at: 2019-03-03T13:51:47Z
 created_at: 2018-08-18T16:22:31Z
 ---

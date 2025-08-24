@@ -4,9 +4,17 @@ uri: help/oral-food/lubrication
 title: Lubricating food
 type: level3
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 further_reading_uri: help/oral-food/further-reading
 updated_at: 2018-08-18T16:13:56Z
 created_at: 2016-08-03T10:54:43Z
+contents:
+  - text: "Emulsifying agents"
+    id: emulsifying-agents
+  - text: "Gelling agents"
+    id: gelling-agents
+  - text: "A few general comments about lubricating foods"
+    id: a-few-general-comments-about-lubricating-foods
 ---
 
 <p>Eating difficulties caused by severe forms of <a href="/diagnosis/a-z/xerostomia">dry mouth</a>    are a common cause of misery for maxillofacial patients,

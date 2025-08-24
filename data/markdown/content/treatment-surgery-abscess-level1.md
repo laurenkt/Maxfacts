@@ -4,6 +4,7 @@ uri: treatment/surgery/abscess
 title: Abscess
 type: level1
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 updated_at: 2017-08-23T12:06:10Z
 created_at: 2016-12-14T14:44:02Z
 ---

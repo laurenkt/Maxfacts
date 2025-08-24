@@ -4,9 +4,17 @@ uri: diagnosis/a-z/infection/detailed
 title: Infection
 type: level3
 authorship: Authored by Angelika Sebald & David A. Mitchell
+order: 0
 further_reading_uri: diagnosis/a-z/further-reading
 updated_at: 2018-03-27T08:18:58Z
 created_at: 2017-10-27T18:14:49Z
+contents:
+  - text: "Normal oral, nasal and skin microflora"
+    id: normal-oral-nasal-and-skin-microflora
+  - text: "Unwanted effects of antibiotic agents"
+    id: unwanted-effects-of-antibiotic-agents
+  - text: "Sepsis"
+    id: sepsis
 ---
 
 <p>This section discusses a number of themes closely related to

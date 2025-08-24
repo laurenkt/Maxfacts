@@ -4,9 +4,23 @@ uri: treatment/surgery/salivary-gland-problems/detailed
 title: Salivary gland problems
 type: level3
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 further_reading_uri: treatment/surgery/further-reading
 updated_at: 2018-11-09T12:55:33Z
 created_at: 2018-05-21T12:15:31Z
+contents:
+  - text: "Developmental disorders and cysts"
+    id: developmental-disorders-and-cysts
+  - text: "Obstructive disease"
+    id: obstructive-disease
+  - text: "Infections"
+    id: infections
+  - text: "Sjögren’s syndrome"
+    id: sjgrens-syndrome
+  - text: "Salivary neoplasms – benign tumours"
+    id: salivary-neoplasms--benign-tumours
+  - text: "Parotidectomy"
+    id: parotidectomy
 ---
 
 <h1 id="developmental-disorders-and-cysts">Developmental disorders and cysts</h1>

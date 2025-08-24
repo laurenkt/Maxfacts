@@ -4,6 +4,7 @@ uri: diagnosis/a-z/bone-lesion
 title: Bone lesion
 type: level1
 authorship: Authored by Angelika Sebald;Proof-read/edited by David. A Mitchell
+order: 0
 updated_at: 2017-09-29T11:03:44Z
 created_at: 2016-12-06T12:01:22Z
 ---

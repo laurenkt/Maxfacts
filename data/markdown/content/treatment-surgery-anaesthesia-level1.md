@@ -4,6 +4,7 @@ uri: treatment/surgery/anaesthesia/getting-started
 title: Anaesthesia
 type: level1
 authorship: Authored by Heather Gorton;Proof-read/edited by David A. Mitchell
+order: 0
 updated_at: 2017-11-24T15:02:56Z
 created_at: 2017-10-27T18:55:33Z
 ---

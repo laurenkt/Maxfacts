@@ -4,6 +4,7 @@ uri: treatment/surgery/jaw-joint
 title: Jaw joint problems
 type: level1
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 updated_at: 2017-08-23T12:08:20Z
 created_at: 2016-12-14T14:49:54Z
 ---

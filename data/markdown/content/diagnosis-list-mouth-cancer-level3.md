@@ -4,9 +4,17 @@ uri: diagnosis/a-z/cancer/mouth-cancer/detailed
 title: Mouth cancer
 type: level3
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 further_reading_uri: diagnosis/a-z/further-reading
 updated_at: 2018-02-01T12:14:43Z
 created_at: 2016-07-29T13:14:54Z
+contents:
+  - text: "Causes"
+    id: causes
+  - text: "Diagnosis journey"
+    id: diagnosis-journey
+  - text: "Staging &amp; treatment plan"
+    id: staging-and-treatment-plan
 ---
 
 <p>By far the most common form of oral cancer is squamous cell carcinoma

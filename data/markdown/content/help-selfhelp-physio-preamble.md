@@ -3,6 +3,7 @@ id: help-selfhelp-physio-preamble
 uri: help/physiotherapy
 title: Physiotherapy
 type: directory
+order: 0
 updated_at: 2017-10-27T18:54:57Z
 created_at: 2016-08-10T15:53:22Z
 ---

@@ -4,6 +4,7 @@ uri: diagnosis/a-z/abscess
 title: Abscess
 type: level1
 authorship: Authored by David A. Mitchell & Angelika Sebald
+order: 0
 updated_at: 2017-08-23T11:48:25Z
 created_at: 2016-12-06T11:50:37Z
 ---

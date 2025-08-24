@@ -3,6 +3,7 @@ id: help-selfhelp-physio-further-reading-and-info
 uri: help/physiotherapy/further-reading
 title: Physiotherapy
 type: further
+order: 0
 hide: true
 updated_at: 2018-02-01T11:47:07Z
 created_at: 2017-06-23T11:25:18Z

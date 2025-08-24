@@ -4,6 +4,7 @@ uri: diagnosis/drugs/fitness
 title: Fitness
 type: level1
 authorship: Authored by Lee Mellor; Proof-read/edited by Angelika Sebald and David A. Mitchell
+order: 0
 further_reading_uri: diagnosis/drugs/further-reading
 updated_at: 2018-11-09T13:18:02Z
 created_at: 2016-12-06T13:41:45Z

@@ -4,8 +4,20 @@ uri: help/oral-food/ttt/texture-modifiers
 title: Texture modifying agents
 type: level3
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 updated_at: 2017-08-23T12:01:19Z
 created_at: 2017-02-16T17:34:21Z
+contents:
+  - text: "Gelatin"
+    id: gelatin
+  - text: "Thickeners and gelling agents from plant materials"
+    id: thickeners-and-gelling-agents-from-plant-materials
+  - text: "Thickeners and gelling agents from algae and sea weeds"
+    id: thickeners-and-gelling-agents-from-algae-and-sea-weeds
+  - text: "Thickeners and gelling agents from fermentation processes"
+    id: thickeners-and-gelling-agents-from-fermentation-processes
+  - text: "Lecithin"
+    id: lecithin
 ---
 
 <p>Nearly all the gelling, thickening and emulsifying ingredients

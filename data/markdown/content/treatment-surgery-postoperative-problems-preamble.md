@@ -3,6 +3,7 @@ id: treatment-surgery-postoperative-problems-preamble
 uri: treatment/surgery/postoperative-problems
 title: Postoperative problems
 type: directory
+order: 0
 updated_at: 2018-08-18T15:29:57Z
 created_at: 2017-10-27T18:52:54Z
 ---

@@ -4,9 +4,17 @@ uri: treatment/surgery/vascular-abnormalities/detailed
 title: Vascular abnormalities
 type: level3
 authorship: Authored by Angelika Sebald and David M. Mitchell
+order: 0
 further_reading_uri: treatment/surgery/further-reading
 updated_at: 2019-07-13T11:31:06Z
 created_at: 2019-03-02T15:48:13Z
+contents:
+  - text: "Wait &amp; watch and other conservative approaches"
+    id: wait-and-watch-and-other-conservative-approaches
+  - text: "Sclerotherapy"
+    id: sclerotherapy
+  - text: "Surgical interventions"
+    id: surgical-interventions
 ---
 
 <p>Vascular abnormalities cover a diverse range of conditions, with

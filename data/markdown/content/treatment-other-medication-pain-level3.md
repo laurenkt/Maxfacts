@@ -4,9 +4,27 @@ uri: treatment/other/medication/pain/detailed
 title: Pain
 type: level3
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 further_reading_uri: treatment/other/further-reading
 updated_at: 2019-07-13T09:22:05Z
 created_at: 2018-08-18T16:23:54Z
+contents:
+  - text: "Non-steroidal anti-inflammatory drugs (NSAIDs)"
+    id: non-steroidal-anti-inflammatory-drugs-nsaids
+  - text: "Opioids"
+    id: opioids
+  - text: "Sedatives"
+    id: sedatives
+  - text: "Local analgesics"
+    id: local-analgesics
+  - text: "Cyclooxygenase-2 (COX-2) inhibitors"
+    id: cyclooxygenase-2-cox-2-inhibitors
+  - text: "Other common drugs"
+    id: other-common-drugs
+  - text: "Anticonvulsants/Antiepileptics and Antidepressants"
+    id: anticonvulsants/antiepileptics-and-antidepressants
+  - text: "Miscellaneous treatments"
+    id: miscellaneous-treatments
 ---
 
 <p>Across the world, the general number 1 reason to seek medical

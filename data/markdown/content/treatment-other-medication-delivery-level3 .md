@@ -4,9 +4,15 @@ uri: treatment/other/medication/delivery/detailed
 title: Delivery methods
 type: level3
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 further_reading_uri: treatment/other/further-reading
 updated_at: 2018-05-21T13:50:10Z
 created_at: 2017-06-14T20:00:55Z
+contents:
+  - text: "Drug timings and dosage"
+    id: drug-timings-and-dosage
+  - text: "Different medicinal drug preparations"
+    id: different-medicinal-drug-preparations
 ---
 
 <p>Below we discuss in slightly more detail the general principles

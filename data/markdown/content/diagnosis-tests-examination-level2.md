@@ -4,8 +4,16 @@ uri: diagnosis/tests/examination
 title: Medical examination
 type: level2
 authorship: Authored by David A. Mitchell & Angelika Sebald
+order: 0
 updated_at: 2017-09-29T12:39:25Z
 created_at: 2016-12-06T13:44:23Z
+contents:
+  - text: "Background to, and purpose of, a medical examination"
+    id: background-to-and-purpose-of-a-medical-examination
+  - text: "General examination"
+    id: general-examination
+  - text: "Systematic examination"
+    id: systematic-examination
 ---
 
 <h1 id="background-to-and-purpose-of-a-medical-examination">Background to, and purpose of, a medical examination</h1>

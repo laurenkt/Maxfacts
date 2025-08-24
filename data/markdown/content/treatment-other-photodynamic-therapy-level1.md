@@ -4,6 +4,7 @@ uri: treatment/other/photodynamic-therapy
 title: Photodynamic therapy
 type: level1
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 further_reading_uri: treatment/other/further-reading
 updated_at: 2018-05-21T13:53:17Z
 created_at: 2016-08-03T08:57:40Z

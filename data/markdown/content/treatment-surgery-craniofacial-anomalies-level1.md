@@ -5,6 +5,7 @@ title: Craniofacial anomalies
 type: level1
 description: Skull and face syndromes
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 updated_at: 2019-07-14T10:10:35Z
 created_at: 2016-12-14T14:47:30Z
 ---

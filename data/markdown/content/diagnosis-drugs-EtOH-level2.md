@@ -4,9 +4,15 @@ uri: diagnosis/drugs/alcohol
 title: Alcohol
 type: level2
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 further_reading_uri: diagnosis/drugs/further-reading
 updated_at: 2018-11-09T13:45:08Z
 created_at: 2016-12-06T13:41:04Z
+contents:
+  - text: "Alcohol - consumption and its journey through the body"
+    id: alcohol-consumption-and-its-journey-through-the-body
+  - text: "Alcohol – how and why it is an addictive drug"
+    id: alcohol--how-and-why-it-is-an-addictive-drug
 ---
 
 <p>Alcoholic beverages, produced by fermentation of carbohydrates,

@@ -4,6 +4,7 @@ uri: treatment/other/medication/miscellaneous/denusomab
 title: Denusomab
 type: page
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 updated_at: 2018-11-11T15:13:15Z
 created_at: 2018-05-21T15:59:00Z
 ---

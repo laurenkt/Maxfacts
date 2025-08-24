@@ -4,6 +4,7 @@ uri: treatment/other/medication/miscellaneous/carnoy
 title: Carnoy's solution
 type: page
 authorship: Authored by Angelika Sebald;Proof-read/edited by David. A Mitchell
+order: 0
 updated_at: 2018-11-09T13:36:05Z
 created_at: 2018-05-21T16:08:15Z
 ---

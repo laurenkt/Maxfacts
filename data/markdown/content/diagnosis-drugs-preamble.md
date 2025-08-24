@@ -3,6 +3,7 @@ id: diagnosis-drugs-preamble
 uri: diagnosis/drugs
 title: Recreational drug use
 type: directory
+order: 0
 updated_at: 2017-10-27T18:49:56Z
 created_at: 2016-08-11T11:30:38Z
 ---

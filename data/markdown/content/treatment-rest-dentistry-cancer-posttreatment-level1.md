@@ -5,6 +5,7 @@ title: Dentistry & oral hygiene
 type: level1
 description: Cancer, during and after treatment
 authorship: Authored by Lauren Barry and David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 further_reading_uri: treatment/restorative-dentistry/further-reading
 updated_at: 2019-12-15T11:10:03Z
 created_at: 2016-12-06T14:40:42Z

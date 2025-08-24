@@ -4,8 +4,16 @@ uri: treatment/surgery/preprosthetic-surgery/more-info
 title: Preprosthetic surgery
 type: level2
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 updated_at: 2019-07-13T11:37:09Z
 created_at: 2019-07-13T11:24:14Z
+contents:
+  - text: "Atraumatic exodontia &amp; intraradicular radiculectomy and crush"
+    id: atraumatic-exodontia-and-intraradicular-radiculectomy-and-crush
+  - text: "Surgery for conventional prosthodontics"
+    id: surgery-for-conventional-prosthodontics
+  - text: "Soft tissue surgery"
+    id: soft-tissue-surgery
 ---
 
 <h1 id="atraumatic-exodontia-and-intraradicular-radiculectomy-and-crush">Atraumatic exodontia &amp; intraradicular radiculectomy and crush</h1>

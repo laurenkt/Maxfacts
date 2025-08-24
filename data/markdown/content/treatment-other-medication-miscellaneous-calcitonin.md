@@ -4,6 +4,7 @@ uri: treatment/other/medication/miscellaneous/calcitonin
 title: Calcitonin
 type: page
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 updated_at: 2018-11-09T15:17:58Z
 created_at: 2018-05-21T16:08:12Z
 ---

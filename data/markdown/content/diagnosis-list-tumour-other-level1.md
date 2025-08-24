@@ -4,6 +4,7 @@ uri: diagnosis/a-z/tumour/other
 title: Other tumours
 type: level1
 authorship: Authored by David A. Mitchell & Angelika Sebald
+order: 0
 updated_at: 2018-02-01T11:30:33Z
 created_at: 2016-12-06T12:27:10Z
 ---

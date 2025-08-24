@@ -5,6 +5,7 @@ title: Trismus
 type: level1
 description: Difficulty opening mouth
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 updated_at: 2019-07-13T11:26:31Z
 created_at: 2016-12-14T14:52:22Z
 ---

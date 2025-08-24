@@ -4,6 +4,7 @@ uri: treatment/other/medication/miscellaneous/clopidogrel
 title: Clopidogrel
 type: page
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 updated_at: 2019-03-02T16:35:52Z
 created_at: 2018-05-21T15:59:49Z
 ---

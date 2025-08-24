@@ -4,6 +4,7 @@ uri: treatment/other/bleeding
 title: Bleeding
 type: level1
 authorship: Authored by Angelika Sebald and David A. Mitchell
+order: 0
 updated_at: 2018-11-11T15:04:05Z
 created_at: 2018-08-18T15:57:07Z
 ---

@@ -4,9 +4,19 @@ uri: diagnosis/tests/pet-scans
 title: PET scans
 type: level2
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 further_reading_uri: diagnosis/tests/further-reading
 updated_at: 2019-07-13T09:24:42Z
 created_at: 2016-12-06T13:44:42Z
+contents:
+  - text: "How it works in principle"
+    id: how-it-works-in-principle
+  - text: "Is it safe?"
+    id: is-it-safe
+  - text: "How long will it take?"
+    id: how-long-will-it-take
+  - text: "Does it hurt?"
+    id: does-it-hurt
 ---
 
 <p>Positron Emission Tomography (PET) is a diagnostic scanning technique

@@ -4,6 +4,7 @@ uri: treatment/other/medication/miscellaneous/collagen
 title: Collagen
 type: page
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 updated_at: 2019-07-14T10:26:39Z
 created_at: 2018-11-09T13:00:04Z
 ---

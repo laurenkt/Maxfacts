@@ -4,6 +4,7 @@ uri: treatment/surgery/cleft-lip-palate
 title: Cleft lip/palate
 type: level1
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 updated_at: 2019-07-14T09:37:11Z
 created_at: 2016-12-14T14:47:12Z
 ---

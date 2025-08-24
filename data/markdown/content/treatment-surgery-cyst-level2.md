@@ -4,9 +4,19 @@ uri: treatment/surgery/cyst/more-info
 title: Cyst
 type: level2
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 further_reading_uri: treatment/surgery/further-reading
 updated_at: 2019-03-02T13:51:19Z
 created_at: 2017-04-27T11:49:01Z
+contents:
+  - text: "Epithelial cysts affecting the jaws"
+    id: epithelial-cysts-affecting-the-jaws
+  - text: "Nonepithelial cysts affecting the jaws"
+    id: nonepithelial-cysts-affecting-the-jaws
+  - text: "Solitary bone cyst"
+    id: solitary-bone-cyst
+  - text: "Epithelial cysts affecting mouth, neck and face (other than jaw)"
+    id: epithelial-cysts-affecting-mouth-neck-and-face-other-than-jaw
 ---
 
 <p>Surgical management of cysts is, by and large, some form of removal

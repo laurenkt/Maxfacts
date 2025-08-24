@@ -4,9 +4,21 @@ uri: help/oral-hygiene/practical-guide
 title: Practical guide to oral hygiene
 type: level3
 authorship: Authored by Lauren Barry;Proof-read/edited by Angelika Sebald and David A. Mitchell
+order: 0
 further_reading_uri: help/oral-hygiene/further-reading
 updated_at: 2019-07-14T10:23:44Z
 created_at: 2017-03-22T14:47:25Z
+contents:
+  - text: "Plaque"
+    id: plaque
+  - text: "Tools"
+    id: tools
+  - text: "Toothpastes and mouthwashes"
+    id: toothpastes-and-mouthwashes
+  - text: "Oral hygiene in difficult circumstances"
+    id: oral-hygiene-in-difficult-circumstances
+  - text: "Care of prostheses"
+    id: care-of-prostheses
 ---
 
 <p>Below we discuss several aspects of oral hygiene, many of which

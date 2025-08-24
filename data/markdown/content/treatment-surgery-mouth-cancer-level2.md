@@ -4,8 +4,16 @@ uri: treatment/surgery/cancer/mouth-cancer/more-info
 title: Mouth cancer
 type: level2
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 updated_at: 2017-08-23T12:07:14Z
 created_at: 2017-04-13T15:14:45Z
+contents:
+  - text: "Issues to consider in the choice of treatment modality"
+    id: issues-to-consider-in-the-choice-of-treatment-modality
+  - text: "Metastatic disease in the neck"
+    id: metastatic-disease-in-the-neck
+  - text: "Preferred treatment modalities in practice"
+    id: preferred-treatment-modalities-in-practice
 ---
 
 <p>Here we discuss in slightly more detail various issues to be

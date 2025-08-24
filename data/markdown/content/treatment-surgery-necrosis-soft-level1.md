@@ -4,6 +4,7 @@ uri: treatment/surgery/necrosis/soft-tissue
 title: Soft tissue necrosis
 type: level1
 authorship: Authored by Angelika Sebald and David. A Mitchell
+order: 0
 updated_at: 2018-11-09T13:16:47Z
 created_at: 2016-12-14T14:51:29Z
 ---

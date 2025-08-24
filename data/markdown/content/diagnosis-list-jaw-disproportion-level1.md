@@ -4,6 +4,7 @@ uri: diagnosis/a-z/jaw-disproportion
 title: Jaw disproportion
 type: level1
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 updated_at: 2018-05-21T11:10:14Z
 created_at: 2016-12-06T12:18:31Z
 ---

@@ -4,9 +4,17 @@ uri: diagnosis/a-z/necrosis/hard/detailed
 title: Hard tissue necrosis
 type: level3
 authorship: Authored by Angelika Sebald and David. A Mitchell
+order: 0
 further_reading_uri: diagnosis/a-z/further-reading
 updated_at: 2018-08-19T09:50:46Z
 created_at: 2018-05-21T11:20:36Z
+contents:
+  - text: "The bone remodelling process"
+    id: the-bone-remodelling-process
+  - text: "Interference of high-energy radiation with the bone remodelling process"
+    id: interference-of-high-energy-radiation-with-the-bone-remodelling-process
+  - text: "Interference of medications with the bone remodelling process"
+    id: interference-of-medications-with-the-bone-remodelling-process
 ---
 
 <p>Below we investigate in a little more detail:</p>

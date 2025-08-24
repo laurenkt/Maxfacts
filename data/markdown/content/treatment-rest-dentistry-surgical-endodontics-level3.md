@@ -4,9 +4,21 @@ uri: treatment/restorative-dentistry/surgical-endodontics/detailed
 title: Surgical endodontics
 type: level3
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 further_reading_uri: treatment/restorative-dentistry/further-reading
 updated_at: 2019-07-13T09:50:26Z
 created_at: 2019-03-02T16:16:52Z
+contents:
+  - text: "Success rates"
+    id: success-rates
+  - text: "Alternative treatments"
+    id: alternative-treatments
+  - text: "Specific procedures"
+    id: specific-procedures
+  - text: "Corrective endodontic surgery"
+    id: corrective-endodontic-surgery
+  - text: "Revision surgery"
+    id: revision-surgery
 ---
 
 <p>General comments on indications and contraindications for surgical

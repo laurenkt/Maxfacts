@@ -3,6 +3,7 @@ id: diagnosis-list-postoperative-problems-preamble
 uri: diagnosis/a-z/postoperative-problems
 title: Postoperative problems
 type: directory
+order: 0
 updated_at: 2017-10-27T18:52:51Z
 created_at: 2016-12-06T12:25:08Z
 ---

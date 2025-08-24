@@ -4,9 +4,21 @@ uri: treatment/surgery/jaw-disproportion/detailed
 title: Jaw disproportion
 type: level3
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 further_reading_uri: treatment/surgery/further-reading
 updated_at: 2018-08-19T09:21:03Z
 created_at: 2018-05-21T12:19:27Z
+contents:
+  - text: "Common orthognathic surgical procedures"
+    id: common-orthognathic-surgical-procedures
+  - text: "Mandibular procedures"
+    id: mandibular-procedures
+  - text: "Maxillary Procedures"
+    id: maxillary-procedures
+  - text: "Relapse"
+    id: relapse
+  - text: "Surgery for obstructive sleep apnoea (OSA)"
+    id: surgery-for-obstructive-sleep-apnoea-osa
 ---
 
 <h1 id="common-orthognathic-surgical-procedures">Common orthognathic surgical procedures</h1>

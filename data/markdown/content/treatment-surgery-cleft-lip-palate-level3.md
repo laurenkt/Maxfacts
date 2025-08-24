@@ -4,9 +4,27 @@ uri: treatment/surgery/cleft-lip-palate/detailed
 title: Cleft lip/palate
 type: level3
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 further_reading_uri: treatment/surgery/further-reading
 updated_at: 2019-12-13T13:47:17Z
 created_at: 2019-07-13T11:08:22Z
+contents:
+  - text: "Lip repair"
+    id: lip-repair
+  - text: "Palate repair"
+    id: palate-repair
+  - text: "Primary dentition and speech assessment"
+    id: primary-dentition-and-speech-assessment
+  - text: "Mixed dentition"
+    id: mixed-dentition
+  - text: "Alveolar bone grafting"
+    id: alveolar-bone-grafting
+  - text: "Permanent dentition"
+    id: permanent-dentition
+  - text: "Rhinoplasty"
+    id: rhinoplasty
+  - text: "Definitive restorative dentistry"
+    id: definitive-restorative-dentistry
 ---
 
 <p>The general timing of surgery is <a href="/treatment/surgery/cleft-lip-palate">outlined

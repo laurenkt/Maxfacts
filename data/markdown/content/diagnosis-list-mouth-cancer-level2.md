@@ -4,6 +4,7 @@ uri: diagnosis/a-z/cancer/mouth-cancer/more-info
 title: Mouth cancer
 type: level2
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 updated_at: 2017-08-23T11:53:06Z
 created_at: 2016-07-29T13:09:24Z
 ---

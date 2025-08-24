@@ -5,9 +5,21 @@ title: Broken bone
 type: level3
 description: Fracture
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 further_reading_uri: treatment/surgery/further-reading
 updated_at: 2018-08-18T15:46:09Z
 created_at: 2017-04-13T14:52:43Z
+contents:
+  - text: "Treatment of mandibular fractures"
+    id: treatment-of-mandibular-fractures
+  - text: "Treatment of zygomatic complex (cheekbone) fractures"
+    id: treatment-of-zygomatic-complex-cheekbone-fractures
+  - text: "Treatment of nasal fractures"
+    id: treatment-of-nasal-fractures
+  - text: "Treatment of midface fractures"
+    id: treatment-of-midface-fractures
+  - text: "Treatment of frontal sinus fractures"
+    id: treatment-of-frontal-sinus-fractures
 ---
 
 <p>The following information is quite technical, dealing with specific

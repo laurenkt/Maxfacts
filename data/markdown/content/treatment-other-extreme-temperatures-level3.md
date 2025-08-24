@@ -4,9 +4,17 @@ uri: treatment/other/extreme-temperatures/detailed
 title: Extreme temperatures
 type: level3
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell and Aneurin Kennerley
+order: 0
 further_reading_uri: treatment/other/further-reading
 updated_at: 2019-03-03T13:51:02Z
 created_at: 2018-08-18T16:23:13Z
+contents:
+  - text: "Laser (light amplification by stimulated emission of radiation)"
+    id: laser-light-amplification-by-stimulated-emission-of-radiation
+  - text: "Diathermy and coblation"
+    id: diathermy-and-coblation
+  - text: "Cryotherapy"
+    id: cryotherapy
 ---
 
 <p>We outline the basic working principles of three different high

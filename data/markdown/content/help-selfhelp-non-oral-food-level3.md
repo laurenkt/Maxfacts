@@ -4,9 +4,19 @@ uri: help/non-oral-food/detailed
 title: Non-oral food intake
 type: level3
 authorship: Authored by Angelika Sebald and David A. Mitchell
+order: 0
 further_reading_uri: help/non-oral-food/further-reading
 updated_at: 2019-12-15T11:14:57Z
 created_at: 2019-12-13T14:10:54Z
+contents:
+  - text: "Some general aspects of tube feeding with commercial formulae"
+    id: some-general-aspects-of-tube-feeding-with-commercial-formulae
+  - text: "Home-made, blended liquid diet for tube feeding"
+    id: home-made-blended-liquid-diet-for-tube-feeding
+  - text: "Methods to insert feeding tubes"
+    id: methods-to-insert-feeding-tubes
+  - text: "Specific metastasis risk associated with gastrostomy"
+    id: specific-metastasis-risk-associated-with-gastrostomy
 ---
 
 <p>Thinking about enteral feeding needs consideration of

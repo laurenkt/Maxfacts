@@ -4,9 +4,23 @@ uri: diagnosis/a-z/jaw-joint/detailed
 title: Jaw joint problems
 type: level3
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 further_reading_uri: diagnosis/a-z/further-reading
 updated_at: 2018-02-01T12:28:00Z
 created_at: 2017-05-18T13:15:42Z
+contents:
+  - text: "Temporomandibular joint pain dysfunction syndrome (TMJPDS)"
+    id: temporomandibular-joint-pain-dysfunction-syndrome-tmjpds
+  - text: "Internal derangement"
+    id: internal-derangement
+  - text: "Osteoarthrosis"
+    id: osteoarthrosis
+  - text: "Rheumatoid arthritis"
+    id: rheumatoid-arthritis
+  - text: "Infective arthritis"
+    id: infective-arthritis
+  - text: "Ankylosis"
+    id: ankylosis
 ---
 
 <h1 id="temporomandibular-joint-pain-dysfunction-syndrome-tmjpds">Temporomandibular joint pain dysfunction syndrome (TMJPDS)</h1>

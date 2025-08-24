@@ -5,9 +5,17 @@ title: Dry mouth
 type: level3
 description: Xerostomia
 authorship: Authored by Angelika Sebald & Guy Carpenter; Proof-read/edited by David A. Mitchell
+order: 0
 further_reading_uri: diagnosis/a-z/further-reading
 updated_at: 2018-03-27T08:28:46Z
 created_at: 2018-03-26T09:45:24Z
+contents:
+  - text: "Xerostomia and medications"
+    id: xerostomia-and-medications
+  - text: "Xerostomia and diseases"
+    id: xerostomia-and-diseases
+  - text: "Xerostomia and high-energy radiation"
+    id: xerostomia-and-high-energy-radiation
 ---
 
 <p>Xerostomia (dry mouth) is not a disease but a symptom, and yet

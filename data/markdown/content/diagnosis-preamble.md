@@ -3,6 +3,7 @@ id: diagnosis-preamble
 uri: diagnosis
 title: Diagnosis
 type: directory
+order: 0
 updated_at: 2017-06-09T15:29:17Z
 created_at: 2016-07-29T12:20:00Z
 ---

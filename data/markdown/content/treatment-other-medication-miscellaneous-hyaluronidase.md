@@ -4,8 +4,14 @@ uri: treatment/other/medication/miscellaneous/hyaluronidase
 title: Hyaluronic acid and hyaluronidase
 type: page
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 updated_at: 2019-07-13T11:03:07Z
 created_at: 2018-11-09T13:00:36Z
+contents:
+  - text: "Properties and function of hyaluronic acid in the body"
+    id: properties-and-function-of-hyaluronic-acid-in-the-body
+  - text: "Medical uses of hyaluronic acid and hyaluronidase"
+    id: medical-uses-of-hyaluronic-acid-and-hyaluronidase
 ---
 
 <p><strong>Hyaluronic acid</strong> is a component of skin, connective

@@ -4,8 +4,18 @@ uri: treatment/other/medication/miscellaneous/immunosuppressants
 title: Immunosuppressants
 type: page
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 updated_at: 2019-12-13T14:15:15Z
 created_at: 2019-03-02T16:40:04Z
+contents:
+  - text: "‘Traditional agents’, corticosteroids"
+    id: traditional-agents-corticosteroids
+  - text: "‘Steroid-sparing agents’"
+    id: steroid-sparing-agents
+  - text: "‘Biologics’"
+    id: biologics
+  - text: "Outlook"
+    id: outlook
 ---
 
 <p>Immunomodulating drugs include <a href="/treatment/other/medication/inflammation/detailed">immunostimulating

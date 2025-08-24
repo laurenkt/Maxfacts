@@ -3,6 +3,7 @@ id: help-selfhelp-oral-hygiene-further-reading-and-info
 uri: help/oral-hygiene/further-reading
 title: Oral hygiene
 type: further
+order: 0
 hide: true
 updated_at: 2019-12-13T14:27:02Z
 created_at: 2017-06-14T21:50:23Z

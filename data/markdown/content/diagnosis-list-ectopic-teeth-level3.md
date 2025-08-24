@@ -4,9 +4,17 @@ uri: diagnosis/a-z/ectopic-teeth/detailed
 title: Ectopic (displaced) teeth
 type: level3
 authorship: Authored by David A. Mitchell; Proof-read/edited by Angelika Sebald
+order: 0
 further_reading_uri: diagnosis/a-z/further-reading
 updated_at: 2019-03-03T13:43:45Z
 created_at: 2019-03-02T14:18:24Z
+contents:
+  - text: "Impacted or ectopic teeth"
+    id: impacted-or-ectopic-teeth
+  - text: "Supernumerary teeth"
+    id: supernumerary-teeth
+  - text: "Factors to consider in conjunction with orthodontic treatment planning"
+    id: factors-to-consider-in-conjunction-with-orthodontic-treatment-planning
 ---
 
 <h1 id="impacted-or-ectopic-teeth">Impacted or ectopic teeth</h1>

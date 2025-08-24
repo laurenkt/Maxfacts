@@ -4,6 +4,7 @@ uri: treatment/other/medication/miscellaneous/vasopressor
 title: Vasoconstrictor & vasodilation medications
 type: page
 authorship: Authored by Angelika Sebald and David A. Mitchell
+order: 0
 updated_at: 2019-07-13T11:05:34Z
 created_at: 2018-11-09T13:02:00Z
 ---

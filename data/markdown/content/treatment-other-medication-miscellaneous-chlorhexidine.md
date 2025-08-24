@@ -4,6 +4,7 @@ uri: treatment/other/medication/miscellaneous/chlorhexidine
 title: Chlorhexidine
 type: page
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 updated_at: 2018-11-11T15:10:53Z
 created_at: 2018-11-09T13:05:48Z
 ---

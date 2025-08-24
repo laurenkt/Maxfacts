@@ -4,8 +4,34 @@ uri: treatment/restorative-dentistry/surgical-endodontics/more-info
 title: Surgical endodontics
 type: level2
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 updated_at: 2019-03-03T14:02:35Z
 created_at: 2019-03-02T16:14:52Z
+contents:
+  - text: "Assessment for endodontic surgery"
+    id: assessment-for-endodontic-surgery
+  - text: "Local analgesia"
+    id: local-analgesia
+  - text: "Incision and flaps"
+    id: incision-and-flaps
+  - text: "Haemostasis"
+    id: haemostasis
+  - text: "Identification of the root apex"
+    id: identification-of-the-root-apex
+  - text: "Periapical curettage"
+    id: periapical-curettage
+  - text: "Root end resection"
+    id: root-end-resection
+  - text: "Root end cavity preparation"
+    id: root-end-cavity-preparation
+  - text: "Root end (retrograde) filling"
+    id: root-end-retrograde-filling
+  - text: "Wound closure"
+    id: wound-closure
+  - text: "Aftercare"
+    id: aftercare
+  - text: "Assessment of the procedure"
+    id: assessment-of-the-procedure
 ---
 
 <p>The different stages of surgical endodontics</p>

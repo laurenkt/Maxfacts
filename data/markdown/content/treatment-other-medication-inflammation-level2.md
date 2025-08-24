@@ -4,8 +4,16 @@ uri: treatment/other/medication/inflammation/more-info
 title: Inflammation
 type: level2
 authorship: Authored by Angelika Sebald and David A. Mitchell
+order: 0
 updated_at: 2018-08-18T12:57:21Z
 created_at: 2018-02-02T09:29:36Z
+contents:
+  - text: "The innate immune system"
+    id: the-innate-immune-system
+  - text: "The adaptive immune system"
+    id: the-adaptive-immune-system
+  - text: "Inflammation and wound healing"
+    id: inflammation-and-wound-healing
 ---
 
 <p>With acute and/or chronic inflammation being the most noticeable

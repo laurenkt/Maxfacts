@@ -4,9 +4,17 @@ uri: diagnosis/tests/x-ray/detailed
 title: X-ray
 type: level3
 authorship: Authored by Angelika Sebald and Aneurin Kennerley;Proof-read/edited by David A. Mitchell
+order: 0
 further_reading_uri: diagnosis/tests/further-reading
 updated_at: 2019-03-03T12:31:28Z
 created_at: 2018-11-09T15:54:54Z
+contents:
+  - text: "Effects of radiation on matter"
+    id: effects-of-radiation-on-matter
+  - text: "Creating images with X-rays"
+    id: creating-images-with-x-rays
+  - text: "Some technical details of various X-ray imaging approaches"
+    id: some-technical-details-of-various-x-ray-imaging-approaches
 ---
 
 <h1 id="effects-of-radiation-on-matter">Effects of radiation on matter</h1>

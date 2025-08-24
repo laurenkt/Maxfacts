@@ -4,9 +4,27 @@ uri: treatment/surgery/jaw-joint/detailed
 title: Jaw joint problems
 type: level3
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 further_reading_uri: treatment/surgery/further-reading
 updated_at: 2018-08-18T15:48:22Z
 created_at: 2017-08-21T11:01:25Z
+contents:
+  - text: "Temporomandibular joint pain dysfunction syndrome (TMJPDS)"
+    id: temporomandibular-joint-pain-dysfunction-syndrome-tmjpds
+  - text: "Internal derangement"
+    id: internal-derangement
+  - text: "Osteoarthritis"
+    id: osteoarthritis
+  - text: "Rheumatoid arthritis"
+    id: rheumatoid-arthritis
+  - text: "Infective arthritis"
+    id: infective-arthritis
+  - text: "Ankylosis"
+    id: ankylosis
+  - text: "Splint therapies"
+    id: splint-therapies
+  - text: "Currently used ‘TMJ operations’"
+    id: currently-used-tmj-operations
 ---
 
 <p>The moist suitable treatment option(s) for jaw joint (temporomandibular

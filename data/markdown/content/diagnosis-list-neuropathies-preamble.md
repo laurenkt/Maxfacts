@@ -4,6 +4,7 @@ uri: diagnosis/a-z/neuropathies
 title: Neuropathies
 type: directory
 description: Nerve damage
+order: 0
 updated_at: 2018-05-21T11:25:37Z
 created_at: 2016-12-06T12:12:16Z
 ---

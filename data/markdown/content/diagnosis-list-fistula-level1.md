@@ -4,6 +4,7 @@ uri: diagnosis/a-z/fistula
 title: Fistula
 type: level1
 authorship: Authored by David A. Mitchell & Angelika Sebald
+order: 0
 updated_at: 2018-08-19T09:47:49Z
 created_at: 2016-12-06T12:16:45Z
 ---

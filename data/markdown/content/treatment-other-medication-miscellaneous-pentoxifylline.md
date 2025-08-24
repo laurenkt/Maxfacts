@@ -4,6 +4,7 @@ uri: treatment/other/medication/miscellaneous/pentoxifylline
 title: Pentoxifylline
 type: page
 authorship: Authored by Angelika Sebald and David A. Mitchell
+order: 0
 updated_at: 2019-07-14T09:36:37Z
 created_at: 2018-11-09T13:01:03Z
 ---

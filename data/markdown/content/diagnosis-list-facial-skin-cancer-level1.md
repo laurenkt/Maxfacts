@@ -4,8 +4,16 @@ uri: diagnosis/a-z/cancer/facial-skin
 title: Facial skin cancer
 type: level1
 authorship: Authored by David A. Mitchell & Angelika Sebald
+order: 0
 updated_at: 2017-08-23T11:53:27Z
 created_at: 2016-12-06T12:05:25Z
+contents:
+  - text: "Basal cell carcinoma, BCC"
+    id: basal-cell-carcinoma-bcc
+  - text: "Squamous cell carcinoma, SCC"
+    id: squamous-cell-carcinoma-scc
+  - text: "Malignant melanoma"
+    id: malignant-melanoma
 ---
 
 <p>The three most common skin cancers affecting the head and neck

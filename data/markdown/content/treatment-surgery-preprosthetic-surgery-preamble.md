@@ -3,6 +3,7 @@ id: treatment-surgery-preprosthetic-surgery-preamble
 uri: treatment/surgery/preprosthetic-surgery
 title: Preprosthetic surgery
 type: directory
+order: 0
 updated_at: 2019-07-13T11:25:15Z
 created_at: 2018-08-19T09:45:03Z
 ---

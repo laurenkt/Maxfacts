@@ -3,6 +3,7 @@ id: diagnosis-list-damage-preamble
 uri: diagnosis/a-z/damage
 title: Damage
 type: directory
+order: 0
 updated_at: 2017-06-09T15:43:21Z
 created_at: 2016-12-06T12:07:10Z
 ---

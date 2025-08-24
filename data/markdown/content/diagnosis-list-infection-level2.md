@@ -4,8 +4,16 @@ uri: diagnosis/a-z/infection/more-info
 title: Infection
 type: level2
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 updated_at: 2018-03-26T09:24:58Z
 created_at: 2017-10-27T15:17:31Z
+contents:
+  - text: "Bacterial infections"
+    id: bacterial-infections
+  - text: "Viral infections"
+    id: viral-infections
+  - text: "Fungal infections"
+    id: fungal-infections
 ---
 
 <p>The theme ‘infection’ is very broad, it would fill a bulky book

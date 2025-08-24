@@ -4,6 +4,7 @@ uri: treatment/other/medication/miscellaneous/antiangiogenic
 title: Antiangiogenic medications
 type: page
 authorship: Authored by Angelika Sebald;Proof-read/edited by David. A Mitchell
+order: 0
 updated_at: 2018-08-18T12:32:31Z
 created_at: 2018-05-21T14:51:14Z
 ---

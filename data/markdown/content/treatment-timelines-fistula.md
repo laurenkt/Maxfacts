@@ -4,6 +4,7 @@ uri: treatment/timelines/fistula
 title: Fistula
 type: page
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 updated_at: 2019-07-13T11:33:56Z
 created_at: 2017-02-23T15:55:45Z
 ---

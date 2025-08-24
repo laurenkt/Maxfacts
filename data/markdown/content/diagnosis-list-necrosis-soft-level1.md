@@ -4,6 +4,7 @@ uri: diagnosis/a-z/necrosis/soft
 title: Soft tissue necrosis
 type: level1
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 updated_at: 2018-05-21T14:51:14Z
 created_at: 2016-12-08T15:26:55Z
 ---

@@ -4,9 +4,15 @@ uri: treatment/surgery/cancer/mouth-cancer/detailed
 title: Mouth cancer
 type: level3
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 further_reading_uri: treatment/surgery/further-reading
 updated_at: 2019-07-13T09:26:23Z
 created_at: 2017-04-27T09:30:35Z
+contents:
+  - text: "Some general aspects of surgical treatment of mouth cancer"
+    id: some-general-aspects-of-surgical-treatment-of-mouth-cancer
+  - text: "Neck dissection"
+    id: neck-dissection
 ---
 
 <p>Here we concentrate on surgical treatments for oral cancer. More

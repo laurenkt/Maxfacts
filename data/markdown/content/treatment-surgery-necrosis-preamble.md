@@ -3,6 +3,7 @@ id: treatment-surgery-necrosis-preamble
 uri: treatment/surgery/necrosis
 title: Necrosis
 type: directory
+order: 0
 updated_at: 2017-06-12T12:06:40Z
 created_at: 2017-05-05T10:06:46Z
 ---

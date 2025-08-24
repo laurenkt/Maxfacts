@@ -4,9 +4,19 @@ uri: diagnosis/tests/mri/detailed
 title: MRI
 type: level3
 authorship: Authored by Angelika Sebald and Aneurin Kennerley;Proof-read/edited by David A. Mitchell
+order: 0
 further_reading_uri: diagnosis/tests/further-reading
 updated_at: 2019-07-14T10:09:49Z
 created_at: 2017-06-14T20:08:39Z
+contents:
+  - text: "The basics: nuclear magnetic resonance (NMR) spectroscopy"
+    id: the-basics-nuclear-magnetic-resonance-nmr-spectroscopy
+  - text: "Magnetic resonance imaging, MRI"
+    id: magnetic-resonance-imaging-mri
+  - text: "Common maxillofacial MRI applications"
+    id: common-maxillofacial-mri-applications
+  - text: "More recent developments in MRI"
+    id: more-recent-developments-in-mri
 ---
 
 <p>What follows is an explanation of how the seemingly mysterious,

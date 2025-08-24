@@ -4,6 +4,7 @@ uri: treatment/other/miscellaneous/peeling
 title: Peeling
 type: page
 authorship: Authored by Angelika Sebald and David A. Mitchell
+order: 0
 updated_at: 2019-12-15T11:39:34Z
 created_at: 2019-12-13T14:17:07Z
 ---

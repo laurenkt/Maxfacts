@@ -3,6 +3,7 @@ id: help-selfhelp-mental-health-preamble
 uri: help/mental-health
 title: Mental health
 type: directory
+order: 0
 updated_at: 2019-12-13T14:12:37Z
 created_at: 2016-08-11T11:37:55Z
 ---

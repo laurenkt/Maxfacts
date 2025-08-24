@@ -4,9 +4,17 @@ uri: diagnosis/tests/ultrasound
 title: Ultrasound (sonography)
 type: level3
 authorship: Authored by Angelika Sebald;Proof-read/edited by Aneurin J Kennerley
+order: 0
 further_reading_uri: diagnosis/tests/further-reading
 updated_at: 2019-03-02T14:10:00Z
 created_at: 2017-06-14T20:09:04Z
+contents:
+  - text: "Basic working principles"
+    id: basic-working-principles
+  - text: "Common maxillofacial applications"
+    id: common-maxillofacial-applications
+  - text: "Technical details about ultrasound imaging"
+    id: technical-details-about-ultrasound-imaging
 ---
 
 <p>Ultrasound imaging is a well-established diagnostic modality

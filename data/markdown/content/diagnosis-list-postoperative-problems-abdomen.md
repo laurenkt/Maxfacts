@@ -4,6 +4,7 @@ uri: diagnosis/a-z/postoperative-problems/abdomen
 title: Abdomen
 type: page
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 updated_at: 2018-08-18T12:59:57Z
 created_at: 2016-12-06T12:39:16Z
 ---

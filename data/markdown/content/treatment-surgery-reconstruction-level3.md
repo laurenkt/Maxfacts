@@ -4,9 +4,33 @@ uri: treatment/surgery/reconstruction/detailed
 title: Reconstruction
 type: level3
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 further_reading_uri: treatment/surgery/further-reading
 updated_at: 2018-08-19T09:39:47Z
 created_at: 2018-08-18T15:41:57Z
+contents:
+  - text: "Some general considerations"
+    id: some-general-considerations
+  - text: "The reconstructive ladder"
+    id: the-reconstructive-ladder
+  - text: "Facial skin"
+    id: facial-skin
+  - text: "Ventral (underside) tongue and floor of the mouth"
+    id: ventral-underside-tongue-and-floor-of-the-mouth
+  - text: "Buccal mucosa"
+    id: buccal-mucosa
+  - text: "Mandible"
+    id: mandible
+  - text: "Maxilla"
+    id: maxilla
+  - text: "Lip"
+    id: lip
+  - text: "Pharynx"
+    id: pharynx
+  - text: "Prosthetic rehabilitation"
+    id: prosthetic-rehabilitation
+  - text: "A general summary"
+    id: a-general-summary
 ---
 
 <p>Below we give an overview of matching defect types and sites

@@ -4,9 +4,17 @@ uri: diagnosis/a-z/abscess/detailed
 title: Abscess
 type: level3
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 further_reading_uri: diagnosis/a-z/further-reading
 updated_at: 2017-08-23T11:49:50Z
 created_at: 2017-02-16T16:07:21Z
+contents:
+  - text: "Cervicofacial abscess"
+    id: cervicofacial-abscess
+  - text: "Ludwig’s angina"
+    id: ludwigs-angina
+  - text: "Necrotising fasciitis"
+    id: necrotising-fasciitis
 ---
 
 <p>The following conditions are effectively an extension of the

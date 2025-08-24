@@ -4,8 +4,18 @@ uri: diagnosis/a-z/necrosis/hard/more-info
 title: Hard tissue necrosis
 type: level2
 authorship: Authored by David A. Mitchell and Angelika Sebald
+order: 0
 updated_at: 2018-08-19T09:49:57Z
 created_at: 2016-07-29T15:34:57Z
+contents:
+  - text: "Signs and symptoms of osteonecrosis of the jaws (ONJ)"
+    id: signs-and-symptoms-of-osteonecrosis-of-the-jaws-onj
+  - text: "Osteoradionecrosis (ORN)"
+    id: osteoradionecrosis-orn
+  - text: "Medication Related Osteonecrosis of the Jaws (MRONJ)"
+    id: medication-related-osteonecrosis-of-the-jaws-mronj
+  - text: "Other causes of osteonecrosis of the jaws"
+    id: other-causes-of-osteonecrosis-of-the-jaws
 ---
 
 <h1 id="signs-and-symptoms-of-osteonecrosis-of-the-jaws-onj">Signs and symptoms of osteonecrosis of the jaws (ONJ)</h1>

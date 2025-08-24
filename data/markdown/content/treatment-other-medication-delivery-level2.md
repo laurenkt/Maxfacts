@@ -4,8 +4,16 @@ uri: treatment/other/medication/delivery/more-info
 title: Delivery methods
 type: level2
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 updated_at: 2017-10-27T13:37:09Z
 created_at: 2017-03-22T15:08:51Z
+contents:
+  - text: "Drug timings and dosage"
+    id: drug-timings-and-dosage
+  - text: "Drug delivery vehicles"
+    id: drug-delivery-vehicles
+  - text: "Drug interactions"
+    id: drug-interactions
 ---
 
 <p>Understanding the effects of timing, delivery methods and interactions

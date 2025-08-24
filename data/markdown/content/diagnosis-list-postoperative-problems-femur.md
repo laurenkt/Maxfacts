@@ -4,6 +4,7 @@ uri: diagnosis/a-z/postoperative-problems/femur
 title: Femur
 type: page
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 updated_at: 2018-05-21T11:27:59Z
 created_at: 2016-12-06T12:39:39Z
 ---

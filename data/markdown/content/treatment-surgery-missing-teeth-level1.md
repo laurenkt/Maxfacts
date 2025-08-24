@@ -4,6 +4,7 @@ uri: treatment/surgery/missing-teeth
 title: Missing teeth
 type: level1
 authorship: Authored by Angelika Sebald and David. A Mitchell
+order: 0
 further_reading_uri: treatment/surgery/further-reading
 updated_at: 2018-11-09T13:19:18Z
 created_at: 2018-08-18T15:52:36Z

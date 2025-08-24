@@ -4,8 +4,18 @@ uri: treatment/surgery/implants/more-info
 title: Craniofacial implants
 type: level2
 authorship: Authored by Ali Modabber;Proof-read/edited by David A. Mitchell and Angelika Sebald
+order: 0
 updated_at: 2019-12-18T10:53:02Z
 created_at: 2019-12-13T13:56:22Z
+contents:
+  - text: "A prosthetic nose"
+    id: a-prosthetic-nose
+  - text: "Prosthetic rehabilitation after major maxillary resection"
+    id: prosthetic-rehabilitation-after-major-maxillary-resection
+  - text: "Rehabilitation / repair after orbital (eye socket) fracture"
+    id: rehabilitation-/-repair-after-orbital-eye-socket-fracture
+  - text: "Prosthetic rehabilitation of a large skull defect"
+    id: prosthetic-rehabilitation-of-a-large-skull-defect
 ---
 
 <p>Prostheses are adapted to craniofacial implants with

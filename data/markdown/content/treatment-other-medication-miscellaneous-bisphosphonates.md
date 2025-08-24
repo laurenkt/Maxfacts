@@ -4,6 +4,7 @@ uri: treatment/other/medication/miscellaneous/bisphosphonates
 title: Bisphosphonates
 type: page
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 updated_at: 2019-03-03T13:52:10Z
 created_at: 2018-05-21T15:58:45Z
 ---

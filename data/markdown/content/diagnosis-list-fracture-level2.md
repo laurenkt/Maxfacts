@@ -5,8 +5,12 @@ title: Broken bone
 type: level2
 description: Fracture
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 updated_at: 2017-08-23T11:52:45Z
 created_at: 2017-04-13T10:47:31Z
+contents:
+  - text: "Locations of fractures; incidence and aetiology"
+    id: locations-of-fractures-incidence-and-aetiology
 ---
 
 <p>In general a facial fracture is recognisable clinically based

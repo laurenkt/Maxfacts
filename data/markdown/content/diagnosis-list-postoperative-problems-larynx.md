@@ -4,6 +4,7 @@ uri: diagnosis/a-z/postoperative-problems/larynx
 title: Larynx
 type: page
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 updated_at: 2018-08-18T13:50:28Z
 created_at: 2016-12-06T12:37:26Z
 ---

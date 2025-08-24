@@ -4,6 +4,7 @@ uri: treatment/timelines/cancer/facial-skin-cancer
 title: Facial skin cancer
 type: page
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 updated_at: 2019-07-14T10:20:04Z
 created_at: 2017-02-23T15:52:48Z
 ---

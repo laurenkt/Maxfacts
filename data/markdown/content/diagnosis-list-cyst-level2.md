@@ -4,8 +4,18 @@ uri: diagnosis/a-z/cyst/more-info
 title: Cyst
 type: level2
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 updated_at: 2018-05-21T10:28:16Z
 created_at: 2017-04-27T11:33:15Z
+contents:
+  - text: "Epithelial cysts"
+    id: epithelial-cysts
+  - text: "Odontogenic cysts (jaws)"
+    id: odontogenic-cysts-jaws
+  - text: "Nonepithelial cysts"
+    id: nonepithelial-cysts
+  - text: "Solitary bone cyst (jaws)"
+    id: solitary-bone-cyst-jaws
 ---
 
 <p>Here we describe both epithelial and nonepithelial cysts affecting

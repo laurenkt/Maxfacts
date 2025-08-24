@@ -4,6 +4,7 @@ uri: treatment/surgery/fistula
 title: Fistula
 type: level1
 authorship: Authored by David A. Mitchell and Angelika Sebald
+order: 0
 updated_at: 2018-08-18T14:09:19Z
 created_at: 2016-12-14T14:49:28Z
 ---

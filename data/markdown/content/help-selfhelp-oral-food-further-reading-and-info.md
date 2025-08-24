@@ -3,9 +3,17 @@ id: help-selfhelp-oral-food-further-reading-and-info
 uri: help/oral-food/further-reading
 title: Oral food
 type: further
+order: 0
 hide: true
 updated_at: 2019-03-03T12:38:44Z
 created_at: 2017-06-14T21:46:54Z
+contents:
+  - text: "Textbooks"
+    id: textbooks
+  - text: "Journal articles (peer reviewed literature)"
+    id: journal-articles-peer-reviewed-literature
+  - text: "Electronic resources"
+    id: electronic-resources
 ---
 
 <h1 id="textbooks">Textbooks</h1>

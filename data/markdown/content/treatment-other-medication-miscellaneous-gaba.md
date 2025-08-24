@@ -4,6 +4,7 @@ uri: treatment/other/medication/miscellaneous/gaba
 title: GABA, gamma-aminobutyric acid
 type: page
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 updated_at: 2018-11-09T15:20:42Z
 created_at: 2018-11-09T13:05:16Z
 ---

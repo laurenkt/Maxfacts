@@ -4,6 +4,7 @@ uri: diagnosis/a-z/cancer/salivary-gland
 title: Salivary gland cancer
 type: level1
 authorship: Authored by David A. Mitchell & Angelika Sebald
+order: 0
 updated_at: 2017-08-23T11:54:16Z
 created_at: 2016-12-06T12:05:41Z
 ---

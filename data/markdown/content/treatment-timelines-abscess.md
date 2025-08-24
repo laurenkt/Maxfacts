@@ -4,8 +4,18 @@ uri: treatment/timelines/abscess
 title: Abscess
 type: page
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 updated_at: 2017-08-23T12:08:20Z
 created_at: 2017-02-23T15:50:16Z
+contents:
+  - text: "Dental abscess (simple, localised to gum)"
+    id: dental-abscess-simple-localised-to-gum
+  - text: "Cervicofacial abscess"
+    id: cervicofacial-abscess
+  - text: "Ludwig’s angina"
+    id: ludwigs-angina
+  - text: "Necrotising fasciitis"
+    id: necrotising-fasciitis
 ---
 
 <p>This is generally an acute condition which, if treated appropriately,

@@ -4,8 +4,14 @@ uri: help/oral-food/texture-adaption
 title: Texture adaption
 type: level2
 authorship: Authored by David A. Mitchell & Angelika Sebald
+order: 0
 updated_at: 2019-03-02T14:14:57Z
 created_at: 2018-02-01T10:35:02Z
+contents:
+  - text: "Some general trends for suitable textures and consistencies"
+    id: some-general-trends-for-suitable-textures-and-consistencies
+  - text: "Some other general trends"
+    id: some-other-general-trends
 ---
 
 <p>Getting food texture right for individual needs can make all

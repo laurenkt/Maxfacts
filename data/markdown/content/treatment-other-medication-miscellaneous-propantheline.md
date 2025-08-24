@@ -4,6 +4,7 @@ uri: treatment/other/medication/miscellaneous/propantheline
 title: Propantheline
 type: page
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 updated_at: 2019-03-02T16:38:11Z
 created_at: 2018-05-21T16:03:38Z
 ---

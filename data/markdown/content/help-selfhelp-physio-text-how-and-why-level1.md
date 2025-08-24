@@ -4,6 +4,7 @@ uri: help/physiotherapy/how-and-why
 title: Physiotherapy explained
 type: level1
 authorship: Authored by Lee Mellor;Proof-read/edited by David A. Mitchell & Angelika Sebald
+order: 0
 updated_at: 2017-08-23T12:03:32Z
 created_at: 2017-03-22T14:55:20Z
 ---

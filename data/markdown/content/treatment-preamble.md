@@ -3,6 +3,7 @@ id: treatment-preamble
 uri: treatment
 title: Treatment
 type: directory
+order: 0
 updated_at: 2017-06-11T17:55:07Z
 created_at: 2016-08-10T15:51:16Z
 ---

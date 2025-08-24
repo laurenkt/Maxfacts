@@ -3,6 +3,7 @@ id: treatment-chemotherapy-further-reading-and-info
 uri: treatment/chemotherapy/further-reading
 title: Chemotherapy
 type: further
+order: 0
 updated_at: 2018-11-09T15:43:40Z
 created_at: 2017-03-09T12:00:04Z
 ---

@@ -5,6 +5,7 @@ title: Chemical principles
 type: level1
 surtitle: Chemotherapy
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 updated_at: 2017-08-23T12:04:57Z
 created_at: 2016-12-06T14:24:32Z
 ---

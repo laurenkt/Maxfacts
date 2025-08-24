@@ -4,9 +4,15 @@ uri: diagnosis/a-z/tumour/metastases/more-info
 title: Metastases
 type: level2
 authorship: Authored by Angelika Sebald & David A. Mitchell
+order: 0
 further_reading_uri: diagnosis/a-z/further-reading
 updated_at: 2018-02-01T12:29:32Z
 created_at: 2017-10-27T18:49:24Z
+contents:
+  - text: "The evolutionary process of metastasis"
+    id: the-evolutionary-process-of-metastasis
+  - text: "Metastasis and head &amp; neck malignancies"
+    id: metastasis-and-head-and-neck-malignancies
 ---
 
 <h1 id="the-evolutionary-process-of-metastasis">The evolutionary process of metastasis</h1>

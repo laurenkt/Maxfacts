@@ -3,6 +3,7 @@ id: help-selfhelp-ternary-graphs-further-reading-and-info
 uri: help/magic-triangle/further-reading
 title: Ternary graphs
 type: further
+order: 0
 hide: true
 updated_at: 2017-08-21T10:32:25Z
 created_at: 2017-06-15T10:36:00Z

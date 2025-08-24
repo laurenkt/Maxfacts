@@ -3,6 +3,7 @@ id: diagnosis-list-dysphagia-level3
 uri: diagnosis/a-z/dysphagia/detailed
 title: Dysphagia
 type: level3
+order: 0
 further_reading_uri: diagnosis/a-z/further-reading
 updated_at: 2018-02-01T12:16:11Z
 created_at: 2017-06-14T21:40:47Z

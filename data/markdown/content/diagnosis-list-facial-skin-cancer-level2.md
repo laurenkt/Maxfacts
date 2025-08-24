@@ -4,9 +4,17 @@ uri: diagnosis/a-z/cancer/facial-skin/more-info
 title: Facial skin cancer
 type: level2
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 further_reading_uri: diagnosis/a-z/further-reading
 updated_at: 2018-02-01T12:14:53Z
 created_at: 2017-06-09T11:00:05Z
+contents:
+  - text: "Basal cell carcinoma, BCC"
+    id: basal-cell-carcinoma-bcc
+  - text: "Squamous cell carcinoma, SCC"
+    id: squamous-cell-carcinoma-scc
+  - text: "Malignant melanoma"
+    id: malignant-melanoma
 ---
 
 <h1 id="basal-cell-carcinoma-bcc">Basal cell carcinoma, BCC</h1>

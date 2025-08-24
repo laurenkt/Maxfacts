@@ -4,6 +4,7 @@ uri: treatment/other/hyperbaric-oxygen
 title: Hyperbaric oxygen
 type: level1
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 updated_at: 2018-11-09T13:52:29Z
 created_at: 2016-12-06T14:27:23Z
 ---

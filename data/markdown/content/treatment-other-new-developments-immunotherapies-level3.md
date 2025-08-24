@@ -4,9 +4,19 @@ uri: treatment/other/new-developments/immunotherapies/detailed
 title: Immunotherapies
 type: level3
 authorship: Authored by Angelika Sebald and David A. Mitchell
+order: 0
 further_reading_uri: treatment/other/further-reading
 updated_at: 2019-07-14T10:27:22Z
 created_at: 2019-03-02T16:43:16Z
+contents:
+  - text: "Clinical trials"
+    id: clinical-trials
+  - text: "Adverse Effects"
+    id: adverse-effects
+  - text: "Predicting and monitoring treatment - biomarkers"
+    id: predicting-and-monitoring-treatment-biomarkers
+  - text: "Some specific immunotherapy aspects of head &amp; neck malignancies"
+    id: some-specific-immunotherapy-aspects-of-head-and-neck-malignancies
 ---
 
 <p>Immunotherapy is a rapidly evolving area in the treatment of

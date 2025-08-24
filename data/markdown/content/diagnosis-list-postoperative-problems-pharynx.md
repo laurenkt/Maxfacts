@@ -4,6 +4,7 @@ uri: diagnosis/a-z/postoperative-problems/pharynx
 title: Pharynx
 type: page
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 updated_at: 2018-03-27T08:25:09Z
 created_at: 2016-12-06T12:37:03Z
 ---

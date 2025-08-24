@@ -4,9 +4,19 @@ uri: treatment/other/medication/infection/detailed
 title: Infection
 type: level3
 authorship: Authored by David A. Mitchell & Angelika Sebald
+order: 0
 further_reading_uri: treatment/other/further-reading
 updated_at: 2018-05-21T13:50:35Z
 created_at: 2017-10-27T18:05:54Z
+contents:
+  - text: "Antibacterial agents"
+    id: antibacterial-agents
+  - text: "Antifungal agents"
+    id: antifungal-agents
+  - text: "Antiviral agents"
+    id: antiviral-agents
+  - text: "Resistance to antibiotic agents"
+    id: resistance-to-antibiotic-agents
 ---
 
 <p>Below we describe in slightly more technical detail some commonly

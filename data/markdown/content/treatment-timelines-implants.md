@@ -4,6 +4,7 @@ uri: treatment/timelines/implants
 title: Implants
 type: page
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 updated_at: 2019-07-14T10:21:40Z
 created_at: 2017-02-23T15:56:10Z
 ---

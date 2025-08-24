@@ -4,6 +4,7 @@ uri: treatment/surgery/tumour/other
 title: Other
 type: page
 surtitle: Tumour
+order: 0
 updated_at: 2017-06-12T12:10:10Z
 created_at: 2016-12-14T14:52:43Z
 ---

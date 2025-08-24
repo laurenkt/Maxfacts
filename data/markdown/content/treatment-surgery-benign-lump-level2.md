@@ -4,9 +4,15 @@ uri: treatment/surgery/benign-lump/more-info
 title: Benign lump
 type: level2
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 further_reading_uri: treatment/surgery/further-reading
 updated_at: 2018-08-18T15:45:49Z
 created_at: 2017-05-18T13:21:09Z
+contents:
+  - text: "Benign lumps of the mouth, jaws and face"
+    id: benign-lumps-of-the-mouth-jaws-and-face
+  - text: "Benign lumps of the neck"
+    id: benign-lumps-of-the-neck
 ---
 
 <p>Much of the surgery required to remove benign lumps is straightforward.

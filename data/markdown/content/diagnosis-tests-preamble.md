@@ -3,6 +3,7 @@ id: diagnosis-tests-preamble
 uri: diagnosis/tests
 title: Tests and methods
 type: directory
+order: 0
 updated_at: 2017-08-21T10:33:47Z
 created_at: 2016-07-29T15:48:24Z
 ---

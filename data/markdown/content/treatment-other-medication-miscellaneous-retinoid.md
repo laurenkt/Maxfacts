@@ -4,6 +4,7 @@ uri: treatment/other/medication/miscellaneous/retinoid
 title: Retinoids
 type: page
 authorship: Authored by Angelika Sebald and David A. Mitchell
+order: 0
 updated_at: 2019-07-13T11:04:19Z
 created_at: 2018-08-18T16:28:56Z
 ---

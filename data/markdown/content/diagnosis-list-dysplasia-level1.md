@@ -5,6 +5,7 @@ title: Dysplasia
 type: level1
 description: Abnormal tissue
 authorship: Authored by Angelika Sebald;Proof-read/edited by David. A Mitchell
+order: 0
 updated_at: 2018-02-01T11:24:01Z
 created_at: 2016-12-06T12:12:36Z
 ---

@@ -4,8 +4,12 @@ uri: treatment/surgery/anaesthesia/more-info
 title: Anaesthesia
 type: level2
 authorship: Authored by Heather Gorton; Proof-read/edited by David A. Mitchell
+order: 0
 updated_at: 2018-02-02T09:27:05Z
 created_at: 2018-02-01T11:57:16Z
+contents:
+  - text: "Anaesthetic issues specific to maxillofacial surgery"
+    id: anaesthetic-issues-specific-to-maxillofacial-surgery
 ---
 
 <p>Maxillofacial surgery presents some specific issues for anaesthesia;

@@ -5,6 +5,7 @@ title: Neuropathies
 type: page
 description: Nerve damage
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 updated_at: 2019-07-13T11:36:16Z
 created_at: 2017-02-23T15:55:02Z
 ---

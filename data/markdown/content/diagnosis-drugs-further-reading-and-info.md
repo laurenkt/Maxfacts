@@ -3,8 +3,18 @@ id: diagnosis-drugs-further-reading-and-info
 uri: diagnosis/drugs/further-reading
 title: Recreational drugs
 type: further
+order: 0
 updated_at: 2018-08-18T14:00:17Z
 created_at: 2017-04-13T14:26:41Z
+contents:
+  - text: "Information and Support"
+    id: information-and-support
+  - text: "Textbooks"
+    id: textbooks
+  - text: "Journal articles (peer reviewed literature)"
+    id: journal-articles-peer-reviewed-literature
+  - text: "Electronic resources"
+    id: electronic-resources
 ---
 
 <h1 id="information-and-support">Information and Support</h1>

@@ -4,8 +4,14 @@ uri: diagnosis/a-z/vascular-abnormalities/more-info
 title: Vascular abnormalities
 type: level2
 authorship: Authored by Angelika Sebald and David A. Mitchell
+order: 0
 updated_at: 2019-03-03T12:33:11Z
 created_at: 2019-03-02T15:13:45Z
+contents:
+  - text: "Haemangioma"
+    id: haemangioma
+  - text: "Vascular malformations"
+    id: vascular-malformations
 ---
 
 <p>Below we summarise common signs and symptoms of the various vascular

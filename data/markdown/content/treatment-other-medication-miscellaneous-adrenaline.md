@@ -4,6 +4,7 @@ uri: treatment/other/medication/miscellaneous/adrenaline
 title: Adrenaline
 type: page
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 updated_at: 2019-07-13T11:01:18Z
 created_at: 2018-05-21T16:03:34Z
 ---

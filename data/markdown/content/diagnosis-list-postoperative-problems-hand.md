@@ -4,6 +4,7 @@ uri: diagnosis/a-z/postoperative-problems/hand
 title: Hand
 type: page
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 updated_at: 2018-05-21T11:29:28Z
 created_at: 2016-12-06T12:38:54Z
 ---

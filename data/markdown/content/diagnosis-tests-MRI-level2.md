@@ -4,8 +4,12 @@ uri: diagnosis/tests/mri
 title: MRI
 type: level2
 authorship: Authored by Angelika Sebald and Aneurin Kennerley;Proof-read/edited by David A. Mitchell
+order: 0
 updated_at: 2019-03-03T12:33:11Z
 created_at: 2016-07-29T15:51:36Z
+contents:
+  - text: "How it works in principle"
+    id: how-it-works-in-principle
 ---
 
 <p>Magnetic resonance imaging (MRI) is a diagnostic scanning technique

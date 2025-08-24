@@ -4,6 +4,7 @@ uri: treatment/other/miscellaneous/lilt
 title: LILT (low intensity light therapy), photobiomodulation
 type: page
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 updated_at: 2019-12-15T11:39:01Z
 created_at: 2019-03-03T14:00:08Z
 ---

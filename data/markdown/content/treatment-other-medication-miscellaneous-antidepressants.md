@@ -4,6 +4,7 @@ uri: treatment/other/medication/miscellaneous/antidepressants
 title: Antidepressant medications
 type: page
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 updated_at: 2019-12-13T13:58:19Z
 created_at: 2018-11-09T13:02:29Z
 ---

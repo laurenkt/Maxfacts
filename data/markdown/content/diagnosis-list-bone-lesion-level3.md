@@ -4,9 +4,15 @@ uri: diagnosis/a-z/bone-lesion/detailed
 title: Bone lesion
 type: level3
 authorship: Authored by Angelika Sebald & David A. Mitchell
+order: 0
 further_reading_uri: diagnosis/a-z/further-reading
 updated_at: 2018-03-26T10:03:37Z
 created_at: 2017-10-27T15:11:37Z
+contents:
+  - text: "Inflammatory and other non-neoplastic bone lesions"
+    id: inflammatory-and-other-non-neoplastic-bone-lesions
+  - text: "Malignant neoplastic bone lesions (bone cancers)"
+    id: malignant-neoplastic-bone-lesions-bone-cancers
 ---
 
 <p>This section provides additional information about some of the

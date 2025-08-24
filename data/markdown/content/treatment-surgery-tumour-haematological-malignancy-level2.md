@@ -4,9 +4,21 @@ uri: treatment/surgery/tumour/blood-malignancy/more-info
 title: Blood malignancy
 type: level2
 authorship: Authored by Angelika Sebald and David A. Mitchell
+order: 0
 further_reading_uri: treatment/surgery/further-reading
 updated_at: 2019-12-13T14:02:07Z
 created_at: 2019-07-13T11:29:07Z
+contents:
+  - text: "Biopsies and other surgical interventions"
+    id: biopsies-and-other-surgical-interventions
+  - text: "Management of various dental and oral conditions before and during cancer treatment"
+    id: management-of-various-dental-and-oral-conditions-before-and-during-cancer-treatment
+  - text: "Assessment and management of mucositis"
+    id: assessment-and-management-of-mucositis
+  - text: "Assessment and treatment of oral infections"
+    id: assessment-and-treatment-of-oral-infections
+  - text: "Long-term monitoring and interventions after completion of oncological treatment"
+    id: long-term-monitoring-and-interventions-after-completion-of-oncological-treatment
 ---
 
 <p>Many of the oral and maxillofacial conditions afflicting those

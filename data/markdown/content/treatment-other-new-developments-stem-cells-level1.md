@@ -4,8 +4,14 @@ uri: treatment/other/new-developments/stem-cells
 title: Stem cells
 type: level1
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 updated_at: 2019-12-15T11:42:48Z
 created_at: 2018-11-09T13:08:11Z
+contents:
+  - text: "Key properties of stem cells"
+    id: key-properties-of-stem-cells
+  - text: "Key types of stem cells"
+    id: key-types-of-stem-cells
 ---
 
 <p>Stem cells are unspecialised cells which have the

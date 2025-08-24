@@ -3,8 +3,16 @@ id: treatment-rest-dentistry-further-reading-and-info
 uri: treatment/restorative-dentistry/further-reading
 title: Restorative dentistry
 type: further
+order: 0
 updated_at: 2019-12-15T11:37:26Z
 created_at: 2019-07-13T11:44:30Z
+contents:
+  - text: "Textbooks"
+    id: textbooks
+  - text: "Journal articles (peer reviewed literature)"
+    id: journal-articles-peer-reviewed-literature
+  - text: "Electronic resources"
+    id: electronic-resources
 ---
 
 <h1 id="textbooks">Textbooks</h1>

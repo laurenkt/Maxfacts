@@ -4,6 +4,7 @@ uri: treatment/other/medication/miscellaneous/clodronate
 title: Clodronate
 type: page
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 updated_at: 2019-07-14T10:26:13Z
 created_at: 2018-11-09T12:59:46Z
 ---

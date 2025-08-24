@@ -4,9 +4,15 @@ uri: diagnosis/a-z/benign-lump/detailed
 title: Benign lump
 type: level3
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 further_reading_uri: diagnosis/a-z/further-reading
 updated_at: 2018-02-01T12:13:57Z
 created_at: 2017-04-27T11:26:07Z
+contents:
+  - text: "Benign lumps of the mouth, jaws and face"
+    id: benign-lumps-of-the-mouth-jaws-and-face
+  - text: "Benign lumps of the neck"
+    id: benign-lumps-of-the-neck
 ---
 
 <h1 id="benign-lumps-of-the-mouth-jaws-and-face">Benign lumps of the mouth, jaws and face</h1>

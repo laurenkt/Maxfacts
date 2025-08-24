@@ -4,9 +4,25 @@ uri: help/oral-food/practical-tips
 title: Practical tips
 type: level3
 authorship: Authored by Angelika Sebald; Proof-read/edited by David A. Mitchell
+order: 0
 further_reading_uri: help/oral-food/further-reading
 updated_at: 2018-08-18T16:12:07Z
 created_at: 2017-02-02T16:25:27Z
+contents:
+  - text: "In the kitchen / pantry"
+    id: in-the-kitchen-/-pantry
+  - text: "At the dinner table"
+    id: at-the-dinner-table
+  - text: "Dry mouth, xerostomia"
+    id: dry-mouth-xerostomia
+  - text: "Sore mouth"
+    id: sore-mouth
+  - text: "Difficulty opening mouth, trismus"
+    id: difficulty-opening-mouth-trismus
+  - text: "Difficulty swallowing, dysphagia"
+    id: difficulty-swallowing-dysphagia
+  - text: "Distorted taste / lack of appetite"
+    id: distorted-taste-/-lack-of-appetite
 ---
 
 <p>The <a href="/diagnosis/a-z">range of oral and maxillofacial conditions</a>    is wide and varied, the resulting range of difficulties encountered

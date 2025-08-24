@@ -4,8 +4,14 @@ uri: diagnosis/a-z/dysplasia/more-info
 title: Dysplasia
 type: level2
 authorship: Authored by David A. Mitchell & Angelika Sebald
+order: 0
 updated_at: 2018-02-01T11:24:01Z
 created_at: 2017-11-24T14:35:45Z
+contents:
+  - text: "Oral mucosal lesions associated with dysplasia"
+    id: oral-mucosal-lesions-associated-with-dysplasia
+  - text: "Some general aspects of dysplasia"
+    id: some-general-aspects-of-dysplasia
 ---
 
 <h1 id="oral-mucosal-lesions-associated-with-dysplasia">Oral mucosal lesions associated with dysplasia</h1>

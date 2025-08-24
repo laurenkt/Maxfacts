@@ -4,6 +4,7 @@ uri: help/oral-food/saliva-and-eating
 title: Saliva and eating
 type: level2
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 updated_at: 2017-08-23T12:01:19Z
 created_at: 2016-07-29T16:07:12Z
 ---

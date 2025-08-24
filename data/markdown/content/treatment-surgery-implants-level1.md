@@ -4,6 +4,7 @@ uri: treatment/surgery/implants/getting-started
 title: Craniofacial implants
 type: level1
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 updated_at: 2019-07-13T11:12:57Z
 created_at: 2016-12-14T14:49:34Z
 ---

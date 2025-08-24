@@ -4,8 +4,24 @@ uri: treatment/surgery/damage/more-info
 title: Damage
 type: level2
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 updated_at: 2017-11-09T11:24:20Z
 created_at: 2017-10-27T15:48:57Z
+contents:
+  - text: "Initial steps"
+    id: initial-steps
+  - text: "Other investigations"
+    id: other-investigations
+  - text: "Wound cleansing"
+    id: wound-cleansing
+  - text: "Wound closure"
+    id: wound-closure
+  - text: "Wound closure with sutures (wounds without tissue loss)"
+    id: wound-closure-with-sutures-wounds-without-tissue-loss
+  - text: "Wounds with tissue loss"
+    id: wounds-with-tissue-loss
+  - text: "After damage repair: wound healing, scarring and potential problems"
+    id: after-damage-repair-wound-healing-scarring-and-potential-problems
 ---
 
 <p>This page gives a general overview of procedures and approaches

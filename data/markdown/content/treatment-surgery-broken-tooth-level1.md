@@ -4,6 +4,7 @@ uri: treatment/surgery/broken-tooth
 title: Broken tooth
 type: level1
 authorship: Authored by David A. Mitchell & Angelika Sebald
+order: 0
 further_reading_uri: treatment/surgery/further-reading
 updated_at: 2018-08-18T15:46:22Z
 created_at: 2016-12-14T14:46:04Z

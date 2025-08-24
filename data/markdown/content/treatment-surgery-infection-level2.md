@@ -4,9 +4,17 @@ uri: treatment/surgery/infection/more-info
 title: Infection
 type: level2
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 further_reading_uri: treatment/surgery/further-reading
 updated_at: 2018-08-18T16:31:50Z
 created_at: 2018-08-18T14:04:43Z
+contents:
+  - text: "Bacterial infections"
+    id: bacterial-infections
+  - text: "Viral infections"
+    id: viral-infections
+  - text: "Fungal infections"
+    id: fungal-infections
 ---
 
 <p>This section is essentially an overview of the infections which

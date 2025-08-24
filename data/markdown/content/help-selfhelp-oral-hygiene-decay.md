@@ -4,6 +4,7 @@ uri: help/oral-hygiene/decay
 title: Dental decay
 type: page
 authorship: Authored by Sarah Dennison;Proof-read/edited by David A. Mitchell & Angelika Sebald
+order: 0
 further_reading_uri: help/oral-hygiene/further-reading
 updated_at: 2019-03-03T12:37:21Z
 created_at: 2017-03-22T14:43:21Z

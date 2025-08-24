@@ -5,8 +5,20 @@ title: Broken bone
 type: page
 description: Fracture
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 updated_at: 2017-08-23T12:08:20Z
 created_at: 2017-02-23T15:52:09Z
+contents:
+  - text: "Mandibular fractures"
+    id: mandibular-fractures
+  - text: "Zygomatic complex (cheekbone) fractures"
+    id: zygomatic-complex-cheekbone-fractures
+  - text: "Nasal fractures"
+    id: nasal-fractures
+  - text: "Midface fractures"
+    id: midface-fractures
+  - text: "Frontal bone &amp; frontal sinus fractures"
+    id: frontal-bone-and-frontal-sinus-fractures
 ---
 
 <p>It is obvious that a broken bone needs time to heal. How long

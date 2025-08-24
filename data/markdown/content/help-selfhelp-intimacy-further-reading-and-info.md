@@ -3,8 +3,16 @@ id: help-selfhelp-intimacy-further-reading-and-info
 uri: help/intimacy/further-reading
 title: Intimacy and sex
 type: further
+order: 0
 updated_at: 2019-12-13T14:25:30Z
 created_at: 2019-12-13T14:25:30Z
+contents:
+  - text: "Textbooks"
+    id: textbooks
+  - text: "Journal articles (peer reviewed literature)"
+    id: journal-articles-peer-reviewed-literature
+  - text: "Electronic resources"
+    id: electronic-resources
 ---
 
 <h1 id="textbooks">Textbooks</h1>

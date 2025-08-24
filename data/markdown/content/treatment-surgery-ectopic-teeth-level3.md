@@ -4,9 +4,17 @@ uri: treatment/surgery/ectopic-teeth/detailed
 title: Ectopic (displaced) teeth
 type: level3
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 further_reading_uri: treatment/surgery/further-reading
 updated_at: 2019-07-14T10:27:52Z
 created_at: 2019-03-02T15:38:02Z
+contents:
+  - text: "Impacted and ectopic teeth"
+    id: impacted-and-ectopic-teeth
+  - text: "Supernumerary teeth"
+    id: supernumerary-teeth
+  - text: "Miscellaneous surgical techniques"
+    id: miscellaneous-surgical-techniques
 ---
 
 <h1 id="impacted-and-ectopic-teeth">Impacted and ectopic teeth</h1>

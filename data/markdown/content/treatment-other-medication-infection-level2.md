@@ -4,8 +4,16 @@ uri: treatment/other/medication/infection/more-info
 title: Infection
 type: level2
 authorship: Authored by Angelika Sebald;Proof-read/edited by David. A Mitchell
+order: 0
 updated_at: 2018-03-27T08:10:55Z
 created_at: 2017-10-27T18:16:20Z
+contents:
+  - text: "Antibacterial agents"
+    id: antibacterial-agents
+  - text: "Antifungal agents"
+    id: antifungal-agents
+  - text: "Antiviral agents"
+    id: antiviral-agents
 ---
 
 <p>Below we give short descriptions of the main mechanisms of action

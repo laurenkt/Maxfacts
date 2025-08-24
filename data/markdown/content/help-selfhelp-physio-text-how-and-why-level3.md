@@ -4,9 +4,29 @@ uri: help/physiotherapy/how-and-why/detailed
 title: Physiotherapy explained
 type: level3
 authorship: Authored by Lee Mellor;Proof-read/edited by David A. Mitchell & Angelika Sebald
+order: 0
 further_reading_uri: help/physiotherapy/further-reading
 updated_at: 2017-08-23T12:03:32Z
 created_at: 2017-06-09T11:05:57Z
+contents:
+  - text: "Spine: the cervical spine (neck)"
+    id: spine-the-cervical-spine-neck
+  - text: "Spine: the thoracic spine (upper and mid back)"
+    id: spine-the-thoracic-spine-upper-and-mid-back
+  - text: "Spine: the lumbar spine (low back)"
+    id: spine-the-lumbar-spine-low-back
+  - text: "Glenohumeral joint (shoulder)"
+    id: glenohumeral-joint-shoulder
+  - text: "Donor sites for surgical reconstruction"
+    id: donor-sites-for-surgical-reconstruction
+  - text: "Scar massage"
+    id: scar-massage
+  - text: "Lymphoedema of the neck region"
+    id: lymphoedema-of-the-neck-region
+  - text: "Trismus"
+    id: trismus
+  - text: "Temporomandibular (jaw) joint problems"
+    id: temporomandibular-jaw-joint-problems
 ---
 
 <p>Trauma to the head and neck region, as well as major oral and

@@ -4,6 +4,7 @@ uri: treatment/restorative-dentistry/periodontal/detailed
 title: Periodontal disease
 type: level3
 authorship: Authored by Bethany Rushworth;Proof-read/edited by David A. Mitchell
+order: 0
 further_reading_uri: treatment/restorative-dentistry/further-reading
 updated_at: 2019-07-13T09:50:21Z
 created_at: 2019-03-02T16:10:01Z

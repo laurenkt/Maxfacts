@@ -4,6 +4,7 @@ uri: help/oral-hygiene/videos
 title: Video demonstrations
 type: page
 authorship: Authored by Sarah Dennison;Proof-read/edited by Lauren Tomasello
+order: 0
 updated_at: 2017-08-23T12:03:32Z
 created_at: 2017-03-22T14:48:45Z
 ---

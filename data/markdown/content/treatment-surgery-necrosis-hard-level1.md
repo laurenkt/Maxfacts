@@ -4,6 +4,7 @@ uri: treatment/surgery/necrosis/hard-tissue
 title: Hard tissue necrosis
 type: level1
 authorship: Authored by Angelika Sebald and David A. Mitchell
+order: 0
 updated_at: 2019-07-14T09:36:37Z
 created_at: 2016-12-14T14:51:17Z
 ---

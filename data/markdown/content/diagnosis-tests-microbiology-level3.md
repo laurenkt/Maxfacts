@@ -4,9 +4,19 @@ uri: diagnosis/tests/microbiology
 title: Microbiology
 type: level3
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 further_reading_uri: diagnosis/tests/further-reading
 updated_at: 2019-07-13T09:24:34Z
 created_at: 2017-03-22T12:37:43Z
+contents:
+  - text: "Viral infections"
+    id: viral-infections
+  - text: "Parasitic infections"
+    id: parasitic-infections
+  - text: "Fungal infections"
+    id: fungal-infections
+  - text: "Bacterial infections"
+    id: bacterial-infections
 ---
 
 <p>Here we describe how bacterial, fungal and viral infections are

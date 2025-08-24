@@ -5,9 +5,25 @@ title: Broken bone
 type: level3
 description: Fracture
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 further_reading_uri: diagnosis/a-z/further-reading
 updated_at: 2018-02-01T12:14:25Z
 created_at: 2017-04-13T14:15:11Z
+contents:
+  - text: "Mandibular fractures"
+    id: mandibular-fractures
+  - text: "Zygomatic complex fractures"
+    id: zygomatic-complex-fractures
+  - text: "Nasal fractures"
+    id: nasal-fractures
+  - text: "Midface fractures"
+    id: midface-fractures
+  - text: "Frontal bone fractures and frontal sinus fractures"
+    id: frontal-bone-fractures-and-frontal-sinus-fractures
+  - text: "Craniofacial fractures"
+    id: craniofacial-fractures
+  - text: "Injuries to the cervical spine"
+    id: injuries-to-the-cervical-spine
 ---
 
 <p>In this section we revisit the different locations of fractures.

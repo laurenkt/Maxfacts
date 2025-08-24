@@ -4,9 +4,25 @@ uri: treatment/surgery/damage/detailed
 title: Damage
 type: level3
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 further_reading_uri: treatment/surgery/further-reading
 updated_at: 2018-08-18T15:47:11Z
 created_at: 2017-10-27T18:56:12Z
+contents:
+  - text: "The basics: asepsis and antisepsis"
+    id: the-basics-asepsis-and-antisepsis
+  - text: "Materials for wound cleansing"
+    id: materials-for-wound-cleansing
+  - text: "Commonly used wound dressings"
+    id: commonly-used-wound-dressings
+  - text: "Materials for wound closure with sutures"
+    id: materials-for-wound-closure-with-sutures
+  - text: "Suture techniques"
+    id: suture-techniques
+  - text: "Wound healing"
+    id: wound-healing
+  - text: "Wound infections"
+    id: wound-infections
 ---
 
 <p>This page gives a more detailed description of some of the materials

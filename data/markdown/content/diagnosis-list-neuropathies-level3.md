@@ -5,9 +5,37 @@ title: Neuropathies
 type: level3
 description: Nerve damage
 authorship: Authored by Angelika Sebald and David. A Mitchell
+order: 0
 further_reading_uri: diagnosis/a-z/further-reading
 updated_at: 2019-12-13T13:42:05Z
 created_at: 2018-05-21T11:26:39Z
+contents:
+  - text: "The nerves in the head and neck region"
+    id: the-nerves-in-the-head-and-neck-region
+  - text: "Cranial nerve I, the olfactory nerve"
+    id: cranial-nerve-i-the-olfactory-nerve
+  - text: "Cranial nerve II, the optic nerve"
+    id: cranial-nerve-ii-the-optic-nerve
+  - text: "Cranial nerve III, the oculomotor nerve; cranial nerve IV, the trochlear nerve; cranial nerve VI, the abducens nerve"
+    id: cranial-nerve-iii-the-oculomotor-nerve-cranial-nerve-iv-the-trochlear-nerve-cranial-nerve-vi-the-abducens-nerve
+  - text: "Cranial nerve V, the trigeminal nerve"
+    id: cranial-nerve-v-the-trigeminal-nerve
+  - text: "Cranial nerve VII, the facial nerve"
+    id: cranial-nerve-vii-the-facial-nerve
+  - text: "Cranial nerve VIII, the vestibulocochlear nerve"
+    id: cranial-nerve-viii-the-vestibulocochlear-nerve
+  - text: "Cranial nerve IX, the glossopharyngeal nerve"
+    id: cranial-nerve-ix-the-glossopharyngeal-nerve
+  - text: "Cranial nerve X, the vagus nerve"
+    id: cranial-nerve-x-the-vagus-nerve
+  - text: "Cranial nerve XI, the accessory nerve"
+    id: cranial-nerve-xi-the-accessory-nerve
+  - text: "Cranial nerve XII, the hypoglossal nerve"
+    id: cranial-nerve-xii-the-hypoglossal-nerve
+  - text: "Cervical spinal nerves"
+    id: cervical-spinal-nerves
+  - text: "The most common maxillofacial neuropathies"
+    id: the-most-common-maxillofacial-neuropathies
 ---
 
 <p>Below we give an overview of properties and functions of

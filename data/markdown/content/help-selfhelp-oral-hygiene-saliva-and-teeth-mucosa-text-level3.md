@@ -4,9 +4,15 @@ uri: help/oral-hygiene/saliva-and-teeth-mucosa
 title: Saliva and oral health
 type: level3
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 further_reading_uri: help/oral-hygiene/further-reading
 updated_at: 2019-03-03T12:37:33Z
 created_at: 2016-08-15T08:41:56Z
+contents:
+  - text: "Composition of saliva"
+    id: composition-of-saliva
+  - text: "Functional organic components of saliva relevant for oral health"
+    id: functional-organic-components-of-saliva-relevant-for-oral-health
 ---
 
 <h1 id="composition-of-saliva">Composition of saliva</h1>

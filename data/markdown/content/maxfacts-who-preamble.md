@@ -3,9 +3,15 @@ id: maxfacts-who-preamble
 uri: contributors
 title: Contributors
 type: page
+order: 0
 hide: true
 updated_at: 2019-12-18T10:54:08Z
 created_at: 2017-06-09T12:49:16Z
+contents:
+  - text: "Core team"
+    id: core-team
+  - text: "Contributors"
+    id: contributors
 ---
 
 <h1 id="core-team">Core team</h1>

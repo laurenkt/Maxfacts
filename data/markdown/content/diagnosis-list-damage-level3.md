@@ -4,9 +4,15 @@ uri: diagnosis/a-z/damage/detailed
 title: Damage
 type: level3
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 further_reading_uri: diagnosis/a-z/further-reading
 updated_at: 2018-02-01T12:15:57Z
 created_at: 2017-10-27T15:13:06Z
+contents:
+  - text: "Types of soft tissue injury"
+    id: types-of-soft-tissue-injury
+  - text: "Assessment of wounds"
+    id: assessment-of-wounds
 ---
 
 <h1 id="types-of-soft-tissue-injury">Types of soft tissue injury</h1>

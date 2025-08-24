@@ -4,8 +4,14 @@ uri: treatment/surgery/reconstruction/more-info
 title: Reconstruction
 type: level2
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 updated_at: 2019-07-13T09:23:14Z
 created_at: 2018-08-18T15:35:25Z
+contents:
+  - text: "Grafts"
+    id: grafts
+  - text: "Flaps"
+    id: flaps
 ---
 
 <p>Before discussing the various <a href="/treatment/surgery/reconstruction/detailed">types and locations of defects</a>    and options for their reconstruction in maxillofacial surgery,

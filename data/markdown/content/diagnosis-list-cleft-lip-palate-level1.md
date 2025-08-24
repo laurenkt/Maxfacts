@@ -4,6 +4,7 @@ uri: diagnosis/a-z/cleft-lip-palate
 title: Cleft lip/palate
 type: level1
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 updated_at: 2017-09-29T11:05:22Z
 created_at: 2016-12-06T12:06:09Z
 ---

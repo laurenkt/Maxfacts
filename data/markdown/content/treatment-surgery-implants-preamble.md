@@ -3,6 +3,7 @@ id: treatment-surgery-implants-preamble
 uri: treatment/surgery/implants
 title: Craniofacial implants
 type: directory
+order: 0
 updated_at: 2019-03-02T15:39:56Z
 created_at: 2018-03-26T10:04:29Z
 ---

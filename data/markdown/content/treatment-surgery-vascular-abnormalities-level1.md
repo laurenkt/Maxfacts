@@ -4,8 +4,14 @@ uri: treatment/surgery/vascular-abnormalities
 title: Vascular abnormalities
 type: level1
 authorship: Authored by Angelika Sebald and David A. Mitchell
+order: 0
 updated_at: 2019-03-03T14:04:46Z
 created_at: 2018-11-09T12:54:22Z
+contents:
+  - text: "Haemangioma"
+    id: haemangioma
+  - text: "Vascular malformations"
+    id: vascular-malformations
 ---
 
 <p>Following full <a href="/diagnosis/a-z/vascular-abnormalities">diagnosis</a>    of type, location and extent of a vascular abnormality, the

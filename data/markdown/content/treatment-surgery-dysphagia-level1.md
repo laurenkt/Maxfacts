@@ -5,6 +5,7 @@ title: Dysphagia
 type: level1
 description: Difficulty swallowing
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 updated_at: 2019-12-13T13:53:24Z
 created_at: 2016-12-14T14:48:27Z
 ---

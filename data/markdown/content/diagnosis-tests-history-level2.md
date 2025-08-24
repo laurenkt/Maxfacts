@@ -4,9 +4,17 @@ uri: diagnosis/tests/medical-history
 title: Medical history
 type: level2
 authorship: Authored by Angelika Sebald;Proof-read/edited by David. A Mitchell
+order: 0
 further_reading_uri: diagnosis/tests/further-reading
 updated_at: 2019-07-13T09:24:21Z
 created_at: 2016-12-06T13:44:33Z
+contents:
+  - text: "Some background to the philosophy of obtaining a medical history"
+    id: some-background-to-the-philosophy-of-obtaining-a-medical-history
+  - text: "The process of obtaining a medical history aiming to diagnose a condition"
+    id: the-process-of-obtaining-a-medical-history-aiming-to-diagnose-a-condition
+  - text: "Medical history in preparation for elective (planned) surgery"
+    id: medical-history-in-preparation-for-elective-planned-surgery
 ---
 
 <h1 id="some-background-to-the-philosophy-of-obtaining-a-medical-history">Some background to the philosophy of obtaining a medical history</h1>

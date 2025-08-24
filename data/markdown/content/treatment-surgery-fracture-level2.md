@@ -5,8 +5,18 @@ title: Broken bone
 type: level2
 description: Fracture
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 updated_at: 2017-08-23T12:06:34Z
 created_at: 2017-04-13T14:46:07Z
+contents:
+  - text: "Principles of trauma care (Advanced Trauma Life Support, ATLS)"
+    id: principles-of-trauma-care-advanced-trauma-life-support-atls
+  - text: "Preparation"
+    id: preparation
+  - text: "Specialist maxillofacial resuscitative techniques"
+    id: specialist-maxillofacial-resuscitative-techniques
+  - text: "Specific maxillofacial emergencies"
+    id: specific-maxillofacial-emergencies
 ---
 
 <p>Fractures are caused by accidents and trauma in general. Trauma

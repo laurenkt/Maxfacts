@@ -4,6 +4,7 @@ uri: treatment/surgery/postoperative-problems/upper-jaw
 title: Upper jaw
 type: page
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 further_reading_uri: treatment/surgery/further-reading
 updated_at: 2018-11-09T13:23:40Z
 created_at: 2018-08-18T15:27:30Z

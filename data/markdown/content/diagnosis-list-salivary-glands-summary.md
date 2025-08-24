@@ -4,9 +4,17 @@ uri: diagnosis/a-z/salivary-glands-summary
 title: A brief summary of salivary gland anatomy & physiology and a brief summary of the diagnostic toolbox for investigating salivary gland conditions
 type: page
 authorship: Authored by David A. Mitchell & Angelika Sebald
+order: 0
 hide: true
 updated_at: 2017-08-23T11:58:20Z
 created_at: 2017-08-21T15:05:22Z
+contents:
+  - text: "A brief summary of salivary gland anatomy"
+    id: a-brief-summary-of-salivary-gland-anatomy
+  - text: "A brief summary of salivary gland physiology"
+    id: a-brief-summary-of-salivary-gland-physiology
+  - text: "The diagnostic toolbox for investigating the salivary glands"
+    id: the-diagnostic-toolbox-for-investigating-the-salivary-glands
 ---
 
 <h1 id="a-brief-summary-of-salivary-gland-anatomy">A brief summary of salivary gland anatomy</h1>

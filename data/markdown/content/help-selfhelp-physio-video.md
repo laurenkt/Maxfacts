@@ -4,6 +4,7 @@ uri: help/physiotherapy/videos
 title: Video demonstrations
 type: page
 authorship: Authored by Lee Mellor;Proof-read/edited by Lauren Tomasello
+order: 0
 updated_at: 2017-11-24T15:11:04Z
 created_at: 2017-03-22T14:55:52Z
 ---

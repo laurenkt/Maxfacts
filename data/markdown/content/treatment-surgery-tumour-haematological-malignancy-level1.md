@@ -5,6 +5,7 @@ title: Blood malignancy
 type: level1
 surtitle: Tumour
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 updated_at: 2019-07-14T10:17:24Z
 created_at: 2017-05-05T10:09:16Z
 ---

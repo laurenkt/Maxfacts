@@ -4,6 +4,7 @@ uri: treatment/surgery/postoperative-problems/shoulder
 title: Shoulder
 type: page
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 further_reading_uri: treatment/surgery/further-reading
 updated_at: 2019-07-14T10:29:31Z
 created_at: 2019-03-02T15:46:02Z

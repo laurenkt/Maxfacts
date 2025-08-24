@@ -4,8 +4,12 @@ uri: treatment/surgery/cancer/facial-skin-cancer/more-info
 title: Facial skin cancer
 type: level2
 authorship: Authored by David A. Mitchell & Angelika Sebald
+order: 0
 updated_at: 2017-08-23T12:07:14Z
 created_at: 2017-06-09T11:13:20Z
+contents:
+  - text: "Repair of the surgical defects"
+    id: repair-of-the-surgical-defects
 ---
 
 <p>Irrespective of the type of malignant skin lesion (BCC, SCC or

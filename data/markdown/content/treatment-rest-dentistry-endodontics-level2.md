@@ -4,6 +4,7 @@ uri: treatment/restorative-dentistry/endodontics/more-info
 title: Endodontics
 type: level2
 authorship: Authored by Bethany Rushworth;Proof-read/edited by Angelika Sebald and David A. Mitchell
+order: 0
 updated_at: 2019-03-02T14:03:22Z
 created_at: 2018-08-18T16:05:58Z
 ---

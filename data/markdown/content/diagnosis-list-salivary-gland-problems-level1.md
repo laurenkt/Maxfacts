@@ -4,6 +4,7 @@ uri: diagnosis/a-z/salivary-gland-problems
 title: Salivary gland problems
 type: level1
 authorship: Authored by David A. Mitchell & Angelika Sebald
+order: 0
 updated_at: 2017-08-23T11:58:03Z
 created_at: 2016-12-06T12:25:28Z
 ---

@@ -4,8 +4,14 @@ uri: treatment/other/bleeding/more-info
 title: Bleeding
 type: level2
 authorship: Authored by Angelika Sebald and David A. Mitchell
+order: 0
 updated_at: 2019-03-02T14:07:39Z
 created_at: 2018-11-09T15:04:13Z
+contents:
+  - text: "The basic components of blood"
+    id: the-basic-components-of-blood
+  - text: "The basic steps of haemostasis (stopping bleeding)"
+    id: the-basic-steps-of-haemostasis-stopping-bleeding
 ---
 
 <h1 id="the-basic-components-of-blood">The basic components of blood</h1>

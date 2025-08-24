@@ -5,6 +5,7 @@ title: Broken bone
 type: level1
 description: Fracture
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 updated_at: 2017-08-23T12:06:33Z
 created_at: 2016-12-14T14:45:55Z
 ---

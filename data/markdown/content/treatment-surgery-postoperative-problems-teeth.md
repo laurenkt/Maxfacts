@@ -4,6 +4,7 @@ uri: treatment/surgery/postoperative-problems/teeth
 title: Teeth
 type: page
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 further_reading_uri: treatment/surgery/further-reading
 updated_at: 2018-08-18T15:54:13Z
 created_at: 2018-08-18T15:30:46Z

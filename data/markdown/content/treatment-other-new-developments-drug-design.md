@@ -4,6 +4,7 @@ uri: treatment/other/new-developments/drug-design
 title: Drug design
 type: page
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 updated_at: 2019-03-03T12:44:01Z
 created_at: 2019-03-03T12:41:36Z
 ---

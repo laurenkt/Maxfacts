@@ -60,6 +60,11 @@ var testEndpoints = []string{
 	"/coming-soon",
 	"/treatment/other/medication/miscellaneous",
 	"/help/oral-food/recipes/pea-dumplings-with-cucumber/mint-yogurt",
+	"/diagnosis/a-z/abscess/detailed",
+	"/diagnosis/a-z/ectopic-teeth",
+	"/diagnosis/tests",
+	"/treatment/restorative-dentistry",
+	"/treatment/surgery/abscess/more-info",
 	//"/search",
 }
 
@@ -86,7 +91,7 @@ func TestMain(m *testing.M) {
 
 	testDB = client.Database("maxfacts")
 
-	// Use the same router setup as main.go  
+	// Use the same router setup as main.go
 	testHandler = SetupRouter(testDB, indexCSV)
 
 	// Initialize sitemap handler for shared URL collection

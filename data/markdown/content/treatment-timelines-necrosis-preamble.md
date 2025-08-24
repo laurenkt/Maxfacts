@@ -3,6 +3,7 @@ id: treatment-timelines-necrosis-preamble
 uri: treatment/timelines/necrosis
 title: Necrosis
 type: directory
+order: 0
 updated_at: 2017-06-12T12:14:20Z
 created_at: 2017-05-05T10:11:24Z
 ---

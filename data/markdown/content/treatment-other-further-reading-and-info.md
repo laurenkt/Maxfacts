@@ -3,9 +3,25 @@ id: treatment-other-further-reading-and-info
 uri: treatment/other/further-reading
 title: Other
 type: further
+order: 0
 hide: true
 updated_at: 2019-12-15T11:11:36Z
 created_at: 2017-06-14T21:56:54Z
+contents:
+  - text: "Bleeding"
+    id: bleeding
+  - text: "Extreme temperatures"
+    id: extreme-temperatures
+  - text: "Hyperbaric oxygen"
+    id: hyperbaric-oxygen
+  - text: "Medication"
+    id: medication
+  - text: "Miscellaneous treatments"
+    id: miscellaneous-treatments
+  - text: "New developments"
+    id: new-developments
+  - text: "Photodynamic therapy"
+    id: photodynamic-therapy
 ---
 
 <h1 id="bleeding">Bleeding</h1>

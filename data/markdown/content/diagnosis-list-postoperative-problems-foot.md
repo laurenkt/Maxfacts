@@ -4,6 +4,7 @@ uri: diagnosis/a-z/postoperative-problems/foot
 title: Foot
 type: page
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 updated_at: 2018-05-21T11:29:02Z
 created_at: 2016-12-06T12:39:55Z
 ---

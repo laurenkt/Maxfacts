@@ -4,9 +4,21 @@ uri: diagnosis/a-z/facial-pain-syndrome/detailed
 title: Facial pain syndrome
 type: level3
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 further_reading_uri: diagnosis/a-z/further-reading
 updated_at: 2018-03-26T09:24:58Z
 created_at: 2017-05-18T13:13:29Z
+contents:
+  - text: "Classification of facial pain syndromes"
+    id: classification-of-facial-pain-syndromes
+  - text: "Aetiology"
+    id: aetiology
+  - text: "Atypical facial pain"
+    id: atypical-facial-pain
+  - text: "Trigeminal neuralgia"
+    id: trigeminal-neuralgia
+  - text: "Other facial pain syndromes"
+    id: other-facial-pain-syndromes
 ---
 
 <h1 id="classification-of-facial-pain-syndromes">Classification of facial pain syndromes</h1>

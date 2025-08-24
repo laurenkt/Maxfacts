@@ -4,6 +4,7 @@ uri: treatment/other/medication/miscellaneous/antiepileptics
 title: Antiepileptic medications
 type: page
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 updated_at: 2019-03-03T13:51:48Z
 created_at: 2018-08-18T16:36:11Z
 ---

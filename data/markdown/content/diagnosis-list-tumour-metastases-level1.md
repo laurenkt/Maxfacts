@@ -4,6 +4,7 @@ uri: diagnosis/a-z/tumour/metastases
 title: Metastases
 type: level1
 authorship: Authored by Angelika Sebald; Proof-read/edited by David A. Mitchell
+order: 0
 updated_at: 2017-10-27T18:49:24Z
 created_at: 2016-12-06T12:26:57Z
 ---

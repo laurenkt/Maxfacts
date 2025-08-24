@@ -4,6 +4,7 @@ uri: treatment/other/medication/pain
 title: Pain
 type: level1
 authorship: Authored by Angelika Sebald and David. A Mitchell
+order: 0
 updated_at: 2018-08-18T16:24:44Z
 created_at: 2016-12-13T16:58:54Z
 ---

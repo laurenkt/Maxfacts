@@ -4,6 +4,7 @@ uri: treatment/other/medication/miscellaneous/pth
 title: Parathyroid hormone
 type: page
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 updated_at: 2018-11-11T15:14:25Z
 created_at: 2018-08-18T16:40:21Z
 ---

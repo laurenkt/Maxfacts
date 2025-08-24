@@ -4,6 +4,7 @@ uri: diagnosis/a-z/missing-teeth
 title: Missing teeth
 type: level1
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 further_reading_uri: diagnosis/a-z/further-reading
 updated_at: 2018-02-01T12:28:14Z
 created_at: 2016-12-06T12:18:52Z

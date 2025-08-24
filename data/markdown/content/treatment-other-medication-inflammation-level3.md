@@ -4,9 +4,15 @@ uri: treatment/other/medication/inflammation/detailed
 title: Inflammation
 type: level3
 authorship: Authored by Angelika Sebald and David A. Mitchell
+order: 0
 further_reading_uri: treatment/other/further-reading
 updated_at: 2018-08-18T12:56:44Z
 created_at: 2017-11-24T15:09:07Z
+contents:
+  - text: "Malfunctions of the immune system"
+    id: malfunctions-of-the-immune-system
+  - text: "Medications which interfere with the immune system responses"
+    id: medications-which-interfere-with-the-immune-system-responses
 ---
 
 <p>Having explored the <a href="/treatment/other/medication/inflammation/more-info">normal working of the immune system</a>    and the resulting inflammatory responses in the context of

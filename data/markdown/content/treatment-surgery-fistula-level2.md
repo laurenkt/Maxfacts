@@ -4,9 +4,15 @@ uri: treatment/surgery/fistula/more-info
 title: Fistula
 type: level2
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 further_reading_uri: treatment/surgery/further-reading
 updated_at: 2018-11-09T15:01:08Z
 created_at: 2018-08-18T12:52:42Z
+contents:
+  - text: "Treatment of a primary oroantral communication"
+    id: treatment-of-a-primary-oroantral-communication
+  - text: "Treatment of established oroantral fistula"
+    id: treatment-of-established-oroantral-fistula
 ---
 
 <p>We keep the oroantral communication / oroantral fistula as our

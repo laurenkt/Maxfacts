@@ -4,6 +4,7 @@ uri: treatment/other/medication/infection
 title: Infection
 type: level1
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 updated_at: 2017-10-30T15:16:54Z
 created_at: 2016-12-13T16:58:10Z
 ---

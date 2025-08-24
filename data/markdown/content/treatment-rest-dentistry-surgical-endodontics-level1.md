@@ -4,6 +4,7 @@ uri: treatment/restorative-dentistry/surgical-endodontics
 title: Surgical endodontics
 type: level1
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 updated_at: 2019-03-02T16:13:43Z
 created_at: 2018-08-18T12:50:01Z
 ---

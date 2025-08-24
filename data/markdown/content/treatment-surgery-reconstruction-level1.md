@@ -4,6 +4,7 @@ uri: treatment/surgery/reconstruction/getting-started
 title: Reconstruction
 type: level1
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 updated_at: 2018-11-09T13:39:14Z
 created_at: 2017-10-27T18:11:04Z
 ---

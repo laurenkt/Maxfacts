@@ -3,6 +3,7 @@ id: maxfacts-necessities
 uri: legal
 title: Legal statements
 type: page
+order: 0
 hide: true
 updated_at: 2017-06-22T13:38:43Z
 created_at: 2017-06-22T11:28:23Z

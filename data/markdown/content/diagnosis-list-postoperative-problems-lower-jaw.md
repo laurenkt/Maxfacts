@@ -4,6 +4,7 @@ uri: diagnosis/a-z/postoperative-problems/lower-jaw
 title: Lower jaw
 type: page
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 updated_at: 2018-05-21T11:31:42Z
 created_at: 2016-12-06T12:33:21Z
 ---

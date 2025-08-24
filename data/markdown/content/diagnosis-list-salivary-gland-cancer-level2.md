@@ -4,6 +4,7 @@ uri: diagnosis/a-z/cancer/salivary-gland/more-info
 title: Salivary gland cancer
 type: level2
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 further_reading_uri: diagnosis/a-z/further-reading
 updated_at: 2018-02-01T12:15:06Z
 created_at: 2017-08-21T11:16:25Z

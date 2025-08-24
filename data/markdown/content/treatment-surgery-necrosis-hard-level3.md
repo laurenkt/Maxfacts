@@ -4,9 +4,21 @@ uri: treatment/surgery/necrosis/hard-tissue/detailed
 title: Hard tissue necrosis
 type: level3
 authorship: Authored by Angelika Sebald and David A. Mitchell
+order: 0
 further_reading_uri: treatment/surgery/further-reading
 updated_at: 2019-12-13T13:44:37Z
 created_at: 2018-11-09T15:56:20Z
+contents:
+  - text: "Some general remarks"
+    id: some-general-remarks
+  - text: "Non-surgical treatment options"
+    id: non-surgical-treatment-options
+  - text: "Surgical interventions"
+    id: surgical-interventions
+  - text: "Choice of treatment option(s)"
+    id: choice-of-treatment-options
+  - text: "Prevention strategies and adjunctive treatments"
+    id: prevention-strategies-and-adjunctive-treatments
 ---
 
 <p>Bone necrosis (osteonecrosis) in the head &amp; neck

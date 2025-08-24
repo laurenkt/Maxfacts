@@ -4,9 +4,23 @@ uri: diagnosis/a-z/salivary-gland-problems/detailed
 title: Salivary gland problems
 type: level3
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 further_reading_uri: diagnosis/a-z/further-reading
 updated_at: 2018-02-01T12:29:07Z
 created_at: 2017-08-21T14:44:31Z
+contents:
+  - text: "Developmental disorders"
+    id: developmental-disorders
+  - text: "Obstructive disease"
+    id: obstructive-disease
+  - text: "Infections"
+    id: infections
+  - text: "Sjögren’s syndrome"
+    id: sjgrens-syndrome
+  - text: "Salivary neoplasms – benign tumours"
+    id: salivary-neoplasms--benign-tumours
+  - text: "Miscellaneous conditions"
+    id: miscellaneous-conditions
 ---
 
 <aside>

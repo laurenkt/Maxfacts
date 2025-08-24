@@ -4,6 +4,7 @@ uri: treatment/restorative-dentistry/implants
 title: Dental implants
 type: level1
 authorship: Authored by Bethany Rushworth;Proof-read/edited by David A. Mitchell
+order: 0
 updated_at: 2019-07-13T09:19:06Z
 created_at: 2016-12-06T14:43:00Z
 ---

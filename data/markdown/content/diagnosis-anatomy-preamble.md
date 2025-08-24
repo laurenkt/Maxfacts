@@ -3,6 +3,7 @@ id: diagnosis-anatomy-preamble
 uri: diagnosis/anatomy
 title: Head & neck anatomy
 type: directory
+order: 0
 updated_at: 2019-12-13T14:20:48Z
 created_at: 2017-04-27T11:20:52Z
 ---

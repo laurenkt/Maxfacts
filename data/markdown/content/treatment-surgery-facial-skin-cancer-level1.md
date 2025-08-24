@@ -4,6 +4,7 @@ uri: treatment/surgery/cancer/facial-skin-cancer
 title: Facial skin cancer
 type: level1
 authorship: Authored by David A. Mitchell & Angelika Sebald
+order: 0
 updated_at: 2017-08-23T12:07:13Z
 created_at: 2016-12-14T14:46:50Z
 ---

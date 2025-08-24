@@ -4,6 +4,7 @@ uri: treatment/timelines/missing-teeth
 title: Missing teeth
 type: page
 authorship: Authored by David A. Mitchell; Proof-read/edited by Angelika Sebald
+order: 0
 updated_at: 2019-07-14T09:37:55Z
 created_at: 2017-02-23T15:56:37Z
 ---

@@ -5,9 +5,17 @@ title: Chemical principles
 type: level3
 surtitle: Chemotherapy
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 further_reading_uri: treatment/chemotherapy/further-reading
 updated_at: 2017-08-23T12:04:57Z
 created_at: 2017-01-12T13:21:21Z
+contents:
+  - text: "DNA crosslinking agents"
+    id: dna-crosslinking-agents
+  - text: "Antimetabolites"
+    id: antimetabolites
+  - text: "Protein inhibitors"
+    id: protein-inhibitors
 ---
 
 <p>We sketch the predominant working mechanisms of the three main

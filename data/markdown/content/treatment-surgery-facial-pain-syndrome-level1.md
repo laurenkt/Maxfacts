@@ -4,6 +4,7 @@ uri: treatment/surgery/facial-pain-syndrome
 title: Facial pain syndrome
 type: level1
 authorship: Authored by Angelika Sebald;Proof-read/edited by David. A Mitchell
+order: 0
 updated_at: 2018-08-18T16:30:23Z
 created_at: 2018-08-18T14:12:16Z
 ---

@@ -4,9 +4,15 @@ uri: help/oral-food/saliva-and-eating/detailed
 title: Saliva and eating
 type: level3
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 further_reading_uri: help/oral-food/further-reading
 updated_at: 2018-08-18T16:12:35Z
 created_at: 2016-08-01T08:45:59Z
+contents:
+  - text: "Composition of saliva"
+    id: composition-of-saliva
+  - text: "Functional organic components of saliva relevant for eating"
+    id: functional-organic-components-of-saliva-relevant-for-eating
 ---
 
 <h1 id="composition-of-saliva"><a href="/help/oral-food/further-reading"><strong>Composition of saliva</strong></a></h1>

@@ -2,7 +2,6 @@
 <div id="video-player"></div>
 <script type="application/json" id="video_data">
 	{
-		"_id": {{{toJSON _id}}},
 		"updatedAt": {{{toJSON (date updatedAt)}}},
 		"createdAt": {{{toJSON (date createdAt)}}},
 		"thumbnail": {{{toJSON thumbnail}}},
@@ -11,12 +10,10 @@
 		"titles": {{{toJSON titles}}},
 		"uri": {{{toJSON uri}}},
 		"name": {{{toJSON name}}},
-		"__v": {{__v}},
 		"title": {{{toJSON title}}},
 		"breadcrumbs": [
 			{{#each breadcrumbs}}
 			{
-				"_id": {{{toJSON _id}}},
 				"uri": {{{toJSON uri}}},
 				"title": {{{toJSON title}}}
 			}{{#unless @last}},{{/unless}}

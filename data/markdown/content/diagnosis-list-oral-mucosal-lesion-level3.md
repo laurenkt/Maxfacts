@@ -4,9 +4,27 @@ uri: diagnosis/a-z/oral-mucosal-lesion/detailed
 title: Oral mucosal lesion
 type: level3
 authorship: Authored by David A. Mitchell & Angelika Sebald
+order: 0
 further_reading_uri: diagnosis/a-z/further-reading
 updated_at: 2018-02-01T12:28:45Z
 created_at: 2018-02-01T11:19:41Z
+contents:
+  - text: "Oral mucosal lesions related to infections"
+    id: oral-mucosal-lesions-related-to-infections
+  - text: "Recurrent aphthous stomatitis (mouth ulcers)"
+    id: recurrent-aphthous-stomatitis-mouth-ulcers
+  - text: "Mucositis"
+    id: mucositis
+  - text: "Vesiculo-bullous lesions (blisters)"
+    id: vesiculo-bullous-lesions-blisters
+  - text: "Persistent patches and lesions"
+    id: persistent-patches-and-lesions
+  - text: "Oral cancer"
+    id: oral-cancer
+  - text: "Oral mucosal lesions related to other diseases"
+    id: oral-mucosal-lesions-related-to-other-diseases
+  - text: "Oral mucosal lesions related to drugs"
+    id: oral-mucosal-lesions-related-to-drugs
 ---
 
 <h1 id="oral-mucosal-lesions-related-to-infections">Oral mucosal lesions related to infections</h1>

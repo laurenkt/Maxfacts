@@ -4,9 +4,19 @@ uri: diagnosis/tests/blood-tests
 title: Blood tests
 type: level3
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 further_reading_uri: diagnosis/tests/further-reading
 updated_at: 2019-07-13T09:24:07Z
 created_at: 2017-03-22T12:29:23Z
+contents:
+  - text: "General screening tests"
+    id: general-screening-tests
+  - text: "Immunology"
+    id: immunology
+  - text: "Endocrinology"
+    id: endocrinology
+  - text: "Miscellaneous"
+    id: miscellaneous
 ---
 
 <p>There are hundreds of blood components that can provide information

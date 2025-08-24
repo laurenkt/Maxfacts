@@ -4,9 +4,17 @@ uri: diagnosis/a-z/cyst/detailed
 title: Cyst
 type: level3
 authorship: Authored by David A. Mitchell & Angelika Sebald
+order: 0
 further_reading_uri: diagnosis/a-z/further-reading
 updated_at: 2018-02-01T12:15:47Z
 created_at: 2017-04-27T11:39:01Z
+contents:
+  - text: "Epithelial cyst formation; origins and growth"
+    id: epithelial-cyst-formation-origins-and-growth
+  - text: "Special diagnostic investigations"
+    id: special-diagnostic-investigations
+  - text: "Histological features"
+    id: histological-features
 ---
 
 <p>Cysts occur in all parts of the body but are a prominent topic

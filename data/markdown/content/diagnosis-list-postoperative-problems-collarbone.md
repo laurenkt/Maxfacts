@@ -4,6 +4,7 @@ uri: diagnosis/a-z/postoperative-problems/collarbone
 title: Collarbone
 type: page
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 updated_at: 2018-05-21T11:27:23Z
 created_at: 2016-12-06T12:38:04Z
 ---

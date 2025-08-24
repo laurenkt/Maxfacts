@@ -3,6 +3,7 @@ id: treatment-timelines-end-of-life-preamble
 uri: treatment/timelines/palliative-care
 title: Palliative & end of life care
 type: directory
+order: 0
 updated_at: 2019-03-03T14:05:34Z
 created_at: 2017-02-23T15:57:37Z
 ---

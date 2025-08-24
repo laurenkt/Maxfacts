@@ -4,8 +4,22 @@ uri: diagnosis/tests/x-ray
 title: X-ray
 type: level2
 authorship: Authored by Angelika Sebald;Proof-read/edited by David. A Mitchell and Aneurin Kennerley
+order: 0
 updated_at: 2019-03-03T13:46:51Z
 created_at: 2016-12-06T13:45:10Z
+contents:
+  - text: "How it works in principle"
+    id: how-it-works-in-principle
+  - text: "Dental panoramic radiograph (DPT)"
+    id: dental-panoramic-radiograph-dpt
+  - text: "Plain X-ray film"
+    id: plain-x-ray-film
+  - text: "Cone beam computed tomograph (CBCT)"
+    id: cone-beam-computed-tomograph-cbct
+  - text: "Common contrast agents in X-ray investigations"
+    id: common-contrast-agents-in-x-ray-investigations
+  - text: "Radiation dosage exposure in diagnostic X-ray imaging"
+    id: radiation-dosage-exposure-in-diagnostic-x-ray-imaging
 ---
 
 <p>X-rays are radiation in the ionising, high-energy range of the

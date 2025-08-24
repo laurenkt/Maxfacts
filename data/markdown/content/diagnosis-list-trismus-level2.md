@@ -4,9 +4,15 @@ uri: diagnosis/a-z/trismus/more-info
 title: Trismus
 type: level2
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 further_reading_uri: diagnosis/a-z/further-reading
 updated_at: 2018-11-09T13:43:20Z
 created_at: 2017-05-18T13:18:33Z
+contents:
+  - text: "Intra-articular (internal to the jaw joint) causes for trismus"
+    id: intra-articular-internal-to-the-jaw-joint-causes-for-trismus
+  - text: "Extra-articular (external to the jaw joint) causes for trismus"
+    id: extra-articular-external-to-the-jaw-joint-causes-for-trismus
 ---
 
 <p>With many different possible causes of trismus, and widely varying

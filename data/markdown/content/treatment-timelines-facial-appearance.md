@@ -4,8 +4,12 @@ uri: treatment/timelines/facial-appearance
 title: Facial appearance
 type: page
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 updated_at: 2019-12-13T14:04:23Z
 created_at: 2017-02-23T15:55:55Z
+contents:
+  - text: "Potential complications"
+    id: potential-complications
 ---
 
 <p>If everything heals as normal one would expect

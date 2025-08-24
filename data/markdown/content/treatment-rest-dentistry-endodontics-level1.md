@@ -5,6 +5,7 @@ title: Endodontics
 type: level1
 description: Root canal treatment
 authorship: Authored by Bethany Rushworth;Proof-read/edited by Angelika Sebald and David A. Mitchell
+order: 0
 updated_at: 2018-08-19T09:42:02Z
 created_at: 2016-12-06T14:42:47Z
 ---

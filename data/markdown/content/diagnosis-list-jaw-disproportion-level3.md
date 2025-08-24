@@ -4,9 +4,23 @@ uri: diagnosis/a-z/jaw-disproportion/detailed
 title: Jaw disproportion
 type: level3
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 further_reading_uri: diagnosis/a-z/further-reading
 updated_at: 2018-08-18T12:54:46Z
 created_at: 2018-05-21T11:13:34Z
+contents:
+  - text: "History"
+    id: history
+  - text: "Clinical Examination"
+    id: clinical-examination
+  - text: "Radiographic examination"
+    id: radiographic-examination
+  - text: "Photographs"
+    id: photographs
+  - text: "Study Models"
+    id: study-models
+  - text: "Orthodontic treatment"
+    id: orthodontic-treatment
 ---
 
 <p>Where surgical intervention is thought to be the best way forward

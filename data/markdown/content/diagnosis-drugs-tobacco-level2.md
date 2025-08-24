@@ -4,9 +4,15 @@ uri: diagnosis/drugs/tobacco
 title: Nicotine and tobacco
 type: level2
 authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
 further_reading_uri: diagnosis/drugs/further-reading
 updated_at: 2017-08-23T12:00:10Z
 created_at: 2017-02-16T16:37:17Z
+contents:
+  - text: "Nicotine"
+    id: nicotine
+  - text: "Tobacco"
+    id: tobacco
 ---
 
 <h1 id="nicotine">Nicotine</h1>

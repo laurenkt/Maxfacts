@@ -4,6 +4,7 @@ uri: treatment/timelines/broken-tooth
 title: Broken tooth
 type: page
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 updated_at: 2019-07-13T11:33:09Z
 created_at: 2017-02-23T15:52:19Z
 ---

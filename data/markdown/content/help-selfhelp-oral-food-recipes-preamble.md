@@ -3,6 +3,7 @@ id: help-selfhelp-oral-food-recipes-preamble
 uri: help/oral-food/recipes
 title: Recipes
 type: directory
+order: 0
 updated_at: 2019-03-03T13:49:58Z
 created_at: 2016-07-29T15:58:09Z
 ---

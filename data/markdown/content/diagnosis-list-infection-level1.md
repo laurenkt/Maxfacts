@@ -4,6 +4,7 @@ uri: diagnosis/a-z/infection
 title: Infection
 type: level1
 authorship: Authored by David A. Mitchell & Angelika Sebald
+order: 0
 updated_at: 2017-10-27T13:37:30Z
 created_at: 2017-02-02T15:42:47Z
 ---

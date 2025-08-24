@@ -4,6 +4,7 @@ uri: treatment/surgery/bone-lesion
 title: Bone lesion
 type: level1
 authorship: Authored by Angelika Sebald and David A. Mitchell
+order: 0
 updated_at: 2018-05-21T16:31:59Z
 created_at: 2016-12-14T14:45:11Z
 ---

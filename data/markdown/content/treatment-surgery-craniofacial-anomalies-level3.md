@@ -4,9 +4,19 @@ uri: treatment/surgery/craniofacial-anomalies/detailed
 title: Craniofacial anomalies
 type: level3
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 further_reading_uri: treatment/surgery/further-reading
 updated_at: 2019-07-14T10:10:43Z
 created_at: 2019-07-13T11:11:53Z
+contents:
+  - text: "Craniosynostosis"
+    id: craniosynostosis
+  - text: "Craniofacial microsomia"
+    id: craniofacial-microsomia
+  - text: "Positional malformations"
+    id: positional-malformations
+  - text: "Treatment outlines for common craniofacial syndromes"
+    id: treatment-outlines-for-common-craniofacial-syndromes
 ---
 
 <p>Treatment of malformations affecting the skull and face (and

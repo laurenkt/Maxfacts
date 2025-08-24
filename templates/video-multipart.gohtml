@@ -3,7 +3,6 @@
 <div id="video-player"></div>
 <script type="application/json" id="video_data">
 	{
-		"_id": {{jsonString .ID}},
 		"updatedAt": {{jsonString (date .UpdatedAt)}},
 		"createdAt": {{jsonString (date .CreatedAt)}},
 		"thumbnail": {{jsonString .Thumbnail}},
@@ -12,12 +11,10 @@
 		"titles": {{jsonString .Titles}},
 		"uri": {{jsonString .URI}},
 		"name": {{jsonString .Name}},
-		"__v": {{.V}},
 		"title": {{jsonString .Name}},
 		"breadcrumbs": [
 			{{range $i, $b := .Breadcrumbs}}
 			{
-				"_id": {{jsonString $b.ID}},
 				"uri": {{jsonString $b.URI}},
 				"title": {{jsonString $b.Title}}
 			}{{if ne $i (sub (len $.Breadcrumbs) 1)}},{{end}}

@@ -3,9 +3,15 @@ id: treatment-radiotherapy-further-reading-and-info
 uri: treatment/radiotherapy/further-reading
 title: Radiotherapy
 type: further
+order: 0
 hide: true
 updated_at: 2018-11-11T15:36:35Z
 created_at: 2017-06-14T21:57:50Z
+contents:
+  - text: "Textbooks"
+    id: textbooks
+  - text: "Journal articles (peer reviewed literature)"
+    id: journal-articles-peer-reviewed-literature
 ---
 
 <h1 id="textbooks">Textbooks</h1>

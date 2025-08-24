@@ -4,6 +4,7 @@ uri: treatment/surgery/postoperative-problems/floor-of-mouth
 title: Floor of mouth
 type: page
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 further_reading_uri: treatment/surgery/further-reading
 updated_at: 2019-12-13T13:58:19Z
 created_at: 2018-03-27T08:33:54Z

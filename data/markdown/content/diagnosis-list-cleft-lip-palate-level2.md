@@ -4,8 +4,12 @@ uri: diagnosis/a-z/cleft-lip-palate/more-info
 title: Cleft lip/palate
 type: level2
 authorship: Authored by David A. Mitchell; Proof-read/edited by Angelika Sebald
+order: 0
 updated_at: 2018-03-27T08:16:34Z
 created_at: 2018-02-01T10:43:02Z
+contents:
+  - text: "Cleft lip and palate"
+    id: cleft-lip-and-palate
 ---
 
 <h1 id="cleft-lip-and-palate">Cleft lip and palate</h1>

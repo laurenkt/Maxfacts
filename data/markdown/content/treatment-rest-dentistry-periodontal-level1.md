@@ -4,6 +4,7 @@ uri: treatment/restorative-dentistry/periodontal
 title: Periodontal disease
 type: level1
 authorship: Authored by Bethany Rushworth;Proof-read/edited by David A. Mitchell
+order: 0
 updated_at: 2019-03-03T14:02:12Z
 created_at: 2019-03-02T16:07:19Z
 ---

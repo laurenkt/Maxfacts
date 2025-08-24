@@ -4,9 +4,17 @@ uri: treatment/surgery/bone-lesion/more-info
 title: Bone lesion
 type: level2
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 further_reading_uri: treatment/surgery/further-reading
 updated_at: 2018-08-18T15:45:57Z
 created_at: 2018-05-21T16:07:06Z
+contents:
+  - text: "Infections, inflammatory and other non-neoplastic bone lesions"
+    id: infections-inflammatory-and-other-non-neoplastic-bone-lesions
+  - text: "Benign neoplastic bone lesions (benign bone tumours)"
+    id: benign-neoplastic-bone-lesions-benign-bone-tumours
+  - text: "Malignant neoplastic bone lesions (bone cancers)"
+    id: malignant-neoplastic-bone-lesions-bone-cancers
 ---
 
 <p>We keep the following subdivision of bone lesions and their treatments:</p>

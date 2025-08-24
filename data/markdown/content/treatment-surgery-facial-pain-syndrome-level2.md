@@ -4,9 +4,17 @@ uri: treatment/surgery/facial-pain-syndrome/more-info
 title: Facial pain syndrome
 type: level2
 authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
 further_reading_uri: treatment/surgery/further-reading
 updated_at: 2018-08-18T15:47:59Z
 created_at: 2016-12-14T14:49:18Z
+contents:
+  - text: "Idiopathic / atypical facial pain"
+    id: idiopathic-/-atypical-facial-pain
+  - text: "Trigeminal neuralgia"
+    id: trigeminal-neuralgia
+  - text: "Other facial pain syndromes"
+    id: other-facial-pain-syndromes
 ---
 
 <p>Given that many facial pain conditions belong to the category
