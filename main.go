@@ -79,7 +79,7 @@ func SetupRouter(db *mongo.Database) *mux.Router {
 	// Recipe routes
 	r.HandleFunc("/help/oral-food/recipes", logHandler("RecipeIndex", recipeHandler.Index)).Methods("GET")
 	r.HandleFunc("/help/oral-food/recipes/browse", logHandler("RecipeBrowse", recipeHandler.Browse)).Methods("GET")
-	r.HandleFunc("/help/oral-food/recipes/{id}", logHandler("Recipe", recipeHandler.Recipe)).Methods("GET")
+	r.HandleFunc("/help/oral-food/recipes/{id:.*}", logHandler("Recipe", recipeHandler.Recipe)).Methods("GET")
 
 	// Video routes
 	r.HandleFunc("/{uri:.*\\.mp4}", logHandler("Video", videoHandler.Video)).Methods("GET")

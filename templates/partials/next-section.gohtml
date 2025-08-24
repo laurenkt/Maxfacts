@@ -1,6 +1,6 @@
 {{define "next-section"}}
 {{- with .NextPage}}
-<div class="next-section -{{.Type}} {{$.Class}}">
+<div class="next-section -{{.Type}}{{with $.Class}} {{.}}{{end}}">
 	<p>
 		<a href="/{{.URI}}">Next section:</a>
 		<span>{{.Title}}{{if .Surtitle}} <span class="surtitle">({{.Surtitle}})</span>{{end}}</span>
@@ -8,7 +8,7 @@
 </div>
 {{- end}}
 {{- with .FurtherReading}}
-<div class="next-section -{{.Type}} {{$.Class}}">
+<div class="next-section -{{.Type}}{{with $.Class}} {{.}}{{end}}">
 	<p>
 		<a href="/{{.URI}}">Further reading:</a>
 		<span>{{.Title}}{{if .Surtitle}} <span class="surtitle">({{.Surtitle}})</span>{{end}}</span>

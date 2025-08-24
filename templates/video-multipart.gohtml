@@ -2,7 +2,28 @@
 <h2>{{.Name}}</h2>
 <div id="video-player"></div>
 <script type="application/json" id="video_data">
-	{{toJSON .}}
+	{
+		"_id": {{jsonString .ID}},
+		"updatedAt": {{jsonString (date .UpdatedAt)}},
+		"createdAt": {{jsonString (date .CreatedAt)}},
+		"thumbnail": {{jsonString .Thumbnail}},
+		"filename": {{jsonString .Filename}},
+		"youtube_id": {{jsonString .YoutubeID}},
+		"titles": {{jsonString .Titles}},
+		"uri": {{jsonString .URI}},
+		"name": {{jsonString .Name}},
+		"__v": {{.V}},
+		"title": {{jsonString .Name}},
+		"breadcrumbs": [
+			{{range $i, $b := .Breadcrumbs}}
+			{
+				"_id": {{jsonString $b.ID}},
+				"uri": {{jsonString $b.URI}},
+				"title": {{jsonString $b.Title}}
+			}{{if ne $i (sub (len $.Breadcrumbs) 1)}},{{end}}
+			{{end}}
+		]
+	}
 </script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.min.js"></script>

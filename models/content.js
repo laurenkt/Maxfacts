@@ -54,7 +54,10 @@ const schema = new mongoose.Schema({
 	has_sublist: { type: Boolean, default: false },
 	authorship: {
 		type: String,
-		get: str => typeof str === 'string' ? str.split(/[:space:]*;[:space:]*/) : str,
+		get: str => {
+			if (typeof str !== 'string' || str === '') return [];
+			return str.split(/\s*;\s*/);
+		},
 		set: input => input.join !== undefined ? input.join(';') : input,
 	},
 	contents: { type: [{ text: String, id: String }] },

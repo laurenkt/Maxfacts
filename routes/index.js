@@ -94,7 +94,9 @@ async function requestSpecificPage(req, res, next) {
 	else if (content.type == "alphabetical") {
 		const children = await content.getChildren()
 		const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('')
-		content.alphabetical = zipObject(alphabet, alphabet.map(letter => children.filter(c => c.title[0] == letter)))
+		content.alphabetical = zipObject(alphabet, alphabet.map(letter => 
+			children.filter(c => c.title[0] == letter).sort((a, b) => a.title.localeCompare(b.title))
+		))
 	}
 
 	// Render page

@@ -13,10 +13,12 @@ async function requestVideo(req, res, next) {
 		return next()
 
 	video.breadcrumbs = await Content.findBreadcrumbsForURI(video.uri)
+	console.log('Video breadcrumbs:', video.breadcrumbs)
 
 	res.render('video-multipart', {
 		...video.toObject(),
-		title: video.name
+		title: video.name,
+		breadcrumbs: video.breadcrumbs
 	})
 }
 

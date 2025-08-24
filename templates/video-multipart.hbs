@@ -1,7 +1,28 @@
 <h2>{{name}}</h2>
 <div id="video-player"></div>
 <script type="application/json" id="video_data">
-	{{{toJSON this}}}
+	{
+		"_id": {{{toJSON _id}}},
+		"updatedAt": {{{toJSON (date updatedAt)}}},
+		"createdAt": {{{toJSON (date createdAt)}}},
+		"thumbnail": {{{toJSON thumbnail}}},
+		"filename": {{{toJSON filename}}},
+		"youtube_id": {{{toJSON youtube_id}}},
+		"titles": {{{toJSON titles}}},
+		"uri": {{{toJSON uri}}},
+		"name": {{{toJSON name}}},
+		"__v": {{__v}},
+		"title": {{{toJSON title}}},
+		"breadcrumbs": [
+			{{#each breadcrumbs}}
+			{
+				"_id": {{{toJSON _id}}},
+				"uri": {{{toJSON uri}}},
+				"title": {{{toJSON title}}}
+			}{{#unless @last}},{{/unless}}
+			{{/each}}
+		]
+	}
 </script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.min.js"></script>

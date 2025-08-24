@@ -1,9 +1,7 @@
 {{define "content"}}
 <main>
-	<h2>{{.Title}}</h2>
-	<p>{{.Message}}</p>
-	{{if .Error}}
-		<pre>{{.Error}}</pre>
-	{{end}}
+	<h2>Something went wrong!</h2>
+	<h3>{{.Message}} (error {{if .Error.Status}}{{.Error.Status}}{{end}})</h3>
+	<p>Sorry, your request couldn't be completed because of a problem.</p>
 </main>
 {{end}}

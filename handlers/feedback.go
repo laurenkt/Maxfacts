@@ -84,6 +84,11 @@ func (h *FeedbackHandler) getFeedback(ctx context.Context, w http.ResponseWriter
 		content, err := h.contentModel.FindOne(ctx, uri)
 		if err == nil {
 			breadcrumbs, _ := h.contentModel.GetBreadcrumbs(ctx, content)
+			// Add the current content to breadcrumbs (matching Node.js behavior)
+			breadcrumbs = append(breadcrumbs, models.Breadcrumb{
+				Title: content.Title,
+				URI:   content.URI,
+			})
 			data["Breadcrumbs"] = breadcrumbs
 			data["Title"] = "Feedback about " + content.Title
 		}
@@ -164,6 +169,11 @@ func (h *FeedbackHandler) renderFeedbackError(w http.ResponseWriter, errorMsg, u
 		content, err := h.contentModel.FindOne(ctx, uri)
 		if err == nil {
 			breadcrumbs, _ := h.contentModel.GetBreadcrumbs(ctx, content)
+			// Add the current content to breadcrumbs (matching Node.js behavior)
+			breadcrumbs = append(breadcrumbs, models.Breadcrumb{
+				Title: content.Title,
+				URI:   content.URI,
+			})
 			data["Breadcrumbs"] = breadcrumbs
 			data["Title"] = "Feedback about " + content.Title
 		}

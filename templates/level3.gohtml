@@ -1,6 +1,15 @@
 {{define "content"}}
-<main>
-	<h2>{{.Title}}</h2>
+<main class="level3">
+	<header>
+		<h2>{{.Title}}{{if .Surtitle}} <span class="surtitle">({{.Surtitle}})</span>{{end}}</h2>
+		<p>{{.Description}}</p>
+		<h3>Contents</h3>
+		<ol>
+			{{range .Contents}}
+				<li><a href="#{{.ID}}">{{.Text}}</a></li>
+			{{end}}
+		</ol>
+	</header>
 	{{shift_headers 2 .Body}}
 	{{template "next-section" .}}
 </main>

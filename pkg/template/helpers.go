@@ -1,6 +1,7 @@
 package template
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
 	"html"
@@ -12,6 +13,7 @@ import (
 func FuncMap() template.FuncMap {
 	return template.FuncMap{
 		"toJSON":        toJSON,
+		"jsonString":    jsonString,
 		"date":          formatDate,
 		"lookup":        lookup,
 		"shift_headers": shiftHeaders,
@@ -30,6 +32,23 @@ func toJSON(v interface{}) string {
 		return "{}"
 	}
 	return string(b)
+}
+
+// jsonString properly JSON-escapes a string value (returns with quotes)
+func jsonString(v interface{}) string {
+	var buf bytes.Buffer
+	encoder := json.NewEncoder(&buf)
+	encoder.SetEscapeHTML(false) // Don't escape HTML characters like &, <, >
+	err := encoder.Encode(v)
+	if err != nil {
+		return `""`
+	}
+	// Remove the trailing newline that Encode adds
+	result := buf.String()
+	if len(result) > 0 && result[len(result)-1] == '\n' {
+		result = result[:len(result)-1]
+	}
+	return result
 }
 
 // formatDate formats a date similar to the Handlebars helper
