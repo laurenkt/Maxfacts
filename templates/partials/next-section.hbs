@@ -1,5 +1,5 @@
 {{#next_page}}
-<div class="next-section -{{type}} {{../class}}">
+<div class="next-section -{{type}}{{#if ../class}} {{../class}}{{/if}}">
 	<p>
 		<a href="/{{uri}}">Next section:</a>
 		<span>{{title}}{{#if surtitle}} <span class="surtitle">({{surtitle}})</span>{{/if}}</span>
@@ -7,7 +7,7 @@
 </div>
 {{/next_page}}
 {{#further_reading}}
-<div class="next-section -{{type}} {{../class}}">
+<div class="next-section -{{type}}{{#if ../class}} {{../class}}{{/if}}">
 	<p>
 		<a href="/{{uri}}">Further reading:</a>
 		<span>{{title}}{{#if surtitle}} <span class="surtitle">({{surtitle}})</span>{{/if}}</span>

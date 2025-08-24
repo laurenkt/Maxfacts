@@ -2,11 +2,11 @@ package handlers
 
 import (
 	"context"
+	"strings"
 	"text/template"
 	"log"
 	"net/http"
 
-	"github.com/gorilla/mux"
 	"github.com/maxfacts/maxfacts/models"
 	templatehelpers "github.com/maxfacts/maxfacts/pkg/template"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -46,8 +46,9 @@ func NewVideoHandler(db *mongo.Database) *VideoHandler {
 // Video handles video page requests
 func (h *VideoHandler) Video(w http.ResponseWriter, r *http.Request) {
 	ctx := context.Background()
-	vars := mux.Vars(r)
-	uri := vars["uri"]
+	// Extract URI from path (removing leading slash and .mp4 extension)
+	uri := strings.TrimPrefix(r.URL.Path, "/")
+	uri = strings.TrimSuffix(uri, ".mp4")
 
 	video, err := h.videoModel.FindOne(ctx, uri)
 	if err == mongo.ErrNoDocuments {
@@ -72,18 +73,68 @@ func (h *VideoHandler) Video(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
+	// Convert breadcrumbs to Node.js format for JSON
+	breadcrumbsJSON := make([]map[string]interface{}, len(breadcrumbs))
+	for i, b := range breadcrumbs {
+		breadcrumbsJSON[i] = map[string]interface{}{
+			"title": b.Title,
+			"uri":   b.URI,
+			"_id":   "", // Node.js includes _id but we don't need it for breadcrumbs
+		}
+	}
+
+	// Create JSON data structure that matches Node.js exactly
+	videoJSON := map[string]interface{}{
+		"_id":         video.ID.Hex(),
+		"updatedAt":   video.UpdatedAt.Format("2006-01-02T15:04:05.000Z"),
+		"createdAt":   video.CreatedAt.Format("2006-01-02T15:04:05.000Z"),
+		"thumbnail":   video.Thumbnail,
+		"filename":    video.Filename,
+		"youtube_id":  video.YoutubeID,
+		"titles":      video.Titles,
+		"uri":         video.URI,
+		"name":        video.Name,
+		"__v":         0,                // MongoDB version field, always 0
+		"title":       video.Name,       // Duplicate of name
+		"breadcrumbs": breadcrumbsJSON,
+		// Additional Node.js fields that were in the original
+		"_locals":     map[string]interface{}{
+			"path":  "/" + video.URI,
+			"flash": map[string]interface{}{},
+		},
+		"cache": true,
+		"flash": map[string]interface{}{},
+		"path":  "/" + video.URI,
+		"settings": map[string]interface{}{
+			"x-powered-by": true,
+			"etag": "weak",
+			"env": "production",
+			"query parser": "extended",
+			"subdomain offset": 2,
+			"trust proxy": false,
+			"views": "/home/node/app/templates",
+			"jsonp callback name": "callback",
+			"view cache": true,
+			"view engine": "hbs",
+			"port": 3000,
+		},
+	}
+
+	// Template data with separate JSON field
 	data := map[string]interface{}{
-		"Title":          video.Name,      // For page title
-		"Breadcrumbs":    breadcrumbs,
-		"Name":           video.Name,
-		"URI":            video.URI,
-		"Filename":       video.Filename,
-		"Thumbnail":      video.Thumbnail,
-		"YoutubeID":      video.YoutubeID,
-		"Titles":         video.Titles,
-		"UpdatedAt":      video.UpdatedAt,
-		"CreatedAt":      video.CreatedAt,
-		"ID":             video.ID,
+		"Title":       video.Name,      // For page title (template meta)
+		"Name":        video.Name,      // For h2 display
+		"Breadcrumbs": breadcrumbs,     // For Go template breadcrumb rendering
+		"VideoJSON":   videoJSON,       // JSON data for JavaScript
+	}
+
+	log.Printf("VideoJSON keys: %+v", len(videoJSON))
+	for k, v := range videoJSON {
+		log.Printf("VideoJSON[%s] = %v", k, v)
+		if k == "breadcrumbs" {
+			log.Printf("Breadcrumbs length: %d", len(breadcrumbsJSON))
+		}
+		break // Just log first few keys
 	}
 
 	h.render(w, "video-multipart.gohtml", data)
@@ -118,6 +169,7 @@ func (h *VideoHandler) render404(w http.ResponseWriter) {
 	data := map[string]interface{}{
 		"Title":   "Not Found",
 		"Message": "Video not found",
+		"Error":   map[string]interface{}{"Status": "404"},
 	}
 	h.render(w, "error.gohtml", data)
 }

@@ -8,7 +8,6 @@ import (
 	"text/template"
 	"time"
 
-	"github.com/gorilla/mux"
 	"github.com/maxfacts/maxfacts/models"
 	templatehelpers "github.com/maxfacts/maxfacts/pkg/template"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -59,8 +58,9 @@ func (h *FeedbackHandler) Feedback(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	vars := mux.Vars(r)
-	uri := strings.TrimSpace(vars["uri"])
+	// Extract URI from path (removing /feedback suffix)
+	uri := strings.TrimSuffix(strings.TrimPrefix(r.URL.Path, "/"), "/feedback")
+	uri = strings.TrimSpace(uri)
 
 	if r.Method == "GET" {
 		h.getFeedback(ctx, w, r, uri)
@@ -84,6 +84,11 @@ func (h *FeedbackHandler) getFeedback(ctx context.Context, w http.ResponseWriter
 		content, err := h.contentModel.FindOne(ctx, uri)
 		if err == nil {
 			breadcrumbs, _ := h.contentModel.GetBreadcrumbs(ctx, content)
+			// Add the current content to breadcrumbs (matching Node.js behavior)
+			breadcrumbs = append(breadcrumbs, models.Breadcrumb{
+				Title: content.Title,
+				URI:   content.URI,
+			})
 			data["Breadcrumbs"] = breadcrumbs
 			data["Title"] = "Feedback about " + content.Title
 		}
@@ -164,6 +169,11 @@ func (h *FeedbackHandler) renderFeedbackError(w http.ResponseWriter, errorMsg, u
 		content, err := h.contentModel.FindOne(ctx, uri)
 		if err == nil {
 			breadcrumbs, _ := h.contentModel.GetBreadcrumbs(ctx, content)
+			// Add the current content to breadcrumbs (matching Node.js behavior)
+			breadcrumbs = append(breadcrumbs, models.Breadcrumb{
+				Title: content.Title,
+				URI:   content.URI,
+			})
 			data["Breadcrumbs"] = breadcrumbs
 			data["Title"] = "Feedback about " + content.Title
 		}

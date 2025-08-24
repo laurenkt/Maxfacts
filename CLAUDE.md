@@ -100,6 +100,8 @@ npm run build
 npm run watch
 ```
 
+To interact with mongo directly use `mongosh` not `mongo`
+
 ## Important Implementation Details
 
 ### URI Normalization

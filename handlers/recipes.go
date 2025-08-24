@@ -2,15 +2,71 @@ package handlers
 
 import (
 	"context"
+	"strings"
 	"text/template"
 	"log"
 	"net/http"
 
-	"github.com/gorilla/mux"
 	"github.com/maxfacts/maxfacts/models"
 	templatehelpers "github.com/maxfacts/maxfacts/pkg/template"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 )
+
+// RecipeItem represents an item in a recipe array that could be a string or have a heading
+type RecipeItem struct {
+	Text    string
+	Heading string
+}
+
+// processRecipeArray converts an interface{} array that might contain strings or objects with heading fields
+func processRecipeArray(data interface{}) []RecipeItem {
+	if data == nil {
+		return nil
+	}
+	
+	var arr []interface{}
+	
+	// Handle both primitive.A (BSON Array) and []interface{} types
+	if primitiveArr, ok := data.(primitive.A); ok {
+		arr = []interface{}(primitiveArr)
+	} else if interfaceArr, ok := data.([]interface{}); ok {
+		arr = interfaceArr
+	} else {
+		return nil
+	}
+	
+	var items []RecipeItem
+	for _, item := range arr {
+		if item == nil {
+			continue
+		}
+		
+		// Check if it's a map with heading field (MongoDB BSON becomes map[string]interface{} or primitive.D)
+		if itemMap, ok := item.(map[string]interface{}); ok {
+			if heading, exists := itemMap["heading"]; exists {
+				if headingStr, ok := heading.(string); ok {
+					items = append(items, RecipeItem{Heading: headingStr})
+				}
+			}
+		} else if primitiveD, ok := item.(primitive.D); ok {
+			// Handle primitive.D (BSON Document) 
+			for _, elem := range primitiveD {
+				if elem.Key == "heading" {
+					if headingStr, ok := elem.Value.(string); ok {
+						items = append(items, RecipeItem{Heading: headingStr})
+						break
+					}
+				}
+			}
+		} else if str, ok := item.(string); ok {
+			// It's a regular string item
+			items = append(items, RecipeItem{Text: str})
+		}
+	}
+	
+	return items
+}
 
 // RecipeHandler handles recipe requests
 type RecipeHandler struct {
@@ -84,8 +140,8 @@ func (h *RecipeHandler) Browse(w http.ResponseWriter, r *http.Request) {
 // Recipe handles individual recipe pages
 func (h *RecipeHandler) Recipe(w http.ResponseWriter, r *http.Request) {
 	ctx := context.Background()
-	vars := mux.Vars(r)
-	id := vars["id"]
+	// Extract recipe ID from path (everything after /help/oral-food/recipes/)
+	id := strings.TrimPrefix(r.URL.Path, "/help/oral-food/recipes/")
 
 	recipe, err := h.recipeModel.FindOne(ctx, id)
 	if err == mongo.ErrNoDocuments {
@@ -108,11 +164,11 @@ func (h *RecipeHandler) Recipe(w http.ResponseWriter, r *http.Request) {
 		"Title":       recipe.Title,
 		"Breadcrumbs": recipe.Breadcrumbs,
 		"RecipeID":    recipe.RecipeID,
-		"Description": recipe.Description,
-		"Ingredients": recipe.Ingredients,
-		"Method":      recipe.Method,
-		"Variations":  recipe.Variations,
-		"Tip":         recipe.Tip,
+		"Description": processRecipeArray(recipe.Description),
+		"Ingredients": processRecipeArray(recipe.Ingredients),
+		"Method":      processRecipeArray(recipe.Method),
+		"Variations":  processRecipeArray(recipe.Variations),
+		"Tip":         processRecipeArray(recipe.Tip), // Fixed: both DB and template use "tip"
 		"Tags":        recipe.Tags,
 		"UpdatedAt":   recipe.UpdatedAt,
 		"Body":        "recipe", // For article-metadata template
@@ -150,6 +206,7 @@ func (h *RecipeHandler) render404(w http.ResponseWriter) {
 	data := map[string]interface{}{
 		"Title":   "Not Found",
 		"Message": "Recipe not found",
+		"Error":   map[string]interface{}{"Status": "404"},
 	}
 	h.render(w, "error.gohtml", data)
 }

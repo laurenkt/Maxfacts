@@ -56,6 +56,7 @@ type ContentItem struct {
 type Breadcrumb struct {
 	Title string `bson:"title"`
 	URI   string `bson:"uri"`
+	ID    string `bson:"-"` // Not stored in DB, populated for templates
 }
 
 // ContentModel provides methods for content operations

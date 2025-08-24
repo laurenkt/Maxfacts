@@ -50,6 +50,48 @@ func NewSitemapHandler(db *mongo.Database) *SitemapHandler {
 	}
 }
 
+// CollectAllURLs collects all URLs that should be included in the sitemap
+func (h *SitemapHandler) CollectAllURLs(ctx context.Context) ([]string, error) {
+	var urls []string
+
+	// Get all content with non-empty body
+	contentFilter := bson.M{"body": bson.M{"$ne": ""}}
+	cursor, err := h.contentModel.Find(ctx, contentFilter, nil)
+	if err != nil {
+		return nil, err
+	}
+	defer cursor.Close(ctx)
+
+	for cursor.Next(ctx) {
+		var content models.Content
+		if err := cursor.Decode(&content); err != nil {
+			continue
+		}
+		urls = append(urls, "/"+content.URI)
+	}
+
+	// Get all videos
+	videos, err := h.videoModel.FindAll(ctx)
+	if err == nil {
+		for _, video := range videos {
+			urls = append(urls, "/"+video.URI)
+		}
+	}
+
+	// Get all recipes
+	recipes, err := h.recipeModel.FindAll(ctx)
+	if err == nil {
+		for _, recipe := range recipes {
+			urls = append(urls, "/"+recipe.URI)
+		}
+	}
+
+	// Add home page
+	urls = append(urls, "/")
+
+	return urls, nil
+}
+
 // Sitemap generates and serves the XML sitemap
 func (h *SitemapHandler) Sitemap(w http.ResponseWriter, r *http.Request) {
 	ctx := context.Background()

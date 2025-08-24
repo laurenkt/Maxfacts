@@ -9,11 +9,18 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/gorilla/mux"
 	"github.com/maxfacts/maxfacts/models"
 	templatehelpers "github.com/maxfacts/maxfacts/pkg/template"
 	"go.mongodb.org/mongo-driver/mongo"
 )
+
+// parseAuthorship splits authorship by semicolon, returning empty slice for empty strings
+func parseAuthorship(authorship string) []string {
+	if authorship == "" {
+		return []string{}
+	}
+	return strings.Split(authorship, ";")
+}
 
 // ContentHandler handles content-related requests
 type ContentHandler struct {
@@ -88,8 +95,8 @@ func (h *ContentHandler) Index(w http.ResponseWriter, r *http.Request) {
 // Page handles individual content pages
 func (h *ContentHandler) Page(w http.ResponseWriter, r *http.Request) {
 	ctx := context.Background()
-	vars := mux.Vars(r)
-	uri := vars["uri"]
+	// Extract URI from path (removing leading slash)
+	uri := strings.TrimPrefix(r.URL.Path, "/")
 	
 	// Find the content
 	content, err := h.contentModel.FindOne(ctx, uri)
@@ -158,7 +165,7 @@ func (h *ContentHandler) Page(w http.ResponseWriter, r *http.Request) {
 		"NextPage":       content.NextPage,
 		"FurtherReading": content.FurtherReading,
 		"UpdatedAt":      content.UpdatedAt,
-		"Authorship":     strings.Split(content.Authorship, ";"),
+		"Authorship":     parseAuthorship(content.Authorship),
 	}
 	
 	// Debug: log content type and body length for further pages
@@ -179,6 +186,8 @@ func (h *ContentHandler) Page(w http.ResponseWriter, r *http.Request) {
 	data["Selected"] = content.Selected
 	data["Depth"] = content.Depth
 	data["Alphabetical"] = content.Alphabetical
+	data["Contents"] = content.Contents
+	data["Body"] = content.Body
 	
 	// Choose template based on content type
 	templateName := content.Type + ".gohtml"
@@ -335,9 +344,9 @@ func (h *ContentHandler) templateExists(name string) bool {
 func (h *ContentHandler) render404(w http.ResponseWriter) {
 	w.WriteHeader(http.StatusNotFound)
 	data := map[string]interface{}{
-		"Title":   "Not Found",
+		"Title":   "",
 		"Message": "Not Found",
-		"Error":   nil,
+		"Error":   map[string]interface{}{},
 	}
 	h.render(w, "error.gohtml", data, "main")
 }
@@ -384,19 +393,28 @@ func (h *ContentHandler) tryVideoFallback(w http.ResponseWriter, r *http.Request
 	// Pass the video object and additional data needed by the layout
 	video.Breadcrumbs = breadcrumbs
 	
-	// Create data map for template
+	// Add content IDs to breadcrumbs for template
+	for i, uri := range models.GetLineageFromURI(models.ParentURIFragment(video.URI)) {
+		content, err := h.contentModel.FindOne(ctx, uri)
+		if err == nil && i < len(breadcrumbs) {
+			breadcrumbs[i].ID = content.ID.Hex()
+		}
+	}
+
+	// Simple data structure for template
 	data := map[string]interface{}{
-		"Title":          video.Name,      // For page title
-		"Breadcrumbs":    breadcrumbs,
-		"Name":           video.Name,
-		"URI":            video.URI,
-		"Filename":       video.Filename,
-		"Thumbnail":      video.Thumbnail,
-		"YoutubeID":      video.YoutubeID,
-		"Titles":         video.Titles,
-		"UpdatedAt":      video.UpdatedAt,
-		"CreatedAt":      video.CreatedAt,
-		"ID":             video.ID,
+		"Title":       video.Name,
+		"Name":        video.Name,
+		"ID":          video.ID.Hex(),
+		"UpdatedAt":   video.UpdatedAt,
+		"CreatedAt":   video.CreatedAt,
+		"Thumbnail":   video.Thumbnail,
+		"Filename":    video.Filename,
+		"YoutubeID":   video.YoutubeID,
+		"Titles":      video.Titles,
+		"URI":         video.URI,
+		"V":           0, // MongoDB __v field
+		"Breadcrumbs": breadcrumbs,
 	}
 	
 	// Render video template

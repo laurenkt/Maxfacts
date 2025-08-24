@@ -1,86 +1,56 @@
 {{define "content"}}
 <main>
 	<h2>{{.Title}}</h2>
-	
-	{{if .Description}}
-	<section class="description">
-		<h3>Description</h3>
-		{{if (eq (printf "%T" .Description) "string")}}
-			<p>{{.Description}}</p>
+	{{range .Description}}
+		{{if .Heading}}
+			<h4>{{.Heading}}</h4>
 		{{else}}
-			{{range .Description}}
-				<p>{{.}}</p>
-			{{end}}
+			<p>{{.Text}}</p>
 		{{end}}
-	</section>
 	{{end}}
-	
 	{{if .Ingredients}}
-	<section class="ingredients">
 		<h3>Ingredients</h3>
-		{{if (eq (printf "%T" .Ingredients) "string")}}
-			<p>{{.Ingredients}}</p>
-		{{else}}
-			<ul>
-			{{range .Ingredients}}
-				<li>{{.}}</li>
+		<ul>
+		{{range .Ingredients}}
+			{{if .Heading}}
+				</ul><h4>{{.Heading}}</h4><ul>
+			{{else}}
+				<li>{{.Text}}</li>
 			{{end}}
-			</ul>
 		{{end}}
-	</section>
+		</ul>
 	{{end}}
-	
 	{{if .Method}}
-	<section class="method">
 		<h3>Method</h3>
-		{{if (eq (printf "%T" .Method) "string")}}
-			<p>{{.Method}}</p>
-		{{else}}
-			<ol>
-			{{range .Method}}
-				<li>{{.}}</li>
-			{{end}}
-			</ol>
-		{{end}}
-	</section>
-	{{end}}
-	
-	{{if .Variations}}
-	<section class="variations">
-		<h3>Variations</h3>
-		{{if (eq (printf "%T" .Variations) "string")}}
-			<p>{{.Variations}}</p>
-		{{else}}
-			{{range .Variations}}
-				<p>{{.}}</p>
+		<ol>
+		{{range .Method}}
+			{{if .Heading}}
+				</ol><h4>{{.Heading}}</h4><ol>
+			{{else}}
+				<li>{{.Text}}</li>
 			{{end}}
 		{{end}}
-	</section>
+		</ol>
 	{{end}}
-	
 	{{if .Tip}}
-	<section class="tip">
-		<h3>Tip</h3>
-		{{if (eq (printf "%T" .Tip) "string")}}
-			<p>{{.Tip}}</p>
-		{{else}}
-			{{range .Tip}}
-				<p>{{.}}</p>
+		<h3>Tips</h3>
+		{{range .Tip}}
+			{{if .Heading}}
+				<h4>{{.Heading}}</h4>
+			{{else}}
+				<p>{{.Text}}</p>
 			{{end}}
 		{{end}}
-	</section>
 	{{end}}
-	
-	{{if .Tags}}
-	<section class="tags">
-		<h3>Tags</h3>
-		<p>
-			{{range .Tags}}
-			<span class="tag">{{.}}</span>
+	{{if .Variations}}
+		<h3>Variations</h3>
+		{{range .Variations}}
+			{{if .Heading}}
+				<h4>{{.Heading}}</h4>
+			{{else}}
+				<p>{{.Text}}</p>
 			{{end}}
-		</p>
-	</section>
+		{{end}}
 	{{end}}
 </main>
-{{template "article-metadata" .}}
 {{end}}

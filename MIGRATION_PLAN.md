@@ -34,7 +34,7 @@
    - `go mod init github.com/maxfacts/maxfacts`
    - Add MongoDB driver: `go.mongodb.org/mongo-driver`
    - Add HTML parser: `golang.org/x/net/html`
-   - Add router: `github.com/gorilla/mux` or `chi`
+   - Uses Go standard library `net/http.ServeMux` (no third-party router needed)
 
 2. **Create MongoDB connection layer**
    - Connection to existing MongoDB using connection string
@@ -118,36 +118,68 @@
 The Go version includes comprehensive comparison tests that validate output against the running Node.js version:
 
 **Test Setup (`comparison_test.go`)**:
-- Runs the Go server locally using test router
+- Runs the Go server locally using test handler
 - Compares responses against a reference Node.js server (default: `http://localhost:8080`)
 - Uses environment variables for configuration:
-  - `MONGO_URI`: MongoDB connection (default: `localhost:27017/maxfacts`)
-  - `REFERENCE_URL`: Node.js server URL for comparison
+  - `MONGO_URI`: MongoDB connection string
+    - Default: `localhost:27017/maxfacts`
+    - For Docker: `MONGO_URI=mongo:27017/maxfacts` (uses Docker service name)
+    - For remote: `MONGO_URI=mongodb://username:password@host:port/database`
+  - `REFERENCE_URL`: Node.js server URL for comparison (default: `http://localhost:8080`)
+
+**Test Modes**:
+The test suite supports three different modes via command-line flags:
+
+1. **Default Mode** (no flags) - Tests only configured endpoints (fast):
+   ```bash
+   MONGO_URI=localhost:27017/maxfacts go test .
+   ```
+
+2. **All URLs Mode** (`-all`) - Tests all URLs from sitemap (comprehensive):
+   ```bash
+   MONGO_URI=localhost:27017/maxfacts go test . -all
+   ```
+
+3. **Single URL Mode** (`-only`) - Tests a specific URL (debugging):
+   ```bash
+   MONGO_URI=localhost:27017/maxfacts go test . -only /help
+   MONGO_URI=localhost:27017/maxfacts go test . -only /help/oral-food/recipes/butternut-squash-mousse
+   ```
 
 **Test Coverage**:
-1. **HTML Endpoints** - Compares full HTML output:
+1. **Configured Endpoints** (default mode):
    - Homepage (`/`)
-   - Content pages (`/help`, `/help/diagnosis`, etc.)
-   - Directory pages (`/help/oral-food/`)
-   - Search results (`/search?q=test`)
-   - Recipe pages (`/help/oral-food/recipes/`, individual recipes)
-   - Video pages (`/help/oral-food/how-videos/solids`)
+   - Key content pages (`/diagnosis/tests`, `/diagnosis/a-z/cancer/mouth-cancer`)
+   - Recipe index (`/help/oral-food/recipes`)
+   - Video page (`/help/physiotherapy/videos/tmj`)
    - Sitemap (`/map.xml`)
+   - Feedback pages
+   - 404 error page
+   - Specific recipes for edge case testing
 
-2. **Binary Endpoints** - Compares binary responses:
-   - Static files (`/robots.txt`, `/favicon.ico`)
+2. **All URLs** (with `-all` flag):
+   - Every content page in the database
+   - All recipes (100+ URLs)
+   - All video pages
+   - Complete sitemap validation
+
+3. **Binary Endpoints** - Compares binary responses:
+   - Static files (`/favicon.ico`)
    - Images (`/images/circle-scaled.png`)
 
 **Running Tests**:
 ```bash
-# Start Node.js version on port 8080
-npm start
+# Quick test of key endpoints
+MONGO_URI=localhost:27017/maxfacts go test -v .
 
-# In another terminal, run Go tests
-go test -v .
+# Test all URLs (takes ~1 minute)
+MONGO_URI=localhost:27017/maxfacts go test -v . -all
 
-# Or with custom reference URL
-REFERENCE_URL=http://production.site.com go test .
+# Debug a specific failing URL
+MONGO_URI=localhost:27017/maxfacts go test -v . -only /help/oral-food/recipes/bean-salad-with-yogurt-dressing
+
+# With custom reference URL
+REFERENCE_URL=http://production.site.com MONGO_URI=localhost:27017/maxfacts go test .
 ```
 
 **Test Implementation**:

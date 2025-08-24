@@ -3,7 +3,6 @@ module github.com/maxfacts/maxfacts
 go 1.24.2
 
 require (
-	github.com/gorilla/mux v1.8.1
 	github.com/laurenkt/gohtmldiff v1.5.0
 	github.com/stretchr/testify v1.9.0
 	go.mongodb.org/mongo-driver v1.13.1
