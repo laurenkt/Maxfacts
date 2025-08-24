@@ -1,0 +1,633 @@
+---
+id: treatment-surgery-necrosis-hard-level3
+uri: treatment/surgery/necrosis/hard-tissue/detailed
+title: Hard tissue necrosis
+type: level3
+authorship: Authored by Angelika Sebald and David A. Mitchell
+further_reading_uri: treatment/surgery/further-reading
+updated_at: 2019-12-13T13:44:37Z
+created_at: 2018-11-09T15:56:20Z
+---
+
+<p>Bone necrosis (osteonecrosis) in the head &amp; neck
+    region often occurs in combination with <a href="/diagnosis/a-z/necrosis/soft">necrosis of
+        adjacent soft tissues</a> such as the skin or the
+    lining of the mouth (mucosa). More information about
+    this additional aspect of bone necrosis is on our pages
+    about <a href="/diagnosis/a-z/necrosis/soft">diagnosis</a>
+    and <a href="/treatment/surgery/necrosis/soft-tissue">treatment
+        of soft tissue necrosis</a> .</p>
+<h1 id="some-general-remarks">Some general remarks</h1>
+<p>Having briefly outlined medical and surgical treatment
+    options for the <a href="/treatment/surgery/necrosis/hard-tissue">management
+        of osteonecrosis of the jaws (ONJ)</a> on the
+    previous page, below we discuss these options in more
+    detail. Any considerations about suitable, or less
+    appropriate, treatment schemes for individual
+    circumstances are closely linked to the different causes
+    and <a href="/diagnosis/a-z/necrosis/hard/detailed">hypotheses
+        about the pathology of ONJ</a> , be it necrosis
+    caused by previous <a href="/treatment/radiotherapy">radiotherapy
+        treatment</a> (osteoradionecrosis, ORN), by
+    medications that interfere with the <a href="/diagnosis/a-z/necrosis/hard/detailed">bone
+        remodelling process</a> (medication-related
+    osteonecrosis of the jaws, MRONJ), such as <a href="/treatment/other/medication/miscellaneous/bisphosphonates">bisphosphonates</a>
+    or <a href="/treatment/other/medication/miscellaneous/denusomab">denusomab</a>,
+    or other less common causes. However, in addition to
+    such bone-pathophysiology focussed considerations there
+    are many more aspects to take into account when choosing
+    the individually most suitable treatment option(s) for
+    ONJ.</p>
+<p>Of the less common, but varied causes, of ONJ the most
+    prominent ones are a range of <a href="/diagnosis/a-z/infection">infections</a>.
+    According to some recent microbiological studies, even
+    latent and persistent <a href="/treatment/restorative-dentistry/periodontal/detailed">periodontal
+        disease</a>, together with other trigger events, may
+    be a significant enabling factor for the development of
+    ONJ. <a href="/treatment/other/medication/infection/more-info">Treatment
+        of these underlying causes</a> combined with local
+    débridement is normally also curative for the resulting
+    ONJ. Broadly, this is true for most, if not all, cases
+    of ONJ that are not related to either <a href="/treatment/radiotherapy">radiotherapy</a> or
+    <a href="/treatment/other/medication/miscellaneous/antiresorptive">antiresorptive
+        medications</a>. In many of these cases the
+    treatment of the underlying conditions, such as diabetes
+    is not within the remit of maxillofacial surgery, so
+    will not be discussed further here.</p>
+<p>The situation is different for the two main causes of
+    ONJ, <a href="/treatment/radiotherapy">radiotherapy</a>
+    or <a href="/treatment/other/medication/miscellaneous/antiresorptive">antiresorptive
+        medications</a>. There, the causes cannot be
+    eliminated and treatment is aimed at managing the
+    sometimes severe, consequences. Our discussion below
+    addresses management needs of these two forms of ONJ.
+</p>
+<p>ONJ caused by either of these two causes can occur in
+    milder forms, more severe variations, and debilitating
+    very severe forms. The underlying medical conditions
+    that lead to radiotherapy treatment to the head and neck
+    region (<a href="/diagnosis/a-z/cancer">malignancies in
+        the head and neck region</a>), or long-term
+    treatment with <a href="/treatment/other/medication/miscellaneous/antiresorptive">antiresorptive
+        medications</a> (most commonly to manage severe
+    osteoporosis, but also in the management of <a href="/diagnosis/a-z/tumour/metastases">bone
+        metastases</a>) in the first place are very
+    different. This accounts for normally very different
+    life situations and/or prognoses. Accordingly, similar
+    extents of ONJ may call for different treatment
+    modalities for the two causative factors and different
+    life situations (see below).</p>
+<p>As a general trend, milder forms of ONJ may be managed
+    successfully with medical options and/or minor surgical
+    interventions. More severe forms typically require more
+    invasive surgical <a href="/treatment/surgery/reconstruction">resection
+        &amp; reconstruction</a>. There is no
+    one-size-fits-all approach to the individually
+    appropriate management of ONJ. Further, there are only a
+    few firmly established facts and many myths, ambiguity,
+    biased and poorly evidence-supported reports in the
+    literature, about the <a href="/diagnosis/a-z/necrosis/hard/detailed">pathophysiology
+        of the condition</a> as well as treatment modalities
+    and protocols.</p>
+<p>In very general terms, the greatest obstacle to effective
+    treatment of all forms of osteonecrosis is the lack of
+    understanding of the pathogenesis of these conditions.
+    Accordingly, there are no clear ‘gold standard’
+    treatment recommendations, but there is ongoing debate
+    about current treatment strategies.</p>
+<h1 id="non-surgical-treatment-options">Non-surgical treatment options</h1>
+<p>In most cases, clinical findings are that all forms of
+    ONJ, including milder forms, are accompanied by some
+    form of lesion and/or necrosis and/or <a href="/diagnosis/a-z/infection">infection</a> of
+    adjacent soft tissues, in particular the oral mucosa
+    (parallels with osteonecrosis of the external auditory
+    canal have been pointed out – a similar situation where
+    bone is only separated by a thin layer from a heavily
+    bacterially colonised area). With this fact in
+    mind<strong>, classical and well-established management
+        methods</strong> make good sense. Rigorous <a href="/help/oral-hygiene">oral hygiene</a> regimens,
+    including ‘tricks’ for optimised self-care, and
+    including <a href="/treatment/other/medication/miscellaneous/chlorhexidine">chlorhexidine</a>
+    antibacterial mouthwash and/or irrigation of small
+    exposed areas of bone and meticulous local wound care
+    are essential. It has also been pointed out that more
+    can be done to avoid the development of ONJ. Before
+    starting therapy with <a href="/treatment/other/medication/miscellaneous/antiresorptive">antiresorptive</a>
+    or <a href="/treatment/other/medication/miscellaneous/antiangiogenic">antiangiogenic</a>
+    drugs or <a href="/treatment/radiotherapy">radiotherapy</a>,
+    careful <a href="/treatment/restorative-dentistry/cancer-pretreatment">examination
+        of the dental status</a> (including prosthetics
+    and/or <a href="/treatment/restorative-dentistry/implants">implants</a>)
+    followed by all necessary dental treatments, and
+    optimised oral hygiene as a starting point can be useful
+    prevention strategies. This proactive strategy makes
+    good sense in the light of recent experimental findings
+    that existing <a href="/treatment/restorative-dentistry/periodontal">periodontal
+        disease</a> may be a factor in the development of
+    ONJ, possibly in a synergistic mode in combination with
+    other infections or lesions developing later.</p>
+<p>In addition, taking determined action as early as
+    possible is the best chance to avoid (or delay)
+    progression of ONJ from milder to more severe forms. In
+    many cases, this will include a course of <a href="/treatment/other/medication/infection/detailed">systemic
+        antibacterial and/or antifungal agents</a> to
+    control local infections. Infections in areas afflicted
+    by ONJ are typically caused by a range of bacteria that
+    are commonly involved in dental infections, and are
+    usually sensitive to treatment with standard <a href="/treatment/other/medication/infection/detailed">antibacterial
+        agents</a> such as penicillin, amoxicillin,
+    clindamycin or metronidazole. Sometimes it is useful or
+    necessary to obtain more precise <a href="/diagnosis/tests/microbiology">microbiological
+        characterisation</a> of the infectious species and
+    change antibacterial and/or antifungal agents to more
+    targeted choices. The duration of systemic antibacterial
+    / antifungal treatment courses may vary considerably. <a href="/treatment/other/medication/inflammation/more-info">Anti-inflammatory
+        agents</a> such as <a href="/treatment-other-medication-miscellaneous-steroid">corticosteroids</a>
+    in combination with <a href="/treatment/other/medication/pain/detailed">analgesia</a>
+    may be helpful during acute episodes.</p>
+<p>This type of management leads to a resolution and healing
+    of small ONJ lesions in most cases, time and
+    perseverance permitted, and irrespective of the lesion
+    being caused by radiotherapy or by antiresorptive
+    medications.</p>
+<p>An alternative medical treatment scheme for the
+    management of ORN was suggested some time ago. The
+    medication scheme is known as <strong>PENTOCLO, or
+        triple therapy</strong>. The drug cocktail is based
+    on the hypothesis that fibrosis (scar formation) and
+    atrophy (tissue wasting) are the two main effects of
+    long-term damage to <i>soft</i> tissue by high-energy
+    radiation. Significantly, this hypothesis of explaining
+    the pathophysiology of <a href="/diagnosis/a-z/necrosis/soft">soft-tissue
+        necrosis</a> resulting from radiotherapy (in the
+    treatment of breast cancers) does not actively consider
+    infection(s) and does not take the particular conditions
+    of the oral cavity into account, nor does it address
+    differences in the pathophysiology of hard and soft
+    tissues in their response to high-energy radiation
+    damage.</p>
+<p>Nevertheless, the suggested medication scheme derived
+    from the fibrosis/atrophy hypothesis was adopted
+    seamlessly for the medical treatment of ORN and later
+    its use was even extended to include MRONJ. The scheme
+    consists of three drugs:</p>
+<ul>
+    <li><a href="/treatment/other/medication/miscellaneous/pentoxifylline">pentoxifylline</a>
+        , assumed to have anti-inflammatory properties;</li>
+    <li><a href="/treatment/other/medication/miscellaneous/tocopherol">tocopherol</a>
+        , assumed to act as an antioxidant;</li>
+    <li><a href="/treatment/other/medication/miscellaneous/clodronate">clodronate</a>
+        , an <a href="/treatment/other/medication/miscellaneous/antiresorptive">antiresorptive
+            agent</a> from the group of <a href="/treatment-other-medication-miscellaneous-bisphophonates">bisphosphonates</a>.
+    </li>
+</ul>
+<p>To date, there are no controlled studies of the efficacy
+    of the scheme in the treatment of ORN, despite a number
+    of publications claiming success. Most of these reports
+    are on small groups of patients. Neither is there any
+    substantive and convincing explanation of the exact
+    working mechanisms of this drug cocktail, or even two of
+    its components although there is plenty of speculation.
+    On closer inspection, most of the publications originate
+    from few groups, including the group who originally
+    suggested the scheme for the management of soft tissue
+    necrosis following radiotherapy in treatment for breast
+    cancer. Most treatments reported as successful were
+    achieved on small ORN lesions (which can also be
+    successfully treated in more conventional ways; see
+    above). PENTOCLO was used in several studies in
+    conjunction with <a href="/treatment/other/medication/infection/detailed">antibacterial
+        agents</a> and/or <a href="/treatment-other-medication-miscellaneous-steroid">steroids</a>,
+    so any treatment success may just as well be attributed
+    to these agents. In the reality of clinical practice,
+    the PENTOCLO regimen is commonly five drugs, the regimen
+    adding an <a href="/treatment/other/medication/infection/detailed">antibacterial
+        agent</a>, ciprofloxacin and a <a href="/treatment-other-medication-miscellaneous-steroid">steroid</a>,
+    usually prednisolone.</p>
+<p>It seems at least counterintuitive to use a drug cocktail
+    in which one component, clodronate, belongs to a group
+    of antiresorptive medicinal drugs, <a href="/treatment/other/medication/miscellaneous/bisphosphonates">bisphosphonates</a>,
+    known to be associated with <a href="/diagnosis/a-z/necrosis/hard/detailed">medication-related
+        osteonecrosis of the jaws (MRONJ)</a>. Schemes using
+    a combination of pentoxifylline and tocopherol have also
+    been used in the management of MRONJ, omitting
+    clodronate from the cocktail.</p>
+<p>The use of PENTOCLO medication schemes is controversial.
+    In the light of the limited information available, in
+    the UK the NICE (National Institute of Clinical
+    Excellence) recommendation is to use these medication
+    schemes only as part of a clinical trial, but not
+    otherwise. There is a clear need for more rigorous
+    investigations into this type of medical treatment
+    scheme and its potential merits for the treatment of ORN
+    and MRONJ.</p>
+<p>This should include a step back to the basics, that is
+    back to the laboratory to properly unravel the
+    pathophysiology of ORN and MRONJ, alongside laboratory
+    studies of the interaction mechanisms of the various
+    medical agents with the physiology and pathophysiologies
+    of bone. Of course, when we say ‘bone’ this is no more
+    than an umbrella term for different types of bone, and
+    of non-uniform properties of different types of bone in
+    different parts of the skeleton, even just over the
+    small area of the jaw bones, and necrosis associated
+    with different causes.</p>
+<h1 id="surgical-interventions">Surgical interventions</h1>
+<p>In the same way as osteonecrosis of the jaw (ONJ), covers
+    a wide range of severity from minor (and often
+    non-symptomatic) lesions all the way to debilitating
+    forms, there are variable degrees of invasiveness of
+    surgical interventions to deal with ONJ.</p>
+<p>There is mounting evidence that surgical intervention as
+    the first-line treatment modality, whenever possible,
+    has the best chances of success for resolving ONJ
+    lesions at all degrees of severity. There are also
+    indications that extensive surgery provides results
+    superior to those of conservative surgical or
+    non-surgical (see above) interventions. Increasing
+    evidence suggests that the better success of
+    sufficiently radical surgical interventions is likely to
+    be related to the prolonged and often failing healing of
+    these lesions under other treatment schemes. This
+    failure, in turn, has been ascribed to the presence of
+    necrotic and / or infected bone itself preventing
+    recovery of the adjacent mucosa and subsequent healing
+    of the affected site. Non-surgical treatment options can
+    provide symptom relief, but closure of mucosal lesion(s)
+    remains challenging in this way. If healing using
+    conservative methods fails, then surgical intervention
+    is the only option.</p>
+<p>Minor, superficial surgical débridement to remove
+    necrotic bone in some circumstances (Figure 1) may be an
+    appropriate minimal intervention. Its success relies on
+    the ability to achieve a ‘watertight’ seal by means of
+    antiseptic packs, mucosa or other vascularised soft
+    tissue. Without seal, complete mucosal healing is
+    unlikely.</p>
+<figure><img src="/treatment-surgery-necrosis-hard-level3-figure1.jpg">
+    <figcaption><strong>Figure 1:</strong> Before (top) and
+        after (bottom) débridement of a minor ORN lesion.
+    </figcaption>
+</figure>
+<p>More extensive forms of ONJ require more extensive
+    surgical strategies. These include removal of all
+    necrotic bone (sequestrectomy), smoothing of bone edges,
+    decortication (Figure 2). In some such cases, primary
+    wound closure may still be possible. With increasing
+    defects, it is more likely that vascularised local soft
+    tissue will be needed to provide a <a href="/treatment/surgery/cancer/facial-skin-cancer/more-info">local
+        flap</a> for an effective seal. Other possibilities
+    for wound closure are <a href="/treatment/surgery/reconstruction">regional or
+        free soft-tissue flaps</a>.</p>
+<figure><img src="/treatment-surgery-necrosis-hard-level3-figure2.jpg">
+    <figcaption><strong>Figure 2:</strong> Débridement
+        followed by coverage with local vascularised tissue.
+    </figcaption>
+</figure>
+<p>Extended ONJ lesions, most commonly affecting the
+    mandible, require extensive resections where <a href="/treatment/surgery/reconstruction">reconstruction</a>
+    of the resection defect by hard and / or soft tissue
+    microvascular free flaps is necessary, especially ORN
+    lesions (Figure 3).</p>
+<figure><img src="/treatment-surgery-necrosis-hard-level3-figure3.jpg">
+    <figcaption><strong>Figure 3:</strong> ORN lesion,
+        repaired by resection and reconstruction with a free
+        fibula flap. Top: intraoral view; bottom: view of
+        the neck, demonstrating the residual skin damage.
+    </figcaption>
+</figure>
+<p>Reconstruction of extended MRONJ lesions can be
+    predominantly guided by the repair aspects of the bony
+    defect, because MRONJ tends to affect the adjacent soft
+    tissues to a lesser degree than ORN does. Accordingly, a
+    single free flap chosen to cover hard and soft tissue
+    defects will typically be the appropriate surgical
+    strategy (Figure 4).</p>
+<figure><img src="/treatment-surgery-necrosis-hard-level3-figure4.jpg">
+    <figcaption><strong>Figure 4:</strong> MRONJ lesion of
+        the upper jaw. Top: the maxillary lesion; middle:
+        local debridement; bottom: local advancement flap to
+        close the defect. This would not work with ORN as
+        the local soft tissue would have a high risk of
+        necrosis.</figcaption>
+</figure>
+<p>Reconstruction for ORN may require a combination of two
+    different flaps. This is because the residual
+    surrounding soft tissue contains large numbers of cells
+    which have also sustained high-energy radiation damage
+    and when they attempt to heal after surgery, they
+    essentially necrose. This means that the invisible soft
+    tissue future defect must be catered for in treatment
+    planning for ORN. There is no benefit in having a
+    reconstructed lining of the mouth and jaw with a (for
+    example) free fibula flap if the skin coverage then
+    dies. This can appear overly dramatic, but a single,
+    large two-flap operation is often the only way to create
+    a safe healing environment (Figure 4, Figure 5).</p>
+<figure><img src="/treatment-surgery-necrosis-hard-level3-figure5.jpg">
+    <figcaption><strong>Figure 5:</strong> ORN lesion,
+        repaired by resection and reconstruction. Top: ORN
+        lesion caused by a single devitalised lower first
+        molar tooth in an irradiated mandible for treatment
+        of oral cancer (floor of the mouth); middle: the
+        necessary resection; bottom: a happier man after
+        reconstruction of the excised jaw with two flaps.
+    </figcaption>
+</figure>
+<figure><img src="/treatment-surgery-necrosis-hard-level3-figure6.jpg">
+    <figcaption><strong>Figure 6:</strong> Extensive ORN
+        lesion with oral mucosal, mandibular and skin
+        fistula all interconnected. Condition required two
+        free flaps to reconstruct the excised defect. Top
+        left: DPT X-ray image before surgery; top right:
+        fistulation prior to excision and replacement with
+        fresh vascularised tissue; bottom left: a
+        combination of osseocutaneous fibula and <a href="/treatment-surgery-recosntruction-preamble">anterolateral
+            thigh free flaps</a> was used to repair the
+        multi-site and multi-tissue defect; bottom right:
+        result at 6 months after surgery.</figcaption>
+</figure>
+<p>A typical combination of hard and soft tissue flaps are,
+    a <a href="/treatment/surgery/reconstruction/more-info">fibula
+        flap</a> to repair the hard tissue defect, plus a
+    variety of options of soft tissue free flaps (for
+    example, from the thigh or forearm) to address soft
+    tissue defects. The approach increases the complexity of
+    the surgery but can deliver optimal aesthetic and
+    functional results.</p>
+<p>Subsequent improvements of quality of life have been
+    reported when ORN / MRONJ are treated with free flap
+    mandibular reconstruction. Even in the presence of
+    significant peripheral vascular disease, free flap
+    reconstruction can be an option, including <a href="/treatment/restorative-dentistry/cancer-post-treatment">dental
+        rehabilitation</a>. In some situations, major
+    surgical intervention may be the best option even with
+    <a href="/treatment/timelines/palliative-care/more-info">palliative
+        intent</a>.</p>
+<p>On the other hand, some patients may be <a href="/treatment/other/medication/miscellaneous/immunosuppressants">immunosuppressed</a>
+    or suffer from carcinomatosis (widespread metastases),
+    both leading to prolonged and complicated wound healing,
+    enhanced risk of flap failure, or even relapse of
+    osteonecrosis. Also, peri-operative use of <a href="/treatment/other/medication/infection/detailed">antibacterial
+        agents</a> needs to consider carefully any possible
+    systemic impact of such medications, depending on the
+    underlying condition(s) and / or other ongoing
+    treatment(s).</p>
+<p>Obviously, there is no straightforward treatment protocol
+    for ONJ that would be suitable for all situations.
+    Decisions about the best possible treatment options are
+    a complex balancing act and need to include an
+    individual’s prognosis, lifestyle and life
+    circumstances, needs, desires – and the reality of what
+    can be achieved. Below we look a little closer into
+    these aspects.</p>
+<h1 id="choice-of-treatment-options">Choice of treatment option(s)</h1>
+<p>The group of people at risk of, or suffering from, ORN or
+    MRONJ are a heterogeneous group – as they suffer(ed)
+    from very different underlying conditions in the first
+    place. Optimal treatment choices for ORN / MRONJ thus
+    cannot be considered meaningfully as separate entities
+    from the overall condition and situation of an
+    individual. It bears a certain aspect of tragedy that
+    ORN / MRONJ usually are simply adverse effects of
+    otherwise often successful treatment of head &amp; neck
+    malignancies or osteoporosis (of different degrees of
+    severity). This is especially so because in many such
+    cases the impact of severe ONJ and its treatment far
+    exceed the impact any previous treatment for the
+    original condition(s) may have had. It has to be said,
+    though, that in the majority of cases the overall risk –
+    benefit analysis tends to be in favour of treatment for
+    osteoporosis or <a href="/diagnosis/a-z/tumour/metastases">bone
+        metastases</a> with <a href="/treatment/other/medication/miscellaneous/antiresorptive">antiresorptive
+        agents</a>. Of course, choosing to have <a href="/treatment/radiotherapy">radiotherapy</a> as a
+    sole or adjunct treatment modality for head &amp; neck
+    malignancy is also an individual decision, but is likely
+    to have fewer viable alternatives and will come with a
+    higher sense of urgency.</p>
+<p>In order to strike the right balance between over- and
+    undertreatment of ONJ, roughly two categories of
+    considerations play a role. There are ‘technical’
+    aspects (such as differences between ORN and MRONJ
+    conditions), and equally importantly there are ‘whole
+    system’ / individual considerations of life situation
+    and preferences.</p>
+<p>A short summary of clinical and pathological, ‘technical’
+    considerations with impact on treatment decisions
+    includes</p>
+<ul>
+    <li>presence of bone metastases and / or other ongoing
+        malignancy definitely qualifies risk-reduction by
+        prevention before and during malignancy treatment as
+        the best option, sometimes the only option;</li>
+    <li>clinically, pathological <a href="/diagnosis/a-z/fracture">fractures</a>,
+        skin <a href="/diagnosis/a-z/fistula">fistulae</a>
+        and <a href="/diagnosis/a-z/trismus">trismus</a> are
+        more frequent with ORN, whereas dental extractions
+        (which could be planned for before starting
+        treatment and be avoided once treatment has started)
+        are a more relevant factor in MRONJ;</li>
+    <li>osteolysis (dissolution of bone) is predominant in
+        ORN, osteosclerosis (hardening and densification of
+        bone) in MRONJ;</li>
+    <li>pathologically, MRONJ generally disrupts the bone
+        architecture and organisation; ORN leads to
+        increased fibrosis of the bone tissue;</li>
+    <li>pathologically, ORN lesions are more homogeneous in
+        their structures with more extensive necrosis and
+        affect the most dense bone structures most seriously
+        (the absorption rate of high-energy radiation is
+        higher the denser the irradiated material is);</li>
+    <li>pathologically, MRONJ lesions tend to be more patchy
+        and affect often cancellous bone structures (as
+        antiresorptive agents are incorporated into bone
+        structures all over the body, with higher deposits
+        into well vascularised bone structures; Figure 7);
+    </li>
+</ul>
+<figure><img src="/treatment-surgery-necrosis-hard-level3-figure7.jpg">
+    <figcaption><strong>Figure 7:</strong> Two typical
+        examples of MRONJ lesions of the mandible after
+        treatment with <a href="/treatment/other/medication/miscellaneous/bisphosphonates">bisphosphonates</a>.
+    </figcaption>
+</figure>
+<ul>
+    <li>the viability of blood supply tends to be more
+        severely affected in ORN than in MRONJ;</li>
+    <li>viability of blood supply may offer an explanation
+        for the relatively increased likelihood of success
+        of minor local surgical interventions in MRONJ than
+        in ORN.</li>
+</ul>
+<p>As the understanding of the <a href="/diagnosis/a-z/necrosis/hard/detailed">physiology
+        and pathophysiology of bone remodelling</a>, and of
+    the exact effects of high-energy radiation and of <a href="/treatment/other/medication/miscellaneous/antiresorptive">antiresorptive
+        agents</a> will continue to improve and grow, so
+    will the list above.</p>
+<p>Beyond technical aspects, the decision-finding process of
+    filtering out the individually best treatment option(s)
+    includes a multitude of individual aspects.</p>
+<p>Irrespective of all these other considerations, if
+    someone’s life expectancy and condition are poor, the
+    main aim of any treatment has to be best possible
+    symptom relief with the least invasive approach.</p>
+<p>Most, but by no means all, people suffering from head
+    &amp; neck malignancies and subsequently having
+    developed ORN following <a href="/treatment/radiotherapy">radiotherapy</a>,
+    tend to be elderly. Although this is still numerically
+    true at the time of writing (2019), the age changes
+    which have come with HPV-driven <a href="/diagnosis/a-z/cancer/mouth-cancer">oropharyngeal
+        squamous cell carcinoma</a> affecting younger
+    people, means this generalisation applies less now than
+    it did 5 to 10 years ago.</p>
+<p>With a good prognosis, the preferences of somebody young
+    for treatment of ORN may be rather different from those
+    of somebody at more advanced age. In addition, younger
+    people are more likely to be fit for major surgery. This
+    should not be misread as an ageist statement, far from
+    it; it is simply a matter of fact that the life
+    situation of somebody say, at the beginning of a
+    professional career is profoundly different from
+    somebody else’s who may have been retired for 20 years.
+    The distinction here really is not age as such, but the
+    accompanying individual circumstances and life
+    situations and how these may favour certain treatment
+    options over others. Some people, almost independent of
+    age and life situation, may also have reached a point of
+    distinct ‘treatment fatigue’ from their previous
+    condition(s). Individuals’ expectations about
+    functionality and aesthetic improvements vary widely; it
+    is important to keep a sense of realistic expectations.
+    Part of this expectation management is a good
+    understanding of what can be achieved, which quality of
+    life impairments are caused by ORN and which are a
+    result of, for example major previous surgery and hence
+    will remain.  </p>
+<p>The situation for those afflicted by MRONJ is basically a
+    tale of two worlds. There are those who suffer from
+    osteoporosis of variable degrees of severity, are
+    otherwise relatively fit and have no other major
+    co-morbidities, and are on long-term treatment with <a href="/treatment/other/medication/miscellaneous/bisphosphonates">bisphosphonates</a>,
+    and some unfortunate invasive dental treatment, such as
+    a tooth extraction, triggered the development of MRONJ.
+    This is likely to be a group of people with relatively
+    good prognoses and life expectancies, factors which will
+    impact individual decisions regarding willingness to
+    undergo major surgical interventions (see above). The
+    life situation is quite different if somebody suffers
+    from severe osteoporosis, is very frail and possibly has
+    other morbidities, making a decision in favour of major
+    surgery for MRONJ treatment less likely.</p>
+<p>And there are those on treatment with a range of
+    antiresorptive medications in order to manage and
+    mitigate the effects of <a href="/diagnosis/a-z/tumour/metastases">bone
+        metastases</a>. In many such circumstances major
+    surgery may not by the first choice, and alternative
+    local tissue coverage after débridement of necrotic bone
+    may be more suitable than <a href="/treatment/surgery/reconstruction">microvascular
+        free-flap reconstruction</a>, but there will be rare
+    cases where major surgery with palliative intent is the
+    best option. Life expectancy, overall fitness and
+    quality of life are likely to be the most important
+    considerations here.</p>
+<h1 id="prevention-strategies-and-adjunctive-treatments">Prevention strategies and adjunctive treatments</h1>
+<h2>Prevention strategies</h2>
+<p>As far as ORN is concerned, better appreciation of the
+    extent and seriousness of the condition by those who
+    deliver radiotherapy may be a good step in the right
+    direction. Improved appreciation would hopefully remove
+    a major obstacle to prevention by motivating improved
+    delivery protocols to minimise ORN risks at this stage.
+    The role of a specialist in <a href="/treatment/restorative-dentistry">restorative
+        dentistry</a> as part of the multidisciplinary
+    treatment team has been well established in most
+    developed countries. The crux of the problem at the
+    prevention stage is predicting the longevity of a
+    dentition in any individual who may undergo
+    radiotherapy. It is vital to avoid a sense of nihilism
+    (remove all suspect teeth prior to radiotherapy – this
+    may decrease the local incidence of ORN but is hardly in
+    keeping with improving quality of life). Equally the
+    ‘take a chance on healing’ approach inducted into most
+    modern dentists is completely inappropriate in this
+    instance. It really does require a specialist with
+    experience in this area.</p>
+<p>For all types of ONJ, ORN as well as MRONJ, awareness of
+    risks and prevention strategies by dentists and patients
+    is of prime importance. This includes knowledge of signs
+    &amp; symptoms so that at least any emerging problems
+    can be addressed promptly / early. The ‘prevention by
+    knowledge’ strategy extends to those clinicians who
+    prescribe <a href="/treatment/other/medication/miscellaneous/antiresorptive">antiresorptive
+        medications</a>, they need to fully explain the
+    long-term risks associated with these medications.</p>
+<p>‘Drug holidays’ have been proposed for <a href="/treatment/other/medication/miscellaneous/bisphosphonates">bisphosphonate</a>
+    and <a href="/treatment/other/medication/miscellaneous/denusomab">denusomab</a>
+    antiresorptives when invasive dental treatment is
+    planned in order to minimise MRONJ risks. This may be a
+    useful option for <a href="/treatment/other/medication/miscellaneous/denusomab">denusomab</a>,
+    which is usually eliminated from the body approximately
+    6 months after cessation of treatment. In the light of
+    the very long persistence of bisphosphonates in bone (up
+    to 15 years), common sense suggests that a short
+    interruption of taking these drugs does not make sense.
+    There is no hard evidence about the potential benefits
+    of ‘drug holidays’ for bisphosphonates. It also needs to
+    be kept in mind that a balanced decision has to be made
+    about the overall risks and benefits of interrupting
+    this kind of long-term medication.</p>
+<p>Self-help is a powerful ally in the life-long prevention
+    of developing ONJ. It goes without saying, meticulous
+    daily <a href="/help/oral-hygiene">oral hygiene</a> is a
+    crucial prevention approach (also with respect to <a href="/diagnosis/a-z/xerostomia">xerostomia (dry
+        mouth)</a> problems following radiotherapy applied
+    to the head &amp; neck region, and keeping in mind the
+    potential role of <a href="/treatment/restorative-dentistry/periodontal/detailed">periodontal
+        disease</a> as one of the contributing factors in
+    the development of ONJ). Regular visits to the dentist
+    and the help of a dental hygienist are included,
+    accepting a little help to help oneself.</p>
+<p>Avoiding any potential irritants that may trigger ONJ by
+    hurting the oral mucosa is a lifelong task for those at
+    risk of ORN, and at least a long-term consideration for
+    those at risk of MRONJ. Such irritants range from
+    toothbrushes with sharp bristles (use ultrasoft
+    toothbrushes instead), to hard foods (classical examples
+    being crisps or crispbread; if in doubt – do not eat
+    it), to ever so slightly <a href="/treatment/restorative-dentistry/cancer-pretreatment">ill-fitting
+        dentures</a>. The lifelong risk of injury to the
+    oral mucosa is particularly high after radiotherapy,
+    which leaves the mucosa permanently vulnerable.</p>
+<p>Any of the mentioned self-care actions are well worth the
+    effort if they can help to avoid ONJ, or at least slow
+    down the progression of the condition.</p>
+<h2>Adjunct treatments</h2>
+<p><a href="/treatment/other/hyperbaric-oxygen"><strong>Hyperbaric
+            oxygen (HBO)</strong></a> <strong>treatment
+        schemes</strong> have long been advocated by some as
+    an adjunct option for the treatment for ORN, or as a
+    preventative measure to avoid the development of ORN
+    after invasive dental treatments, following radiotherapy
+    to the head and neck region. There has never been
+    convincing evidence for the efficacy of the approach and
+    finally, the <a href="/treatment/other/further-reading">HOPON
+        trial</a> has demonstrated that the approach is
+    useless. Fortunately, the trial also showed that (as one
+    might have reasons to fear, given the <a href="/treatment/radiotherapy/principles/detailed">cell-toxicity
+        of free radicals</a>) that at least HBO does not
+    trigger or drive recurrence of malignancy.</p>
+<p>In some sense, also the PENTOCLO medication scheme (see
+    above) may be seen, and has been used, as an adjunct
+    treatment option. There are no randomised prospective
+    clinical trials, NICE has recommended its use only as
+    part of clinical trials and frankly, the rationale for
+    use has serious limitations. The desperation of both
+    patients and clinicians in wishing to avoid or treat
+    both forms of jaw necrosis perhaps explains some of the
+    wishful thinking that seems to drive these approaches.
+</p>
+<aside>
+    <p>Read about <a href="/treatment/timelines/necrosis/hard-tissue">timelines
+            of treatment and outcomes for hard tissue
+            necrosis</a>.</p>
+</aside>

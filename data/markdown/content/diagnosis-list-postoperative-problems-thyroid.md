@@ -1,0 +1,35 @@
+---
+id: diagnosis-list-postoperative-problems-thyroid
+uri: diagnosis/a-z/postoperative-problems/thyroid
+title: Thyroid
+type: page
+authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+updated_at: 2018-03-27T08:25:30Z
+created_at: 2016-12-06T12:37:54Z
+---
+
+<p>Postoperative problems affecting the thyroid (gland in the neck)
+    include</p>
+<ul>
+    <li>Residual function of the gland being too high or too low.</li>
+    <li>Scar. Usually very aesthetic, lying in a skin crease across
+        the neck. Special staples are often used in case they
+        need to be removed quickly.</li>
+    <li>Bleeding. The thyroid gland is very vascular and bleeding
+        after the operation can compress the underlying windpipe.
+        This is why easy to remove staples are popular.</li>
+    <li>Accidental damage or removal of the underlying parathyroid
+        glands (four tiny glands located near the thyroid gland;
+        parathyroid glands produce a hormone (PTH) which controls
+        Ca<sup>2+</sup> and phosphate levels in blood; important
+        for functioning of nerves, muscles and bones), leading
+        to disturbances in calcium ion and phosphate levels in
+        the blood.</li>
+    <li>Damage to the recurrent laryngeal nerve, leaving a hoarse
+        voice.</li>
+    <li>Minor difficulties in swallowing.</li>
+</ul>
+<aside>
+    <p>Read about possible remedies for these problems in our section
+        about <a href="/treatment/surgery/postoperative-problems">treatment of postoperative problems</a>.</p>
+</aside>

@@ -1,0 +1,53 @@
+---
+id: treatment-radiotherapy-application-level1
+uri: treatment/radiotherapy/application
+title: Clinical application
+type: level1
+surtitle: Radiotherapy
+authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+updated_at: 2017-08-23T12:05:50Z
+created_at: 2016-08-03T09:05:38Z
+---
+
+<p>The use of ionizing (high energy) radiation for therapeutic use
+    in oncology dates from the end of the 19th century after
+    the discovery of radium by Marie and Pierre Curie. It is
+    an effective and important treatment modality in head and
+    neck cancer.</p>
+<p>It works on the principle of rapidly dividing cells (e.g. cancer
+    cells) being selectively destroyed by exposure to high-energy
+    irradiation. Cells exposed to ionizing radiation form free
+    radicals intracellularly because the energy of the irradiation
+    is high enough to break up molecules in the cell. This causes
+    denaturation of large molecules including DNA and other vital
+    molecular components of living cells. Although most of the
+    changes are not apparent immediately, any attempt at division
+    (to form new cells or repair cell injury) will result in
+    mitotic cell death because the cell’s molecular machinery
+    is no longer functioning properly. Rapidly dividing cells
+    are most vulnerable, in particular most cancer cells and
+    normal fast proliferating tissues such as mucosa and skin.</p>
+<p>The <a href="/treatment/radiotherapy/application/more-info">unwanted effects of radiotherapy</a>    can be divided into acute reactions and delayed effects with
+    long-term late damage. Such effects are dose dependent. The
+    efficacy of irradiation on tumour cells depends on their
+    radiosensitivity (e.g. sarcoma is less sensitive than carcinoma),
+    the oxygenation level of the tissue (higher levels of oxygen
+    help to create free radicals in the cells) and the tumour
+    volume (small volume tumours will be better controlled than
+    large tumours)</p>
+<p>There are <a href="/treatment/radiotherapy/application/more-info">three ways radiotherapy can be administered</a>    – teletherapy (external beam), brachytherapy (radiation source
+    placed within or close to tumour) and radioactive isotopes
+    injected systemically and taken up by cancer cells (e.g.
+    used in thyroid cancer where radioactive iodine isotopes
+    selectively accumulate in the thyroid gland). In oral cancer,
+    only the first two delivery methods are used. In more recent
+    attempts to minimise unwanted radiotherapy effects, sophisticated
+    protocols are being developed to deliver external beam radiation
+    more selectively to the target area (<a href="/treatment/radiotherapy/application/more-info">IMRT</a>).</p>
+<p>In order to ensure that over a course of irradiation sessions
+    the radiation is consistently and precisely delivered in
+    a highly controlled manner this involves a planning CT scan
+    and the creation of a close fitting transparent mask which
+    is fitted to both your face and the table you lie on ensuring
+    there is no inadvertent movement during the brief period
+    the radiotherapy is being delivered.</p>

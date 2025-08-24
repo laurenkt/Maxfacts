@@ -1,0 +1,64 @@
+---
+id: treatment-surgery-mouth-cancer-level1
+uri: treatment/surgery/cancer/mouth-cancer
+title: Mouth cancer
+type: level1
+authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+updated_at: 2017-11-24T14:05:02Z
+created_at: 2016-12-14T14:46:33Z
+---
+
+<p>Standard curative treatment modalities for mouth cancer, oral
+    squamous cell carcinoma, are:</p>
+<ul>
+    <li>Surgery</li>
+    <li><a href="/treatment/radiotherapy">Radiotherapy</a></li>
+    <li>Combined modalities</li>
+</ul>
+<p><a href="/treatment/chemotherapy">Chemotherapy</a> is generally
+    accepted to not be curative for oral squamous cell carcinoma.
+    It is mainly used as a palliative tool or in combination
+    with radiotherapy to enhance its effectiveness (known as
+    chemoradiotherapy). It can sometimes be used as a test of
+    tumour responsiveness: if the tumour regresses after a cycle
+    or two of chemotherapy radical radiotherapy is added (induction
+    chemotherapy).</p>
+<p>Surgical tools are principally cutting implements, scalpel, cutting
+    diathermy, laser or coblater. These are simply different
+    ways of cutting tissue, they are not an anticancer tool although
+    some surprising properties have been ascribed to <a href="/treatment/surgery/further-reading">lasers of different types</a>.
+    Some surgical procedures for the treatment of mouth cancer
+    may require the temporary surgical opening of the windpipe
+    (trachea) for direct access, a tracheostomy; this may be
+    necessary <a href="/treatment/surgery/anaesthesia/getting-started">during the surgical procedure</a>    (for simple reasons of space and accessibility) and/or afterwards
+    to protect the airway where major <a href="/treatment/surgery/cancer/mouth-cancer/detailed">post-operative swelling</a>    is anticipated.</p>
+<p>It is important to respect the key principle of adequate excision
+    margins whichever tool is used. For oral cancer this macroscopic
+    margin is 1-1.5 cm. The aim of surgery is to have a histopathological
+    clearance of 5mm. This would appear straightforward if such
+    a large macroscopic clearance is being taken but mucosal
+    shrinkage often narrows these margins. There is some evidence
+    to suggest that a clear margin of 2 mm after shrinkage produces
+    the same statistically significant survival as a 5mm margin.
+    A positive margin equates to a poor prognosis.</p>
+<p><a href="/treatment/radiotherapy">Radiotherapy</a> uses high-energy
+    radiation in order to destroy malignant growth tissue. The
+    mainstay of treatment and that of proven effectiveness for
+    most head and neck cancers is irradiation with high-energy
+    photons, if possible by using selectively targeted imaging
+    modulated radiation treatment (IMRT) schemes with the intent
+    to spare healthy tissue as much as possible. The dose required
+    to cure head and neck cancer is sometimes augmented by chemotherapy.
+    This dose is extremely close to the point where necrosis
+    of tissue occurs and both <a href="/diagnosis/a-z/necrosis">soft and hard tissue necrosis</a>    is a complication of radiation treatment in the head and
+    neck region.</p>
+<p><a href="/treatment/other">Non-standard treatments</a> are treatments
+    which have been demonstrated to be effective anti-cancer
+    strategies but are not universally available or applicable.
+    They should not be confused with ‘alternative therapy’ which
+    are treatments which may or may not be useful adjuncts to
+    overall patient management but have no anti-cancer effect
+    (such as aromatherapy, homeopathy).</p>
+<aside>
+    <p>Read about <a href="/treatment/timelines/cancer/mouth-cancer">timelines of treatment and outcomes for mouth cancer</a>.</p>
+</aside>

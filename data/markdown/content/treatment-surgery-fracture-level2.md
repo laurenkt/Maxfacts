@@ -1,0 +1,474 @@
+---
+id: treatment-surgery-fracture-level2
+uri: treatment/surgery/fracture/more-info
+title: Broken bone
+type: level2
+description: Fracture
+authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+updated_at: 2017-08-23T12:06:34Z
+created_at: 2017-04-13T14:46:07Z
+---
+
+<p>Fractures are caused by accidents and trauma in general. Trauma
+    is a leading cause of death and disability particularly in
+    the young. One of the real advances in health care over the
+    last 25 years has been the standardised approach to severe
+    trauma, originally modelled on the American College of Surgeons
+    Advanced Trauma Life Support (ATLS) principles. While there
+    are some variations worldwide, this system allows everyone
+    who has been trained in it to ‘speak the same language’ in
+    establishing priorities in both identifying and simultaneously
+    treating acute life threating injuries.</p>
+<p>For that reason this section first concentrates on that general
+    trauma-care system. Later on we describe some of the specialist
+    techniques in maxillofacial trauma that are either adjuncts
+    to ATLS or relevant to maxillofacial trauma in the acute
+    setting (much of it can be handled semi-urgently).</p>
+<aside>
+    <p>If you’d like to know more about specific fracture repair,
+        this information is on our detailed pages about the
+        <a href="/treatment/surgery/fracture/detailed">treatment of fractures</a>.</p>
+</aside>
+<h1 id="principles-of-trauma-care-advanced-trauma-life-support-atls">Principles of trauma care (Advanced Trauma Life Support, ATLS)</h1>
+<p>Modern trauma resuscitation is based on the Advanced Trauma Life
+    Support course for doctors (<a href="/treatment/surgery/further-reading">ATLS</a>),
+    devised and updated by the American College of Surgeons Committee
+    on Trauma. This system has established an accepted international
+    reputation as the gold standard for trauma resuscitation.</p>
+<p>It follows a logical sequence of care which is designed to maximise
+    the efficiency of assessment of the trauma victim, as well
+    as provide priority ranking of potential, life threatening
+    problems and simultaneous resuscitative interventions. The
+    sequence of ATLS is as follows:</p>
+<h1 id="preparation">Preparation</h1>
+<p>This is divided into a <i>pre-hospital phase</i> essentially
+    limited to first aid in the field of injury. A matching system
+    for paramedics and field physicians exists (Pre-Hospital
+    Trauma Life Support; PHTLS). Triage, which is a sorting of
+    patients based on the urgency of need of treatment and the
+    available resources to provide that treatment, may be carried
+    out both pre-hospital or in hospital. This is based on the
+    principle that the most severely injured patient requires
+    the more urgent treatment, and the less injured patient can
+    receive treatment after a slight delay using the ABC’s described
+    below.</p>
+<p>The second phase of preparation is the <i>in-hospital phase</i>    in which the patient has been brought to the hospital where
+    he/she can be managed according to the extent of injury.</p>
+<h2>Primary survey</h2>
+<p>This is the rapid but thorough assessment of patient treatment
+    priorities based on their injuries, their vital signs and
+    the injury mechanism. It follows the ABC's of trauma
+    care and identifies life-threatening conditions by adhering
+    to the sequence:</p>
+<p><strong>A         -          </strong> Airway maintenance with
+    cervical spine protection.</p>
+<p><strong>B</strong>         -           Breathing and ventilation
+    with maximum flow oxygen.</p>
+<p><strong>C        </strong> -           Circulation with haemorrhage
+    control.</p>
+<p><strong>D        </strong> -           Disability; neurological
+    status assessment.</p>
+<p><strong>E        </strong> -           Exposure/environment control,
+    completely undressed patient but hypothermia prevented.</p>
+<p><strong>A</strong> – Airway maintenance with cervical spine protection</p>
+<p>After ensuring personal safety, the airway is assessed by looking,
+    listening and feeling for air movement. Grunting, snoring
+    or absence of breath indicates an obstructed airway. Talking,
+    swearing or screaming, conversely indicates a patent airway.
+    This rapid assessment should include inspection for foreign
+    bodies and facial, mandibular or tracheal/laryngeal fractures
+    that may result in airway obstruction.</p>
+<p>Measures to establish a patent airway, if needed, should be instituted
+    while protecting the cervical spine (loss of airway kills
+    fastest but creating a quadriplegic in the process does not
+    help the patient). Initially manually clearing the airway
+    and the chin lift or jaw thrust manoeuvre (see below) is
+    recommended, and may be reinforced in the unconscious patient
+    with an oral airway or, in the rousable patient, a nasopharyngeal
+    airway. These airway adjuncts do not secure the airway (that
+    requires a secured, cuffed tube in the trachea) but may be
+    adequate until a secure airway can be safely achieved by
+    nasal, oral or surgical intubation. A reduced level of consciousness
+    or blunt injury above the clavicle (collar bone), in a polytrauma
+    patient (a patient with multiple injuries) carries a 10%
+    risk of cervical spine injury. Immobilisation in the neutral
+    position minimises the risk of further morbidity.</p>
+<p><strong>B</strong> – Breathing and ventilation</p>
+<p>Airway patency alone does not ensure adequate ventilation: adequate
+    gas exchange is required to maximise blood oxygenation and
+    carbon dioxide elimination.  Ventilation requires adequate
+    function of the lungs, chest wall and diaphragm.  Each component
+    must be examined and evaluated rapidly.  If the patient is
+    not breathing adequately, immediately remediable problems
+    e.g. tension pneumothorax (collapsed lung), displaced tube
+    or cardiac tamponade are addressed. If there is no effort
+    or adequate effort at self-ventilation then manual or mechanical
+    ventilation must be started. High flow oxygen needs to be
+    given in any case (with reservoir bag if by facemask).</p>
+<p><strong>C</strong> – Circulation with haemorrhage control</p>
+<p>Obvious external bleeding is stopped by direct pressure. Two
+    wide-bore intravenous cannulae are established, to take blood
+    and give a fluid challenge (2 litres of warmed Hartmann’s
+    solution (solution of sodium, potassium and calcium chloride,
+    plus sodium lactate). Ringer’s solution (sodium lactate solution)
+    and normal saline (sodium chloride solution) are more commonly
+    quoted than Hartmann’s in the US).</p>
+<p>Pulse, respiratory rate and blood pressure are monitored. All
+    trauma shock is initially managed as haemorrhagic shock until
+    proven otherwise. Possible bleeding in the chest, abdomen
+    and pelvis are explored. In the case of maxillofacial trauma,
+    <a href="/diagnosis/a-z/fracture/detailed">fractures of the midface (Le Fort I, II and III)</a>    can lead to torrential haemorrhage and, rarely, immediate
+    specialist maxillofacial resuscitation is needed (see below).</p>
+<p>Despite the evidence, particularly from recent warfare experiences
+    and in common use in UK emergency departments, giving tranexamic
+    acid (medication to stop or prevent bleeding) as an infusion
+    has not yet translated into ATLS protocols.</p>
+<p><strong>D</strong> – Disability and neurological evaluation</p>
+<p>A rapid neurological evaluation is performed to assess the patient's
+    level of consciousness, pupillary size and reaction. The
+    <a href="/treatment/surgery/further-reading">Glasgow Coma Score</a>     is the international gold standard.</p>
+<p><strong>E</strong> -   Exposure/environment control</p>
+<p>Special effort must be made to avoid the patient developing hypothermia
+    during the early stages of trauma care. Exposure (removing
+    clothing to ensure no other injury is missed) is carried
+    out in a warmed environment.</p>
+<h2>Secondary survey</h2>
+<p>This does not begin until the primary survey (ABCDE) is completed,
+    resuscitation has been successful, and the patient is demonstrating
+    normalisation of vital functions.  It is essentially a head
+    to toe evaluation which looks at head injury, cervical spine
+    and neck injury, chest injury, abdominal injury, perineum
+    and rectal/vaginal injury, musculoskeletal injury, peripheral
+    neurological injury and also maxillofacial injury. Assessment
+    of maxillofacial trauma is part of the secondary survey when
+    it is not compromising the airway or leading to significant
+    haemorrhage. If the maxillofacial trauma is compromising
+    the patient’s airway or causing significant haemorrhage,
+    then this is noted in the primary survey and acted upon.
+    Many lives have been saved by health care workers who have
+    stuck rigidly to this tried and tested methodology.</p>
+<h1 id="specialist-maxillofacial-resuscitative-techniques">Specialist maxillofacial resuscitative techniques</h1>
+<p>This is initially based on airway preservation and adequate ventilation
+    in order to maintain oxygenation and prevent hypoxia (decreased
+    partial pressure of oxygen) and hypercarbia (increased partial
+    pressure of carbon dioxide). These factors are critical in
+    managing the trauma patient, especially if a head injury
+    has been sustained.  Maxillofacial trauma demands aggressive
+    airway management.  High impact trauma to the mid face produces
+    fractures with displacement and oedema which will obstruct
+    the nasopharynx, oropharynx and hypopharynx.  Facial fractures
+    may be associated with haemorrhage, increased secretions
+    and dislodged teeth causing additional problems in maintaining
+    a patent airway.  Fractures of the mandible, especially bilateral
+    body fractures may cause loss of normal tongue support, leading
+    to the tongue falling backwards and blocking the airway.
+    Airway obstruction can also result as post-traumatic oedema
+    develops rapidly. The problem can be exacerbated if the patient
+    is in a supine position (lying on the back; the position
+    favoured in ATLS resuscitation) because secretions, blood
+    and the abnormally heavy tongue can fall to the back of the
+    mouth.</p>
+<p>A patient’s refusal to lie down may be demonstrating difficulty
+    in maintaining their airway or handling secretions. This
+    should not be presumed to be uncooperative in the first instance.
+    This creates a dichotomy between allowing the patient to
+    maintain their own airway in an upright position and securing
+    the airway in the supine position. Common sense, in conjunction
+    with clinical judgement and proceeding are the solution.</p>
+<h2>Airway maintenance techniques</h2>
+<p>Even in non-trauma patients with decreased consciousness the
+    tongue may fall backwards and obstruct the hypopharynx. This
+    form of obstruction can be corrected by a <i>chin lift</i>    or <i>jaw thrust</i> manoeuvre.  The airway can then be maintained
+    with an oropharyngeal or nasopharyngeal airway. These manoeuvres
+    must always be done with in-line immobilisation of the cervical
+    spine if the cervical spine has not yet been cleared of any
+    injury by clinical and radiological methods and an appropriately
+    trained individual.</p>
+<p><strong>Chin lift</strong>: the fingers of one hand are placed
+    under the mandible which is gently lifted upward to bring
+    the chin forward, while the thumb of the same hand lightly
+    depresses the lower lip to open the mouth. The thumb may
+    be placed behind the lower incisors to help pull the chin
+    forward.  The chin lift manoeuvre should not hyperextend
+    the neck. This manoeuvre is useful for the trauma victim
+    because it does not risk compromising a possible cervical
+    spine fracture or converting a fracture without cord injury
+    into one with cord injury.</p>
+<p><strong>Jaw thrust manoeuvre</strong>: this is performed by grasping
+    the angle of the mandible, one hand on each side and displacing
+    the mandible forward.  When this method is used with the
+    facemask or an anaesthetic bag valve device, a good seal
+    and adequate ventilation can be achieved.</p>
+<p><strong>Oropharyngeal airway</strong>: an oral airway is inserted
+    into the mouth behind the tongue.  The preferred technique
+    is to insert the tube upside down and then rotate it over
+    the back of the tongue. The device lifts the tongue forward
+    off the hypopharynx and allows air to pass through the lumen
+    of the oropharyngeal airway.</p>
+<p><strong>Nasopharyngeal airway</strong>: this is inserted into
+    one nostril and passed into the posterior nasopharynx. Beware
+    obstruction of this (or any) tube (see Figure 1). This airway
+    is better tolerated in the conscious patient.</p>
+<figure><img src="/treatment/surgery/fracture/more-info/figure1.jpg">
+    <figcaption><strong>Figure 1:</strong> Beware the unexpected: nasopharyngeal
+        airways and endotracheal tubes can become occluded.</figcaption>
+</figure>
+<p><strong>Needle cricothyroidotomy</strong>: there are common misconceptions
+    about this technique. It does NOT secure the airway. It does
+    maintain some form of airway which can allow insufflation
+    of the lungs and preserve life for about 30 mins, until a
+    secure airway (below) is achieved. It is performed by inserting
+    a wide bore intravenous cannula (12 or 14 gauge) through
+    the cricothyroid membrane (above cricoid cartilage and below
+    thyroid cartilage). Aspiration confirms if it is in the trachea.
+    It is next connected to oxygen at 12-15 L/min via a Y connector
+    or by cutting a hole in the tubing. Occluding the hole for
+    1 sec allows to “inflate” the lung, then turning the oxygen
+    off for 4 sec allows the lung to deflate.</p>
+<p>These are all merely temporary airway maintenance techniques
+    and do not represent a definitive airway. A secure airway
+    has not been obtained until an endo-tracheal tube has been
+    placed with the cuff inflated and the tube secured. The tube
+    is connected to some form of high flow oxygen (12-15 L/min).
+    If a patient has difficulty in breathing either mechanical
+    obstructions (pneumothorax, tamponade) need to be removed
+    or assisted ventilation (Ambu bag, ventilator) provided.</p>
+<h2>Definitive airways</h2>
+<p>These are of three varieties:  orotracheal tube, nasotracheal
+    tube, and surgical airway (cricothyroidotomy or tracheostomy;
+    see Figure 2).</p>
+<figure><img src="/treatment/surgery/fracture/more-info/figure2.jpg">
+    <figcaption><strong>Figure 2:</strong> A secured, definitive surgical
+        airway – a cuffed tube in the trachea.</figcaption>
+</figure>
+<p>A definitive airway is required if the patient is going to undergo
+    surgical correction of facial fractures and have treatment
+    of other associated injuries. It is also indicated if the
+    patient is destined to spend a long time recovering from
+    head injury, or requires a prolonged period of artificial
+    ventilation in an intensive care unit. Orotracheal and nasotracheal
+    intubation are specialised techniques, best performed by
+    those trained and experienced in them. Hypoxia can result
+    while inexperienced personnel attempt to place these tubes.</p>
+<p><strong>Cricothyroidotomy</strong>: this is an emergency procedure
+    and can be done in the field, accident and emergency setting,
+    or ward setting as long as the surgeon has the ability to
+    perform the procedure. This involves making a cut through
+    the skin and the cricothyroid membrane and introducing a
+    cuffed tracheostomy tube (size 6) into the trachea to allow
+    oxygen delivery.</p>
+<p><strong>Tracheostomy</strong>: this is not an ‘emergency’ surgical
+    airway and should not be done in the acute trauma airway
+    emergency setting. It requires controlled operating theatre
+    equipment and lighting to ensure a successful procedure.
+    It takes longer and involves displacement or incision of
+    more structures. Tracheostomy involves incising the skin,
+    dissecting fat to expose the strap muscles and separating
+    them. The thyroid gland is identified and either displaced
+    or the isthmus (part of the thyroid gland) ligated and divided.
+    A hole in the trachea in the region of the second to fourth
+    cartilaginous rings is created either as a slit (in children)
+    or by cutting out a circle of trachea or creating an inferiorly
+    based flap (Bjork flap) and passing a tube into the tracheal
+    lumen.</p>
+<p>End tracheostomy is the stoma created when a laryngectomy is
+    performed and is quite different from these temporary airway
+    operations.</p>
+<h1 id="specific-maxillofacial-emergencies">Specific maxillofacial emergencies</h1>
+<h2>Laryngeal injuries</h2>
+<p>The larynx is a semi-rigid structure made up of the hyoid and
+    several cartilages interconnected by fibrous tissue.  This
+    framework is lined by mucosa, which can become grossly swollen
+    following injury. In young patients, the larynx is elastic
+    and tends to flex and spring back to its normal position
+    rather than fracture following traumas. The epiglottis may
+    become avulsed. In older patients the cartilages become calcified
+    and fractures are more likely. Rarely the trachea can be
+    avulsed.  This is usually fatal at the time of injury.</p>
+<p>Flow varies according to Poiseuille’s law (flow is proportional
+    to the radius of tube to the power of 4), which means that
+    only small changes in the radius are necessary to significantly
+    affect the flow of air through it. This is seen particularly
+    after thermal inhalation where oedema of the whole upper
+    respiratory tract results in rapid reductions in airflow.
+    Early intubation is often necessary.</p>
+<p>Causes of obstruction include:</p>
+<p>Blunt injuries</p>
+<ul>
+    <li>Road traffic accidents.</li>
+    <li>Sports (e.g. contact sports, martial arts)</li>
+    <li>Assaults</li>
+</ul>
+<p>Penetrating injuries</p>
+<ul>
+    <li>Knife wounds</li>
+    <li>Firearms</li>
+    <li>Shrapnel (including human body parts common with improvised
+        explosive dvices or suicide bombs)</li>
+</ul>
+<p>Thermal injuries</p>
+<ul>
+    <li>Inhalation of smoke, hot air or steam</li>
+    <li>Blast injury</li>
+</ul>
+<p>Clinical features include:</p>
+<ul>
+    <li>Dyspnoea</li>
+    <li>Stridor (high-pitched breathing sound)</li>
+    <li>Pain</li>
+    <li>Localised tenderness</li>
+    <li>Hoarse voice</li>
+    <li>Dysphagia</li>
+    <li>Surgical emphysema</li>
+    <li>Displacement of the larynx</li>
+</ul>
+<p>Management</p>
+<p>Rapid identification is essential as patients can quickly deteriorate
+    if the airway is not secured. This is particularly the case
+    in burns victims.  With minor injuries, humidified air and
+    steroids may be all that is required.  However, these patients
+    must be kept under close observation and frequently reassessed.
+    Major disruption needs the airway securing.  This can be
+    done either by intubation, cricothyroidotomy or tracheostomy.
+    Surgical repair may be required in:</p>
+<ul>
+    <li>Tracheal injuries.</li>
+    <li>Laryngeal displacement or disruption.</li>
+    <li>Excessive swelling of the laryngeal soft tissues.</li>
+    <li>Most cases of surgical emphysema.</li>
+</ul>
+<h2>Vision threatening injuries</h2>
+<p>Eye injuries are commonly associated with damage to the upper
+    midface; in some studies up to 90% of patients had some form
+    of ocular injury.  However, in the vast majority of cases
+    these are relatively minor and require no treatment.  The
+    term vision threatening injuries refers to those injuries
+    which, if untreated, rapidly result in loss of sight. These
+    are relatively rare but are reported in up to 10% of patients
+    who have had “significant” facial injuries (panfacial injuries,
+    high velocity injuries, gunshot wounds).</p>
+<p>The three common vision threatening injuries are:</p>
+<ul>
+    <li>Retrobulbar haemorrhage (now considered part of orbital compartment
+        syndrome).</li>
+    <li>Penetrating ocular injuries.</li>
+    <li>Optic nerve compression.</li>
+</ul>
+<p>Diagnosis is usually straight forward but these can be missed
+    in the unconscious or uncooperative patient.  The eye must
+    be inspected but care must be taken not to press on the globe
+    in case there is a penetrating injury.  Visual-evoked potential
+    is an experimental method of evaluating the visual pathways
+    which has shown much promise. However, it does not identify
+    any specific causes.</p>
+<p><strong>Retrobulbar haemorrhage (orbital compartment syndrome caused by bleeding)</strong>:
+    Bleeding and gross swelling behind the eye may occur following
+    trauma (or surgery) to the orbit, which is effectively a
+    rigid, closed “box”, with the globe forming one of its “walls”.
+    Any swelling will therefore result in raised pressure behind
+    the eye, resulting in compression and spasm of the ciliary
+    vessels.  In addition, the eye itself becomes pushed forward
+    (proptosed). This combination results in compressive effects
+    on the vasa nervorum of the optic nerve, creating direct
+    neurological damage which can quickly become irreversible.
+    Retrobulbar haemorrhage is rare, with a reported incidence
+    of around 0.3%.  It commonly occurs within a few hours of
+    the injury, although cases presenting up to five days following
+    injury have been reported.</p>
+<p>Signs may include:</p>
+<ul>
+    <li>Proptosis</li>
+    <li>Opthalmoplegia</li>
+    <li>Chemosis and pain</li>
+    <li>Relative afferent papillary defect (RAPD; this can indicate
+        either optic nerve or severe retinal disease)</li>
+    <li>Papilloedema</li>
+    <li>Raised intraocular pressure</li>
+    <li>Lack of central retinal artery pulsation</li>
+    <li>Pale optic disc (late sign)</li>
+    <li>Cherry red macula.</li>
+</ul>
+<p>Blindness is believed to occur due to spasm of the optic and
+    retinal blood supply secondary to a high tamponade pressure,
+    the difference between this condition and the “benign” retrobulbar
+    bleeding seen in 2% of cataract extractions is thought to
+    be due to location and tamponade pressure.</p>
+<p>Retrobulbar haemorrhage requires immediate surgical decompression
+    if vision is to be restored. This simply involves removal
+    of all sutures in the area in operated patients.  In trauma
+    patients who have not yet been operated on, an incision around
+    the eyelid is made to allow access to the lateral canthal
+    ligament (an area of denser fascia). This is incised and
+    released to allow blunt dissection, passing behind the periorbita
+    to enable decompression of the haematoma.</p>
+<p>When unavoidable delays in surgery are present, short term measures
+    include:</p>
+<ul>
+    <li>Dexamethasone, 8mg intravenously</li>
+    <li>Acetazolamide (carbonic anhydrase inhibitor, reduces production
+        of aqueous humour) 500 mg intravenously and then 1000mg
+        orally over 24 hours</li>
+    <li>Mannitol 100 ml 20% infusion (doses for standard 70kg adult
+        without medical contraindications)</li>
+    <li>Lateral canthotomy and cantholysis – this involves division
+        of one of the supporting ligaments attaching the eyelids
+        to the orbital rim. It can be carried out under local
+        anaesthesia. This provides a little “breathing space”
+        by allowing the eye to pop forward and reduce the pressure
+        in the orbit.</li>
+</ul>
+<p><strong>Optic nerve compression</strong>: displaced fractures
+    which involve the orbital apex (panfacial, skull fractures)
+    can sometimes press on the optic nerve.  Often those structures
+    passing through the superior orbital fissure are also traumatised,
+    resulting in the orbital apex syndrome. The management for
+    this is controversial and involves either surgical decompression
+    or high dose steroids. In cases where there is direct impingement
+    of the optic nerve by bone or other penetrating fragments,
+    removal of these rarely results in an improvement in visual
+    acuity. In cases where there is no identifiable hard tissue,
+    surgery can be positively harmful and medical reduction of
+    swelling is more appropriate.</p>
+<h2>Penetrating Neck Injuries</h2>
+<p>These are often very dramatic in appearance, but in many cases
+    may miss vital structures.  Penetrating injuries deep to
+    the platysma muscle (a superficial muscle in the front of
+    the neck) should not be explored under local anaesthesia
+    in an emergency room setting.</p>
+<p>When assessing patients with neck wounds, the following structures
+    need to be considered, depending on the point of entry and
+    direction.:</p>
+<ul>
+    <li>Major vessels (carotid artery, internal jugular vein)</li>
+    <li>Lung apex</li>
+    <li>Upper airway</li>
+    <li>Oesophagus</li>
+    <li>Vagus nerve</li>
+    <li>Phrenic nerve</li>
+    <li>Thyroid gland</li>
+</ul>
+<p>All penetrating foreign bodies should be left <i>in situ</i>    until the patient is anaesthetised and has secure intravenous
+    access.  Surgical removal can be then undertaken in an operating
+    theatre. Generally this is by directly reversing the path
+    of insertion but with wide visualisation and access to surrounding
+    vital structures.</p>
+<h2>Specialist maxillofacial techniques for arresting haemorrhage</h2>
+<p>There are a small number of cases when exsanguinating haemorrhage
+    from facial fractures requires direct intervention in the
+    primary survey. It is usually due to bleeding from the nose
+    or maxillary fractures.</p>
+<p>Nasal bleeding can be dealt with by bilateral anterior and posterior
+    nasal packing, using specially designed inflatable catheters
+    (Brighton balloons, Epitek catheters, Rapid Rhino) or urinary
+    catheters in the postnasal space with a conventional anterior
+    nasal packing.</p>
+<p>Bleeding from the maxilla can be arrested by manual reduction
+    and immobilisation with a conventional dental rubber mouth
+    prop.</p>
+<p>Temporary splinting of open fractures can be achieved with the
+    ‘bridle wire’, which is a direct wire ligature passed around
+    teeth on either side of a fracture and tightened by twisting
+    clockwise.</p>
+<aside>
+    <p>Read about <a href="/treatment/timelines/fracture">timelines of treatment and outcomes for fractures</a>.</p>
+</aside>

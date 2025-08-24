@@ -1,0 +1,22 @@
+---
+id: treatment-surgery-postoperative-problems-pharynx
+uri: treatment/surgery/postoperative-problems/pharynx
+title: Pharynx
+type: page
+authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+further_reading_uri: treatment/surgery/further-reading
+updated_at: 2018-08-18T16:36:31Z
+created_at: 2018-08-18T15:29:30Z
+---
+
+<p>Treatments for postoperative problems affecting the pharynx (upper
+    part of the throat) include:</p>
+<ul>
+    <li>Difficulty in speaking. Aspects of <a href="/treatment/surgery/reconstruction/detailed">surgical reconstruction</a>,
+        such as ensuring the postoperative pharynx is not overly
+        narrow, can help.</li>
+    <li><a href="/diagnosis/a-z/dysphagia">Difficulty in swallowing</a>        . Much of the supportive treatment lies in the field
+        of speech and language therapy, <a href="/help/salt">SALT</a>.</li>
+    <li>A sense of sticking in the throat, may or may not have an
+        anatomical basis. <a href="/treatment/other/medication/miscellaneous/antacid">Antacid medication</a>        may help.</li>
+</ul>

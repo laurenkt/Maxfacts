@@ -1,0 +1,17 @@
+---
+id: coming-soon
+uri: coming-soon
+title: Coming soon
+type: page
+hide: true
+updated_at: 2017-11-24T13:59:34Z
+created_at: 2017-10-28T16:15:12Z
+---
+
+<aside>
+    <p>Maxfacts is currently a work-in-progress website, many areas
+        of the site are incomplete: to fill some of the gaps
+        we simply need more time, in some areas we need the help
+        and contributions of other experts.</p>
+    <p><a href="/register">Request notification about new and updated content on Maxfacts</a>        – you will receive notification by email.</p>
+</aside>

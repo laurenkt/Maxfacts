@@ -1,0 +1,364 @@
+---
+id: diagnosis-list-bone-lesion-level2
+uri: diagnosis/a-z/bone-lesion/more-info
+title: Bone lesion
+type: level2
+authorship: Authored by Angelika Sebald & David A. Mitchell
+updated_at: 2018-05-21T10:27:45Z
+created_at: 2017-10-27T14:37:47Z
+---
+
+<p>This section takes a slightly closer look at, and gives an overview
+    of, the three main categories of bone lesions:</p>
+<ul>
+    <li>inflammatory and other non-neoplastic lesions (including
+        <a href="/diagnosis/a-z/infection">bone infections</a>)</li>
+    <li>benign neoplastic lesions (benign lumps)</li>
+    <li>malignant neoplastic lesions (bone cancers).</li>
+</ul>
+<aside>
+    <p>If you’d like to read more about specific information about
+        these conditions, this information is on our detailed
+        page about <a href="/diagnosis/a-z/bone-lesion/detailed">bone lesions</a>.</p>
+</aside>
+<h1 id="inflammatory-and-other-non-neoplastic-bone-lesions">Inflammatory and other non-neoplastic bone lesions</h1>
+<p>Inflammatory conditions of the jaws are a puzzling and difficult
+    to manage group of conditions that do not fall into any particular
+    or easy category. Other non-neoplastic bone lesions are an
+    equally puzzling group of hereditary and acquired conditions.</p>
+<h2>Dry Socket</h2>
+<p>Pain after breakdown of the healing blood clot following tooth
+    extraction is by far the most common inflammatory bone lesion
+    in the head and neck region. Even this common condition has
+    excited a fair amount of controversy.</p>
+<p>This condition has a number of different names and it occurs
+    in approximately 3 % of routine tooth extractions, and up
+    to 20 % of surgical tooth extractions. Figure 1 shows a dry
+    socket, Figure 2 shows the radiograph of a severe case of
+    dry socket.</p>
+<figure><img src="/diagnosis-list-bone-lesion-level2-figure1.jpg">
+    <figcaption><strong>Figure 1:</strong> Dry socket, a painful osteitis
+        (bone inflammation) of the tooth socket.</figcaption>
+</figure>
+<figure><img src="/diagnosis-list-bone-lesion-level2-figure2.jpg">
+    <figcaption><strong>Figure 2:</strong> Radiograph of a severe case of
+        dry socket, leading to sequestration (formation of a
+        dead piece of bone).</figcaption>
+</figure>
+<p>The pain is localised to the site of extraction, is often throbbing
+    and very severe. It will often keep you awake at night. The
+    classical description is of a toothache that never went away
+    when the tooth was removed. Some dry sockets may start after
+    the tooth has been removed and the pain does not commence
+    until the healing blood clot has completely broken down and
+    established bone inflammation has started. Some patients
+    benefit from the use of standard <a href="/treatment/other/medication/pain">non-steroidal anti-inflammatory drugs</a>    (such as ibuprofen), but the pain can often be so severe
+    that these analgesics do not really help.</p>
+<h2>Osteomyelitis</h2>
+<p>The term osteomyelitis covers a range of acute and chronic inflammatory
+    bone conditions that usually originate from some kind of
+    bacterial infection. It starts in the medullary space (central
+    cavity of bones, where the bone marrow is located) and progresses
+    as inflammatory changes in the nutrient (blood) vessels render
+    the bone ischaemic (suffering from insufficient blood flow).
+    Any pus formed can compress the vessels further. As a consequence,
+    the bone becomes necrotic (the bone tissue is dying) and
+    behaves like a foreign body, known as a sequestrum. This
+    gives rise to a chronic inflammatory reaction as the body
+    tries to eliminate the sequestrum. Continued attempts at
+    repair may result in the sequestrum becoming encased in bone
+    material, known as involucrum.</p>
+<p>Imaging may be difficult because the radiographic findings lag
+    behind the clinical stage. The first radiographic sign (see
+    Figure 3) may be radiopacity which represents the sequestrum
+    that has lost its non-mineralised components. Bone scans
+    (<a href="/diagnosis/tests/pet-scans">PET scans</a>) show
+    osteomyelitis as areas of increased bone turnover (‘hot spots’).</p>
+<figure><img src="/diagnosis-list-bone-lesion-level2-figure3.jpg">
+    <figcaption><strong>Figure 3:</strong> Chronic osteomyelitis of the right
+        mandible. Note the loss of the right condyle (part of
+        the mandible forming the jaw joint) and the diffuse radiopacity
+        of the right body of the mandible.</figcaption>
+</figure>
+<p>Osteomyelitis can be divided into suppurative (producing pus)
+    or non-suppurative (not producing pus) forms, although these
+    two forms may overlap considerably. There is frequently a
+    predisposing factor for the development of osteomyelitis.
+    This may be some underlying systemic disease (such as an
+    autoimmune disorder) or local bony factors. The local bony
+    factors include primary diseases of bone, such as fibrous
+    dysplasia, Paget’s disease or osteopetrosis (for these conditions,
+    see below). Osteomyelitis may also be secondary to bone damage
+    from trauma or foreign bodies in the bone, such as bone plates.</p>
+<p>In the maxillofacial region, osteomyelitis is most commonly seen
+    in the mandible (lower jaw) and is usually secondary to an
+    odontogenic (tooth related) infection. Rarely, in infants
+    there may be an acute infection of the maxilla (upper jaw).
+    This is more correctly known as osteitis as the medullary
+    space (where osteomyelitis commonly develops) in the maxilla
+    is negligible. Instead, the infection is thought to reach
+    the maxilla <i>via</i> the blood stream (a haematogenous
+    route). The infection is most commonly poly-microbial (caused
+    by several types of microorganisms) with <a href="/diagnosis/tests/microbiology">staphylococci</a>    predominating. Salmonella is commonly implicated in those
+    cases of osteomyelitis occurring in patients with sickle
+    cell disease (a disorder of the red blood cells).</p>
+<p>Infection is not the only possible cause of necrosis of bone.
+    Cells in bone exposed to high-energy radiation during
+    <a href="/treatment/radiotherapy">radiotherapy</a> will have suffered DNA damage and will break
+        down when required to undergo replication (<a href="/diagnosis/a-z/necrosis">osteoradionecrosis, ORN</a>).
+        This necrotic bone is very susceptible to secondary infection.</p>
+<p>Some <a href="/treatment/other/medication/miscellaneous">medicinal drugs</a>    used to treat / manage osteoporosis (brittle bones) or
+    <a href="/diagnosis/a-z/tumour/metastases">bone metastases</a> (bisphosphonates, anti-angiogenic drugs
+        and anti-rank ligand antibodies (denosumab, a human monoclonal
+        antibody), respectively) render bone incapable of normal
+        physiological healing by reducing the activity of bone
+        renewal. In this situation bone is also very prone to
+        superinfection. As the bone cannot respond to infection,
+        this can give rise to a specific, drug-related kind of
+        osteomyelitis.</p>
+<p>Both types of drugs, bisphosphonates and anti-rank ligand antibodies,
+    hinder the osteoclasts (the cells that break down old bone
+    tissue, before osteoblasts start regenerating bone by producing
+    new material); anti-rank ligand antibodies effectively paralyse
+    osteoclasts. This drug-related kind of osteomyelitis is usually
+    referred to as medication related osteonecrosis of the jaws
+    <a href="/diagnosis/a-z/necrosis">(MRONJ)</a>.</p>
+<p>Some anti-angiogenic drugs (drugs hindering or preventing the
+    formation of blood vessels; used in some cancer treatment
+    schemes alongside more <a href="/treatment/chemotherapy">traditional chemotherapy</a>)
+    can cause a very similar condition.</p>
+<aside>
+    <p>Osteonecrosis can be a debilitating condition. If you would
+        like to read more about osteonecrosis, there is much
+        more information in our section about <a href="/diagnosis/a-z/necrosis/hard">osteonecrosis</a>.</p>
+</aside>
+<h2>Cysts</h2>
+<p>Cysts are pathological cavities that are lined with epithelium
+    (the kind of tissue that covers the body’s various surfaces)
+    and are filled with fluid, air or semi-solids. A wide variety
+    of cysts of different origins occur in the head and neck
+    region, in particular the jaws, including some fluid-filled
+    cavities in bone that are not lined by epithelium (so called
+    pseudo-cysts).</p>
+<aside>
+    <p>Given that cysts are such a common condition affecting the
+        head and neck area, in particular the jaws, we have a
+        separate section describing cysts, the many <a href="/diagnosis/a-z/cyst/more-info">different varieties of cysts</a>        as well as the <a href="/diagnosis/a-z/cyst/detailed">origins and features of cysts</a>.</p>
+</aside>
+<h2>Fibrous dysplasia</h2>
+<p>This is characteristically a disease of young adults in which
+    areas of bone are replaced by fibrous (scar-like) tissue.
+    Onset is in childhood and the disease tends to stabilise
+    with age. Fibrous dysplasia weakens the affected bone(s)
+    and can lead to <a href="/diagnosis/a-z/fracture">fractures</a>,
+    deformity (dysplasia), pain and loss of functions, depending
+    on location(s).</p>
+<p>Jaw involvement usually manifests as a hard, painless swelling
+    with a characteristic radiograph appearance of ‘ground glass’
+    (see Figure 4).</p>
+<figure><img src="/diagnosis-list-bone-lesion-level2-figure4.jpg">
+    <figcaption><strong>Figure 4:</strong> Radiographic appearance of fibrous
+        dysplasia of the maxilla (upper jaw).</figcaption>
+</figure>
+<p><a href="/diagnosis/tests/biopsy/detailed">Histology</a> shows
+    fibrous replacement of bone with osseous trabeculae (spongy
+    bone structure) that look like Chinese characters. It is
+    thought that fibrous dysplasia may be caused by a non-hereditary
+    genetic mutation that occurs at the early embryonal development
+    stage for unknown reasons.</p>
+<p><strong>Cherubism</strong> is a hereditary variant of fibrous
+    dysplasia that manifests between 2 and 4 years of age. It
+    appears bilaterally within the maxilla and/or mandible, causing
+    expansion of the jaw bones and swelling of the face; in severe
+    cases functional impairment may result. Cherubism tends to
+    burn out in a similar fashion to fibrous dysplasia with age.</p>
+<p><strong>Ossifying fibroma</strong> is probably a localised variant
+    of fibrous dysplasia that appears clinically as a bony hard
+    mass in the jaws. It is capable of enlarging both bony cortices
+    (the hard outer layer of bone) and appears well circumscribed
+    radiologically.</p>
+<h2>Osteopetrosis</h2>
+<p>Osteopetrosis (marble bone disease) is a hereditary bone disorder
+    that causes bones to harden and densify, leading to <a href="/diagnosis/a-z/fracture">fractures</a>,
+    deformity (dysplasia), pain and loss of functions, depending
+    on location(s). Despite the hardening and deposition of excessive
+    bony material, affected bones are prone to fractures.</p>
+<p>It is thought that dysfunction of the osteoclasts (cells responsible
+    for breaking down worn bone cells in the bone remodelling
+    process) is responsible for the disease. The resulting osteosclerosis
+    (abnormal hardness and density of bone) can result from a
+    number of different causes, not just osteopetrosis and thus
+    requires careful investigations to support the diagnosis.</p>
+<h2>Paget’s disease of the bone</h2>
+<p>This multisystem condition affects the skull, pelvis and long
+    bones as well as the jaws. In the northern hemisphere it
+    is relatively common after the age of 55 years. A number
+    of virus infections have been indicated as causes of the
+    condition, although this correlation is unclear. There may
+    be genetic hereditary factors and some involvement of vitamin
+    D has also been suggested but ultimately the cause of Paget’s
+    disease is not yet known.</p>
+<p>Paget’s disease of the bone is an imbalance in the bone remodelling
+    process. Initial excessive break-down of bone tissue by overactive
+    large osteoclasts (osteolysis) is followed by reactive chaotic
+    increased production of bone tissue. This replacement of
+    the normal bone remodelling process by a chaotic alternation
+    of resorption and deposition leads to weakened, distorted
+    bones (see Figure 5).</p>
+<figure><img src="/diagnosis-list-bone-lesion-level2-figure5.jpg">
+    <figcaption><strong>Figure 5:</strong> Example of the distortion of the
+        left zygoma (cheek bone) and skull in Paget’s disease
+        of the bone.</figcaption>
+</figure>
+<p>Bone pain and cranial neuropathies (malfunction and impairments
+    of nerves in the skull) can occur, there may be altered sensation
+    of the face in the affected region. Plain <a href="/diagnosis/tests/x-ray">X-ray</a>    images show a cotton wool appearance of the affected bone;
+    <a href="/diagnosis/tests/blood-tests">blood and urine tests</a>    show elevated levels of some characteristic markers (alkaline
+    phosphatase and urinary hydroxyproline). Rarely Paget’s disease
+    of the bone develops to a primary bone malignancy (osteosarcoma;
+    see below).</p>
+<h1 id="benign-neoplastic-bone-lesions-benign-bone-tumours">Benign neoplastic bone lesions (benign bone tumours)</h1>
+<p>The majority of bone tumours are benign. Some are lesions that
+    can occur in soft or hard tissues (or both) whereas others
+    are specific to bone tissue,</p>
+<p>In the absence of any convincing, technical ordering principle
+    for these kinds of lesions, we resort to listing these conditions
+    in alphabetical order.</p>
+<h2>Ameloblastoma</h2>
+<p>This is the most common tumour of dental epithelial origin. It
+    is found particularly in the posterior mandible in African
+    males. Ameloblastoma is a benign tumour and has three clinical
+    and histological variants – unicystic, follicular/plexiform
+    and peripheral.</p>
+<p><strong>Unicystic ameloblastoma</strong> is a <a href="/diagnosis/a-z/cyst">cystic</a>    swelling distinguished by resorbing adjacent tooth roots:
+    histologically the lesion is an ameloblastoma but it has
+    predominantly fluid contents. Figure 4 shows an example.</p>
+<figure><img src="/diagnosis-list-bone-lesion-level2-figure6.jpg">
+    <figcaption><strong>Figure 6:</strong> Unicystic amelobastoma resorbing
+        tooth roots.</figcaption>
+</figure>
+<p><strong>Follicular/plexiform ameloblastoma</strong> is a solid
+    tumour, again found in the mandible. It is more aggressive
+    in its clinical behaviour and resembles a solid tumour histologically
+    (see Figure 5).</p>
+<figure><img src="/diagnosis-list-bone-lesion-level2-figure7.jpg">
+    <figcaption><strong>Figure 7:</strong> Sectional dental panoramic tomogram
+        of the ‘soap bubble’ appearance of the solid variety
+        of ameloblastoma.</figcaption>
+</figure>
+<p><strong>Peripheral ameloblastoma</strong> is an extraosseous
+    soft tissue version of ameloblastoma. It is rare and is more
+    often seen in the maxilla.</p>
+<p>Ameloblastic carcinoma is a malignant version of ameloblastoma,
+    other odontogenic benign tumours (adenomyoblastoma, myxoma,
+    ameloblastic fibroma) are extremely rare.</p>
+<h2>Bizarre parosteal osteochondromatous proliferation (Nora’s lesion)</h2>
+<p>Bizarre parosteal osteochondromatous proliferation (Nora’s lesion;
+    after the clinician Nora who first described the condition)
+    is a rare benign bone tumour. It affects the cartilage and
+    surface (cortex and periosteum) tissues of bones and usually
+    afflicts the small bones in hands and feet of young adults,
+    less commonly it is observed in the skull bones including
+    the jaws. It is a generally painful, rapidly growing tumour;
+    it is unknown what causes this lesion. Because of the typically
+    rapid and locally aggressive growth, it is important to distinguish
+    this lesion from malignant bone tumours such as osteosarcoma
+    or chondrosarcoma (see below). This distinction is usually
+    achieved by obtaining a <a href="/diagnosis/tests/biopsy">biopsy</a>.
+    Depending on the location and size of the lesion it can cause
+    signs and symptoms of compressing nerves in the vicinity.</p>
+<h2>Giant cell granuloma of bone</h2>
+<p>Giant cell granuloma is a benign lesion that can affect <a href="/diagnosis/a-z/benign-lump/detailed">soft tissues</a>    as well as hard tissue. In bone, giant cell granuloma can
+    manifest as an intrabony swelling.</p>
+<h2>Osteochondroma</h2>
+<p>An osteochondroma is a benign bone lesion, originating from cartilage
+    and producing an outgrowth (exostosis) on the bone surface.
+    Osteochondroma is the most common benign bone tumour; its
+    most common locations are the long bones in the legs, the
+    pelvis and the shoulder blade. Osteochondroma can occur as
+    a single lesion (the majority of cases) or as multiple lesions;
+    it mostly affects young adults.</p>
+<h2>Osteoma / Gardner’s syndrome</h2>
+<p>An osteoma is a mature benign bony growth with the most common
+    locations being the skull bones, the mandible and the paranasal
+    sinus (spaces surrounding the nasal cavity). The cause is
+    not known. Osteoma may appear as a single lesion (see Figure
+    8)  </p>
+<figure><img src="/diagnosis-list-bone-lesion-level2-figure8.jpg">
+    <figcaption><strong>Figure 8:</strong> Three-dimensional <a href="/diagnosis/tests/ct-scans">CT scan</a>        reconstructed representation of a large mandibular osteoma.</figcaption>
+</figure>
+<p>or as small multiple bony protuberances. These are characteristic
+    of Gardner’s syndrome. Gardner’s syndrome is a genetic disorder
+    (multiple familial polyposis coli) which usually causes multiple
+    benign tumours to form in different organs, particularly
+    the colon. Gardner’s syndrome is thought to carry an increased
+    risk of developing colorectal malignancies in the long term.</p>
+<h2>Torus</h2>
+<p>A torus is a bony exostosis (outgrowth) of the jaw. Torus palatinus
+    occurs in the centre of the hard palate (see Figure 9), torus
+    mandibularis occurs in the lingual (tongue-side) premolar
+    or molar region of the mandible (see Figure 10). These lesions
+    are entirely benign and only require removal when they are
+    symptomatic or for reasons of prosthetic functionality.</p>
+<figure><img src="/diagnosis-list-bone-lesion-level2-figure9.jpg">
+    <figcaption><strong>Figure 9:</strong> The appearance of torus palatinus.</figcaption>
+</figure>
+<figure><img src="/diagnosis-list-bone-lesion-level2-figure10.jpg">
+    <figcaption><strong>Figure 10:</strong> The appearance of torus mandibularis.</figcaption>
+</figure>
+<h1 id="malignant-neoplastic-bone-lesions-bone-cancers">Malignant neoplastic bone lesions (bone cancers)</h1>
+<p>Most primary malignant neoplastic bone lesions belong to the
+    sarcoma category: a sarcoma is a malignant growth that originates
+    from cells that were formed from the mesenchyme, a connective
+    tissue that is present during foetal development. Much of
+    the musculoskeletal system (cancellous bone, cartilage, fat
+    and muscles) develops from this foetal tissue. Carcinoma
+    refers to a malignant growth that arises from epithelial
+    cells (cells in the tissues that line the surfaces and cavities
+    of the body and its organs).</p>
+<p>Primary malignant bone lesions are rare whereas <a href="/diagnosis/a-z/tumour/metastases">metastases</a>    (secondary malignant growths from other primary malignancies)
+    originating from more common cancers (breast, prostate and
+    lung cancers in particular) show a tendency to affect bones.</p>
+<aside>
+    <p>Secondary malignancies, including bone metastases, either
+        originating from head and neck cancers, or originating
+        from cancers elsewhere in the body and affecting the
+        head and neck region, are discussed in our section on
+        <a href="/diagnosis/a-z/tumour/metastases">metastases</a>.</p>
+</aside>
+<p>A number of primary malignant bone lesions are typically malignancies
+    of children and young adults but can occur at all ages. Generally,
+    the head and neck region is not the most common location
+    of most primary (and secondary) malignant bone lesions.</p>
+<h2>Some primary malignant bone lesions relevant in the head &amp;
+    neck region</h2>
+<p><strong>Osteosarcoma</strong> is <a href="/diagnosis/tests/biopsy/detailed">histologically</a>    the most common form of primary malignant bone lesions, mostly
+    affecting young adults (because it tends to occur in growing
+    bones) with the most common locations around knee and hip,
+    but is also observed in the jaw. Osteosarcoma tends to be
+    an aggressive, fast growing (high grade) malignancy with
+    a tendency of forming <a href="/diagnosis/a-z/tumour/metastases">metastases</a>    (spreading).</p>
+<p><strong>Osteogenic sarcoma in cystic cavities</strong> is a rare
+    variant of osteosarcoma. It is mostly composed of blood-filled
+    cystic spaces and necrotic (dead) tumour tissue, leads to
+    severe bone destruction and has a tendency to form <a href="/diagnosis/a-z/tumour/metastases">metastases</a>    mostly in the lungs, similar to osteosarcoma. It is thought
+    that osteogenic sarcoma growth is so fast that local growth
+    of blood supply vessels cannot keep up; part of the tumour
+    hence dies, forming characteristic blood-filled cystic cavities
+    and necrotic tissue in the process. This type of malignant
+    bone lesion can sometimes appear similar to the changes observed
+    for a benign lesion, an <a href="/diagnosis/a-z/cyst/more-info">aneurysmal bone cyst</a>.</p>
+<p><strong>Ewing sarcoma</strong> is the second most common primary
+    malignant bone lesion mostly afflicting children and young
+    adults. It originates from the inner cavity of bones (the
+    medullary space) and, similar to osteosarcoma, causes severe
+    bone destruction alongside inflammation of the periosteum
+    (dense connective tissue enveloping bones), and has a propensity
+    to form <a href="/diagnosis/a-z/tumour/metastases">metastases</a>.
+    Ewing sarcoma only rarely occurs in the skull and facial
+    bones.</p>
+<p><strong>Chondrosarcoma</strong> is a malignant bone lesion that
+    originates from cartilage tissue; about a third of malignant
+    bone lesions of the skeleton belong to this category. Whereas
+    most other primary malignant bone lesions tend to afflict
+    mostly younger people, chondrosarcoma occurs at all ages.</p>

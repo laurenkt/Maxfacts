@@ -1,0 +1,37 @@
+---
+id: diagnosis-list-postoperative-problems-skull
+uri: diagnosis/a-z/postoperative-problems/skull
+title: Skull
+type: page
+authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+updated_at: 2018-03-27T08:25:16Z
+created_at: 2016-12-06T12:32:54Z
+---
+
+<p>Postoperative problems affecting the skull include</p>
+<ul>
+    <li>Defects in the skull bone. This is usually after major combined
+        procedures with neurosurgeons. There may be a bone defect
+        which is planned to be <a href="/treatment/surgery/reconstruction">restored later with implanted material</a>        (titanium mesh, PEEK (a polyether ketone polymer), acrylic).
+        Generally, in a maxillofacial-only operation only the
+        outer table of skull bone will be removed and this is
+        often either replaced with synthetic tissue or fills
+        in naturally.</li>
+    <li>Staples. Staples rather than stitches are used but remain
+        in for 10 days and have to be taken out. Washing the
+        hair can be a little difficult.</li>
+    <li>Scars. If in the hairline, the only evidence is a parting
+        of wet hair along the scar line. In male pattern baldness
+        the coronal scar (a scar across the top of the head;
+        common approach in <a href="/treatment/surgery/fracture">trauma surgery</a>)
+        becomes visible but incisions are hidden in hairlines
+        whenever possible. It is very unusual to shave the head
+        in maxillofacial operations.</li>
+    <li>Headache for a day or two is not unusual. A drain to prevent
+        accumulation of blood under the incision is common as
+        the scalp is very vascular and bleeds easily.</li>
+</ul>
+<aside>
+    <p>Read about possible remedies for these problems in our section
+        about <a href="/treatment/surgery/postoperative-problems">treatment of postoperative problems</a>.</p>
+</aside>

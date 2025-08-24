@@ -1,0 +1,41 @@
+---
+id: treatment-surgery-postoperative-problems-lower-arm
+uri: treatment/surgery/postoperative-problems/lower-arm
+title: Lower arm
+type: page
+authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+further_reading_uri: treatment/surgery/further-reading
+updated_at: 2019-07-14T10:29:18Z
+created_at: 2019-07-13T11:19:23Z
+---
+
+<p>Treatments of postoperative problems affecting the lower arm
+    include</p>
+<ul>
+    <li>The usual maxillofacial reasons for surgery on the lower
+        arm will be harvesting of a <a href="/treatment/surgery/reconstruction">radial forearm free flap</a>        (or much less often an ulnar forearm flap). Altered appearance
+        and minor sensation disturbances are the major issues.
+        Ischaemia of the thumb or fracture of the radius are
+        very rare.</li>
+    <li>Scars. The lower arm is visible in many cultures and there
+        will be visible scars. Treatment ranges from scar modification
+        using compression, massage, silicone gels and sheets
+        to formal <a href="/treatment/surgery/damage/more-info">scar revision</a>.</li>
+    <li>If a radial forearm flap has been raised the radial artery
+        is removed as part of the flap. Critical ischaemia is
+        very rare but if this does occur, the radial artery is
+        <a href="/treatment/surgery/reconstruction">reconstructed</a>        with a vein of PTFE (polytetrafluoroethylene, a synthetic
+        polymer) graft.</li>
+    <li><a href="/diagnosis/a-z/neuropathies">Altered sensation</a>        . The superficial branch of the radial nerve is manipulated
+        during the dissection to raise the radial flap. It is
+        quite common to have some altered sensation over the
+        area of the thumb base (thenar eminence). While irritating,
+        this can usually be overcome with counter-irritation
+        (rubbing gently or with a toothbrush) and time.</li>
+    <li>Grip strength. Unless a fracture of the radius has occurred
+        (and if a part of the radius has been harvested to create
+        an osseocutaneous flap, the radius should be prophylactically
+        plated) grip strength is returned to normal with simple
+        <a href="/help-selfhelp-physiotherapy-preamble">physiotherapy exercises</a>        of the kind used in improving the symptoms of arthritis
+        of the hand.</li>
+</ul>

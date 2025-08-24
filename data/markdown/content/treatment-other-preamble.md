@@ -1,0 +1,20 @@
+---
+id: treatment-other-preamble
+uri: treatment/other
+title: Other
+type: directory
+updated_at: 2017-06-26T13:01:13Z
+created_at: 2016-08-11T11:31:25Z
+---
+
+<p>Here we discuss additional and/or alternative treatment options
+    that are not covered in the sections about <a href="/treatment/surgery">surgery</a>,
+    <a href="/treatment/radiotherapy">radiotherapy</a> or
+    <a href="/treatment/chemotherapy">chemotherapy</a>.</p>
+<p>By far the biggest theme in this section are the various forms
+    of <a href="/treatment/other/medication">treatments by medication</a>    for a considerable range of conditions. Further, less common
+    treatment schemes such as the application of <a href="/treatment/other/extreme-temperatures">extreme temperatures</a>,
+    of <a href="/treatment/other/hyperbaric-oxygen">hyperbaric oxygen</a>,
+    <a href="/treatment/other/photodynamic-therapy">photodynamic therapy</a>    and <a href="/treatment/other/miscellaneous">miscellaneous established schemes</a>    are explained as well.</p>
+<p>This section would not be complete without paying attention to
+    promising new ideas and developments, leading to <a href="/treatment/other/new-developments">novel treatment options</a>    with respect to medication or otherwise.</p>

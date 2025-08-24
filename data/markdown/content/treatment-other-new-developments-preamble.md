@@ -1,0 +1,30 @@
+---
+id: treatment-other-new-developments-preamble
+uri: treatment/other/new-developments
+title: New developments
+type: alphabetical
+further_reading_uri: treatment/other/further-reading
+updated_at: 2018-11-11T15:17:34Z
+created_at: 2016-12-13T16:58:45Z
+---
+
+<p>Most of our discussions of treatment options for maxillofacial
+    conditions include recent clinical practice, with the occasional
+    hint at further developments and research at pre-clinical
+    stage, or in clinical trials.</p>
+<p>Not all initially promising developments will end up as accepted
+    clinical practice – some drawbacks may be encountered along
+    the way. On the other hand, it is not uncommon that surprise
+    discoveries swiftly become adopted as standard practice:
+    serendipity sometimes is a great aid for useful discoveries.
+    Of slightly more concern, new gadgets and techniques have
+    an innate appeal to many surgeons. In the UK there are several
+    national processes to try to moderate the enthusiasm to ‘try
+    out the new’.</p>
+<p>In order to keep the content of this website up to date, we include
+    this section about new developments. The selection is, by
+    necessity, reflecting our opinions and expectations. Only
+    time will tell if we were right or wrong about promising
+    developments. Obviously, this section of the website will
+    also need regular updates.</p>
+<p>The content of this page is given in alphabetical order for convenience.</p>

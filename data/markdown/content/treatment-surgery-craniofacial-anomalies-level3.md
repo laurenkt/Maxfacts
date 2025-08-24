@@ -1,0 +1,193 @@
+---
+id: treatment-surgery-craniofacial-anomalies-level3
+uri: treatment/surgery/craniofacial-anomalies/detailed
+title: Craniofacial anomalies
+type: level3
+authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+further_reading_uri: treatment/surgery/further-reading
+updated_at: 2019-07-14T10:10:43Z
+created_at: 2019-07-13T11:11:53Z
+---
+
+<p>Treatment of malformations affecting the skull and face (and
+    by inference the contents of those structures) requires quite
+    rare collaboration between different surgical and other medical
+    specialties, both simultaneously and logistically over time.</p>
+<h1 id="craniosynostosis">Craniosynostosis</h1>
+<p>The function of the skull (the cranium) is to protect the delicate
+    brain tissue and expand to accommodate it as it grows (which
+    it does rapidly in the first few months and years of life).
+    When this role becomes counterproductive or dangerous – as
+    in when the suture lines fuse and do not allow growth, a
+    combination of pressure on the brain (which can be lethal)
+    and deformity occurs.</p>
+<p>The basis of most of paediatric craniofacial surgery is to release
+    these fused sutures by cutting them away and allowing the
+    brain and associated structures to grow and develop normally.
+    The simplest procedure, a ‘strip craniectomy’ consists of
+    simply cutting out the fused suture (most commonly the sagittal
+    suture – the cause of scaphocephaly) without any form of
+    reconstruction is sometimes performed by neurosurgeons in
+    isolation. Most other fused suture resections are accompanied
+    by repositioning of the cranial bones and <a href="/treatment/surgery/reconstruction">reconstruction</a>    using autologous or resorbable synthetic materials.</p>
+<p>Where possible excision of the fused suture matching the deformity
+    (Figure 1) takes place before intracranial pressure starts
+    to increase:</p>
+<ul>
+    <li>(posterior) plagiocephaly - excision of the lambdoid suture;</li>
+    <li>trigonocephaly - excision of the metopic suture;</li>
+    <li>scaphocephaly - excision of the sagittal suture (the most
+        common synostosis);</li>
+    <li>brachycephaly - excision of the coronal sutures.</li>
+</ul>
+<figure><img src="/treatment-surgery-craniofacial-anomalies-level3-figure1.png">
+    <figcaption><strong>Figure 1:</strong> Sketches of the top views of the
+        skull and its sutures. Top row: normal situation; the
+        following rows illustrate the distorted growth resulting
+        from some premature suture-fusion scenarios; the prematurely
+        fused sutures are indicated in blue.</figcaption>
+</figure>
+<p>In each case surgery involves peeling back the scalp to expose
+    the cranial bones. This is done by an incision across the
+    skull known as a coronal flap (Figure 2). In neurosurgical
+    circles the incision often follows the hairline. In maxillofacial
+    circles, it tends to be further back roughly following the
+    coronal suture, and starting and finishing in the crease
+    in front of the ear. The area of incision is distended with
+    saline in paediatric cases to aid <a href="/treatment/other/bleeding/detailed">haemostasis</a>,
+    and <a href="/treatment-other-medicataion-pain-level3">local anaesthetic</a>    and <a href="/treatment/other/medication/miscellaneous/adrenaline">adrenaline</a>    solution in adults and older children. Plastic clips known
+    as Raney clips are placed on the edges of the incision to
+    minimise bleeding as the scalp bleeds profusely.</p>
+<p>This exposes the periosteum covered skull and can be extended
+    forward and downward to expose the orbital rims and zygomatic
+    arches.</p>
+<figure><img src="/treatment-surgery-craniofacial-anomalies-level3-figure2.jpg">
+    <figcaption><strong>Figure 2:</strong> Coronal flap and burr holes for
+        craniotomy.</figcaption>
+</figure>
+<p>The relevant fused sutures are identified and cut out with a
+    surgical power tool known as a craniotome, which has a blunt
+    deep edge which lies above the dura to protect the brain
+    while cutting skull bone.</p>
+<p>Depending on the type of sutural fusion the relevant sutures
+    are cut out. Reconstructive options range from none and simply
+    allowing the expanding brain to direct growth of the surrounding
+    skull with the removed bone being replaced by osteogenic
+    activity, bone dust, rib grafts, resorbable plates or mesh,
+    or surgical repositioning of bone.</p>
+<p>Complex craniosynostoses typically occur as part of various craniofacial
+    syndromes (see below). These conditions usually require early
+    initial interventions such as securing the airway, combined
+    with subsequent surgeries later in life. These may consist
+    of a range of <a href="/treatment/surgery/jaw-disproportion/detailed">subcranial osteotomies</a>    and other <a href="/treatment-surgery-facial-appearance-level2">soft-tissue surgical interventions</a>. </p>
+<p>In an intermediate phase both orthodontic interventions to encourage
+    mid-facial growth using functional and hybrid orthodontic
+    appliances, or the process of <a href="/treatment/surgery/jaw-disproportion/detailed">distraction osteogenesis</a>    can be used both as an alternative to, or a supplemental
+    preparation for, orthognathic surgery.</p>
+<h1 id="craniofacial-microsomia">Craniofacial microsomia</h1>
+<p>This is the <a href="/diagnosis/a-z/craniofacial-anomalies/detailed">second most common craniofacial anomaly</a>,
+    with a prevalence of approximately 1 in 5000 births. Definitive
+    treatment may be delayed until growth is complete although
+    hybrid orthodontic appliances are often used to encourage
+    surrounding soft tissue growth. The degree of anatomical
+    and physiological function of the mandibular ramus and
+    <a href="/treatment/surgery/jaw-joint/detailed">temporomandibular joint</a> is the determining factor for
+        <a href="/treatment/surgery/reconstruction/detailed">surgical reconstructive intervention</a>.</p>
+<p>A wide spectrum of ear and <a href="/diagnosis/a-z/neuropathies/detailed">cranial nerve</a>    deformities is found. There may be mild abnormalities of
+    the ear, or complete absence of the outer ear. Absence of
+    the ear is more often now addressed by <a href="/treatment/surgery/implants/getting-started">craniofacial implants</a>    and a semi-permanent prosthetic external ear.</p>
+<h1 id="positional-malformations">Positional malformations</h1>
+<p>It is common for newborns to have a slightly strange head shape
+    right after birth. Such minor distortions can arise from
+    lack of space in the uterus or from the birth process. This
+    all takes care of itself after a short while, usually within
+    a year.</p>
+<p>Tension or spasm in the sternocleidomastoid muscle (also known
+    as torticollis) can create a distortion of the head shape.
+    This develops over time, with an appearance similar to plagiocephaly
+    or brachycephaly but in the absence of any craniosynostosis.
+    This is known as ‘positional moulding’ or ‘deformational
+    plagiocephaly/brachycephaly’. Treatment is to address the
+    position of the child especially while asleep or to correct
+    the torticollis by surgery to excise scar tissue in the distorted
+    sternomastoid muscle and lengthen the muscle.</p>
+<h1 id="treatment-outlines-for-common-craniofacial-syndromes">Treatment outlines for common craniofacial syndromes</h1>
+<p>Isolated sutural synostoses are best treated under 6 months of
+    age by strip craniectomy and allowing normal brain growth
+    to naturally expand the skull, thus preventing increased
+    intracranial pressure and achieving the same skull shape
+    as would have been expected in the absence of a craniosynostosis.</p>
+<p>In cases where the anterior skull, particularly the naso-frontal
+    region is involved, release of the affected suture (for example
+    the coronal, which may be unilateral) and fronto-orbital
+    remodelling is often recommended. This essentially involves
+    removing, reshaping, replacing and retaining (often with
+    resorbable plates and screws) the frontal bone.</p>
+<h2>Specific syndromic conditions:</h2>
+<p><strong>Apert syndrome</strong> with sporadic occurrence at an
+    incidence of around 1:100,000 the term ‘common”’ is obviously
+    relative. The craniofacial component includes fusion of the
+    coronal sutures and fusion of the anterior skull base and
+    midface sutures which produces shallow orbits and hypertelorism.
+    In addition to the craniofacial features four limb symmetric
+    syndactylies of the hands and feet are present. Treatment
+    is staged and individualised and should be under the care
+    of a multidisciplinary craniofacial team as staged major
+    and minor (remembering that no surgical intervention is really
+    ‘minor’ to the person it is performed on) operations are
+    required to release the coronal sutures to allow safe brain
+    development and fronto-facial advancement to protect the
+    eyes. Hydrocephalus requiring shunting is present in up to
+    10 % and isolated cleft palate is present in 30 %. Hearing
+    deficit is more common than in the general population.</p>
+<p><strong>Carpenter syndrome</strong> in view of the associated
+    congenital heart defects, intellectual challenges, hand and
+    skull surgery may be staged. Suture excision and skull reshaping
+    depends on the severity of raised intracranial pressure.
+    Separation of the middle and index fingers are usually the
+    first hand operation carried out.</p>
+<p><strong>Crouzon syndrome</strong>, although an autosomal dominant
+    inheritance and affecting 1 : 25,000, has  many similarities
+    in the sutural fusions and mid-face underdevelopment to Apert
+    syndrome (see above) and the concept of staged surgical intervention
+    is the same. Use of local cranial bone and a range of synthetics
+    have replaced grafts from the ribs and ilium, reducing the
+    donor site morbidity of these already long and complex procedures
+    on infants.</p>
+<p><strong>Muenke syndrome</strong> treatment is essentially similar
+    to treatment of the other coronal suture syndromes, with
+    the potential addition of a cochlear implant for sensorineural
+    hearing loss.</p>
+<p><strong>Nager syndrome</strong> sometimes requires a tracheostomy
+    for airway support as the initial intervention. <a href="/help/non-oral-food">Percutaneous gastrostomy</a>    may be needed for feeding. Later in childhood distraction
+    osteogenesis to correct jaw underdevelopment, ear reconstruction
+    or replacement by a <a href="/treatment/surgery/implants/getting-started">craniofacial implant</a>    and a cochlear implant may be required.</p>
+<p><strong>Pfeiffer syndrome</strong> again usually requires coronal
+    suture excision coupled with lambdoid and sagittal suture
+    excision and subcranial advancement in later life, usually
+    using external distraction osteogenesis techniques. Hydrocephalus
+    present in type II and III Pfeiffer syndrome is shunted.
+    Fusion of the elbow and knee joints requires expert orthopaedic
+    input.  </p>
+<p>In <strong>Pierre Robin sequence</strong>, the airway is secured
+    by whatever means necessary and the baby is nursed in a position
+    to promote mandibular growth.</p>
+<p><strong>Seathre Chotzen</strong> <strong>syndrome</strong> usually
+    requires excision of the involved sutures and skull re-shaping,
+    usually early to minimise the effects of raised intracranial
+    pressure. The ptosis can be corrected later in life if it
+    presents an issue, and hand and foot problems may not require
+    surgical intervention as they are often quite mild.</p>
+<p>The maxillofacial component of <strong>Stickler syndrome</strong>    is essentially <a href="/treatment/surgery/cleft-lip-palate">cleft lip and palate surgery</a>    and possibly later maxillary <a href="/treatment-surgey-jaw-disproportion-level1">orthognathic surgery</a>,
+    but the multiple potential other manifestations mean ophthalmic
+    and rheumatology input is essential.</p>
+<p>For <strong>Treacher Collins syndrome</strong>, multiple surgeries
+    have been common in the past but intervention is best personalised
+    to the individual patient. Early tracheostomy is sometimes
+    needed because of mandibular retrognathism. Later mandibular
+    reconstruction using distraction and/or bone grafting with
+    cheekbone augmentation and external ear reconstruction or
+    support by <a href="/treatment/surgery/implants/getting-started">craniofacial prosthesis</a>    is required. <a href="/treatment/surgery/cleft-lip-palate">Cleft palate</a>    (if present) is treated as normal.</p>
+<aside>
+    <p>Read about <a href="/treatment/timelines/craniofacial-anomalies">timelines and outcomes of treatment for craniofacial anomalies</a>.</p>
+</aside>

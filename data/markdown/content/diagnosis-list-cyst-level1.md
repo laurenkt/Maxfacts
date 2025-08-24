@@ -1,0 +1,35 @@
+---
+id: diagnosis-list-cyst-level1
+uri: diagnosis/a-z/cyst
+title: Cyst
+type: level1
+authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+updated_at: 2017-08-23T11:55:01Z
+created_at: 2016-12-06T12:06:44Z
+---
+
+<p>Broadly speaking, cysts are defined as pathological cavities,
+    lined with epithelium (the kind of tissue that covers the
+    body’s various surfaces) and filled with fluid, air or semi-solids.
+    Figure 1 schematically illustrates such an epithelium-lined
+    cavity.</p>
+<figure><img src="/diagnosis/a-z/cyst/figure1.png">
+    <figcaption><strong>Figure 1:</strong> Schematic view of a cyst, lined
+        with epithelium cells.</figcaption>
+</figure>
+<p>A wide variety of cysts (of different origins) occur all over
+    the body, affecting soft and hard tissues. Cysts can be further
+    classified according to their type of epithelial lining.
+    There are different theories about their formation.</p>
+<p>To confuse matters a little further, there are some kinds of
+    fluid-filled cavities in bones that are not lined by epithelium;
+    these cavities are referred to as nonepithelial cysts (somewhat
+    of a misnomer) or pseudo-cysts.</p>
+<p>The head and neck region is home to a fair variety of cysts.
+    For example, the most common cause of chronic swelling of
+    the jaw is a cyst. There is much overlap with other <a href="/diagnosis/a-z/benign-lump">benign lumps</a>,
+    occasionally <a href="/diagnosis/a-z/infection">infections</a>    of cysts occur that may lead to <a href="/diagnosis/a-z/abscess">abscesses</a>.
+    Cysts, or pseudo-cysts, affecting the bones overlap with
+    several other <a href="/diagnosis/a-z/bone-lesion">bone lesions</a>.</p>
+<p>Cysts of the head and neck can be identified by <a href="/diagnosis/tests/examination">clinical examination</a>    , distinct <a href="/diagnosis/tests/medical-history">history</a>    and some other diagnostic tests, particularly X-rays and
+    other scan, in some cases a <a href="/diagnosis/tests/biopsy">biopsy</a>.</p>

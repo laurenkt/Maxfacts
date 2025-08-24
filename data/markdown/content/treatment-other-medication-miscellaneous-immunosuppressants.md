@@ -1,0 +1,263 @@
+---
+id: treatment-other-medication-miscellaneous-immunosuppressants
+uri: treatment/other/medication/miscellaneous/immunosuppressants
+title: Immunosuppressants
+type: page
+authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+updated_at: 2019-12-13T14:15:15Z
+created_at: 2019-03-02T16:40:04Z
+---
+
+<p>Immunomodulating drugs include <a href="/treatment/other/medication/inflammation/detailed">immunostimulating
+        agents</a> and immunosuppressants. The term
+    immunosuppressant covers a range of agents that
+    interfere with the body’s <a href="/treatment/other/medication/inflammation/more-info">immune
+        system</a> in different ways such that the immune
+    response of the body is reduced to some degree, or even
+    blocked. The most prominent conditions in need of
+    immunosuppressant medications are autoimmune disorders
+    and hypersensitivities (allergies), and the need to
+    suppress organ rejection after allotransplantation of
+    tissues or organs (transplantation from a genetically
+    non-identical donor). A more recent addition of
+    conditions treated with immunosuppressants are those due
+    to adverse effects of <a href="/treatment/other/new-developments/immunotherapies/detailed">immunotherapies</a>,
+    immune-related adverse effects (IREAs) in these
+    treatments of some malignancies.</p>
+<p>Immunosuppressants can be roughly divided into
+    sub-categories, and can be further classified according
+    to their mode(s) and mechanism(s) of action:</p>
+<ul>
+    <li>‘traditional agents’ - <a href="/treatment/other/medication/inflammation/detailed">corticosteroids</a>,
+        with <a href="/treatment/other/medication/delivery">topical
+            and systemic applications</a>;</li>
+    <li>‘steroid-sparing agents’ – a range of different
+        agents that may, in some cases, help to reduce or
+        avoid the use of systemic corticosteroids, including
+        calcineurin inhibitors, alkylating agents or
+        antimetabolites;</li>
+    <li>‘biologics’ – a range of agents, usually derived
+        from biological materials, including a number of
+        hormones and growth factors, monoclonal antibodies
+        or modified proteins (‘fusion proteins’).</li>
+</ul>
+<p>When used systemically, all immunosuppressants carry a
+    high burden of adverse effects and increased risk of <a href="/diagnosis/a-z/infection">infections</a>.
+    This is not surprising, given the central role of the <a href="/treatment/other/medication/inflammation/more-info">innate
+        and adaptive immune system</a> as the general
+    body-defence system against infections of all kinds and
+    other harmful effects. This is not a great consolation
+    when there is little choice but to use such medications;
+    the use of such medications does require a very careful,
+    individual risk / benefit analysis and ongoing
+    monitoring.</p>
+<p>Allotransplantation in the past has not been an issue in
+    oral and maxillofacial surgery, but face transplants
+    more recently have added this theme to maxillofacial
+    surgery, including all concomitant aspects of systemic
+    immunosuppression. Autoimmune conditions (as many of
+    these have oral and/or skin / facial manifestations; see
+    below) and other inflammatory conditions have been and
+    remain an issue in maxillofacial surgery. Fortunately,
+    for several of these conditions <a href="/treatment/other/medication/delivery">topical
+        drug delivery</a> is a viable option, avoiding some
+    or all of the adverse effects of systemic use of
+    immunosuppressants (see below).</p>
+<p>For many relevant oral and maxillofacial conditions,
+    corticosteroids remain the first-line medications.
+    Intra-lesion injection of corticosteroids into any
+    condition which can be localised is the general
+    preference for delivery.</p>
+<h1 id="traditional-agents-corticosteroids">‘Traditional agents’, corticosteroids</h1>
+<p>A number of different <a href="/treatment/other/medication/inflammation/detailed">corticosteroids</a>
+    suppress the release of various different
+    pro-inflammatory signalling molecules of a large number
+    of different cell types, including the release of <a href="/treatment/other/medication/miscellaneous/prostaglandins">prostaglandins</a>.
+    The anti-inflammatory effect of corticosteroids largely
+    results from their silencing of the genetic pathways
+    that regulate multiple inflammatory responses. The
+    adverse effects of long-term systemic use of
+    corticosteroids include ulcers and bleeds of the
+    gastrointestinal tract, hypertension (high blood
+    pressure) and other cardiovascular diseases, increased
+    risk of <a href="/diagnosis-list-infections-level1">infections</a>,
+    myopathies (conditions affecting muscle fibres),
+    osteoporosis (brittle bones), Cushingoid facies (moon
+    face), cataract and glaucoma.</p>
+<p>There are a number of oral and maxillofacial conditions
+    where topical and/or systemic corticosteroids are used
+    for short- and/or long-term treatments, including</p>
+<ul>
+    <li>many/most <a href="/diagnosis/a-z/oral-mucosal-lesion/detailed">oral
+            mucosal lesions</a> and mouth ulcers, including
+        oral manifestations of systemic lupus erythematosus,
+        some forms of oral lichen planus, mucositis;</li>
+    <li><a href="/diagnosis/a-z/vascular-abnormalities">vascular
+            abnormalities</a> ;</li>
+    <li><a href="/diagnosis/a-z/benign-lump">granuloma
+            and orofacial granulomatosis</a> ;</li>
+    <li><a href="/diagnosis/a-z/jaw-joint">disorders
+            of the temporomandibular (jaw) joint</a> ;</li>
+    <li><a href="/diagnosis/a-z/salivary-gland-problems/detailed">conditions
+            affecting the salivary glands</a> , such as <a href="/diagnosis/a-z/xerostomia">Sjögren’s
+            syndrome</a>, ranulas or mucoceles, and
+        sialadenitis (inflammation of a salivary gland);
+    </li>
+    <li>sometimes used in surgery for the <a href="/treatment/surgery/ectopic-teeth/detailed">removal
+            of impacted third molars</a> (wisdom teeth).
+    </li>
+    <li>severe recurrent oral ulceration.</li>
+</ul>
+<h1 id="steroid-sparing-agents">‘Steroid-sparing agents’</h1>
+<p>The main types of agents that can help to reduce the dose
+    of systemic corticosteroids when used in combination, or
+    used as a second-line treatment option when
+    corticosteroids do not work, are</p>
+<ul>
+    <li>calcineurin inhibitors;</li>
+    <li>alkylating agents;</li>
+    <li>antimetabolites.</li>
+</ul>
+<p>These drugs all come with adverse effects of their own
+    (see below).</p>
+<p><strong>Calcineurin inhibitors</strong> prevent the
+    production of interleukin (a type of signalling protein
+    involved in the regulation of the immune response) in <a href="/treatment/other/medication/inflammation/more-info">T
+        cells</a> (a type of white blood cell). This results
+    in a much diminished overall immune reaction. Examples
+    of calcineurin inhibitors are cyclosporine, tacrolimus
+    and sirolimus). The working mechanism of cyclosporine is
+    similar to that of tacrolimus but the two distinct drugs
+    bind to different target proteins. The immunosuppressive
+    effect of tacrolimus is much greater than that of
+    cyclosporine, and so are the number and severity of its
+    adverse effects. Adverse effects of calcineurin
+    inhibitors include hypertension, kidney and liver
+    toxicity (a major problem as these agents are used to
+    suppress donor-organ rejection after kidney or liver
+    transplants), gastrointestinal disorders, unbalanced
+    electrolytes and glucose levels, skin reactions and
+    hirsutism (in women, growing a beard) and increased
+    levels of white blood cells.</p>
+<p><strong>Alkylating agents</strong> (mainly chlorambucil
+    and cyclophosphamide) are cytotoxic agents that
+    chemically interfere with the synthesis of DNA of cells
+    and thus block proliferation of cells. These cytotoxic
+    properties of alkylating agents are generally used in <a href="/treatment/chemotherapy/chemical-principles/detailed">chemotherapies</a>
+    of a number of <a href="/diagnosis/a-z/tumour/blood-malignancy">haematological</a>
+    and other malignancies. Adverse effects of alkylating
+    agents include an increased risk of infections and
+    long-term development of malignancies, as well as
+    toxicity affecting the kidneys and the cardiovascular
+    system.</p>
+<p><strong>Antimetabolites</strong> (mainly <a href="/treatment/chemotherapy/chemical-principles/detailed">methotrexate</a>
+    and azathioprine) are another group of cytotoxic agents
+    that are generally used in <a href="/treatment/chemotherapy/chemical-principles/detailed">chemotherapies</a>
+    of a number of malignancies. Antimetabolites pervert the
+    cell cycle by mimicking the role of normal metabolites
+    in cell proliferation and cause cell death by leading to
+    faulty products and/or blocked metabolic pathways. Some
+    antimetabolites in low dose have immuno-modulating
+    properties. Adverse effects of antimetabolites include
+    an increased risk of infections and long-term
+    development of malignancies, as well as toxicity
+    affecting the liver and the gastrointestinal tract.</p>
+<p>Oral and maxillofacial conditions where topical and/or
+    systemic ‘steroid sparing agents’ are used as sole drug
+    or in combination with corticosteroids, for short-
+    and/or long-term treatments include</p>
+<ul>
+    <li>some <a href="/diagnosis/a-z/oral-mucosal-lesion/detailed">oral
+            mucosal lesions</a> and mouth ulcers, including
+        oral manifestations of systemic lupus erythematosus,
+        some forms of ulcerative oral lichen planus,
+        pemphigus;</li>
+    <li><a href="/diagnosis/a-z/oral-mucosal-lesion/detailed">mucositis</a>
+        , including signs and symptoms of <a href="/diagnosis/a-z/tumour/blood-malignancy/more-info">acute
+            or chronic host vs graft disease</a>;</li>
+    <li>autoimmune conditions such as <a href="/diagnosis/a-z/xerostomia">Sjögren’s
+            syndrome</a> or some forms of rheumatoid
+        arthritis affecting the <a href="/diagnosis/a-z/jaw-joint">temporomandibular
+            (jaw) joint</a>.</li>
+</ul>
+<h1 id="biologics">‘Biologics’</h1>
+<p>This category of immunosuppressants comprises a range of
+    proteins that are in different ways engaged in specific
+    steps and points of the <a href="/treatment/other/medication/inflammation/more-info">inflammatory
+        response</a> and / or in the development of
+    malignancies. These agents can act as agonists
+    (promoters) or antagonists (counterplayers) for specific
+    targets, actions and reactions of the immune system. As
+    such, this category of immunosuppressant agents holds
+    some promise of more targeted effects than
+    corticosteroids or other systemic immunosuppressants.
+    However, there is currently not yet enough information
+    about the long-term safety of most of these agents.</p>
+<p><strong>Monoclonal antibodies</strong> target a specific
+    receptor and in this way prevent a particular reaction
+    pathway of the inflammatory process. Different
+    monoclonal antibodies that block</p>
+<ul>
+    <li>the TNF-<i>α</i> (tumour necrosis factor) receptor
+        (infliximab, adalimumab);</li>
+    <li>the IgE (immunoglobulin E) receptor (omalizumab);
+    </li>
+    <li>the CD20 (an antigen on the surface of B cells (a
+        type of white blood cell) receptor (rituximab);</li>
+    <li>different IL (interleukin, signalling molecules)
+        receptors IL-12, IL-4, IL-13, IL-17</li>
+</ul>
+<p>are in clinical use. Etanercept is a <strong>fusion
+        protein</strong> (another type of antibody) that
+    blocks the TNF-<i>α</i> receptor. Several types of <a href="/treatment/other/medication/miscellaneous/interferon">interferons</a>
+    are an example of a <strong>humane cytokine</strong>
+    (signalling molecule) with various up- and
+    down-regulating roles in the immune system.</p>
+<p>Generally, the adverse effects of these agents are
+    allergic reactions, increased risk of infections
+    (including reactivation of tuberculosis with
+    TNF-<i>α</i> inhibitors), cardiovascular problems,
+    triggering of some autoimmune syndromes and an enhanced
+    risk to develop (or reactivate) malignancies. These
+    adverse effects mandate strict risk/benefit
+    considerations and careful monitoring.</p>
+<p>Oral and maxillofacial conditions where ‘biological’
+    immunosuppressants are used as sole drug or in
+    combination with other immunosuppressants, for short-
+    and/or long-term treatments include</p>
+<ul>
+    <li>some <a href="/diagnosis/a-z/oral-mucosal-lesion/detailed">oral
+            mucosal lesions</a> and severe mouth ulcers and
+        some forms of ulcerative oral lichen planus,
+        pemphigus (some of these conditions have been
+        reported to respond well to etanercept and
+        TNF-<i>α</i> inhibitors);</li>
+    <li>oral manifestations of Crohn’s disease, orofacial
+        granulomatosis;</li>
+    <li>autoimmune conditions such as <a href="/diagnosis/a-z/xerostomia">Sjögren’s
+            syndrome</a> (rituximab);</li>
+    <li>a specific form of low-grade <a href="/diagnosis-list-tumour-hameatological-malignancy-level1">lymphoma</a>
+        affecting mucosal tissue.</li>
+</ul>
+<h1 id="outlook">Outlook</h1>
+<p>There are numerous unanswered questions about the exact
+    working mechanisms of many immunosuppressant agents.
+    These questions are the focus of much ongoing research:
+    obviously, better understanding of these mechanisms will
+    provide more focussed / effective treatments, hopefully
+    at a reduced burden of adverse effects. For example, one
+    such question in search of a convincing answer is the
+    following. Immunosuppressant agents that are widely used
+    to prevent donor-organ (allograft) rejections are
+    tacitly assumed to inhibit rejection mechanisms such as
+    cytokine (messenger molecule) release and/or
+    proliferation, or blocking cell activation steps.
+    However, one may also speculate that a part of their
+    role (or perhaps even the main aspect of their role)
+    could be the activation / stimulation of some of the
+    body’s own immunosuppressant molecules and mechanisms.
+    That is an aspect which clearly has an impact on how to
+    best make use of such agents, and how to search for new
+    and improved such agents. These then could be less blunt
+    and much better tailored for particular tasks (ever the
+    optimist!).</p>

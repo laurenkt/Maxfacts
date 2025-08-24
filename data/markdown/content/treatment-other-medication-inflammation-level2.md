@@ -1,0 +1,398 @@
+---
+id: treatment-other-medication-inflammation-level2
+uri: treatment/other/medication/inflammation/more-info
+title: Inflammation
+type: level2
+authorship: Authored by Angelika Sebald and David A. Mitchell
+updated_at: 2018-08-18T12:57:21Z
+created_at: 2018-02-02T09:29:36Z
+---
+
+<p>With acute and/or chronic inflammation being the most noticeable
+    sign of the functions and responses of the immune system,
+    we take a closer look at the underlying working mechanisms
+    of the body’s defence system. The most common way to classify
+    the different mechanisms and components at work in the immune
+    system is to subdivide it into a fast-response, non-specific
+    subsystem (the innate immune system; response within minutes
+    or a few hours) and a more sophisticated and specific, slow-response
+    subsystem (the adaptive immune system; response within several
+    days).</p>
+<p>These two categories are not completely separate from each other,
+    and both are closely related to the various transport functions
+    of the vascular (blood vessels) system, including many aspects
+    of blood clotting. The vascular system is involved because
+    it is necessary to transport specific molecules and cells
+    to the location in the body where infection and/or other
+    tissue damage requires an inflammatory response. That is,
+    the attempt of the body to eliminate the cause(s) of a problem
+    leading to inflammation.</p>
+<p>We use the immune response to bacterial infection as our worked
+    example (see below). However, we emphasise that <a href="/treatment/other/medication/inflammation">other causes (biological, chemical and physical)</a>    lead to similar types and cascades of immune system responses.
+    In particular, the role of inflammation in wound healing
+    is relevant in the context of maxillofacial surgery (see
+    below). Our worked example indirectly also illustrates, broadly,
+    the many opportunities for small causes and errors leading
+    to big <a href="/treatment/other/medication/inflammation/detailed">malfunctions in the complicated immune system</a>.</p>
+<p>Below we can only provide a rough sketch of how the immune system
+    works (if everything functions as it should) but hopefully
+    this will also give an impression of how complicated in reality
+    this defence system is. Given the importance of the immune
+    system, there is <a href="/treatment/other/further-reading">ample literature</a>    about the topic, as well as much ongoing research into it,
+    including its failures and options to <a href="/treatment/other/medication/inflammation/detailed">treat malfunctions of the immune system</a>.
+    The organisation of the human immune system even inspired
+    the construction of intelligent, rule-based machine-learning
+    computer algorithms (alongside many other biologically inspired
+    algorithms).</p>
+<h1 id="the-innate-immune-system">The innate immune system</h1>
+<p>Invading pathogens (bacteria, fungi and viruses) typically carry
+    some surface molecules (sugars and proteins) as part of the
+    normal make-up of their surface structure. The precise nature
+    of these surface molecules varies slightly between pathogens
+    but there are common patterns and types of surface molecules
+    (peptidoglycan is an example from the make-up of <a href="/treatment/other/medication/infection/more-info">bacterial cell walls</a>).
+    The innate immune system is organised such that it can rapidly
+    identify the presence of such typical surface molecules.</p>
+<p>This makes the innate immune system a general, non-specific rapid
+    response defence against all kinds of invading microorganisms
+    (see Figure 1). The innate immune response makes use of the
+    presence of these common surface molecules by acting as a
+    general sensor, which triggers the mechanisms by which the
+    destruction of the invading species is then attempted.</p>
+<figure><img src="/treatment-other-medication-inflammation-level2-figure1.png">
+    <figcaption><strong>Figure 1:</strong> The innate immune response is
+        a generalised response against infecting microorganisms.
+        Different types of bacteria have some common characteristics
+        in their individual composition of surface molecules,
+        which are recognised by the innate immune system.</figcaption>
+</figure>
+<p>Phagocytes are a type of white blood cells involved in the innate
+    immune response (see Figure 2). Phagocytes can recognise
+    the surface molecules of pathogens through their own surface
+    molecules, called cell surface receptors.</p>
+<figure><img src="/treatment-other-medication-inflammation-level2-figure2.png">
+    <figcaption><strong>Figure 2:</strong> A phagocyte is a specialised type
+        of white blood cell.</figcaption>
+</figure>
+<p>Phagocytes can distinguish between pathogenic cells and human
+    host cells due to some differences in the molecules present
+    on the surface of human cells. On host cells  there are often
+    no surface molecules which are complementary (able to fit
+    together) to the phagocytic cell surface receptors. Sometimes
+    surface molecules present on a pathogen may be only slightly,
+    but significantly, different from those on a human host cell.
+    This is schematically illustrated in Figure 3. This distinction
+    is vital so that host cells (often called self-cells) do
+    not stimulate an erroneous immune response, targeting the
+    host. Similarly, it is important that under normal circumstances
+    an immune response is not triggered by the presence of the
+    host’s <a href="/diagnosis/a-z/infection/detailed">commensal (friendly) microorganisms</a>.</p>
+<figure><img src="/treatment-other-medication-inflammation-level2-figure3.png">
+    <figcaption><strong>Figure 3:</strong> Pathogens have surface molecules
+        which are different to the surface molecules on host
+        cells and those of the host’s <a href="/diagnosis/a-z/infection/detailed">benign microflora</a>.
+        These differences allow for invading pathogens to be
+        recognised as foreign or ‘non-self’.</figcaption>
+</figure>
+<p>When a phagocyte surface receptor binds to a surface molecule
+    of an invading microorganism, the phagocyte engulfs the pathogen
+    completely by surrounding it in what can be thought of as
+    a bubble (a lysosome; see Figure 4). This process is called
+    phagocytosis. Once the pathogen is encapsulated by the lysosome,
+    the phagocyte produces toxic chemicals inside the lysosome
+    (hydrogen peroxide, superoxide and nitric oxide) in order
+    to destroy the pathogen trapped inside. The chemically decomposed
+    pathogen debris becomes the major component of pus in infected
+    wounds or in an <a href="/diagnosis/a-z/abscess">abscess</a>.</p>
+<figure><img src="/treatment-other-medication-inflammation-level2-figure4.png">
+    <figcaption><strong>Figure 4:</strong> A phagocyte engulfs an invading
+        bacterium and traps it inside a lysosome. The lysosome
+        contains chemicals and enzymes that ultimate break down
+        the bacterium.</figcaption>
+</figure>
+<p>Other receptors on the surface of phagocytes can bind to a range
+    of further molecules on the surface of pathogens and generate
+    what is known as a signal cascade. A set of biochemical signals
+    and reactions, one after another, is triggered which eventually
+    leads to the synthesis of particular proteins in the cell.
+    Such a cascade is schematically illustrated in Figure 5.
+    It is a series of events which involve the DNA contained
+    within the nucleus of a cell (shown in purple). These processes
+    allow for certain genes to be switched on or off, by the
+    means of a protein molecule switch known as a transcription
+    factor. If a gene is switched on, the ‘recipe’ for making
+    the corresponding protein is made available and so the protein
+    can be produced by the cell. A wide range of proteins produced
+    by such signal cascades are involved in the immune response.</p>
+<figure><img src="/treatment-other-medication-inflammation-level2-figure5.png">
+    <figcaption><strong>Figure 5:</strong> Binding of bacterial surface molecules
+        with the surface receptors on the phagocyte gives rise
+        to a biochemical signal cascade which results in the
+        production of specific proteins involved in the immune
+        response.</figcaption>
+</figure>
+<p>Receptors on the phagocyte surface are specialised protein molecules
+    which are able to bind to different microbial molecules (from
+    bacteria, viruses, fungi) in order to switch on or off gene
+    expression, and hence protein production. Binding to these
+    receptors leads to production of specific signalling proteins,
+    cytokines including chemokines. Such signalling proteins
+    are vital messenger and mediator molecules for the swift
+    execution of the inflammatory response by the innate immune
+    system.</p>
+<p>When phagocytes are signalled to produce chemokines through surface
+    receptor binding, release of these chemokines from the phagocytes
+    leads to a chemokine concentration gradient (see Figure 6).</p>
+<figure><img src="/treatment-other-medication-inflammation-level2-figure6.png">
+    <figcaption><strong>Figure 6:</strong> Chemokines (pink hexagons) are
+        more concentrated close to the phagocyte producing them,
+        their concentration decreases with distance from the
+        phagocyte. The resulting chemokine concentration gradient
+        signals the way for other white blood cells to find quickly
+        the infected area.</figcaption>
+</figure>
+<p>The human body generally makes use of concentration gradients
+    in order to transport and direct a range of materials and
+    cells around the body. In an inflammatory response, the chemokine
+    concentration gradient attracts other types of white blood
+    cells (which can aid the phagocytes in pathogen destruction)
+    to the site of infection.</p>
+<p>Phagocytes can produce further types of messenger proteins, such
+    as cytokines that make it easier for some helpful white blood
+    cells to pass from the blood in capillaries (small blood
+    vessels) into infected tissue via endothelial cells (cells
+    which line the capillaries). This type of cytokine achieves
+    this effect by increasing the gaps between endothelial cells
+    (vasodilation; see Figure 7 for a schematic illustration).
+    The movement of the white blood cells from the capillaries
+    into surrounding tissues is termed extravasation.</p>
+<figure><img src="/treatment-other-medication-inflammation-level2-figure7.png">
+    <figcaption><strong>Figure 7:</strong> The release of cytokines from
+        the phagocyte makes it easier for some other types of
+        white blood cells to pass through the endothelial cell
+        layer (shown in pink) in order to reach the tissue site
+        of the infection.</figcaption>
+</figure>
+<p>This overall chain of events explains the well-known signs and
+    symptoms of acute inflammation. Vasodilation causes warmth
+    and redness (calor and rubor) of the affected area, extravasation
+    leads to swelling (oedema), pain (dolor) is caused by some
+    of the chemical messenger molecules stimulating nerve endings,
+    and some chemical messenger molecules may cause fever.</p>
+<h1 id="the-adaptive-immune-system">The adaptive immune system</h1>
+<p>The adaptive immune system does not focus on the broad and rapid
+    identification of the presence of pathogens in general, but
+    rather it is able to recognise (and remember) a very large
+    number of molecules, representative of a particular pathogen.
+    This specific recognition is biochemically processed in order
+    to produce an immune response specific to the particular
+    pathogen. It is important that the adaptive immune response
+    is as efficient as possible, it is the last line of defence
+    available to the body against <a href="/diagnosis/a-z/infection/detailed">infection</a>.
+    Figure 8 symbolises the specific actions of the adaptive
+    immune system (compare Figure 1, symbolising the general
+    actions of the innate immune system).</p>
+<figure><img src="/treatment-other-medication-inflammation-level2-figure8.png">
+    <figcaption><strong>Figure 8:</strong> The adaptive immune system response
+        sketched here is targeted specifically at the bright
+        green type of bacterium. In principle, the adaptive immune
+        system would be able to respond to infection by the remaining
+        bacteria species as well (shown here to have a central
+        colour of pink, blue or turquoise) but each species would
+        require the development of its own individual cascade
+        of adaptive immune system response. This takes time.</figcaption>
+</figure>
+<p>The white blood cells of the adaptive immune system are able
+    to engulf an infecting pathogen, and then identify the various
+    components and molecules which make up this particular microorganism,
+    before they finally present a small protein (an antigen)
+    with a specific shape on their cell surface. In effect, the
+    antigen on the surface of the white blood cell represents,
+    like a fingerprint, the particular pathogen. This type of
+    white blood cell is often referred to as an antigen-presenting
+    cell (see Figure 9).</p>
+<figure><img src="/treatment-other-medication-inflammation-level2-figure9.png">
+    <figcaption><strong>Figure 9:</strong> A white blood cell of the adaptive
+        immune system engulfs a bacterium and processes its components
+        to form an antigen with a characteristic shape on the
+        white blood cell surface.</figcaption>
+</figure>
+<p>The shape of the antigen on the surface of the white blood cell
+    is complementary (fits exactly) to the shape of the receptor
+    on another type of adaptive immune system defence white blood
+    cell, called a T cell. Binding of the T cell receptor with
+    the antigen signals two separate strands of immune system
+    response (see Figure 11, below).</p>
+<p>The first of these responses is called a humoral response. A
+    humoral response is an immune system activity involving extracellular
+    fluids (body fluids) and complements the intracellular immune
+    responses. B cells (another subtype of white blood cells)
+    produce specific molecules, called antibodies. These are
+    proteins which are very specifically matched to the shape
+    of the corresponding antigen. Antibodies have constant regions
+    which are very similar in all antibodies and variable regions
+    which are different for different antibodies and allow specific
+    binding to ‘their’ matched antigens (see Figure 10). This
+    mechanism is often referred to as antibody-mediated immune
+    response.</p>
+<figure><img src="/treatment-other-medication-inflammation-level2-figure10.png">
+    <figcaption><strong>Figure 10:</strong> The constant and variable regions
+        of an antibody. The constant region is very similar in
+        all antibodies. The variable region has a highly specific
+        shape, complementary for its respective antigen.</figcaption>
+</figure>
+<p>Antibodies have various functions, all reliant upon complementary
+    binding of the corresponding antigen. In this way, antibodies
+    are able to block toxins produced by pathogens from binding
+    to healthy host cells and thus can prevent damage to healthy
+    tissues. Antibodies are also able to form complexes with
+    surface proteins of viruses such that a virus is unable to
+    attach to the host cells and so cannot infect them (this
+    principle is also the mechanism underpinning vaccinations).
+    In similar ways, antibodies can bind to bacterial surface
+    antigens and can prevent bacteria from forming colonies,
+    which makes them individually more vulnerable to destruction
+    and elimination, either by the immune system or by <a href="/treatment/other/medication/infection/more-info">antibacterial agents</a>.</p>
+<p>The second of the two strands of adaptive immune system response
+    is mediated by T cells (subtype of white blood cells, also
+    active in the innate immune system). It is a cellular response
+    in which the binding of the antigen with the T cell receptor
+    results in the production of specialised killer cells. These
+    specialised cells are capable of destroying the invading
+    pathogen. They do so by causing holes in the cell membranes
+    of the microorganisms, leading to leakage from the pathogen
+    cells and eventual cell death.</p>
+<figure><img src="/treatment-other-medication-inflammation-level2-figure11.png">
+    <figcaption><strong>Figure 11:</strong> Binding of a T cell receptor
+        with the corresponding antigen-bearing cell results in
+        two strands of adaptive immune response. Left: the humoral
+        (extracellular) response involving antibodies; right:
+        the cell-mediated response producing specialised killer
+        cells.</figcaption>
+</figure>
+<h1 id="inflammation-and-wound-healing">Inflammation and wound healing</h1>
+<p>Any injury to tissue, from <a href="/diagnosis/a-z/damage">trauma</a>    or following <a href="/treatment/surgery">surgery</a> triggers
+    an immediate reaction to limit the damage, followed by an
+    orderly and lengthy process of healing. Inflammatory response
+    plays a crucial role in the healing of wounds.</p>
+<p>The initial phase immediately after an injury occurs is haemostasis,
+    the attempt to stop blood loss, by way of constriction of
+    injured blood vessels and platelets starting the formation
+    of a sticky fibrin-rich clot. This emergency response occurs
+    immediately, over a few minutes. In addition, platelets release
+    messenger molecules that trigger the start of a rapid inflammatory
+    response. At this stage, vasodilation sets in to ease delivery
+    of helpful cells to the injured tissue site, over a period
+    of about an hour.</p>
+<p>Essentially, this very first step toward wound healing involves
+    the build-up of gradients of specific proteins (chemokines
+    and cytokines, see Figure 6; above) that guide immune cells
+    and phagocytes to the site of injury. This phase is the body’s
+    attempt at cleaning a wound before proceeding further with
+    repairing the injured tissue. This stage of acute inflammation
+    lasts for a few days, various mechanisms of inflammatory
+    response orchestrate and guide the process.</p>
+<p>The inflammatory response remains active for a couple of weeks,
+    in changing and adapting roles in the progressing healing
+    process. Inflammation is gradually taken over by a phase
+    called proliferation. The initial fast response turns to
+    repair of the tissue damage, still initiated by inflammatory
+    mediators. It is important (from an evolutionary point of
+    view) that initial repair re-establishes functionality to
+    the body after injury relatively quickly. Nature has opted
+    for a staged, two-stage approach to this challenge.</p>
+<p>In the proliferation phase, over a period of several weeks to
+    several months, the inflammatory response directs the growth
+    of new blood vessels (angiogenesis) in the injured area.
+    These new blood vessels are needed to transport fibroblasts
+    (cells that produce connective tissue such as collagen and
+    other structural materials in tissue) and macrophages (a
+    specialised type of phagocyte, white blood cell) to the location
+    in need of repair, and to remove debris (diseased tissue,
+    spent repair materials) away from the site. A typically very
+    visible sign of the body’s wound repair at work over this
+    phase is the reddening of the wound, caused by angiogenesis
+    (ingrowth of new blood vessels) and leading to an intermediate
+    period in the healing process where a wound looks raw and
+    seemingly as if it is getting worse rather than better. Over
+    this phase mostly granulation tissue is formed, new connective
+    tissue with numerous microscopic blood vessels. Granulation
+    tissue grows from the inside of a wound and eventually fills
+    the entire damaged space while some contraction of the damaged
+    site occurs as well. This initial repair stage delivers a
+    degree of functionality and wound closure, about 50 percent,
+    or so, of the original tissue strength and removes the urgency
+    of the body response.</p>
+<p>Gradually, the proliferation phase then moves on to the last
+    phase of the wound healing, the maturation and remodelling
+    phase. This final stage takes up to two years for completion
+    and is essentially an optimisation of the initial repair
+    results from the proliferation phase. It makes sense that
+    this last optimisation phase is slow: at this stage the focus
+    is moving to an optimal long-term result, and that is best
+    delivered in a slow and non-chaotic process of replacing
+    the initially deposited ‘quick fix’ connective tissue material
+    by better quality connective tissue (there are different
+    types of collagen, for example). The inflammatory response
+    is now much reduced, the structure and strength of the local
+    tissue is gradually improved. A body is a highly efficient
+    system, nothing goes to waste and nothing unnecessary will
+    be preserved. Accordingly, over the maturation process the
+    multitude of local new blood vessels around a site of injury
+    and scar are gradually reduced, in line with the reduced
+    need for transport to / from the injury location. The visible
+    sign of this process is the corresponding gradual change
+    in colour of a maturing scar, which over time turns pale
+    and becomes much less visible.</p>
+<p>A typical result of wound remodelling delivers roughly 80 percent
+    of the original tissue strength. The ‘auto-repair’ process
+    of wound healing is thus a slightly incomplete and imperfect
+    type of tissue regeneration when, for example, compared with
+    the normal renewal processes of intact skin where the regeneration
+    is complete and perfect.</p>
+<p>It is sometimes said that scars resulting from the wound healing
+    process are the price for the swift on-set of the healing
+    process after injury. There are some noticeable exceptions
+    where no scars are formed in the healing process, for example
+    superficial scratches, tattoos, or the healing of skin wounds
+    in a foetus. Also, some tissues heal with reduced levels
+    of scarring, for example the oral mucosa (lining of the mouth).
+    Oddly, the latter two examples have in common a substantially
+    reduced inflammatory response early in the healing process.
+    These differences in wound healing mechanisms are the subject
+    of much <a href="/treatment/other/further-reading">ongoing research</a>    with a view to improve care and outcomes for problematic
+    wounds.</p>
+<p>A number of problems in the wound healing process can occur for
+    people with underlying conditions that modify or impair the
+    immune response.</p>
+<p>Lack of formation of scar tissue leads to rupture of wounds (dehiscence).
+    Another well know example of problematic wound healing is
+    the development of chronic non-healing wounds in people with
+    diabetes where an aberrant immune response prevents, or at
+    least considerably reduces, wound healing. Such chronic wounds
+    and ulcers not only increase the risk of <a href="/diagnosis/a-z/infection">infections</a>    and <a href="/diagnosis/a-z/necrosis/soft">necrosis</a> but
+    typically also have negative effects on quality of life.</p>
+<p>An example of malfunctioning wound healing, likely to result
+    from an overactive inflammatory response to injury, is the
+    formation of keloids. Keloids are essentially excessive scar
+    tissue, continuously formed beyond the original area of injury.
+    Keloids mostly affect dark-skinned people. Hypertrophic scarring
+    is another form of excess formation of scar tissue but is
+    localised to the original area of injury. Aberrant orchestration
+    of healing events in the proliferation phase may lead to
+    excessive formation of granulation tissue. An example of
+    the effects of timing errors in the early inflammatory response
+    is the occurrence of a painful <a href="/diagnosis/a-z/bone-lesion/more-info">‘dry socket’</a>    after dental extractions when the initial protecting clot
+    is resolved too rapidly. Combinations of slight orchestration
+    misalignments of the healing process with occasional mechanical
+    problems may lead to deficient contraction (affecting
+    <a href="/treatment/surgery/reconstruction">skin grafts</a>) or to excessive contraction (a typical long-term
+        problem arising from large burns). Another potential
+        problem (mostly affecting burn wounds) are changes in
+        pigmentation of scar tissue.</p>
+<aside>
+    <p>If you’d like to read more about ongoing research, such as
+        improved wound healing schemes (‘scarless healing’) or
+        advances in tissue engineering, this information is in
+        our section about <a href="/treatment/other/new-developments">new developments</a>.</p>
+</aside>

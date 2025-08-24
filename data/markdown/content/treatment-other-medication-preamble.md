@@ -1,0 +1,27 @@
+---
+id: treatment-other-medication-preamble
+uri: treatment/other/medication
+title: Medication
+type: directory
+updated_at: 2017-06-11T17:58:40Z
+created_at: 2016-12-06T14:28:39Z
+---
+
+<p>Medication plays a major role in the treatment of a very wide
+    range of conditions, as the first or only choice, or sometimes
+    as an alternative to surgical interventions.</p>
+<p>While there may be a very wide range of different conditions
+    to be covered in this section, there are many general considerations
+    about the <a href="/treatment/other/medication/delivery">optimal delivery of medication, appropriate timing and possible interactions with other medicinal drugs</a>    (or food and drink).</p>
+<p>A very big topic here is the treatment of different types of
+    <a href="/treatment/other/medication/pain">pain</a>. Other
+    generally prominent areas for the application of medication
+    are <a href="/treatment/other/medication/infection">bacterial, viral and fungal infections</a>    and the treatment of <a href="/treatment/other/medication/inflammation">inflammation</a>    caused by malfunction of the immune system. Finally, there
+    are further, <a href="/treatment/other/medication/miscellaneous">less common conditions</a>    that are best treated by medication, by medication alone
+    or in combination with other treatments.</p>
+<p>Treating head and neck cancers with <a href="/treatment/chemotherapy">chemotherapy</a>    does fall under the broad term ‘medication’. However, chemotherapy
+    is rather different from other forms of medication and thus
+    is discussed separately. The consequences of chemotherapy
+    may require treatment with other/additional medication; this
+    is discussed in the section dealing with detailed information
+    about the <a href="/treatment/chemotherapy/application">clinical applications of chemotherapy</a>.</p>

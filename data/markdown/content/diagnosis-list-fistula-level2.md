@@ -1,0 +1,60 @@
+---
+id: diagnosis-list-fistula-level2
+uri: diagnosis/a-z/fistula/more-info
+title: Fistula
+type: level2
+authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+further_reading_uri: diagnosis/a-z/further-reading
+updated_at: 2018-08-19T09:48:00Z
+created_at: 2018-08-18T12:51:56Z
+---
+
+<p>There are four paired cavities (sinuses), essentially extensions
+    to the nose. Of these paranasal sinuses the maxillary sinus
+    (also known as the antrum) is of greatest significance in
+    the context of oral and maxillofacial surgery. This cavity
+    is located right above the upper jaw, with only a thin layer
+    of bony separation and in direct contact with the teeth in
+    the upper jaw. This is of general relevance with regard to
+    diagnosis of conditions that may arise in the mouth and appear
+    to manifest in the maxillary sinus – or the other way around.</p>
+<p>An oroantral fistula (a communication between the oral cavity
+    and the maxillary sinus (antrum) is a common condition. Lining
+    of the antrum may prolapse through such a fistula (Figure
+    1), or the fistula will have become lined with epithelium
+    (thin, surface-covering tissue) as shown in Figure 2.</p>
+<p>A fistula differs from a sinus in being an epithelial lined connection
+    between a cavity to another cavity or the outside or inside
+    body surface. A sinus may be epithelium lined but originates
+    from an <a href="/diagnosis/a-z/abscess">abscess</a>, retained
+    tooth root or area of <a href="/diagnosis/a-z/necrosis/hard">necrotic bone</a>.
+    A fistula connecting the mouth and maxillary antrum starts
+    as a communication before it becomes lined with epithelium.
+    This is important to understand when it comes to <a href="/treatment/surgery/fistula/more-info">treatment of the fistula</a>.</p>
+<figure><img src="/diagnosis-list-fistula-level2-figure1.jpg">
+    <figcaption><strong>Figure 1:</strong> Clinical view of antral lining
+        prolapsing through an oroantral communication.</figcaption>
+</figure>
+<figure><img src="/diagnosis-list-fistula-level2-figure2.jpg">
+    <figcaption><strong>Figure 2:</strong> Typical oroantral fistula, the
+        communication has become lined with epithelium.</figcaption>
+</figure>
+<p>The most common cause of an oroantral fistula is the extraction
+    of a single standing molar tooth with multiple roots, especially
+    with hypercementosis (excessive formation of mineralised
+    tissue around the root of a tooth) present. If such a tooth
+    root is in close proximity to the antrum, chances are high
+    that extraction of the tooth may lead to the formation of
+    an oroantral fistula.</p>
+<p>An established (chronic) oroantral fistula (Figure 3) leads to
+    bouts of recurrent maxillary sinusitis, there may be a foul
+    taste in the mouth, and fluids may be passing from the mouth
+    through the fistula and out of the nose. The fistula can
+    be demonstrated by occluding the nose and blowing out through
+    the nose: air will be seen to bubble out of the fistula.
+    A plain <a href="/diagnosis/tests/x-ray">X-ray radiograph</a>    helps to identify any fragments of retained roots in the
+    sinus.</p>
+<figure><img src="/diagnosis-list-fistula-level2-figure3.jpg">
+    <figcaption><strong>Figure 3:</strong> Chronic oroantral fistula. Very
+        rarely this can be a sign of an underlying <a href="/diagnosis/a-z/cancer">malignancy</a>.</figcaption>
+</figure>

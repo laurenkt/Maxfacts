@@ -1,0 +1,65 @@
+---
+id: treatment-other-medication-miscellaneous-anticoagulant
+uri: treatment/other/medication/miscellaneous/anticoagulant
+title: Anticoagulant medications
+type: page
+authorship: Authored by Angelika Sebald;Proof-read/edited by David. A Mitchell
+updated_at: 2018-08-18T12:55:20Z
+created_at: 2018-05-21T14:55:53Z
+---
+
+<p>Anticoagulant medications (mistakenly called ‘blood thinners’)
+    are a group of substances, widely prescribed in the prevention
+    and treatment of venous thrombosis, the blocking of a smooth
+    blood flow in the veins by a clot (<a href="/treatment/other/medication/miscellaneous/antiplatelet">antiplatelet medications</a>    are used for very similar purposes addressing conditions
+    of the arteries).</p>
+<p>Anticoagulants are widely used because cardiovascular diseases
+    (such as cardiac conditions) are extremely common conditions
+    in the western world. For example, coronary heart disease
+    (a heart attack) can be a fatal event. Anticoagulants are
+    also widely used in dialysis and in heart bypass surgery,
+    and in the aftercare following surgery in general (to prevent
+    deep vein thrombosis, DVT, as a possible consequence of immobility).</p>
+<p>The main mode of action of anticoagulants is their ability to
+    reduce the formation of a protein, thrombin, or to block
+    its action. Thrombin, in turn is essential to turn soluble
+    fibrinogen into networks of insoluble fibrin (a main component
+    of a blood clot); reduced thrombin activities thus reduce
+    the formation and growth of venous blood clots. Fibrin is
+    more important in the formation and stability of clots in
+    veins, whereas platelets have a more important role in clot
+    formation in arteries.</p>
+<p>The two most widely used anticoagulants are heparin and warfarin;
+    both substances have been known for a long time (heparin
+    was discovered over 100 years ago, an early version of warfarin
+    has been known for 80 years).</p>
+<p><strong>Heparin</strong> in therapeutic doses is commonly used
+    in surgical aftercare, in the form of <a href="/treatment/other/medication/delivery/more-info">subcutaneous (under the skin) injections</a>,
+    it cannot be taken orally because the substance cannot be
+    absorbed from the intestines. Heparin is a naturally occurring,
+    large molecule that is also produced in small quantities
+    by the immune system.</p>
+<p>Derivatives of <strong>warfarin</strong> are also naturally occurring
+    substances that are produced by some fungi. Warfarin is a
+    small molecule (see Figure 1) and can be taken orally.</p>
+<figure><img src="/treatment-other-medication-miscellaneous-anticoagulant-figure1.png">
+    <figcaption><strong>Figure 1:</strong> The molecular structure of warfarin.</figcaption>
+</figure>
+<p>Warfarin is the most widely used anticoagulant, not least because
+    its function can be reversed if necessary. The antidote to
+    warfarin (to stop excessive bleeding) is vitamin K, a vitamin
+    that is necessary in the cascade of blood clotting events.
+    Warfarin inhibits the vitamin-K dependent biosynthesis of
+    several of the blood clotting factors (proteins).</p>
+<p>Nature uses anticoagulants in other circumstances too: for example,
+    the saliva of some spiders, snakes, ticks and leeches contains
+    anticoagulants. More recent developments of more specific
+    synthetic anticoagulant medications have taken inspiration
+    from these ‘bio-molecules’.  </p>
+<p>A maxillofacial clinic certainly is not the place for the treatment
+    of cardiovascular conditions. However, a number of maxillofacial
+    patients will be on long-term medication with anticoagulant
+    drugs. This can be relevant for maxillofacial treatment planning
+    and prescription of medications because all anticoagulant
+    (and <a href="/treatment/other/medication/miscellaneous/antiplatelet">antiplatelet</a>)
+    medications have in common that they <a href="/treatment/other/medication/delivery/more-info">interfer with many other medications</a>    and foods, as well as increasing the risk for bleeding.</p>

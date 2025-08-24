@@ -1,0 +1,57 @@
+---
+id: treatment-surgery-tumour-haematological-malignancy-level1
+uri: treatment/surgery/tumour/blood-malignancy
+title: Blood malignancy
+type: level1
+surtitle: Tumour
+authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+updated_at: 2019-07-14T10:17:24Z
+created_at: 2017-05-05T10:09:16Z
+---
+
+<p>Management and treatment of <a href="/diagnosis/a-z/tumour/blood-malignancy">haematological malignancies</a>    are taken care of by haematological oncology. However, oral
+    and maxillofacial surgery has a supporting role by dealing
+    with / managing of some of the adverse effects of these oncological
+    treatments, by providing diagnostic support in the form of
+    <a href="/diagnosis/tests/biopsy">biopsies</a>, or by resection
+    (and, where necessary, <a href="/treatment/surgery/reconstruction">reconstruction</a>)
+    of deposits of these malignancies in hard or soft tissues
+    in the head and neck region.</p>
+<p>The term <a href="/diagnosis/a-z/tumour/blood-malignancy/more-info">haematological malignancy</a>    covers a spectrum of different conditions affecting the blood
+    and/or lymphatic systems, including different forms of lymphoma,
+    myeloma and different forms of acute and chronic leukaemia.
+    Despite differences between these conditions, most of them
+    are treated by some variation of <a href="/treatment/chemotherapy">chemo-</a>    and/or <a href="/treatment/radiotherapy">radiotherapy</a>    and thus have similar adverse effects that will be seen in
+    maxillofacial surgery. A subgroup of leukaemia patients will
+    have, or will have had, a bone marrow transplant from a genetically
+    non-identical donor (allotransplant), with subsequent need
+    of ongoing <a href="/treatment-other-medication-miscellaneous-immunosuppressant">immunosuppressant medication</a>.
+    Another subgroup of mostly leukaemia patients (<a href="/diagnosis/a-z/tumour/blood-malignancy">acute lymphoblastic leukaemia (ALL)</a>    most commonly) are children. Both of these groups typically
+    have special and often long-term needs for consideration
+    in a maxillofacial clinic.</p>
+<p>Common tasks for oral and maxillofacial surgery in supporting
+    the treatment of haematological malignancies include</p>
+<ul>
+    <li>assessment and management of various oral conditions, although
+        these are more normally carried out by paediatric dental
+        specialists or restorative dentists (for example,
+        <a href="/treatment/restorative-dentistry/periodontal/detailed">periodontal disease</a>, <a href="/treatment/restorative-dentistry/cancer-pretreatment">before</a>            and <a href="/treatment/restorative-dentistry/cancer-post-treatment">after</a>            cancer treatment);</li>
+    <li>supporting diagnosis by different <a href="/diagnosis/tests/biopsy">biopsies</a>;</li>
+    <li>some other surgical interventions;</li>
+    <li>assessment and treatment of <a href="/diagnosis/a-z/oral-mucosal-lesion/detailed">mucositis</a>        (severe inflammation of the mucosa);</li>
+    <li>assessment and treatment of <a href="/diagnosis/a-z/infection/more-info">oral infections</a>,
+        mostly fungal and bacterial infections;</li>
+    <li>various aspects, depending on the underlying condition, of
+        long-term monitoring and interventions after completion
+        of oncological treatment.</li>
+</ul>
+<p>The following page discusses these oral and maxillofacial surgery
+    treatment modalities in more detail in the context of supporting
+    oncological treatment of haematological conditions. Many
+    of the treatment modalities are similar or identical to those
+    used more widely for a range of oral and maxillofacial conditions
+    and are discussed in detail in various other sections of
+    the website.</p>
+<aside>
+    <p>Read about <a href="/treatment/timelines/tumour/blood-malignancy">timelines of treatment and outcomes for blood malignancy</a>.</p>
+</aside>

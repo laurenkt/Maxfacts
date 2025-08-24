@@ -1,0 +1,76 @@
+---
+id: treatment-chemotherapy-chem-principle-level2
+uri: treatment/chemotherapy/chemical-principles/more-info
+title: Chemical principles
+type: level2
+surtitle: Chemotherapy
+authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+updated_at: 2017-08-23T12:04:57Z
+created_at: 2016-12-13T12:41:13Z
+---
+
+<p>Cell growth is controlled via various mechanisms involving DNA
+    and a variety of proteins. Healthy adult cells do not normally
+    replicate extensively. However, mutations can lead to uncontrolled
+    cell propagation and therefore growth of tumours. Chemotherapy
+    drugs generally aim to kill malignant cells by targeting
+    the molecules and mechanisms involved in cell division.</p>
+<p>This is not to say only malignant cells are affected by chemotherapy;
+    the substances used are intrinsically cytotoxic (toxic to
+    living cells). Hair growth, maintenance of mucosa and blood
+    cell production are processes in which healthy cells are
+    also constantly dividing fairly rapidly and so are also affected
+    by chemotherapy. Consequently side effects, such as hair
+    loss, mouth ulcers or anaemia, can occur.</p>
+<p>Figure 1 shows a sketch of two drug molecules commonly used in
+    chemotherapy: cisplatin and carboplatin. Both are drugs that
+    target genetic material in a living cell.</p>
+<figure><img src="/treatment/chemotherapy/principles/more-info/figure1.png">
+    <figcaption><strong>Figure 1:</strong> Sketch of the molecular structures
+        of cisplatin (left) and carboplatin (right).</figcaption>
+</figure>
+<p>Cisplatin and carboplatin belong to the class of DNA crosslinking
+    chemotherapy agents. They bond to DNA and in this way prohibit
+    further cell division, and thus induce cell death (apoptosis).
+    This mechanism, identical for cisplatin and carboplatin,
+    is shown in Figure 2. Carboplatin is used in cases when cisplatin
+    is not appropriate, such as where kidney function is impaired
+    in a patient as carboplatin is slightly less nephrotoxic
+    (harmful to the kidney) than cisplatin.</p>
+<figure><img src="/treatment/chemotherapy/principles/more-info/figure2.png">
+    <figcaption><strong>Figure 2:</strong> The interaction of the active
+        part of the cisplatin or carboplatin molecules with the
+        DNA helix strands.</figcaption>
+</figure>
+<p>Methotrexate and 5-fluorouracil are chemotherapy drugs that belong
+    to the class of drugs known as antimetabolites. By closely
+    mimicking molecules that are ordinarily consumed by the normal
+    healthy cell cycle, these substances prevent the cycle from
+    continuing and so induce apoptosis. Antimetabolites typically
+    differ only very slightly in their molecular composition
+    and structure from the molecules ordinarily used by the cell
+    (see Figure 3). Yet these minute differences are enough to
+    prevent normal cell function. As can be seen in Figure 3,
+    the normal natural substrate uracil (left) differs from the
+    chemotherapy drug molecule 5-fluorouracil (right) by just
+    having replaced one H atom by a fluorine atom. Uracil is
+    one of the four building blocks of RNA.</p>
+<figure><img src="/treatment/chemotherapy/principles/more-info/figure3.png">
+    <figcaption><strong>Figure 3:</strong> Sketch of the molecular structures
+        of uracil (left) and 5-fluorouracil (right).</figcaption>
+</figure>
+<p>Some chemotherapy drugs interact with various specific proteins
+    to inhibit cell processes involved in replication. Epidermal
+    growth factor receptors (EGFR) regulate cell-signalling pathways,
+    which are responsible for cellular propagation. When mutated
+    this receptor can often be overactive. Cetuximab is a drug
+    that inhibits the action of this protein and consequently
+    suppresses cell proliferation. It is the only such drug currently
+    used in head and neck cancer treatments.</p>
+<p>Taxanes are a class of chemotherapy drugs that inhibit the function
+    of microtubules (units that maintain the structure of cells
+    and help with the assembly of new cells) in mitosis (the
+    late stage of cell division where a new cell nucleus is formed)
+    therefore preventing the successful completion of cell division.</p>
+<p>Only limited roles have been identified for these two substances
+    in the context of head and neck cancer.</p>

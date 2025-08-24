@@ -1,0 +1,32 @@
+---
+id: help-selfhelp-oral-food-video-cooking-preamble
+uri: help/oral-food/cooking-videos
+title: Cooking videos
+type: page
+authorship: Authored by Angelika Sebald;Edited by Lauren Tomasello & Rachel Brown
+updated_at: 2017-10-27T14:34:17Z
+created_at: 2017-02-02T16:28:26Z
+---
+
+<p>We want to encourage you to prepare your own foods, in suitable
+    textures and at comfortable temperatures depending exactly
+    on your needs and appetite. Or, possibly you might want to
+    encourage friends and family to help you with some cooking
+    – and with sharing the products!</p>
+<p>In our collection of <a href="/help/oral-food/recipes">Maxfacts recipes</a>    we say repeatedly that most of the recipes are easy to prepare.
+    Our cooking videos demonstrate exactly that, for a number
+    of flexible general preparations of a variety of foods in
+    textures that many find comfortable to eat:</p>
+<ul>
+    <li>How to make <a href="/help/oral-food/cooking-videos/foams">stable foams</a></li>
+    <li>How to make <a href="/help/oral-food/cooking-videos/gelatin">jellies based on gelatin</a></li>
+    <li>How to make <a href="/help/oral-food/cooking-videos/carrageenan">(vegetarian) jellies based on carrageenan</a></li>
+    <li>How to make <a href="/help/oral-food/cooking-videos/parfait">rich ice creams (parfait)</a></li>
+    <li>How to make <a href="/help/oral-food/cooking-videos/granita">granita</a></li>
+    <li>How to make <a href="/help/oral-food/cooking-videos/puree">smooth purees</a></li>
+    <li>How to make <a href="/help/oral-food/cooking-videos/custard">proper custards</a></li>
+    <li>How to make <a href="/help/oral-food/cooking-videos/baked-custard">baked custards</a></li>
+    <li>How to <a href="/help/oral-food/cooking-videos/cornflour">thicken liquids with cornflour</a></li>
+</ul>
+<p>Do <a href="/help/oral-food/cooking-videos/feedback">let us know</a>    if you find cooking demonstrations in videos useful and /
+    or if we should add further cooking videos to the collection.</p>

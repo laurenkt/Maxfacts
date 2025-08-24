@@ -1,0 +1,10 @@
+---
+id: diagnosis-tests-maths-3D-image
+uri: diagnosis/tests/maths/3d-image
+title: 3D Image
+type: page
+hide: true
+updated_at: 2018-08-18T16:39:27Z
+created_at: 2018-08-18T16:39:27Z
+---
+

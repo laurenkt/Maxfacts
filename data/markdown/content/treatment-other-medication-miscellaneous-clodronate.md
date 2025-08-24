@@ -1,0 +1,54 @@
+---
+id: treatment-other-medication-miscellaneous-clodronate
+uri: treatment/other/medication/miscellaneous/clodronate
+title: Clodronate
+type: page
+authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+updated_at: 2019-07-14T10:26:13Z
+created_at: 2018-11-09T12:59:46Z
+---
+
+<p>Clodronate belongs to a category of medications known as <a href="/treatment-other-medications-miscellaneous-antiresorptive">antiresorptives</a>.
+    More specifically, clodronate is one of a number of different
+    <a href="/treatment/other/medication/miscellaneous/bisphosphonates">bisphosphonates</a>    within this category of medications (Figure 1). Bisphosphonates
+    are medications used for the treatment of osteoporosis (brittle
+    bones) and <a href="/treatment/surgery/tumour/metastases">bone metastases</a>.</p>
+<figure><img src="/treatment-other-medication-miscellaneous-clodronate-figure1.png">
+    <figcaption><strong>Figure 1:</strong> The molecular structure of clodronate.</figcaption>
+</figure>
+<p>The most prominent aspect of antiresorptive medications in an
+    oral and maxillofacial surgery context are their adverse
+    effects. Antiresorptive medications are the most common cause
+    of <a href="/diagnosis/a-z/necrosis/hard/more-info">necrosis of the jaw bones</a>,
+    known as MRONJ (medication-related osteonecrosis of the jaws).</p>
+<aside>
+    <p>If you’d like to read more about the bone remodelling and
+        how antiresorptive medications interfere with this process,
+        this is discussed on our pages about <a href="/diagnosis/a-z/necrosis/hard/detailed">hard tissue necrosis</a>.</p>
+</aside>
+<p>Antiresorptive medications are normally not prescribed in maxillofacial
+    surgery. However, here we mention clodronate separately as
+    an occasional exception. Clodronate is one of three components
+    of a controversial medication scheme, advertised for the
+    treatment of <a href="/treatment/surgery/necrosis/hard-tissue/detailed">osteoradionecrosis</a>,
+    a severe long-term (life-long) risk following <a href="/treatment/radiotherapy">radiotherapy</a>    in the head &amp; neck region. The cocktail of medicinal
+    drugs, also known as ‘triple therapy’ or PENTOCLO, consists
+    of <a href="/treatment/other/medication/miscellaneous/pentoxifylline">pentoxifylline</a>,
+    <a href="/treatment/other/medication/miscellaneous/tocopherol">tocopherol</a>    and clodronate. The evidence base about the <a href="/diagnosis/a-z/necrosis/hard/detailed">working principles of this medication scheme</a>    and the related hypotheses about the pathology of osteoradionecrosis
+    are conflicted. In addition, the original ‘triple therapy’
+    has sometimes become ‘penta-therapy’ with the rather random
+    addition of <a href="/treatment/other/medication/infection/detailed">ciprofloxacin</a>    (an antibacterial agent) and <a href="/treatment-other-medication-miscellaneous-steroid">prednisolone</a>    (a steroid) twice a week. It strikes one as counterintuitive
+    to prescribe a drug for the treatment of osteoradionecrosis,
+    when <a href="/treatment/other/medication/miscellaneous/bisphosphonates">bisphosphonates</a>    themselves are known to carry an enhanced and long-term risk
+    for causing osteonecrosis of the jaws. Accordingly, there
+    has been a reluctance to include clodronate in medication
+    schemes for treating osteoradionecrosis of the jaws. It is
+    also worth mentioning that in the UK the National Institute
+    for Health and Care Excellence (NICE) only recommends PENTOCLO
+    / ‘triple therapy’ for the treatment of osteoradonecrosis
+    of the jaws in the framework of clinical trials but not otherwise.</p>
+<p>The combination of drugs in ‘triple therapy’ was originally proposed
+    for the treatment of fibrosis (scar formation) and <a href="/diagnosis/a-z/necrosis/soft">soft-tissue necrosis</a>    after radiotherapy treatment of breast cancer. So far, it
+    has not been convincingly explained how and why exactly the
+    same considerations and treatment should apply for the treatment
+    of osteoradionecrosis of the jaws.</p>

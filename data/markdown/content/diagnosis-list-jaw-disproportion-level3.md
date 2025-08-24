@@ -1,0 +1,391 @@
+---
+id: diagnosis-list-jaw-disproportion-level3
+uri: diagnosis/a-z/jaw-disproportion/detailed
+title: Jaw disproportion
+type: level3
+authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+further_reading_uri: diagnosis/a-z/further-reading
+updated_at: 2018-08-18T12:54:46Z
+created_at: 2018-05-21T11:13:34Z
+---
+
+<p>Where surgical intervention is thought to be the best way forward
+    to deal with issues due to disproportionate growth of the
+    jaws, this is purely elective surgery. Extremely careful
+    assessment and diagnosis, underpinning an informed decision
+    based on fully explored potential risks and benefits, plays
+    a major role in these circumstances. Accordingly, below we
+    outline the various general and specific assessments in the
+    process in a little more detail.</p>
+<p>Before we start, a brief comment on potentially confusing nomenclature
+    about malocclusions may be useful. There are several terms,
+    definitions and classifications (after E. Angle, the ‘father
+    of modern orthodontics’; early 20<sup>th</sup> century) in
+    use, all meaning essentially the same condition(s).</p>
+<p><strong>Angle class I</strong> (neutrocclusion): Normal occlusion
+    of molar teeth but there may be some other issues with
+    <a href="/diagnosis/a-z/ectopic-teeth">ectopic teeth</a> (misaligned or wrongly erupted teeth),
+        spacing or overcrowding issues. These conditions are
+        largely the domain of orthodontics (see below) and will
+        typically not require orthognathic surgery (although
+        some other maxillofacial surgical interventions may be
+        necessary, such as the <a href="/treatment/surgery/ectopic-teeth">removal of unerupted or impacted teeth</a>).</p>
+<p><strong>Angle class II malocclusion</strong> (distocclusion,
+    <a href="https://en.wikipedia.org/wiki/Retrognathism">retrognathism</a>):
+    mandibular hypoplasia, a relatively too small lower jaw,
+    causes this. This class of malocclusion has two further subdivisions,
+    determined by the degree of overlap of the top teeth to the
+    bottom teeth (overbite).</p>
+<p><strong>Angle class III malocclusion</strong> (mesiocclusion,
+    <a href="https://en.wikipedia.org/wiki/Prognathism">prognathism</a>,
+    <a href="https://en.wikipedia.org/wiki/Anterior_crossbite">anterior crossbite</a>, negative
+    overjet, underbite): maxillary hypoplasia, a relatively too
+    small upper jaw, or mandibular hyperplasia, a relatively
+    too big lower jaw, can be the cause.</p>
+<p>Significant class II and class III malocclusions may benefit
+    from orthognathic surgery. There can be different classes
+    of malocclusion on the left and right sides.</p>
+<h1 id="history"><a href="/diagnosis/tests/medical-history">History</a></h1>
+<p>A prime reason for taking a detailed history is to identify somebody’s
+    perception of the problem. It is also used to assess somebody’s
+    <a href="/diagnosis/drugs/fitness">fitness</a> for surgery.
+    This is entirely elective surgery it is therefore even more
+    essential that any risks associated with the surgery are
+    kept to a minimum.</p>
+<p>Occasionally a cause, such as a family trait, <a href="/diagnosis/a-z/craniofacial-anomalies">congenital deformity</a>,
+    or trauma in infancy is identified, although usually there
+    is no obvious aetiological factor. People present with various
+    complaints. Most are concerned about their appearance; they
+    may also be concerned about their ability to chew, bite or
+    speak.</p>
+<p>Occasionally people are referred for orthognathic surgery in
+    the belief that their <a href="/diagnosis/a-z/jaw-joint">temporomandibular (jaw) joint (TMJ) dysfunction</a>    may be helped by surgery. There is little evidence that the
+    correction of malocclusion can improve TMJ pain or dysfunction.
+    It is inadvisable to promote orthognathic treatment as a
+    treatment for TMJ conditions. People should be aware that
+    pre-existing TMJ symptoms may worsen, persist or improve
+    during and/or after orthognathic treatment, it is entirely
+    unpredictable.</p>
+<p>During the assessment all involved, clinicians and patients,
+    must always be mindful of unrealistic expectations. Some
+    people may have excessive concern for minor or imperceptible
+    abnormalities and may produce diagrams or photographs showing
+    how they would like to appear. Some people feel that an operation
+    would improve their relationships or job prospects, providing
+    an instant solution to their problems. To avoid serious problems,
+    disagreements and disappointment later on, a frank and serious
+    conversation at this stage is a reasonable and necessary
+    way forward. It is, however, true that in carefully selected
+    cases, paired with realistic expectations, surgical correction
+    of jaw disproportion can bring about great satisfaction and
+    improved social confidence.</p>
+<h1 id="clinical-examination"><a href="/diagnosis/tests/examination">Clinical Examination</a></h1>
+<p>The clinical examination should consist of a systematic evaluation
+    approach to both the soft and hard tissues.</p>
+<h4><strong>Profile</strong></h4>
+<p>The patient should be sitting comfortably with the Frankfurt
+    plane horizontal (the Frankfurt plane is also called the
+    eye-ear plane, it is a descriptor in craniometry (measurements
+    of the skull). This line, when adjusted as horizontal, corresponds
+    to a posture where somebody is sitting upright such that
+    a line taken from roughly the middle of the ear to the peak
+    position of the cheekbone is horizontal; see Figure 1).</p>
+<figure><img src="/diagnosis-list-jaw-disproportion-level3-figure1.png">
+    <figcaption><strong>Figure 1:</strong> The Frankfurt plane; in addition
+        two characteristic points used in craniometry, A and
+        B, are also indicated.</figcaption>
+</figure>
+<p>It is useful here to consider the concept of the face being divided
+    into thirds; an upper, a middle, and a lower third. The lower
+    third itself is divided into thirds; the upper lip being
+    one third compared to the lower two thirds, which extend
+    from the lower lip margin (stomion) to the chin margin (menton).
+    Facial aesthetics is maintained when the lower face height
+    is about 50 to 55 % of the total face height, when measuring
+    from nasion (the depressed area on the nose, just above the
+    bridge of the nose and below the glabella (the area between
+    the eyebrows) to menton.</p>
+<p>The relation of the maxilla to the mandible is noted (skeletal
+    classification). In the maxilla, prognathism or retrognathism
+    can be diagnosed, as the face will appear more convex or
+    concave, respectively. In addition, the shape and size of
+    the nose are examined.</p>
+<p>The nasolabial angle (the angle between the surface of the upper
+    lip, in the middle of the lip, and the inferion (bottom border
+    of the nose) is normally about 90°. Retraction of the upper
+    incisors (front teeth) may open this angle and lead to poorer
+    aesthetics by potentially causing dishing of the lower face
+    and making the nose appear more prominent.</p>
+<figure><img src="/diagnosis-list-jaw-disproportion-level3-figure2.jpg">
+    <figcaption><strong>Figure 2:</strong> Class III malocclusion, showing
+        an acute nasolabial angle.</figcaption>
+</figure>
+<p>The important horizontal relationship of the maxilla to the mandible
+    is assessed. The most common problems are mandibular prognathism
+    and retrognathism. By examining the maxilla first, apparent
+    mandibular prognathism caused by a hypoplastic maxilla can
+    be ruled out (see Figure 3). Some clinicians place cotton
+    wool under the upper lip to mimic maxillary advancement.
+    Similarly, the surgical correction of a retrognathic mandible
+    can be visualized by posturing the mandible forward by the
+    desired amount.</p>
+<figure><img src="/diagnosis-list-jaw-disproportion-level3-figure3.jpg">
+    <figcaption><strong>Figure 3:</strong> Full-face view showing paranasal
+        hollowing, indicating maxillary hypoplasia.</figcaption>
+</figure>
+<p>Some points to consider at the planning stage include:</p>
+<ul>
+    <li>advancement of the maxilla increases upper incisor show;</li>
+    <li>the alar base cinch suture (suture at the base of the nose)
+        <ul>
+            <li>controls the transverse dimension of the alar base</li>
+            <li>improves tip projection</li>
+            <li>maintains the thickness of the upper lip</li>
+            <li>decreases shortening of the upper lip;</li>
+        </ul>
+    </li>
+    <li>nasal tip moves relative to A point (see Figure 1) in a ratio
+        of approximately
+        <ul>
+            <li>1: 3 for <a href="/treatment/surgery/jaw-disproportion/detailed">Le Fort I osteotomies</a></li>
+            <li>1: 2 for <a href="/treatment/surgery/jaw-disproportion/detailed">Le Fort II osteotomies</a></li>
+            <li>1 :1 for <a href="/treatment/surgery/jaw-disproportion/detailed">Le Fort III osteotomies</a>;</li>
+        </ul>
+    </li>
+    <li>chin, soft tissue-pogonion moves approximately 1 : 1 with
+        either mandibular advance or setback;</li>
+    <li>lower lip moves approximately
+        <ul>
+            <li>85 % of the skeletal move in advancement</li>
+            <li>60 % of the skeletal move in setback.</li>
+        </ul>
+    </li>
+</ul>
+<p>The data compiled in Table 1 can be used as a guide of common
+    dimensions.</p>
+<p><strong>Table 1</strong> <strong>Measurements used in orthognathic assessment</strong></p>
+<table>
+    <tbody>
+        <tr>
+            <th> Anatomical area</th>
+            <th> Measurement</th>
+        </tr>
+        <tr>
+            <td> Intercanthal width</td>
+            <td> 34 +/- 4 mm</td>
+        </tr>
+        <tr>
+            <td> Alar base width</td>
+            <td> 34 +/- 4 mm</td>
+        </tr>
+        <tr>
+            <td> Interpupillary distance</td>
+            <td> 65 +/- 4 mm</td>
+        </tr>
+        <tr>
+            <td> Upper lip length</td>
+            <td> 22 mm (males), 20 mm (females)</td>
+        </tr>
+        <tr>
+            <td> Lower lip length</td>
+            <td> 33 mm (males), 30 mm (females)</td>
+        </tr>
+        <tr>
+            <td> Upper incisor (front teeth) show</td>
+            <td> 0 - 3 mm (at rest), 7 - 10 mm (smiling)</td>
+        </tr>
+        <tr>
+            <td> Nasolabial angle</td>
+            <td> 90 - 120°</td>
+        </tr>
+        <tr>
+            <td> Labiomental angle</td>
+            <td> 115 - 135°</td>
+        </tr>
+        <tr>
+            <td> Lower face height</td>
+            <td> 66 mm (males), 60 mm (females)</td>
+        </tr>
+        <tr>
+            <td> Mid face height</td>
+            <td> 66 mm (males), 60 mm (females)</td>
+        </tr>
+    </tbody>
+</table>
+<h3><strong>Full Face</strong></h3>
+<p>Any asymmetry of the face is examined, including the level of
+    the eyes. This is the time to compare facial and dental midlines,
+    which can then be transferred to the study casts (see below).
+    Any cant in the occlusal plane can be confirmed by placing
+    a wooden spatula transversely between the teeth. Lip seal
+    and incisor show both at rest and smiling should be measured.
+    Over- or underbite can be measured directly, see Figure 4.
+    This allows assessment of any excessive incisor or gingival
+    (gum) show, an important baseline in surgical planning.</p>
+<figure><img src="/diagnosis-list-jaw-disproportion-level3-figure4.jpg">
+    <figcaption><strong>Figure 4:</strong> An example of an underbite of
+        approximately 12 mm.</figcaption>
+</figure>
+<h4><strong>Intraoral Examination</strong></h4>
+<p>The molar and incisal relationships are examined visually and
+    are formally documented by photographs (see Figure 5, Figure
+    6 and Figure 7 for examples) and study models (see below).</p>
+<figure><img src="/diagnosis-list-jaw-disproportion-level3-figure5.jpg">
+    <figcaption><strong>Figure 5:</strong> Intraoral view showing a class
+        III malocclusion (underbite).</figcaption>
+</figure>
+<figure><img src="/diagnosis-list-jaw-disproportion-level3-figure6.jpg">
+    <figcaption><strong>Figure 6:</strong> Intraoral view showing a class
+        III malocclusion (underbite).</figcaption>
+</figure>
+<figure><img src="/diagnosis-list-jaw-disproportion-level3-figure7.jpg">
+    <figcaption><strong>Figure 7:</strong> Intraoral view of a class III
+        malocclusion (underbite).</figcaption>
+</figure>
+<p>A thorough dental examination should take place, especially noting
+    <a href="/help/oral-hygiene">oral hygiene</a> and <a href="/help/oral-hygiene/decay">carious teeth</a>.
+    Routine dental care must be completed first, by the general
+    dental practitioner.</p>
+<h1 id="radiographic-examination"><a href="/diagnosis/tests/x-ray">Radiographic examination</a></h1>
+<p>A series of standardized radiographs are studied as part of the
+    assessment.</p>
+<p>A panoramic radiograph, <strong>OPG</strong>, (<a href="/diagnosis/tests/x-ray">orthopantogram</a>;
+    also referred to as a dental panoramic tomogram (<strong>DPT</strong>)
+    reveals <a href="/help/oral-hygiene/decay">caries</a> and
+    <a href="/help/oral-hygiene/periodontal-disease">periodontal disease</a>,
+    <a href="/diagnosis/a-z/ectopic-teeth">unerupted or impacted teeth</a>,
+    and the presence of coincidental pathology, such as <a href="/diagnosis/a-z/cyst">cysts</a>    (see Figure 8 for an example).</p>
+<figure><img src="/diagnosis-list-jaw-disproportion-level3-figure8.jpg">
+    <figcaption><strong>Figure 8:</strong> <a href="/diagnosis/tests/x-ray">Panoramic radiograph</a>        of a patient showing wisdom teeth destined for removal
+        in an otherwise ‘dentally fit’ person.</figcaption>
+</figure>
+<p>A <strong>lateral cephalogram</strong> (a profile side-view X-ray
+    image of the skull and soft tissues) is required. This view
+    supplements clinical analysis with cephalometric analysis
+    (a range of measurements of the head and skull). See Figure
+    9 for an example of a lateral cephalogram.</p>
+<figure><img src="/diagnosis-list-jaw-disproportion-level3-figure9.jpg">
+    <figcaption><strong>Figure 9:</strong> A lateral cephalogram of a patient
+        with a class III malocclusion.</figcaption>
+</figure>
+<p><strong>Intraoral radiographs</strong> are taken as needed, there
+    are various such views (on <a href="/diagnosis/tests/x-ray">intraoral films</a>).
+    The <strong>upper anterior occlusal radiograph</strong> is
+    the most commonly used. This view uses an imaginary plane
+    to focus on the maxilla and upper front teeth. It is essential
+    for the assessment of unerupted canine teeth. Figure 10 shows
+    an example of an upper anterior occlusal radiograph.</p>
+<figure><img src="/diagnosis-list-jaw-disproportion-level3-figure10.jpg">
+    <figcaption><strong>Figure 10:</strong> Upper anterior occlusal image,
+        allowing localisation of ectopic canine teeth.</figcaption>
+</figure>
+<p><strong>Cephalometric analysis</strong> is, in essence, the interpretation
+    of measurements of the skull and facial bones using agreed
+    angulations and linear distances to aid in determining the
+    underlying aetiology of a particular problem. Many analyses
+    exist with varying degrees of complexity. Some have a specific
+    set of indications for use. However, most clinicians will
+    favour a few analyses with which they will be familiar.</p>
+<p>It must also be remembered that any such analysis is based on
+    modelling assumptions and/ or small sets of model data. Thus,
+    it is important to remember that a patient is being treated
+    and not a radiograph. Whichever analysis is used, it is only
+    a guide, even if the software used produces impressive-looking
+    pictures.</p>
+<aside>
+    <p>Data-analysis based assessments, all kinds of data visualisation
+        methods and 3D image reconstruction methods are areas
+        where progress is rapid. If you’d like to read more about
+        recent developments, this is covered (and regularly updated)
+        in our section about <a href="/treatment/other/new-developments">new developments</a>.</p>
+</aside>
+<h1 id="photographs">Photographs</h1>
+<p>These usually consist of a standardized set of images. Extraoral
+    photographs include the full face at rest and smiling, three-quarter
+    left and right side views of the face, and a profile. Intraoral
+    photographic views should show anterior (front) and buccal
+    (side) teeth in occlusion.</p>
+<p>Some clinicians like to construct a montage using the lateral
+    cephalogram (see above) and profile photograph in a 1 : 1
+    ratio. This tries to mimic postsurgical soft tissue movement.
+    This technique, like computer generated programmes which
+    purport to simulate the variable impact of surgical movement
+    of the jaws, has limitations and must be used with caution
+    in order to avoid unrealistic expectations.</p>
+<h1 id="study-models">Study Models</h1>
+<p>Records are taken at various stages of treatment, usually before
+    and after orthodontic treatment (see below), before and after
+    surgical treatment, and at review appointments at yearly
+    intervals for up to five years after treatment. These records
+    are combined with a record of the occlusion in the form of
+    a wax squash bite (see Figure 11).</p>
+<figure><img src="/diagnosis-list-jaw-disproportion-level3-figure11.jpg">
+    <figcaption><strong>Figure 11:</strong> Trimmed study model.</figcaption>
+</figure>
+<p>The models are trimmed in a standardized manner. On the models,
+    markings can be made (for example, the facial midline in
+    relation to the dental midline). Models can be taken at various
+    stages of treatment, and are used for differing reasons (for
+    example, clinical records, orthodontic planning, and model
+    surgery).</p>
+<p>Prior to the orthognathic surgery, a facebow recording is made
+    (see Figure 12). A facebow is a device to essentially translate
+    geometric measurements on the face / head to a mechanical
+    device, an articulator (see below).</p>
+<figure><img src="/diagnosis-list-jaw-disproportion-level3-figure12.jpg">
+    <figcaption><strong>Figure 12:</strong> A facebow for recording the relative
+        positions of the jaws and fixed cranial and facial reference
+        points.</figcaption>
+</figure>
+<p>The most recent study models are mounted on a semi-adjustable
+    or fully adjustable anatomical articulator (see Figure 13).
+    An articulator is a mechanical device where all parts can
+    be moved in a reproducible manner in all three dimensions.
+    These models are duplicated for the fabrication of occlusal
+    wafers, which are essential for the perioperative localisation
+    of the maxilla in <a href="/treatment/surgery/jaw-disproportion">bimaxillary procedures</a>.</p>
+<figure><img src="/diagnosis-list-jaw-disproportion-level3-figure13.jpg">
+    <figcaption><strong>Figure 13:</strong> Two examples of semi-adjustable
+        articulators for clinical (top) and laboratory (bottom)
+        use.</figcaption>
+</figure>
+<p>Model surgery is performed to gauge whether a satisfactory occlusion
+    is attainable. Model surgery also gives a measure of the
+    required surgical movements (see Figure 14).  </p>
+<figure><img src="/diagnosis-list-jaw-disproportion-level3-figure14.jpg">
+    <figcaption><strong>Figure 14:</strong> Model surgery, view before (left)
+        and after (right) intervention.</figcaption>
+</figure>
+<h1 id="orthodontic-treatment">Orthodontic treatment</h1>
+<p>The presurgical orthodontic phase is designed to place the teeth
+    in their correct final position over the dental bases prior
+    to surgery. This involves the correction of dental alignment
+    (see Figure 15), arch levelling, decompensation of teeth
+    in all three planes of space and arch coordination.</p>
+<figure><img src="/diagnosis-list-jaw-disproportion-level3-figure15.jpg">
+    <figcaption><strong>Figure 15:</strong> Dental crowding that requires
+        preoperative orthodontic correction.</figcaption>
+</figure>
+<p>It is essential that both the patient and the orthodontic and
+    surgical team are clear about this phase because orthodontic
+    decompensation <i>prior</i> to surgery will make the occlusal
+    relationships significantly worse. The presurgical orthodontic
+    phase can last between 12 and 18 months (Figure 16).</p>
+<figure><img src="/diagnosis-list-jaw-disproportion-level3-figure16.jpg">
+    <figcaption><strong>Figure 16:</strong> Intraoral view of a patient with
+        a class II malocclusion who is undergoing orthodontic
+        treatment.</figcaption>
+</figure>
+<p>It would be utterly inappropriate for a patient to then decide
+    they did not want surgery as all the preceding treatment
+    would have been moving the teeth in the opposite way from
+    that used by orthodontic camouflage (orthodontic corrective
+    treatment only) (Figure 17).</p>
+<figure><img src="/diagnosis-list-jaw-disproportion-level3-figure17.jpg">
+    <figcaption><strong>Figure 17:</strong> Lateral cephalograms of a case
+        of class II malocclusion before (left) and during (right)
+        orthodontic decompensation.</figcaption>
+</figure>
+<p>Postsurgical orthodontic treatment involves final detailing of
+    the occlusion and should be kept to as short a period of
+    time as possible.</p>

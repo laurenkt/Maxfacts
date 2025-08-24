@@ -1,0 +1,60 @@
+---
+id: diagnosis-list-facial-skin-cancer-level1
+uri: diagnosis/a-z/cancer/facial-skin
+title: Facial skin cancer
+type: level1
+authorship: Authored by David A. Mitchell & Angelika Sebald
+updated_at: 2017-08-23T11:53:27Z
+created_at: 2016-12-06T12:05:25Z
+---
+
+<p>The three most common skin cancers affecting the head and neck
+    region are basal cell carcinoma (BCC), squamous cell carcinoma
+    (SCC) and malignant melanoma. Exposure to ultraviolet (UV)
+    light on a cumulative basis is the major risk factor for
+    BCC and SCC. Therefore, unsurprisingly, these are most commonly
+    found on the sun exposed skin (such as face, scalp, hands
+    and arms of the white skinned population in sunny climates).</p>
+<p>Changing patterns of sun / UV light exposure for social reasons
+    (holidays abroad, insufficient UV protection of exposed skin,
+    sunbeds in tanning studios) have led to the increasing incidence
+    of skin cancers in the United Kingdom.</p>
+<h1 id="basal-cell-carcinoma-bcc">Basal cell carcinoma, BCC</h1>
+<p>BCC is the most common cancer in Europe. It is usually caused
+    by sun exposure, including occasional (minor) sunburns. It
+    arises in the deepest layers of the outermost layer of skin;
+    these deep layers are lined by basal cells. BCC are usually
+    slowly growing abnormal lesions that rarely spread (<a href="/diagnosis/a-z/tumour/metastases">metastasise</a>)
+    to other parts of the body. Nevertheless, if not treated
+    promptly, there is a risk of spread and disfigurement.</p>
+<h1 id="squamous-cell-carcinoma-scc">Squamous cell carcinoma, SCC</h1>
+<p>SCC is the second most common form of skin cancer. The abnormal
+    growth arises in the upper layers of the skin (the epidermis)
+    in the squamous cells that mostly make up this layer of skin.</p>
+<p>Similar to BCC (see above), SCC is usually caused by exposure
+    to UV light (but there are a number of other potential causes
+    as well). Accordingly, common locations in the head and neck
+    region are the rim of the ear, the lower lip, a bald scalp,
+    or regularly sun-exposed parts of the neck. SCC occurs in
+    all parts of the body (for example, the majority of <a href="/diagnosis/a-z/cancer/mouth-cancer">oral (mouth) cancers</a>    are SCC).</p>
+<p>Different from BCC which very rarely spread to other parts of
+    the body, there is a tendency of SCC to spread <i>via</i>    local lymph nodes. This potential for metastatic spread depends
+    on the site of the original tumour, its size and thickness,
+    levels of invasion, rate of growth, amongst some further
+    considerations.</p>
+<h1 id="malignant-melanoma">Malignant melanoma</h1>
+<p>Malignant melanoma is a more serious skin cancer with a tendency
+    to form <a href="/diagnosis/a-z/tumour/metastases">metastases</a>.
+    It arises from pigment-producing cells (melanocytes) in the
+    deep (basal) layers of the skin; it often looks like a mole
+    or may originate from a mole. Its incidence in the United
+    Kingdom is doubling each decade, it affects a younger age
+    range and carries a mortality of around 40 % (currently each
+    year about 13.500 cases are diagnosed in the UK, and about
+    2.000 deaths occur; malignant melanoma is not the most common
+    skin cancer but it causes the most deaths). Malignant melanoma
+    is more common elsewhere on the body (in men, the back; in
+    women, the leg) but it does appear on the face.</p>
+<p>If diagnosed (and treated) early, it is almost always curable.
+    If left late or untreated, malignant melanoma may spread
+    to other parts of the body and become incurable.</p>

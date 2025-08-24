@@ -1,0 +1,564 @@
+---
+id: treatment-other-medication-infection-level2
+uri: treatment/other/medication/infection/more-info
+title: Infection
+type: level2
+authorship: Authored by Angelika Sebald;Proof-read/edited by David. A Mitchell
+updated_at: 2018-03-27T08:10:55Z
+created_at: 2017-10-27T18:16:20Z
+---
+
+<p>Below we give short descriptions of the main mechanisms of action
+    of the three categories of antibiotic agents: antibacterials,
+    antifungals and antivirals.</p>
+<aside>
+    <p>If you’d like to read more about specific antibiotic drugs
+        and infections, this information is on our detailed page
+        about <a href="/treatment/other/medication/infection/detailed">treatment of infections by medication</a>,
+        alongside further information about resistance to antibiotic
+        drugs.</p>
+</aside>
+<h1 id="antibacterial-agents">Antibacterial agents</h1>
+<p>It can be advantageous to identify the type of bacteria responsible
+    for an infection before starting treatment, given the large
+    number of potentially harmful bacteria. For example, it can
+    be useful to know whether bacteria belong to the <a href="/diagnosis/tests/microbiology">Gram-positive or Gram-negative category</a>    and thus, because of their different types of cell walls
+    (see Figure 1), will be susceptible to treatment with different
+    types of antibacterial agents. It can also be useful to know
+    if an infection is caused by <a href="/diagnosis/tests/microbiology">anaerobic of aerobic bacteria</a>.</p>
+<figure><img src="/treatment-other-medication-infection-level2-figure1.png">
+    <figcaption><strong>Figure 1:</strong> A schematic view of the different
+        cell walls in Gram-positive and Gram-negative bacteria.
+        Adapted from C. Bougault, Grenoble.</figcaption>
+</figure>
+<p>Where it is not possible to precisely identify the relevant bacteria
+    before starting treatment (which is the usual clinical scenario),
+    it is common practice to start with a ‘best guess’, usually
+    a so called broad-spectrum antibacterial drug (a drug that
+    can treat a range of different bacterial infections). If
+    later on additional information becomes available, the medication
+    regimen can be adapted accordingly (in many maxillofacial
+    infection cases, this is an ‘after the event’ scenario: by
+    the time the pathogens have been identified, the infection
+    has already been cleared).</p>
+<p>The ways in which bacteria multiply, their structures and metabolic
+    processes, through which they not only survive but thrive
+    and replicate, are quite different from the metabolism and
+    life cycles of the cells of mammals (including humans). These
+    differences can be exploited for treatment with antibacterial
+    drugs, which deny the bacterial cells some element(s) that
+    are vital for their survival, whereas the host cells are
+    only minimally compromised. The logic is to provide the host’s
+    cells with a significant competitive advantage over the bacterial
+    cells that have so far evaded the body’s immune system, which
+    has resulted in infection.</p>
+<aside>
+    <p>If you’d like to read more about the unwanted effects of
+        antibacterial agents on the host’s system, this information
+        is on our detailed page about <a href="/diagnosis/a-z/infection/detailed">infections</a>.</p>
+</aside>
+<p>There are essentially four main mechanisms by which antibacterial
+    agents can interfere with bacterial cell function. The sketch
+    of a bacterial cell in Figure 2 summarises these four mechanisms.</p>
+<figure><img src="/treatment-other-medication-infection-level2-figure2.png">
+    <figcaption><strong>Figure 2:</strong> The four main mechanisms of antibacterial
+        effects of drugs; interfering with the cell wall, the
+        metabolic processes, the DNA and protein synthesis of
+        bacterial cells.</figcaption>
+</figure>
+<p>Some antibacterial agents kill bacterial cells outright (bactericidal
+    agents), others weaken the bacterial cells and hinder their
+    replication (bacteriostatic agents). The success of antibacterial
+    treatments does not depend on this distinction. It is far
+    more important to start treatment promptly, using the most
+    suitable type of agent for the treatment of the particular
+    pathogen(s) at hand.</p>
+<p>Many mammals (including humans) and other living creatures naturally
+    synthesise antibacterial substances in their normal metabolic
+    processes to stay healthy (frogs, for example, continuously
+    produce slime on their skin to keep their skin healthy; slime
+    on frog skin contains several substances with antibacterial
+    properties). Humans make <a href="/help/oral-hygiene/saliva-and-teeth-mucosa">lysozyme in saliva</a>    and other body fluids (tears); lysozyme is a highly effective
+    antibacterial agent, it attacks bacterial cell walls (see
+    below). Most / many of the existing synthetic man-made antibacterial
+    agents are derived from naturally occurring substances and
+    are probably better viewed as ‘discovered’ rather than ‘designed’
+    (although this may change in the future).</p>
+<aside>
+    <p>If you’d like to read more about the role of saliva in maintaining
+        oral health in general, and the role and mode of action
+        of lysozyme in particular, this information is on our
+        detailed page about the <a href="/help/oral-hygiene/saliva-and-teeth-mucosa">oral-health role of saliva</a>.</p>
+</aside>
+<h2>The bacterial cell wall</h2>
+<p>The cells of humans do not have a cell wall, only a membrane.
+    In contrast, the strong cell wall of a bacterium is vital
+    for its survival. The cell wall also makes a difference with
+    regard to mobility of cells: bacterial cells, protected by
+    their cell wall, are optimised for moving around and spreading
+    in this way, human body cells are optimised to stay in place
+    and carry out their various specialised tasks locally.</p>
+<p>The bacterial cell wall needs to withstand large internal pressure
+    changes within the bacterial cell, a consequence of the need
+    to maintain a delicate osmotic balance (water flowing in
+    and out of the cell). The cell wall also maintains the integrity
+    of the cell membrane without which the controlled exchange
+    of chemicals (homeostasis) between the bacterial cell and
+    its surroundings is compromised. This vital protective role
+    of the cell wall is enabled by a structural protein, peptidoglycan,
+    which forms the main structural component of a bacterial
+    cell wall. Bacteria have to synthesise peptidoglycan for
+    their cell walls themselves.</p>
+<figure><img src="/treatment-other-medication-infection-level2-figure3.png">
+    <figcaption><strong>Figure 3:</strong> A schematic view of the structural
+        units of a bacterial cell wall, highlighting the peptidoglycan
+        cross bridges.</figcaption>
+</figure>
+<p>Figure 3 shows a cross section of peptidoglycan within the cell
+    wall; long strands of the structural protein are interlinked
+    with shorter strands. It is this ‘cross hatching’ (analogous
+    to the supporting beams in fencing) which improves the ability
+    of the cell wall to withstand pressure: the more crosslinks,
+    the better the security and stability of the cell. Removal
+    or weakening of these links by antibacterial agents weakens
+    the cell wall by putting holes in the structure and thus
+    leaving it susceptible to cell death. In a further analogy,
+    the cell wall can be thought of as a dam of sorts. Antibacterial
+    agents that target the cell wall can be thought of as weakening
+    and putting holes in the structure of the dam, eventually
+    causing water to flood through the wall into the cell and
+    causing death of the bacterial cell. Most antibacterial agents
+    acting on the cell-wall structures achieve this weakening
+    effect by attaching themselves to the cell wall and creating
+    weak spots, either for the agent itself to break the cell
+    wall (for example lysozyme works in this way; see above)
+    or to enable other chemicals (enzymes) to do so. This mechanism
+    is illustrated in Figure 4.</p>
+<figure><img src="/treatment-other-medication-infection-level2-figure4.png">
+    <figcaption><strong>Figure 4:</strong> Top part: a bacterial cell with
+        an intact cell wall; bottom part: the cell wall structural
+        protein, peptidoglycan, weakened by the action of an
+        antibacterial agent, followed by cell death.</figcaption>
+</figure>
+<h2>Some metabolic processes of the bacterial cell</h2>
+<p>Some metabolically important substances are available to humans
+    from dietary sources, whereas bacteria have to produce these
+    substances for themselves <i>via</i> their metabolic processes.
+    A sketch of a metabolic process is shown in Figure 5; smaller
+    chemical units are put together to build bigger, more useful
+    molecules for the cell. If a bacterial cell has to synthesise
+    (make) a molecule in order to survive, then hampering this
+    production process will have the same effect as starvation.</p>
+<p>Where it is possible to deny a bacterial cell the necessary nutrients
+    and resources, this will ultimately lead to the death of
+    the bacterial cell by starvation. An example of a chemical
+    which is taken in through the diet in humans but has to be
+    synthesised by bacterial cells is tetrahydrofolate, a part
+    of the vitamin B cycle (see Figure 5). Preventing tetrahydrofolate
+    production <i>via</i> inhibition of folic acid production
+    in the bacterial cell leads to a deficiency of that molecule
+    in the bacterial cell and the ultimate purpose of the product
+    remains unexecuted. Folic acid is important in the making
+    of DNA (in all cells), so prevention of its synthesis in
+    the bacterial cell makes cell death imminent as the cell
+    can no longer replicate DNA.</p>
+<figure><img src="/treatment-other-medication-infection-level2-figure5.png">
+    <figcaption><strong>Figure 5:</strong> Illustration of the metabolic
+        synthetic pathway from folic acid to tetrahydrofolate
+        in a bacterial cell.</figcaption>
+</figure>
+<p>In a slightly different mechanism which also interferes with
+    the metabolic processes of the bacterial cells, some antibacterials
+    can mimic the structure of molecules needed by the cell and
+    resulting in their uptake instead of the normal molecule.
+    This is schematically illustrated in Figure 6. It results
+    in a deficiency as the cell fails to uptake and/or synthesise
+    the correct and necessary molecule for its survival. This
+    ‘pretender’ mechanism is also exploited in a range of drugs
+    used in conventional <a href="/treatment/chemotherapy/chemical-principles/more-info">chemotherapy</a>,
+    where for example, 5-fluorouracil is administered systemically
+    and replaces uracil as the normal substrate in the cell metabolism.</p>
+<figure><img src="/treatment-other-medication-infection-level2-figure6.png">
+    <figcaption><strong>Figure 6:</strong> Comparing the normal synthesis
+        pathway (left) with the incorporation of a mimic, leading
+        to a non-functional product.</figcaption>
+</figure>
+<p>Once a bacterial cell has assembled a larger molecule, proper
+    functionality requires this molecule to fit into the chemical
+    and biological machinery of the cell. The molecule and the
+    machinery often have complementary shapes, they match up
+    well and any disruptions in this matching process results
+    in the machinery being unable to function. ‘Pretender’ molecules
+    smuggled into the cell’s metabolic pathways can either block
+    the synthetic pathway from complete execution, or may lead
+    to final products that are mismatched and thus cannot fulfil
+    their specific biochemical task.</p>
+<h2>The protein synthesis in the bacterial cell</h2>
+<p>Synthesising  proteins in all cells is much like following a
+    recipe. Proteins are made from small molecular building blocks
+    (amino acids). A bacterial cell has all the cellular equipment
+    and machinery it needs as well as a recipe to follow, encoded
+    in the form of DNA molecules. DNA is essentially the cell’s
+    list of instructions as to how and when to make proteins,
+    and is even able to go so far as to dictate how much of a
+    protein is needed (depending on its function/importance within
+    the cell). A part of the machinery necessary for protein
+    synthesis in a cell is a structure known as a ribosome (a
+    very large molecule), comprised of a small compartment and
+    a large compartment.</p>
+<figure><img src="/treatment-other-medication-infection-level2-figure7.png">
+    <figcaption><strong>Figure 7:</strong> The basic building blocks and
+        function of the ribosome.</figcaption>
+</figure>
+<p>Before DNA can be ‘read’ by a ribosome, it needs first to be
+    converted into a different language, which the ribosome can
+    more easily and readily interpret. This translation is the
+    function of another large molecular structure which goes
+    by the name of RNA polymerase. RNA polymerase can simply
+    be thought of as a middleman responsible for simplification
+    of the recipe. Rewriting the recipe as a long linear line
+    of instructions is easier to follow than the original message
+    encoded in the twisted structure of DNA.</p>
+<p>This more accessible message is then read by the ribosome which
+    uses the string of instructions as a template to put together
+    a protein: the ribosome clamps the instructions between its
+    two compartments and moves along reading it as it moves,
+    simultaneously producing the protein defined by the instruction.
+    Figure 8 contrasts this ribosome action in normal circumstances
+    with the situation where an antibacterial agent interferes
+    with the role of the ribosome.</p>
+<figure><img src="/treatment-other-medication-infection-level2-figure8.png">
+    <figcaption><strong>Figure 8:</strong> The role of the ribosome in reading
+        the instructions in its normal, undisturbed state (left
+        part) and the consequences of blocking the process (right
+        part) for the cell’s protein synthesis.</figcaption>
+</figure>
+<p>Antibacterial agents which interfere with protein synthesis can
+    block the reading space within the ribosome in which the
+    instructions would normally bind. Alternatively, they can
+    prevent other molecules from binding to the ribosome (molecules
+    that would normally help it to read the instructions more
+    efficiently). Some antibacterials in this group allow the
+    initial binding of the ribosome to the instructions but cause
+    the machinery to misread the instructions, producing partially
+    or completely dysfunctional proteins. All of these interferences
+    mean that the bacterial cell ribosomes do not produce the
+    correct functional proteins that the cell would need in order
+    to survive.</p>
+<h2>Bacterial DNA</h2>
+<p>DNA is considered to be the recipe book for the cell’s protein
+    syntheses. The DNA contains in an encrypted way (quite like
+    a computer algorithm) the instructions for every protein
+    the cell will ever need. However, the coiled and helical
+    structure of the DNA keeps this message protected and stable
+    within the cell so that it is not damaged as it is passed
+    on during replication from cell to cell, from generation
+    to generation. This is true for bacterial cells as well as
+    for cells of mammals (including humans).</p>
+<p>In order to synthesise new DNA for cell replication, the DNA
+    has to be unwound from this protective supercoil arrangement
+    in order for its instructions to be ‘read’, replicated and
+    afterwards rewound. Essential worker molecules (enzymes)
+    carry out these biochemical roles within a cell.</p>
+<figure><img src="/treatment-other-medication-infection-level2-figure9.png">
+    <figcaption><strong>Figure 9:</strong> The supercoiled DNA in the cell,
+        prepared for reading the instructions by unwinding the
+        double-helical structure, actioned by enzymes.</figcaption>
+</figure>
+<p>Two such enzymes, RNA polymerase and topoisomerase II, are targets
+    for antibacterial agents.</p>
+<p><strong>RNA polymerase</strong> is responsible for using template
+    strands of DNA to produce complementary strands of DNA, hence
+    increasing the amount of DNA in the cell at every generation.
+    Enzymes have a lock and key function, with the enzyme being
+    the lock, and the key in this analogy is the molecule, or
+    set of molecules, to which RNA polymerase binds. RNA polymerase
+    is necessary for DNA replication. Preventing RNA polymerase
+    from binding, either by altering the shape of RNA polymerase
+    or introducing molecules to prevent the DNA from binding
+    to it are mechanisms underlying antibacterial effects. As
+    all bacterial (and host) cells contain DNA, interfering with
+    the DNA synthesis can be considered as a ‘broad spectrum’
+    action of an antibacterial agent. Figure 10 symbolises this
+    mechanism of interference with DNA synthesis.</p>
+<figure><img src="/treatment-other-medication-infection-level2-figure10.png">
+    <figcaption><strong>Figure 10:</strong> A mechanism of interference by
+        some antibacterials with DNA synthesis by preventing
+        the unwinding of the DNA moelcule.</figcaption>
+</figure>
+<p>As well as interfering with the production of new DNA molecules,
+    access to the template strands can be denied through inhibiting
+    another enzyme, <strong>topoisomerase II</strong>. This enzyme
+    is responsible for the supercoiling of DNA. Failure to regulate
+    this winding of DNA can cause a build-up of torsion in the
+    (fragile) DNA molecule, destabilising it and preventing the
+    RNA polymerase from moving along the template strand, thus
+    preventing synthesis of new DNA molecules. Not only the cell
+    machinery responsible for making new DNA strands is vulnerable
+    to interference(s) by antibacterials but also those molecules
+    which regulate the process are susceptible to obstruction/hindrance
+    (again, similar mechanisms of interference are exploited
+    in some <a href="/treatment/chemotherapy/chemical-principles/more-info">chemotherapy drugs</a>).</p>
+<h1 id="antifungal-agents">Antifungal agents</h1>
+<p><a href="/diagnosis/a-z/infection">Fungal infections</a> have
+    become more common over recent years. Factors contributing
+    include an increase in the (over)use of broad-spectrum antibacterials,
+    steroid inhalers, and larger numbers of people living with
+    weakened immune systems (immuno-compromised) either after
+    organ transplants, or during cancer treatments by <a href="/treatment/chemotherapy">chemo-</a>    or <a href="/treatment/radiotherapy">radiotherapy</a>, or
+    by living with <a href="/diagnosis/a-z/infection/more-info">HIV infection</a>,
+    or simply old age. A general reduction in commensal (useful)
+    bacteria in the body not only makes infection by other, more
+    harmful, bacteria easier, it makes it also easier for fungi
+    to cause infection in an opportunistic way.</p>
+<aside>
+    <p>If you’d like to read more about the normal oral, nasal and
+        skin microflora, this information is on our detailed
+        page about <a href="/diagnosis/a-z/infection/detailed">infections</a>.</p>
+</aside>
+<p>Similar to the philosophy of exploiting various different working
+    mechanisms in antibacterial drugs, there are also four main
+    mechanisms of action of antifungal agents. These four main
+    mechanisms are summarised and symbolised in the sketch in
+    Figure 11. There are further similarities between antibacterial
+    and antifungal agents: several of these substances display
+    both antibacterial and antifungal properties. This can be
+    explained by some of the structural and functional similarities
+    between bacteria and fungi.</p>
+<figure><img src="/treatment-other-medication-infection-level2-figure11.png">
+    <figcaption><strong>Figure 11:</strong> The four main mechanisms of antifungal
+        effects of drugs; interfering with the cell membrane
+        (ergosterol), the DNA, the metabolic processes, and the
+        cell wall of fungal cells.</figcaption>
+</figure>
+<h2>Cell membrane</h2>
+<p>The cell membranes of fungi contain a structurally and functionally
+    important molecule, ergosterol. It works in the same ways
+    as cholesterol works in the cell membranes of humans but
+    ergosterol is not present in human cells. This makes it a
+    useful structure at which to direct antifungal drugs.</p>
+<p>Some antifungals can bind with ergosterol. This results in the
+    formation of holes or pores in the cell membrane structure;
+    these holes have an effect similar to inserting straws into
+    the membrane. These ‘straws’ (ion channels) give fluid (cytoplasm)
+    normally contained within the cell an outlet from which the
+    contents of the cell can leak out, causing cell death.</p>
+<figure><img src="/treatment-other-medication-infection-level2-figure12.png">
+    <figcaption><strong>Figure 12:</strong> Action of an antifungal agent
+        on ergosterol in the fungal cell membrane, creating ion
+        channels and draining of cell liquids through these channels.</figcaption>
+</figure>
+<h2>Fungal DNA</h2>
+<p>Some antifungals, upon entering the fungal cell, are converted
+    into 5-fluorouracil, a chemical which competitively inhibits
+    uracil from being included in newly synthesised DNA and RNA
+    (uracil is one of the four basic DNA building blocks). Medicinal
+    drugs that need to be converted into their chemically active
+    form after delivery to their site of action of action are
+    called pro-drugs (codeine is a well-known example – it needs
+    to be converted to morphine in the body).</p>
+<aside>
+    <p>If you’d like to read more about drug delivery and pro-drugs,
+        this information is on our pages about <a href="/treatment/other/medication/delivery/more-info">drug delivery</a>.</p>
+</aside>
+<p>As an inhibitor of normal DNA and RNA synthesis, 5-fluorouracil
+    causes cellular growth imbalances and ultimately the death
+    of the fungal cells affected. In a different setting and
+    different (systemic) drug delivery, the same underlying mechanism
+    is exploited in the role of 5-fluorouracil as a chemotherapy
+    drug.</p>
+<aside>
+    <p>If you’d like to read more about the impact of 5-fluorouracil
+        on DNA synthesis, this information is on our detailed
+        page about <a href="/treatment/chemotherapy/chemical-principles/detailed">chemotherapy drugs</a>.</p>
+</aside>
+<figure><img src="/treatment-other-medication-infection-level2-figure13.png">
+    <figcaption><strong>Figure 13:</strong> Delivery of a pro-drug to the
+        fungal cell, followed by synthesis of cytotoxic 5-fluorouracil
+        from the inactive pro-drug inside the fungal cell.</figcaption>
+</figure>
+<h2>Metabolic inhibition</h2>
+<p>Targeting different stages of the ergosterol synthesis pathway
+    (see above) always yields the same overall result: production
+    of ergosterol is prevented. For example, some specific enzymes
+    within fungal cells (p450 enzymes) are necessary to produce
+    ergosterol. Many antifungal agents can bind with the p450
+    enzymes, thus blocking the ergosterol biosynthesis pathway.
+    Because this inhibition mechanism is common amongst antifungals
+    and p450 enzymes are common to fungi, antifungal agents that
+    reduce the production of ergosterol are classed as broad-spectrum
+    antifungals. Figure 14 illustrates this metabolic inhibition
+    mechanism.</p>
+<figure><img src="/treatment-other-medication-infection-level2-figure14.png">
+    <figcaption><strong>Figure 14:</strong> Contrasting the normal ergosterol
+        synthesis pathway (left) with the effect of blocking
+        the pathway (right).</figcaption>
+</figure>
+<h2>Cell Wall</h2>
+<p>The building blocks of bacterial cell walls are a target for
+    the action of some antibacterial agents (see above). Similarly,
+    there are structural building blocks unique to the cell walls
+    of fungi that can serve as a target for antifungal agents.
+    In fungal cell walls, the critical structural unit is a substance
+    called chitin (a fibre-forming polysaccharide). Any antifungals
+    that prevent chitin from forming in the cell wall cause a
+    weakening of the fungal cell wall, eventually resulting in
+    cell death (see Figure 15). Chitin is a chemical not found
+    in human cells. It may thus be advantageous to use antifungal
+    drugs that target chitin formation as this may minimise unwanted
+    effects on the host’s system.</p>
+<aside>
+    <p>If you’d like to read more about the unwanted effects of
+        antibiotic agents on the host, this information is on
+        our detailed page about <a href="/diagnosis/a-z/infection/detailed">infection</a>.</p>
+</aside>
+<figure><img src="/treatment-other-medication-infection-level2-figure15.png">
+    <figcaption><strong>Figure 15:</strong> Top part: a schematic view of
+        the normal structural units in a fungal cell wall with
+        intact chitin units; bottom part: the effect of an antifungal
+        agent weakens the chitin-supported cell wall structure,
+        leading to cell death.</figcaption>
+</figure>
+<h1 id="antiviral-agents">Antiviral agents</h1>
+<p>The structures and functionalities of viruses are even further
+    from those of our own cells than bacterial or fungal cells.
+    Viruses are made up of a single piece of DNA or RNA contained
+    within a coating made of proteins (a capsid). Unlike bacterial
+    and fungal cells, there are no cell walls, cell membranes
+    or protein-synthesising machinery in viral cells. Accordingly,
+    the working mechanisms of antiviral drugs will have to be
+    different from those of antibacterial or antifungal agents.
+    Figure 16 summarises the four types of cells and their main
+    features. Figure 16 also serves as a reminder that there
+    is no benefit from taking antibacterial drugs when suffering
+    from a trivial viral infection, such as a common cold or
+    sore throat (quite the opposite is true – it only comes with
+    <a href="/diagnosis/a-z/infection/detailed">unwanted effects of antibacterials</a>    on the host).</p>
+<figure><img src="/treatment-other-medication-infection-level2-figure16.png">
+    <figcaption><strong>Figure 16:</strong> A sketch of viral cells (top
+        part), in comparison with typical fungal, bacterial and
+        mammal cells (bottom part). Included in the mammal cell
+        sketch are only some of the many components of such cells:
+        Golgi (responisble for packaging of proteins), rough
+        and smooth endoplasmic reticulum (structures involved
+        in the fabrication of proteins and lipids), mitochondria
+        (production and storage of energy, regulation of cell
+        metabolism), lysosome (storage of hydrolytic enzymes).</figcaption>
+</figure>
+<p>In order to reproduce (replicate) viruses have to take over the
+    cells of the host. They need to ‘borrow’ protein-synthesis
+    machinery and other cellular components from the host. They
+    can do this either by getting inside the host cell, or by
+    inserting just their viral DNA into the cell. The result
+    of this invasion is that human host cells are (ab)used as
+    factories for the production of new viruses. These newly
+    produced viruses are released when the infected host cell
+    dies. This close and direct dependence of the infectious
+    agent, the virus, with the structure and function of the
+    host cells explains why it is so difficult to develop drugs
+    that only, or mainly, act on the virus and not the human
+    cells (see Figure 17).</p>
+<figure><img src="/treatment-other-medication-infection-level2-figure17.png">
+    <figcaption><strong>Figure 17:</strong> A virus infecting / entering
+        a host cell and establishing its own DNA in the nucleus
+        of the host cell.</figcaption>
+</figure>
+<p>The ability of viruses to change (mutate) their protein coat
+    further complicates the task of finding viable antiviral
+    agents. The proteins making up the viral capsid can be used
+    as drug targets. However, if the proteins, and thus the shape
+    of the virus capsid, change rapidly any newly developed,
+    or already established, antiviral drugs may miss the target.
+    The molecular protein structures that once were a suitable
+    and susceptible target for a particular drug may no longer
+    be expressed by the virus strain and the originally designed
+    drug will have lost its bite.</p>
+<p>A subgroup of infectious viruses survive by following an even
+    more integrated invasion path within the host cells. After
+    infection, these viruses live within the DNA of the host
+    cells and thus cannot be completely removed from there. The
+    best known example of this kind of so called retrovirus is
+    probably the human immunodeficiency virus, HIV. Treatment
+    options for retrovirus infections require careful consideration
+    of antiviral agents which mainly influence  the viral load
+    and less so the DNA of the host. Figure 18 symbolises the
+    infection mechanism and its integration in the host DNA by
+    a retrovirus.</p>
+<figure><img src="/treatment-other-medication-infection-level2-figure18.png">
+    <figcaption><strong>Figure 18:</strong> A retrovirus infecting / entering
+        a host cell and establishing itself in the DNA of the
+        host cell.</figcaption>
+</figure>
+<p>Below we outline the main working principles of antiviral drugs
+    currently used to treat infections with a retrovirus and
+    a ‘normal’ virus. Medication treatment for ‘normal’ viral
+    infections is far less widely used than medications for bacterial
+    or fungal infections.</p>
+<h2>Retrovirus antiviral agents</h2>
+<p>There are several enzymes, which participate in the task of integrating
+    the viral DNA into the DNA in the host cell (for example,
+    reverse transcriptase; see Figure 18). Preventing this function
+    of reverse transcriptase means the the viral DNA will not
+    be integrated into the DNA of the host cell. Antivirals developed
+    for treatment of retroviruses such as HIV focus on reverse
+    transcriptase inhibition.</p>
+<p>In order to convert the DNA of a virus into a form that fits
+    the host’s DNA, the reverse transcriptase molecule requires
+    some additional smaller building blocks, called deoxynucleotides,
+    which occur naturally in the host cell. Some antiviral agents
+    that are ‘pretender’ molecules (<strong>viral DNA base mimics</strong>)
+    mimic the building blocks that reverse transcriptase usually
+    bonds with, except for a few small but important differences.
+    This mimicry means that the reverse transcriptase cannot
+    build stable or lasting structures, resulting in a decrease
+    in the rate of infection by the virus. Other inhibitors of
+    reverse transcriptase interfere directly with the main part
+    of its structure through which it binds to the viral DNA.</p>
+<p><strong>Protease inhibitors</strong> are another type of antiviral
+    agents that reduce the virus load from infection with a retrovirus.
+    After the viral DNA has been integrated into the DNA of the
+    host cell, the next step of the infection cycle is the building
+    of new viruses from this new instruction template imposed
+    on  the host DNA. The template is read by the host cells’
+    protein-making machinery (the ribosome; see above) to serve
+    the needs of virus replication. The final resulting proteins
+    need to be cut free from the template before they can serve
+    their function. This is done by enzymes called proteases.
+    Antivirals can prevent this final ‘cutting’ step by blocking
+    the part of the cutter enzyme which attaches to the virus
+    proteins. Functional versions of the virus proteins, made
+    in the host cell, are then not processed and no new viruses
+    will be assembled and released.</p>
+<h2>Other antiviral agents (targeting ‘normal’ viruses)</h2>
+<p>Some antiviral drugs, effective in treating infections with ‘normal’
+    viruses,  work by <strong>stopping new viruses from escaping</strong>    from the host cell. New viruses (virions) are not released
+    from the host cell because an enzyme (neuroaminidase) is
+    blocked by these agents. Neuroaminidase promotes the movement
+    of virions, and blocking this enzyme thus reduces or stops
+    the release of virions from the host cell.</p>
+<p>Other antiviral drugs <strong>prevent viral DNA replication</strong>    and so prevent the virus from replicating. Antiviral drugs
+    achieve this by inhibiting a virus-specific enzyme, DNA polymerase,
+    by preventing it from binding to the viral DNA. Another such
+    inhibition mechanism blocks other enzymes from binding to
+    the DNA polymerase in the replication process. These two
+    mechanisms are illustrated in Figure 19.</p>
+<figure><img src="/treatment-other-medication-infection-level2-figure19.png">
+    <figcaption><strong>Figure 19:</strong> Comparing the normal DNA assembly
+        process (left part) with the failing assembly when DNA
+        polymerase is inactivated (right part).</figcaption>
+</figure>
+<p>The human body commands powerful protective mechanisms of its
+    own against viral infections, the immune system. <strong>Stimulating an immune response</strong>    is an indirect mechanism by which some drugs boost the number
+    and / or activity of the body’s own antiviral agents. This
+    includes the boosting of enzymes that break down virus structures
+    in the blood stream and <a href="/diagnosis/tests/microbiology">immunoglobulins</a>.
+    A range of different immunoglobulins are synthesised by the
+    immune system as a specific response to infections. These
+    immunoglobulin molecules continue to circulate in the blood
+    stream and specialise in recognising and inactivating specific
+    virus cells (immunoglobulins are also responsible for long-term
+    immunity against certain infections).</p>
+<aside>
+    <p>If you’d like to read more about the immune system, this
+        information is on our detailed page about <a href="/treatment/other/medication/inflammation/detailed">inflammation</a>.</p>
+</aside>

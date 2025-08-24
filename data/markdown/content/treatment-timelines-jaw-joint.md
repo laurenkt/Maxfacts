@@ -1,0 +1,9 @@
+---
+id: treatment-timelines-jaw-joint
+uri: treatment/timelines/jaw-joint-problems
+title: Jaw joint problems
+type: page
+updated_at: 2017-06-12T12:13:49Z
+created_at: 2017-02-23T15:56:28Z
+---
+

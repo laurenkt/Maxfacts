@@ -1,0 +1,28 @@
+---
+id: treatment-surgery-postoperative-problems-thyroid
+uri: treatment/surgery/postoperative-problems/thyroid
+title: Thyroid
+type: page
+authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+further_reading_uri: treatment/surgery/further-reading
+updated_at: 2018-08-18T16:40:21Z
+created_at: 2018-08-18T15:31:11Z
+---
+
+<p>Treatments for postoperative problems affecting the thyroid (gland
+    in the neck) include:</p>
+<ul>
+    <li>If the residual function of the gland is too high or too
+        low, this has to be balanced by <a href="/treatment/other/medication/miscellaneous/thyroid">medication</a>.</li>
+    <li>Postoperative bleeding can compress the underlying windpipe
+        by formation of a haematoma. This needs to be decompressed
+        immediately, usually by removing skin staples or a rapid
+        to remove ‘pull through’ suture.  </li>
+    <li>Accidental damage to, or removal of the underlying parathyroid
+        glands necessitates life-long <a href="/treatment/other/medication/miscellaneous/pth">substitution of parathyroid hormone (PTH)</a>.</li>
+    <li>Damage to the recurrent <a href="/diagnosis/a-z/neuropathies/detailed">laryngeal nerve</a>        leaving a hoarse voice, can be improved by <a href="/help/salt">speech and language therapy</a>        or else should be seen in an ear, nose and throat (ENT)
+        clinic.</li>
+    <li>Minor difficulties in swallowing are best dealt with in line
+        with treatment of postoperative problems affecting the
+        <a href="/treatment/surgery/postoperative-problems/hypopharynx">hypopharynx</a>        and/or <a href="/treatment/surgery/postoperative-problems/larynx">larynx</a>.</li>
+</ul>

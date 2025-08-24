@@ -1,0 +1,13 @@
+---
+id: treatment-surgery-necrosis-preamble
+uri: treatment/surgery/necrosis
+title: Necrosis
+type: directory
+updated_at: 2017-06-12T12:06:40Z
+created_at: 2017-05-05T10:06:46Z
+---
+
+<p>While cell death (necrosis) can affect both <a href="/diagnosis/a-z/necrosis/soft">soft</a>    and <a href="/diagnosis/a-z/necrosis/hard">hard tissues</a>,
+    sometimes both simultaneously, the treatment options for
+    hard and soft tissue necroses differ slightly.</p>
+<p>Accordingly, we describe treatment for <a href="/treatment/surgery/necrosis/hard-tissue">hard tissue necrosis</a>    and <a href="/treatment/surgery/necrosis/soft-tissue">soft tissue necrosis</a>    separately.</p>

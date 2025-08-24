@@ -1,0 +1,21 @@
+---
+id: treatment-surgery-postoperative-problems-hypopharynx
+uri: treatment/surgery/postoperative-problems/hypopharynx
+title: Hypopharynx
+type: page
+authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+further_reading_uri: treatment/surgery/further-reading
+updated_at: 2018-08-18T15:53:56Z
+created_at: 2018-08-18T15:25:55Z
+---
+
+<p>Treatments for postoperative problems affecting the hypopharynx
+    (bottom part of the throat) include:</p>
+<ul>
+    <li>Variations on the <a href="/diagnosis/a-z/dysphagia">inability to swallow</a>,
+        including risk of aspiration pneumonia. Supportive treatment
+        by <a href="/help/salt">speech and language therapy, SALT</a>        can help.</li>
+    <li>Extreme weight loss and dehydration. This may require temporary
+        or permanent, complete or partial, supplemental feeding
+        with (some variety of) a <a href="/help/non-oral-food">feeding tube</a>.</li>
+</ul>

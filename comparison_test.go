@@ -86,8 +86,8 @@ func TestMain(m *testing.M) {
 
 	testDB = client.Database("maxfacts")
 
-	// Use the same router setup as main.go
-	testHandler = SetupRouter(testDB)
+	// Use the same router setup as main.go  
+	testHandler = SetupRouter(testDB, indexCSV)
 
 	// Initialize sitemap handler for shared URL collection
 	testSitemapHandler = handlers.NewSitemapHandler(testDB)

@@ -1,0 +1,20 @@
+---
+id: treatment-surgery-postoperative-problems-teeth
+uri: treatment/surgery/postoperative-problems/teeth
+title: Teeth
+type: page
+authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+further_reading_uri: treatment/surgery/further-reading
+updated_at: 2018-08-18T15:54:13Z
+created_at: 2018-08-18T15:30:46Z
+---
+
+<p>Treatments for postoperative problems affecting the teeth include:</p>
+<ul>
+    <li>Loss of vitality. <a href="/treatment/restorative-dentistry/endodontics">Root canal treatment</a>.</li>
+    <li>Discolouration. <a href="/treatment/restorative-dentistry/endodontics">Root canal treatment</a>,
+        veneers, <a href="/treatment/restorative-dentistry">replacement with crown</a>.</li>
+    <li>Movement. Orthodontic repositioning.</li>
+    <li>Direct damage to teeth. <a href="/treatment/restorative-dentistry">Dental restoration</a>.</li>
+    <li>Abnormal occlusion. <a href="/treatment/surgery/broken-tooth">Removal or repositioning of tooth</a>        or <a href="/treatment/surgery/jaw-disproportion">repositioning of jaw</a>        to correct.</li>
+</ul>
