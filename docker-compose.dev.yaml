@@ -1,13 +1,14 @@
-version: '2'
+version: "2"
 services:
-    app:
-        image: laurenkt/maxfacts:latest
-#        build:
-#            context: .
-#            dockerfile: Dockerfile
-#        command: sh -c "chmod +x bin/* && bin/wait-for-it.sh mongo:27017 -t 30 -- npm run start"
-        environment:
-            - STATIC_FS=./data/storage
-        volumes:
-            - ./data/storage:/Users/laurenkt/Projects/maxfacts-statics/build:delegated
-            - ~/Projects/maxfacts-output:/output/dump
+  app:
+    #        image: laurenkt/maxfacts:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    platform: linux/amd64
+    command: sh -c "/home/node/app/bin/wait-for-it.sh mongo:27017 -t 30 -- npm run start"
+    environment:
+      - STATIC_FS=./data/storage
+    volumes:
+      - ./data/storage:/Users/laurenkt/Projects/maxfacts-statics/build:delegated
+      - ~/Projects/maxfacts-output:/output/dump

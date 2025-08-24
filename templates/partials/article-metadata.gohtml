@@ -1,0 +1,15 @@
+{{define "article-metadata"}}
+{{if .Body}}
+<aside class="article-metadata">
+	<h3>About this page</h3>
+	<p>Last updated {{date .UpdatedAt}}
+	{{if .Authorship}}
+	<ul class="authorship">
+		{{range .Authorship}}
+		<li>{{.}}</li>
+		{{end}}
+	</ul>
+	{{end}}
+</aside>
+{{end}}
+{{end}}

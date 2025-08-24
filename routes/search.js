@@ -42,10 +42,10 @@ async function getSearchResults(req, res, next) {
 			results[i].breadcrumbs = await results[i].getBreadcrumbs()
 		}
 
-		res.render('search', {results});
+		res.render('search', {title: "Search results", results});
 	}
 	else {
-		res.render("search", {results:[]});
+		res.render("search", {title: "Search results", results:[]});
 	}
 }
 

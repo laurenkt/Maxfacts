@@ -1,0 +1,21 @@
+{{define "content"}}
+<main class="search">
+	<h2>Search results</h2>
+	<form action="/search" method="GET">
+		<input type="search" name="query" value="{{.Query}}">
+	</form>
+	<p>Found {{len .Results}} pages.</p>
+	{{range .Results}}
+		<div class="search-result -{{.Type}}">
+			<p class="result-breadcrumbs">
+				{{$breadcrumbs := .Breadcrumbs}}{{range $i, $breadcrumb := $breadcrumbs}}<strong>{{$breadcrumb.Title}}</strong>{{if ne $i (sub (len $breadcrumbs) 1)}} » {{end}}{{end}}
+			</p>
+			<h3>{{.Title}}</h3>
+			{{with .Match}}
+				<p>{{.Before}}<span class="search-match">{{.Match}}</span>{{.After}}</p>
+			{{end}}
+			<p><a class="button" href="/{{.URI}}">Go to this result</a></p>
+		</div>
+	{{end}}
+</main>
+{{end}}

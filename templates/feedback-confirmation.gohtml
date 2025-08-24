@@ -1,0 +1,18 @@
+{{define "content"}}
+<main>
+    <h1>{{.Title}}</h1>
+    
+    <p>Thank you for your feedback! We have received your message and will review it carefully.</p>
+    
+    <div class="confirmation-details">
+        <p>Your feedback has been sent from: <strong>{{.Email}}</strong></p>
+        <p>We will get back to you as soon as possible.</p>
+    </div>
+    
+    {{if .URI}}
+    <p><a href="/{{.URI}}">« Back to content</a></p>
+    {{else}}
+    <p><a href="/">« Back to Home</a></p>
+    {{end}}
+</main>
+{{end}}

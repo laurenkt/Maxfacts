@@ -1,0 +1,9 @@
+{{define "content"}}
+<main>
+	<h2>{{.Title}}</h2>
+	<p>{{.Message}}</p>
+	{{if .Error}}
+		<pre>{{.Error}}</pre>
+	{{end}}
+</main>
+{{end}}

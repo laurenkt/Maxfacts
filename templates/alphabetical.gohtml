@@ -1,0 +1,26 @@
+{{define "content"}}
+<main>
+	<h2>{{.Title}}</h2>
+	{{if .Body}}
+		{{shift_headers 2 .Body}}
+	{{end}}
+	
+	<div class="alphabetical-listing">
+		{{range $letter, $items := .Alphabetical}}
+			{{if $items}}
+			<section class="letter-section">
+				<h3>{{$letter}}</h3>
+				<ul>
+					{{range $items}}
+					<li><a href="/{{.URI}}">{{.Title}}</a></li>
+					{{end}}
+				</ul>
+			</section>
+			{{end}}
+		{{end}}
+	</div>
+	
+	{{template "next-section" .}}
+</main>
+{{template "article-metadata" .}}
+{{end}}

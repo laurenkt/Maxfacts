@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{.Title}}</title>
+		<link rel="icon" href="data:,">
+		<link rel="stylesheet" href="/css/style.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="x-ua-compatible" content="IE=Edge">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+	</head>
+	<body>
+		<header class="fill">
+			<div>
+				<h1><a href="/">Maxfacts</a></h1>
+				<form action="/search" method="GET">
+					<input type="search" name="query" placeholder="Search">
+				</form>
+				<p>Information on all aspects of oral and maxillofacial surgery for patients, carers and professionals</p>
+			</div>
+			<nav><p></p></nav>
+		</header>
+		<section{{if .Classes}} class="{{.Classes}}"{{end}}>
+			{{template "content" .}}
+		</section>
+		{{template "footer" .}}
+	</body>
+</html>

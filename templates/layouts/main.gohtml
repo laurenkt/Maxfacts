@@ -1,0 +1,37 @@
+{{define "main.gohtml"}}<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{.Title}}</title>
+		<link rel="icon" href="data:,">
+		<link rel="stylesheet" href="/css/style.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="x-ua-compatible" content="IE=Edge">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+	</head>
+	<body>
+		<header>
+			<div>
+				<h1><a href="/">Maxfacts</a></h1>
+				<form action="/search" method="GET">
+					<input type="search" name="query" placeholder="Search">
+				</form>
+			</div>
+			<div class="notice">
+				<p>Maxfacts is currently a work-in-progress, many areas of the site are incomplete.</p>
+			</div>
+			<nav>
+				<p>
+					<a href="/">Home</a>
+					{{- range .Breadcrumbs}}
+					» <a href="/{{.URI}}">{{.Title}}</a>
+					{{- end}}
+				</p>
+			</nav>
+		</header>
+		<section class="{{if .Classes}}{{.Classes}}{{end}}">
+			{{- template "content" . -}}
+		</section>
+		{{- template "footer" . -}}
+	</body>
+</html>
+{{end}}
