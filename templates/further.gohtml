@@ -1,0 +1,11 @@
+{{define "content"}}
+<main class="further-reading">
+	<header>
+		<h2>{{.Title}}{{if .Surtitle}} <span class="surtitle">({{.Surtitle}})</span>{{end}}</h2>
+		{{if .Description}}
+			<p>{{.Description}}</p>
+		{{end}}
+	</header>
+	{{shift_headers 2 .Body}}
+</main>
+{{end}}

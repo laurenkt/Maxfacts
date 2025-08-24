@@ -41,6 +41,7 @@ COPY --from=build_image $HOME $HOME
 
 RUN chown -R node:node $HOME/app $HOME/.npm
 RUN chown -R node:$(id -gn node) /home/node/.config
+RUN chmod +x /home/node/app/bin/wait-for-it.sh
 
 USER node
 

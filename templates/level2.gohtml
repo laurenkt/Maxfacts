@@ -1,0 +1,8 @@
+{{define "content"}}
+<main>
+	<h2>{{.Title}}</h2>
+	{{shift_headers 2 .Body}}
+	{{template "next-section" .}}
+</main>
+{{template "article-metadata" .}}
+{{end}}

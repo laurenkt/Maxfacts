@@ -35,16 +35,19 @@ async function postRegister(req, res) {
 
 async function getFeedback(req, res) {
 	let breadcrumbs = []
+	let title = "Feedback"
 
 	if (req.params.uri) {
 		const content = await Content.findOne( { uri: req.params.uri } )
 		if (content) {
 			breadcrumbs = await content.getBreadcrumbs()
 			breadcrumbs.push(content)
+			title = "Feedback about " + content.title
 		}
 	}
 
 	res.render('feedback', {
+		title,
 		emailaddr: req.body.email,
 		message: req.body.message,
 		breadcrumbs

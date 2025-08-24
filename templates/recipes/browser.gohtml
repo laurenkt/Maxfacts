@@ -1,0 +1,19 @@
+{{define "content"}}
+<main>
+	<h2>Recipe Browser</h2>
+	<div class="recipe-list">
+		{{range .Recipes}}
+		<div class="recipe-item">
+			<h3><a href="/help/oral-food/recipes/{{.RecipeID}}">{{.Title}}</a></h3>
+			{{if .Tags}}
+			<p class="tags">
+				{{range .Tags}}
+				<span class="tag">{{.}}</span>
+				{{end}}
+			</p>
+			{{end}}
+		</div>
+		{{end}}
+	</div>
+</main>
+{{end}}

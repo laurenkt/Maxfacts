@@ -1,0 +1,43 @@
+{{define "content"}}
+<main class="landing-page">
+	<h3>Who we are:</h3>
+	<p>Maxfacts began as a collaboration between a maxillofacial surgeon and a patient who happened to be a scientist. <a href="/contributors">See all contributors here</a>, or <a href="/open-access-paper.pdf">read about the making of Maxfacts (pdf)</a>.</p>
+	<h3>What we do:</h3>
+	<p>We provide the most accurate information we can about conditions, treatment, and managing the consequences of treatment in the mouth, jaws, and face. Most of all we want to help patients to take ownership of their conditions and help them to help themselves.</p>
+	<h3>What we don't do:</h3>
+	<p>We strongly discourage self-diagnosis. If you believe something is wrong with you, please see a doctor. We do not advertise any products or services.</p>
+	<h3>Feedback:</h3>
+	<p>Improving the project relies on direct feedback from patients, carers and professionals. Let us know if we've got it right or wrong, or if there's something we haven't thought of. <a href="/feedback">Give feedback here</a>.</p>
+</main>
+<div class="news">
+	<p>Maxfacts is currently a work-in-progress website, many areas
+    of the site are incomplete.</p>
+<p>If you want to stay updated with changes and new content, <a href="/register">register for e-mail notifications here</a>.</p>
+</div>
+<div class="sections">
+	<nav>
+		<h3><a href="/diagnosis">Diagnosis</a></h3>
+		<ul>
+{{range .Diagnosis}}
+	<li><a href="/{{.URI}}">{{.Title}}</a></li>
+{{end}}
+		</ul>
+	</nav>
+	<nav>
+		<h3><a href="/treatment">Treatment</a></h3>
+		<ul>
+{{range .Treatment}}
+	<li><a href="/{{.URI}}">{{.Title}}</a></li>
+{{end}}
+		</ul>
+	</nav>
+	<nav>
+		<h3><a href="/help">Help and self-help</a></h3>
+		<ul>
+{{range .Help}}
+	<li><a href="/{{.URI}}">{{.Title}}</a></li>
+{{end}}
+		</ul>
+	</nav>
+</div>
+{{end}}

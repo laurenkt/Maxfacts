@@ -1,9 +1,9 @@
 <main class="further-reading">
 	<header>
 		<h2>{{title}}{{#if surtitle}} <span class="surtitle">({{surtitle}})</span>{{/if}}</h2>
-		{{#description}}
-			<p>{{this}}</p>
-		{{/description}}
+		{{#if description}}
+			<p>{{description}}</p>
+		{{/if}}
 	</header>
 	{{{shift_headers 2 body}}}
 </main>

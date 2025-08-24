@@ -14,7 +14,10 @@ async function requestVideo(req, res, next) {
 
 	video.breadcrumbs = await Content.findBreadcrumbsForURI(video.uri)
 
-	res.render('video-multipart', video)
+	res.render('video-multipart', {
+		...video.toObject(),
+		title: video.name
+	})
 }
 
 module.exports = router

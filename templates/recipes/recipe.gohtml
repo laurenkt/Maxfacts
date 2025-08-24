@@ -1,0 +1,86 @@
+{{define "content"}}
+<main>
+	<h2>{{.Title}}</h2>
+	
+	{{if .Description}}
+	<section class="description">
+		<h3>Description</h3>
+		{{if (eq (printf "%T" .Description) "string")}}
+			<p>{{.Description}}</p>
+		{{else}}
+			{{range .Description}}
+				<p>{{.}}</p>
+			{{end}}
+		{{end}}
+	</section>
+	{{end}}
+	
+	{{if .Ingredients}}
+	<section class="ingredients">
+		<h3>Ingredients</h3>
+		{{if (eq (printf "%T" .Ingredients) "string")}}
+			<p>{{.Ingredients}}</p>
+		{{else}}
+			<ul>
+			{{range .Ingredients}}
+				<li>{{.}}</li>
+			{{end}}
+			</ul>
+		{{end}}
+	</section>
+	{{end}}
+	
+	{{if .Method}}
+	<section class="method">
+		<h3>Method</h3>
+		{{if (eq (printf "%T" .Method) "string")}}
+			<p>{{.Method}}</p>
+		{{else}}
+			<ol>
+			{{range .Method}}
+				<li>{{.}}</li>
+			{{end}}
+			</ol>
+		{{end}}
+	</section>
+	{{end}}
+	
+	{{if .Variations}}
+	<section class="variations">
+		<h3>Variations</h3>
+		{{if (eq (printf "%T" .Variations) "string")}}
+			<p>{{.Variations}}</p>
+		{{else}}
+			{{range .Variations}}
+				<p>{{.}}</p>
+			{{end}}
+		{{end}}
+	</section>
+	{{end}}
+	
+	{{if .Tip}}
+	<section class="tip">
+		<h3>Tip</h3>
+		{{if (eq (printf "%T" .Tip) "string")}}
+			<p>{{.Tip}}</p>
+		{{else}}
+			{{range .Tip}}
+				<p>{{.}}</p>
+			{{end}}
+		{{end}}
+	</section>
+	{{end}}
+	
+	{{if .Tags}}
+	<section class="tags">
+		<h3>Tags</h3>
+		<p>
+			{{range .Tags}}
+			<span class="tag">{{.}}</span>
+			{{end}}
+		</p>
+	</section>
+	{{end}}
+</main>
+{{template "article-metadata" .}}
+{{end}}

@@ -13,7 +13,7 @@ module.exports = router
 function dateToLastmod(date) {
     return '' +
         date.getUTCFullYear() + '-' +
-        date.getUTCMonth().toString().padStart(2, '0')   + '-' +
+        (date.getUTCMonth() + 1).toString().padStart(2, '0')   + '-' +
         date.getUTCDate().toString().padStart(2, '0')    + 'T' +
         date.getUTCHours().toString().padStart(2, '0')   + ':' +
         date.getUTCMinutes().toString().padStart(2, '0') + '+00:00'
@@ -30,7 +30,7 @@ async function publish(uri, data) {
 async function requestDumpContent(req, res) {
     let   all_content = await Content.find().sort('uri').exec()
     const all_videos  = await Video.find().sort('uri').exec()
-    const all_recipes = await Recipe.find().sort('uri').exec()
+    const all_recipes = await Recipe.find().sort('title').exec()
 
     // Remove blank pages
     all_content = all_content.filter(c => c.body)

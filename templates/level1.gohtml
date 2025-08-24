@@ -1,0 +1,13 @@
+{{define "content"}}
+<main class="level1">
+	<header>
+		<h2>{{.Title}}{{if .Surtitle}} <span class="surtitle">({{.Surtitle}})</span>{{end}}</h2>
+		{{if .Description}}
+			<p>{{.Description}}</p>
+		{{end}}
+	</header>
+	{{shift_headers 2 .Body}}
+	{{template "next-section" .}}
+</main>
+{{template "article-metadata" .}}
+{{end}}
