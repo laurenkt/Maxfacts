@@ -94,7 +94,8 @@ func TestMain(m *testing.M) {
 	// Get index CSV
 	indexCSV, err := GetIndexCSV()
 	if err != nil {
-		return fmt.Errorf("failed to load index CSV: %w", err)
+		fmt.Printf("Failed to load index CSV: %v\n", err)
+		os.Exit(1)
 	}
 
 	// Use the same router setup as main.go
