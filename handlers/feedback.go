@@ -8,7 +8,8 @@ import (
 	"text/template"
 	"time"
 
-	"github.com/maxfacts/maxfacts/models"
+	"github.com/maxfacts/maxfacts/pkg/mongodb"
+	"github.com/maxfacts/maxfacts/pkg/repository"
 	templatehelpers "github.com/maxfacts/maxfacts/pkg/template"
 	"go.mongodb.org/mongo-driver/mongo"
 	"golang.org/x/time/rate"
@@ -16,9 +17,9 @@ import (
 
 // FeedbackHandler handles feedback requests
 type FeedbackHandler struct {
-	contentModel *models.ContentModel
-	templates    *template.Template
-	limiter      *rate.Limiter
+	contentRepo repository.ContentRepository
+	templates   *template.Template
+	limiter     *rate.Limiter
 }
 
 // NewFeedbackHandler creates a new feedback handler
@@ -42,9 +43,9 @@ func NewFeedbackHandler(db *mongo.Database) *FeedbackHandler {
 	limiter := rate.NewLimiter(rate.Every(20*time.Minute), 3)
 
 	return &FeedbackHandler{
-		contentModel: models.NewContentModel(db),
-		templates:    tmpl,
-		limiter:      limiter,
+		contentRepo: mongodb.NewContentRepository(db),
+		templates:   tmpl,
+		limiter:     limiter,
 	}
 }
 
@@ -74,18 +75,18 @@ func (h *FeedbackHandler) getFeedback(ctx context.Context, w http.ResponseWriter
 	data := map[string]interface{}{
 		"Title":       "Feedback",
 		"URI":         uri,
-		"Breadcrumbs": []models.Breadcrumb{},
+		"Breadcrumbs": []repository.Breadcrumb{},
 		"Email":       "", // Empty for GET request
 		"Message":     "", // Empty for GET request
 	}
 
 	// If URI provided, get breadcrumbs
 	if uri != "" {
-		content, err := h.contentModel.FindOne(ctx, uri)
+		content, err := h.contentRepo.FindOne(ctx, uri)
 		if err == nil {
-			breadcrumbs, _ := h.contentModel.GetBreadcrumbs(ctx, content)
+			breadcrumbs, _ := h.contentRepo.GetBreadcrumbs(ctx, content)
 			// Add the current content to breadcrumbs (matching Node.js behavior)
-			breadcrumbs = append(breadcrumbs, models.Breadcrumb{
+			breadcrumbs = append(breadcrumbs, repository.Breadcrumb{
 				Title: content.Title,
 				URI:   content.URI,
 			})
@@ -158,7 +159,7 @@ func (h *FeedbackHandler) renderFeedbackError(w http.ResponseWriter, errorMsg, u
 		"Title":       "Feedback",
 		"URI":         uri,
 		"Error":       errorMsg,
-		"Breadcrumbs": []models.Breadcrumb{},
+		"Breadcrumbs": []repository.Breadcrumb{},
 		"Email":       "", // Will be preserved on error
 		"Message":     "", // Will be preserved on error
 	}
@@ -166,11 +167,11 @@ func (h *FeedbackHandler) renderFeedbackError(w http.ResponseWriter, errorMsg, u
 	// If URI provided, get breadcrumbs
 	if uri != "" {
 		ctx := context.Background()
-		content, err := h.contentModel.FindOne(ctx, uri)
+		content, err := h.contentRepo.FindOne(ctx, uri)
 		if err == nil {
-			breadcrumbs, _ := h.contentModel.GetBreadcrumbs(ctx, content)
+			breadcrumbs, _ := h.contentRepo.GetBreadcrumbs(ctx, content)
 			// Add the current content to breadcrumbs (matching Node.js behavior)
-			breadcrumbs = append(breadcrumbs, models.Breadcrumb{
+			breadcrumbs = append(breadcrumbs, repository.Breadcrumb{
 				Title: content.Title,
 				URI:   content.URI,
 			})
