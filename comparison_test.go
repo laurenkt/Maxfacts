@@ -91,6 +91,13 @@ func TestMain(m *testing.M) {
 
 	testDB = client.Database("maxfacts")
 
+	// Get index CSV
+	indexCSV, err := GetIndexCSV()
+	if err != nil {
+		fmt.Printf("Failed to load index CSV: %v\n", err)
+		os.Exit(1)
+	}
+
 	// Use the same router setup as main.go
 	testHandler = SetupRouter(testDB, indexCSV)
 

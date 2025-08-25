@@ -347,3 +347,13 @@ func (r *ContentRepository) toRepositoryContent(c *Content) *repository.Content 
 		Sublist:      []repository.Content{},
 	}
 }
+
+// WriteOne panics as markdown repository is read-only
+func (r *ContentRepository) WriteOne(ctx context.Context, content *repository.Content) error {
+	panic("markdown ContentRepository does not support writing - use ContentWriter instead")
+}
+
+// WriteIndex panics as markdown repository is read-only
+func (r *ContentRepository) WriteIndex(ctx context.Context, contents []repository.Content) error {
+	panic("markdown ContentRepository does not support writing - use ContentWriter instead")
+}

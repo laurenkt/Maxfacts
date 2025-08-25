@@ -327,14 +327,16 @@ The Go version now implements simplified package-level access instead of complex
 1. **Package-Level Functions** (`pkg/content/`, `pkg/recipe/`, `pkg/video/`):
    - `content.FindOne()`, `content.FindAll()`, `content.GetBreadcrumbs()` - content operations
    - `content.Search()` - search operations (MongoDB backend only)
+   - `content.WriteOne()`, `content.WriteIndex()` - write operations
    - `recipe.FindOne()`, `recipe.FindAll()` - recipe operations
    - `video.FindOne()`, `video.FindAll()` - video operations
    - Configuration via `content.UseMarkdown()`, `recipe.UseMongo()`, `video.UseMongo()`
 
 2. **Internal Repository Pattern**:
-   - Repository interfaces still exist internally for flexibility
-   - MongoDB implementations for all data types
-   - Markdown implementation for content only
+   - Repository interfaces split into `ContentReader` and `ContentWriter` for separation of concerns
+   - `ContentRepository` combines both for backwards compatibility
+   - MongoDB implementations for all data types (panics on write operations)
+   - Markdown implementation for content reading, separate `ContentWriter` for writing
    - Package functions route to appropriate internal repository
 
 3. **Handler Simplification**:
@@ -343,8 +345,14 @@ The Go version now implements simplified package-level access instead of complex
    - Direct package function calls: `content.FindOne()` instead of `h.contentRepo.FindOne()`
 
 4. **Configuration Model**:
-   - `content.UseMarkdown(indexCSV)` - content uses markdown files (default for serve)
-   - `content.UseMongo(db)` - content uses MongoDB (used for dump-mongo command)
+   - **Legacy functions** (for backwards compatibility):
+     - `content.UseMarkdown(indexCSV)` - configures both reader and writer for markdown
+     - `content.UseMongo(db)` - configures both reader and writer for MongoDB
+   - **New separated functions** (for flexible configuration):
+     - `content.UseMarkdownReader(indexCSV)` - read from markdown files
+     - `content.UseMongoReader(db)` - read from MongoDB
+     - `content.UseMarkdownWriter(outputDir)` - write to markdown files
+     - `content.UseMongoWriter(db)` - write to MongoDB (panics on any write)
    - `recipe.UseMongo(db)` - recipes always use MongoDB
    - `video.UseMongo(db)` - videos always use MongoDB
 
@@ -352,7 +360,14 @@ The Go version now implements simplified package-level access instead of complex
    - **Simplified architecture** - no complex dependency injection
    - **Cleaner code** - direct function calls instead of method chains
    - **Better defaults** - markdown content by default, explicit MongoDB where needed
+   - **Flexible configuration** - can mix readers and writers (e.g., read from MongoDB, write to markdown)
    - **Easier testing** - global configuration makes test setup simpler
    - **Same flexibility** - can still switch backends via configuration functions
+
+6. **dump-mongo Command Refactoring**:
+   - Reduced from ~90 lines to ~40 lines of code
+   - Uses separated configuration: `content.UseMongoReader(db)` + `content.UseMarkdownWriter(outputDir)`
+   - All file I/O and conversion logic moved to `pkg/markdown/content_writer.go`
+   - Cleaner separation of concerns between CLI and business logic
 
 This simplification reduces complexity while preserving all functionality and maintaining the hybrid markdown/MongoDB architecture.

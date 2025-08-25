@@ -5,8 +5,8 @@ import (
 	"regexp"
 )
 
-// ContentRepository defines the interface for content data access
-type ContentRepository interface {
+// ContentReader defines the interface for content read operations
+type ContentReader interface {
 	// FindOne finds a single content by URI
 	FindOne(ctx context.Context, uri string) (*Content, error)
 	
@@ -35,6 +35,22 @@ type ContentRepository interface {
 	// GetInvalidLinks returns invalid links in the content body
 	// Returns empty slice if not supported by the implementation
 	GetInvalidLinks(ctx context.Context, content *Content) ([]string, error)
+}
+
+// ContentWriter defines the interface for content write operations
+type ContentWriter interface {
+	// WriteOne writes a single content item
+	WriteOne(ctx context.Context, content *Content) error
+	
+	// WriteIndex writes the URI-to-ID index
+	WriteIndex(ctx context.Context, contents []Content) error
+}
+
+// ContentRepository combines both read and write operations
+// This maintains backwards compatibility
+type ContentRepository interface {
+	ContentReader
+	ContentWriter
 }
 
 // ContentSearchRepository defines the interface for content search operations
