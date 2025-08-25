@@ -16,6 +16,7 @@ import (
 
 	"github.com/maxfacts/maxfacts/handlers"
 	"github.com/maxfacts/maxfacts/models"
+	"github.com/maxfacts/maxfacts/pkg/markdown"
 	"github.com/maxfacts/maxfacts/pkg/mongodb"
 	"go.mongodb.org/mongo-driver/mongo"
 )
@@ -59,8 +60,15 @@ func staticFileHandler(nextHandler http.HandlerFunc) http.HandlerFunc {
 func SetupRouter(db *mongo.Database, indexCSV string) http.Handler {
 	mux := http.NewServeMux()
 
+	// Initialize repositories
+	markdownContentRepo, err := markdown.NewContentRepository("data/markdown/content", indexCSV)
+	if err != nil {
+		log.Fatal("Failed to create markdown content repository:", err)
+	}
+	videoRepo := mongodb.NewVideoRepository(db)
+	
 	// Initialize handlers - content handler uses markdown, others use MongoDB
-	contentHandler := handlers.NewContentHandler(db, "data/markdown/content", indexCSV)
+	contentHandler := handlers.NewContentHandler(markdownContentRepo, videoRepo, db)
 	searchHandler := handlers.NewSearchHandler(db)
 	sitemapHandler := handlers.NewSitemapHandler(db)
 	recipeHandler := handlers.NewRecipeHandler(db)

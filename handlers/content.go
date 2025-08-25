@@ -9,8 +9,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/maxfacts/maxfacts/models"
-	"github.com/maxfacts/maxfacts/pkg/markdown"
+	"github.com/maxfacts/maxfacts/pkg/repository"
 	templatehelpers "github.com/maxfacts/maxfacts/pkg/template"
 	"go.mongodb.org/mongo-driver/mongo"
 )
@@ -23,55 +22,18 @@ func parseAuthorship(authorship string) []string {
 	return strings.Split(authorship, ";")
 }
 
-// convertMarkdownToModelContent converts markdown.Content to models.Content
-func convertMarkdownToModelContent(md *markdown.Content) *models.Content {
-	// Convert Contents from markdown to models format
-	var contents []models.ContentItem
-	for _, item := range md.Contents {
-		contents = append(contents, models.ContentItem{
-			Text: item.Text,
-			ID:   item.ID,
-		})
-	}
-
-	return &models.Content{
-		URI:               md.URI,
-		Title:             md.Title,
-		Type:              md.Type,
-		Body:              md.MarkdownBody, // Use the markdown body
-		Description:       md.Description,
-		Surtitle:          md.Surtitle,
-		RedirectURI:       md.RedirectURI,
-		Hide:              md.Hide,
-		FurtherReadingURI: md.FurtherReadingURI,
-		HasSublist:        md.HasSublist,
-		Authorship:        md.Authorship,
-		Order:             md.Order,
-		Contents:          contents,
-		UpdatedAt:         md.UpdatedAt,
-		CreatedAt:         md.CreatedAt,
-	}
-}
-
-// convertMarkdownSliceToModel converts []markdown.Content to []models.Content
-func convertMarkdownSliceToModel(mds []markdown.Content) []models.Content {
-	result := make([]models.Content, len(mds))
-	for i, md := range mds {
-		result[i] = *convertMarkdownToModelContent(&md)
-	}
-	return result
-}
+// Note: These conversion functions are no longer needed as we're using repository interfaces
 
 // ContentHandler handles content-related requests
 type ContentHandler struct {
-	markdownModel *markdown.ContentModel
-	videoModel    *models.VideoModel
-	templates     *template.Template
-	db            *mongo.Database
+	contentRepo repository.ContentRepository
+	videoRepo   repository.VideoRepository
+	templates   *template.Template
+	db          *mongo.Database
 }
 
-// NewContentHandler creates a new content handler using markdown files
-func NewContentHandler(db *mongo.Database, contentDir string, indexCSV string) *ContentHandler {
+// NewContentHandler creates a new content handler
+func NewContentHandler(contentRepo repository.ContentRepository, videoRepo repository.VideoRepository, db *mongo.Database) *ContentHandler {
 	// Load templates
 	tmpl := template.New("").Funcs(templatehelpers.FuncMap())
 	
@@ -89,17 +51,11 @@ func NewContentHandler(db *mongo.Database, contentDir string, indexCSV string) *
 		log.Fatal("Failed to parse partial templates:", err)
 	}
 	
-	// Create markdown model
-	markdownModel, err := markdown.NewContentModel(contentDir, indexCSV)
-	if err != nil {
-		log.Fatal("Failed to create markdown content model:", err)
-	}
-	
 	return &ContentHandler{
-		markdownModel: markdownModel,
-		videoModel:    models.NewVideoModel(db),
-		templates:     tmpl,
-		db:            db,
+		contentRepo: contentRepo,
+		videoRepo:   videoRepo,
+		templates:   tmpl,
+		db:          db,
 	}
 }
 
@@ -108,26 +64,23 @@ func (h *ContentHandler) Index(w http.ResponseWriter, r *http.Request) {
 	ctx := context.Background()
 	
 	// Get the three pillars of the home page
-	diagnosisMd, err := h.markdownModel.FindFromParentURI(ctx, "diagnosis")
+	diagnosis, err := h.contentRepo.FindFromParentURI(ctx, "diagnosis")
 	if err != nil {
 		h.renderError(w, err)
 		return
 	}
-	diagnosis := convertMarkdownSliceToModel(diagnosisMd)
 	
-	treatmentMd, err := h.markdownModel.FindFromParentURI(ctx, "treatment")
+	treatment, err := h.contentRepo.FindFromParentURI(ctx, "treatment")
 	if err != nil {
 		h.renderError(w, err)
 		return
 	}
-	treatment := convertMarkdownSliceToModel(treatmentMd)
 	
-	helpMd, err := h.markdownModel.FindFromParentURI(ctx, "help")
+	help, err := h.contentRepo.FindFromParentURI(ctx, "help")
 	if err != nil {
 		h.renderError(w, err)
 		return
 	}
-	help := convertMarkdownSliceToModel(helpMd)
 	
 	data := map[string]interface{}{
 		"Title":     "Maxfacts – oral and maxillofacial information",
@@ -147,15 +100,13 @@ func (h *ContentHandler) Page(w http.ResponseWriter, r *http.Request) {
 	// Extract URI from path (removing leading slash)
 	uri := strings.TrimPrefix(r.URL.Path, "/")
 	
-	// Find the content using markdown model
-	markdownContent, err := h.markdownModel.FindOne(ctx, uri)
+	// Find the content using repository
+	content, err := h.contentRepo.FindOne(ctx, uri)
 	if err != nil {
 		// Try to find a video with this URI (fallback like Node.js app)
 		h.tryVideoFallback(w, r, uri)
 		return
 	}
-	
-	content := convertMarkdownToModelContent(markdownContent)
 	
 	// Handle redirects
 	if content.RedirectURI != "" {
@@ -165,43 +116,40 @@ func (h *ContentHandler) Page(w http.ResponseWriter, r *http.Request) {
 	
 	// Get placeholder content if body is empty
 	if content.Body == "" {
-		placeholderContent, err := h.markdownModel.FindOne(ctx, "coming-soon")
+		placeholderContent, err := h.contentRepo.FindOne(ctx, "coming-soon")
 		if err == nil && placeholderContent != nil {
-			content.Body = placeholderContent.MarkdownBody
+			content.Body = placeholderContent.Body
 		}
 	}
 	
 	// Get breadcrumbs
-	breadcrumbsMd, err := h.markdownModel.GetBreadcrumbs(ctx, content.URI)
+	breadcrumbs, err := h.contentRepo.GetBreadcrumbs(ctx, content)
 	if err == nil {
-		// Convert markdown breadcrumbs to model breadcrumbs
-		content.Breadcrumbs = make([]models.Breadcrumb, len(breadcrumbsMd))
-		for i, bc := range breadcrumbsMd {
-			content.Breadcrumbs[i] = models.Breadcrumb{
-				Title: bc.Title,
-				URI:   bc.URI,
-				ID:    bc.ID,
-			}
-		}
+		content.Breadcrumbs = breadcrumbs
 	} else {
-		content.Breadcrumbs = []models.Breadcrumb{}
+		content.Breadcrumbs = []repository.Breadcrumb{}
 	}
 	
 	// Get next page
-	nextPageMd, err := h.markdownModel.GetNextPage(ctx, markdownContent)
-	if err == nil && nextPageMd != nil {
-		content.NextPage = convertMarkdownToModelContent(nextPageMd)
+	nextPage, err := h.contentRepo.GetNextPage(ctx, content)
+	if err == nil && nextPage != nil {
+		content.NextPage = nextPage
 	} else {
 		content.NextPage = nil
 	}
 	
-	// TODO: Implement GetInvalidLinks for markdown model (not needed per user)
-	content.InvalidURIs = []string{}
+	// Get invalid links
+	invalidURIs, err := h.contentRepo.GetInvalidLinks(ctx, content)
+	if err == nil {
+		content.InvalidURIs = invalidURIs
+	} else {
+		content.InvalidURIs = []string{}
+	}
 	
 	if content.FurtherReadingURI != "" {
-		furtherReadingMd, err := h.markdownModel.FindOne(ctx, content.FurtherReadingURI)
+		furtherReading, err := h.contentRepo.FindOne(ctx, content.FurtherReadingURI)
 		if err == nil {
-			content.FurtherReading = convertMarkdownToModelContent(furtherReadingMd)
+			content.FurtherReading = furtherReading
 		}
 	}
 	
@@ -266,19 +214,18 @@ func (h *ContentHandler) Page(w http.ResponseWriter, r *http.Request) {
 }
 
 // buildDirectory builds the directory structure for directory pages
-func (h *ContentHandler) buildDirectory(ctx context.Context, content *models.Content) error {
-	lineage := models.GetLineageFromURI(models.ParentURIFragment(content.URI))
+func (h *ContentHandler) buildDirectory(ctx context.Context, content *repository.Content) error {
+	lineage := repository.GetLineageFromURI(repository.ParentURIFragment(content.URI))
 	lineage = append(lineage, content.URI)
 	
-	directory := make([][]models.Content, 0)
+	directory := make([][]repository.Content, 0)
 	
 	// Get links from all parent stages
 	for _, uri := range lineage[:len(lineage)-1] {
-		itemsMd, err := h.markdownModel.FindFromAdjacentURI(ctx, uri)
+		items, err := h.contentRepo.FindFromAdjacentURI(ctx, uri)
 		if err != nil {
 			return err
 		}
-		items := convertMarkdownSliceToModel(itemsMd)
 		filtered := filterDirectoryItems(items)
 		if len(filtered) > 0 {
 			directory = append(directory, filtered)
@@ -286,24 +233,22 @@ func (h *ContentHandler) buildDirectory(ctx context.Context, content *models.Con
 	}
 	
 	// Append siblings of current page
-	siblingsMd, err := h.markdownModel.FindFromAdjacentURI(ctx, content.URI)
+	siblings, err := h.contentRepo.FindFromAdjacentURI(ctx, content.URI)
 	if err != nil {
 		return err
 	}
-	siblings := convertMarkdownSliceToModel(siblingsMd)
 	filtered := filterDirectoryItems(siblings)
 	if len(filtered) > 0 {
 		directory = append(directory, filtered)
 	}
 	
 	// Append children of current page
-	childrenMd, err := h.markdownModel.GetChildren(ctx, content.URI)
+	children, err := h.contentRepo.GetChildren(ctx, content)
 	if err != nil {
 		return err
 	}
-	children := convertMarkdownSliceToModel(childrenMd)
 	// Filter out children with same title as parent
-	var filteredChildren []models.Content
+	var filteredChildren []repository.Content
 	for _, child := range children {
 		if child.Title != content.Title && !child.Hide && child.Type != "further" {
 			filteredChildren = append(filteredChildren, child)
@@ -317,9 +262,8 @@ func (h *ContentHandler) buildDirectory(ctx context.Context, content *models.Con
 	for i, column := range directory {
 		for j, item := range column {
 			if item.HasSublist {
-				sublistMd, err := h.markdownModel.FindFromParentURI(ctx, item.URI)
+				sublist, err := h.contentRepo.FindFromParentURI(ctx, item.URI)
 				if err == nil {
-					sublist := convertMarkdownSliceToModel(sublistMd)
 					directory[i][j].Sublist = filterDirectoryItems(sublist)
 				}
 			}
@@ -345,19 +289,18 @@ func (h *ContentHandler) buildDirectory(ctx context.Context, content *models.Con
 }
 
 // buildAlphabetical builds alphabetical listing
-func (h *ContentHandler) buildAlphabetical(ctx context.Context, content *models.Content) error {
-	childrenMd, err := h.markdownModel.GetChildren(ctx, content.URI)
+func (h *ContentHandler) buildAlphabetical(ctx context.Context, content *repository.Content) error {
+	children, err := h.contentRepo.GetChildren(ctx, content)
 	if err != nil {
 		return err
 	}
-	children := convertMarkdownSliceToModel(childrenMd)
 	
 	alphabet := "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-	content.Alphabetical = make(map[string][]models.Content)
+	content.Alphabetical = make(map[string][]repository.Content)
 	
 	for _, letter := range alphabet {
 		letterStr := string(letter)
-		content.Alphabetical[letterStr] = make([]models.Content, 0)
+		content.Alphabetical[letterStr] = make([]repository.Content, 0)
 		for _, child := range children {
 			if len(child.Title) > 0 && strings.ToUpper(child.Title)[0] == byte(letter) {
 				content.Alphabetical[letterStr] = append(content.Alphabetical[letterStr], child)
@@ -369,8 +312,8 @@ func (h *ContentHandler) buildAlphabetical(ctx context.Context, content *models.
 }
 
 // filterDirectoryItems filters items for directory display
-func filterDirectoryItems(items []models.Content) []models.Content {
-	filtered := make([]models.Content, 0)
+func filterDirectoryItems(items []repository.Content) []repository.Content {
+	filtered := make([]repository.Content, 0)
 	for _, item := range items {
 		if !item.Hide && item.Type != "further" {
 			filtered = append(filtered, item)
@@ -439,46 +382,34 @@ func (h *ContentHandler) tryVideoFallback(w http.ResponseWriter, r *http.Request
 	ctx := context.Background()
 	
 	// Try to find a video with this URI
-	video, err := h.videoModel.FindOne(ctx, uri)
-	if err == mongo.ErrNoDocuments {
-		h.render404(w)
-		return
-	}
+	video, err := h.videoRepo.FindOne(ctx, uri)
 	if err != nil {
-		h.renderError(w, err)
+		h.render404(w)
 		return
 	}
 	
 	// Get breadcrumbs for the video
-	breadcrumbs := []models.Breadcrumb{}
-	lineage := models.GetLineageFromURI(models.ParentURIFragment(video.URI))
+	breadcrumbs := []repository.Breadcrumb{}
+	lineage := repository.GetLineageFromURI(repository.ParentURIFragment(video.URI))
 	for _, uri := range lineage {
-		contentMd, err := h.markdownModel.FindOne(ctx, uri)
+		content, err := h.contentRepo.FindOne(ctx, uri)
 		if err == nil {
-			content := convertMarkdownToModelContent(contentMd)
-			breadcrumbs = append(breadcrumbs, models.Breadcrumb{
+			breadcrumbs = append(breadcrumbs, repository.Breadcrumb{
 				Title: content.Title,
 				URI:   content.URI,
+				ID:    content.ID,
 			})
 		}
 	}
 	
 	// Pass the video object and additional data needed by the layout
 	video.Breadcrumbs = breadcrumbs
-	
-	// Add content IDs to breadcrumbs for template
-	for i, uri := range models.GetLineageFromURI(models.ParentURIFragment(video.URI)) {
-		contentMd, err := h.markdownModel.FindOne(ctx, uri)
-		if err == nil && i < len(breadcrumbs) {
-			breadcrumbs[i].ID = contentMd.ID
-		}
-	}
 
 	// Simple data structure for template
 	data := map[string]interface{}{
 		"Title":       video.Name,
 		"Name":        video.Name,
-		"ID":          video.ID.Hex(),
+		"ID":          video.ID,
 		"UpdatedAt":   video.UpdatedAt,
 		"CreatedAt":   video.CreatedAt,
 		"Thumbnail":   video.Thumbnail,

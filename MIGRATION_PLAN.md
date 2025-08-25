@@ -11,11 +11,10 @@
 │   ├── sitemap.go         # XML sitemap generation
 │   ├── recipes.go         # Recipe browser & display
 │   └── videos.go          # Video page handler
-├── models/                 # MongoDB models & queries
+├── models/                 # Legacy MongoDB models (Node.js compatibility)
 │   ├── content.go         # Content model with methods
 │   ├── recipe.go          # Recipe model
-│   ├── video.go           # Video model
-│   └── image.go           # Image model (for link validation)
+│   └── video.go           # Video model
 ├── templates/              # Go templates (converted from Handlebars)
 │   ├── layouts/           # Base layouts
 │   ├── partials/          # Reusable template fragments
@@ -25,8 +24,9 @@
 │       ├── content/       # Individual page files ({id}.md)
 │       └── index_uri.csv  # URI-to-ID mapping index
 └── pkg/                    # Shared utilities
-    ├── mongodb/           # MongoDB connection & helpers
-    ├── markdown/          # Markdown parsing & frontmatter handling
+    ├── repository/        # Domain models & repository interfaces
+    ├── mongodb/           # MongoDB repository implementations
+    ├── markdown/          # Markdown parsing & file-based repositories
     ├── htmlutil/          # HTML processing (sanitization, link extraction)
     └── template/          # Template helpers & functions
 
@@ -46,15 +46,14 @@
    - Context management for queries
    - Read from existing collections without modification
 
-3. **Implement data models**
-   - Content model with all fields (uri, title, body, type, etc.)
-   - Recipe, Video, Image models
-   - Port key methods:
-     - `getBreadcrumbs()` - build lineage from URI
-     - `getChildren()` - find sub-pages
-     - `getNextPage()` - navigation logic
-     - `getInvalidLinks()` - link validation
-     - `getMatchedParagraph()` - search result excerpts
+3. **Implement repository pattern** ✓ **COMPLETE**
+   - Repository interfaces for Content, Recipe, Video data access
+   - MongoDB repository implementations with all business logic
+   - Markdown repository implementations for file-based content
+   - Domain models shared across repository implementations
+   - Key methods ported to repository pattern:
+     - `FindOne()`, `FindAll()`, `GetBreadcrumbs()`, `GetChildren()`
+     - `GetNextPage()`, `GetInvalidLinks()`, `GetMatchedParagraph()`
 
 ### Phase 2: Template Migration
 1. **Convert Handlebars to Go templates**
@@ -82,25 +81,25 @@
    - ✓ Next page navigation (level1 → level2 → level3)
    - **Uses embedded CSV index and markdown files, no MongoDB**
 
-2. **Search handler** (`/search`)
-   - MongoDB text search with weights
-   - Extract matching paragraphs with context
-   - Generate breadcrumbs for results
+2. **Search handler** (`/search`) ✓ **COMPLETE - REPOSITORY-BASED**
+   - Uses MongoDB search repository for text search with weights
+   - Extract matching paragraphs with context using content repository
+   - Generate breadcrumbs for results via repository interface
    - Preserve rate limiting logic
 
-3. **Sitemap handler** (`/map.xml`)
-   - Gather all content, videos, recipes
-   - Calculate priorities based on depth
-   - Generate XML with proper lastmod dates
+3. **Sitemap handler** (`/map.xml`) ✓ **COMPLETE - REPOSITORY-BASED**
+   - Uses MongoDB repositories to gather all content, videos, recipes
+   - Calculate priorities based on depth with proper URI sorting
+   - Generate XML with proper lastmod dates from repository timestamps
 
-4. **Recipe handlers**
-   - Index page
-   - Browser with all recipes
-   - Individual recipe display
+4. **Recipe handlers** ✓ **COMPLETE - REPOSITORY-BASED**
+   - Index page with MongoDB recipe repository
+   - Browser with all recipes sorted by title
+   - Individual recipe display with breadcrumb generation
 
-5. **Video handler**
-   - Multipart video display
-   - Breadcrumb generation
+5. **Video handler** ✓ **COMPLETE - REPOSITORY-BASED**
+   - Multipart video display using video repository
+   - Breadcrumb generation via content repository integration
 
 ### Phase 4: Utility Functions
 1. **HTML processing**
@@ -310,10 +309,45 @@ REFERENCE_URL=http://production.site.com MONGO_URI=localhost:27017/maxfacts go t
    - ✓ Breadcrumb ID format - Uses semantic content IDs instead of MongoDB ObjectIDs
 
 ### Current Architecture
-- **Content Pages**: 100% file-based (markdown + CSV index) ✓
-- **Recipes**: MongoDB-based ✓
-- **Search**: MongoDB-based ✓ 
-- **Videos**: MongoDB-based ✓
-- **Sitemaps**: MongoDB-based ✓
+- **Content Pages**: 100% file-based (markdown repository + CSV index) ✓
+- **Recipes**: MongoDB repository-based ✓
+- **Search**: MongoDB repository-based ✓ 
+- **Videos**: MongoDB repository-based ✓
+- **Sitemaps**: MongoDB repository-based ✓
+- **Repository Pattern**: Unified interfaces for all data access ✓
 
-This migration preserves all display functionality while removing CMS, authentication, and admin features as requested.
+### Phase 4: Repository Pattern Implementation (✓ Complete)
+The Go version now implements a clean repository pattern providing:
+
+1. **Repository Interfaces** (`pkg/repository/`):
+   - `ContentRepository` - unified interface for content access
+   - `ContentSearchRepository` - interface for search operations  
+   - `RecipeRepository` - interface for recipe data access
+   - `VideoRepository` - interface for video data access
+   - Shared domain models (Content, Recipe, Video, Breadcrumb)
+
+2. **MongoDB Implementations** (`pkg/mongodb/`):
+   - `ContentRepository` - full MongoDB content operations with proper sorting
+   - `SearchRepository` - MongoDB text search implementation
+   - `RecipeRepository` - MongoDB recipe operations sorted by title
+   - `VideoRepository` - MongoDB video operations sorted by URI
+   - Interface verification using `var _ repository.Interface = &Implementation{}`
+
+3. **Markdown Implementations** (`pkg/markdown/`):
+   - `ContentRepository` - file-based content access with CSV indexing
+   - Graceful handling of unsupported operations (search, link validation)
+
+4. **Handler Updates**:
+   - All handlers now use repository interfaces instead of direct model access
+   - ContentHandler uses markdown repository for content
+   - Other handlers use MongoDB repositories
+   - Clean dependency injection pattern
+
+5. **Benefits Achieved**:
+   - **Single interface** for both MongoDB and file-based content access
+   - **Easy switching** between implementations via dependency injection
+   - **Better testability** with mockable interfaces  
+   - **Clear separation** of data access from business logic
+   - **Future flexibility** for additional storage backends
+
+This migration preserves all display functionality while implementing clean architecture patterns and removing CMS, authentication, and admin features as requested.

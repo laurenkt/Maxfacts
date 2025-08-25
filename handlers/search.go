@@ -9,24 +9,24 @@ import (
 	"strings"
 	"time"
 
-	"github.com/maxfacts/maxfacts/models"
+	"github.com/maxfacts/maxfacts/pkg/mongodb"
+	"github.com/maxfacts/maxfacts/pkg/repository"
 	templatehelpers "github.com/maxfacts/maxfacts/pkg/template"
-	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
-	"go.mongodb.org/mongo-driver/mongo/options"
 	"golang.org/x/time/rate"
 )
 
 // SearchHandler handles search requests
 type SearchHandler struct {
-	contentModel *models.ContentModel
-	templates    *template.Template
-	limiter      *rate.Limiter
+	searchRepo repository.ContentSearchRepository
+	contentRepo repository.ContentRepository
+	templates   *template.Template
+	limiter     *rate.Limiter
 }
 
 // SearchResult represents a search result with highlighted match
 type SearchResult struct {
-	*models.Content
+	*repository.Content
 	Match *SearchMatch `json:"match,omitempty"`
 }
 
@@ -58,9 +58,10 @@ func NewSearchHandler(db *mongo.Database) *SearchHandler {
 	limiter := rate.NewLimiter(rate.Every(90*time.Second), 20)
 
 	return &SearchHandler{
-		contentModel: models.NewContentModel(db),
-		templates:    tmpl,
-		limiter:      limiter,
+		searchRepo:  mongodb.NewSearchRepository(db),
+		contentRepo: mongodb.NewContentRepository(db),
+		templates:   tmpl,
+		limiter:     limiter,
 	}
 }
 
@@ -96,28 +97,9 @@ func (h *SearchHandler) Search(w http.ResponseWriter, r *http.Request) {
 
 // performSearch performs the actual search
 func (h *SearchHandler) performSearch(ctx context.Context, query string) ([]SearchResult, error) {
-	// MongoDB text search
-	filter := bson.M{
-		"$text": bson.M{"$search": query},
-		"hide":  false,
-	}
-	
-	projection := bson.M{
-		"score": bson.M{"$meta": "textScore"},
-	}
-	
-	opts := options.Find().
-		SetProjection(projection).
-		SetSort(bson.M{"score": bson.M{"$meta": "textScore"}})
-	
-	cursor, err := h.contentModel.Find(ctx, filter, opts)
+	// Use search repository to find content
+	contents, err := h.searchRepo.Search(ctx, query)
 	if err != nil {
-		return nil, err
-	}
-	defer cursor.Close(ctx)
-	
-	var contents []models.Content
-	if err = cursor.All(ctx, &contents); err != nil {
 		return nil, err
 	}
 	
@@ -125,11 +107,11 @@ func (h *SearchHandler) performSearch(ctx context.Context, query string) ([]Sear
 	results := make([]SearchResult, len(contents))
 	pattern := regexp.MustCompile(`(?i)(^[\s\S]*)(`+regexp.QuoteMeta(query)+`)([\s\S]*$)`)
 	
-	for i, content := range contents {
-		result := SearchResult{Content: &content}
+	for i := range contents {
+		result := SearchResult{Content: &contents[i]}
 		
 		// Find matching paragraph
-		match := h.contentModel.GetMatchedParagraph(&content, pattern)
+		match := h.contentRepo.GetMatchedParagraph(&contents[i], pattern)
 		if len(match) >= 4 {
 			before := match[1]
 			if len(before) > 100 {
@@ -163,7 +145,7 @@ func (h *SearchHandler) performSearch(ctx context.Context, query string) ([]Sear
 		}
 		
 		// Get breadcrumbs
-		breadcrumbs, _ := h.contentModel.GetBreadcrumbs(ctx, &content)
+		breadcrumbs, _ := h.contentRepo.GetBreadcrumbs(ctx, &contents[i])
 		result.Content.Breadcrumbs = breadcrumbs
 		
 		results[i] = result

@@ -7,7 +7,8 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/maxfacts/maxfacts/models"
+	"github.com/maxfacts/maxfacts/pkg/mongodb"
+	"github.com/maxfacts/maxfacts/pkg/repository"
 	templatehelpers "github.com/maxfacts/maxfacts/pkg/template"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -70,8 +71,8 @@ func processRecipeArray(data interface{}) []RecipeItem {
 
 // RecipeHandler handles recipe requests
 type RecipeHandler struct {
-	recipeModel *models.RecipeModel
-	templates   *template.Template
+	recipeRepo repository.RecipeRepository
+	templates  *template.Template
 }
 
 // NewRecipeHandler creates a new recipe handler
@@ -96,8 +97,8 @@ func NewRecipeHandler(db *mongo.Database) *RecipeHandler {
 	}
 
 	return &RecipeHandler{
-		recipeModel: models.NewRecipeModel(db),
-		templates:   tmpl,
+		recipeRepo: mongodb.NewRecipeRepository(db),
+		templates:  tmpl,
 	}
 }
 
@@ -105,7 +106,7 @@ func NewRecipeHandler(db *mongo.Database) *RecipeHandler {
 func (h *RecipeHandler) Index(w http.ResponseWriter, r *http.Request) {
 	data := map[string]interface{}{
 		"Title": "Recipes",
-		"Breadcrumbs": []models.Breadcrumb{
+		"Breadcrumbs": []repository.Breadcrumb{
 			{Title: "Help & self-help", URI: "help"},
 			{Title: "Oral food intake", URI: "help/oral-food"},
 		},
@@ -118,7 +119,7 @@ func (h *RecipeHandler) Index(w http.ResponseWriter, r *http.Request) {
 func (h *RecipeHandler) Browse(w http.ResponseWriter, r *http.Request) {
 	ctx := context.Background()
 
-	recipes, err := h.recipeModel.FindAll(ctx)
+	recipes, err := h.recipeRepo.FindAll(ctx)
 	if err != nil {
 		h.renderError(w, err)
 		return
@@ -127,7 +128,7 @@ func (h *RecipeHandler) Browse(w http.ResponseWriter, r *http.Request) {
 	data := map[string]interface{}{
 		"Title":   "Recipe Browser",
 		"Recipes": recipes,
-		"Breadcrumbs": []models.Breadcrumb{
+		"Breadcrumbs": []repository.Breadcrumb{
 			{Title: "Help & self-help", URI: "help"},
 			{Title: "Oral food intake", URI: "help/oral-food"},
 			{Title: "Recipes", URI: "help/oral-food/recipes"},
@@ -143,8 +144,8 @@ func (h *RecipeHandler) Recipe(w http.ResponseWriter, r *http.Request) {
 	// Extract recipe ID from path (everything after /help/oral-food/recipes/)
 	id := strings.TrimPrefix(r.URL.Path, "/help/oral-food/recipes/")
 
-	recipe, err := h.recipeModel.FindOne(ctx, id)
-	if err == mongo.ErrNoDocuments {
+	recipe, err := h.recipeRepo.FindOne(ctx, id)
+	if err != nil {
 		h.render404(w)
 		return
 	}
@@ -153,7 +154,7 @@ func (h *RecipeHandler) Recipe(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	recipe.Breadcrumbs = []models.Breadcrumb{
+	recipe.Breadcrumbs = []repository.Breadcrumb{
 		{Title: "Help & self-help", URI: "help"},
 		{Title: "Oral food intake", URI: "help/oral-food"},
 		{Title: "Recipes", URI: "help/oral-food/recipes"},

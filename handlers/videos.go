@@ -7,16 +7,17 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/maxfacts/maxfacts/models"
+	"github.com/maxfacts/maxfacts/pkg/mongodb"
+	"github.com/maxfacts/maxfacts/pkg/repository"
 	templatehelpers "github.com/maxfacts/maxfacts/pkg/template"
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
 // VideoHandler handles video requests
 type VideoHandler struct {
-	videoModel   *models.VideoModel
-	contentModel *models.ContentModel
-	templates    *template.Template
+	videoRepo   repository.VideoRepository
+	contentRepo repository.ContentRepository
+	templates   *template.Template
 }
 
 // NewVideoHandler creates a new video handler
@@ -37,9 +38,9 @@ func NewVideoHandler(db *mongo.Database) *VideoHandler {
 	}
 
 	return &VideoHandler{
-		videoModel:   models.NewVideoModel(db),
-		contentModel: models.NewContentModel(db),
-		templates:    tmpl,
+		videoRepo:   mongodb.NewVideoRepository(db),
+		contentRepo: mongodb.NewContentRepository(db),
+		templates:   tmpl,
 	}
 }
 
@@ -50,25 +51,22 @@ func (h *VideoHandler) Video(w http.ResponseWriter, r *http.Request) {
 	uri := strings.TrimPrefix(r.URL.Path, "/")
 	uri = strings.TrimSuffix(uri, ".mp4")
 
-	video, err := h.videoModel.FindOne(ctx, uri)
-	if err == mongo.ErrNoDocuments {
+	video, err := h.videoRepo.FindOne(ctx, uri)
+	if err != nil {
 		h.render404(w)
 		return
 	}
-	if err != nil {
-		h.renderError(w, err)
-		return
-	}
 
-	// Get breadcrumbs using content model helper
-	breadcrumbs := []models.Breadcrumb{}
-	lineage := models.GetLineageFromURI(models.ParentURIFragment(video.URI))
+	// Get breadcrumbs using content repository
+	breadcrumbs := []repository.Breadcrumb{}
+	lineage := repository.GetLineageFromURI(repository.ParentURIFragment(video.URI))
 	for _, uri := range lineage {
-		content, err := h.contentModel.FindOne(ctx, uri)
+		content, err := h.contentRepo.FindOne(ctx, uri)
 		if err == nil {
-			breadcrumbs = append(breadcrumbs, models.Breadcrumb{
+			breadcrumbs = append(breadcrumbs, repository.Breadcrumb{
 				Title: content.Title,
 				URI:   content.URI,
+				ID:    content.ID,
 			})
 		}
 	}
@@ -85,7 +83,7 @@ func (h *VideoHandler) Video(w http.ResponseWriter, r *http.Request) {
 
 	// Create JSON data structure that matches Node.js exactly
 	videoJSON := map[string]interface{}{
-		"_id":         video.ID.Hex(),
+		"_id":         video.ID,
 		"updatedAt":   video.UpdatedAt.Format("2006-01-02T15:04:05.000Z"),
 		"createdAt":   video.CreatedAt.Format("2006-01-02T15:04:05.000Z"),
 		"thumbnail":   video.Thumbnail,

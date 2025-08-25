@@ -2,26 +2,25 @@ package handlers
 
 import (
 	"context"
-		"log"
+	"log"
 	"math"
 	"net/http"
 	"strings"
 	"text/template"
 	"time"
 
-	"github.com/maxfacts/maxfacts/models"
+	"github.com/maxfacts/maxfacts/pkg/mongodb"
+	"github.com/maxfacts/maxfacts/pkg/repository"
 	templatehelpers "github.com/maxfacts/maxfacts/pkg/template"
-	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
-	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
 // SitemapHandler handles sitemap requests
 type SitemapHandler struct {
-	contentModel *models.ContentModel
-	recipeModel  *models.RecipeModel
-	videoModel   *models.VideoModel
-	templates    *template.Template
+	contentRepo repository.ContentRepository
+	recipeRepo  repository.RecipeRepository
+	videoRepo   repository.VideoRepository
+	templates   *template.Template
 }
 
 // SitemapRoute represents a route in the sitemap
@@ -43,10 +42,10 @@ func NewSitemapHandler(db *mongo.Database) *SitemapHandler {
 	}
 
 	return &SitemapHandler{
-		contentModel: models.NewContentModel(db),
-		recipeModel:  models.NewRecipeModel(db),
-		videoModel:   models.NewVideoModel(db),
-		templates:    tmpl,
+		contentRepo: mongodb.NewContentRepository(db),
+		recipeRepo:  mongodb.NewRecipeRepository(db),
+		videoRepo:   mongodb.NewVideoRepository(db),
+		templates:   tmpl,
 	}
 }
 
@@ -54,24 +53,20 @@ func NewSitemapHandler(db *mongo.Database) *SitemapHandler {
 func (h *SitemapHandler) CollectAllURLs(ctx context.Context) ([]string, error) {
 	var urls []string
 
-	// Get all content with non-empty body
-	contentFilter := bson.M{"body": bson.M{"$ne": ""}}
-	cursor, err := h.contentModel.Find(ctx, contentFilter, nil)
+	// Get all content
+	contents, err := h.contentRepo.FindAll(ctx)
 	if err != nil {
 		return nil, err
 	}
-	defer cursor.Close(ctx)
 
-	for cursor.Next(ctx) {
-		var content models.Content
-		if err := cursor.Decode(&content); err != nil {
-			continue
+	for _, content := range contents {
+		if content.Body != "" {
+			urls = append(urls, "/"+content.URI)
 		}
-		urls = append(urls, "/"+content.URI)
 	}
 
 	// Get all videos
-	videos, err := h.videoModel.FindAll(ctx)
+	videos, err := h.videoRepo.FindAll(ctx)
 	if err == nil {
 		for _, video := range videos {
 			urls = append(urls, "/"+video.URI)
@@ -79,7 +74,7 @@ func (h *SitemapHandler) CollectAllURLs(ctx context.Context) ([]string, error) {
 	}
 
 	// Get all recipes
-	recipes, err := h.recipeModel.FindAll(ctx)
+	recipes, err := h.recipeRepo.FindAll(ctx)
 	if err == nil {
 		for _, recipe := range recipes {
 			urls = append(urls, "/"+recipe.URI)
@@ -99,31 +94,26 @@ func (h *SitemapHandler) Sitemap(w http.ResponseWriter, r *http.Request) {
 	var routes []SitemapRoute
 
 	// Get all content
-	contentFilter := bson.M{"body": bson.M{"$ne": ""}}
-	cursor, err := h.contentModel.Find(ctx, contentFilter, options.Find().SetSort(bson.M{"uri": 1}))
+	contents, err := h.contentRepo.FindAll(ctx)
 	if err != nil {
 		h.renderError(w, err)
 		return
 	}
-	defer cursor.Close(ctx)
 
-	for cursor.Next(ctx) {
-		var content models.Content
-		if err := cursor.Decode(&content); err != nil {
-			continue
+	for _, content := range contents {
+		if content.Body != "" {
+			routes = append(routes, SitemapRoute{
+				URI:        content.URI,
+				Title:      content.Title,
+				Lastmod:    formatLastmod(content.UpdatedAt),
+				Priority:   calculatePriority(content.URI),
+				Changefreq: "weekly",
+			})
 		}
-
-		routes = append(routes, SitemapRoute{
-			URI:        content.URI,
-			Title:      content.Title,
-			Lastmod:    formatLastmod(content.UpdatedAt),
-			Priority:   calculatePriority(content.URI),
-			Changefreq: "weekly",
-		})
 	}
 
 	// Get all videos
-	videos, err := h.videoModel.FindAll(ctx)
+	videos, err := h.videoRepo.FindAll(ctx)
 	if err == nil {
 		for _, video := range videos {
 			routes = append(routes, SitemapRoute{
@@ -137,7 +127,7 @@ func (h *SitemapHandler) Sitemap(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Get all recipes
-	recipes, err := h.recipeModel.FindAll(ctx)
+	recipes, err := h.recipeRepo.FindAll(ctx)
 	if err == nil {
 		for _, recipe := range recipes {
 			routes = append(routes, SitemapRoute{
