@@ -7,21 +7,19 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/maxfacts/maxfacts/pkg/mongodb"
+	"github.com/maxfacts/maxfacts/pkg/content"
 	"github.com/maxfacts/maxfacts/pkg/repository"
 	templatehelpers "github.com/maxfacts/maxfacts/pkg/template"
-	"go.mongodb.org/mongo-driver/mongo"
+	"github.com/maxfacts/maxfacts/pkg/video"
 )
 
 // VideoHandler handles video requests
 type VideoHandler struct {
-	videoRepo   repository.VideoRepository
-	contentRepo repository.ContentRepository
-	templates   *template.Template
+	templates *template.Template
 }
 
 // NewVideoHandler creates a new video handler
-func NewVideoHandler(db *mongo.Database) *VideoHandler {
+func NewVideoHandler() *VideoHandler {
 	// Load templates
 	tmpl := template.New("").Funcs(templatehelpers.FuncMap())
 	tmpl, err := tmpl.ParseGlob("templates/*.gohtml")
@@ -38,9 +36,7 @@ func NewVideoHandler(db *mongo.Database) *VideoHandler {
 	}
 
 	return &VideoHandler{
-		videoRepo:   mongodb.NewVideoRepository(db),
-		contentRepo: mongodb.NewContentRepository(db),
-		templates:   tmpl,
+		templates: tmpl,
 	}
 }
 
@@ -51,7 +47,7 @@ func (h *VideoHandler) Video(w http.ResponseWriter, r *http.Request) {
 	uri := strings.TrimPrefix(r.URL.Path, "/")
 	uri = strings.TrimSuffix(uri, ".mp4")
 
-	video, err := h.videoRepo.FindOne(ctx, uri)
+	videoDoc, err := video.FindOne(ctx, uri)
 	if err != nil {
 		h.render404(w)
 		return
@@ -59,14 +55,14 @@ func (h *VideoHandler) Video(w http.ResponseWriter, r *http.Request) {
 
 	// Get breadcrumbs using content repository
 	breadcrumbs := []repository.Breadcrumb{}
-	lineage := repository.GetLineageFromURI(repository.ParentURIFragment(video.URI))
+	lineage := repository.GetLineageFromURI(repository.ParentURIFragment(videoDoc.URI))
 	for _, uri := range lineage {
-		content, err := h.contentRepo.FindOne(ctx, uri)
+		contentDoc, err := content.FindOne(ctx, uri)
 		if err == nil {
 			breadcrumbs = append(breadcrumbs, repository.Breadcrumb{
-				Title: content.Title,
-				URI:   content.URI,
-				ID:    content.ID,
+				Title: contentDoc.Title,
+				URI:   contentDoc.URI,
+				ID:    contentDoc.ID,
 			})
 		}
 	}
@@ -83,26 +79,26 @@ func (h *VideoHandler) Video(w http.ResponseWriter, r *http.Request) {
 
 	// Create JSON data structure that matches Node.js exactly
 	videoJSON := map[string]interface{}{
-		"_id":         video.ID,
-		"updatedAt":   video.UpdatedAt.Format("2006-01-02T15:04:05.000Z"),
-		"createdAt":   video.CreatedAt.Format("2006-01-02T15:04:05.000Z"),
-		"thumbnail":   video.Thumbnail,
-		"filename":    video.Filename,
-		"youtube_id":  video.YoutubeID,
-		"titles":      video.Titles,
-		"uri":         video.URI,
-		"name":        video.Name,
+		"_id":         videoDoc.ID,
+		"updatedAt":   videoDoc.UpdatedAt.Format("2006-01-02T15:04:05.000Z"),
+		"createdAt":   videoDoc.CreatedAt.Format("2006-01-02T15:04:05.000Z"),
+		"thumbnail":   videoDoc.Thumbnail,
+		"filename":    videoDoc.Filename,
+		"youtube_id":  videoDoc.YoutubeID,
+		"titles":      videoDoc.Titles,
+		"uri":         videoDoc.URI,
+		"name":        videoDoc.Name,
 		"__v":         0,                // MongoDB version field, always 0
-		"title":       video.Name,       // Duplicate of name
+		"title":       videoDoc.Name,       // Duplicate of name
 		"breadcrumbs": breadcrumbsJSON,
 		// Additional Node.js fields that were in the original
 		"_locals":     map[string]interface{}{
-			"path":  "/" + video.URI,
+			"path":  "/" + videoDoc.URI,
 			"flash": map[string]interface{}{},
 		},
 		"cache": true,
 		"flash": map[string]interface{}{},
-		"path":  "/" + video.URI,
+		"path":  "/" + videoDoc.URI,
 		"settings": map[string]interface{}{
 			"x-powered-by": true,
 			"etag": "weak",
@@ -120,8 +116,8 @@ func (h *VideoHandler) Video(w http.ResponseWriter, r *http.Request) {
 
 	// Template data with separate JSON field
 	data := map[string]interface{}{
-		"Title":       video.Name,      // For page title (template meta)
-		"Name":        video.Name,      // For h2 display
+		"Title":       videoDoc.Name,      // For page title (template meta)
+		"Name":        videoDoc.Name,      // For h2 display
 		"Breadcrumbs": breadcrumbs,     // For Go template breadcrumb rendering
 		"VideoJSON":   videoJSON,       // JSON data for JavaScript
 	}

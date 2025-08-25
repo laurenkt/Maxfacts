@@ -95,7 +95,7 @@ func TestMain(m *testing.M) {
 	testHandler = SetupRouter(testDB, indexCSV)
 
 	// Initialize sitemap handler for shared URL collection
-	testSitemapHandler = handlers.NewSitemapHandler(testDB)
+	testSitemapHandler = handlers.NewSitemapHandler()
 
 	// Run tests
 	code := m.Run()

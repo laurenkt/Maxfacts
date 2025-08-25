@@ -16,8 +16,10 @@ import (
 
 	"github.com/maxfacts/maxfacts/handlers"
 	"github.com/maxfacts/maxfacts/models"
-	"github.com/maxfacts/maxfacts/pkg/markdown"
+	"github.com/maxfacts/maxfacts/pkg/content"
 	"github.com/maxfacts/maxfacts/pkg/mongodb"
+	"github.com/maxfacts/maxfacts/pkg/recipe"
+	"github.com/maxfacts/maxfacts/pkg/video"
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
@@ -60,20 +62,20 @@ func staticFileHandler(nextHandler http.HandlerFunc) http.HandlerFunc {
 func SetupRouter(db *mongo.Database, indexCSV string) http.Handler {
 	mux := http.NewServeMux()
 
-	// Initialize repositories
-	markdownContentRepo, err := markdown.NewContentRepository("data/markdown/content", indexCSV)
-	if err != nil {
-		log.Fatal("Failed to create markdown content repository:", err)
+	// Configure repositories
+	if err := content.UseMarkdown(indexCSV); err != nil {
+		log.Fatal("Failed to configure content repository:", err)
 	}
-	videoRepo := mongodb.NewVideoRepository(db)
+	recipe.UseMongo(db)
+	video.UseMongo(db)
 	
-	// Initialize handlers - content handler uses markdown, others use MongoDB
-	contentHandler := handlers.NewContentHandler(markdownContentRepo, videoRepo, db)
-	searchHandler := handlers.NewSearchHandler(db)
-	sitemapHandler := handlers.NewSitemapHandler(db)
-	recipeHandler := handlers.NewRecipeHandler(db)
-	videoHandler := handlers.NewVideoHandler(db)
-	feedbackHandler := handlers.NewFeedbackHandler(db)
+	// Initialize handlers (no dependencies)
+	contentHandler := handlers.NewContentHandler()
+	searchHandler := handlers.NewSearchHandler()
+	sitemapHandler := handlers.NewSitemapHandler()
+	recipeHandler := handlers.NewRecipeHandler()
+	videoHandler := handlers.NewVideoHandler()
+	feedbackHandler := handlers.NewFeedbackHandler()
 
 	// Register specific routes first
 	mux.HandleFunc("GET /search", logHandler("Search", searchHandler.Search))

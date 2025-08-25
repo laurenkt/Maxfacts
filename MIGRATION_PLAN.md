@@ -23,7 +23,10 @@
 │   └── markdown/          # Markdown content files
 │       ├── content/       # Individual page files ({id}.md)
 │       └── index_uri.csv  # URI-to-ID mapping index
-└── pkg/                    # Shared utilities
+└── pkg/                    # Shared utilities & package-level repositories
+    ├── content/           # Package-level content operations (UseMarkdown/UseMongo)
+    ├── recipe/            # Package-level recipe operations (UseMongo)
+    ├── video/             # Package-level video operations (UseMongo)
     ├── repository/        # Domain models & repository interfaces
     ├── mongodb/           # MongoDB repository implementations
     ├── markdown/          # Markdown parsing & file-based repositories
@@ -51,9 +54,10 @@
    - MongoDB repository implementations with all business logic
    - Markdown repository implementations for file-based content
    - Domain models shared across repository implementations
-   - Key methods ported to repository pattern:
-     - `FindOne()`, `FindAll()`, `GetBreadcrumbs()`, `GetChildren()`
-     - `GetNextPage()`, `GetInvalidLinks()`, `GetMatchedParagraph()`
+   - Package-level functions replacing dependency injection:
+     - `content.FindOne()`, `content.FindAll()`, `content.GetBreadcrumbs()`, `content.GetChildren()`
+     - `recipe.FindOne()`, `recipe.FindAll()`, `video.FindOne()`, `video.FindAll()`
+     - Configuration via `content.UseMarkdown()`, `recipe.UseMongo()`, etc.
 
 ### Phase 2: Template Migration
 1. **Convert Handlebars to Go templates**
@@ -81,25 +85,26 @@
    - ✓ Next page navigation (level1 → level2 → level3)
    - **Uses embedded CSV index and markdown files, no MongoDB**
 
-2. **Search handler** (`/search`) ✓ **COMPLETE - REPOSITORY-BASED**
-   - Uses MongoDB search repository for text search with weights
-   - Extract matching paragraphs with context using content repository
-   - Generate breadcrumbs for results via repository interface
+2. **Search handler** (`/search`) ✓ **COMPLETE - PACKAGE-BASED**
+   - Uses `content.Search()` for MongoDB text search with weights
+   - Extract matching paragraphs with `content.GetMatchedParagraph()`
+   - Generate breadcrumbs with `content.GetBreadcrumbs()`
    - Preserve rate limiting logic
 
-3. **Sitemap handler** (`/map.xml`) ✓ **COMPLETE - REPOSITORY-BASED**
-   - Uses MongoDB repositories to gather all content, videos, recipes
+3. **Sitemap handler** (`/map.xml`) ✓ **COMPLETE - PACKAGE-BASED**
+   - Uses `content.FindAll()`, `recipe.FindAll()`, `video.FindAll()` 
+   - Content from markdown files (sorted by URI), recipes/videos from MongoDB
    - Calculate priorities based on depth with proper URI sorting
    - Generate XML with proper lastmod dates from repository timestamps
 
-4. **Recipe handlers** ✓ **COMPLETE - REPOSITORY-BASED**
-   - Index page with MongoDB recipe repository
+4. **Recipe handlers** ✓ **COMPLETE - PACKAGE-BASED**
+   - Index page with `recipe.FindAll()` from MongoDB
    - Browser with all recipes sorted by title
-   - Individual recipe display with breadcrumb generation
+   - Individual recipe display with `recipe.FindOne()`
 
-5. **Video handler** ✓ **COMPLETE - REPOSITORY-BASED**
-   - Multipart video display using video repository
-   - Breadcrumb generation via content repository integration
+5. **Video handler** ✓ **COMPLETE - PACKAGE-BASED**
+   - Multipart video display using `video.FindOne()`
+   - Breadcrumb generation via `content.FindOne()` integration
 
 ### Phase 4: Utility Functions
 1. **HTML processing**
@@ -171,7 +176,7 @@ The long-term goal is to eliminate the MongoDB dependency by transitioning to a 
   - ✓ Placeholder content for empty pages ("coming-soon")
   - ✓ Directory and alphabetical page types
   - ✓ Further reading cross-references
-- **Other handlers unchanged** - recipes, search, videos still use MongoDB
+- **Other handlers use MongoDB** - recipes, search, videos via package functions
 
 ### Phase 3: Full File-based System (Future)
 - **Search functionality** using file-based indexing instead of MongoDB text search
@@ -309,45 +314,45 @@ REFERENCE_URL=http://production.site.com MONGO_URI=localhost:27017/maxfacts go t
    - ✓ Breadcrumb ID format - Uses semantic content IDs instead of MongoDB ObjectIDs
 
 ### Current Architecture
-- **Content Pages**: 100% file-based (markdown repository + CSV index) ✓
-- **Recipes**: MongoDB repository-based ✓
-- **Search**: MongoDB repository-based ✓ 
-- **Videos**: MongoDB repository-based ✓
-- **Sitemaps**: MongoDB repository-based ✓
-- **Repository Pattern**: Unified interfaces for all data access ✓
+- **Content Pages**: 100% file-based via `content.UseMarkdown()` ✓
+- **Recipes**: MongoDB-based via `recipe.UseMongo()` ✓
+- **Search**: MongoDB-based via `content.Search()` (uses MongoDB backend) ✓ 
+- **Videos**: MongoDB-based via `video.UseMongo()` ✓
+- **Sitemaps**: Mixed - content from markdown, recipes/videos from MongoDB ✓
+- **Package-Level Functions**: Simplified access without dependency injection ✓
 
-### Phase 4: Repository Pattern Implementation (✓ Complete)
-The Go version now implements a clean repository pattern providing:
+### Phase 4: Package-Level Repository Simplification (✓ Complete)
+The Go version now implements simplified package-level access instead of complex dependency injection:
 
-1. **Repository Interfaces** (`pkg/repository/`):
-   - `ContentRepository` - unified interface for content access
-   - `ContentSearchRepository` - interface for search operations  
-   - `RecipeRepository` - interface for recipe data access
-   - `VideoRepository` - interface for video data access
-   - Shared domain models (Content, Recipe, Video, Breadcrumb)
+1. **Package-Level Functions** (`pkg/content/`, `pkg/recipe/`, `pkg/video/`):
+   - `content.FindOne()`, `content.FindAll()`, `content.GetBreadcrumbs()` - content operations
+   - `content.Search()` - search operations (MongoDB backend only)
+   - `recipe.FindOne()`, `recipe.FindAll()` - recipe operations
+   - `video.FindOne()`, `video.FindAll()` - video operations
+   - Configuration via `content.UseMarkdown()`, `recipe.UseMongo()`, `video.UseMongo()`
 
-2. **MongoDB Implementations** (`pkg/mongodb/`):
-   - `ContentRepository` - full MongoDB content operations with proper sorting
-   - `SearchRepository` - MongoDB text search implementation
-   - `RecipeRepository` - MongoDB recipe operations sorted by title
-   - `VideoRepository` - MongoDB video operations sorted by URI
-   - Interface verification using `var _ repository.Interface = &Implementation{}`
+2. **Internal Repository Pattern**:
+   - Repository interfaces still exist internally for flexibility
+   - MongoDB implementations for all data types
+   - Markdown implementation for content only
+   - Package functions route to appropriate internal repository
 
-3. **Markdown Implementations** (`pkg/markdown/`):
-   - `ContentRepository` - file-based content access with CSV indexing
-   - Graceful handling of unsupported operations (search, link validation)
+3. **Handler Simplification**:
+   - No constructor parameters - handlers use `NewContentHandler()` instead of `NewContentHandler(repo1, repo2, db)`
+   - No repository fields in handler structs
+   - Direct package function calls: `content.FindOne()` instead of `h.contentRepo.FindOne()`
 
-4. **Handler Updates**:
-   - All handlers now use repository interfaces instead of direct model access
-   - ContentHandler uses markdown repository for content
-   - Other handlers use MongoDB repositories
-   - Clean dependency injection pattern
+4. **Configuration Model**:
+   - `content.UseMarkdown(indexCSV)` - content uses markdown files (default for serve)
+   - `content.UseMongo(db)` - content uses MongoDB (used for dump-mongo command)
+   - `recipe.UseMongo(db)` - recipes always use MongoDB
+   - `video.UseMongo(db)` - videos always use MongoDB
 
 5. **Benefits Achieved**:
-   - **Single interface** for both MongoDB and file-based content access
-   - **Easy switching** between implementations via dependency injection
-   - **Better testability** with mockable interfaces  
-   - **Clear separation** of data access from business logic
-   - **Future flexibility** for additional storage backends
+   - **Simplified architecture** - no complex dependency injection
+   - **Cleaner code** - direct function calls instead of method chains
+   - **Better defaults** - markdown content by default, explicit MongoDB where needed
+   - **Easier testing** - global configuration makes test setup simpler
+   - **Same flexibility** - can still switch backends via configuration functions
 
-This migration preserves all display functionality while implementing clean architecture patterns and removing CMS, authentication, and admin features as requested.
+This simplification reduces complexity while preserving all functionality and maintaining the hybrid markdown/MongoDB architecture.

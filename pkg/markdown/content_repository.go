@@ -98,7 +98,7 @@ func (r *ContentRepository) FindOne(ctx context.Context, uri string) (*repositor
 	return r.toRepositoryContent(content), nil
 }
 
-// FindAll returns all content items
+// FindAll returns all content items sorted by URI (matching MongoDB behavior)
 func (r *ContentRepository) FindAll(ctx context.Context) ([]repository.Content, error) {
 	var contents []repository.Content
 	
@@ -108,6 +108,11 @@ func (r *ContentRepository) FindAll(ctx context.Context) ([]repository.Content, 
 			contents = append(contents, *content)
 		}
 	}
+	
+	// Sort by URI to match MongoDB FindAll behavior
+	sort.Slice(contents, func(i, j int) bool {
+		return contents[i].URI < contents[j].URI
+	})
 	
 	return contents, nil
 }

@@ -8,22 +8,20 @@ import (
 	"text/template"
 	"time"
 
-	"github.com/maxfacts/maxfacts/pkg/mongodb"
+	"github.com/maxfacts/maxfacts/pkg/content"
 	"github.com/maxfacts/maxfacts/pkg/repository"
 	templatehelpers "github.com/maxfacts/maxfacts/pkg/template"
-	"go.mongodb.org/mongo-driver/mongo"
 	"golang.org/x/time/rate"
 )
 
 // FeedbackHandler handles feedback requests
 type FeedbackHandler struct {
-	contentRepo repository.ContentRepository
-	templates   *template.Template
-	limiter     *rate.Limiter
+	templates *template.Template
+	limiter   *rate.Limiter
 }
 
 // NewFeedbackHandler creates a new feedback handler
-func NewFeedbackHandler(db *mongo.Database) *FeedbackHandler {
+func NewFeedbackHandler() *FeedbackHandler {
 	// Load templates
 	tmpl := template.New("").Funcs(templatehelpers.FuncMap())
 	tmpl, err := tmpl.ParseGlob("templates/*.gohtml")
@@ -43,9 +41,8 @@ func NewFeedbackHandler(db *mongo.Database) *FeedbackHandler {
 	limiter := rate.NewLimiter(rate.Every(20*time.Minute), 3)
 
 	return &FeedbackHandler{
-		contentRepo: mongodb.NewContentRepository(db),
-		templates:   tmpl,
-		limiter:     limiter,
+		templates: tmpl,
+		limiter:   limiter,
 	}
 }
 
@@ -82,16 +79,16 @@ func (h *FeedbackHandler) getFeedback(ctx context.Context, w http.ResponseWriter
 
 	// If URI provided, get breadcrumbs
 	if uri != "" {
-		content, err := h.contentRepo.FindOne(ctx, uri)
+		contentDoc, err := content.FindOne(ctx, uri)
 		if err == nil {
-			breadcrumbs, _ := h.contentRepo.GetBreadcrumbs(ctx, content)
+			breadcrumbs, _ := content.GetBreadcrumbs(ctx, contentDoc)
 			// Add the current content to breadcrumbs (matching Node.js behavior)
 			breadcrumbs = append(breadcrumbs, repository.Breadcrumb{
-				Title: content.Title,
-				URI:   content.URI,
+				Title: contentDoc.Title,
+				URI:   contentDoc.URI,
 			})
 			data["Breadcrumbs"] = breadcrumbs
-			data["Title"] = "Feedback about " + content.Title
+			data["Title"] = "Feedback about " + contentDoc.Title
 		}
 	}
 
@@ -167,16 +164,16 @@ func (h *FeedbackHandler) renderFeedbackError(w http.ResponseWriter, errorMsg, u
 	// If URI provided, get breadcrumbs
 	if uri != "" {
 		ctx := context.Background()
-		content, err := h.contentRepo.FindOne(ctx, uri)
+		contentDoc, err := content.FindOne(ctx, uri)
 		if err == nil {
-			breadcrumbs, _ := h.contentRepo.GetBreadcrumbs(ctx, content)
+			breadcrumbs, _ := content.GetBreadcrumbs(ctx, contentDoc)
 			// Add the current content to breadcrumbs (matching Node.js behavior)
 			breadcrumbs = append(breadcrumbs, repository.Breadcrumb{
-				Title: content.Title,
-				URI:   content.URI,
+				Title: contentDoc.Title,
+				URI:   contentDoc.URI,
 			})
 			data["Breadcrumbs"] = breadcrumbs
-			data["Title"] = "Feedback about " + content.Title
+			data["Title"] = "Feedback about " + contentDoc.Title
 		}
 	}
 
