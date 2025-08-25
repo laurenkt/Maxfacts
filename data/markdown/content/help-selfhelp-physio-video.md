@@ -1,0 +1,40 @@
+---
+id: help-selfhelp-physio-video
+uri: help/physiotherapy/videos
+title: Video demonstrations
+type: page
+authorship: Authored by Lee Mellor;Proof-read/edited by Lauren Tomasello
+order: 0
+updated_at: 2017-11-24T15:11:04Z
+created_at: 2017-03-22T14:55:52Z
+---
+
+<p>We want to encourage you to make the most of these gentle physiotherapy
+    exercises. Do them often (minimum of two to three times a
+    day) and don’t give up (none of the exercises should cause
+    pain, just mild discomfort from re-activation). We want to
+    see you back in control as soon and as well as possible.
+    Some of the exercises may not be possible straight after
+    surgery, while others are specifically intended to help immediate
+    mobilisation. Some exercises are meant for ‘continued use’,
+    and some are preventative in nature.</p>
+<p>Pick from the list of exercises what is appropriate for you:</p>
+<ul>
+    <li>Exercises for your <a href="/help/physiotherapy/videos/donor-sites/back-muscles">back muscles</a></li>
+    <li>Exercises for your <a href="/help/physiotherapy/videos/donor-sites/chest-muscles">chest muscles</a></li>
+    <li>Exercises for your <a href="/help/physiotherapy/videos/tmj">jaw joint</a></li>
+    <li>Exercises for your <a href="/help/physiotherapy/videos/donor-sites/lower-arm">lower arm</a></li>
+    <li>Exercises for your <a href="/help/physiotherapy/videos/donor-sites/lower-leg">lower leg</a></li>
+    <li>Exercises to minimise <a href="/help/physiotherapy/videos/lymphoedema">lymphoedema</a>        of the neck region</li>
+    <li>Exercises to improve strength and mobility of your <a href="/help/physiotherapy/videos/neck">neck region</a></li>
+    <li>Exercises for your <a href="/help/physiotherapy/videos/donor-sites/pelvis">hip and pelvis region</a></li>
+    <li>Massage to improve <a href="/help/physiotherapy/videos/scar-massage">scar tissue</a></li>
+    <li>Exercises for your <a href="/help/physiotherapy/videos/shoulder">shoulder region</a></li>
+    <li>Exercises for your <a href="/help/physiotherapy/videos/donor-sites/shoulder-blade">shoulderblade region</a></li>
+    <li>Exercises for your <a href="/help/physiotherapy/videos/spine">spine</a></li>
+    <li>Exercises for your <a href="/help/physiotherapy/videos/donor-sites/stomach-muscles">stomach muscles</a></li>
+    <li>Exercises for your <a href="/help/physiotherapy/videos/donor-sites/thigh">thigh muscle</a></li>
+    <li>Exercises to prevent and/or improve <a href="/help/physiotherapy/videos/trismus">trismus</a></li>
+</ul>
+<p>Do <a href="/help/physiotherapy/videos/feedback">let us know</a>    if you find physiotherapy exercise demonstrations in videos
+    useful and / or if we should add further videos to the collection.</p>

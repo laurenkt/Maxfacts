@@ -1,0 +1,28 @@
+---
+id: help-selfhelp-oral-hygiene-preamble
+uri: help/oral-hygiene
+title: Oral hygiene
+type: directory
+order: 0
+updated_at: 2017-06-26T13:05:45Z
+created_at: 2016-08-16T13:35:51Z
+---
+
+<p>We are acutely aware that we are much in danger of being accused
+    of being preachy when we include a section about oral hygiene
+    on our website. However, the fact is: keeping good oral hygiene
+    is eminently important for overall health and well-being,
+    far beyond the obvious benefits of preventing <a href="/help/oral-hygiene/decay">dental decay</a>    and/or <a href="/help/oral-hygiene/periodontal-disease">periodontal disease</a>.
+    This is true ‘in sickness and in health’ and maintaining
+    the best possible oral hygiene regime is definitely an area
+    where you can take control and help yourself.</p>
+<p>There are many, often less well known aspects, to the topic of
+    oral hygiene. For example, we explain in fair detail the
+    <a href="/help/oral-hygiene/saliva-and-teeth-mucosa">role of saliva</a>    in keeping teeth and soft tissue of the mouth healthy. Indirectly,
+    of course, this also illustrates the importance of strict
+    oral hygiene when you suffer from <a href="/diagnosis/a-z/xerostomia">dry mouth</a>.</p>
+<p>We demonstrate good brushing and cleaning techniques in <a href="/help/oral-hygiene/videos">videos</a>    and a <a href="/help/oral-hygiene/practical-guide">written practical guide</a>    gives more detailed information. We include information about
+    everyday routines as well as comments about more difficult
+    situations such as after major oral or maxillofacial <a href="/treatment/surgery">surgery</a>,
+    <a href="/treatment/radiotherapy">radiotherapy to the head and neck region</a>,
+    or <a href="/diagnosis/a-z/trismus">difficulties with opening the mouth</a>.</p>

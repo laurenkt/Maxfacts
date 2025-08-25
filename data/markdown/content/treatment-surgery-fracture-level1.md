@@ -1,0 +1,51 @@
+---
+id: treatment-surgery-fracture-level1
+uri: treatment/surgery/fracture
+title: Broken bone
+type: level1
+description: Fracture
+authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
+updated_at: 2017-08-23T12:06:33Z
+created_at: 2016-12-14T14:45:55Z
+---
+
+<p>At its most basic if a bone is broken but not pushed out of place
+    by the force of the injury (undisplaced) it will heal as
+    long as it is left undisturbed and force is not put on it.
+    This is the basis of splinting. If it is displaced then it
+    must be put back into the correct position and kept there
+    undisturbed for however long it takes to heal. If it is exposed
+    to the outside world it is at risk of becoming infected and
+    should be returned to normal as soon as possible. If it is
+    multiple pieces the same process has to be followed for healing
+    to happen but it might be very much more complicated.</p>
+<p>In the face and skull most bones will heal in around 3 weeks.
+    That means if the bones are not returned to their correct
+    position within that time they will heal and get stuck in
+    the abnormal position. That is called a malunion. To avoid
+    malunion, reduction and fixation are necessary, which may
+    be open or closed (i.e. cuts are made in the mouth or on
+    the skin to get to the fractures and return them to the previous
+    correct position; “reduction” can be done under direct vision
+    or by feel). Using endoscopes counts as a minimal access
+    open reduction. Fixation may be direct with plates and screws
+    (very common), wires (now rare) or indirect fixation (by
+    wiring teeth together in the position that is normal for
+    you. Figure 1 summarizes the procedure: Figure 1, top left,
+    shows a mandible before injury; Figure 1, top right, shows
+    the fractures and misaligned mandible; Figure 1, bottom left,
+    shows the broken mandible after reduction; Figure 1, bottom
+    right, shows the broken and re-aligned mandible after fixation
+    (with plates and screws). This treatment is usually performed
+    under <a href="/treatment/surgery/anaesthesia">general anaesthesia</a>.</p>
+<figure><img src="/treatment/surgery/fracture/figure1.png">
+    <figcaption><strong>Figure 1:</strong> A summary of treatment by reduction
+        and fixation of a fractured mandible. Top left: uninjured
+        mandible; top right: fractured and displaced mandible;
+        bottom left: fracture of the mandible after reduction;
+        bottom right: the re-aligned mandible after fixation.</figcaption>
+</figure>
+<aside>
+    <p>Read about <a href="/treatment/timelines/fracture">timelines of treatment and outcomes for fractures</a>.</p>
+</aside>

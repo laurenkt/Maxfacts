@@ -1,0 +1,359 @@
+---
+id: treatment-rest-dentistry-surgical-endodontics-level2
+uri: treatment/restorative-dentistry/surgical-endodontics/more-info
+title: Surgical endodontics
+type: level2
+authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
+updated_at: 2019-03-03T14:02:35Z
+created_at: 2019-03-02T16:14:52Z
+contents:
+  - text: "Assessment for endodontic surgery"
+    id: assessment-for-endodontic-surgery
+  - text: "Local analgesia"
+    id: local-analgesia
+  - text: "Incision and flaps"
+    id: incision-and-flaps
+  - text: "Haemostasis"
+    id: haemostasis
+  - text: "Identification of the root apex"
+    id: identification-of-the-root-apex
+  - text: "Periapical curettage"
+    id: periapical-curettage
+  - text: "Root end resection"
+    id: root-end-resection
+  - text: "Root end cavity preparation"
+    id: root-end-cavity-preparation
+  - text: "Root end (retrograde) filling"
+    id: root-end-retrograde-filling
+  - text: "Wound closure"
+    id: wound-closure
+  - text: "Aftercare"
+    id: aftercare
+  - text: "Assessment of the procedure"
+    id: assessment-of-the-procedure
+---
+
+<p>The different stages of surgical endodontics</p>
+<ul>
+    <li>assessment for endodontic surgery;</li>
+    <li><a href="/treatment/surgery/anaesthesia">local analgesia</a>;</li>
+    <li>incision and raising of a suitable flap for access;</li>
+    <li><a href="/treatment/other/bleeding/detailed">haemostasis</a>        (reducing bleeding);</li>
+    <li>identification of the root apex (tip of the root);</li>
+    <li>periapical curettage (clearing the area surrounding the tip
+        of the root);</li>
+    <li>root end resection (apicectomy; removal of the tip of the
+        root);</li>
+    <li>root end cavity preparation;</li>
+    <li>root end (retrograde) filling;</li>
+    <li>wound closure;</li>
+    <li>aftercare;</li>
+    <li>assessment of success of the procedure.</li>
+</ul>
+<p>are outlined in more detail below. The <a href="/treatment/restorative-dentistry/surgical-endodontics/detailed">following page</a>    discusses some aspects of surgical endodontics related to
+    different locations of teeth, revision of surgery, more recent
+    developments of potential alternatives, and some additional
+    general considerations.</p>
+<h1 id="assessment-for-endodontic-surgery">Assessment for endodontic surgery</h1>
+<p>A <a href="/diagnosis/tests/medical-history">medical history</a>,
+    <a href="/diagnosis/tests/examination/detailed">clinical examination</a>,
+    and <a href="/diagnosis/tests/x-ray">radiological examination</a>    should be performed when surgical endodontic treatment is
+    being considered. Where applicable, previous <a href="/treatment/restorative-dentistry/endodontics/more-info">conventional endodontic treatment</a>    (root canal treatment) is also assessed and a decision made
+    on its effectiveness. Local anatomical factors, such as the
+    proximity of the surgical area to the maxillary sinus (cavity
+    above the upper jaw) or neurovascular bundles (important
+    nerve and blood vessel structures) need to be taken into
+    account, as does the feasibility of surgery. Figure 1 gives
+    an example where periapical surgery was the preferable option
+    over conventional treatment.</p>
+<figure><img src="/treatment-rest-dentistry-surgical-endodontics-level2-figure1.jpg">
+    <figcaption><strong>Figure 1:</strong> Left: Lateral perforation of the
+        upper left canine (UL3) by a post. This tooth serves
+        as a bridge abutment and dismantling the post is therefore
+        not the best way forward. Right: Appearance three months
+        after surgical endodontic perforation repair. The post
+        was left in place because of the significant potential
+        for root damage during post removal attempts.</figcaption>
+</figure>
+<h1 id="local-analgesia">Local analgesia</h1>
+<p>Most surgical endodontic treatment can be performed under
+    <a href="/treatment/surgery/anaesthesia">local anaesthesia</a> . A careful technique at this stage
+        ensures patient comfort throughout the procedure.
+        <a href="/treatment/other/medication/pain/detailed">Topical anaesthetic</a> is applied to a dry mucosa (lining
+            of the mouth), followed by a slow supraperiosteal
+            injection (local infiltration) of 0.5 ml of the anaesthetic
+            solution. Most of the discomfort resulting from the
+            administration of local anaesthetic is caused by
+            distension of the periosteum (dense layer of connective
+            tissue covering bone). Therefore, the remainder of
+            the anaesthetic injection is given slowly at a rate
+            of approximately 1 ml/minute. In the maxilla (upper
+            jaw), infiltrations are almost exclusively used,
+            whereas in the mandible (lower jaw) <a href="/treatment/surgery/anaesthesia">nerve blocks</a>            should be supplemented with local infiltrations.
+            <a href="/treatment/other/medication/pain/detailed">Lidocaine</a>            as local anaesthetic with epinephrine (<a href="/treatment/other/medication/miscellaneous/adrenaline">adrenaline</a>)
+            added in a 1 : 80 000 ratio is commonly used in the
+            UK. During surgery, the vasoconstrictive properties
+            of adrenaline help with haemostasis (minimising bleeding),
+            with keeping the local anaesthetic confined to the
+            local region during surgery, and with improving the
+            quality and duration of the local analgesia.</p>
+<h1 id="incision-and-flaps">Incision and flaps</h1>
+<p>A wide variety of flap designs have been used, but the six main
+    types are:</p>
+<ul>
+    <li>semilunar;</li>
+    <li>triangular;</li>
+    <li>rectangular;</li>
+    <li>trapezoid;</li>
+    <li>vertical incision;</li>
+    <li>Ochsenbein-Lübke flap (not common in Germany, where the distinction
+        is made between marginal and para-marginal flaps).</li>
+</ul>
+<p>Figure 2 illustrates the different types of flaps.</p>
+<figure><img src="/treatment-rest-dentistry-surgical-endodontics-level2-figure2.jpg">
+    <figcaption><strong>Figure 2:</strong> Top left: semilunar flap; top
+        right: triangular flap (the vertical relieving incision
+        does not bisect the interdental papilla (gum tissue between
+        teeth); middle left: rectangular flap; middle right:
+        trapezoidal flap; bottom: Ochsenbein-Lübke flap.</figcaption>
+</figure>
+<p>Whichever design is chosen there should be an unobstructed view
+    of the operating area and good access for instrumentation.
+    The triangular and rectangular flap designs are currently
+    the most commonly used. Incision should allow a full thickness
+    mucoperiosteal flap to be raised cleanly from the bone. Any
+    relieving incisions should be made vertically rather than
+    at an angle, and should avoid bulbous areas such as the canine
+    prominence in the maxilla where root not covered by bone
+    (and therefore having no useful surface blood supply) may
+    prevent adequate healing of the flap margin. The flap is
+    reflected from crown toward apex, starting in the sulcus,
+    and it is kept moist and free of tension. This minimises
+    any postoperative problems with gingival recession.</p>
+<h1 id="haemostasis">Haemostasis</h1>
+<p>Adequate haemostatic control is important during endodontic surgery
+    to improve visualisation of the surgical area and thus to
+    reduce surgical time and postoperative pain and swelling.
+    It also allows the root-end filling (see below) to be placed
+    under favourable conditions. The <a href="/treatment/other/medication/miscellaneous/adrenaline">epinephrine</a>    in local anaesthetic solutions can significantly reduce intra-operative
+    haemorrhage by acting as a vasoconstrictor [treatment-other-medication-miscellaneous-vasoconstrictor-vasodilator]
+    in gingival (gum) blood vessels. Solutions with a 1 : 50
+    000 epinephrine concentration have been found to cause half
+    the blood loss of those with 1 : 80 000 concentration, with
+    no significant difference in systemic effects.</p>
+<p>The design of the flap is also important when considering haemostatic
+    control for endodontic surgery. The supraperiosteal blood
+    vessels run parallel to the long axis of the tooth, and therefore
+    vertical relieving incisions as opposed to angled ones will
+    decrease the number of blood vessels severed. Furthermore,
+    reflection of a full thickness periosteal flap which retains
+    the microvasculature within the body of the flap also limits
+    haemorrhage.</p>
+<p>In addition to local anaesthetic solutions containing epinephrine
+    and a careful surgical technique, a variety of haemostatic
+    agents are available to effect adequate moisture control.
+    These are usually used after periapical curettage (see below),
+    commonly used haemostatic agents include:</p>
+<ul>
+    <li>cotton/gauze with or without vasoconstrictor - these agents
+        reduce haemorrhage by applying physical pressure and
+        can be readily impregnated with a vasoconstrictor;</li>
+    <li>oxycellulose - these agents provide a framework for <a href="/treatment/other/bleeding/more-info">clot formation</a>        (there have been reports of a foreign body reaction to
+        the material together with delayed healing);</li>
+    <li>wax - this exerts a pressure or tamponade effect to aid with
+        haemostasis, but histologically a foreign body reaction
+        is also shown to be elicited. It can sometimes be difficult
+        to remove all of the wax from the bony crypt;</li>
+    <li>calcium alginate - this agent aids haemostasis by <a href="/treatment/other/bleeding/detailed">stimulating coagulation</a>        <i>via</i> the release of calcium ions, Ca<sup>2+</sup>;</li>
+    <li>calcium sulphate - this usually comes as a powder and a liquid
+        which when mixed together form putty that can be placed
+        into the cavity. This putty then exerts a tamponade effect
+        and blocks the vascular channels;</li>
+    <li>ferric sulphate - this is particularly useful for arresting
+        multiple small bony bleeding points (however, it must
+        be thoroughly rinsed out to prevent a foreign body reaction
+        and <a href="/diagnosis/a-z/abscess">abscess</a> formation);</li>
+    <li>gelatin - this acts by stimulating the <a href="/treatment/other/bleeding/more-info">intrinsic clotting pathway</a>;</li>
+    <li><a href="/treatment/other/medication/miscellaneous/collagen">collagen</a>        - this agent acts in a number of ways. In addition to
+        having a mechanical tamponade effect, it also stimulates
+        <a href="/treatment/other/bleeding/more-info">platelet adhesion and aggregation</a>,
+        activates <a href="/treatment/other/bleeding/detailed">Factor VIII</a>        and releases serotonin, which in turn causes <a href="/treatment/other/medication/miscellaneous/vasopressor">vasoconstriction</a>;</li>
+    <li><a href="/treatment/other/medication/miscellaneous/tranexamic">tranexamic acid</a>        mouthwash given pre- and post-operatively is sometimes
+        used to aid haemostasis by inhibiting <a href="/treatment/other/bleeding/more-info">fibrinolysis</a>.</li>
+</ul>
+<h1 id="identification-of-the-root-apex">Identification of the root apex</h1>
+<p>If the lesion has perforated the cortical plate (hard, outer
+    layer of bone), identification of the apex is relatively
+    simple. However, if this has not occurred, an estimation
+    of the tooth length from a good preoperative <a href="/diagnosis/tests/x-ray">radiograph</a>    is made. A small round burr, running in a slow handpiece
+    with water irrigation, can then be used at this length with
+    gentle pressure to explore the area and locate the lesion.
+    Care is required to avoid damage to the roots of the adjacent
+    teeth. The bone is gently pared away until the root apex
+    is located and further bone removed to provide good access.</p>
+<h1 id="periapical-curettage">Periapical curettage</h1>
+<p>Any soft tissue lesion is carefully curetted (removed) from around
+    the apex with excavators and sent for <a href="/diagnosis/tests/biopsy/detailed">histopathology examination</a>    if appropriate. Where possible, the lesion should be excavated
+    in one piece and any remnants curetted out with sharp instruments.
+    Sometimes, the tissue is firmly adherent to the apex, in
+    which case the apex is resected and removed together with
+    the soft tissue lesion.</p>
+<h1 id="root-end-resection">Root end resection</h1>
+<p>The aim of root end resection is to present the surface of the
+    root so that the apical seal of the orthograde root filling
+    can be examined, and to provide access for root end preparation.
+    Approximately 2 to 3 mm of the root end is resected at right
+    angles to the long axis of the tooth. A bevelled resection
+    is avoided where possible because a larger surface area of
+    dentinal tubules is exposed, which can lead to microleakage.
+     Also, if the root end is bevelled, there is the possibility
+    of leaving behind infected tooth tissue, or of missing part
+    or all of the root canal system (Figure 3).</p>
+<figure><img src="/treatment-rest-dentistry-surgical-endodontics-level2-figure3.jpg">
+    <figcaption><strong>Figure 3:</strong> A bevelled root end resection,
+        resulting in the root canal being missed.</figcaption>
+</figure>
+<p>Root end resection is effectively an apicectomy, and although
+    the term ‘apicectomy’ has been commonly used to describe
+    apical surgery, it only describes a small section of the
+    whole procedure and is, therefore best avoided.</p>
+<h1 id="root-end-cavity-preparation">Root end cavity preparation</h1>
+<p>The ideal root end cavity preparation is defined as a class I
+    preparation, at least 3 mm into root dentine with walls parallel
+    to and coincident with the anatomic outline of the pulpal
+    space. A contra-angled slow speed microhead handpiece with
+    a small round burr has conventionally been used to prepare
+    the cavity, but this does not relate to the anatomy of the
+    pulp and often the apical dentine is weakened by unnecessary
+    over- enlargement. There is also a considerable risk of perforating
+    the root-end. Therefore, specifically designed ultrasonic
+    instruments have been developed to create an accurate preparation.
+    Their small tip size allows much greater access than even
+    the microhead handpiece (Figure 4).</p>
+<figure><img src="/treatment-rest-dentistry-surgical-endodontics-level2-figure4.jpg">
+    <figcaption><strong>Figure 4:</strong> A comparison of the sizes of a
+        microhead handpiece and an ultrasonic tip.</figcaption>
+</figure>
+<p>Ultrasonic instrumentation enables the isthmus (narrow connection)
+    running between some canals to be prepared and sealed. This
+    isthmus is often a reservoir for bacteria that have not been
+    removed during <a href="/treatment/restorative-dentistry/endodontics">conventional root canal therapy</a>    (Figure 5). In many developed countries the use of magnification
+    and piezo (<a href="/diagnosis/tests/ultrasound">ultrasonic</a>    ) instruments are the accepted standard.</p>
+<figure><img src="/treatment-rest-dentistry-surgical-endodontics-level2-figure5.jpg">
+    <figcaption><strong>Figure 5:</strong> The contour and size of the ultrasonic
+        tip allow better access to difficult areas of the mouth.</figcaption>
+</figure>
+<h1 id="root-end-retrograde-filling">Root end (retrograde) filling</h1>
+<p>The purpose of the root end filling is to seal the apical section
+    of the tooth and thus prevent any leakage between the oral
+    environment and peri-radicular tissues. Before the root end
+    filling is inserted, one of the haemostatic agents (described
+    above) can be packed into the bony cavity to prevent contamination
+    of the root end cavity.</p>
+<p>In most situations a retrograde root filling is indicated. On
+    occasions where the source of irritants is removed by the
+    resection, and the rest of the canal is completely cleaned
+    and obturated, it is acceptable simply to burnish the apical
+    gutta percha. When a root end filling is to be used, there
+    is a wide variety of materials available (Table 1), although
+    not all are commonly used.</p>
+<h2>Table 1 Materials used for root end fillings</h2>
+<table>
+    <tbody>
+        <tr>
+            <th> Commonly used materials</th>
+            <th> Less commonly used materials</th>
+        </tr>
+        <tr>
+            <td>amalgam<br>zinc oxide / eugenol mixture<br>mineral
+                trioxide aggregate<br>glass ionomer<br>composite<br>zinc
+                phosphate<br>zinc polycarboxylate</td>
+            <td>gutta percha<br>gold foil<br>teflon<br>cyanoacrylate<br>apatite
+                cement<br>gallium alloy</td>
+        </tr>
+    </tbody>
+</table>
+<p><strong>Amalgam</strong> has been used for many years because
+    it is cheap, easy to handle and not particularly moisture
+    sensitive. However, there are problems with its dimensional
+    stability and corrosion, and it can cause staining of the
+    mucosa if carelessly placed. Furthermore, amalgam does not
+    provide an ideal apical seal. It is no longer regarded as
+    an acceptable root end filling material in many developed
+    countries.</p>
+<p><strong>Zinc oxide / eugenol</strong> based materials have been
+    used to good effect as retrograde filling materials. Leakage
+    studies suggest less microleakage around these materials
+    than amalgam, and because they are eugenol based there is
+    some antibacterial activity.</p>
+<p><strong>Glass ionomer</strong> has been shown to give a better
+    seal than amalgam by adhering to dentine, and it has antibacterial
+    activity against some endodontic pathogens. As well as being
+    placed in the root end cavity, a thin smear of glass ionomer
+    can be used to seal the whole root end surface. <strong>Composite</strong>    (organic polymer material) has also been used as a root end
+    filling and, like glass ionomer, can be used to seal the
+    root surface. Both glass ionomer and composite materials
+    are very moisture sensitive, which is a distinct disadvantage
+    in apical surgery.</p>
+<p><strong>Mineral trioxide aggregate</strong> consists of a fine
+    powder of tricalcium silicate, tricalcium aluminate, tricalcium
+    oxide and silicon dioxide. The mixture sets in the presence
+    of moisture. Hydration of the powder produces a colloidal
+    gel with a pH value of 12.5 (a strongly basic gel) that solidifies
+    to a hard cement. Mineral trioxide aggregate has several
+    reported advantages:</p>
+<ul>
+    <li>very good sealing ability;</li>
+    <li>low toxicity;</li>
+    <li>very low <a href="/treatment/other/medication/inflammation/more-info">inflammatory reaction</a>        to the material;</li>
+    <li>an inductive effect on osteoblasts and cementoblasts (encouraging
+        <a href="/diagnosis/a-z/necrosis/hard/detailed">bone regeneration</a>);</li>
+    <li>no moisture sensitivity;</li>
+    <li>low setting contraction.</li>
+</ul>
+<p>The disadvantages of mineral trioxide aggregate are that it is
+    relatively expensive and has a long setting time (4 hours)
+    – although the initial set only takes several minutes. Despite
+    this, current research is promising for the use of mineral
+    trioxide aggregate in surgical endodontics, and it is the
+    filling of choice for this purpose in most developed countries.</p>
+<h1 id="wound-closure"><a href="/treatment/surgery/damage/detailed">Wound closure</a></h1>
+<p>After placement of the root end filling material and débridement
+    (cleaning) of the surgical area, the flap is reapproximated
+    and compressed for 2 to 3 minutes prior to suturing. There
+    is no evidence for the superiority of resorbable or non-resorbable
+    sutures; 4-0 or 5-0 monofilament varieties have theoretical
+    advantages. Cyanoacrylate adhesives and fibrin sealants have
+    been used but are not widely adopted because of their unpredictable
+    strength.</p>
+<h1 id="aftercare">Aftercare</h1>
+<p>The postoperative use of <a href="/treatment/other/medication/pain/detailed">anti-inflammatory analgesics</a>    may be advised. <a href="/treatment/other/medication/miscellaneous/chlorhexidine">Chlorhexidine</a>    mouthwash, 10 ml rinsed twice daily is also prescribed. The
+    use of prophylactic <a href="/treatment/other/medication/infection/detailed">antibacterial agents</a>    is controversial. There is no current evidence base for this
+    although many still use this technique or even use postoperative
+    antibacterials, which has even less theoretical or evidence
+    based support. Ice packs, which are also commonly advised
+    by some, have no real evidence base.</p>
+<p>Sutures may resorb or be removed according to personal protocol.
+    An <a href="/diagnosis/tests/x-ray">X-ray radiograph</a>    is taken at three months. Further radiographs are taken as
+    appropriate to each individual situation.</p>
+<h1 id="assessment-of-the-procedure">Assessment of the procedure</h1>
+<p>Once endodontic surgery has been performed, it should be assessed
+    after at least one year. Success is indicated by:</p>
+<ul>
+    <li>absence of symptoms such as pain and swelling;</li>
+    <li>no sinus tract (abnormal draining channel);</li>
+    <li>no loss of function;</li>
+    <li>satisfactory soft tissue healing;</li>
+    <li><a href="/diagnosis/tests/x-ray">X-ray radiographic</a> evidence
+        of bony infill at the surgical site.</li>
+</ul>
+<p>Figure 6 depicts the appearance one year after a surgical endodontics
+    intervention. Long-term follow up is based on personal protocol
+    after one year.</p>
+<figure><img src="/treatment-rest-dentistry-surgical-endodontics-level2-figure6.jpg">
+    <figcaption><strong>Figure 6:</strong> Appearance one year after peri-radicular
+        surgery at the second upper left incisor (UL2); there
+        is minimal gingival recession as a result of careful
+        surgical technique.</figcaption>
+</figure>

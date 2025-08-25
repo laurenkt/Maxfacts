@@ -1,0 +1,328 @@
+---
+id: diagnosis-drugs-EtOH-level2
+uri: diagnosis/drugs/alcohol
+title: Alcohol
+type: level2
+authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
+further_reading_uri: diagnosis/drugs/further-reading
+updated_at: 2018-11-09T13:45:08Z
+created_at: 2016-12-06T13:41:04Z
+contents:
+  - text: "Alcohol - consumption and its journey through the body"
+    id: alcohol-consumption-and-its-journey-through-the-body
+  - text: "Alcohol – how and why it is an addictive drug"
+    id: alcohol--how-and-why-it-is-an-addictive-drug
+---
+
+<p>Alcoholic beverages, produced by fermentation of carbohydrates,
+    have been consumed for thousands of years in one form or
+    another. Indeed, the development of agriculture as the foundation
+    of civilisation is thought to owe itself to the cultivation
+    of grains for beer brewing. Over time and locations, attitudes
+    vary from prohibition in twenties America, to binge drinking
+    in modern times in the UK, to continued bans of alcohol for
+    religious reasons. Alcohol is probably the most widely used
+    and abused drug on this planet.</p>
+<h1 id="alcohol-consumption-and-its-journey-through-the-body">Alcohol - consumption and its journey through the body</h1>
+<p>Alcohol, that is ethanol (or ethyl alcohol), EtOH, is a very
+    small molecule (see Figure 1) that is readily soluble in
+    water. EtOH and water are completely miscible and EtOH can
+    easily transgress biological membranes, including the blood-brain
+    barrier. The energy content of ethanol is considerable, 7.1
+    kcal/g (which can add to ‘invisible’ caloric intake).</p>
+<figure><img src="/diagnosis/drugs/alcohol/figure1.png">
+    <figcaption><strong>Figure 1:</strong> The molecular structure of EtOH.</figcaption>
+</figure>
+<p>EtOH is mainly absorbed from the intestines. The effects experienced
+    of EtOH on the body primarily depend on the amount ingested.
+    In addition, the EtOH absorption rate by drinking also depends
+    on the EtOH concentration of the beverage, on the CO<sub>2</sub>    content of the beverage (EtOH from fizzy drinks is more readily
+    absorbed), on the speed of drinking, on any foods eaten around
+    the time of drinking (composition, amount and timing), gender
+    (because there are different fat/water ratios in male and
+    female bodies), individual EtOH drinking habits and history.
+    Absorption rates are individually extremely variable. There
+    are <a href="/diagnosis/drugs/further-reading">studies</a>    eluding to possible health benefits from moderate alcohol
+    intake (such as a glass of red wine with a meal in a Mediterranean-style
+    diet).</p>
+<p>Table 1 summarizes some general trends of EtOH effects as a function
+    of blood alcohol content (BAC).</p>
+<p><strong>Table 1: BAC, blood alcohol content, and typical effects</strong></p>
+<table>
+    <tbody>
+        <tr>
+            <th>Blood alcohol content /vol. %</th>
+            <th>Typical effects</th>
+        </tr>
+        <tr>
+            <td>0.02-0.03</td>
+            <td>Elevated mood, slight muscle relaxation</td>
+        </tr>
+        <tr>
+            <td>0.05-0.06</td>
+            <td>Relaxation, increased reaction times, decreased fine
+                coordination</td>
+        </tr>
+        <tr>
+            <td>0.08-0.09</td>
+            <td>Euphoria; impaired balance, vision, speech, hearing,
+                thought</td>
+        </tr>
+        <tr>
+            <td>0.14-0.15</td>
+            <td>Severe impairment of physical and mental control</td>
+        </tr>
+        <tr>
+            <td>0.20-0.30</td>
+            <td>Loss of physical and mental control</td>
+        </tr>
+        <tr>
+            <td>0.40-0.50</td>
+            <td>Coma, danger of death caused by respiratory depression</td>
+        </tr>
+        <tr>
+            <td>&gt;0.50</td>
+            <td>High risk of death by acute poisoning and respiratory
+                arrest</td>
+        </tr>
+    </tbody>
+</table>
+<p>More than 90 percent of EtOH is metabolised in the liver (accordingly,
+    continued excessive alcohol consumption primarily damages
+    the liver) in a stepwise mechanism involving a range of enzymes
+    as summarized in Figure 2.</p>
+<figure><img src="/diagnosis/drugs/alcohol/figure2.png">
+    <figcaption><strong>Figure 2:</strong> The metabolic pathway of EtOH.</figcaption>
+</figure>
+<p>First, EtOH is oxidised to acetaldehyde (a chemically reactive
+    and toxic substance) with the help of the enzyme ADH (alcohol
+    dehydrogenase). This is followed in the next step by further
+    oxidation to acetic acid / acetate, enabled by the enzyme
+    ALDH (aldehyde dehydrogenase). In the final step further
+    oxidation yields water, H<sub>2</sub>O and carbon dioxide,
+    CO<sub>2</sub> which are excreted <i>via</i> urine, sweat
+    and breath.</p>
+<p>The enzyme ADH is easily saturated, even at low EtOH blood content,
+    so ADH determines the overall metabolic rate in a healthy
+    person (the ALDH promoted oxidation of acetaldehyde to acetic
+    acid / acetate is not rate-limiting). Any accumulation of
+    aldehyde from excessive EtOH intake is associated with headache,
+    nausea, gastritis and unpleasant hangover effects. In addition,
+    acetaldehyde molecules tend to form stable conglomerates
+    with some nucleic acid molecules (lysine, in particular)
+    and these complexes trigger inflammatory reactions of the
+    liver tissue.</p>
+<p>Having to process and to metabolise large quantities of EtOH
+    does lasting harm to the liver by negatively interfering
+    with many of the liver’s metabolic pathways, in particular
+    with its many roles in oxidation and reduction reactions.
+    For example, the central role of liver metabolism in the
+    energy production for the body is impaired: the synthesis
+    of glucose (the body’s ‘energy pack’ sugar molecule) is hindered
+    because pyruvate is prevented from playing its usual role
+    in the production of glucose and instead is used up in the
+    production of excess lactate, with the further consequence
+    that ureate is no longer properly excreted via the kidneys,
+    uric acid accumulates, leading to gout and a condition called
+    lactic acidosis (build-up of lactate in the body, making
+    one ill). Impaired glucose synthesis can lead to dangerous
+    hypoglycaemia (low blood sugar levels) from heavy drinking.
+    The EtOH metabolism also interferes with the normal balanced
+    processing and production of fatty acids by promoting the
+    synthesis of excess fatty acid, leading to a condition called
+    ketoacidosis (build-up of ketones in the body from lowered
+    pH value (higher acidity)). The oxidation rate of lipids
+    is reduced, leading to an accumulation of fat in liver cells,
+    especially triglycerides. Over time, a fatty liver deteriorates
+    <i>via</i> a hepatitis stage to a liver damaged by fibrosis
+    (scarring of connective tissue) and finally cirrhosis (severe
+    and irreversible scarring of the liver tissue) and fatal
+    liver failure. Disruption of liver function by EtOH metabolism
+    further causes electrolyte imbalances in the body (especially
+    Ca<sup>2+</sup> and Mg<sup>2+</sup>) and deficiencies in
+    vitamins, particularly folate, thiamine and vitamin B6.</p>
+<p>Elimination rates of EtOH from the body are individually highly
+    variable, with the highest elimination rates occurring for
+    alcoholics during detox:</p>
+<p>Alcoholics during detox &gt; healthy binge drinkers immediately
+    after a heavy drinking session or long-term drinkers during
+    treatment with a high-protein diet &gt; heavy long-term drinkers
+    (no liver damage yet) &gt; healthy moderate drinkers &gt;&gt;
+    people with liver dysfunction (cirrhosis), poor diet, malnourishment,
+    or taking some drugs that block ADH (for example cimetidine,
+    an over-the-counter inhibitor of stomach acid production,
+    which is often taken in parallel with EtOH).</p>
+<h1 id="alcohol--how-and-why-it-is-an-addictive-drug">Alcohol – how and why it is an addictive drug</h1>
+<p>Nobody needs any lecturing about the potentially devastating
+    effects of EtOH addiction on individuals, their families
+    and friends, and society overall. And nobody needs reminding
+    of the addictive properties of EtOH. But it may be helpful
+    to consider in a little more detail how the EtOH molecule
+    acts in the brain, in multiple direct and indirect ways:
+    this will illustrate rather well why the story of EtOH abuse
+    is a rather complicated one!</p>
+<p>To start with, there is not even a clear cut and simple definition
+    of the meaning of the term ‘alcoholism’ – or better: ‘alcohol
+    dependence’ (and since 2013 as the preferred term ‘alcohol
+    use disorder’).</p>
+<p>Several criteria have been collated:</p>
+<ul>
+    <li>Developing tolerance (see below)</li>
+    <li>Withdrawal symptoms (see below)</li>
+    <li>Using larger amounts than intended</li>
+    <li>Inability to reduce consumption</li>
+    <li>Disproportionate amounts of time dedicated to sourcing alcohol
+        and/or suffering from hang-over</li>
+    <li>Increasing social isolation due to alcohol consumption</li>
+    <li>Continued excessive use despite knowledge about harm.</li>
+</ul>
+<p>There seems to be agreement that if at least three of these criteria
+    are fulfilled over a period of at least twelve months, this
+    is an indication of alcohol dependence. This approach certainly
+    is an indication that the story of EtOH as an addictive recreational
+    drug is indeed complicated, with a high degree of individual
+    variability.</p>
+<p>When thinking about the addictive power of <a href="/diagnosis/drugs/tobacco">nicotine</a>,
+    the underlying mechanisms there seem comparatively straightforward:
+    by and large, the nicotine molecule transgresses the blood-brain
+    barrier, it finds its preferred receptor site to interact
+    with – one that happens to lead to increased release of dopamine
+    (the substance in our brains that is related to pleasurable
+    ‘reward’ experiences and that is in some ways involved in
+    the working of nearly all addictive substances), which explains
+    the addictive power of nicotine.</p>
+<p>The small EtOH molecules are also easily able to transgress the
+    blood-brain barrier, and if it wasn’t for the actions of
+    EtOH in the brain, it would not be an addictive drug. Other
+    than with nicotine, there is not one single, or even one
+    main, mechanism how EtOH impacts on brain function. The small
+    EtOH molecules diffuse to several sites in the lipid bilayer
+    of neurons (the communication nodes in the brain) and interfere
+    there with several different neurotransmitter functions and
+    receptors in direct and/or indirect ways (neurotransmitters
+    are messenger molecules, responsible for communication and
+    chains of command amongst the network of neurons in the brain).
+    Figure 3 attempts to give an (simplified) overview of some
+    of the main EtOH interaction mechanisms in the brain.</p>
+<figure><img src="/diagnosis/drugs/alcohol/figure3.png">
+    <figcaption><strong>Figure 3:</strong> Some of the main interaction sites
+        of the EtOH molecule with receptors and neurotransmitters.</figcaption>
+</figure>
+<p>The main interaction sites of EtOH are receptors for neurotransmitters
+    with different properties:</p>
+<ul>
+    <li><a href="/treatment/other/medication/miscellaneous/gaba">GABA (gamma-aminobutyric acid)</a>        is the main neurotransmitter with inhibitory effects
+        (sedative and anxiolytic); EtOH interfers with the corresponding
+        receptor sites and leads to its downregulation (that
+        is, less activity and less release of GABA).</li>
+    <li>Glutamate is the main excitatory (stimulant) neurotransmitter;
+        EtOH interferes with the corresponding receptor sites
+        (NMDA (N-methyl-D-aspartate) receptors) and inhibits
+        the stimulant effects.</li>
+    <li><a href="/treatment/other/medication/miscellaneous/dopamine">Dopamine</a>        is the substance responsible for pleasurable reward sensations;
+        EtOH increases the release of dopamine.</li>
+    <li>Opioids are not all synthetic laboratory-made substances,
+        the body / brain has its own opioid synthesis pathways
+        for two types of substances (endorphins and enkephalins)
+        with effects similar to those of synthetic opioids (relief
+        of pain and anxiety); EtOH leads to increased release
+        of these endogenous (made by the body) opioids.</li>
+</ul>
+<p>Having a massive impact on neuronal pathways with such different
+    properties explains why different concentrations of EtOH
+    have seemingly contradictory effects as stimulating or as
+    sedative drug: at low concentrations simply the inhibition
+    of inhibitory pathways is the main effect (hence the overall
+    slightly stimulant effect at low EtOH concentrations), whereas
+    with increasing EtOH concentrations the resulting effect
+    is increasingly a sedative effect.</p>
+<p>EtOH has profound and multiple effects on the overall brain function,
+    and there is no known antagonist for EtOH (that is, there
+    is no known substance that counteracts all the effects of
+    EtOH). These complicated and multiple different direct and
+    indirect interactions of EtOH with the entire neurotransmitter
+    network also make it plausible why EtOH <a href="/treatment/other/medication/delivery">interferes with numerous medicinal drugs</a>,
+    where, for example, it potentiates the effects of other sedatives
+    (such as barbiturates and benzodiazepines), why complicated
+    and individually different patterns of abuse and dependence
+    develop, and how excessive alcohol consumption over long
+    periods of time not only damages the liver.</p>
+<p>An important part of the dependence-forming properties of EtOH
+    is not just related to the involvement of enhanced dopamine
+    release, but the rapid development of tolerance. Becoming
+    tolerant to a drug means that more of it is needed to achieve
+    the same effect as previously with a lower dose. This happens
+    because after repeated exposure neuroadaptation occurs, increasing
+    the number of relevant receptor sites (alcohol inhibits the
+    NMDA / glutamate receptor, so this receptor gets upregulated;
+    the GABA receptors become less sensitive to the effects of
+    EtOH and the enhanced dopamine release becomes less, as well
+    as the opioid receptor responses becoming less) as well as
+    leading to overall changes in absorption, metabolism and
+    excretion. With EtOH, both acute and chronic forms of tolerance
+    develop. Tolerance leads to increased consumption, it maintains
+    and supports dependence and increases the risk of harm. In
+    parallel cross-tolerance to other sedatives develops, carrying
+    increased risks of overdosing some substances. With EtOH
+    also some behavioural tolerance evolves over continued excessive
+    EtOH consumption: to some extent, the body learns how to
+    cope while being intoxicated. In addition, there are several
+    reinforcement mechanisms in place, all pushing toward continued
+    consumption. Some of these are positive reinforcement mechanisms,
+    such as gain of pleasure or being in tune with peer behaviour;
+    other reinforcement mechanisms are the (urgent and strong)
+    desire to avoid withdrawal symptoms, or to relief stress
+    in general.</p>
+<p>Suddenly stopping prolonged excessive drinking habits leads to
+    EtOH withdrawal symptoms. These symptoms may start soon after
+    the last drink, within hours, and may persist for several
+    weeks. The withdrawal symptoms include irritability, increased
+    heart rate, headache, sweating, nausea and vomiting, hallucinations,
+    severe anxiety and tremors. Serious EtOH withdrawal symptoms
+    (delirium tremens) are a medical emergency (with a mortality
+    of ca. 5 percent).</p>
+<p>From the above description of the multiple interactions of EtOH
+    with multiple neurotransmitter systems, it is straightforward
+    to see that a sudden return to no-EtOH exposure leads to
+    some hard-to-control hyperactivity of numerous neurotransmitter
+    pathways in the brain. The multiple mechanisms in which EtOH
+    interfers with normal brain function also provide opportunities
+    for medication to support medically controlled and supervised
+    detoxification. The most widely used drug to support detoxification
+    is a benzodiazepine derivative, chlordiazepoxide; it reduces
+    some of the withdrawal symptoms (convulsions and hallucinations)
+    and cravings. A different mechanism is exploited by disulfiram:
+    it blocks the ALDH receptor (see Figure 2, above) which leads
+    to acetaldehyde accumulation and related unpleasant vomiting,
+    making drinking EtOH altogether a very unpleasant experience.
+    This is why metronidazole (an anaerobicidal <a href="/treatment/other/medication/infection">antibiotic drug</a>    with a similar molecular structure) must not be mixed with
+    alcohol in any form. A third mechanism to support EtOH detoxification
+    is the use of a drug that efficiently blocks the rewarding,
+    dopamine-related effects from consuming EtOH (naltrexone).</p>
+<p><strong>Perhaps some extra-motivation to quit excessive alcohol use</strong>    when confronted with oral and maxillofacial surgery: there
+    are multiple enhanced risks during and around the time of
+    surgery, leading to higher morbidity and increased risk of
+    post-operative complications as well as higher risks from
+    <a href="/treatment/surgery/anaesthesia">general anaesthetics</a>    during surgery. Many of these risks are related to acute
+    alcohol withdrawal symptoms. Several drugs commonly used
+    post-surgery (antibiotic and antifungal medications) interfere
+    negatively with continued alcohol consumption. Excessive
+    prolonged alcohol consumption is directly toxic to the oral
+    mucosa; this toxicity is likely to be due to exposure to
+    EtOH as well as to its metabolite acetaldehyde (see Figure
+    2). This mechanism is thought to underpin the role of EtOH
+    in oral tumour promotion because of increased cell regeneration,
+    as well as obviously inhibiting healing of the oral mucosa.</p>
+<p>Unless you are faced with emergency surgery, there is usually
+    enough time before elective (planned) surgery to engage in
+    a supported round of pre-surgical detoxification. With the
+    right kind of motivation and support in place, this can be
+    done at home which is more pleasant for you and at least
+    as effective as a much more expensive admission to hospital
+    for essentially the same process.</p>
+<aside>
+    <p>In the UK, many institutions and charities offer <a href="/diagnosis/drugs/further-reading">support</a>        in non-judgmental ways with the management of addictions
+        as well as offering help with attempts to terminate substance
+        abuse – <strong>including support for alcohol abuse cessation</strong>.</p>
+</aside>

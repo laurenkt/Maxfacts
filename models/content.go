@@ -17,6 +17,7 @@ import (
 // Content represents a content page in the system
 type Content struct {
 	ID                primitive.ObjectID `bson:"_id,omitempty"`
+	ContentID         string             `bson:"id"`
 	URI               string             `bson:"uri"`
 	Title             string             `bson:"title"`
 	Type              string             `bson:"type"`
@@ -363,6 +364,22 @@ func ExtractLinksFromHTML(htmlContent string) []string {
 	
 	extract(doc)
 	return links
+}
+
+// FindAll returns all content items from the database
+func (m *ContentModel) FindAll(ctx context.Context) ([]Content, error) {
+	cursor, err := m.collection.Find(ctx, bson.M{})
+	if err != nil {
+		return nil, err
+	}
+	defer cursor.Close(ctx)
+
+	var contents []Content
+	if err = cursor.All(ctx, &contents); err != nil {
+		return nil, err
+	}
+
+	return contents, nil
 }
 
 // extractText recursively extracts text from an HTML node

@@ -1,0 +1,56 @@
+---
+id: treatment-other-medication-miscellaneous-calcitonin
+uri: treatment/other/medication/miscellaneous/calcitonin
+title: Calcitonin
+type: page
+authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
+updated_at: 2018-11-09T15:17:58Z
+created_at: 2018-05-21T16:08:12Z
+---
+
+<p>Calcitonin is a hormone that is synthesized in some specialised
+    cells of the thyroid gland. Calcitonin is involved in the
+    <a href="/diagnosis/a-z/necrosis/hard/detailed">bone remodelling process</a>    by its role in regulating the blood levels of Ca<sup>2+</sup>    ions. In this role, calcitonin acts as the counterplayer
+    to <a href="/treatment/other/medication/miscellaneous/pth">parathyroid hormone, PTH</a>.
+    PTH secretion is increased whenever the blood concentration
+    of Ca<sup>2+</sup> ions is low or falling, and then PTH activates
+    the osteoclasts (cells responsible for breaking down old
+    bone tissue in the bone renewal process). This increased
+    osteoclast activity increases the Ca<sup>2+</sup> concentration
+    in blood by increased breaking down of bone tissue.</p>
+<p>Calcitonin has the opposite action trigger and effects. Its secretion
+    is increased by high or increasing Ca<sup>2+</sup> concentration
+    in the blood serum. Another activating factor for increased
+    release of calcitonin stems from gastrointestinal hormones
+    such as gastrin. An increased calcitonin concentration mainly
+    inhibits / reduces the activity of osteoclasts in the resorption
+    phase of the <a href="/diagnosis/a-z/necrosis/hard/detailed">bone remodelling</a>,
+    it is thought to have some general effects on osteocytes
+    (common type of cells in mature bone tissue) as well, and
+    also enables increased excretion of Ca<sup>2+</sup> (and
+    phosphate) ions in the urine. The main physiological role
+    of calcitonin may thus be summarised as protecting against
+    excessive bone loss from overactive Ca<sup>2+</sup> mobilisation.
+    Calcitonin is also known to stimulate vitamin D production
+    in the kidneys. Many of the more subtle aspects of the effects,
+    interactions and roles of calcitonin remain to be clarified.
+    Abnormally high calcitonin levels may indicate some thyroid
+    gland diseases, including malignancies affecting the thyroid
+    cells that produce calcitonin, kidney failure and a range
+    of disorders of the digestive system. One such syndrome produces
+    neuromas (small nerve growths) in the lining of the mouth.</p>
+<p>Calcitonin has a role as medication in the treatment of hypercalcaemia
+    (abnormally high Ca<sup>2+</sup> concentrations in blood
+    serum) and a number of bone disorders, including <a href="/diagnosis/a-z/bone-lesion/more-info">Paget’s disease</a>,
+    osteoporosis after menopause (although the use for this condition
+    is nowadays rare, with <a href="/treatment/other/medication/miscellaneous/bisphosphonates">bisphosphonates</a>    and <a href="/treatment/other/medication/miscellaneous/denusomab">denusomab</a>    nowadays much more widely prescribed <a href="/treatment/other/medication/miscellaneous/antiresorptive">antiresorptive agents</a>),
+    bone pain from <a href="/diagnosis/a-z/tumour/metastases">bone metastases</a>.
+    Calcitonin has been mentioned in the literature as a medication
+    for the treatment of some forms <a href="/diagnosis/a-z/bone-lesion/more-info">chronic osteomyelitis</a>    but the evidence is unconvincing.</p>
+<p>Calcitonin for use as medication is isolated from salmon. Calcitonin
+    needs to be <a href="/treatment/other/medication/delivery/more-info">given by injection</a>    into a muscle or under the skin. Calcitonin is a polypetide
+    molecule (a chain of nucleic acid building blocks) that,
+    if taken orally, would be made ineffective because it would
+    be chemically broken down in the acidic stomach environment.
+     </p>

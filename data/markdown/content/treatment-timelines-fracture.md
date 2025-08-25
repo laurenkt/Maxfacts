@@ -1,0 +1,186 @@
+---
+id: treatment-timelines-fracture
+uri: treatment/timelines/fracture
+title: Broken bone
+type: page
+description: Fracture
+authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
+updated_at: 2017-08-23T12:08:20Z
+created_at: 2017-02-23T15:52:09Z
+contents:
+  - text: "Mandibular fractures"
+    id: mandibular-fractures
+  - text: "Zygomatic complex (cheekbone) fractures"
+    id: zygomatic-complex-cheekbone-fractures
+  - text: "Nasal fractures"
+    id: nasal-fractures
+  - text: "Midface fractures"
+    id: midface-fractures
+  - text: "Frontal bone &amp; frontal sinus fractures"
+    id: frontal-bone-and-frontal-sinus-fractures
+---
+
+<p>It is obvious that a broken bone needs time to heal. How long
+    depends on the techniques used to fix it, the state it was
+    in when broken, the person the bone belongs to and what that
+    person does to help it heal.</p>
+<h1 id="mandibular-fractures">Mandibular fractures</h1>
+<p><strong>Time-lines short term:</strong> in most cases a fractured
+    mandible should be operated (reduced and fixed) within 24
+    hours. This is partly because it is a ‘compound’ fracture,
+    being exposed to the contaminants of the mouth, and partly
+    out of humanity. The breaks affecting the tooth bearing areas
+    of the jaws are usually put together (reduced) and held in
+    place (fixed) by titanium (or rarely by resorbable plastic)
+    plates and screws buried beneath the gum. There may be wires,
+    buttons or metal bars fixed to the teeth to ensure the bite
+    of the teeth is returned exactly to the pre-injury position.
+    These devices may remain after the fixation to help support
+    the repair and ensure the teeth remain biting correctly,
+    or be removed if the surgeon is confident everything is in
+    the right place.</p>
+<p>Breaks away from the tooth bearing area, especially the condylar
+    neck of the mandible may be managed only by elastic bands
+    guiding the teeth together, or this may be used for a week
+    to see if the area around the jaw joint and the fracture
+    adapt as the teeth come together. If not then an open operation
+    to reduce and fix the condylar fracture may be needed.</p>
+<p>Accepting this, short term after injury you can expect to be
+    admitted for a day and night and leave with the fracture
+    put back together. It will be uncomfortable and mouth opening
+    and jaw movement will be limited for the first week to 10
+    days, even if the teeth are not held tightly together by
+    wires or elastic bands (this is unusual nowadays).</p>
+<p><strong>Time-lines medium term:</strong> by 3 weeks after the
+    repair, especially if internal fixation with plates and screws
+    has been used, you should feel almost back to normal and
+    be eating food of increasing consistency. Bruising and swelling
+    should be largely resolved but don’t expect to eat apples,
+    toffee or tough meats.</p>
+<p>A soft diet is required for 2 to 4 weeks to ensure the plates
+    are not overstressed during the healing period. The fracture
+    is sufficiently healed after this period to allow normal
+    mandibular function. The plates, now obsolete, remain <i>in situ</i>    without causing problems. In the immediate postoperative
+    period a strict oral hygiene regimen is implemented, in the
+    form of 0.2% chlorhexidine gluconate mouth rinses, and tooth
+    brushing.</p>
+<p>You may be aware of a loss of feeling, especially in your lower
+    lip. This may have happened at the time of the break as the
+    nerve supplying feeling to the lower lip runs through the
+    mandible. Alternatively it may have been damaged during the
+    operation to repair the fracture.</p>
+<p><strong>Time-lines long term:</strong> most people will have
+    a fully healed mandible at around 3 months after treatment
+    with a normal (for them) bite and normal sensation. If the
+    bite has not returned to its pre-treatment state, something
+    is wrong and further treatment may be needed. If altered
+    sensation was noticed in the medium term it can take up to
+    18 months for sensation to fully return. Usually it will,
+    but if the nerve was completely divided this may never return
+    to its pre-injury state.</p>
+<h1 id="zygomatic-complex-cheekbone-fractures">Zygomatic complex (cheekbone) fractures</h1>
+<p><strong>Time-lines short term:</strong> these fractures are very
+    unlikely to be compound (connected to the skin and at greater
+    risk of infection) fractures. They are connected to the air
+    sinuses around the nose and nose blowing should be avoided
+    as this can force air underneath the skin, creating a bizarre
+    situation called subcutaneous emphysema. This increases the
+    risk of infection. Generally these breaks are better treated
+    in a delayed fashion to get best results when swelling has
+    settled down. During this time the fractures may be uncomfortable
+    but don’t tend to be painful unless they become infected.
+    Double vision can be a problem and you should not drive if
+    affected by double vision.</p>
+<p><strong>Time-lines medium term:</strong> 3 weeks after surgery
+    the impressive black eye and red conjunctiva should have
+    largely settled down and appearances returned to normal.
+    During this time, if the fractures have been fixed with small
+    plates, there is little in the way of special precautions
+    to take. If no fixation has taken place it is important to
+    avoid pressure on the area. Double vision should have largely
+    settled down. You may notice altered sensation in the area
+    below the affected eye, side of nose and even the upper front
+    teeth and gums on that side. This is because the nerve supplying
+    feeling to that area runs in a bony canal in the floor of
+    the eye socket and emerges below the rim of the eye socket
+    and can be squeezed, crushed or severed by these fractures.
+    There may be a dull pain in the region of the fracture during
+    winter months, slow recovery of the infraorbital nerve, fighting
+    and contact sports need to be avoided for six to eight weeks
+    after fracture repair.</p>
+<p><strong>Time-lines long term:</strong> in the long term most
+    of these fractures have healed to full strength within 3
+    months and the plates can be forgotten about.</p>
+<p>Persistent diplopia (double vision) requires a specialist ophthalmological
+    opinion. Prescription of a prism lens, eye rehabilitation
+    and potential use of corrective eye muscle surgery may be
+    necessary. Again, nerve damage may take up to 18 months to
+    fully resolve and if it hasn’t by that stage, it may be permanent.</p>
+<h1 id="nasal-fractures">Nasal fractures</h1>
+<p><strong>Time-lines short term:</strong> these fractures are usually
+    treated once swelling has settled down and the bones can
+    be aligned properly. A stuffy blocked nose can be expected
+    until at least 10 days after treatment, although treatment
+    itself is usually done as a planned day case operation.</p>
+<p><strong>Time-lines medium term:</strong> nasal discomfort, difficulty
+    in nasal breathing and stuffiness may continue for 3 weeks
+    but usually rapidly settles down over this period.</p>
+<p><strong>Time-lines long term:</strong> as long as the nasal septum
+    is in the correct position, airway problems should resolve
+    within a couple of months. Persisting pain or difficulty
+    with nasal breathing or discharge is unusual and you should
+    ask your specialist about this if it persists.</p>
+<h1 id="midface-fractures">Midface fractures</h1>
+<p><strong>Time-lines short term:</strong> these are variable injuries.
+    If combined with other facial injuries they may be treated
+    simultaneously, accepting the limitations and problems caused
+    by swelling. If the fractures are isolated it is perfectly
+    reasonable to wait for swelling to settle, check how the
+    bite relates to the pre-injury state and treat accordingly
+    (if necessary – if the fragments (and there are often many)
+    are not displaced, this may not be needed). If operated it
+    is usual to fix 4 main ‘pillars’ of the maxilla (top jaw)
+    to provide a buttress for biting forces and allow other areas
+    to heal spontaneously. There can be a lot of swelling, black
+    eyes, red conjunctivae and difficulty in eating during this
+    phase. Once treated and the top jaw is stable, the bones
+    heal quickly.</p>
+<p><strong>Time-lines medium term:</strong> after 3 weeks the bones
+    are quite firm. If internal fixation has been used, you should
+    be biting and eating reasonably normally. Again, hard foods
+    and extensive chewing is not a good idea at this stage but
+    gradual progression towards firmer consistencies is sensible.
+    You may notice loss of sensation over the cheeks from the
+    same nerve described in cheekbone fractures. Double vision
+    is a sporadic problem in high level fractures involving the
+    eye sockets.</p>
+<p><strong>Time-lines long term:</strong> most mid-face fractures
+    will have fully healed within 3 months. Unless the bite has
+    not been returned to normal or there has been nerve damage
+    (about which the same rules as above apply), you should be
+    back to normal unless <a href="/treatment/restorative-dentistry">extensive dental work</a>    is needed. That can take much longer than the bone healing.</p>
+<h1 id="frontal-bone-and-frontal-sinus-fractures">Frontal bone &amp; frontal sinus fractures</h1>
+<p><strong>Time-lines short term:</strong> these are generally reduced
+    and fixed after swelling has resolved, unless the brain is
+    involved. In that case the surgery is combined with any neurosurgery
+    needed. The approaches range from minimal and endoscopic
+    approaches to raising a coronal flap which involves a hairline
+    incision from ear to ear to peel back the forehead. This
+    sounds dramatic but allows excellent visualisation of the
+    fractures and heals within 10 days. Drains are usually used,
+    especially in coronal flaps and at least one night in hospital
+    is needed.</p>
+<p><strong>Time-lines medium term:</strong> there may be slight
+    discomfort for a week or so and you will usually have to
+    take decongestants for 10 days, unless the frontal sinus
+    has been obliterated by bone graft. If this is done the donor
+    site (usually the <a href="/diagnosis/a-z/postoperative-problems/pelvis">hip</a>)
+    is a bigger problem than the head. Medium term issues with
+    post-concussion syndrome (headaches, mild personality changes,
+    relative photophobia, avoidance of noise) is not unusual.</p>
+<p><strong>Time-lines long term:</strong> some people experience
+    <a href="/diagnosis/a-z/cyst">mucous cysts</a> from residual
+    lining of the frontal sinus. This is one reason some surgeons
+    are in favour of removing all the mucosal lining and obliterating
+    the sinus with grafted bone.</p>

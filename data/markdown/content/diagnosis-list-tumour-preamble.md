@@ -1,0 +1,17 @@
+---
+id: diagnosis-list-tumour-preamble
+uri: diagnosis/a-z/tumour
+title: Tumour
+type: directory
+order: 0
+updated_at: 2017-08-21T10:42:50Z
+created_at: 2016-12-06T12:26:28Z
+---
+
+<p>We have separately categorised the most common malignancies
+    <a href="/diagnosis/a-z/bone-lesion">bone cancer</a>, <a href="/diagnosis/a-z/cancer/mouth-cancer">mouth cancer</a>,
+        <a href="/diagnosis/a-z/cancer/facial-skin">facial skin cancer</a>,
+        <a href="/diagnosis/a-z/cancer/salivary-gland">salivary gland cancer</a>        affecting the head and neck. Benign tumours of <a href="/diagnosis/a-z/benign-lump">soft tissues</a>        and <a href="/diagnosis/a-z/bone-lesion">hard tissues</a>        are also covered.</p>
+<p>Here we discuss some other, rare, presentations of malignancy
+    in the head and neck: <a href="/diagnosis/a-z/tumour/blood-malignancy">haematological malignancy</a>    and <a href="/diagnosis/a-z/tumour/metastases">metastases from other organs</a>.</p>
+<p>Another, even much rarer group of <a href="/diagnosis/a-z/tumour/other">miscellaneous tumours</a>    are described for completeness.</p>

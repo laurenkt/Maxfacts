@@ -1,0 +1,31 @@
+---
+id: treatment-chemotherapy-application-level2
+uri: treatment/chemotherapy/application/more-info
+title: Clinical application
+type: level2
+surtitle: Chemotherapy
+authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
+updated_at: 2017-09-29T12:37:54Z
+created_at: 2016-08-03T08:37:34Z
+---
+
+<p>Chemoradiation (combining chemotherapy with <a href="/treatment/radiotherapy">radiotherapy</a>)
+    in head and neck cancer improved the outcome for nasopharyngeal
+    cancer and some poorly differentiated squamous cell carcinoma
+    with the additional benefit of organ preservation.</p>
+<p>Recent meta-analysis of studies had shown improved loco-regional
+    control with survival improved by some 8-15% depending on
+    the study (both the <a href="/treatment/chemotherapy/further-reading">EORTC (European Organisation for Research and Treatment of Cancer) and RTOG (Radiation Therapy Oncology Group) groups</a>    have produced convincing data). However, the combination
+    of chemotherapy and radiotherapy is associated with increased
+    morbidity and mortality. All the studies failed to contain
+    a surgical control arm and none identified or excluded patients
+    who were non-smokers with HPV driven cancers.</p>
+<p>Currently we are seeing the consequences of the widespread application
+    of these hyper-radical treatment regimens, and in some cases
+    quite devastating long term morbidity on the survivors. Its
+    continued use will need appropriate cases and almost certainly
+    will not include those cases which are relatively low risk
+    (<a href="/diagnosis/a-z/cancer/mouth-cancer">HPV driven</a>)
+    or equally treatable using surgery as a single modality.</p>
+<p>Chemotherapy by itself has a useful role in <a href="/treatment/timelines/palliative-care">palliation</a>    in some instances.</p>

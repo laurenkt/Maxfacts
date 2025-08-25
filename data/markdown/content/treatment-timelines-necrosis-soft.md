@@ -1,0 +1,10 @@
+---
+id: treatment-timelines-necrosis-soft
+uri: treatment/timelines/necrosis/soft-tissue
+title: Soft tissue necrosis
+type: page
+order: 0
+updated_at: 2018-11-11T15:05:30Z
+created_at: 2017-02-23T15:57:26Z
+---
+

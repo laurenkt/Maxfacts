@@ -1,0 +1,65 @@
+---
+id: treatment-surgery-necrosis-hard-level1
+uri: treatment/surgery/necrosis/hard-tissue
+title: Hard tissue necrosis
+type: level1
+authorship: Authored by Angelika Sebald and David A. Mitchell
+order: 0
+updated_at: 2019-07-14T09:36:37Z
+created_at: 2016-12-14T14:51:17Z
+---
+
+<p>Bone necrosis (osteonecrosis) in the head &amp; neck region often
+    occurs in combination with <a href="/diagnosis/a-z/necrosis/soft">necrosis of adjacent soft tissues</a>    such as the skin or the lining of the mouth (mucosa).</p>
+<aside>
+    <p>If you’d like to read more about this aspect of necrosis,
+        this information is on our pages about <a href="/treatment/surgery/necrosis/soft-tissue">treatment of soft tissue necrosis</a>.</p>
+</aside>
+<p>The treatment options for hard tissue necrosis include:</p>
+<ul>
+    <li>Conservative treatment of small lesions, relying on meticulous
+        <a href="/help/oral-hygiene">oral hygiene</a>, aseptic
+        mouthwashes (including <a href="/treatment/other/medication/miscellaneous/chlorhexidine">chlorhexidine</a>        as the active ingredient), and elimination of all potential
+        irritants, such as ill-fitting dentures. A course of
+        systemic <a href="/treatment/other/medication/infection/detailed">antibacterial medication</a>        may be part of the treatment plan. Most small such lesions
+        heal over a period of 6 to 12 months with this kind of
+        management regime.</li>
+    <li>Slightly more extensive necrotic bone lesions with more significant
+        exposure of necrotic bone require local débridement (removal
+        of the necrotic bone piece(s) (called a sequestrum))
+        and application of a pack to the defect to support healing.
+        Suitable such packs may be fleece soaked with an <a href="/treatment/other/medication/infection/detailed">antibacterial agent</a>        or simple gauze soaked in an antiseptic agent (usually
+        iodine based) such as bismuth iodoform paraffin paste
+        (BIPP), iodine solution or variations thereof.</li>
+    <li>Complicated (and controversial) medication schemes (PENTOCLO;
+        consisting of a cocktail of <a href="/treatment/other/medication/miscellaneous/pentoxifylline">pentoxifylline</a>        (a drug to improve tissue oxygen supply by improved blood
+        flow), <a href="/treatment/other/medication/miscellaneous/tocopherol">tocopherol</a>        (a vitamin E derivative with antioxidative properties)
+        and clodronate (a <a href="/treatment/other/medication/miscellaneous/bisphosphonates">bisphosphonate</a>,
+        an <a href="/treatment/other/medication/miscellaneous/antiresorptive">antiresorptive agent</a>        to reduce bone resorption – which itself is known to
+        increase the risk of bone necrosis)) have been suggested
+        for the conservative treatment of <a href="/diagnosis/a-z/necrosis/hard/more-info">osteoradionecrosis, ORN</a>.</li>
+    <li>More extensive surgical débridement with water tight (and
+        thus saliva tight) seal may be necessary. If suitable
+        (vascularised) local soft tissue is available, a <a href="/treatment/surgery/cancer/facial-skin-cancer/more-info">local flap</a>        may provide such a seal. If no suitable local soft tissue
+        can be used, depending on the individual case, a <a href="/treatment/surgery/reconstruction">regional or a free soft tissue flap</a>        may be suitable.</li>
+    <li>For the treatment of persistent and extensive osteonecrosis
+        of the jaws, mostly the mandible, the strategies may
+        have to be escalated to major surgical resection of all
+        necrotic bone sections and appropriate reconstruction
+        with <a href="/treatment/surgery/reconstruction">free bone flaps</a>.</li>
+</ul>
+<p>The <a href="/treatment/surgery/necrosis/hard/more-info">most appropriate treatment scheme(s)</a>    for osteonecrosis are not only dictated by the extent and
+    location of the lesion(s) as the above list of escalating
+    treatment options may suggest. The underlying cause is another
+    important factor for choosing the best possible treatment
+    scheme, alongside <a href="/treatment/surgery/necrosis/hard-tissue/detailed">considerations of general fitness for major surgery and, in some circumstances, life expectancy</a>.</p>
+<p>At the time of writing (2018), the most <a href="/diagnosis/a-z/necrosis/hard">common causes of bone necrosis</a>    in the maxillofacial region are <a href="/treatment/radiotherapy">radiotherapy</a>    applied to the head &amp; neck region (osteoradionecrosis,
+    ORN), and various medication-treatment schemes with <a href="/treatment/other/medication/miscellaneous/antiresorptive">antiresorptive agents</a>    for the management of various bone conditions such as osteoporosis,
+    <a href="/diagnosis/a-z/tumour/metastases">bone metastases</a>,
+    or <a href="/diagnosis/a-z/bone-lesion">primary bone malignancies</a>    (medication-related osteonecrosis of the jaws, MRONJ). With
+    these two risk factors well documented and severe osteonecrosis
+    being a debilitating condition, any (improved) prevention
+    is the preferred option whenever possible.</p>
+<aside>
+    <p>Read about <a href="/treatment/timelines/necrosis/hard-tissue">timelines of treatment and outcomes for hard tissue necrosis</a>.</p>
+</aside>

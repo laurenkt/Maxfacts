@@ -1,0 +1,289 @@
+---
+id: treatment-rest-dentistry-surgical-endodontics-level3
+uri: treatment/restorative-dentistry/surgical-endodontics/detailed
+title: Surgical endodontics
+type: level3
+authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
+further_reading_uri: treatment/restorative-dentistry/further-reading
+updated_at: 2019-07-13T09:50:26Z
+created_at: 2019-03-02T16:16:52Z
+contents:
+  - text: "Success rates"
+    id: success-rates
+  - text: "Alternative treatments"
+    id: alternative-treatments
+  - text: "Specific procedures"
+    id: specific-procedures
+  - text: "Corrective endodontic surgery"
+    id: corrective-endodontic-surgery
+  - text: "Revision surgery"
+    id: revision-surgery
+---
+
+<p>General comments on indications and contraindications for surgical
+    endodontics, success rates and alternative treatment by
+    <a href="/treatment/restorative-dentistry/implants">dental implants</a> are given. Some specific procedures (including
+        incision and drainage, perforation repair, root and tooth
+        resections, extraction with replantation, revision surgery)
+        and aspects depending on specific areas of the mouth
+        are outlined.</p>
+<h2>Indications and contraindications for surgical endodontics</h2>
+<p>The consensus report of the European Society of Endodontology
+    suggests that endodontic surgery is indicated when:</p>
+<ul>
+    <li>a canal is obstructed, for example with a separated instrument,
+        and there are associated symptoms;</li>
+    <li>extruded material is present with clinical symptoms, such
+        as pain, that continue over a significant time period
+        (at least one week);</li>
+    <li><a href="/treatment/restorative-dentistry/endodontics">conventional root canal treatment</a>        has failed and retreatment is inappropriate;</li>
+    <li>perforation of the root or the floor of the pulp chamber
+        has occurred, with radiological findings or clinical
+        symptoms, and where repair from within the pulp cavity
+        is not possible.</li>
+</ul>
+<p>In almost all situations, conventional root canal treatment should
+    be attempted first, and after a sufficient period of time
+    the tooth is reassessed for further treatment. If the non-surgical
+    root canal treatment has been performed to the highest practicable
+    standard but symptoms persist, then surgical endodontic therapy
+    may be appropriate. If, however, there have been procedural
+    errors or there are technical deficiencies in the conventional
+    root canal therapy, then conventional retreatment is indicated
+    prior to considering surgery.</p>
+<p>In some situations, it is impossible to revise the existing root
+    filling, particularly when some of the older pastes have
+    been used, even though ideally one would wish to do so. In
+    these circumstances endodontic surgery is the only viable
+    option to avoid extraction if symptomatic, but success rates
+    are low.</p>
+<p>Where a tooth has been restored with a post crown, the principles
+    outlined above still apply, and attempts should usually be
+    made at dismantling the post crown and instigating conventional
+    retreatment. Occasionally, however, removal of a post may
+    carry a significant risk of root fracture, and in such cases,
+    it may be preferable to leave the post <i>in situ</i> and
+    carry out surgical endodontic therapy.</p>
+<p>Contraindications to surgical endodontic treatment include:</p>
+<ul>
+    <li>anatomical factors such as an inaccessible root-end;</li>
+    <li>a tooth with a hopeless prognosis (for example, advanced
+        loss of periodontal support) that cannot be made functional
+        or does not contribute to aesthetics;</li>
+    <li>a patient who does not provide informed consent to undergo
+        the procedure;</li>
+    <li>a patient with a compromised medical history, such as uncontrolled
+        systemic disease (for example, diabetes or some <a href="/treatment/other/bleeding/detailed">haematological disorders</a>).</li>
+</ul>
+<h1 id="success-rates">Success rates</h1>
+<p>For <a href="/treatment/restorative-dentistry/endodontics">non-surgical endodontic treatment</a>,
+    success rates of 86 to 96 % have been reported, and for retreatment
+    60 to 98 %. Clinical success following surgical endodontic
+    therapy has been reported to vary between 58 and 96 %. The
+    wide range of reported success rates may be due to differences
+    in evaluation criteria, diagnoses, operator skill and duration
+    of follow-up periods.</p>
+<p>Bacteria are the main cause of periradicular disease, with <i>enterococcus faecalis</i>    having been found to be the predominant microbial in failed
+    cases and <i>actinomyces</i> species being able to survive
+    in periapical tissues. An effective coronal seal is thought
+    to improve success rates by reducing the viability of bacteria
+    in the root canal system and the apical area.</p>
+<p>Factors thought to improve success include:</p>
+<ul>
+    <li>position of the tooth in the arch, favouring anterior teeth;</li>
+    <li>a well condensed orthograde root canal filling;</li>
+    <li>a small apical lesion (less than 6 mm);</li>
+    <li>use of an <a href="/diagnosis/tests/ultrasound">ultrasonic microtip</a>;</li>
+    <li>first attempt at apical surgery for the tooth;</li>
+    <li>use of an endoscope.</li>
+</ul>
+<h1 id="alternative-treatments">Alternative treatments</h1>
+<p>There are a number of ways in which non-vital teeth may be preserved.
+    However, there is an increasing body of evidence supporting
+    the long term viability of <a href="/treatment/restorative-dentistry/implants">dental implants</a>.
+    Accordingly, atraumatic removal of such teeth with preservation
+    of the maximum amount of healthy bone and immediate implant
+    replacement may become the standard treatment for non-vital
+    teeth which cannot be salvaged by conventional or surgical
+    endodontics. It should be remembered that endodontic treatments,
+    conventional and surgical, are perfectly valid techniques
+    to preserve natural teeth and cost considerable less than
+    dental implants.</p>
+<h1 id="specific-procedures">Specific procedures</h1>
+<h2>Incision and drainage</h2>
+<p>Incision and drainage are one of the few surgical procedures
+    which should be performed in the presence of <a href="/treatment/other/medication/inflammation/more-info">acute inflammation</a>.
+    The main indication for incision and drainage is the presence
+    of pus within the tissues that cannot be drained through
+    the root canal. Anaesthesia is obtained with the use of
+    <a href="/treatment/surgery/anaesthesia">surface analgesics</a>, which can be supplemented with a
+        few drops of local anaesthetic solution injected submucosally.
+        An incision is made with a number 11 scalpel blade (a
+        blade with a sharp pointed tip), a microbial swab is
+        taken and drainage affected. Alternatively, a wide bore
+        needle and sterile syringe can be used to aspirate the
+        contents of the swelling and culture and sensitivity
+        testing carried out. In practical terms it will be days
+        before the results of these <a href="/diagnosis/tests/microbiology">microbiological tests</a>        are available. If there is no drainage, <a href="/treatment/other/medication/infection/detailed">antibacterial agents</a>        such as a penicillin and/or metronidazole should be used.
+        <a href="/diagnosis/a-z/infection">Significant infection</a>        beyond the confines of the dentoalveolar complex mandates
+        aggressive antibacterial treatment in addition to adequate
+        drainage.</p>
+<h2>Treatment of specific areas of the mouth</h2>
+<p>Specific areas of the mouth pose various difficulties during
+    apical surgery, and an understanding of the <a href="/diagnosis/anatomy">local anatomy</a>    is of immense importance when considering surgery.</p>
+<p>In the treatment of <strong>upper anterior teeth</strong>, reflection
+    of the flap to provide adequate access to the apex of upper
+    central incisor teeth can be compromised by a prominent and/or
+    low anterior nasal spine. Extension of the flap around more
+    teeth and increasing the size of any relieving incisions
+    often allows sufficient access to perform the surgery. The
+    apices of upper lateral incisors can be deeply placed in
+    the alveolar bone, which makes identification of the apex
+    and access for apical surgery more difficult. The roots of
+    upper canine teeth are occasionally very long and access
+    to the apex may be restricted by the buccal reflection. Again,
+    adequate relieving incisions help overcome this.</p>
+<p>The maxillary <a href="/diagnosis/anatomy">sinus</a> is often
+    in close relation to the apices of <strong>upper posterior teeth</strong>,
+    but a careful surgical technique will avoid damage to the
+    sinus. It is advisable to burr down the root apex to the
+    desired level, rather than resecting it, so that the resected
+    tip cannot be displaced into the sinus or under its lining.</p>
+<p>Apical surgery on upper first premolar teeth can be challenging
+    because of the deeply placed palatal root. It may be necessary
+    to resect a greater length of the buccal root than normal
+    to provide sufficient access to the palatal root. The upper
+    second premolar tooth is usually single-rooted, but there
+    may be two separate root canals or two canals joined by an
+    isthmus. In these situations, it is important that both canals,
+    together with any isthmus of tissue that may be present,
+    are sealed. Access to the palatal root of upper molars is
+    almost impossible, but fortunately the palatal root is readily
+    treated by <a href="/treatment/restorative-dentistry/endodontics">conventional endodontics</a>.
+    The buccal roots are normally fairly superficial but occasionally
+    they are deeply placed beneath the zygomatic buttress.</p>
+<p>The apices of the <strong>lower anterior teeth</strong> are usually
+    deeply placed in the mandible, which makes access extremely
+    difficult. In addition, the mentalis and buccinator muscles
+    are attached at a relatively high level, so that reflection
+    of the flap to the level of the apices can be problematic.
+    Therefore, a <a href="/treatment/restorative-dentistry/surgical-endodontics/more-info">rectangular flap design</a>    with two relieving incisions is advised, and a <i>small</i>    bevel of the root face may be necessary so that the canal(s)
+    can be visualised. <a href="/treatment/surgery/anaesthesia">Local anaesthesia</a>    can also be surprisingly difficult, possibly due to sensory
+    innervation by the nerve to mylohyoid.</p>
+<p>The mental nerve usually emerges from the mental foramen below
+    and between the <strong>lower premolar teeth</strong>. Therefore,
+    vertical relieving incisions should be avoided in this area.
+    Also, during root resection, it may be desirable to resect
+    the root at the desired level, rather than burring it down,
+    so as to reduce the risk of damage to the mental nerve. Whether
+    or not apical surgery is possible on <strong>lower molars</strong>    depends upon the degree to which the corner of the mouth
+    can be retracted. If adequate retraction can be obtained
+    and the attachment of the buccinator muscle is sufficiently
+    low, surgery may be possible. A wide flap is usually required
+    to enhance access, and it is often necessary to remove a
+    considerable thickness of bone to gain access to the roots.
+    Care is needed to avoid damage to the inferior alveolar nerve,
+    and again it is advisable to resect the root rather than
+    burring it down.</p>
+<h1 id="corrective-endodontic-surgery">Corrective endodontic surgery</h1>
+<p>Corrective surgical endodontics includes:</p>
+<ul>
+    <li>perforation repair;</li>
+    <li>root resection;</li>
+    <li>tooth resection;</li>
+    <li>extraction with replantation.</li>
+</ul>
+<p>Many of the basic surgical principles for <a href="/treatment/restorative-dentistry/surgical-endodontics/more-info">‘apical surgery’</a>    can be applied here, for example regarding flap design, haemostasis,
+    and root-end filling materials.</p>
+<p><strong>Perforation repair</strong> becomes necessary to deal
+    with root perforations caused by broken <a href="/treatment/restorative-dentistry/endodontics">endodontic instruments</a>    or damage by posts, and resorption cavities. If the prognosis
+    of the tooth is acceptable, surgical access is gained to
+    the site of the perforation, the area is prepared and then
+    filled with, for example, <a href="/treatment/restorative-dentistry/surgical-endodontics/more-info">mineral trioxide aggregate</a>.
+    Figure 1 illustrates an example; the apparent over-bevelling
+    is a consequence of this being a perforation repair and not
+    a conventional apicectomy.</p>
+<figure><img src="/treatment-rest-dentistry-surgical-endodontics-level3-figure1.jpg">
+    <figcaption><strong>Figure 1:</strong> Top: labial swelling (arrow) related
+        to a post perforation at the upper right incisor (UR1);
+        middle: flap raised and curettage of the surgical area
+        effected, a periodontal probe was used to identify the
+        defect; bottom: defect repaired with mineral trioxide
+        aggregate to re-establish the correct root contour.</figcaption>
+</figure>
+<p>The objective of <strong>root resection</strong> is to remove
+    an entire root or roots from a multi-rooted tooth, but without
+    removal of any portion of the crown. The main indications
+    are when one root is affected by advanced periodontal disease
+    but the rest of the periodontium is relatively unaffected,
+    or where it is impossible to carry out <a href="/treatment/restorative-dentistry/endodontics">root canal therapy</a>    in a root.</p>
+<p>A suitable mucoperiosteal flap is reflected and the root is exposed
+    by removing the overlying bone. The root is then resected
+    from the tooth, removed, and the portion of the crown adjacent
+    to the resected root re-contoured to make the site easily
+    cleanable. The flap is sutured.</p>
+<p>In <strong>tooth resection</strong>, the coronal tooth structure
+    as well as the root is cut. The procedure is mainly performed
+    on mandibular molar teeth with furcation involvement. The
+    separated part of the tooth may either be removed or left
+    <i>in situ</i> and restored. In the latter case, a molar
+    is effectively converted into two premolar units.</p>
+<p><strong>Extraction with replantation</strong> involves intentionally
+    removing the tooth from its socket, carrying out the surgical
+    endodontic procedure of choice (for example apical surgery,
+    perforation repair) extra-orally, and replanting the tooth.
+    Although not commonly performed, extraction with replantation
+    is useful when access for surgery <i>in situ</i> is impossible
+    and the alternative would be loss of the tooth. There is
+    a risk of damage to the tooth during the extraction process,
+    which may preclude the procedure. This technique has largely
+    been replaced by immediate use of <a href="/treatment/restorative-dentistry/implants">dental implants</a>.</p>
+<h1 id="revision-surgery">Revision surgery</h1>
+<p>The cause of failure of endodontic surgery should be identified
+    before considering revision surgical endodontics, and an
+    assessment should be made of the likelihood of correcting
+    this. Success rates for repeat apical surgery are in the
+    region of 30 to 40 %, which is much lower than for the initial
+    procedure.</p>
+<p>Root canals that have not been adequately sealed are the commonest
+    cause of failure of both <a href="/treatment/restorative-dentistry/endodontics">conventional</a>    and surgical endodontic therapy. If surgical treatment has
+    been performed in the absence of adequate cleansing and obturation
+    of the root canal system, failure is to be expected. Repeat
+    surgery will only be successful in these situations if the
+    principles of conventional endodontic treatment are carried
+    out first to ensure the best possible coronal seal. Failure
+    caused by an inadequate apical seal can be rectified by ensuring
+    there is no contamination of the root end cavity at the time
+    of surgery, and by using an appropriate root end filling
+    material.</p>
+<p>Sometimes, during apical surgery root canals are incompletely
+    sealed surgically because an additional root has not been
+    identified. This should be suspected if, at the time of repeat
+    surgery, the apical seal in the treated root appears intact
+    and the surrounding tissues have healed. <a href="/diagnosis/tests/x-ray/detailed">Radiographs</a>    taken at different angles can be useful in identifying additional
+    roots. Often it is the deeply placed palatal root that is
+    missed, particularly of upper premolar teeth. An incomplete
+    seal may also be present when there are two portals of exit
+    of the root canal in the same root and only one has been
+    treated. Alternatively, if both canals within a single root
+    have been sealed but the intervening isthmus of tissue has
+    remained untreated, failure can ensue.</p>
+<p>From a practical view point, revision surgery is more difficult,
+    particularly when raising a flap that is scarred from previous
+    surgery. The cause of the failure will determine which procedure
+    is undertaken, but often the retrograde seal requires replacement.
+    Care is needed when removing the old material to ensure it
+    does not scatter unnecessarily in the surgical field. Depending
+    on which material is used, these small fragments can cause
+    staining of the mucosa or a foreign body reaction in the
+    tissues. Consideration also needs to be given on whether
+    the root is resected further at the time of second surgery.
+    In most cases it is acceptable to reduce the root length
+    a further 2 to 3 mm during revision surgery. However, in
+    the presence of <a href="/treatment/restorative-dentistry/periodontal/detailed">periodontal pocketing</a>,
+    resection of too great a length of root will reduce the distance
+    between the epithelial attachment and the root end. Therefore,
+    a small amount of further periodontal breakdown and migration
+    of the epithelial attachment will result in a full-length
+    pocket from the gingival crevice to the apical tissues.</p>

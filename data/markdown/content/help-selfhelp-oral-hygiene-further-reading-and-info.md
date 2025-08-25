@@ -1,0 +1,61 @@
+---
+id: help-selfhelp-oral-hygiene-further-reading-and-info
+uri: help/oral-hygiene/further-reading
+title: Oral hygiene
+type: further
+order: 0
+hide: true
+updated_at: 2019-12-13T14:27:02Z
+created_at: 2017-06-14T21:50:23Z
+---
+
+<h2>Textbooks</h2>
+<p>M.L. Darby and M.M. Walsh. Dental Hygiene. Theory and
+    Practice (3<sup>rd</sup> ed.). Elsevier-Saunders, St.
+    Louis, 2010.</p>
+<p>A Felton, A. Chapman and S. Felton. Basic Guide to Oral
+    Health Education and Promotion (2<sup>nd</sup> ed.).
+    Wiley-Blackwell, Chichester, 2014.</p>
+<p>R. Levine and C. Stillman-Lowe. The Scientific Basis of
+    Oral Health Education. BDJ Clinician’s Guide
+    (8<sup>th</sup> ed.). Springer, 2018.</p>
+<h2>Journal articles (peer reviewed literature)</h2>
+<p>J.T. Newton and K. Asimakopoulou. Managing oral hygiene
+    as a risk factor for periodontal disease: a systematic
+    review of psychological approaches to behaviour change
+    for improved plaque control in periodontal management.
+    <i>Journal of Clinical Periodontology</i>
+    <strong>42</strong>, S36-S46 (2015).</p>
+<p>D. Richards. The effectiveness of interproximal oral
+    hygiene aids. <i>Evidence-Based
+        Dentistry</i> <strong>19</strong>, 107–108 (2018).
+</p>
+<p>B. Rapone et al. Oral Hygiene in Patients with Oral
+    Cancer Undergoing Chemotherapy and/or Radiotherapy after
+    Prosthesis Rehabilitation: Protocol Proposal. <i>Oral
+        &amp; Implantology</i> <strong>IX</strong>, S1 90-97
+    (2016).</p>
+<aside>
+    <p>Reinforces the obvious: optimal oral hygiene improves
+        outcomes and quality of life.</p>
+</aside>
+<p>J.M. Schuurhuis et al. Evidence supporting pre-radiation
+    elimination of oral foci of infection in head and neck
+    cancer patients to prevent oral sequelae. A systematic
+    review. <i>Oral Oncology</i> <strong>51</strong>,
+    212-220 (2015).</p>
+<p>S. Esin et al. Longitudinal study on the effect of oral
+    hygiene measures on the salivary count of microbial
+    species with cariogenic potential. <i>Journal of
+        Biological Regulators and Homeostatic Agents</i>
+    <strong>32</strong>, 1407-1420 (2018).</p>
+<p>G. Schmalz et al. No difference between manual and
+    different power toothbrushes with and without specific
+    instructions in young, oral healthy adults—results of a
+    randomized clinical trial. <i>Clinical Oral
+        Investigations</i> <strong>22</strong>, 1147-1155
+    (2018).</p>
+<h2>Electronic resources</h2>
+<p>An up-to-date and evidence-based general resource of
+    information from Public Health England:<br><a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/605266/Delivering_better_oral_health.pdf">https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/605266/Delivering_better_oral_health.pdf</a>
+</p>

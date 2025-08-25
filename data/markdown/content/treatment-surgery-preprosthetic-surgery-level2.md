@@ -1,0 +1,74 @@
+---
+id: treatment-surgery-preprosthetic-surgery-level2
+uri: treatment/surgery/preprosthetic-surgery/more-info
+title: Preprosthetic surgery
+type: level2
+authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
+updated_at: 2019-07-13T11:37:09Z
+created_at: 2019-07-13T11:24:14Z
+contents:
+  - text: "Atraumatic exodontia &amp; intraradicular radiculectomy and crush"
+    id: atraumatic-exodontia-and-intraradicular-radiculectomy-and-crush
+  - text: "Surgery for conventional prosthodontics"
+    id: surgery-for-conventional-prosthodontics
+  - text: "Soft tissue surgery"
+    id: soft-tissue-surgery
+---
+
+<h1 id="atraumatic-exodontia-and-intraradicular-radiculectomy-and-crush">Atraumatic exodontia &amp; intraradicular radiculectomy and crush</h1>
+<p><strong>Atraumatic tooth extraction</strong> techniques aim to
+    minimise trauma to the bone structure and surrounding tissue
+    and to preserve the socket. Conventional extraction of a
+    tooth with forceps causes damage to the socket walls by an
+    increasingly loosening motion imposed on the tooth from its
+    surrounding, until it becomes loose enough for the tooth
+    to be pulled out, and the ligament that attached the tooth
+    to its socket snaps. Atraumatic tooth extractions instead
+    avoid such enforced sideway motions by employing elevators
+    and by eventually cutting the ligament.</p>
+<p><strong>Intraradicular radiculectomy</strong> is a technique
+    that reduces the socket dead space following multiple extractions,
+    usually in the upper and lower labial segments. Following
+    extraction, the bony septa between the sockets are removed
+    by means of rongeurs (Figure 1 and Figure 2).</p>
+<figure><img src="/treatment-surgery-preprosthetic-surgery-level2-figure1.jpg">
+    <figcaption><strong>Figure 1:</strong> Bone rongeur.</figcaption>
+</figure>
+<figure><img src="/treatment-surgery-preprosthetic-surgery-level2-figure2.jpg">
+    <figcaption><strong>Figure 2:</strong> Diagrams representing the removal
+        of intrabony septa with rongeurs.</figcaption>
+</figure>
+<p>The buccal plate is then compressed manually and in-fractured
+    to reduce the socket space. The approximation of buccal and
+    lingual / palatal plates of the socket allows the gingival
+    (gum) margins to be sutured to maintain the compression.
+    This technique is of particular benefit for the insertion
+    of immediate dentures.</p>
+<h1 id="surgery-for-conventional-prosthodontics">Surgery for conventional prosthodontics</h1>
+<p>Surgery for conventional prosthodontics addresses needs for fixed
+    and removable prosthesis.</p>
+<p>Non-implant <strong>fixed prostheses</strong> are predominately
+    confined to crown and bridgework. Surgery for these prostheses
+    is invariably confined to <a href="/treatment/restorative-dentistry/surgical-endodontics">periapical surgery</a>    or <a href="/treatment-rest-detistry-periodontal-level3">periodontal procedures</a>.</p>
+<p>Surgery for <strong>removable prostheses</strong> can be considered
+    under soft tissue and hard tissue surgery. In either case,
+    surgery is aimed at improving retention and stability of
+    the prosthesis, improving comfort, or the removal of pathological
+    tissue. It should be considered best practice for this kind
+    of work to be carried out in close collaboration between
+    the surgeon and the prosthetist.</p>
+<h1 id="soft-tissue-surgery">Soft tissue surgery</h1>
+<p>Common soft tissue procedures relevant in the context of pre-prosthetic
+    surgery include:</p>
+<ul>
+    <li>frenectomy (removal of a small fold of soft tissue to relieve
+        tightness);</li>
+    <li>ridge reduction (removal of excess soft ridge tissue resulting
+        from advanced <a href="/treatment/restorative-dentistry/periodontal/detailed">periodontal disease</a>);</li>
+    <li>removal of irritation (‘denture’) hyperplasia (enlarged tissue);</li>
+    <li>vestibuloplasty (improving the ridge height or sulcus depth).</li>
+</ul>
+<aside>
+    <p>Read about <a href="/treatment/timelines/preprosthetic-surgery">timelines and outcomes for pre-prosthetic surgery</a>.</p>
+</aside>

@@ -1,0 +1,38 @@
+---
+id: treatment-chemotherapy-chem-principle-level1
+uri: treatment/chemotherapy/chemical-principles
+title: Chemical principles
+type: level1
+surtitle: Chemotherapy
+authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
+updated_at: 2017-08-23T12:04:57Z
+created_at: 2016-12-06T14:24:32Z
+---
+
+<p>Chemotherapy is treatment by medication which is fundamentally
+    poisonous to all cell types but affects cancerous cells more
+    due to their faster growth rate. Unlike healthy adult cells,
+    which multiply relatively slowly, malignant cells are characterised
+    by unchecked rapid cell division. Medication treatments aim
+    to exploit this difference to target mainly malignant cells
+    and therefore shrink the tumour. The ideal situation would
+    be the death of all the cancer cells and survival of all
+    normal cells. It rarely works out that well.</p>
+<p>Although affecting cancerous cells more severely, chemotherapies
+    can also act on healthy cells due to the inherent cell toxicity
+    of all drugs used in chemotherapies. Consequently side effects
+    often occur, such as hair loss and fatigue, however accompanying
+    treatments may alleviate some of these issues.</p>
+<aside>
+    <p>If you want to know more about accompanying treatments, you
+        can read more on our <a href="/treatment/chemotherapy/application/detailed">detailed pages about clinical applications of chemotherapy</a>.</p>
+</aside>
+<p>A variety of chemotherapy drugs exist that are classified according
+    to how they work. Classes include so-called DNA crosslinking
+    agents, antimetabolites and different forms of protein inhibitors.</p>
+<p>DNA crosslinking agents interfere with genetic material found
+    within every cell. Antimetabolites cause cell death by mimicking
+    and consequently replacing the molecules needed for cell
+    growth. Finally, protein inhibitors interact with structures
+    in the cell and prevent them from functioning.</p>

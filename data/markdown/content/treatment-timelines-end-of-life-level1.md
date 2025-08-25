@@ -1,0 +1,44 @@
+---
+id: treatment-timelines-end-of-life-level1
+uri: treatment/timelines/palliative-care/getting-started
+title: Palliative & end of life care
+type: level1
+authorship: Authored by Angelika Sebald and David A. Mitchell
+order: 0
+updated_at: 2019-03-02T14:10:44Z
+created_at: 2018-11-09T15:11:48Z
+---
+
+<p>Palliative treatment is an important treatment modality as, for
+    example, not all cancer will be curable. A tumour may be
+    impossible to resect, there may be distant <a href="/diagnosis/a-z/tumour/metastases">metastases</a>    present, somebody may not be fit for active treatment, there
+    may be untreatable tumour recurrence, or somebody may decide
+    to decline further aggressive treatment.</p>
+<p>The aims of palliative treatment are to maintain quality of life
+    as well as possible. Palliative treatment is not necessarily
+    just a short-term treatment at the end of life (as many incurable
+    conditions, with appropriate care and treatment, can be lived
+    with for considerable periods of time) but will include end-of-life
+    care. Palliative treatment aims to alleviate any suffering.
+    Typically, this includes optimal <a href="/treatment/other/medication/pain">pain control</a>,
+    as well as emotional, social and spiritual support.</p>
+<p>These care needs (and expectations) will vary strongly from person
+    to person, a personalized approach is therefore important.
+    Palliative treatment of malignancies can be viewed as ‘active’
+    where an intervention, usually <a href="/treatment/chemotherapy">chemotherapy</a>    (in some cases up to six lines of chemotherapy are tried),
+    <a href="/treatment/other/new-developments/immunotherapies">immunotherapy</a>,
+    or very limited <a href="/treatment/radiotherapy">radiotherapy</a>    (for example, localised low-dose radiotherapy to spinal metastases
+    to relieve both <a href="/treatment/other/medication/pain/more-info">pain</a>    and spinal cord compression) are used, or as ‘best supportive
+    care’ where no active intervention is used.</p>
+<p>The approach is similar to treatment with curative intent, in
+    being team based, with good communication between all involved.
+    The concept of palliative care at the end of life is most
+    commonly associated with the terminal stage of malignant
+    diseases, at least in the context of oral and maxillofacial
+    conditions. However, other common terminal conditions such
+    as heart, kidney or liver failure, as well as various degenerative
+    conditions, carry a similar disease and symptom burden toward
+    the end of life. Hospital or hospice based expertise from
+    palliative care teams, pain management teams and the caring
+    environment of hospices can make an invaluable contribution
+    to the quality of the end of somebody’s life.</p>

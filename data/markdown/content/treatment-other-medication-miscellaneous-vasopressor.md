@@ -1,0 +1,86 @@
+---
+id: treatment-other-medication-miscellaneous-vasopressor
+uri: treatment/other/medication/miscellaneous/vasopressor
+title: Vasoconstrictor & vasodilation medications
+type: page
+authorship: Authored by Angelika Sebald and David A. Mitchell
+order: 0
+updated_at: 2019-07-13T11:05:34Z
+created_at: 2018-11-09T13:02:00Z
+---
+
+<p>Vasoconstriction (constriction of blood vessels) and vasodilation
+    (dilation of blood vessels) are normal body functions. Maintenance
+    of a balance of the two counteracting processes and immediate
+    reaction to acute needs are an important aspect of keeping
+    a body alive. Flexible and rapid regulation of the two counteracting
+    effects is necessary to provide tissues with nutrition and
+    oxygen according to need, to enable regular and uninterrupted
+    blood flow in general (<a href="/treatment/other/bleeding/more-info">homeostasis</a>),
+    as an emergency response to injury, and to maintain body
+    temperature in warm-blooded animals including humans.</p>
+<p>Balance of vasoconstriction and vasodilation is mediated by a
+    number of different metabolic control cycles. The effect
+    on blood vessels is achieved by action on the smooth muscles
+    that form part of the <a href="/treatment/other/bleeding/more-info">walls of blood vessels</a>    which constrict or dilate, according to chemical signals
+    from messenger molecules. The main neurotransmitters (messenger
+    molecules) involved in the vasoconstriction process are
+    <a href="/treatment/other/medication/miscellaneous/adrenaline">adrenaline and noradrenaline</a>, angiotensin and vasopressin.
+        The central nervous system (brain and spinal cord), the
+        sympathetic and parasympathetic, involuntary nervous
+        systems are all part of the processes.</p>
+<p><strong>Vasodilators</strong> are substances that widen the blood
+    vessels, either by direct action on the smooth muscles in
+    the walls of the blood vessels, or by interacting with regulating
+    (vasomotor) centres in the brain. Vasodilator drugs are powerful
+    agents to reduce blood pressure. Vasodilators acting directly
+    on the smooth muscles of the cell walls (hydralazine, minoxidil)
+    have serious adverse effects, so their clinical use is limited
+    to emergency interventions to treat otherwise resistant very
+    high blood pressure, or high blood pressure in the presence
+    of kidney failure. Many foods contain components with mild
+    vasodilation effects, for example theobromine in chocolate
+    or <a href="/diagnosis/drugs/alcohol">alcohol</a>.</p>
+<p><strong>Vasoconstrictors</strong>, also known as vasopressors,
+    are agents that cause constriction of blood vessels and raise
+    blood pressure in this way. The raising of blood pressure
+    can be achieved by direct action of an agent on the smooth
+    muscles in the walls of the blood vessels or by interacting
+    with various regulating mechanisms in the nervous system.
+    Many foods contain components with mild vasoconstriction
+    effects, for example <a href="/diagnosis/drugs/overview">caffeine</a>    or <a href="/diagnosis/drugs/tobacco">nicotine</a>.
+    Vasoconstrictor medications include agonists of vasopressin,
+    agonists of the alpha-adrenoceptor (the receptor for adrenaline),
+    <a href="/treatment/other/medication/miscellaneous/adrenaline">adrenaline and noradrenaline</a>,
+    dopamine, dobutamine, phenylephrine.</p>
+<p>In the context of maxillofacial surgery, vasoconstricting agents
+    have various uses. Vasoconstriction is a means of stopping
+    bleeding, for example a nose bleed or similar. Triptans are
+    a particular type of medication for the treatment of migraines,
+    one aspect of their specific working mechanism is their ability
+    to trigger vasoconstriction. Vasodilating agents, including
+    papaverine (an alkaloid isolated from opium), <a href="/treatment/other/medication/pain/detailed">lidocaine</a>    and verapamil (a calcium channel blocker, otherwise used
+    in the treatment of high blood pressure) are used in microvascular
+    surgery to overcome spasms of the smooth muscles of the walls
+    of blood vessels.</p>
+<p>An important reason for maxillofacial surgery (and other disciplines)
+    intervention is in the treatment of shock, the body’s emergency
+    reaction to a variety of causes. Generally, the most common
+    cause for shock is <a href="/diagnosis/a-z/infection/detailed">sepsis</a>,
+    other causes are severe blood loss in <a href="/treatment/surgery/fracture/more-info">trauma</a>,
+    severe loss of other fluids (for example dehydration of large
+    burn wounds), <a href="/diagnosis/a-z/infection/more-info">bacterial infections</a>,
+    severe <a href="/treatment/other/medication/inflammation/detailed">allergic reactions</a>    (anaphylactic shock) and other out-of-control <a href="/treatment/other/medication/inflammation/detailed">inflammatory conditions</a>,
+    nerve damage (in particular central nervous system injuries),
+    effects of drugs and toxins, malfunction of the endocrine
+    system (for example, hypothyroidism), extremely low blood
+    sugar levels (hypoglycaemia). Haemorrhagic shock as a result
+    of trauma and severe blood loss is the most common form of
+    shock encountered in maxillofacial surgery; the common
+    <a href="/treatment/surgery/fracture/more-info">emergency interventions</a> (application of pressure, surgical
+        ligation, reduction and fixation of fractures) include
+        the use of <a href="/treatment/other/medication/miscellaneous/adrenaline">adrenaline</a>        as a locally applied vasoconstrictor (and often as part
+        of a <a href="/treatment/other/medication/pain/detailed">local analgesic</a>)
+        and/or the use of <a href="/treatment/other/medication/miscellaneous/tranexamic">tranexamic acid</a>        to help stop excessive bleeding. This, in turn, will
+        re-establish oxygen delivery to tissues by re-establishing
+        and stabilising regular blood flow (and blood pressure).</p>

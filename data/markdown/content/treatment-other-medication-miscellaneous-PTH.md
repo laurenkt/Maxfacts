@@ -1,0 +1,69 @@
+---
+id: treatment-other-medication-miscellaneous-PTH
+uri: treatment/other/medication/miscellaneous/pth
+title: Parathyroid hormone
+type: page
+authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
+updated_at: 2018-11-11T15:14:25Z
+created_at: 2018-08-18T16:40:21Z
+---
+
+<p>Parathyroid hormone, PTH, is produced by the parathyroid glands
+    (four small glands in the neck, behind the thyroid gland).
+    It plays a crucial role in <a href="/diagnosis/a-z/necrosis/hard/detailed">bone remodelling process</a>,
+    the continuous process of bone tissue renewal throughout
+    life. Underactive (hypoparathyroidism) or overactive (hyperparathyroidism)
+    levels of PTH thus cause bone diseases, and other problems
+    from too high (hypercalcaemia) or too low (hypocalcaemia)
+    concentrations of Ca<sup>2+</sup> ions in the blood. Such
+    problems include damage to the kidneys or mineral deposits
+    in the lens of the eye.</p>
+<p>PTH is secreted whenever the blood serum levels of Ca<sup>2+</sup>    ions are low or falling, it activates the osteoclasts (cells
+    responsible for breaking down old bone tissue in the renewal
+    process), leading to a release of Ca<sup>2+</sup> ions from
+    bone into the blood to normalise the amount of calcium ions
+    in circulation. The maintenance of stable Ca<sup>2+</sup>    concentrations in blood serum, is regulated by multiple feedback
+    and control cycles. PTH has a counter-player hormone,
+    <a href="/treatment/other/medication/miscellaneous/calcitonin">calcitonin</a> that is secreted by the thyroid gland whenever
+        the Ca<sup>2+</sup> levels in the blood are too high
+        or rising and which inhibits the mobilisation of Ca<sup>2+</sup>        by bone resorption. Maintaining equilibrium Ca<sup>2+</sup>        levels in the blood is a delicate balancing act as the
+        amount of calcium ions in ‘store’ in bone is approximately
+        3,000 times more than the amount of calcium ions dissolved
+        in blood. In addition, the mobilised amount of calcium
+        ions in circulation not only depends on the interplay
+        of PTH and calcitonin but also on external factors such
+        as variations in <a href="/help/oral-food/nutrition">nutrition</a>        and metabolism, as well as stress (PTH secretion is triggered
+        by <a href="/treatment/other/medication/miscellaneous/adrenaline">adrenaline</a>        and <a href="/treatment/other/medication/miscellaneous/histamine">histamine</a>)
+        and sleep patterns. In addition to the regulation of
+        Ca<sup>2+</sup> concentrations, PTH is also an active
+        part of the body’s phosphate metabolism and activates
+        the promotion of pro-vitamin D to its active form, vitamin
+        D (in the kidneys).</p>
+<p>The serum concentration of PTH can be determined by a range of
+    <a href="/diagnosis/tests/blood-tests">blood tests</a>; it
+    needs to be in a fairly narrow concentration range to ensure
+    normal physiological function.</p>
+<p>Excessive amounts of PTH in the blood (<strong>hyperparathyroidism</strong>)
+    can be caused by overactivity of the parathyroid glands,
+    or by abnormally low Ca<sup>2+</sup> blood concentrations
+    (hypocalcaemia) from other causes. Hyperparathyroidism is
+    normally treated by surgical removal of most of the overactive
+    gland tissue, sometimes supported by medication (such as
+    calcimimetics - drugs that mimic calcium ions in blood) or
+    oestrogen hormone replacement therapy in post-menopausal
+    women; <a href="/treatment/other/medication/miscellaneous/bisphosphonates">bisphosphonates</a>    also reduce the loss of Ca<sup>2+</sup> ions from osteoporosis
+    caused by hyperparathyroidism. All these medications have
+    potentially serious risks for long-term use and do not address
+    any underlying problem of the parathyroid glands.</p>
+<p>Insufficient amounts, or complete lack, of PTH in blood serum
+    (<strong>hypoparathyroidism</strong>) are most commonly caused
+    by damage to, or removal of, the parathyroid glands in thyroid
+    surgery. The traditional treatment for hypoparathyroidism
+    was to use calcium and vitamin D supplements to normalise
+    blood serum levels. This therapy did not restore the normal
+    regulation and maintenance of Ca<sup>2+</sup> (and phosphate)
+    metabolism. It affected the quality of life and increased
+    the risk for the development of a number of comorbidities.
+    Nowadays, PTH replacement therapy is used, most commonly
+    by daily injections of a very close analogue of human PTH.</p>

@@ -1,0 +1,81 @@
+---
+id: diagnosis-drugs-fitness-level1
+uri: diagnosis/drugs/fitness
+title: Fitness
+type: level1
+authorship: Authored by Lee Mellor; Proof-read/edited by Angelika Sebald and David A. Mitchell
+order: 0
+further_reading_uri: diagnosis/drugs/further-reading
+updated_at: 2018-11-09T13:18:02Z
+created_at: 2016-12-06T13:41:45Z
+---
+
+<h2>Fitness in general</h2>
+<p>Many people will have their own idea of what they believe physical
+    fitness to be. It can be defined as a state of health and
+    well-being and, more specifically, the ability to perform
+    aspects of sports, occupations and daily activities. Well-being
+    includes physical as well as <a href="/help/mental-health">mental health</a>    and <a href="/help/oral-food">eating well</a> is as important
+    a contributor to well-being as is physical activity.</p>
+<p>Increasing physical activity has the potential to improve the
+    physical and mental health and well-being of individuals,
+    families, communities and a nation as a whole. For example,
+    according to <a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/213740/dh_128145.pdf">physical activity guidelines for adults</a>    from the UK Chief Medical Officers, adults should aim to
+    take part in at least 150 minutes of moderate intensity physical
+    activity each week, in bouts of 10 minutes or more. Moderate
+    intensity physical activities, such as brisk walking or cycling,
+    cause adults to get warmer and breathe harder and their hearts
+    to beat faster, but they can still carry on a conversation.</p>
+<h2>Fitness and disease</h2>
+<p>There is growing evidence for the positive role of physical activity
+    during and after treatment for a variety of different chronic
+    long term conditions and diseases. In many acute conditions
+    pre-emptive fitness levels can have a positive effect on
+    rehabilitation as well as being beneficial for many types
+    of major surgeries and <a href="/treatment/surgery/anaesthesia">general anaesthesia</a>.</p>
+<p>Physical activity can improve, or prevent decline of, fitness
+    and assist in the improvement of physical function and fitness.
+    Physical activity may be broadly and generally defined and/or
+    include specific and targeted exercises in <a href="/help/physiotherapy">physiotherapy</a>.</p>
+<p>Evidence suggests that improved fitness and physical activity
+    may reduce the risk of disease recurrence and potential relapse.
+    Good levels of fitness and physical activity can help maintain
+    independence and promote well-being at advanced stages of
+    illness.</p>
+<p>It is advisable to gradually build up to the health-related physical
+    activity guidelines for the general population. The evidence
+    shows that if an activity recommendation is carefully tailored
+    to the individual, it is likely to have a positive impact.</p>
+<p>Fatigue is a common symptom of many diseases and long term conditions
+    and/or treatments. The exact causes of fatigue in patients
+    is often unknown: it may be caused by the disease itself
+    or its treatment, or a combination of both. It may be the
+    result of psychological and physiological responses, or it
+    may result from deconditioning due to further reduction of
+    physical activity. There is evidence that exercise is beneficial
+    in the management of fatigue, including treatment periods.</p>
+<h2>Prehabilitation</h2>
+<p>There is a growing body of evidence in support of optimising
+    health and fitness of people before the start of acute treatments.
+    This is true for different treatment modalities (surgery,
+    radiotherapy, chemotherapy), for malignant and non-malignant
+    conditions, and for patients of all ages.</p>
+<p>Such attempts are known as prehabilitation (or prehab, for short).
+    Prehabilitation aims to prevent or reduce the severity of
+    anticipated treatment-related impairments that may cause
+    significant disability. Preliminary evidence suggests that
+    following an appropriate exercise programme before treatment
+    (prehabilitation) leads to increased cardiorespiratory fitness,
+    fewer postoperative complications and shorter hospital admissions.</p>
+<p>The exact nature of such tailored pre-treatment exercise schemes
+    is defined by the underlying condition and the planned treatment.
+    For example, optimised schemes ahead of elective orthopaedic
+    surgery such as knee or hip replacement in otherwise healthy
+    people will be different from those that are most suitable
+    for people with multiple co-morbidities ahead of major maxillofacial
+    surgery (surgical prehabilitaton schemes are well established
+    in orthopaedic surgery in many places).</p>
+<p>Any attempts to engage with pre-treatment improvement of fitness
+    should see prehabilitation in conjunction with efforts to
+    support <a href="/diagnosis/drugs/overview">cessation of drug abuse</a>    as the extensive use of many recreational drugs negatively
+    interferes with treatment(s) and/or recovery.</p>

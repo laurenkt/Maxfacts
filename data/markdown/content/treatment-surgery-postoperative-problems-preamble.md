@@ -1,0 +1,21 @@
+---
+id: treatment-surgery-postoperative-problems-preamble
+uri: treatment/surgery/postoperative-problems
+title: Postoperative problems
+type: directory
+order: 0
+updated_at: 2018-08-18T15:29:57Z
+created_at: 2017-10-27T18:52:54Z
+---
+
+<p>When we resorted to allocating the body part involved and breaking
+    that down into <a href="/diagnosis/a-z/postoperative-problems">problems that may affect that body part after an intervention</a>,
+    we created a logical way to approach what methods, techniques,
+    approaches or tricks can be used to improve or remedy these
+    problems.</p>
+<p>What will appear in this section is a description of things that
+    can be done to improve the situation when postoperative problems
+    happen.</p>
+<p>We will try to resist discussing anything which has no evidence
+    of therapeutic benefit whether or not it has loud proponents
+    on social media.</p>

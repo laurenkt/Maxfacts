@@ -1,0 +1,38 @@
+---
+id: treatment-surgery-postoperative-problems-skull
+uri: treatment/surgery/postoperative-problems/skull
+title: Skull
+type: page
+authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
+further_reading_uri: treatment/surgery/further-reading
+updated_at: 2018-11-09T13:21:32Z
+created_at: 2018-08-18T15:30:25Z
+---
+
+<p>Treatments for postoperative problems affecting the skull include:</p>
+<ul>
+    <li>Defects in the skull bone. <a href="/treatment/surgery/reconstruction">Reconstruction</a>        can be carried out either when the defect is created
+        or much later depending on the circumstances causing
+        the defect. Generally, in a maxillofacial-only operation
+        only the outer table of skull bone will be removed and
+        this is often either replaced with synthetic tissue such
+        as <a href="/treatment/other/miscellaneous/platelet-plasma">platelet reduced plasma</a>        or fibrin, or it fills in naturally. Sometimes protecting
+        and creating a new outer skull shape is achieved by a
+        layer using titanium mesh, PEEK (a polyether ketone polymer),
+        acrylic, resorbable mesh made from polydioxanone, and
+        similar. If full-thickness skull has been removed and
+        is healthy it can be re-used as a shaped and fixed
+        <a href="/treatment/surgery/reconstruction">bone graft</a>. Complex late skull reconstructions are
+            often carried out using <a href="/diagnosis/tests/maths/3d-image">CAD/CAM technology</a>.</li>
+    <li>Scars. In male pattern baldness the coronal scar (a scar
+        across the top of the head; common approach in <a href="/treatment/surgery/fracture">trauma surgery</a>)
+        becomes visible but incisions are hidden in hairlines
+        whenever possible. Scar revision involves excising the
+        old scar and closing it primarily, various patterns to
+        break up the straight line (to which the eye is naturally
+        attracted) can be used.</li>
+    <li>Headache for a day or two is not unusual. Simple <a href="/treatment/other/medication/pain">analgesia</a>        and advice that it will improve is all that is needed.
+        Accumulation of blood under the incision not resolved
+        by a drain may require removal.</li>
+</ul>

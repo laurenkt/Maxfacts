@@ -1,0 +1,32 @@
+---
+id: treatment-surgery-fistula-level1
+uri: treatment/surgery/fistula
+title: Fistula
+type: level1
+authorship: Authored by David A. Mitchell and Angelika Sebald
+order: 0
+updated_at: 2018-08-18T14:09:19Z
+created_at: 2016-12-14T14:49:28Z
+---
+
+<p>The story of suitable treatment options for a fistula is quickly
+    told. Once the cause of the fistula is identified, steps
+    need to be taken to eliminate the underlying cause. This
+    could be <a href="/diagnosis/a-z/infection">local infection</a>    or an <a href="/diagnosis/a-z/abscess">abscess</a>,
+    retained or fractured root fragments from a dental extraction,
+    or <a href="/diagnosis/a-z/necrosis/hard">necrotic bone</a>.
+    Without eliminating the underlying cause treatment of a fistula
+    on its own will not be successful, the fistula will recur.</p>
+<p>Apart from this general requirement of eradicating the underlying
+    cause (where possible), the fistula simply needs to be surgically
+    removed. It is essential that the entire tract of the fistula
+    is excised before the resulting wound is closed. The exact
+    method for closure of the wound depends on site and extent
+    of the fistula (Figure 1).</p>
+<figure><img src="/treatment-surgery-fistula-level1-figure1.jpg">
+    <figcaption><strong>Figure 1:</strong> It is essential to excise the
+        fistulous tract before closure of an established <a href="/treatment/surgery/fistula/more-info">oroantral fistula</a>.</figcaption>
+</figure>
+<aside>
+    <p>Read about <a href="/treatment/timelines/fistula">timelines and outcomes for fistula</a>.</p>
+</aside>

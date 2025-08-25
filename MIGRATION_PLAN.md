@@ -3,7 +3,7 @@
 ## Project Structure
 ```
 .
-├── main.go                 # Entry point with HTTP server
+├── main.go                 # CLI entry point with commands
 ├── go.mod                  # Go module file
 ├── handlers/               # HTTP request handlers
 │   ├── content.go         # Main content handler (index, pages)
@@ -20,8 +20,13 @@
 │   ├── layouts/           # Base layouts
 │   ├── partials/          # Reusable template fragments
 │   └── *.gohtml           # Individual page templates
+├── data/                   # File-based content storage
+│   └── markdown/          # Markdown content files
+│       ├── content/       # Individual page files ({id}.md)
+│       └── index_uri.csv  # URI-to-ID mapping index
 └── pkg/                    # Shared utilities
     ├── mongodb/           # MongoDB connection & helpers
+    ├── markdown/          # Markdown parsing & frontmatter handling
     ├── htmlutil/          # HTML processing (sanitization, link extraction)
     └── template/          # Template helpers & functions
 
@@ -68,12 +73,14 @@
    - Recipe templates
 
 ### Phase 3: HTTP Handlers
-1. **Content handler** (`/` and `/:uri(*)`)
-   - Home page with 3 pillars (diagnosis, treatment, help)
-   - URI-based content lookup
-   - Directory browsing with menu generation
-   - Breadcrumb & navigation generation
-   - Placeholder content for empty pages
+1. **Content handler** (`/` and `/:uri(*)`): ✓ **COMPLETE - FILE-BASED**
+   - ✓ Home page with 3 pillars (diagnosis, treatment, help)
+   - ✓ URI-based content lookup from markdown files
+   - ✓ Directory browsing with menu generation
+   - ✓ Breadcrumb & navigation generation
+   - ✓ Placeholder content for empty pages
+   - ✓ Next page navigation (level1 → level2 → level3)
+   - **Uses embedded CSV index and markdown files, no MongoDB**
 
 2. **Search handler** (`/search`)
    - MongoDB text search with weights
@@ -105,12 +112,89 @@
    - CSS, JS, images from `static/`
    - Preserve exact paths for compatibility
 
+## CLI Commands
+
+The Go application is structured as a CLI with subcommands:
+
+### Available Commands
+
+```bash
+# Start the HTTP server
+go run . serve
+
+# Export all pages to markdown files
+go run . dump-mongo
+
+# Show help
+go run .
+```
+
+### Command Structure
+- **`serve`** - Starts the HTTP server on the configured port
+  - Uses `PORT` environment variable (defaults to 3000)
+  - Uses `MONGO_URI` environment variable (defaults to localhost:27017/maxfacts)
+  - Identical functionality to the original server
+
+- **`dump-mongo`** - Exports all content pages to markdown files and creates CSV index
+  - Uses `MONGO_URI` environment variable (defaults to localhost:27017/maxfacts)
+  - Creates `data/markdown/content/` directory
+  - Exports each page as `{page_id}.md` with YAML frontmatter
+  - Includes all content metadata (title, URI, type, description, etc.)
+  - Creates `data/markdown/index_uri.csv` with ordered URI-to-ID mapping
+
+### Future Commands
+The CLI structure allows for easy addition of new commands such as:
+- Database migration commands
+- Content validation tools
+- Static site generation
+- Development utilities
+
+## MongoDB to Markdown Migration Strategy
+
+The long-term goal is to eliminate the MongoDB dependency by transitioning to a file-based content system using Markdown files with YAML frontmatter and CSV indexes.
+
+### Phase 1: Export System (✓ Complete)
+- **`dump-mongo` command** exports all content from MongoDB to local files
+- **Markdown files** with YAML frontmatter preserve all metadata (`data/markdown/content/{id}.md`)
+- **CSV index** provides fast URI-to-ID lookup (`data/markdown/index_uri.csv`)
+- **Sorted by URI** for deterministic, consistent ordering
+
+### Phase 2: Hybrid System (✓ Complete)
+- **Embedded CSV index** using `//go:embed` to include `index_uri.csv` in binary
+- **Content handler** reads from markdown files instead of MongoDB
+- **Frontmatter parser** to extract metadata from YAML headers
+- **File-based content lookup** with CSV index for URI resolution
+- **Complete content functionality**:
+  - ✓ Individual page loading from markdown files
+  - ✓ Home page with directory listings (diagnosis, treatment, help)
+  - ✓ Breadcrumb navigation (excluding current page)
+  - ✓ Next page navigation (level1 → level2 → level3)
+  - ✓ Placeholder content for empty pages ("coming-soon")
+  - ✓ Directory and alphabetical page types
+  - ✓ Further reading cross-references
+- **Other handlers unchanged** - recipes, search, videos still use MongoDB
+
+### Phase 3: Full File-based System (Future)
+- **Search functionality** using file-based indexing instead of MongoDB text search
+- **Recipe and video data** exported to similar file structures
+- **Complete MongoDB removal** from the application
+- **Static deployment** capability without database dependency
+
+### Benefits of File-based Approach
+- **Version control** - content can be tracked in Git
+- **No database dependency** - simpler deployment and development
+- **Faster startup** - no database connection required
+- **Better caching** - files can be embedded in binary or served statically
+- **Easier backup/restore** - standard file system operations
+
 ## Key Considerations
-- **No changes to MongoDB data** - read-only access
+- **No changes to MongoDB data** - read-only access during migration
 - **Identical HTML output** - preserve all CSS classes, structure
 - **Preserve JavaScript** - directory.hbs has positioning JS that must work
 - **URL compatibility** - exact same routes and parameters
 - **Template functions** - must produce identical output to Handlebars helpers
+- **CLI extensibility** - Easy to add new commands for additional functionality
+- **Backwards compatibility** - maintain MongoDB support during transition
 
 ## Testing Strategy
 
@@ -210,10 +294,26 @@ REFERENCE_URL=http://production.site.com MONGO_URI=localhost:27017/maxfacts go t
    - Last modified dates in sitemap
    - Priority calculations in sitemap
 
-### Recently Fixed Differences
-1. ✓ Recipe ordering in sitemap - Both now sort by title
-2. ✓ Date formatting in sitemap - Fixed month indexing (added +1) in Node.js
-3. ✓ Recipe UpdatedAt fallback - Added to Go FindAll method
-4. ✓ Timezone format - Changed to use +00:00 for UTC in both versions
+### Implementation Status
+1. ✓ **File-based Content System** - Complete migration from MongoDB to markdown files
+   - ✓ Content handler reads from markdown files with YAML frontmatter
+   - ✓ CSV index embedded in binary via `//go:embed`
+   - ✓ All navigation features working (breadcrumbs, next page, directories)
+   - ✓ Placeholder content system using "coming-soon" page
+   - ✓ Comprehensive test coverage passing
+
+2. ✓ **Recently Fixed Differences**:
+   - ✓ Recipe ordering in sitemap - Both now sort by title
+   - ✓ Date formatting in sitemap - Fixed month indexing (added +1) in Node.js
+   - ✓ Recipe UpdatedAt fallback - Added to Go FindAll method
+   - ✓ Timezone format - Changed to use +00:00 for UTC in both versions
+   - ✓ Breadcrumb ID format - Uses semantic content IDs instead of MongoDB ObjectIDs
+
+### Current Architecture
+- **Content Pages**: 100% file-based (markdown + CSV index) ✓
+- **Recipes**: MongoDB-based ✓
+- **Search**: MongoDB-based ✓ 
+- **Videos**: MongoDB-based ✓
+- **Sitemaps**: MongoDB-based ✓
 
 This migration preserves all display functionality while removing CMS, authentication, and admin features as requested.

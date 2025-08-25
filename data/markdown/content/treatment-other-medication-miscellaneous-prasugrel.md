@@ -1,0 +1,56 @@
+---
+id: treatment-other-medication-miscellaneous-prasugrel
+uri: treatment/other/medication/miscellaneous/prasugrel
+title: Prasugrel
+type: page
+authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
+updated_at: 2019-03-02T16:37:41Z
+created_at: 2018-05-21T15:59:53Z
+---
+
+<p>Prasugrel is one of several widely prescribed <a href="/treatment/other/medication/miscellaneous/antiplatelet">antiplatelet medications</a>,
+    used to prevent thrombosis (blood clots) in arteries and
+    arterioles. A common reason for long-term treatment with
+    prasugrel, often in combination with low-dose <a href="/treatment/other/medication/miscellaneous/aspirin">aspirin</a>,
+    is risk reduction for stroke and cardiovascular diseases.
+     </p>
+<figure><img src="/treatment-other-medication-miscellaneous-prasugrel-figure1.png">
+    <figcaption><strong>Figure 1:</strong> The molecular structure of prasugrel
+        (highlighted), together with the molecular structures
+        of the closely related medications clopidogrel and ticagrelor.</figcaption>
+</figure>
+<p>Prasugrel as depicted in Figure 1 is a <a href="/treatment/other/medication/delivery/more-info">pro-drug</a>    that first needs to be converted to its active form once
+    administered. Other than for <a href="/treatment/other/medication/miscellaneous/clopidogrel">clopidogrel</a>,
+    for prasugrel this chemical conversion to an active metabolite
+    only requires hydrolysis and does not depend on the action
+    of liver enzymes. Accordingly, prasugrel may be a more suitable
+    choice of antiplatelet medication for people with reduced
+    liver function. Also, <a href="/treatment/other/medication/miscellaneous/antacid">antacid medications</a>    (proton pump inhibitors, which suppress the production of
+    stomach acid) do not reduce the antiplatelet activity of
+    prasugrel (but antacid medications inhibit the activity of
+    clopidogrel).</p>
+<p>Once prasugrel is converted to its active metabolite, the active
+    metabolite irreversibly blocks a receptor (a protein, P<sub>2</sub>Y<sub>12</sub>)
+    that is found on the surface of platelets. P<sub>2</sub>Y<sub>12</sub>    is an important regulator protein in the cascade of reactions
+    leading to blood clotting. Blocking P<sub>2</sub>Y<sub>12</sub>    prevents the aggregation of platelets and thus the formation
+    of a blood clot. The resulting, most prominent adverse effect
+    of prasugrel (and other antiplatelet medications) is a tendency
+    for excessive <a href="/treatment/other/bleeding/more-info">bleeding</a>.
+    The overall effects of <a href="/treatment/other/medication/miscellaneous/clopidogrel">clopidogrel</a>    and <a href="/treatment/other/medication/miscellaneous/ticagrelor">ticagrelor</a>    are similar to those of prasugrel, as all three drugs block
+    the P<sub>2</sub>Y<sub>12</sub> receptors on the platelet
+    surface. However, in most people prasugrel hinders platelet
+    aggregation more rapidly and more profoundly than clopidogrel.</p>
+<p>A tendency for excessive bleeding is obviously relevant for any
+    oral and maxillofacial surgical interventions. As the effect
+    of a dose of prasugrel persists for several days, wherever
+    possible careful consideration needs to be given to modification
+    of antiplatelet medication ahead of surgical interventions.
+    This is possible for many elective procedures but obviously
+    is not an option for trauma and other emergency situations
+    leading to blood loss. In considering whether or not to modify
+    antithrombotic or <a href="/treatment/other/medication/miscellaneous/anticoagulant">anticoagulant medication</a>,
+    an individual risk benefit analysis is needed. For most minor
+    surgery local measures can control unwanted bleeding if the
+    risk of modifying medication is high. The lack of effective
+    reversal of these agents can also be problematic.</p>

@@ -1,0 +1,33 @@
+---
+id: treatment-surgery-reconstruction-preamble
+uri: treatment/surgery/reconstruction
+title: Reconstruction
+type: directory
+order: 0
+updated_at: 2018-08-18T15:32:51Z
+created_at: 2016-12-14T14:51:58Z
+---
+
+<p>The maxillofacial region is exceptionally densely packed with
+    vitally important physical and social functions, senses,
+    complex normal anatomy. Major resections of tumours, or defects
+    from major <a href="/diagnosis/a-z/damage">trauma</a>    or <a href="/diagnosis/a-z/craniofacial-anomalies">congenital defects</a>    often involve destruction of normal anatomy and carry significant
+    functional impairments as a consequence of disease and/or
+    treatment.</p>
+<p>Historically, patients were left disease-free but mutilated and
+    severely impaired functionally. Such dysfunction and deformity
+    can have a major impact on a person’s quality of life. The
+    disfigurement is often easily seen and associated with
+    <a href="/help/mental-health">mental health issues</a>, exacerbating an already difficult
+        situation.</p>
+<p>Surgical advances in head and neck reconstruction have resulted
+    in major improvements in terms of outcomes and quality of
+    life. Surgical advances have also established a progressive
+    trend from unreconstructed deformities or grafted wounds
+    to <a href="/treatment/surgery/cancer/facial-skin-cancer/more-info">locoregional flaps</a>,
+    two-staged repairs and immediate microvascular reconstructive
+    surgery.</p>
+<p>Our section on reconstructive maxillofacial surgery explains
+    and discusses the many different reconstructive techniques,
+    the different classes of defects, and the reconstructive
+    options for different defects.</p>

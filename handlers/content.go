@@ -10,6 +10,7 @@ import (
 	"strings"
 
 	"github.com/maxfacts/maxfacts/models"
+	"github.com/maxfacts/maxfacts/pkg/markdown"
 	templatehelpers "github.com/maxfacts/maxfacts/pkg/template"
 	"go.mongodb.org/mongo-driver/mongo"
 )
@@ -22,16 +23,55 @@ func parseAuthorship(authorship string) []string {
 	return strings.Split(authorship, ";")
 }
 
-// ContentHandler handles content-related requests
-type ContentHandler struct {
-	contentModel *models.ContentModel
-	videoModel   *models.VideoModel
-	templates    *template.Template
-	db           *mongo.Database
+// convertMarkdownToModelContent converts markdown.Content to models.Content
+func convertMarkdownToModelContent(md *markdown.Content) *models.Content {
+	// Convert Contents from markdown to models format
+	var contents []models.ContentItem
+	for _, item := range md.Contents {
+		contents = append(contents, models.ContentItem{
+			Text: item.Text,
+			ID:   item.ID,
+		})
+	}
+
+	return &models.Content{
+		URI:               md.URI,
+		Title:             md.Title,
+		Type:              md.Type,
+		Body:              md.MarkdownBody, // Use the markdown body
+		Description:       md.Description,
+		Surtitle:          md.Surtitle,
+		RedirectURI:       md.RedirectURI,
+		Hide:              md.Hide,
+		FurtherReadingURI: md.FurtherReadingURI,
+		HasSublist:        md.HasSublist,
+		Authorship:        md.Authorship,
+		Order:             md.Order,
+		Contents:          contents,
+		UpdatedAt:         md.UpdatedAt,
+		CreatedAt:         md.CreatedAt,
+	}
 }
 
-// NewContentHandler creates a new content handler
-func NewContentHandler(db *mongo.Database) *ContentHandler {
+// convertMarkdownSliceToModel converts []markdown.Content to []models.Content
+func convertMarkdownSliceToModel(mds []markdown.Content) []models.Content {
+	result := make([]models.Content, len(mds))
+	for i, md := range mds {
+		result[i] = *convertMarkdownToModelContent(&md)
+	}
+	return result
+}
+
+// ContentHandler handles content-related requests
+type ContentHandler struct {
+	markdownModel *markdown.ContentModel
+	videoModel    *models.VideoModel
+	templates     *template.Template
+	db            *mongo.Database
+}
+
+// NewContentHandler creates a new content handler using markdown files
+func NewContentHandler(db *mongo.Database, contentDir string, indexCSV string) *ContentHandler {
 	// Load templates
 	tmpl := template.New("").Funcs(templatehelpers.FuncMap())
 	
@@ -49,11 +89,17 @@ func NewContentHandler(db *mongo.Database) *ContentHandler {
 		log.Fatal("Failed to parse partial templates:", err)
 	}
 	
+	// Create markdown model
+	markdownModel, err := markdown.NewContentModel(contentDir, indexCSV)
+	if err != nil {
+		log.Fatal("Failed to create markdown content model:", err)
+	}
+	
 	return &ContentHandler{
-		contentModel: models.NewContentModel(db),
-		videoModel:   models.NewVideoModel(db),
-		templates:    tmpl,
-		db:           db,
+		markdownModel: markdownModel,
+		videoModel:    models.NewVideoModel(db),
+		templates:     tmpl,
+		db:            db,
 	}
 }
 
@@ -62,23 +108,26 @@ func (h *ContentHandler) Index(w http.ResponseWriter, r *http.Request) {
 	ctx := context.Background()
 	
 	// Get the three pillars of the home page
-	diagnosis, err := h.contentModel.FindFromParentURI(ctx, "diagnosis")
+	diagnosisMd, err := h.markdownModel.FindFromParentURI(ctx, "diagnosis")
 	if err != nil {
 		h.renderError(w, err)
 		return
 	}
+	diagnosis := convertMarkdownSliceToModel(diagnosisMd)
 	
-	treatment, err := h.contentModel.FindFromParentURI(ctx, "treatment")
+	treatmentMd, err := h.markdownModel.FindFromParentURI(ctx, "treatment")
 	if err != nil {
 		h.renderError(w, err)
 		return
 	}
+	treatment := convertMarkdownSliceToModel(treatmentMd)
 	
-	help, err := h.contentModel.FindFromParentURI(ctx, "help")
+	helpMd, err := h.markdownModel.FindFromParentURI(ctx, "help")
 	if err != nil {
 		h.renderError(w, err)
 		return
 	}
+	help := convertMarkdownSliceToModel(helpMd)
 	
 	data := map[string]interface{}{
 		"Title":     "Maxfacts – oral and maxillofacial information",
@@ -98,17 +147,15 @@ func (h *ContentHandler) Page(w http.ResponseWriter, r *http.Request) {
 	// Extract URI from path (removing leading slash)
 	uri := strings.TrimPrefix(r.URL.Path, "/")
 	
-	// Find the content
-	content, err := h.contentModel.FindOne(ctx, uri)
-	if err == mongo.ErrNoDocuments {
+	// Find the content using markdown model
+	markdownContent, err := h.markdownModel.FindOne(ctx, uri)
+	if err != nil {
 		// Try to find a video with this URI (fallback like Node.js app)
 		h.tryVideoFallback(w, r, uri)
 		return
 	}
-	if err != nil {
-		h.renderError(w, err)
-		return
-	}
+	
+	content := convertMarkdownToModelContent(markdownContent)
 	
 	// Handle redirects
 	if content.RedirectURI != "" {
@@ -118,24 +165,44 @@ func (h *ContentHandler) Page(w http.ResponseWriter, r *http.Request) {
 	
 	// Get placeholder content if body is empty
 	if content.Body == "" {
-		// Get placeholder URI from options
-		optionModel := models.NewOptionModel(h.db)
-		placeholderURI, _ := optionModel.Get(ctx, "placeholder_uri")
-		if placeholderURI != "" {
-			placeholder, err := h.contentModel.FindOne(ctx, placeholderURI)
-			if err == nil && placeholder != nil {
-				content.Body = placeholder.Body
-			}
+		placeholderContent, err := h.markdownModel.FindOne(ctx, "coming-soon")
+		if err == nil && placeholderContent != nil {
+			content.Body = placeholderContent.MarkdownBody
 		}
 	}
 	
-	// Get additional data
-	content.InvalidURIs, _ = h.contentModel.GetInvalidLinks(ctx, content)
-	content.Breadcrumbs, _ = h.contentModel.GetBreadcrumbs(ctx, content)
-	content.NextPage, _ = h.contentModel.GetNextPage(ctx, content)
+	// Get breadcrumbs
+	breadcrumbsMd, err := h.markdownModel.GetBreadcrumbs(ctx, content.URI)
+	if err == nil {
+		// Convert markdown breadcrumbs to model breadcrumbs
+		content.Breadcrumbs = make([]models.Breadcrumb, len(breadcrumbsMd))
+		for i, bc := range breadcrumbsMd {
+			content.Breadcrumbs[i] = models.Breadcrumb{
+				Title: bc.Title,
+				URI:   bc.URI,
+				ID:    bc.ID,
+			}
+		}
+	} else {
+		content.Breadcrumbs = []models.Breadcrumb{}
+	}
+	
+	// Get next page
+	nextPageMd, err := h.markdownModel.GetNextPage(ctx, markdownContent)
+	if err == nil && nextPageMd != nil {
+		content.NextPage = convertMarkdownToModelContent(nextPageMd)
+	} else {
+		content.NextPage = nil
+	}
+	
+	// TODO: Implement GetInvalidLinks for markdown model (not needed per user)
+	content.InvalidURIs = []string{}
 	
 	if content.FurtherReadingURI != "" {
-		content.FurtherReading, _ = h.contentModel.FindOne(ctx, content.FurtherReadingURI)
+		furtherReadingMd, err := h.markdownModel.FindOne(ctx, content.FurtherReadingURI)
+		if err == nil {
+			content.FurtherReading = convertMarkdownToModelContent(furtherReadingMd)
+		}
 	}
 	
 	// Handle directory type
@@ -207,10 +274,11 @@ func (h *ContentHandler) buildDirectory(ctx context.Context, content *models.Con
 	
 	// Get links from all parent stages
 	for _, uri := range lineage[:len(lineage)-1] {
-		items, err := h.contentModel.FindFromAdjacentURI(ctx, uri)
+		itemsMd, err := h.markdownModel.FindFromAdjacentURI(ctx, uri)
 		if err != nil {
 			return err
 		}
+		items := convertMarkdownSliceToModel(itemsMd)
 		filtered := filterDirectoryItems(items)
 		if len(filtered) > 0 {
 			directory = append(directory, filtered)
@@ -218,20 +286,22 @@ func (h *ContentHandler) buildDirectory(ctx context.Context, content *models.Con
 	}
 	
 	// Append siblings of current page
-	siblings, err := h.contentModel.FindFromAdjacentURI(ctx, content.URI)
+	siblingsMd, err := h.markdownModel.FindFromAdjacentURI(ctx, content.URI)
 	if err != nil {
 		return err
 	}
+	siblings := convertMarkdownSliceToModel(siblingsMd)
 	filtered := filterDirectoryItems(siblings)
 	if len(filtered) > 0 {
 		directory = append(directory, filtered)
 	}
 	
 	// Append children of current page
-	children, err := h.contentModel.GetChildren(ctx, content)
+	childrenMd, err := h.markdownModel.GetChildren(ctx, content.URI)
 	if err != nil {
 		return err
 	}
+	children := convertMarkdownSliceToModel(childrenMd)
 	// Filter out children with same title as parent
 	var filteredChildren []models.Content
 	for _, child := range children {
@@ -247,8 +317,9 @@ func (h *ContentHandler) buildDirectory(ctx context.Context, content *models.Con
 	for i, column := range directory {
 		for j, item := range column {
 			if item.HasSublist {
-				sublist, err := h.contentModel.FindFromParentURI(ctx, item.URI)
+				sublistMd, err := h.markdownModel.FindFromParentURI(ctx, item.URI)
 				if err == nil {
+					sublist := convertMarkdownSliceToModel(sublistMd)
 					directory[i][j].Sublist = filterDirectoryItems(sublist)
 				}
 			}
@@ -275,10 +346,11 @@ func (h *ContentHandler) buildDirectory(ctx context.Context, content *models.Con
 
 // buildAlphabetical builds alphabetical listing
 func (h *ContentHandler) buildAlphabetical(ctx context.Context, content *models.Content) error {
-	children, err := h.contentModel.GetChildren(ctx, content)
+	childrenMd, err := h.markdownModel.GetChildren(ctx, content.URI)
 	if err != nil {
 		return err
 	}
+	children := convertMarkdownSliceToModel(childrenMd)
 	
 	alphabet := "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 	content.Alphabetical = make(map[string][]models.Content)
@@ -381,8 +453,9 @@ func (h *ContentHandler) tryVideoFallback(w http.ResponseWriter, r *http.Request
 	breadcrumbs := []models.Breadcrumb{}
 	lineage := models.GetLineageFromURI(models.ParentURIFragment(video.URI))
 	for _, uri := range lineage {
-		content, err := h.contentModel.FindOne(ctx, uri)
+		contentMd, err := h.markdownModel.FindOne(ctx, uri)
 		if err == nil {
+			content := convertMarkdownToModelContent(contentMd)
 			breadcrumbs = append(breadcrumbs, models.Breadcrumb{
 				Title: content.Title,
 				URI:   content.URI,
@@ -395,9 +468,9 @@ func (h *ContentHandler) tryVideoFallback(w http.ResponseWriter, r *http.Request
 	
 	// Add content IDs to breadcrumbs for template
 	for i, uri := range models.GetLineageFromURI(models.ParentURIFragment(video.URI)) {
-		content, err := h.contentModel.FindOne(ctx, uri)
+		contentMd, err := h.markdownModel.FindOne(ctx, uri)
 		if err == nil && i < len(breadcrumbs) {
-			breadcrumbs[i].ID = content.ID.Hex()
+			breadcrumbs[i].ID = contentMd.ID
 		}
 	}
 

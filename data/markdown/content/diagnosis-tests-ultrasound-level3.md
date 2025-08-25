@@ -1,0 +1,247 @@
+---
+id: diagnosis-tests-ultrasound-level3
+uri: diagnosis/tests/ultrasound
+title: Ultrasound (sonography)
+type: level3
+authorship: Authored by Angelika Sebald;Proof-read/edited by Aneurin J Kennerley
+order: 0
+further_reading_uri: diagnosis/tests/further-reading
+updated_at: 2019-03-02T14:10:00Z
+created_at: 2017-06-14T20:09:04Z
+contents:
+  - text: "Basic working principles"
+    id: basic-working-principles
+  - text: "Common maxillofacial applications"
+    id: common-maxillofacial-applications
+  - text: "Technical details about ultrasound imaging"
+    id: technical-details-about-ultrasound-imaging
+---
+
+<p>Ultrasound imaging is a well-established diagnostic modality
+    in a maxillofacial surgery, with a range of applications.
+    Below we give a brief overview of the basic working principles,
+    the most common maxillofacial applications of ultrasound
+    methodology, and a slightly more detailed explanation about
+    the production of sound waves and how these acoustic waves
+    can produce images.</p>
+<h1 id="basic-working-principles">Basic working principles</h1>
+<p>Ultrasound scans produce images <i>via</i> high frequency sound
+    waves. The frequency range used in this technique (1 to 30
+    MHz) for medical applications is called ultrasound (‘beyond
+    sound’) because the region is outside the frequency range
+    that we can hear (humans can hear in the range 16 Hz to 20
+    kHz). Ultrasound scanning relies on a pulse-echo principle,
+    which involves directing an ultrasound wave towards the material
+    being investigated, and then listening for the returning
+    ‘echo’ after the sound has been reflected off the object.</p>
+<p>Ultrasound scans are probably best known for their applications
+    in monitoring a foetus throughout pregnancy (‘baby TV’) but
+    are generally widely used for the examination of soft and
+    fluid-filled body parts (such as <a href="/diagnosis/a-z/cyst">cysts</a>).</p>
+<p>Ultrasound scans only require relatively small and uncomplicated
+    equipment, thus are economic and fairly portable, offering
+    flexibility. This includes use in clinics, at the bedside,
+    or in the operating theatre. Low-power ultrasound is generally
+    used for diagnostic purposes (see below), whereas higher-power
+    versions are used for interventional purposes. Using ultrasound
+    for diagnostic purposes has advantages and disadvantages.
+    For example, the frequency of the ultrasound wave defines
+    the upper limit for the achievable spatial resolution in
+    an ultrasound image, typically a few mm. This resolution
+    is inferior to the resolution of other medical imaging modalities
+    such as <a href="/diagnosis/tests/mri">MRI</a> or <a href="/diagnosis/tests/ct-scans">CT</a>    scans - but not all investigations benefit from the highest
+    possible spatial resolution of an image.</p>
+<p>Ultrasound scans exploit the different speed with which sound
+    waves travel through different kinds of matter. The speed
+    of sound in air (or more generally speaking, gases) is 330
+    m/s, in water it is 1496 m/s, and in bone it is 3360 m/s.
+    The speed of sound in soft and nearly liquid matter varies
+    slightly, from 1450 m/s to 1600 m/s. This variation is enough
+    to provide some degree of contrast for different soft body
+    tissues such as fat or muscles.</p>
+<p>Figure 1 summarises the various effects of matter on the ultrasound
+    wave being emitted by the transducer probe.</p>
+<figure><img src="/diagnosis-tests-ultrasound-level3-figure1.png">
+    <figcaption><strong>Figure 1:</strong> Effects on the ultrasound wave
+        as it travels through matter.</figcaption>
+</figure>
+<p>Reflection of a part of the wave at an interface between two
+    tissues with slightly different speed of sound produces an
+    echo in the probe. This is the measured effect that produces
+    the ultrasound image. If the interface is between two materials
+    characterised by vastly different speeds of sound, the wave
+    is completely reflected (for example, between air and skin,
+    or bone and soft tissue) and a ‘shadow’ is created. This
+    is the reason why ultrasound scans cannot ‘see’ beyond bones,
+    and why some gel is applied to the skin before a scan (to
+    avoid air between the skin and the probe).</p>
+<p>The other effects in Figure 1 illustrate the losses and the damping
+    the wave experiences while travelling through matter. Some
+    of it is lost due to refraction (where the ultrasound wave
+    changes direction when travelling through the interface (similar
+    to optical waves)). Scattering occurs when the ultrasound
+    wave hits small objects, roughly the size of its wavelength
+    (of the order of 1 to 2 mm), for example small blood vessels.
+    The speckled appearance of ultrasound-scan images is caused
+    by this scattering effect. Finally, some of the ultrasound
+    radiation is absorbed by tissue. The extent to which this
+    happens depends strongly on the type of tissue and to some
+    extent on the exact frequency of the ultrasound used and
+    ultimately can lead to heating of the tissue. However, this
+    is not an issue at the very low power of ultrasound radiation
+    typically used for diagnostic purposes (see Figure 3, below).</p>
+<h1 id="common-maxillofacial-applications">Common maxillofacial applications</h1>
+<p>In a maxillofacial context, ultrasound scans are particularly
+    relevant for investigations of the salivary glands, the thyroid
+    gland, blood vessels and lymph nodes in the neck, other lumps
+    in the neck, the tonsils, and the floor of the mouth. Ultrasound
+    scans work particularly well for the examination of soft
+    tissues close to the body’s surface. More specialised ultrasound
+    scanning techniques can be used to observe blood flow (see
+    below), there are methods to obtain three-dimensional images
+    from ultrasound scans, and ultrasound scanning has been suggested
+    as a diagnostic tool for the examination of some (parts of
+    some) of the <a href="/diagnosis/a-z/neuropathies/detailed">cranial nerves</a>    (outside the bony confinement of the skull).</p>
+<p>The rate of blood flow through arteries and veins can be measured
+    by an ultrasound-scanning technique called Doppler scanning.
+    This technique exploits a phenomenon called the Doppler effect.
+    The Doppler effect is a change in wavelength / frequency
+    of a wave, the source of which is moving relative to the
+    observer (the effect is named after the physicist C. Doppler
+    who first described the phenomenon in the 19<sup>th</sup>    century). The best known everyday-example is the change in
+    pitch heard when a vehicle such as an ambulance is emitting
+    an alarm and approaches, then moves away from an observer
+    (see Figure 2). The pitch heard is higher during the approach
+    and lower as the vehicle moves away.</p>
+<figure><img src="/diagnosis-tests-ultrasound-level3-figure2.png">
+    <figcaption><strong>Figure 2:</strong> Top: a stationary source and receiver,
+        with identical frequencies / wavelengths everywhere;
+        bottom: movement of the source relative to the receiver
+        alters the received frequency of the sound, even though
+        the source frequency remains unchanged.</figcaption>
+</figure>
+<p>If an object investigated by ultrasound scanning is moving, this
+    will cause the ultrasound echo to be Doppler-shifted to either
+    higher or lower frequencies, depending on its relative motion
+    toward or away from the probe. The magnitude of the shift
+    depends on the velocity of the moving object. Doppler-ultrasound
+    scanning measures the change in echo frequency to determine
+    the velocity of the moving object. An important application
+    of the phenomenon is the examination of blood flow in order
+    to detect <a href="/treatment/other/bleeding/more-info">blood clots</a>    or poor circulation. This is useful, for example, in the
+    monitoring of the blood supply of free flaps after <a href="/treatment/surgery/reconstruction">reconstructive surgery</a>    (where implantable Doppler probes are used).</p>
+<p>In addition, ultrasound scans can provide real-time visual control
+    and guidance for targeted <a href="/diagnosis/tests/biopsy">fine-needle biopsies</a>    to obtain material for <a href="/diagnosis/tests/biopsy/detailed">histological examination</a>.</p>
+<p>Higher intensity / amplitude of the ultrasound waves can shift
+    their use from diagnostic to therapeutic applications. Some
+    therapeutic applications use short intense blasts of ultrasound
+    directed at the region(s) of interest. In terms of dosage,
+    diagnostic ultrasound applications use intensities of around
+    0.1 W/cm<sup>2</sup>, whereas therapeutic ultrasound applications
+    use 1000 W/cm<sup>2</sup>. An intermediate dosage of ultrasound
+    can be used to provide deep heating to soft tissue within
+    the body. This may be done to increase blood circulation,
+    improve the extensibility of the tissue, or to reduce pain
+    (see Figure 3). The low intensities typically used for diagnostic
+    ultrasound applications do not cause tissue damage. However,
+    local heating effects from medium- to high-power ultrasound
+    applications can cause cell damage.</p>
+<figure><img src="/diagnosis-tests-ultrasound-level3-figure3.png">
+    <figcaption><strong>Figure 3:</strong> The relationship between dosage
+        and various medical uses of ultrasound (not drawn to
+        scale); diagnostic ultrasound imaging utilises a much
+        lower intensity compared to therapeutic applications.</figcaption>
+</figure>
+<p>Therapeutic ultrasound applications include the breaking up of
+    <a href="/diagnosis/a-z/salivary-gland-problems">calculi (stones) of the salivary glands</a>    and blood clots. The ultrasound range 25 to 50 kHz is used
+    for a variety of industrial cleaning purposes, and is also
+    used for the professional removal of dental plaque and particularly
+    calculus. Some <a href="/treatment/restorative-dentistry/endodontics">endodontic procedures</a>    (root canal treatment) with the need to access hard-to-reach
+    spaces benefit from the miniaturisation of the instrumentation:
+    an ultrasonic tip is much smaller than a mechanical handpiece
+    (Figure 4).</p>
+<figure><img src="/diagnosis-tests-ultrasound-level3-figure4.jpg">
+    <figcaption><strong>Figure 4:</strong> A comparison of the sizes of an
+        endodontic mechanical handpiece (left) and an ultrasonic
+        tip (right).</figcaption>
+</figure>
+<h1 id="technical-details-about-ultrasound-imaging">Technical details about ultrasound imaging</h1>
+<p>Sound arises from some object undergoing an oscillation, which
+    propagates as a wave of pressure through a substance. Take
+    an audio speaker as an example. Audio speakers contain a
+    diaphragm which vibrates and transfers energy to the surrounding
+    air, which causes the molecules in air to oscillate. The
+    sound is encoded in these vibrations and is transmitted through
+    multiple and frequent collisions between the particles in
+    air. Figure 5 illustrates schematically particles in air
+    undergoing compression and rarefaction (reduction in density
+    of the air).</p>
+<figure><img src="/diagnosis-tests-ultrasound-level3-figure5.png">
+    <figcaption><strong>Figure 5:</strong> Sound propagating by particles
+        in the air colliding with each other and transferring
+        vibrations. This type of wave is called a longitudinal
+        wave, meaning the vibrations and energy transfers are
+        along the same direction as the overall direction of
+        travel. The air pressure increases or decreases in comparison
+        to atmospheric pressure at different points along the
+        wave.</figcaption>
+</figure>
+<p>All modern ultrasound-scanning transducer probes rely on the
+    piezoelectric effect in polar crystals to both produce the
+    emitted ultrasound wave and to record the echo of the reflected
+    portion of the wave. Figure 6 shows a sketch of the working
+    principle of an ultrasound probe. Ultrasound scans of the
+    head and neck region normally use small transducers and frequencies
+    in the range 7.5 to 10 MHz for optimal resolution.</p>
+<figure><img src="/diagnosis-tests-ultrasound-level3-figure6.png">
+    <figcaption><strong>Figure 6:</strong> Deformation of a piezoelectric
+        crystal causes the emitted ultrasound wave; the recording
+        of the echo is the reverse process.</figcaption>
+</figure>
+<p>The receiver in the transducer waits for the returned echo signal
+    and records changes in the ultrasound echo from the original
+    emitted wave, specifically the receiver records:</p>
+<ul>
+    <li>the time between the ultrasound signal being emitted and
+        the echo being received;</li>
+    <li>the intensity of the echo;</li>
+    <li>the frequency of the echo;</li>
+    <li>the direction of the echo.</li>
+</ul>
+<p>Subsequently the signals are reconstructed to give an image.
+    The vast majority of ultrasound systems focus the waves for
+    processing <i>via</i> beamforming; a signal processing technique
+    used for directional signal transmission. This formulates
+    the ultrasound wave into an arc-shape and allows the focus
+    to be set at a specific depth within the body.</p>
+<p>The recorded information is fed to a central processing unit
+    which has an array of pixels it uses to create the image.
+    The time it takes for an echo to return determines which
+    pixel is selected. The intensity of the echo determines the
+    pixel brightness. Once all echoes have been processed, a
+    greyscale image is constructed which subsequently can be
+    displayed.</p>
+<p>In principle, it is assumed the detected echo originates from
+    the main ultrasound pulse and the echo returns after a single
+    reflection. In clinical practice, this is not always the
+    case and ultrasound imaging can be hindered by artifacts.
+    For example, ultrasound pulses leave the transducer with
+    a central beam and some off-axis lower energy beams called
+    side lobes. If the side-lobe beam is reflected off a nearby
+    surface it could be picked up by the detector. Another issue
+    occurs when two highly reflective surfaces are close within
+    the body; the echo may be reflected between the two surfaces
+    multiple times before returning to the detector. This time
+    delay would cause the central processing unit to place the
+    echoes into pixels further away from the transducer than
+    they are in reality. These effects can cause misleading information
+    in scans about size and location of a scanned area / object.</p>
+<p>Ultrasound images are relatively lower in resolution than other
+    imaging methods. One reason for this is attenuation (see
+    Figure 1) – the gradual loss of intensity of a wave when
+    travelling through a medium. Attenuation causes the ultrasound
+    wave to lose energy as it propagates, lowering the frequency
+    of the signal. The amount of attenuation increases with higher
+    frequencies and distances travelled. Ultrasound scanning
+    is thus not a suitable technique to obtain high-resolution
+    images from deep within the body.</p>

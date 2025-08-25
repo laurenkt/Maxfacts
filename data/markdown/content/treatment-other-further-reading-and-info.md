@@ -1,0 +1,1661 @@
+---
+id: treatment-other-further-reading-and-info
+uri: treatment/other/further-reading
+title: Other
+type: further
+order: 0
+hide: true
+updated_at: 2019-12-15T11:11:36Z
+created_at: 2017-06-14T21:56:54Z
+contents:
+  - text: "Bleeding"
+    id: bleeding
+  - text: "Extreme temperatures"
+    id: extreme-temperatures
+  - text: "Hyperbaric oxygen"
+    id: hyperbaric-oxygen
+  - text: "Medication"
+    id: medication
+  - text: "Miscellaneous treatments"
+    id: miscellaneous-treatments
+  - text: "New developments"
+    id: new-developments
+  - text: "Photodynamic therapy"
+    id: photodynamic-therapy
+---
+
+<h1 id="bleeding">Bleeding</h1>
+<h2>Textbooks</h2>
+<p>J. Harenberg, D.L. Heene, G. Stehle and G. Schettler
+    (eds.). New Trends in Haemostasis: Coagulation Proteins,
+    Endothelium, and Tissue Factors. Springer Verlag,
+    Heidelberg Berlin, 1990.</p>
+<aside>
+    <p>A little out-of-date but nevertheless a good and
+        clear overview.</p>
+</aside>
+<p>N.S. Hakim and R. Canelo (eds.). Haemostasis in Surgery.
+    Imperial College Press, London, 2007.</p>
+<aside>
+    <p>Not specifically about oral and maxillofacial surgery
+        but a good all-round textbook on all aspects of
+        surgical haemostasis.</p>
+</aside>
+<p>J.P. Antovic and M. Blombäck (eds.). Essential Guide to
+    Blood Coagulation. Wiley-Blackwell, Chichester, 2013.
+</p>
+<aside>
+    <p>A more technical take on the topic of bleeding, with
+        broad coverage of laboratory assessments and
+        diagnosis.</p>
+</aside>
+<p>C. Scully. Medical Problems in Dentistry, 6<sup>th</sup>
+    edition. Churchill-Livingstone, London, 2010.</p>
+<aside>
+    <p>Includes a good and easy-to-read chapter on
+        haemorrhage in dentistry.</p>
+</aside>
+<h2>Journal articles (peer reviewed literature)</h2>
+<p>B.V. Bajkin, I.A. Bajkin and B.B. Petrovic. The effects
+    of combined oral anticoagulant-aspirin therapy in
+    patients undergoing tooth extractions; a prospective
+    study. <i>Journal of the American Dental Association</i>
+    <strong>143</strong>, 771-775 (2012).</p>
+<p>T. Lillis et al. Safety of dental extractions during
+    uninterrupted single or dual antiplatelet treatment.
+    <i>American Journal of Cardiology</i>
+    <strong>108</strong>, 964-967 (2011).</p>
+<p>Y. Morimoto, H. Niwa and K. Minematsu. Risk factors
+    affecting postoperative hemorrhage after tooth
+    extraction in patients receiving oral antithrombotic
+    therapy. <i>Journal of Oral and Maxillofacial
+        Surgery</i> <strong>69</strong>, 1550-1556 (2011).
+</p>
+<p>R.A. Powless et al. Management of antithrombotic therapy
+    before full-mouth extraction. <i>Journal of the
+        Californian Dental Association</i>
+    <strong>41</strong>, 417-420 (2013).</p>
+<p>D.S. Celermajer. Endothelial Dysfunction: Does It Matter?
+    Is It Reversible? <i>Journal of the American College of
+        Cardiology</i> <strong>30</strong>, 325-33 (1997).
+</p>
+<p>G. D’Andrea, M. Chetta and M. Margaglione. Inherited
+    platelet disorders: thrombocytopenias and
+    thrombocytopathies. <i>Blood Transfusion</i>
+    <strong>7</strong>, 278-292 (2009).</p>
+<p>M. Bryckaert et al. Of von Willebrand factor and
+    platelets. <i>Cellular and Molecular Life Sciences</i>
+    <strong>72</strong>, 307-326 (2015).</p>
+<p>Y. Zhao, P.M. Vanhoutte and S.W.S. Leung. Vascular nitric
+    oxide: Beyond eNOS. <i>Journal of Pharmacological
+        Sciences</i> <strong>129</strong>, 83-94 (2015).</p>
+<aside>
+    <p>Exhaustive review of role of NO in blood vessel walls
+        and regulation of vascular tone (more than 300
+        references).</p>
+</aside>
+<h1 id="extreme-temperatures">Extreme temperatures</h1>
+<h2>Textbooks</h2>
+<p>K.K. Desarda. Cryosurgery. Clinical Applications in
+    Otorhinolaryngology. Jaypee, New Delhi, 2013.</p>
+<p>N.N. Korpan (ed.). Basics of Cryosurgery. Springer
+    Verlag, Wien, 2012.</p>
+<p>P.Pasquali (ed.). Cryosurgery. A Practical Manual.
+    Springer, Heidelberg New York, 2015.</p>
+<aside>
+    <p>Includes an account of historical developments and a
+        useful chapter on the underlying physics /
+        thermodynamics.</p>
+</aside>
+<p>S. Namour. Atlas of Current Oral Laser Surgery. Universal
+    Publishers, Boca Raton, 2011.</p>
+<aside>
+    <p>Mostly dealing with applications of the
+        CO<sub>2</sub> laser.</p>
+</aside>
+<p>V. Oswal and M. Remacle (eds.). Principles and Practice
+    of Lasers in Otorhinolaryngology and Head and Neck
+    Surgery, 2<sup>nd</sup> edition. Kugler Publications,
+    Amsterdam, 2014.</p>
+<h2>Journal articles (peer reviewed literature)</h2>
+<p>P.U. Abdul Wahab et al. Scalpel Versus Diathermy in Wound
+    Healing After Mucosal Incisions: A Split-Mouth Study.
+    <i>Journal of Oral and Maxillofacial Surgery</i>
+    <strong>76</strong>, 1160-1164 (2018).</p>
+<aside>
+    <p>This study suggests that better and faster wound
+        healing results from incisions with a scalpel.</p>
+</aside>
+<p>D. Schneider et al. Use of ultrasonic scalpel and
+    monopolar electrocautery for skin incisions in neck
+    dissection: a prospective randomized trial. <i>Oral and
+        Maxillofacial Surgery</i> <strong>22</strong>,
+    169-175 (2018).</p>
+<aside>
+    <p>Concludes that ultrasound scalpel may have advantages
+        over electrocautery for this purpose.</p>
+</aside>
+<p>A.M. Trescot. Cryoanalgesia in Interventional Pain
+    Management. <i>Pain Physician</i> <strong>6</strong>,
+    345-360 (2003).</p>
+<p>N.N. Massarweh, N. Cosgriff and D.P. Slakey.
+    Electrosurgery: history, principles, and current and
+    future uses. <i>Journal of the American College of
+        Surgeons</i> <strong>202</strong>, 520-530 (2006).
+</p>
+<aside>
+    <p>General, if somewhat superficial overview.</p>
+</aside>
+<p>M. Karjalainen et al. The characterization of surgical
+    smoke from various tissues and its implications for
+    occupational safety. <i>PLOS ONE</i>
+    <strong>13</strong>: e0195274 (2018).</p>
+<aside>
+    <p>An investigation into the composition of surgical
+        smoke form diathermy and potential hazards.</p>
+</aside>
+<p>J. Reichelt et al. A novel blue light laser system for
+    surgical applications in dentistry: evaluation of
+    specific laser-tissue interactions in monolayer
+    cultures. <i>Clinical Oral Investigations</i>
+    <strong>21</strong>, 985-994 (2017).</p>
+<p>P.F. Bradley. A review of the use of the neodymium YAG
+    laser in oral and maxillofacial surgery. <i>British
+        Journal of Oral and Maxillofacial Surgery</i>
+    <strong>35</strong>, 26-35 (1997).</p>
+<p>L. Carroll and T.R Humphreys. LASER – tissue
+    interactions. <i>Clinics in Dermatology</i>
+    <strong>24</strong>, 2-7 (2006).</p>
+<aside>
+    <p>Useful summary of chromophores and corresponding
+        laser applications.</p>
+</aside>
+<p>M.M. Jawad et al. An Overview of Laser Principles,
+    Laser-Tissue Interaction Mechanisms and Laser Safety
+    Precautions for Medical Laser Users. <i>International
+        Journal of Pharmacology</i> <strong>7</strong>,
+    149-170 (2011).</p>
+<aside>
+    <p>Describes some basics.</p>
+</aside>
+<p>F.W. Neukam and F. Stelzle. Laser Tumor Treatment in Oral
+    and Maxillofacial Surgery. <i>Physcis Procedia</i>
+    <strong>5</strong>, 91-100 (2010).</p>
+<aside>
+    <p>An overview of most commonly used types of laser and
+        applications.</p>
+</aside>
+<p>G. Ilaria et al. Advantages of new technologies in oral
+    mucosal surgery: an intraoperative comparison among
+    Nd:YAG laser, quantic molecular resonance scalpel, and
+    cold blade. <i>Lasers in Medical Science</i>
+    <strong>30</strong>, 1903-1910 (2015).</p>
+<p>E. Schena, P. Saccomandi and Y. Fong. Laser Ablation for
+    Cancer: Past, Present and Future. <i>Journal of
+        Functional Biomaterials</i> <strong>8</strong>,
+    19-34 (2017).</p>
+<aside>
+    <p>Review, covering a range of different lasers.</p>
+</aside>
+<h1 id="hyperbaric-oxygen">Hyperbaric oxygen</h1>
+<h2>Electronic resources</h2>
+<p>Information about the HOPON and DAHNCA21 clinical trials
+    can be found at <a href="http://www.lctu.org.uk/">www.lctu.org.uk/</a>
+</p>
+<aside>
+    <p>The HOPON trial is now (2019) closed and concludes
+        that there is no useful role for hyperbaric oxygen
+        treatment in the prevention and/or treatment of
+        osteonecrosis of the jaws.</p>
+</aside>
+<h2>Textbooks</h2>
+<p>T.S. Neumann and S.R. Thom (eds.). Physiology and
+    Medicine of Hyperbaric Oxygen Therapy. Elsevier,
+    Philadelphia, 2008.</p>
+<p>L.K. Weaver (ed.). Hyperbaric Oxygen Therapy Indications:
+    The Hyperbaric Oxygen Therapy Committee Report. Best
+    Publishing Company, 2014.</p>
+<h2>Journal articles (peer reviewed literature)</h2>
+<p>L. Spiegelberg, U.M. Djasim, H.W. van Neck, E.B. Wolvius
+    and K.G. van der Waal. Hyperbaric oxygen therapy in the
+    management of radiation-induced injury in the head and
+    neck region: a review of the literature. <i>Journal of
+        Oral and Maxillofacial Surgery</i>
+    <strong>68</strong>, 1732-1739 (2010).</p>
+<p>J. Dhanda, D. Pasquier, L. Newman and R. Shaw. Current
+    Concepts in Osteoradionecrosis after Head and Neck
+    Radiotherapy. <i>Clinical Oncology</i>,
+    <strong>28</strong>, 459-466 (2016).</p>
+<aside>
+    <p>Both review articles critically comment on the lack
+        of robust evidence for the effectiveness of HBO for
+        the prevention and treatment of ORN.</p>
+</aside>
+<p>S.N. Rogers, J.J. D’Souza, D. Lowe and A. Kanatas.
+    Longitudinal evaluation of health-related quality of
+    life after osteoradionecrosis of the mandible.
+    <i>British Journal of Oral and Maxillofacial Surgery</i>
+    <strong>53</strong>, 854-857 (2015).</p>
+<aside>
+    <p>A more general picture of QoL aspects.</p>
+</aside>
+<p>R. Shaw et al. Refining the definition of mandibular
+    osteoradionecrosis in clinical trials: The cancer
+    research UK HOPON trial (Hyperbaric Oxygen for the
+    Prevention of Osteoradionecrosis). <i>Oral Oncology</i>
+    <strong>64</strong>, 73-77 (2017).</p>
+<p>F.J. Dieleman et al. The efficacy of hyperbaric oxygen
+    therapy related to the clinical stage of
+    osteoradionecrosis of the mandible. <i>International
+        Journal of Oral and Maxillofacial Surgery</i>
+    <strong>46</strong>, 428-433 (2017).</p>
+<aside>
+    <p>Claims potential benefits for less severe cases.</p>
+</aside>
+<p>A. Sultan et al. The Use of Hyperbaric Oxygen for the
+    Prevention and Management of Osteoradionecrosis of the
+    Jaw: A Dana-Farber/Brigham and Women’s Cancer Center
+    Multidisciplinary Guideline. <i>The Oncologist</i>
+    <strong>22</strong>, 343-350 (2017).</p>
+<aside>
+    <p>Concludes that the use of HBO for the prevention and
+        management of osteoradionecrosis of ORN is not
+        recommended.</p>
+</aside>
+<p>T. Sønstevold et al. Hyperbaric oxygen treatment did not
+    significantly affect radiation injury in the mandibular
+    area of rats. <i>Oral and Maxillofacial Surgery</i>
+    <strong>125</strong>, 112-119 (2018).</p>
+<h1 id="medication">Medication</h1>
+<h2>Textbooks</h2>
+<p>T. Tozer and M. Rowland. Introduction to Pharmacokinetics
+    and Pharmacodynamics: The Quantitative Basis of Drug
+    Therapy. Lippincott Williams &amp; Wilkins, Baltimore,
+    2006.</p>
+<aside>
+    <p>A thorough discussion of the topic, very readable
+        too.</p>
+</aside>
+<p>M. Winter. Basic Clinical Pharmacokinetics. Lippincott
+    Williams &amp; Wilkins, Philadelphia, 2004.</p>
+<aside>
+    <p>Exactly what the title says.</p>
+</aside>
+<p>R. Anderson, P. Groundwater, A. Todd and A. Worsley.
+    Antibacterial Agents: Chemistry, Mode of Action,
+    Mechanisms of Resistance. Wiley, Chichester, 2012.</p>
+<aside>
+    <p>A comprehensive, clear and well-structured monograph
+        on the whole range of current antibacterial agents
+        and their modes of action.</p>
+</aside>
+<p>M. Gotte, A. Berghuis, G. Matlashewski, M. Wainberg and
+    D. Sheppard (eds.). Handbook of Antimicrobial
+    Resistance. Springer, New York, 2018.</p>
+<p>D.L. Mayers, J.D. Sobel, M. Ouellette, K.S. Kaye and D.
+    Marchaim (eds.). Antimicrobial Drug Resistance:
+    Mechanisms of Drug Resistance, Volume 1. Springer
+    International Publishing, 2017.</p>
+<p>D.L. Mayers, J.D. Sobel, M. Ouellette, K.S. Kaye and D.
+    Marchaim (eds.). Antimicrobial Drug Resistance: Clinical
+    and Epidemiological Aspects, Volume 2. Springer
+    International Publishing, 2017.</p>
+<p>V. Kumar, A.K. Abbas and J.C. Aster (eds.) Robbins and
+    Cotran’s Pathologic Basis of Disease, 9<sup>th</sup>
+    edition. Elsevier, Philadephia, 2015.</p>
+<aside>
+    <p>Information-dense but excellent (bulky) textbook on
+        general pathology and biochemical mechanisms.</p>
+</aside>
+<p>J.E. Hall. Guyton and Hall Textbook of Medical
+    Physiology, 13<sup>th</sup> edition. Elsevier,
+    Philadelphia, 2016.</p>
+<aside>
+    <p>A classic but accessible textbook.</p>
+</aside>
+<p>M.M. Dale and D.G Haylett. Pharmacology condensed,
+    2<sup>nd</sup> edition. Elsevier, 2009.</p>
+<aside>
+    <p>A well-structured book which covers drug targets and
+        mode of action of antibacterial, antiviral and
+        antifungal agents. Includes chemically detailed
+        diagrams for modes of action of antibacterials and
+        antivirals.</p>
+</aside>
+<p>B. Alberts, D. Bray, K. Hopkin, A.D. Johnson, J. Lewis,
+    M. Raff, K. Roberts and P. Walter. Essential Cell
+    Biology, 4<sup>th</sup> edition. Taylor and Francis,
+    2013.</p>
+<aside>
+    <p>A comprehensive cell-biology textbook with clear and
+        helpful illustrations.</p>
+</aside>
+<aside>
+    <p>J. G. Voet and D. Voet. Biochemistry, 4<sup>th</sup>
+        edition. Wiley, 2011. A very detailed biochemistry
+        textbook, particularly useful in understanding
+        mechanisms of replication in bacterial growth.
+        Requires some familiarity with scientific language.
+    </p>
+</aside>
+<p>M.J. Neal. Medical pharmacology at a glance,
+    8<sup>th</sup> edition. Wiley, 2015.</p>
+<aside>
+    <p>Good level of detail on all topics of infection
+        covered here, with particular emphasis on clinical
+        drug use.  </p>
+</aside>
+<p>S.B. McMahon, M. Koltzenburg, I. Tracey and D. Turk
+    (eds.). Wall and Melzack’s Textbook of Pain,
+    6<sup>th</sup> edition. Elsevier, Philadelphia, 2013.
+</p>
+<aside>
+    <p>Detailed discussion of general mechanisms,
+        biochemistry and psychology of pain, along with some
+        discussions of treatment options – all in 76
+        chapters.</p>
+</aside>
+<p>P. Beaulieu. D. Lussier, F. Porreca and A. Dickenson.
+    Pharmacology of Pain. Lippincott Williams &amp; Wilkins,
+    2015.</p>
+<p>H. Lodish, A. Berk, C.A. Kaiser, M. Krieger, A.
+    Bretscher, H. Ploegh, A. Amon and M.P. Scott. Molecular
+    Cell Biology, 7<sup>th</sup> edition. W. H. Freeman and
+    Company, New York, 2012.</p>
+<aside>
+    <p>A comprehensive cell-biology textbook with general
+        information on the structure and activity of
+        neurons, including helpful images.</p>
+</aside>
+<p>K. Turksen (ed.). Wound Healing: Stem Cells Repair and
+    Restorations, Basic and Clinical Aspects. Wiley
+    Blackwell, Hoboken, 2018.</p>
+<aside>
+    <p>A good contemporary overview with several interesting
+        chapters, including the latest views on inflammation
+        and fibrosis, healing of the oral mucosa, and the
+        still poorly understood foetal wound healing
+        mechanisms.</p>
+</aside>
+<p>P. Bennett, M.J. Brown and P. Sharma (eds.). Clinical
+    Pharmacology, 11<sup>th</sup> edition. Elsevier,
+    Philadelphia, 2012.</p>
+<p>P.J. Delves, S.J. Martin, D.R. Burton and I. M. Roitt.
+    Roitt’s essential immunology. John Wiley and Sons,
+    Chichester, 2017.</p>
+<aside>
+    <p>Comprehensive discussion of all aspects of the immune
+        response, with two main themes, the ‘fundamentals of
+        immunology’ and ‘applied immunology’.</p>
+</aside>
+<p>A.W. Thomson (ed.). Immunosuppression. Springer Science
+    and Business Media, Dordrecht, 2001.</p>
+<p>M. Peakman and D. Vergani. Basic and Clinical Immunology,
+    2<sup>nd</sup> edition. Churchill Livingstone Elsevier,
+    2009.</p>
+<p>M. Oellerich and A. Dasgupta (eds.). Personalized
+    Immunosuppression in Transplantation. Role of Biomarker
+    Monitoring and Therapeutic Drug Monitoring. Elsevier,
+    Amsterdam, 2016.</p>
+<p>C. Gersch, N.M. Heimgartner, C.R. Rebar and L.M Willis.
+    Pharmacology made incredibly easy, 4<sup>th</sup>
+    edition. Wolters Kluwer Health, Philadelphia, 2017.</p>
+<aside>
+    <p>Includes an easy to follow guide to the uses, side
+        effects and mode of action of anti-inflammatory,
+        anti-allergy and immunosuppressant drugs.</p>
+</aside>
+<p> J.L. Cohen, D.M. Ozog and D.A. Porto (eds.).  Botulinum
+    Toxins: Cosmetic and Clinical Applications. Wiley,
+    Blackwell, 2017.</p>
+<aside>
+    <p>Predominantly dealing with cosmetic applications, but
+        discuss a few selected clinical applications and
+        there is a chapter on possible complications.</p>
+</aside>
+<p>B. Jabbari (ed.). Botulinum Toxin Treatment in Clinical
+    Medicine. A Disease-Oriented Approach. Springer
+    International Publishing, 2018.</p>
+<p>C. McGreal. American Overdose. Faber &amp; Faber, London,
+    2018.</p>
+<aside>
+    <p>A journalistic investigation into the North American
+        opioid crisis, including the role of big pharma.</p>
+</aside>
+<h2>Electronic resources</h2>
+<p>European Medicines Agency, EMA <a href="http://www.ema.europa.eu">www.ema.europa.eu</a>
+</p>
+<h2>Journal articles (peer reviewed literature)</h2>
+<p>A.W. Newman and S.R. Bryn. Solid-state analysis of the
+    active pharmaceutical ingredient in drug products.
+    <i>Drug Discovery Today</i> <strong>8</strong>, 898-905
+    (2003).</p>
+<aside>
+    <p>Brief overview of characterisation methods for solid
+        drug preparations.</p>
+</aside>
+<p>R. Censi and P. di Martino. Polymorph Impact on
+    Bioavailability and Stability of Poorly Soluble Drugs.
+    <i>Molecules</i> <strong>20</strong>, 18759-18776
+    (2015).</p>
+<aside>
+    <p>Brief review / summary with a number of useful
+        references.</p>
+</aside>
+<p>J.-C. Leroux. Drug Delivery: Too Much Complexity, Not
+    Enough Reproducibility? <i>Angewandte Chemie
+        International Edition</i> <strong>56</strong>, 2-4
+    (2017).</p>
+<aside>
+    <p>A thoughtful and thought-provoking guest editorial in
+        one of the premier international chemistry journals;
+        considering the mismatch between an increasing body
+        of research into drug delivery and lack of
+        translation into improved treatments, discussing
+        possible reasons for this.</p>
+</aside>
+<p>J. Nemeth, G. Oesch and S.P. Kuster. Bacteriostatic
+    versus bactericidal antibiotics for patients with
+    serious bacterial infections: systematic review and
+    meta-analysis. <i>Journal of Antimicrobial
+        Chemotherapy</i> <strong>70</strong>, 382-395
+    (2015).</p>
+<aside>
+    <p>There is no difference in clinical efficacy between
+        bacteriostatic and bactericidal drugs.</p>
+</aside>
+<p>D.N. Wilson. Ribosome-targeting antibiotics and
+    mechanisms of bacterial resistance. <i>Nature
+        Revie</i>ws <strong>12</strong>, 35-48 (2014).</p>
+<aside>
+    <p>A technically detailed, still fairly up-to-date
+        overview.</p>
+</aside>
+<p>H.C. Neu. The Crisis in Antibiotic Resistance.
+    <i>Science</i> <strong>257</strong>, 1064-1073 (1992).
+</p>
+<aside>
+    <p>Nobody should pretend that antibiotic resistance is a
+        new problem – why has very little happened in so
+        many years!</p>
+</aside>
+<p>J.M.A. Blair et al. Molecular mechanisms of antibiotic
+    resistance. <i>Nature Reviews Microbiology</i>
+    <strong>13</strong>, 42-51 (2015).</p>
+<p>S. Garneau-Tsodikovaa and K.J. Labby. Mechanisms of
+    resistance to aminoglycoside antibiotics: Overview and
+    perspectives. <i>Medicinal Chemistry Communications</i>
+    <strong>7</strong>, 11-27 (2016).</p>
+<p>E. Bekerman and S. Einav. Combating emerging viral
+    threats. <i>Science</i> <strong>348</strong>, 282-283
+    (2015).</p>
+<p>F.C. Odds, A.J.P. Brown and N.A.R. Gow. Antifungal
+    agents: mechanisms of action. <i>Trends in
+        Microbiology</i> <strong>11</strong>, 272-279
+    (2003).</p>
+<p>L.E. Cowen et al. Mechanisms of Antifungal Drug
+    Resistance. <i>Cold Spring Harbor Perspectives in
+        Medicine</i> <strong>5</strong>, 1-21 (2015).</p>
+<p>A.K. Bartella et al. Prospective comparison of
+    perioperative antibiotic management protocols in
+    oncological head and neck surgery. <i>Journal of
+        Cranio-Maxillo-Facial Surgery</i>
+    <strong>45</strong>, 1078-1082 (2017).</p>
+<p>N.X. Landén, D. Li and M. Stähle. Transition from
+    inflammation to proliferation: a critical step during
+    wound healing. <i>Cellular and Molecular Life
+        Sciences</i> <strong>73</strong>, 3861-3885 (2016).
+</p>
+<p>M.J. Porton et al. The innate immune system, toll-like
+    receptors and dermal wound healing: A review.
+    <i>Vascular Pharmacology</i> <strong>71</strong>, 31-36
+    (2015).</p>
+<p>S. Chattopadhyay and R.T. Raines. Collagen-Based
+    Biomaterials for Wound Healing. <i>Biopolymers</i>
+    <strong>101</strong>, 821-823 (2014).</p>
+<p>M. Karin and H. Clevers. Reparative inflammation takes
+    charge of tissue regeneration. <i>Nature</i>
+    <strong>529</strong>, 307-315 (2016).</p>
+<aside>
+    <p>A critical review of current thinking about the role
+        of inflammation in wound healing.</p>
+</aside>
+<p>J.W. Godwin, A.R. Pinto and N.A. Rosenthal. Chasing the
+    recipe for a pro-regenerative immune system. <i>Seminars
+        in Cell &amp; Developmental Biology</i>
+    <strong>61</strong>, 71-79 (2017).</p>
+<aside>
+    <p>Review concludes that there is still a very long way
+        ahead before perfect / scarless wound healing may
+        (or may not) become a reality.</p>
+</aside>
+<p>A.T. Nurden. The biology of the platelet with special
+    reference to inflammation, wound healing and immunity.
+    <i>Frontiers in Bioscience, Landmark Edition</i>
+    <strong>23</strong>, 726-751 (2018).</p>
+<aside>
+    <p>Exhaustive (but very interesting) review of state of
+        the art of understanding of the many different roles
+        of platelets.</p>
+</aside>
+<p>J. Folkman et al. Tumor Angiogenesis – Therapeutic
+    Implications. <i>New England Journal of Medicine</i>
+    <strong>285</strong>, 1182-1186 (1971).</p>
+<aside>
+    <p>The classic paper in the optimistic early days of
+        antiangiogenic medications.</p>
+</aside>
+<p>E.C. Hayden. Cutting off cancer’s supply lines.
+    <i>Nature</i> <strong>458</strong>, 686-691 (2009).</p>
+<aside>
+    <p>A concise and readable review of the state of affairs
+        with antiangiogenics in 2009.</p>
+</aside>
+<p>H. Abdel-Qadir et al. Cardiovascular toxicity of
+    angiogenesis inhibitors in treatment of malignancy: A
+    systematic review and meta-analysis. <i>Cancer Treatment
+        Reviews</i> <strong>53</strong>, 120-127 (2017).</p>
+<aside>
+    <p>Focus on multiple and severe unwanted effects of
+        antiangiogenic medications.</p>
+</aside>
+<p>F. Elice and F. Rodeghiero. Side effects of
+    anti-angiogenic drugs. <i>Thrombosis Research</i>
+    <strong>129</strong>, S50-S53 (2012).</p>
+<p>J. Parkin and B. Cohen. An overview of the immune system.
+    <i>Lancet</i> <strong>357</strong>, 1777-1789 (2001).
+</p>
+<p>R. Medzhitov. Recognition of microorganisms and
+    activation of the immune response. <i>Nature</i>
+    <strong>449</strong>, 819-826 (2007).</p>
+<aside>
+    <p>Detailed account of all molecular aspects of the
+        innate and adaptive response and their interaction
+        with one another.</p>
+</aside>
+<p>A. Iwasaki and R. Medzhitov. Regulation of adaptive
+    immunity by the innate immune system. <i>Science</i>
+    <strong>327</strong>, 291-295 (2010).</p>
+<aside>
+    <p>Informative paper, discusses questions regarding the
+        workings of the innate and adaptive immune response
+        to infection and injury.</p>
+</aside>
+<p>A. Mantovani, M.A. Cassatella, C. Constantini and S.
+    Janillon. Neutrophils in the activation and regulation
+    of innate and adaptive immunity. <i>Nature Reviews
+        Immunology</i> <strong>11</strong>, 519-531 (2011).
+</p>
+<aside>
+    <p>This paper explores the role of one type of white
+        blood cell, the neutrophils, within the innate and
+        adaptive immune response mechanisms.</p>
+</aside>
+<p>L. Koenderman, W. Buurman and M.R. Daha. The innate
+    immune response. <i>Immunology Letters</i>
+    <strong>162</strong>, 95-102 (2014).</p>
+<aside>
+    <p>Concentrates on the workings of the innate immune
+        response.</p>
+</aside>
+<p>F. Estelle and R. Simmons. Advances in H1-Antihistamines.
+    <i>New England Journal of Medicine</i>
+    <strong>351</strong>, 2203-2217 (2004).</p>
+<aside>
+    <p>An in-depth discussion of the mechanism of action and
+        medical applications of antihistamines.</p>
+</aside>
+<p>P.J. Burnes. How corticosteroids control inflammation -
+    Quintiles prize lecture 2005. <i>British Journal of
+        Pharmacology</i> <strong>148</strong>, 245-254
+    (2006).</p>
+<aside>
+    <p>Exploration of the mechanism of action and medical
+        applications of corticosteroids.</p>
+</aside>
+<p>I. Tabas and C.K. Glass. Anti-inflammatory therapy in
+    chronic disease: challenges and opportunities.
+    <i>Science</i> <strong>339</strong>, 166-172 (2013).</p>
+<p>H.A. Chakkera, A. Sharif and B. Kaplan. Negative
+    Cardiovascular Consequences of Small Molecule
+    Immunosuppressants. <i>Clinical Pharmacology &amp;
+        Thera</i>peutics <strong>102</strong>, 269-278
+    (2017).</p>
+<p>L. Saliba et al. Tumor necrosis factor inhibitors added
+    to nonbiological immunosuppressants vs. nonbiological
+    immunosuppressants alone: a different signal of cancer
+    risk according to condition. A disproportionality
+    analysis in a nationwide pharmacovigilance database.
+    <i>Fundamental &amp; Clinical Pharmacology</i>
+    <strong>30</strong>, 162-171 (2016).</p>
+<aside>
+    <p>Increased cancer risk from treatment of autoimmune
+        conditions with TNF inhibitors is independent of
+        type of TNF inhibitor but depends on the specific
+        underlying condition.</p>
+</aside>
+<p>O. Ethgen et al. What do we know about the safety of
+    corticosteroids in rheumatoid arthritis? <i>Current
+        Medical Research and Opinion</i>
+    <strong>29</strong>, 1147-1160 (2013).</p>
+<p>J. Glyn. The discovery and early use of cortisone<i>.
+        Journal of the Royal Society of Medicine</i>
+    <strong>91</strong>, 513-517 (1998).</p>
+<p>J.R. Curtis et al. Population-based assessment of adverse
+    events associated with long-term glucocorticoid use.
+    <i>Arthritis and Rheumatology</i> <strong>55</strong>,
+    420-426 (2006).</p>
+<p>C. Antoni and J. Braun. Side effects of anti-TNF therapy:
+    current knowledge. <i>Clinical and Experimental
+        Rheumatology</i> <strong>20</strong>, S152-S157
+    (2002).</p>
+<p>T. Bongartz et al. Anti-TNF antibody therapy in
+    rheumatoid arthritis and the risk of serious infections
+    and malignancies: systematic review and meta-analysis of
+    rare harmful effects in randomized controlled trials.
+    <i>The Journal of the American Medical Association</i>
+    <strong>295</strong>, 2275-2285 (2006).</p>
+<p>W. Chen et al. The tumor necrosis factor receptor
+    superfamily member 1B polymorphisms predict response to
+    anti-TNF therapy in patients with autoimmune disease: a
+    meta-analysis. <i>International Immunopharmacology</i>
+    <strong>28</strong>, 146-153 (2015).</p>
+<p>J.P.A. Ioannidis et al. Biologic agents in rheumatology:
+    unmet issues after 200 trials and $200 billion sales.
+    <i>Nature Reviews Rheumatology</i> <strong>9</strong>,
+    665-673 (2013).</p>
+<aside>
+    <p>Some pertinent questions, indeed.</p>
+</aside>
+<p>S. Pestka. The interferons: 50 years after their
+    discovery, there is much more to learn. <i>Journal of
+        Biological Chemistry</i> <strong>282</strong>,
+    20047-20051 (2007).</p>
+<p>L.C. Platanias. Mechanisms of type-I- and
+    type-II-interferon-mediated signalling. <i>Nature
+        Reviews Immunology</i> <strong>5</strong>, 375-386
+    (2005).</p>
+<p>L.B. Ivashkiv and G.D. Kalliolias. Overview of the
+    biology of type I interferons. <i>Arthritis Research
+        &amp; Therapy</i> <strong>12</strong>, S1 (2010).
+</p>
+<p>B.S. Parker, J. Rautela and P.J. Hertzog. Antitumour
+    actions of interferons: implications for cancer therapy.
+    <i>Nature Reviews Cancer</i> <strong>16</strong>,
+    131-144 (2016).</p>
+<p>P. Gotwals et al. Prospects for combining targeted and
+    conventional cancer therapy with immunotherapy.
+    <i>Nature Reviews Cancer</i> <strong>17</strong>,
+    286-301 (2017).</p>
+<p>P. Hubel et al. A protein-interaction network of
+    interferon-stimulated genes extends the innate immune
+    system landscape. <i>Nature Immunology</i>
+    <strong>20</strong>, 493-502 (2019).</p>
+<p>R. Baron, A. Binder and G. Wasner. Neuropathic pain:
+    diagnosis, pathophysiological mechanisms, and treatment.
+    <i>Lancet Neurology</i> <strong>9</strong>, 807-819
+    (2010).</p>
+<p>P. Coulthard et al. Interventions for iatrogenic inferior
+    alveolar and lingual nerve injury (Review). <i>The
+        Cochrane Collaboration</i> (2014).</p>
+<p>P. Cherian et al. Oral antibiotics versus topical
+    decolonization to prevent surgical site infection after
+    Mohs micrographic surgery: a randomized controlled
+    trial. <i>Dermatologic Surgery</i> <strong>39</strong>,
+    1486-1493 (2013).</p>
+<p>M.H. Ossipov et al. Central modulation of pain. <i>The
+        Journal of Clinical Investigation</i>
+    <strong>120</strong>, 3779-3787 (2010).</p>
+<aside>
+    <p>General review.</p>
+</aside>
+<p>M. de Felice and M.H. Ossipov. Cortical and subcortical
+    modulation of pain. <i>Pain Management</i>
+    <strong>6</strong>, 111-120 (2016).</p>
+<aside>
+    <p>General overview / review.</p>
+</aside>
+<p>M.H. Ossipov, K. Morimura and F. Porreca. Descending pain
+    modulation and chronification of pain. <i>Current
+        Opinion in Supportive and Palliative Care</i>
+    <strong>8</strong>, 143-151 (2014).</p>
+<aside>
+    <p>Good summary and overview of current understanding
+        (or lack of it) of mechanisms leading to chronic
+        pain, highlights this as an unmet clinical need.</p>
+</aside>
+<p>A.E. Dubin and A. Patapoutian. Nociceptors: the sensors
+    of the pain pathway. <i>The Journal of Clinical
+        Investigation</i> <strong>120</strong>, 3760-3772
+    (2010).</p>
+<aside>
+    <p>Focus on cell biology.</p>
+</aside>
+<p>C. Nasri-Heir et al. Altered pain modulation in patients
+    with persistent postendodontic pain. <i>Pain</i>
+    <strong>156</strong>, 2032-2041 (2015).</p>
+<p>C.J. Woolf. Central sensitization: Implications for the
+    diagnosis and treatment of pain. <i>Pain</i>
+    <strong>152</strong>, S2-S15 (2011).</p>
+<aside>
+    <p>Thorough technical discussion, very clear, with
+        exhaustive list of references up to date at the time
+        when article published.</p>
+</aside>
+<p>C.J. Woolf. What is this thing called pain? <i>The
+        Journal of Clinical Investigation</i>
+    <strong>120</strong>, 3742-3744 (2010).</p>
+<aside>
+    <p>An interesting mini-review reflection on concepts of
+        pain.</p>
+</aside>
+<p>G. Vargas-Schaffer. Is the WHO analgesic ladder still
+    valid? <i>Canadian Family Physician</i>
+    <strong>56</strong>, 514-517 (2010).</p>
+<p>J.C. Ballantyne, E. Kalso and C. Stannard. WHO analgesic
+    ladder: a good concept gone astray. <i>British Medical
+        Journal</i> <strong>352</strong>:i20 (2016).</p>
+<aside>
+    <p>A critical introspective reflection on treatment
+        practice.</p>
+</aside>
+<p>M.J. Millan. Descending control of pain. <i>Progress in
+        Neurobiology</i> <strong>66</strong>, 355-474
+    (2002).</p>
+<p>S.W. Evans and R.A. McCahon. Management of postoperative
+    pain in maxillofacial surgery. <i>British Journal of
+        Oral and Maxillofacial Surgery</i>
+    <strong>57</strong>, 4-11 (2019).</p>
+<p>F. Pincelli et al. Chlorhexidine with an
+    Anti-Discoloration System. A comparative study.
+    <i>International Journal of Dental Hygiene</i>
+    <strong>2</strong>, 122-126 (2004).</p>
+<p>P. Cortellini et al. Chlorhexidine with an
+    antidiscoloration system after periodontal flap surgery:
+    a cross-over, randomized, triple-blind clinical trial.
+    <i>Journal of Clinical Periodontology</i>
+    <strong>35</strong>, 614–620 (2008).</p>
+<p>R. Baron, S. Ferrari and R.G.G. Russell. Denosumab and
+    bisphosphonates: Different mechanisms of action and
+    effects. <i>Bone</i> <strong>48,</strong> 677-692
+    (2011).</p>
+<aside>
+    <p>A clear and informative review / overview.</p>
+</aside>
+<p>B. Benjamin et al. Review on the comparison of
+    effectiveness between denosumab and bisphosphonates in
+    post-menopausal osteoporosis. <i>Osteoporosis and
+        Sarcopenia</i> <strong>2</strong>, 77-81 (2016).</p>
+<p>P.K. Piper jr. and U. Gruntmanis. Management of
+    osteoporosis in the aging male: Focus on zoledronic
+    acid. <i>Clinical Interventions in Aging</i>
+    <strong>4</strong>, 289-303 (2009).</p>
+<aside>
+    <p>Contrary to common believe, osteoporosis and
+        treatment schemes with antiresorptive medications
+        (and adverse effects) are not a purely
+        female-dominated issue.</p>
+</aside>
+<p>J.E. Dunford et al. Structure-Activity Relationships for
+    Inhibition of Farnesyl</p>
+<p>Diphosphate Synthase in Vitro and Inhibition of Bone
+    Resorption in Vivo by Nitrogen-Containing
+    Bisphosphonates. <i>The Journal of Pharmacology and
+        Experimental Therapeutics</i> <strong>296</strong>,
+    235-242 (2001).</p>
+<p>L. Rejnmark, L. Underbjerg and T. Sikjaer. Therapy of
+    Hypoparathyroidism by Replacement with Parathyroid
+    Hormone. <i>Scientifica</i>, Article ID 765629 (2014).
+</p>
+<p>M.T. Poldervaart et al. Treatment of Lymphatic
+    Malformations with OK-432 (Picibanil): Review of the
+    Literature. <i>Journal of Craniofacial Surgery</i>
+    <strong>20</strong>, 1158-1162 (2009).</p>
+<p>M. Kono et al. Evaluation of OK-432 (Picibanil) injection
+    therapy for intraoral ranula. <i>International Journal
+        of Oral and Maxillofacial Surgery</i>
+    <strong>44</strong>, e249 (2015).</p>
+<p>N. Efe et al. Excellent Result with the Use of
+    Single-Dose OK-432 in Cervical Macrocystic Lymphangioma.
+    <i>Journal of Craniofacial Surgery</i>
+    <strong>27</strong>, 1802-1803 (2016).</p>
+<p>A. Weitz-Tuoretmaa et al. Efficacy of OK-432
+    sclerotherapy in treatment of lymphatic malformations:
+    long-term follow-up results. <i>European Archives of
+        Oto-Rhino-Laryngology</i> <strong>271</strong>,
+    385-390 (2014).</p>
+<p>Y. Safarpour and B. Jabbari. Botulinum toxin treatment of
+    pain syndromes – an evidence based review.
+    <i>Toxicon</i> <strong>147</strong>, 120-128 (2018).</p>
+<aside>
+    <p>Not specific about head &amp; neck conditions but a
+        useful overview.</p>
+</aside>
+<p>J. Pingel et al. Injection of high dose botulinum-toxin A
+    leads to impaired skeletal muscle function and damage to
+    of the fibrilar and non-fibrilar structures. <i>Nature
+        Scientific Reports</i> <strong>7</strong>, 14746
+    (2018).</p>
+<aside>
+    <p>Laboratory study on rats, demonstrating convincingly
+        the tissue damage caused by botulinum toxin
+        injections into muscle tissue.</p>
+</aside>
+<p>J. Jankovic. Botulinum Toxin: State of the Art.
+    <i>Movement Disorders</i> <strong>32</strong>, 1131-1138
+    (2017).</p>
+<p>J. Jankovic. An update on new and unique uses of
+    botulinum toxin in movement disorders. <i>Toxicon</i>
+    <strong>147</strong>, 84-88 (2018).</p>
+<p>C. L. Comella. Systematic review of botulinum treatment
+    for oromandibular dystonia. <i>Toxicon</i>
+    <strong>147</strong>, 96-99 (2018).</p>
+<p>W. Photong et al. A case of dysphagia following botulinum
+    toxin injection for neck rejuvenation. <i>Journal of
+        Cosmetic Dermatology</i> <strong>16</strong>, 15-17
+    (2016).</p>
+<p>D. Tighe et al. Dysphagia as a complication of botulinum
+    toxin injection to treat drooling. <i>British Journal or
+        Oral and Maxillofacial Surgery</i>
+    <strong>52</strong>, 673-674 (2014).</p>
+<p>A.J. Sidebottom, A.A. Patel and J. Amin. Botulinum
+    injection for the management of myofascial pain in the
+    masticatory muscles. A prospective outcome study.
+    <i>British Journal or Oral and Maxillofacial Surgery</i>
+    <strong>51</strong>, 199-205 (2013).</p>
+<p>S. Gregory et al. Nd:YAG laser and bleomycin
+    sclerotherapy under the same anesthesia for
+    cervicofacial venous malformations: A safe and effective
+    treatment option. <i>International Journal of Pediatric
+        Otorhinolarnygology</i> <strong>108</strong>, 30-34
+    (2018).</p>
+<p>A. Groselj et al. Efficiency of electrochemotherapy with
+    reduced bleomycin dose in the treatment of nonmelanoma
+    head and neck skin cancer: Preliminary results. <i>Head
+        &amp; Neck</i> <strong>40</strong>, 120-125 (2018).
+</p>
+<p>P.K. Porwal et al. Bleomycin Sclerotherapy in
+    Lymphangiomas of Head and Neck: Prospective Study of 8
+    Cases. <i>Indian Journal of Otolaryngology and Head
+        &amp; Neck Surgery</i> <strong>70</strong>, 145-148
+    (2018).</p>
+<p>E.R.S. Horbach et al. Intralesional Bleomycin Injections
+    for Vascular Malformations: A Systematic Review and
+    Meta-Analysis. <i>Plastic and Reconstructive Surgery</i>
+    <strong>137</strong>, 244-256 (2016).</p>
+<aside>
+    <p>Study suggests that intralesional bleomycin
+        injections are effective in reducing the size of
+        lymphatic and venous malformations, with fewer
+        adverse effects than other sclerosants; no reports
+        of pulmonary fibrosis resulting from local bleomycin
+        administration in the short term.</p>
+</aside>
+<p>J.M. Mack et al. Short-term side effects and
+    patient-reported outcomes of bleomycin sclerotherapy in
+    vascular malformations. <i>Paediatric Blood Cancer</i>
+    <strong>65</strong>:e27008 (2018).</p>
+<p>S.M. Hecht. Bleomycin: New Perspectives on the Mechanism
+    of Action. <i>Journal of Natural Products</i>
+    <strong>63</strong>, 158-168 (2000).</p>
+<p>M.G. Traber and J. Atkinson. Vitamin E, antioxidant and
+    nothing more. <i>Free Radical Biology and Medicine</i>
+    <strong>43</strong>, 4-15 (2007).</p>
+<p>Q. Jiang. Natural forms of vitamin E: metabolism,
+    antioxidant, and anti-inflammatory activities and their
+    role in disease prevention and therapy. <i>Free Radical
+        Biology and Medicine</i> <strong>72</strong>, 76-90
+    (2014).</p>
+<p>F. Galli et al. Vitamin E: Emerging aspects and new
+    directions. <i>Free Radical Biology and Medicine</i>
+    <strong>102</strong>, 16-36 (2017).</p>
+<p>A. Azzi et al. The rise, the fall and the renaissance of
+    vitamin E. <i>Archives of Biochemistry and
+        Biophysics</i> <strong>595</strong>, 100-108 (2016).
+</p>
+<p>M.F. McCarty, J.H. O’Keefe and J.J. DiNicolantonio.
+    Pentoxifylline for vascular health: a brief review of
+    the literature. <i>Open Heart</i>
+    <strong>3</strong>:e000365 (2016).</p>
+<p>W.X. Wen et al. Repurposing Pentoxifylline for the
+    Treatment of Fibrosis: An Overview. <i>Advances in
+        Therapy</i> <strong>34</strong>, 1245-1269 (2017).
+</p>
+<p>C.H. Lee, A. Singla and Y. Lee. Biomedical applications
+    of collagen. <i>International Journal of
+        Pharmaceutics</i> <strong>221</strong>, 1-22 (2001).
+</p>
+<p>N. Annabi et al. Elastic sealants for surgical
+    applications. <i>European Journal of Pharmaceutics and
+        Biopharmaceutics</i> <strong>95A</strong>, 27-39
+    (2015).</p>
+<p>M. Westberg et al. Effectiveness of Gentamicin-Containing
+    Collagen Sponges for Prevention of Surgical Site
+    Infection after Hip Arthroplasty: A Multicenter
+    Randomized Trial. <i>Clinical Infectious Diseases</i>
+    <strong>60</strong>, 1752–1759 (2015).</p>
+<aside>
+    <p>Does not seem to be particularly effective in the
+        treatment of femur fractures of elderly people.</p>
+</aside>
+<p>F. Zamboni et al. The potential of hyaluronic acid in
+    immunoprotection and immunomodulation: Chemistry,
+    processing and function. <i>Progress in Materials
+        Science</i> <strong>97</strong>, 97-122 (2018).</p>
+<p>M. Litwiniuk, A. Krejner and T. Grzela. Hyaluronic Acid
+    in Inflammation and Tissue Regeneration. <i>Wounds</i>
+    <strong>28</strong>, 78-88 (2016).</p>
+<p>H. Zhao et al. Comprehensive assessment of tranexamic
+    acid during orthognathic surgery. A systematic review
+    and meta-analysis of randomized, controlled trials.
+    <i>Journal of Cranio-Maxillo-Facial Surgery</i>
+    <strong>47</strong>, 592-601 (2019).</p>
+<h1 id="miscellaneous-treatments">Miscellaneous treatments</h1>
+<h2>Textbooks</h2>
+<p>K. Nouri (ed.). Lasers in Dermatology and Medicine.
+    Springer, 2018.</p>
+<p>G. Stux and B. Pomeranz. Basics of Acupuncture
+    (4<sup>th</sup> ed.). Springer Science &amp; Business
+    Media, 2013.</p>
+<aside>
+    <p>A concise account by two strong supporters of
+        acupuncture, so short on more critical voices.</p>
+</aside>
+<p>H. MacPherson (ed.). Acupuncture Research: Strategies for
+    Establishing an Evidence Base. Elsevier Health Sciences,
+    2007.</p>
+<p>J. Filshie, A. White and M. Cummings (eds.). Medical
+    Acupuncture: A Western Scientific Approach. Elsevier,
+    2016.</p>
+<aside>
+    <p>A more comprehensive account, but through the lens of
+        strong supporters of acupuncture.</p>
+</aside>
+<p>M.R. Hamblin, M.V. De Sousa and T. Agrawal. Handbook of
+    Low Level Laser Therapy. Pan-Stanford Publishing,
+    Singapore, 2016.</p>
+<p>D. Ottoson and T. Lundeberg. Pain Treatment by
+    Transcutaneous Electrical Nerve Stimulation (TENS): A
+    Practical Manual. Springer Science &amp; Business Media,
+    2012.</p>
+<p>M.I. Johnson. Transcutaneous Electrical Nerve Stimulation
+    (TENS): Research to Support Clinical Practice. Oxford
+    University Press, Oxford, 2014.</p>
+<aside>
+    <p>A quote from the book: ‘… You can be certain of
+        uncertainty when evaluating the clinical
+        effectiveness of TENS. …’</p>
+</aside>
+<p>M.S. Schwartz and F. Andrasik (eds.). Biofeedback: A
+    Practitioner’s Guide (4<sup>th</sup> ed.). Guildford
+    Publications, 2017.</p>
+<h2>Journal articles (peer reviewed literature)</h2>
+<p>E. O’Sullivan and I. Higginson. Clinical effectiveness
+    and safety of acupuncture in the treatment of
+    irradiation-induced xerostomia in patients with head and
+    neck cancer: a systematic review. <i>Acupuncture in
+        Medicine</i> <strong>28</strong>, 191-199 (2010).
+</p>
+<aside>
+    <p>Not entirely convincing.</p>
+</aside>
+<p>M. Cummings, A. Hróbjartsson and E. Ernst. Should doctors
+    recommend acupuncture for pain? <i>British Medical
+        Journal</i> 360:k970 (2018).</p>
+<aside>
+    <p>An interesting short debate between supporter (M.
+        Cummings) and opponents (A. Hròbjartsson and E.
+        Ernst) of acupuncture; a brief and straightforward
+        summary of arguments.</p>
+</aside>
+<p>R. la Touche et al. Acupuncture in the treatment of pain
+    in temporomandibular disorders: a systematic review and
+    meta-analysis of randomized controlled trials. <i>The
+        Clinical Journal of Pain</i> <strong>26</strong>,
+    541.550 (2009).</p>
+<p>J. McDonald. Why Randomised Placebo-controlled Trials are
+    Inappropriate for Acupuncture Research. <i>Journal of
+        Chinese Medicine</i> <strong>119</strong>, 47-54
+    (2019).</p>
+<p>M.M. Makary et al. Phantom Acupuncture Induces Placebo
+    Credibility and Vicarious Sensations: A Parallel fMRI
+    Study of Low Back Pain Patients. <i>Nature Scientific
+        Reports</i> <strong>8</strong>, 930 (2018).</p>
+<p>Y. Chae, Y.-S. Lee and P. Enck. How Placebo Needles
+    Differ From Placebo Pills? <i>Frontiers in
+        Psychiatry</i> doi.org/10.3389/fpsyt.2018.00243
+    (2018).</p>
+<p>F.K. Allan et al. Acupuncture for anxiety in dental
+    patients: Systematic review and meta-analysis.
+    <i>European Journal of Integrative Medicine</i>
+    <strong>20</strong>, 22-35 (2018).</p>
+<aside>
+    <p>No conclusive results from the existing literature.
+    </p>
+</aside>
+<p>M.W.C. Chan et al. Safety of Acupuncture: Overview of
+    Systematic Reviews. <i>Nature Scientific Reports</i>
+    <strong>7</strong>, 3369 (2017).</p>
+<aside>
+    <p>Contrary to common believe, acupuncture is not always
+        harmless and adverse effects have been reported
+        repeatedly.</p>
+</aside>
+<p>J.P. Epstein et al. Photobiomodulation therapy:
+    management of mucosal necrosis of the oropharynx in
+    previously treated head and neck cancer patients.
+    <i>Supportive Care in Cancer</i> <strong>25</strong>,
+    1031-1034 (2017).</p>
+<p>J.A.E.M. Zecha et al. Low-level laser
+    therapy/photobiomodulation in the management of side
+    effects of chemoradiation therapy in head and neck
+    cancer: part 2: proposed applications and treatment
+    protocols. <i>Supportive Care in Cancer</i>
+    <strong>24</strong>, 2793–2805 (2016).</p>
+<p>F. Marín-Conde et al. Photobiomodulation with low-level
+    laser therapy reduces oral mucositis caused by head and
+    neck radio-chemotherapy: prospective randomized
+    controlled trial. <i>International Journal of Oral and
+        Maxillofacial Surgery</i> 48, 917-923 (2019).</p>
+<aside>
+    <p>Some weak evidence of short-term benefits.</p>
+</aside>
+<p>M.R. Hamblin. Mechanisms and Mitochondrial Redox
+    Signalling in Photobiomodulation. <i>Photochemistry and
+        Photobiology</i> <strong>94</strong>, 199–212
+    (2018).</p>
+<aside>
+    <p>Review of the cell biology involved.</p>
+</aside>
+<p>V. Heiskanen and M.R. Hamblin. Photobiomodulation: lasers
+    <i>vs</i>. light emitting diodes? <i>Photochemical and
+        Photobiological Sciences</i> <strong>17</strong>,
+    1003-1017 (2018).</p>
+<p>Y. Zadik et al. Systematic review of photobiomodulation
+    for the management of oral mucositis in cancer patients
+    and clinical practice guidelines. <i>Supportive Care in
+        Cancer</i> <strong>27</strong>, 3969-3983 (2019).
+</p>
+<p>M.T. Genot-Klastersky et al. Retrospective evaluation of
+    the safety of low-level laser therapy/photobiomodulation
+    in patients with head/neck cancer. <i>Supportive Care in
+        Cancer</i> <a href="https://doi.org/10.1007/s00520-019-05041-3">doi.org/10.1007/s00520-019-05041-3</a>
+    (2019).</p>
+<p>F. Alaijah et al. Photobiomodulation therapy in the
+    treatment of periodontal disease: a literature review.
+    <i>Lasers in Dental Science</i> <strong>3</strong>,
+    147-153 (2019).</p>
+<p>D.P. Kuffler. Platelet-Rich Plasma Promotes Axon
+    Regeneration, Wound Healing and Pain Reduction: Fact or
+    Fiction. <i>Molecular Neurobiology</i>
+    <strong>52</strong>, 990-1014 (2015).</p>
+<p>J.S. Fernandez-Moure et al. Platelet-rich plasma: a
+    biomimetic approach to enhancement of surgical wound
+    healing. <i>Journal of Surgical Research</i>
+    <strong>207</strong>, 33-44 (2017).</p>
+<p>K.M. Hassan and A.V. Benedetto. Facial skin rejuvenation:
+    ablative laser resurfacing, chemical peels or
+    photodynamic therapy? Facts and controversies.
+    <i>Clinical Dermatology</i> <strong>31</strong>, 737-740
+    (2013).</p>
+<p>N. Nikalji et al. Complications of medium-depth and deep
+    chemical peels. <i>Journal of Cutaneous and Aesthetic
+        Surgery</i> <strong>4</strong>, 254-260 (2012).</p>
+<p>C.G. Wambier et al. Advanced chemical peels: Phenol –
+    croton oil peel. <i>Journal of the American Academy of
+        Dermatology</i> <strong>81</strong>, 327-336 (2019).
+</p>
+<p>S.J. Starkman and D.S. Mangat. Chemical Peels: Deep,
+    Medium, and Light. <i>Facial and Plastic Surgery</i>
+    <strong>35</strong>, 239-247 (2019).</p>
+<p>W. Mansukiatti, R.E. Fitzpatrick and M.P. Goldman.
+    Long-term effectiveness and side effects of carbon
+    dioxide laser resurfacing for photo-aged facial skin.
+    <i>Journal of the American Academy of Dermatology</i>
+    <strong>40</strong>, 401-411 (1999).</p>
+<p>T.M. Campbell and M.P. Goldman. Adverse events of
+    fractionated carbon dioxide laser: review of 373
+    treatments. <i>Dermatologic Surgery</i>
+    <strong>36</strong>, 1645-1659 (2010).</p>
+<p>H.G. Setyadi, A.A. Jacobs and R.F. Markus. Infectious
+    complications after nonablative fractional resurfacing
+    treatment. <i>Dermatologic Surgery</i>
+    <strong>34</strong>, 1595-1598 (2008).</p>
+<p>A. Kauvar and J.S. Dover. Facial skin rejuvenation: laser
+    resurfacing or chemical peel: choose your weapon.
+    <i>Dermatologic Surgery</i> <strong>27</strong>, 209-212
+    (2001).</p>
+<p>B.-J. Kim et al. Laser Resurfacing after Facial Free Flap
+    Reconstruction. <i>Medical Lasers</i>
+    <strong>8</strong>, 7-12 (2019).</p>
+<p>K.A. Sluka and D. Walsh. Transcutaneous Electrical Nerve
+    Stimulation: Basic Science Mechanisms and Clinical
+    Effectiveness. <i>The Journal of Pain</i>
+    <strong>4</strong>, 109-121 (2003).</p>
+<p>K.E. Nnoaham, J. Kumbang J. Transcutaneous electrical
+    nerve stimulation (TENS) for chronic pain. <i>Cochrane
+        Database of Systematic Reviews</i>
+    <strong>3</strong>:CD003222 (2008).</p>
+<aside>
+    <p>Authors conclude that ‘… were unable to draw any
+        conclusion on TENS-associated harms or side-effects
+        …’ and were also unable to confirm effectiveness of
+        TENS in pain relief; conclusions drawn from a large
+        body of literature.</p>
+</aside>
+<h1 id="new-developments">New developments</h1>
+<h2>Textbooks</h2>
+<p>G.A. Grillone and S. Jalisi (eds.). Robotic Surgery of
+    the Head and Neck: A Comprehensive Guide. Springer, New
+    York, Heidelberg, 2015.</p>
+<p>Z. Gil, M. Amit and M.E. Kupferman (eds.). Atlas of Head
+    and Neck Robotic Surgery. Springer International
+    Publishing, 2017.</p>
+<p>M.L. Hinni and D.G. Lott (eds.). Contemporary Transoral
+    Surgery for Primary Head and Neck Cancer. Plural
+    Publishing, San Diego, 2015.</p>
+<p>J.R. Ferraro and K. Nakamoto. Introductory Raman
+    Spectroscopy. Academic Press, San Diego, 1994.</p>
+<aside>
+    <p>Classical introductory textbook, with only few
+        references to infrared spectroscopy; reads like a
+        transcript from lecture notes.</p>
+</aside>
+<p>P. Larkin. IR and Raman Spectroscopy. Principles and
+    Spectral Interpretation. Elsevier Inc., 2011.</p>
+<aside>
+    <p>Another textbook, but covering more broadly and in
+        more depth the whole topic of vibrational
+        spectroscopies.</p>
+</aside>
+<p>M. Ghomi (ed.). Applications of Raman Spectroscopy to
+    Biology. From Basic Studies to Disease Diagnosis. IOS
+    Press, Amsterdam, Berlin, 2012.</p>
+<aside>
+    <p>Useful collection of chapters covering new
+        applications and developments; perhaps at times a
+        little overly optimistic.</p>
+</aside>
+<p>J.H. Gross. Mass Spectrometry. A Textbook, 2<sup>nd</sup>
+    edition. Springer, Heidelberg, 2011.</p>
+<aside>
+    <p>Accessible overview of, and introduction to, the
+        working principles of the various mass spectrometry
+        technologies.</p>
+</aside>
+<p>M.S. Lee (ed.). Mass Spectrometry Handbook. John Wiley,
+    Hoboken, 2012.</p>
+<aside>
+    <p>Contemporary overview of the many different modern
+        applications of mass spectrometry in analytical
+        sciences, including biomedical applications (amongst
+        many others).</p>
+</aside>
+<p>T. Liljefors, P. Kogsgaard-Larsen and U. Madsen. Textbook
+    of Drug Design and Discovery, 3<sup>rd</sup> edition.
+    Taylor &amp; Francis, 2003.</p>
+<aside>
+    <p>Good general overview and introduction.</p>
+</aside>
+<p>D.G. Truhlar, W.J. Howe, A.J. Hopfinger, J. Blaney and
+    R.A. Dammkoehler (eds.). Rational Drug Design. Springer
+    Verlag, Berlin, 1999.</p>
+<aside>
+    <p>Technically a little outdated, but nevertheless an
+        interesting insight into the computational /
+        modelling and numerical simulation aspects and
+        principles applied in drug design.</p>
+</aside>
+<p>R.C. Rees (ed.). Tumour Immunology and Immunotherapy.
+    Oxford University Press, Oxford, 2014.</p>
+<aside>
+    <p>A fairly early, mostly European perspective on
+        developments.</p>
+</aside>
+<p>L.J.N. Cooper, E.A. Mittendorf, J. Moyes and S.
+    Prabhakaran (eds.). Immunotherapy in Translational
+    Cancer Research. Wiley-Blackwell, Oxford, 2018.</p>
+<aside>
+    <p>A predominantly North American perspective.</p>
+</aside>
+<p>V.T. DeVita, T.S. Lawrence and S.A. Rosenberg (eds.).
+    Cancer. Principles &amp; Practice of Oncology,
+    10<sup>th</sup> edition. Wolters Kluwer, Philadelphia,
+    2015.</p>
+<aside>
+    <p>Some useful reference material with clear diagrams,
+        with chapters on immune therapy and inflammation.
+    </p>
+</aside>
+<p>A. Naing and J. Haijar (eds.). Immunotherapy,
+    2<sup>nd</sup> edition. Springer International
+    Publishers, 2018.</p>
+<aside>
+    <p>A reflection on recent developments, and emerging
+        adverse effect burdens by these treatments,
+        highlighting the need to search for better
+        predictive biomarkers.</p>
+</aside>
+<p>J.Z. Muller. The Tyranny of Metrics. Princeton University
+    Press, Princeton, 2018.</p>
+<p>J.L. Peacock and P.J. Peacock. Oxford Handbook of Medical
+    Statistics. Oxford University Press, Oxford, 2011.</p>
+<p>L.M. Friedman, C. Furberg and D.L. DeMets. Fundamentals
+    of Clinical Trials, 4<sup>th</sup> ed. Springer Science
+    &amp; Business Media, 2010.</p>
+<p>T.D. Cook and D.L. DeMets. Introduction to Statistical
+    Methods for Clinical Trials. CRC Press, 2007.</p>
+<p>T. Brody. Clinical Trials. Study Design, Endpoints and
+    Biomarkers, Drug Safety and FDA and ICH Guidelines.
+    Academic Press, 2011.</p>
+<p>W.F. Rosenberger and J.M. Lachin. Randomization in
+    Clinical Trials: Theory and Practice, 2<sup>nd</sup> ed.
+    John Wiley &amp; Sons, 2015.</p>
+<p>R. Chin. Adaptive and Flexible Clinical Trials. CRC
+    Press, 2016.</p>
+<p>S. Halabi and S. Michiels (eds.). Textbook of Clinical
+    Trials in Oncology: A Statistical Perspective. CRC
+    Press, 2019.</p>
+<h2>Journal articles (peer reviewed literature)</h2>
+<p>D.H. Jensen et al. Mesenchymal stem cell therapy for
+    salivary gland dysfunction and xerostomia: a systematic
+    review of preclinical studies. <i>Oral Surgery, Oral
+        Medicine, Oral Pathology, Oral Radiology</i>
+    <strong>117</strong>, 335-342 (2014).</p>
+<p>E.R. Vickers et al. A preliminary report on stem cell
+    therapies for neuropathic pain in humans. <i>Journal of
+        Pain Research</i> <strong>7</strong>, 255-263
+    (2014).</p>
+<p>D. Nevens and S. Nuyt. The role of stem cells in the
+    prevention and treatment of radiation-induced xerostomia
+    in patients with head and neck cancer. <i>Cancer
+        Medicine</i> <strong>5</strong>, 1147-1153 (2016).
+</p>
+<p>G.T.-J. Huang, S. Gronthos and S. Shi. Mesenchymal Stem
+    Cells Derived from Dental Tissue vs. Those from Other
+    Sources: Their Biology and Role in Regenerative
+    Medicine. <i>Journal of Dental Research</i>
+    <strong>88</strong>, 792-806 (2009).</p>
+<p>V.S. Venkataiah et al. Periodontal Regeneration by
+    Allogenic Transplantation of Adipose Tissue Derived
+    Multi-Lineage Progenitor Stem Cells in vivo. <i>Nature
+        Scientific Reports</i> <strong>9</strong>, 921
+    (2019).</p>
+<p>H. Lin et al. Bone marrow mesenchymal stem cells: Aging
+    and tissue engineering applications to enhance bone
+    healing. <i>Biomaterials</i> <strong>203</strong>,
+    96-110 (2019).</p>
+<aside>
+    <p>Early ideas and experiments (on pigs) but promising
+        first steps.</p>
+</aside>
+<p>J.-M. Lee et al. Developing palatal bone using human
+    mesenchymal stem cells and stem cells from exfoliated
+    deciduous teeth cell sheets. <i>Journal of Tissue
+        Engineering and Regenerative Medicine</i>
+    <strong>13</strong>, 319-327 (2019).</p>
+<aside>
+    <p>Interesting concepts at an early, laboratory, stage
+        of development aiming long-term at new ways of cleft
+        palate repair.</p>
+</aside>
+<p>R.L. Ferris. Immunology and Immunotherapy of Head and
+    Neck Cancer. <i>Journal of Clinical Oncology</i>
+    <strong>33</strong>, 3293-3304 (2015).</p>
+<aside>
+    <p>A concise summary of current trends and
+        understanding.</p>
+</aside>
+<p>R.L. Ferris et al. Nivolumab for Recurrent Squamous-Cell
+    Carcinoma of the Head and Neck. <i>New England Journal
+        of Medicine</i> <strong>375</strong>, 1856-1867
+    (2016).</p>
+<aside>
+    <p>An optimistic interpretation of some early results
+        (study supported by pharmaceutical company).</p>
+</aside>
+<p>T.L. Whiteside. Head and Neck Carcinoma Immunotherapy:
+    Facts and Hopes. <i>Clinical Cancer Research</i>
+    <strong>24</strong>, 6-13 (2018).</p>
+<aside>
+    <p>Short overview of the immunotherapy options for use
+        in head and neck carcinoma.</p>
+</aside>
+<p>M.V. Heppt et al. Intralesional interleukin-2 for
+    unresectable mucosal melanoma refractory to nivolumab.
+    <i>Cancer Immunology and Immunotherapy</i>
+    <strong>66</strong>, 1377-1378 (2017).</p>
+<p>J.K. Tietze et al. Low baseline levels of NK cells may
+    predict a positive response to ipilimumab in melanoma
+    therapy. <i>Experimental Dermatology</i>
+    <strong>26</strong>, 622-629 (2017).</p>
+<p>B. Weide et al. Baseline Biomarkers for Outcome of
+    Melanoma Patients Treated with Pembrolizumab.
+    <i>American Association for Cancer Research, Clinical
+        Cancer Research</i> <strong>22</strong>, 5487-5496
+    (2016).</p>
+<p>T.K. Eigentler et al. Diagnosis, monitoring and
+    management of immune-related adverse drug reactions of
+    anti-PD1 antibody therapy. <i>Cancer Treatment
+        Reviews</i> <strong>45</strong>, 7-18 (2016).</p>
+<p>L. Spain, S. Diem and J. Larkin. Management of toxicities
+    of immune checkpoint inhibitors. <i>Cancer Treatment
+        Reviews</i> <strong>44</strong>, 51-60 (2016).</p>
+<p>D.V. Bann, D.G. Deschler and N. Goyal. Novel
+    Immunotherapeutic Approaches for Head and Neck Squamous
+    Cell Carcinoma. <i>Cancers</i> <strong>8</strong>, 87
+    (2016).</p>
+<aside>
+    <p>A thorough and careful evaluation of options in a
+        comprehensive review of the specifics of head &amp;
+        neck squamous cell carcinoma.</p>
+</aside>
+<p>K. Schneider et al. Therapeutic human papillomavirus
+    vaccines in head and neck cancer: A systematic review of
+    current clinical trials. <i>Vaccine</i> 36, 6594-6605
+    (2018).</p>
+<aside>
+    <p>A summary of a range of ongoing clinical trials on
+        therapeutic vaccine immunotherapies in the treatment
+        of HPV-positive head and neck cancers, identifying
+        some potential and generally increased immune
+        responses but a lack of clinical responses.</p>
+</aside>
+<p>B. Samra et al. Checkpoint inhibitors in head and neck
+    cancer: Current knowledge and perspectives. <i>Journal
+        of Investigative Medicine</i> <strong>66</strong>,
+    1023-1030 (2018).</p>
+<p>T. Rusch et al. Immunotherapy as an Option for Cancer
+    Treatment. <i>Archivum Immunologiae et Therapiae
+        Experimentalis</i> <strong>66</strong>, 89-96
+    (2018).</p>
+<aside>
+    <p>Review of key strategies currently used in late-stage
+        cancer immunotherapy.</p>
+</aside>
+<p>D.C. Ling et al. Role of Immunotherapy in Head and Neck
+    Cancer. <i>Seminars in Radiation Oncology</i>
+    <strong>28</strong>, 12-16 (2017).</p>
+<aside>
+    <p>Highlights potential role of cetuximab as a
+        replacement of cis-platin in chemo-radiotherapy.</p>
+</aside>
+<p>J. Cho., D.E. Johnson and J.R. Grandis. Therapeutic
+    Implications of the Genetic Landscape of Head and Neck
+    Cancer. <i>Seminars in Radiation Oncology</i>
+    <strong>28</strong>, 2-11 (2017).</p>
+<aside>
+    <p>Highlights importance of predictive biomarkers for
+        therapeutic strategies.</p>
+</aside>
+<p>N.A. Rizvi et al. Cancer immunology. Mutational landscape
+    determines sensitivity to PD-1 blockade in non-small
+    cell lung cancer. <i>Science</i> <strong>348</strong>,
+    124–128 (2015).</p>
+<p>C. Kandoth et al.  Mutational landscape and significance
+    across 12 major cancer
+    types. <i>Nature</i> <strong>502</strong>, 333–339
+    (2013).</p>
+<p>B. Solomona, R.J. Young and D. Rischin. Head and neck
+    squamous cell carcinoma: Genomics and emerging
+    biomarkers for immunomodulatory cancer treatments.
+    <i>Seminars in Cancer Biology</i> <strong>52</strong>,
+    228-240 (2018).</p>
+<p>Y. Yu and J. Cui. Present and future of cancer
+    immunotherapy: A tumor microenvironmental perspective
+    (Review). <i>Oncology Letters</i> <strong>16</strong>,
+    4105-4113 (2018).</p>
+<aside>
+    <p>Not specific about head and neck malignancies,
+        nevertheless an accessible summary of
+        immunosuppressive behaviour of malignancies in
+        response to different treatment modalities;
+        highlighting need for individualised approaches.</p>
+</aside>
+<p>S. Jin, R. Pazdur and R. Sridhara. Re-Evaluating
+    Eligibility Criteria for Oncology Clinical Trials:
+    Analysis of Investigational New Drug Applications in
+    2015. <i>Journal of Clinical Oncology</i>
+    <strong>35</strong>, 3745-3753 (2017).</p>
+<aside>
+    <p>A critical look at the current limitations in the
+        eligibility criteria of clinical trials.</p>
+</aside>
+<p>J.J. Havel, D. Chowell and T.A. Chan. The evolving
+    landscape of biomarkers for checkpoint inhibitor
+    immunotherapy. <i>Nature Reviews Cancer</i>
+    <strong>19</strong>, 133-150 (2019).</p>
+<aside>
+    <p>A thorough and exhaustive review of the current
+        situation, with more than 200 references – lack of
+        biomarkers.</p>
+</aside>
+<p>G.J. Hanna et al. Frameshift events predict anti-PD-1/L1
+    response in head and neck cancer. <i>The Journal of
+        Clinical Investigation Insight</i>
+    <strong>3</strong>, e98811 (2018).</p>
+<p>P. Arnaud-Coffin et al. A systematic review of adverse
+    effects in randomized trials assessing immune checkpoint
+    inhibitors. <i>International Journal of Cancer</i>
+    <strong>145</strong>, 639-648 (2019).</p>
+<aside>
+    <p>A careful discussion of the high percentages of
+        severe adverse effects of the most common
+        immunotherapies to date; also highlighting the
+        predictable increased need for health care systems
+        to deal with these effects.</p>
+</aside>
+<p>E.J. Sayour and D.A. Mitchell. Manipulation of Innate and
+    Adaptive Immunity through Cancer Vaccines. <i>Journal of
+        Immunology Research</i>, 3145742 (2017).</p>
+<p>M.A. Gadhikar and J.N. Myers. Recent advances in head and
+    neck cancer: The beginning of the immunotherapy era in
+    HNSCC. <i>Advances in Modern Oncology Research</i>
+    <strong>4</strong>, 284 (2018).</p>
+<aside>
+    <p>A brief and clear overview of ongoing investigations,
+        with an optimistic attitude.</p>
+</aside>
+<p>E. Vigarios, J.B. Epstein and V. Sibaud. Oral mucosal
+    changes induced by anticancer targeted therapies and
+    immune checkpoint inhibitors. <i>Support Care Cancer</i>
+    <strong>25</strong>, 1713-1739 (2017).</p>
+<aside>
+    <p>Not specifically about treatment of head and neck
+        cancers, but the adverse effects of systemic
+        treatment are general, so are also relevant for the
+        treatment of head and neck malignancies. A careful
+        overview.</p>
+</aside>
+<p>H.-F. Kao and P.-J. Lou. Immune checkpoint inhibitors for
+    head and neck squamous cell carcinoma: Current landscape
+    and future directions. <i>Head &amp; Neck</i>
+    <strong>41</strong>, 4-18 (2019).</p>
+<p>B.L. Rapoport et al. Supportive care for patients
+    undergoing immunotherapy. <i>Support Care Cancer</i>
+    <strong>25</strong>, 3017-3030 (2017).</p>
+<p>B.W. O’Malley jr. et al. Transoral robotic surgery (TORS)
+    for base of tongue neoplasms. <i>Laryngoscope</i>
+    <strong>116</strong>, 1465-1472 (2006).</p>
+<p> J.R. de Almeida et al. Oncologic Outcomes after
+    Transoral Robotic Surgery. A Multi-institutional Study.
+    <i>JAMA Otolaryngology Head and Neck Surgery</i>
+    <strong>141</strong>, 1043-1051 (2015).</p>
+<aside>
+    <p>Study concludes that there is likely to be an
+        established role of TORS in the surgery of head and
+        neck cancers; further evaluations necessary.</p>
+</aside>
+<p>D.C. Ling et al. Oncologic outcomes and patient-reported
+    quality of life in patients with oropharyngeal squamous
+    cell carcinoma treated with definitive transoral robotic
+    surgery versus definitive chemoradiation. <i>Oral
+        Oncology</i> <strong>61</strong>, 41-46 (2016).</p>
+<aside>
+    <p>Study concludes that control and survival, as well as
+        disease-fee survival, are similar with early-stage
+        carcinoma for the two modalities; TORS significantly
+        better with regard to quality of life issues (such
+        as taste and xerostomia).</p>
+</aside>
+<p>S. Baliga et al. Utilization of Transoral Robotic Surgery
+    (TORS) in patients with Oropharyngeal Squamous Cell
+    Carcinoma and its Impact on Survival and Use of
+    Chemotherapy. <i>Oral Oncology</i> <strong>86</strong>,
+    75-80 (2018).</p>
+<p>M.C. Ward and S.A. Koyfman. Transoral robotic surgery:
+    The radiation oncologist’s perspective. <i>Oral
+        Oncology</i> <strong>60</strong>, 96-102 (2016).</p>
+<p>B.G. Main et al. Protocol for the systematic review of
+    the reporting of transoral robotic surgery. <i>British
+        Medical Journal Open</i> <strong>8</strong>:e019198
+    (2018).</p>
+<p>K.C. Schäfer et al. In vivo, in situ tissue analysis
+    using rapid evaporation ionization mass spectrometry.
+    <i>Angewandte Chemie International Edition</i>
+    <strong>48</strong>, 8240-8242 (2009).</p>
+<p>J. Balog et al. Intraoperative Tissue Identification
+    Using Rapid Evaporative Ionization Mass Spectrometry.
+    <i>Science Translational Medicine</i>
+    <strong>5</strong>, 194ra93 (2013).</p>
+<p>B. Prideaux, A. Lenaerts and V. Dartois. Imaging and
+    spatially resolved quantification of drug distribution
+    in tissues by mass spectrometry. <i>Current Opinion in
+        Chemical Biology</i> <strong>44</strong>, 93-100
+    (2018).</p>
+<aside>
+    <p>Some interesting non-clinical / pre-clinical
+        applications of mass spectrometry.</p>
+</aside>
+<p>M. Ji et al. Rapid, Label-Free Detection of Brain Tumors
+    with Stimulated Raman Scattering Microscopy. <i>Science
+        Translational Medicine</i> <strong>5</strong>,
+    201ra119 (2013).</p>
+<p>I.A. Birtoiu et al. Diagnosing clean margins through
+    Raman spectroscopy in human and animal mammary tumour
+    surgery: a short review. <i>Interface Focus</i>
+    <strong>6</strong>:20160067 (2016).</p>
+<p>F.L.J. Cals et al. Investigation of the potential of
+    Raman spectroscopy for oral cancer detection in surgical
+    margins. <i>Laboratory Investigations</i>
+    <strong>95</strong>, 1186-1196 (2015).</p>
+<p>E.M. Barroso et al. Discrimination between Oral Cancer
+    and Healthy Tissue Based on Water Content Determined by
+    Raman Spectroscopy. <i>Analytical Chemistry</i>
+    <strong>87</strong>, 2419-2426 (2015).</p>
+<p>E.M. Barroso et al. Raman spectroscopy for assessment of
+    bone resection margins in mandibulectomy for oral cavity
+    squamous cell carcinoma. <i>European Journal of
+        Cancer</i> <strong>92</strong>, 77-87 (2018).</p>
+<p>I.P. Santos et al. Raman spectroscopy for cancer
+    detection and cancer surgery guidance: translation to
+    the clinics. <i>Analyst</i> <strong>142</strong>,
+    3025-3047 (2017).</p>
+<aside>
+    <p>A critical and comprehensive assessment of the
+        current state of affairs from an interdisciplinary
+        multi-author team, identifying clinical needs,
+        technical hurdles and potential benefits.</p>
+</aside>
+<p>M. Nieberler et al. Exploring the role of RGD-Recognizing
+    Integrins in Cancer. <i>Cancers</i> <strong>9</strong>,
+    116 (2017).</p>
+<p>M. Nieberler et al. Fluorescence imaging of invasive head
+    and neck carcinoma cells with integrin v6-targeting
+    RGD-peptides: an approach to a fluorescence-assisted
+    intraoperative cytological assessment of bony resection
+    margins. <i>British Journal of Oral and Maxillofacial
+        Surgery</i> <strong>56</strong> 972–978 (2018).</p>
+<p>F. Reichart et al. Selective Targeting of Integrin αvβ8
+    by a Highly Active Cyclic Peptide. <i>Journal of
+        Medicinal Chemistry</i> <strong>62</strong>,
+    2024-2037 (2019).</p>
+<p>H.A. Haenssle et al. Man against machine: diagnostic
+    performance of a deep learning convolutional neural
+    network for dermoscopic melanoma recognition in
+    comparison to 58 dermatologists. <i>Annals of
+        Oncology</i> <strong>29</strong>, 1836-1842 (2018).
+</p>
+<aside>
+    <p>Trained algorithm wins in this competition, by a
+        small margin (and similar to other such
+        machine-learning approaches for pattern
+        recognition).</p>
+</aside>
+<p>M. Zwierzyma et al. Clinical trial design and
+    dissemination: comprehensive analysis of
+    clinicaltrials.gov and PubMed data since 2005.
+    <i>British Medical Journal</i> <strong>361</strong>,
+    k2130 (2018).</p>
+<p>A.B. Smith. Should we be taking the <i>p</i> (value) out
+    of statistics? <i>British Journal of Oral and
+        Maxillofacial Surgery</i> <strong>55</strong>,
+    657-660 (2017).</p>
+<p>A.B. Smith. Feel the power: sample size and meaningful
+    effects. <i>British Journal of Oral and Maxillofacial
+        Surgery</i> <strong>56</strong>, 650-652 (2018).</p>
+<p>N. Sanati et al. Network-Based Predictors of Progression
+    in Head and Neck Squamous Cell Carcinoma. <i>Frontiers
+        in Genetics</i> <strong>9</strong>:183 (2018).</p>
+<aside>
+    <p>An interesting take on the potential of modelling
+        approaches in developing clinical utilities.</p>
+</aside>
+<p>V. Spahn et al. A nontoxic painkiller designed by
+    modelling of pathological receptor conformations.
+    <i>Science</i> <strong>355</strong>, 966-969 (2017).</p>
+<aside>
+    <p>A clever design of a fentanyl derivative with
+        powerful analgesic properties but devoid of
+        potential for addiction; preclinical and certainly
+        years away from clinical application on humans.</p>
+</aside>
+<h1 id="photodynamic-therapy">Photodynamic therapy</h1>
+<h2>Textbooks</h2>
+<p>M.A. Biel (ed.) Photodynamic Therapy of Disease of the
+    Head and Neck. Plural Publishing San Diego, 2008.</p>
+<p>T. Patrice (ed.) Photodynamic Therapy. RSC, Cambridge,
+    2003.</p>
+<p>M.R. Hamblin and P. Mroz (eds.) Advances in Photodynamic
+    Therapy – Basic, Translational, and Clinical. Artech
+    House, Boston London, 2008.</p>
+<h2>Journal articles (peer reviewed literature)</h2>
+<p>B. Green, A.R.M. Cobb and C. Hopper. Photodynamic therapy
+    in the management of lesions of the head and neck.
+     <i>British Journal of Oral and Maxillofacial
+        Surgery</i> <strong>51</strong>, 283-287 (2013).</p>
+<aside>
+    <p>Review of clinical applications of PDT, concludes as
+        ‘promising and effective adjunct to conventional
+        treatments’.</p>
+</aside>
+<p>M.G. Bredell, E. Besic, C. Maake and H. Walt. The
+    application and challenges of clinical PD–PDT in the
+    head and neck region: A short review. <i>Journal of
+        Photochemistry and Photobiology B: Biology</i> 101,
+    185-190 (2010).</p>
+<aside>
+    <p>A concise critical evaluation of a range of PDT
+        applications.</p>
+</aside>
+<p>R.R. Allison, R.E. Cuenca, G.H. Downie, P. Camnitz, B.
+    Brodish and C.H. Sibata. Clinical photodynamic therapy
+    of head and neck cancers – A review of applications and
+    outcomes. <i>Photodiagnosis and Photodynamic Therapy</i>
+    <strong>2</strong>, 205-222 (2005).</p>
+<p>S.B. Brown, E.A. Brown and I. Walker. The present and
+    future role of photodynamic therapy in cancer treatment.
+    <i>The Lancet Oncology</i> <strong>5</strong>, 497-508
+    (2004).</p>
+<aside>
+    <p>A rather optimistic discussion of multiple future
+        uses of PDT.</p>
+</aside>
+<p>F.J. Civantos et al. A Review of Photodynamic Therapy for
+    Neoplasms of the Head and Neck. <i>Advances in
+        Therapy</i> <strong>35</strong>, 324-340 (2018).</p>
+<aside>
+    <p>This latest assessment still highlights hopes for
+        future improved photosensitizers, and qualifies PDT
+        predominantly as a second line treatment option.</p>
+</aside>

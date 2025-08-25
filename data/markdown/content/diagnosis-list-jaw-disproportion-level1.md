@@ -1,0 +1,65 @@
+---
+id: diagnosis-list-jaw-disproportion-level1
+uri: diagnosis/a-z/jaw-disproportion
+title: Jaw disproportion
+type: level1
+authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
+updated_at: 2018-05-21T11:10:14Z
+created_at: 2016-12-06T12:18:31Z
+---
+
+<p>Jaw disproportion is a term that specifically summarises a number
+    of developmental conditions where disproportionate growth
+    of the jaw bones results in malocclusion, the misalignment
+    of teeth (malocclusion can also occur purely from dental
+    misalignment, without disproportionate growth of the jaw
+    bones).</p>
+<p>Jaw disproportion conditions include</p>
+<ul>
+    <li>mandibular hypoplasia (the lower jaw is too small) results
+        in overbite;</li>
+    <li>maxillary hypoplasia (the upper jaw is too small) results
+        in underbite;</li>
+    <li>mandibular hyperplasia (the lower jaw is too big) results
+        in underbite;</li>
+    <li>anterior open bite (the front teeth of the upper and lower
+        jaws have no contact);</li>
+    <li>vertical discrepancies (the upper jaw bone has too much downward
+        growth);</li>
+    <li>bimaxillary retrusion (both upper and lower jaw are disproportionately
+        small relative to the rest of the facial skeleton).</li>
+</ul>
+<p>The severity of these conditions varies from very minor (with
+    no need for treatment), to medium (where orthodontic treatment
+    alone, to better align the teeth but leave the jaw bones
+    untreated, may be the best option), to severe (where surgical
+    correction of the jaw bones is required; this branch of surgery
+    is called orthognathic surgery). Orthodontics, non-surgical
+    methods to align teeth by braces and similar, is not further
+    discussed on this website as it is a completely separate
+    although closely related dental specialty. However, orthognathic
+    surgery almost always includes orthodontic treatment before
+    and/or after surgery.</p>
+<p>Depending on the severity of jaw disproportion conditions, problems
+    with biting and chewing, speech and breathing (for example,
+    sleep apnoea) may be encountered in addition to issues with
+    facial imbalance and appearance.</p>
+<p>Assessment of these conditions requires not only an in-depth
+    <a href="/diagnosis/tests/medical-history">medical history</a>    and <a href="/diagnosis/tests/examination">examination</a>.
+    In addition, photography and special <a href="/diagnosis/tests/x-ray">X-ray</a>    images, careful measurements of the facial proportions and
+    study models (made from dental impressions using alginate
+    or silicone moulds) are all necessary for treatment planning.
+    It is important that an informed decision is made about treatment
+    because a successful outcome of orthognathic surgery / orthodontics
+    treatments requires long-term commitment and engagement by
+    the patient.</p>
+<p>Disproportionate jaw conditions that lead to asymmetry of the
+    facial skeleton are not discussed in this section but are
+    included in our section about <a href="/diagnosis/a-z/craniofacial-anomalies">craniofacial anomalies</a>.
+    Strictly speaking, all jaw disproportions are a sub-category
+    of craniofacial (developmental) anomalies.  </p>
+<p>It is not uncommon that people with <a href="/diagnosis/a-z/jaw-joint">chronic jaw joint (TMJ, temperomandibular joint) pain</a>    are referred to a maxillofacial clinic for consideration
+    of orthognathic surgical interventions. There is little evidence
+    that surgical correction of malocclusion alleviates jaw joint
+    pain and dysfunction.</p>

@@ -1,0 +1,35 @@
+---
+id: treatment-surgery-implants-preamble
+uri: treatment/surgery/implants
+title: Craniofacial implants
+type: directory
+order: 0
+updated_at: 2019-03-02T15:39:56Z
+created_at: 2018-03-26T10:04:29Z
+---
+
+<p>When thinking or talking about implants, in most cases the tacit
+    assumption will be that it is all about <a href="/treatment/restorative-dentistry">restorative dentistry</a>    and dental implants. However, the term ‘implant’ is much
+    broader than that particular application; it refers to any
+    kind of support (literally) for <a href="/treatment/surgery/reconstruction">prostheses</a>    of all kinds.</p>
+<p>An implant is a device that is anchored into bone (osseointegrated)
+    to provide strong and durable support for whatever will be
+    attached to it. The typical construction consists of a small
+    but strong screw (to connect to the supporting bone) with
+    a head that connects to some intermediate construction that
+    provides the connection and link to the (external) prosthesis.
+    Depending on the kind of prosthesis, the prosthesis may be
+    fixed and permanently connected (common for dental crowns,
+    for example) or may be detachable (common for many other
+    prostheses, for example an artificial ear).</p>
+<p>Given the fundamental role of bony structures to carry and support
+    implants and prostheses, an important and common part of
+    this kind of reconstructive work is the surgical preparation
+    (or initial repair and/or augmentation) of the bone(s) that
+    will serve as the structural support for implants and prostheses
+    and the surrounding soft tissues.</p>
+<p>The aspect of surgery derives from older techniques which pre-dated
+    successful implantology and was known as pre-prosthetic surgery.
+    It can be used alone, in some instances, to prepare the denture
+    fitting areas of the jaws for conventional prosthesis or
+    as an adjunct to dental or sometimes craniofacial implants.</p>

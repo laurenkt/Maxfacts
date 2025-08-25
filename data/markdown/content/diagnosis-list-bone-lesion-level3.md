@@ -1,0 +1,259 @@
+---
+id: diagnosis-list-bone-lesion-level3
+uri: diagnosis/a-z/bone-lesion/detailed
+title: Bone lesion
+type: level3
+authorship: Authored by Angelika Sebald & David A. Mitchell
+order: 0
+further_reading_uri: diagnosis/a-z/further-reading
+updated_at: 2018-03-26T10:03:37Z
+created_at: 2017-10-27T15:11:37Z
+contents:
+  - text: "Inflammatory and other non-neoplastic bone lesions"
+    id: inflammatory-and-other-non-neoplastic-bone-lesions
+  - text: "Malignant neoplastic bone lesions (bone cancers)"
+    id: malignant-neoplastic-bone-lesions-bone-cancers
+---
+
+<p>This section provides additional information about some of the
+    bone lesions mentioned previously. For most of these conditions,
+    their aetiology as well as some new <a href="/treatment/surgery/bone-lesion">treatment ideas</a>    are the subject of <a href="/diagnosis/a-z/further-reading">ongoing research</a>.</p>
+<h1 id="inflammatory-and-other-non-neoplastic-bone-lesions">Inflammatory and other non-neoplastic bone lesions</h1>
+<h2>Osteomyelitis</h2>
+<p>The term osteomyelitis covers a bewildering range of acute and
+    chronic inflammatory bone conditions, with a considerable
+    degree of confusion about nomenclature in the literature.
+    We will not try to resolve this issue but instead give descriptions
+    of some of the acute and chronic forms of osteomyelitis without
+    paying too much attention to giving the problem a name.</p>
+<p><strong>Acute osteomyelitis</strong> usually follows on from
+    some form of odontogenic infection and mostly affects the
+    mandible. The mandible is more prone to this kind of infection
+    than the maxilla because the vascularisation (supply with
+    blood vessels) and blood supply in the maxilla is better
+    than in the mandible.</p>
+<p>The typical signs and symptoms are: pain, swelling, erythema
+    (redness) of overlying skin and systemic upset. In suppurative
+    (pus producing) osteomyelitis, sinus tracts (<a href="/diagnosis/a-z/fistula">‘tunnelling wounds’</a>)
+    may develop. <a href="/diagnosis/a-z/neuropathies">Paraesthesia</a>    (abnormal sensation or numbness) of local nerves may occur,
+    a classic sign being numbness of the lower lip on the affected
+    side of the mandible. Pathological fracture may occur and
+    teeth become loose.</p>
+<p>Infection persisting for more than one month is viewed as <strong>chronic osteomyelitis</strong>.
+    There are a number of different types of the condition described,
+    which can cause confusion. In broad terms these may be viewed
+    as suppurative or non-suppurative. Chronic suppurative osteomyelitis
+    is most commonly the result of inadequately treated acute
+    osteomyelitis.</p>
+<p><strong>Garré’s sclerosing osteomyelitis</strong> is an unusual
+    condition, most often reported in children and young adults.
+    Typically, there is a non-tender bony swelling of the mandible
+    associated with a carious first molar. Systemic upset is
+    unusual. It is thought that low grade chronic infection stimulates
+    the active periosteum (connective tissue enveloping bone)
+    to lay down bone (Garré’s sclerosing osteomyelitis is also
+    referred to as periostitis ossificans). The subperiosteal
+    bone deposition often has a laminated appearance and needs
+    to be distinguished from malignancies such as <a href="/diagnosis/a-z/bone-lesion/more-info">osteosarcoma and Ewing’s sarcoma</a>.
+    In the absence of an obvious dental cause, early <a href="/diagnosis/tests/biopsy">biopsy</a>    is required.</p>
+<p><strong>Chronic sclerosing osteomyelitis</strong> is a poorly
+    defined term. It may be focal or diffuse. It is thought to
+    be an inflammatory response to low-grade bacterial infection
+    in which there is bone deposition rather than resorption
+    (although the exact mechanism for this is not fully understood).
+    No specific infectious organism has been identified. Intermittent
+    refractory pain is a feature. It is more frequent in the
+    mandible. The symptoms include: pain, swelling, <a href="/diagnosis/a-z/neuropathies">paraesthesia</a>,
+    pressure and <a href="/diagnosis/a-z/trismus">trismus</a>.
+    The symptoms may persist for years. Radiographs typically
+    show mixed sclerosis and osteolysis, with the sclerotic component
+    becoming more prominent over time. This is <strong>not</strong>    the same as medication related <a href="/diagnosis/a-z/necrosis/hard/more-info">osteonecrosis of the jaws</a>.</p>
+<p>Anecdotally there are an increasing number of atypical, acute
+    or chronic episodes of unusual infections associated with
+    these symptoms. No individual causative organism has been
+    definitely identified but, amongst many, the most commonly
+    mentioned bacterial strain is staphylococcus aureus; pseudomonas,
+    actinomyces meyeri (a strictly <a href="/diagnosis/tests/microbiology">anaerobic bacterium</a>,
+    and hence may be difficult to identify) and other actinomyces
+    species (previously often assumed to only infect soft tissue),
+    rhodococcus equi, mycobacteria (tuberculosis) and fungal
+    spores (aspergillus) have all been mentioned. There is no
+    obvious pattern regarding these bacterial infections, the
+    only common pattern seems to be that nearly all implicated
+    microorganisms are part of the normal <a href="/diagnosis/a-z/infection">oral microflora</a>.</p>
+<p>Osseointegrated <a href="/treatment/surgery/implants/getting-started">implants</a>    have become widely used in restorative dentistry in the recent
+    past and more long-term results become available. Like on
+    any other hard, smooth surface a specific kind of bacterial
+    plaque, a biofilm, can form on implants and / or the attached
+    crowns. Biofilms are difficult to eliminate and can be a
+    source of persistent low-grade bacterial infection and give
+    rise to osteomyelitis-like problems (<a href="/treatment/surgery/implants/getting-started">‘peri-implantitis’</a>)
+    in the absence of meticulous <a href="/help/oral-hygiene">oral hygiene</a>.</p>
+<p>There are multiple isolated cases where, despite clinical and
+    radiographic evidence of abnormality such as localised or
+    cyclical pain and sclerosis, there is no bacterial colonisation
+    or active infection (sometimes referred to as non-bacterial
+    or non-infectious osteomyelitis).</p>
+<p>Recurrent diffuse, non-bacterial osteomyelitits of the mandible
+    has been postulated as being one of the signs of SAPHO syndrome.
+    SAPHO syndrome is a rare condition of unclear aetiology,
+    thought to be an autoimmune condition possibly triggered
+    by an initial inflammatory process. SAPHO (<i>s</i>ynovitis
+    (inflammation of the membrane surrounding a joint), <i>a</i>cne,
+    <i>p</i>ustulosis (recurrent pustules on palms and soles),
+    <i>h</i>yperostosis (calcification of ligaments), osteitis
+    (bone inflammation) syndrome may be diagnosed when some or
+    all of these recurrent signs and symptoms can be identified.</p>
+<h2>Fibrous dysplasia</h2>
+<p>The cause(s) of fibrous dysplasia are not fully understood. It
+    is thought that a spontaneous gene mutation (of gene GNAS1)
+    at the early embryonal development stage is likely responsible,
+    with some cells consequently carrying a copy of the defect
+    gene and other cells carrying the normal gene. This explanation
+    is consistent with clinical observation of a strong variability
+    of symptoms of fibrous dysplasia, ranging from asymptomatic
+    to severely disabling. GNAS1 is a gene that is involved,
+    amongst others, in the regulation of endocrine activity (activity
+    of glands that produce hormones). GNAS1 defects can lead
+    to skin lesions and overactivity of endocrine glands, in
+    addition to fibrous dysplasia (McCune-Albright syndrome).</p>
+<p>Cherubism on the other hand, thought to be a hereditary variant
+    of fibrous dysplasia, has been associated with a different,
+    hereditary genetic mutation (affecting gene SH3 BP2; the
+    mutation has been observed in the majority of people with
+    cherubism but the mechanism of pathology is not yet understood).</p>
+<p>Fibrous dysplasia can affect one (monostotic) or several (polyostotic)
+    bones. When the skull and/or facial bones are affected, the
+    bone deformities can lead to neurological symptoms (vision
+    or hearing impairment) when cranial nerves in the vicinity
+    are compressed. Distortion of facial features and other resulting
+    symptoms vary greatly.</p>
+<h2>Paget’s disease of the bone</h2>
+<p>Paget’s disease of the bone (sometimes referred to as osteitis
+    deformans) often only affects one or few bones, with the
+    pelvis, hip, vertebrae in the lower spine and skull / facial
+    bones most commonly affected. A number of different avenues
+    have been explored to find the cause(s) of Paget’s disease
+    of the bone but so far there is no conclusive answer. It
+    is essentially not known what causes the specific imbalance
+    of the bone remodelling process that gives rise to the condition.
+    It is also not yet clarified if only the osteoclasts display
+    abnormally high activity or if the osteoblasts also show
+    abnormalities.</p>
+<p>Some 30 to 40 years ago, several viral infections have been described
+    as being associated with the occurrence of Paget’s disease
+    of bone later in life. The suspects were mostly viruses from
+    the <a href="/diagnosis/tests/microbiology">paramyxovirus group</a>,
+    including measles, influenza, respiratory and canine distemper
+    infections. All of these studies have been questioned; for
+    example there is no single proven case of a human being infected
+    with canine distemper disease. For the time being, a viral
+    aetiology for Paget’s disease of the bone can be deemed highly
+    unlikely.</p>
+<p>An alternative hypothesis about the causes of Paget’s disease
+    of the bone highlights a genetic predisposition: approximately
+    half of people with a family history of Paget’s disease and
+    10 percent of people with ‘spontaneous’ Paget’s disease carry
+    mutations of a particular gene (SQSTM1); this gene is involved
+    in the upregulation of (not yet fully understood mechanism
+    of) osteoclast activation. Patterns of genetic mutations
+    have also been identified for other, rare bone syndromes.
+    The data does not yet make a definitive conclusion as to
+    the aetiology of Pagets disease.</p>
+<p>In part, this is due to yet another hypothesis: environmental
+    factors and the results of epidemiology studies. Epidemiology
+    reveals not only a well-known clustering of cases and geographic
+    distribution (for example, in the UK Lancashire is a hot
+    spot for Paget’s disease of the bone) but also shows that
+    the number of cases has drastically fallen from 1974 (first
+    census) to 1994 (second census). The prevalence in 1994 was
+    roughly half that of 1974, and currently stands at affecting
+    1 to 2 % of people older than 55 years in the UK; the prevalence
+    increases with age.</p>
+<p>A predominantly or exclusively genetic cause of Paget’s disease
+    of the bone would be very difficult to explain with such
+    a drastic reduction in the number of cases over a short period
+    of only 20 years (in the UK and elsewhere). It would also
+    be difficult to explain the reduced observed geographic variations.
+    It makes more sense to see genetic patterns of mutations
+    as an important predisposing factor, in tandem with additional
+    environmental factors as trigger. Such environmental factors
+    may include malnutrition in childhood (vitamin D deficiency
+    and rickets), poor diet, pollutants (pesticides).</p>
+<p>Clearly, more research is needed to identify the combined roles
+    of genetics and environment in leading to Paget’s disease;
+    understanding the reasons for the drastic reduction in cases
+    over a short period of only 20 years may well hold key information
+    for future rational treatment planning of the disease.</p>
+<h1 id="malignant-neoplastic-bone-lesions-bone-cancers">Malignant neoplastic bone lesions (bone cancers)</h1>
+<p>With primary bone malignancies being rare and thus only amounting
+    to small numbers of cases (osteosarcoma affecting approximately
+    1 in 100.000 people), there are nevertheless large numbers
+    of publications dedicated to the condition and ‘big data’
+    attempts have been made to understand the aetiology of osteosarcoma.
+    Epidemiology and genomics combined have so far not really
+    revealed much new insight. There seems to be a large variety
+    of sub-types and variants of these malignant tumours (as
+    well as strongly varied clinical behaviour and aggressiveness,
+    including some variants related to very rare genetic disorders
+    such as Li-Fraumeni syndrome) – one might be tempted to conclude
+    that every osteosarcoma sufferer have their own and unique
+    genetic tumour sub-type. We may just add to the speculations
+    here, by contributing our own: perhaps the lack of discernible
+    clear patterns will eventually lead to the conclusion that
+    developing osteosarcoma may just be related to the statistics
+    of a higher probability of error at periods of rapid cell
+    proliferation and growth of bone?</p>
+<p>The only robust information that can be taken from epidemiologic
+    data concerns the peak of occurrence around puberty (at the
+    time when there is a spurt of body growth, alongside massive
+    hormonal changes), with a second smaller peak found for people
+    older than 60 to 70 years. In older people, in most cases
+    the occurrence of osteosarcoma is related to a history of
+    long-standing bone disease and unbalance, such as in conjunction
+    with Paget’s disease of the bone (see above; possibly this
+    might be a hint that there may be common causes related to
+    malfunctioning of the bone remodelling in Paget’s disease
+    of the bone and osteosarcoma).</p>
+<p>The only clearly identified external factor that can be considered
+    as causative for osteosarcoma is previous exposure to high-energy
+    radiation, such as received in <a href="/treatment/radiotherapy">radiotherapy</a>.
+    In the past, Paget’s disease of the bone sometimes used to
+    be treated by radiotherapy; this is obviously no longer considered
+    an appropriate treatment. The long-term enhanced risk for
+    developing osteosarcoma (or other secondary malignancies)
+    following radiotherapy is a concern for the treatment options
+    of young oral-cancer sufferers (in addition to an increased
+    risk to develop <a href="/diagnosis/a-z/necrosis">osteoradionecrosis</a>).
+    Previous radiotherapy to treat <a href="/diagnosis/a-z/tumour/blood-malignancy">Hodgkin lymphoma</a>    or brachytherapy for the treatment of ankylosing spondylitis
+    (a chronic inflammatory conditon of the spine and other body
+    parts) have been mentioned in the literature.</p>
+<p>This brief summary of the state of insight with regard to the
+    aetiology of osteosarcoma illustrates several other aspects
+    and dilemmas of research into, and treatment of, rare diseases
+    in general. Sometimes it can be attractive from a point of
+    view of gaining general knowledge, beyond a specific condition,
+    to conduct research into rare conditions. These are sometimes
+    related to specific and identifiable genetic aberrations
+    (hereditary as well as spontaneous mutations). But that knowledge
+    does not directly lend itself to improved treatments, for
+    a number of reasons. It would be completely unethical to
+    insists that only large-scale clinical trials should be considered
+    as adequate evidence support for treatment recommendations
+    – it may literally take hundreds of years to collect enough
+    data for rare conditions to have statistically meaningful
+    data for analysis. Also, there is no incentive for private
+    pharmaceutical industry to develop drugs for rare diseases
+    – there is no money to be made from such endeavours. On the
+    other hand, it may not always be beneficial to suffer from
+    a less rare condition and end up being (over)treated in ways
+    that often do not add to quality of life or improved survival
+    rates but have been made available following pressure and
+    lobbying, sometimes ill-informed. This topic has recently
+    received increasing attention, from the professionals and
+    patients.</p>
+<p>So, for the time being much of the treatment of rare diseases
+    (of which osteosarcoma and chondrosarcoma are just two examples;
+    another, not yet completely understood aspect being that
+    these solid bone malignancies are resistant to radiotherapy)
+    has to rely on qualitative experience and anecdotal information.</p>

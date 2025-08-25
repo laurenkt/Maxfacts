@@ -1,0 +1,35 @@
+---
+id: treatment-other-hyperbaric-oxygen-level1
+uri: treatment/other/hyperbaric-oxygen
+title: Hyperbaric oxygen
+type: level1
+authorship: Authored by Angelika Sebald;Proof-read/edited by David A. Mitchell
+order: 0
+updated_at: 2018-11-09T13:52:29Z
+created_at: 2016-12-06T14:27:23Z
+---
+
+<p>Treatment with hyperbaric oxygen (HBO) involves breathing concentrated
+    oxygen gas at higher than normal atmospheric pressure. This
+    treatment happens in a closed chamber in which both composition
+    and pressure of the atmosphere can be controlled. Such HBO
+    treatment chambers are equipped to either host a number of
+    people or a single person for a session. If a course of HBO
+    sessions has been prescribed for you, it will usually mean
+    having to travel to places where this treatment is available.</p>
+<p>The HBO approach is probably best known as a well-established
+    treatment for decompression sickness of scuba divers and
+    to counteract carbon monoxide (CO) poisoning.</p>
+<p>HBO treatment is based on the idea that at elevated pressure
+    more oxygen molecules will be dissolved in body fluids. It
+    is thought that this (temporarily) increased oxygen concentration
+    may stimulate the function of damaged cells, in particular
+    in tissues that are suffering from reduced blood supply.
+    The main clinical applications for HBO are the treatment
+    of some <a href="/diagnosis/a-z/infection">severe infections</a>    and <a href="/diagnosis/a-z/necrosis">bone necrosis</a>.
+    In some cases HBO has been used as a precaution to avoid
+    bone necrosis resulting from dental treatments such as tooth
+    extractions after <a href="/treatment/radiotherapy">radiotherapy</a>    in the head and neck region.</p>
+<p>The outcome of a large prospective randomized trial known as
+    <a href="/treatment/other/further-reading">HOPON</a> is now
+    (2018) published.</p>

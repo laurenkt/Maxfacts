@@ -1,0 +1,44 @@
+---
+id: treatment-surgery-postoperative-problems-cheekbones
+uri: treatment/surgery/postoperative-problems/cheekbones
+title: Cheekbones
+type: page
+authorship: Authored by David A. Mitchell;Proof-read/edited by Angelika Sebald
+order: 0
+further_reading_uri: treatment/surgery/further-reading
+updated_at: 2018-11-09T13:23:06Z
+created_at: 2018-08-18T15:24:34Z
+---
+
+<p>Treatments for postoperative problems affecting the cheekbones
+    include:</p>
+<ul>
+    <li>Relapse from the place of <a href="/treatment/surgery/fracture">reduction</a>;
+        while much less common now, a malreduction should be
+        repositioned surgically before the bone unites (otherwise
+        resulting in a malunion).</li>
+    <li>Malunion necessitates an osteotomy (cutting) of the broken
+        bone and moving it to a position which best simulates
+        the original position of that cheekbone, then fixing
+        it in the new position with small titanium plates and
+        screws.</li>
+    <li>Compression of the <a href="/diagnosis/a-z/neuropathies/detailed">infraorbital nerve</a>        (the sensory nerve that innervates the upper lip, parts
+        of the nose and the lower eyelid, one on each side of
+        the face) can result in <a href="/diagnosis/a-z/neuropathies/detailed">neuropathic pain</a>.
+        <a href="/treatment/other/medication/pain">Analgesics</a>        may help, but sometimes surgical removal of the impinging
+        bone is necessary. There is a real risk of further damage
+        to the nerve by surgery. Alternatives include <a href="/treatment/other/extreme-temperatures">cryoanalgesia</a>        to the nerve.</li>
+    <li>Double vision and epiphora (tearing) can be a problem if
+        the orbital floors or walls (eye socket) are involved;
+        see treatment of <a href="/treatment/surgery/postoperative-problems/orbit">postoperative problems affecting the orbit</a>.</li>
+    <li>Epistaxis (nosebleed) is dealt with by <a href="/treatment/other/extreme-temperatures">diathermy</a>        or nasal packing.</li>
+    <li>Scars that will affect the <a href="/diagnosis/a-z/postoperative-problems/cheeks">cheek</a>        may require <a href="/treatment/surgery/facial-appearance">scar revision</a>.</li>
+    <li>Ectropion and entropion, when scarring pulls the lower eyelid
+        out (ectropion) or in (entropion), is essentially treated
+        by scar revision, with or without <a href="/treatment/surgery/reconstruction">skin or mucosal grafting</a>.</li>
+    <li>Incorrect positioning of bone(s), leading to an over-prominent
+        or sunken cheekbone can be corrected by post-traumatic
+        <a href="/treatment/surgery/jaw-disproportion">osteotomy</a>.</li>
+    <li><a href="/diagnosis/a-z/neuropathies">Altered sensation</a>        over the <a href="/diagnosis/a-z/postoperative-problems/cheeks">cheek</a>        is usually managed medically (with a range of potential
+        medications) if troublesome.</li>
+</ul>
