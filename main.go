@@ -166,6 +166,12 @@ func serveCommand(args []string) {
 
 	db := client.Database("maxfacts")
 
+	// Get index CSV
+	indexCSV, err := GetIndexCSV()
+	if err != nil {
+		log.Fatal("Failed to load index CSV:", err)
+	}
+
 	// Setup routes
 	handler := SetupRouter(db, indexCSV)
 
@@ -249,13 +255,13 @@ func dumpMongoCommand(args []string) {
 	// Write each content item
 	var validContents []repository.Content
 	for i, c := range contents {
-		if c.ID == "" {
+		if c.ContentID == "" {
 			log.Printf("Skipping content with empty ID: %s", c.URI)
 			continue
 		}
 
 		if err := content.WriteOne(ctx, &c); err != nil {
-			log.Printf("Failed to write %s: %v", c.ID, err)
+			log.Printf("Failed to write %s: %v", c.ContentID, err)
 			continue
 		}
 

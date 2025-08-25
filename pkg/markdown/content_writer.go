@@ -33,11 +33,11 @@ func NewContentWriter(outputDir string) (*ContentWriter, error) {
 
 // WriteOne writes a single content item to a markdown file
 func (w *ContentWriter) WriteOne(ctx context.Context, content *repository.Content) error {
-	if content.ID == "" {
+	if content.ContentID == "" {
 		return fmt.Errorf("content ID is empty")
 	}
 	
-	filename := fmt.Sprintf("%s.md", content.ID)
+	filename := fmt.Sprintf("%s.md", content.ContentID)
 	filepath := filepath.Join(w.outputDir, filename)
 	
 	// Convert to markdown
@@ -76,7 +76,7 @@ func (w *ContentWriter) WriteIndex(ctx context.Context, contents []repository.Co
 	
 	// Write content data
 	for _, content := range contents {
-		if err := csvWriter.Write([]string{content.URI, content.ID}); err != nil {
+		if err := csvWriter.Write([]string{content.URI, content.ContentID}); err != nil {
 			return fmt.Errorf("failed to write CSV row for %s: %w", content.URI, err)
 		}
 	}
@@ -90,7 +90,7 @@ func convertContentToMarkdown(content *repository.Content) string {
 	
 	// Add frontmatter
 	sb.WriteString("---\n")
-	sb.WriteString(fmt.Sprintf("id: %s\n", content.ID))
+	sb.WriteString(fmt.Sprintf("id: %s\n", content.ContentID))
 	sb.WriteString(fmt.Sprintf("uri: %s\n", content.URI))
 	sb.WriteString(fmt.Sprintf("title: %s\n", content.Title))
 	sb.WriteString(fmt.Sprintf("type: %s\n", content.Type))
