@@ -9,18 +9,15 @@ import (
 	"text/template"
 	"time"
 
-	"github.com/maxfacts/maxfacts/pkg/mongodb"
-	"github.com/maxfacts/maxfacts/pkg/repository"
+	"github.com/maxfacts/maxfacts/pkg/content"
+	"github.com/maxfacts/maxfacts/pkg/recipe"
 	templatehelpers "github.com/maxfacts/maxfacts/pkg/template"
-	"go.mongodb.org/mongo-driver/mongo"
+	"github.com/maxfacts/maxfacts/pkg/video"
 )
 
 // SitemapHandler handles sitemap requests
 type SitemapHandler struct {
-	contentRepo repository.ContentRepository
-	recipeRepo  repository.RecipeRepository
-	videoRepo   repository.VideoRepository
-	templates   *template.Template
+	templates *template.Template
 }
 
 // SitemapRoute represents a route in the sitemap
@@ -33,7 +30,7 @@ type SitemapRoute struct {
 }
 
 // NewSitemapHandler creates a new sitemap handler
-func NewSitemapHandler(db *mongo.Database) *SitemapHandler {
+func NewSitemapHandler() *SitemapHandler {
 	// Load templates
 	tmpl := template.New("").Funcs(templatehelpers.FuncMap())
 	tmpl, err := tmpl.ParseGlob("templates/*.gohtml")
@@ -42,10 +39,7 @@ func NewSitemapHandler(db *mongo.Database) *SitemapHandler {
 	}
 
 	return &SitemapHandler{
-		contentRepo: mongodb.NewContentRepository(db),
-		recipeRepo:  mongodb.NewRecipeRepository(db),
-		videoRepo:   mongodb.NewVideoRepository(db),
-		templates:   tmpl,
+		templates: tmpl,
 	}
 }
 
@@ -54,7 +48,7 @@ func (h *SitemapHandler) CollectAllURLs(ctx context.Context) ([]string, error) {
 	var urls []string
 
 	// Get all content
-	contents, err := h.contentRepo.FindAll(ctx)
+	contents, err := content.FindAll(ctx)
 	if err != nil {
 		return nil, err
 	}
@@ -66,7 +60,7 @@ func (h *SitemapHandler) CollectAllURLs(ctx context.Context) ([]string, error) {
 	}
 
 	// Get all videos
-	videos, err := h.videoRepo.FindAll(ctx)
+	videos, err := video.FindAll(ctx)
 	if err == nil {
 		for _, video := range videos {
 			urls = append(urls, "/"+video.URI)
@@ -74,7 +68,7 @@ func (h *SitemapHandler) CollectAllURLs(ctx context.Context) ([]string, error) {
 	}
 
 	// Get all recipes
-	recipes, err := h.recipeRepo.FindAll(ctx)
+	recipes, err := recipe.FindAll(ctx)
 	if err == nil {
 		for _, recipe := range recipes {
 			urls = append(urls, "/"+recipe.URI)
@@ -94,7 +88,7 @@ func (h *SitemapHandler) Sitemap(w http.ResponseWriter, r *http.Request) {
 	var routes []SitemapRoute
 
 	// Get all content
-	contents, err := h.contentRepo.FindAll(ctx)
+	contents, err := content.FindAll(ctx)
 	if err != nil {
 		h.renderError(w, err)
 		return
@@ -113,7 +107,7 @@ func (h *SitemapHandler) Sitemap(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Get all videos
-	videos, err := h.videoRepo.FindAll(ctx)
+	videos, err := video.FindAll(ctx)
 	if err == nil {
 		for _, video := range videos {
 			routes = append(routes, SitemapRoute{
@@ -127,7 +121,7 @@ func (h *SitemapHandler) Sitemap(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Get all recipes
-	recipes, err := h.recipeRepo.FindAll(ctx)
+	recipes, err := recipe.FindAll(ctx)
 	if err == nil {
 		for _, recipe := range recipes {
 			routes = append(routes, SitemapRoute{

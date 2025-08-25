@@ -7,11 +7,10 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/maxfacts/maxfacts/pkg/mongodb"
+	"github.com/maxfacts/maxfacts/pkg/recipe"
 	"github.com/maxfacts/maxfacts/pkg/repository"
 	templatehelpers "github.com/maxfacts/maxfacts/pkg/template"
 	"go.mongodb.org/mongo-driver/bson/primitive"
-	"go.mongodb.org/mongo-driver/mongo"
 )
 
 // RecipeItem represents an item in a recipe array that could be a string or have a heading
@@ -71,12 +70,11 @@ func processRecipeArray(data interface{}) []RecipeItem {
 
 // RecipeHandler handles recipe requests
 type RecipeHandler struct {
-	recipeRepo repository.RecipeRepository
-	templates  *template.Template
+	templates *template.Template
 }
 
 // NewRecipeHandler creates a new recipe handler
-func NewRecipeHandler(db *mongo.Database) *RecipeHandler {
+func NewRecipeHandler() *RecipeHandler {
 	// Load templates
 	tmpl := template.New("").Funcs(templatehelpers.FuncMap())
 	tmpl, err := tmpl.ParseGlob("templates/*.gohtml")
@@ -97,8 +95,7 @@ func NewRecipeHandler(db *mongo.Database) *RecipeHandler {
 	}
 
 	return &RecipeHandler{
-		recipeRepo: mongodb.NewRecipeRepository(db),
-		templates:  tmpl,
+		templates: tmpl,
 	}
 }
 
@@ -119,7 +116,7 @@ func (h *RecipeHandler) Index(w http.ResponseWriter, r *http.Request) {
 func (h *RecipeHandler) Browse(w http.ResponseWriter, r *http.Request) {
 	ctx := context.Background()
 
-	recipes, err := h.recipeRepo.FindAll(ctx)
+	recipes, err := recipe.FindAll(ctx)
 	if err != nil {
 		h.renderError(w, err)
 		return
@@ -144,7 +141,7 @@ func (h *RecipeHandler) Recipe(w http.ResponseWriter, r *http.Request) {
 	// Extract recipe ID from path (everything after /help/oral-food/recipes/)
 	id := strings.TrimPrefix(r.URL.Path, "/help/oral-food/recipes/")
 
-	recipe, err := h.recipeRepo.FindOne(ctx, id)
+	recipeDoc, err := recipe.FindOne(ctx, id)
 	if err != nil {
 		h.render404(w)
 		return
@@ -154,7 +151,7 @@ func (h *RecipeHandler) Recipe(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	recipe.Breadcrumbs = []repository.Breadcrumb{
+	recipeDoc.Breadcrumbs = []repository.Breadcrumb{
 		{Title: "Help & self-help", URI: "help"},
 		{Title: "Oral food intake", URI: "help/oral-food"},
 		{Title: "Recipes", URI: "help/oral-food/recipes"},
@@ -162,16 +159,16 @@ func (h *RecipeHandler) Recipe(w http.ResponseWriter, r *http.Request) {
 	}
 
 	data := map[string]interface{}{
-		"Title":       recipe.Title,
-		"Breadcrumbs": recipe.Breadcrumbs,
-		"RecipeID":    recipe.RecipeID,
-		"Description": processRecipeArray(recipe.Description),
-		"Ingredients": processRecipeArray(recipe.Ingredients),
-		"Method":      processRecipeArray(recipe.Method),
-		"Variations":  processRecipeArray(recipe.Variations),
-		"Tip":         processRecipeArray(recipe.Tip), // Fixed: both DB and template use "tip"
-		"Tags":        recipe.Tags,
-		"UpdatedAt":   recipe.UpdatedAt,
+		"Title":       recipeDoc.Title,
+		"Breadcrumbs": recipeDoc.Breadcrumbs,
+		"RecipeID":    recipeDoc.RecipeID,
+		"Description": processRecipeArray(recipeDoc.Description),
+		"Ingredients": processRecipeArray(recipeDoc.Ingredients),
+		"Method":      processRecipeArray(recipeDoc.Method),
+		"Variations":  processRecipeArray(recipeDoc.Variations),
+		"Tip":         processRecipeArray(recipeDoc.Tip), // Fixed: both DB and template use "tip"
+		"Tags":        recipeDoc.Tags,
+		"UpdatedAt":   recipeDoc.UpdatedAt,
 		"Body":        "recipe", // For article-metadata template
 	}
 

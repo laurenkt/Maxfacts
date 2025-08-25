@@ -9,19 +9,16 @@ import (
 	"strings"
 	"time"
 
-	"github.com/maxfacts/maxfacts/pkg/mongodb"
+	"github.com/maxfacts/maxfacts/pkg/content"
 	"github.com/maxfacts/maxfacts/pkg/repository"
 	templatehelpers "github.com/maxfacts/maxfacts/pkg/template"
-	"go.mongodb.org/mongo-driver/mongo"
 	"golang.org/x/time/rate"
 )
 
 // SearchHandler handles search requests
 type SearchHandler struct {
-	searchRepo repository.ContentSearchRepository
-	contentRepo repository.ContentRepository
-	templates   *template.Template
-	limiter     *rate.Limiter
+	templates *template.Template
+	limiter   *rate.Limiter
 }
 
 // SearchResult represents a search result with highlighted match
@@ -38,7 +35,7 @@ type SearchMatch struct {
 }
 
 // NewSearchHandler creates a new search handler
-func NewSearchHandler(db *mongo.Database) *SearchHandler {
+func NewSearchHandler() *SearchHandler {
 	// Load templates
 	tmpl := template.New("").Funcs(templatehelpers.FuncMap())
 	tmpl, err := tmpl.ParseGlob("templates/*.gohtml")
@@ -58,10 +55,8 @@ func NewSearchHandler(db *mongo.Database) *SearchHandler {
 	limiter := rate.NewLimiter(rate.Every(90*time.Second), 20)
 
 	return &SearchHandler{
-		searchRepo:  mongodb.NewSearchRepository(db),
-		contentRepo: mongodb.NewContentRepository(db),
-		templates:   tmpl,
-		limiter:     limiter,
+		templates: tmpl,
+		limiter:   limiter,
 	}
 }
 
@@ -98,7 +93,7 @@ func (h *SearchHandler) Search(w http.ResponseWriter, r *http.Request) {
 // performSearch performs the actual search
 func (h *SearchHandler) performSearch(ctx context.Context, query string) ([]SearchResult, error) {
 	// Use search repository to find content
-	contents, err := h.searchRepo.Search(ctx, query)
+	contents, err := content.Search(ctx, query)
 	if err != nil {
 		return nil, err
 	}
@@ -111,7 +106,7 @@ func (h *SearchHandler) performSearch(ctx context.Context, query string) ([]Sear
 		result := SearchResult{Content: &contents[i]}
 		
 		// Find matching paragraph
-		match := h.contentRepo.GetMatchedParagraph(&contents[i], pattern)
+		match := content.GetMatchedParagraph(&contents[i], pattern)
 		if len(match) >= 4 {
 			before := match[1]
 			if len(before) > 100 {
@@ -145,7 +140,7 @@ func (h *SearchHandler) performSearch(ctx context.Context, query string) ([]Sear
 		}
 		
 		// Get breadcrumbs
-		breadcrumbs, _ := h.contentRepo.GetBreadcrumbs(ctx, &contents[i])
+		breadcrumbs, _ := content.GetBreadcrumbs(ctx, &contents[i])
 		result.Content.Breadcrumbs = breadcrumbs
 		
 		results[i] = result
