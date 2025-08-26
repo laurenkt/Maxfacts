@@ -48,6 +48,26 @@ func processRecipeArray(data interface{}) []RecipeItem {
 				if headingStr, ok := heading.(string); ok {
 					items = append(items, RecipeItem{Heading: headingStr})
 				}
+			} else if key, keyExists := itemMap["key"]; keyExists && key == "heading" {
+				// Handle YAML structure: {key: "heading", value: "Dressing:"}
+				if value, valueExists := itemMap["value"]; valueExists {
+					if headingStr, ok := value.(string); ok {
+						items = append(items, RecipeItem{Heading: headingStr})
+					}
+				}
+			}
+		} else if itemSlice, ok := item.([]interface{}); ok {
+			// Handle YAML array containing heading map: [map[key:heading value:Dressing:]]
+			for _, subItem := range itemSlice {
+				if subMap, ok := subItem.(map[string]interface{}); ok {
+					if key, keyExists := subMap["key"]; keyExists && key == "heading" {
+						if value, valueExists := subMap["value"]; valueExists {
+							if headingStr, ok := value.(string); ok {
+								items = append(items, RecipeItem{Heading: headingStr})
+							}
+						}
+					}
+				}
 			}
 		} else if primitiveD, ok := item.(primitive.D); ok {
 			// Handle primitive.D (BSON Document) 

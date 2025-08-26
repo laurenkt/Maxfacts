@@ -3,22 +3,20 @@ package main
 import (
 	"cmp"
 	"context"
-	"encoding/csv"
 	"fmt"
 	"log"
 	"net/http"
 	"os"
 	"path/filepath"
-	"regexp"
 	"sort"
 	"strings"
 	"time"
 
 	"github.com/maxfacts/maxfacts/handlers"
-	"github.com/maxfacts/maxfacts/models"
 	"github.com/maxfacts/maxfacts/pkg/content"
 	"github.com/maxfacts/maxfacts/pkg/mongodb"
 	"github.com/maxfacts/maxfacts/pkg/recipe"
+	"github.com/maxfacts/maxfacts/pkg/repository"
 	"github.com/maxfacts/maxfacts/pkg/video"
 	"go.mongodb.org/mongo-driver/mongo"
 )
@@ -59,15 +57,11 @@ func staticFileHandler(nextHandler http.HandlerFunc) http.HandlerFunc {
 }
 
 // SetupRouter creates and configures the application router
-func SetupRouter(db *mongo.Database, indexCSV string) http.Handler {
+func SetupRouter(db *mongo.Database) http.Handler {
 	mux := http.NewServeMux()
 
-	// Configure repositories
-	if err := content.UseMarkdown(indexCSV); err != nil {
-		log.Fatal("Failed to configure content repository:", err)
-	}
-	recipe.UseMongo(db)
-	video.UseMongo(db)
+	// All packages default to markdown if available
+	// No additional configuration needed - packages auto-initialize from markdown files
 	
 	// Initialize handlers (no dependencies)
 	contentHandler := handlers.NewContentHandler()
@@ -153,28 +147,34 @@ func printUsage() {
 }
 
 func serveCommand(args []string) {
-	// Load environment variables
-	mongoURI := cmp.Or(os.Getenv("MONGO_URI"), "localhost:27017/maxfacts")
+	var db *mongo.Database
+	
+	// Only connect to MongoDB if MONGO_URI is explicitly provided
+	if mongoURI := os.Getenv("MONGO_URI"); mongoURI != "" {
+		// Connect to MongoDB
+		ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+		defer cancel()
 
-	// Connect to MongoDB
-	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
-	defer cancel()
-
-	client, err := mongodb.Connect(ctx, mongoURI)
-	if err != nil {
-		log.Fatal("Failed to connect to MongoDB:", err)
+		client, err := mongodb.Connect(ctx, mongoURI)
+		if err != nil {
+			log.Printf("Warning: Failed to connect to MongoDB: %v", err)
+			log.Printf("Continuing with markdown-only mode...")
+		} else {
+			defer client.Disconnect(context.Background())
+			db = client.Database("maxfacts")
+			log.Printf("Connected to MongoDB - search functionality available")
+		}
+	} else {
+		log.Printf("No MONGO_URI provided - running in markdown-only mode")
 	}
-	defer client.Disconnect(context.Background())
-
-	db := client.Database("maxfacts")
 
 	// Setup routes
-	handler := SetupRouter(db, indexCSV)
+	handler := SetupRouter(db)
 
 	// Start server
 	port := cmp.Or(os.Getenv("PORT"), "3000")
 
-	log.Printf("Server starting on port %s (content: markdown files, recipes/search: MongoDB)", port)
+	log.Printf("Server starting on port %s", port)
 	
 	if err := http.ListenAndServe(":"+port, handler); err != nil {
 		log.Fatal("Server failed to start:", err)
@@ -235,156 +235,144 @@ func dumpMongoCommand(args []string) {
 
 	db := client.Database("maxfacts")
 
-	// Create output directory
-	outputDir := "data/markdown/content"
-	if err := os.MkdirAll(outputDir, 0755); err != nil {
-		log.Fatal("Failed to create output directory:", err)
-	}
+	// Export content
+	exportContent(ctx, db)
+	
+	// Export recipes
+	exportRecipes(ctx, db)
+	
+	// Export videos
+	exportVideos(ctx, db)
+}
 
-	// Get all content from MongoDB
+func exportContent(ctx context.Context, db *mongo.Database) {
+	// Configure reader and writer
+	content.UseMongoReader(db)
+	content.UseMarkdownWriter("data/markdown/content")
+
+	// Read all content
 	log.Println("Fetching all content from MongoDB...")
-	contentModel := models.NewContentModel(db)
-	contents, err := contentModel.FindAll(ctx)
+	contents, err := content.FindAll(ctx)
 	if err != nil {
 		log.Fatal("Failed to fetch content:", err)
 	}
 
 	log.Printf("Found %d content items", len(contents))
 
-	var validContents []models.Content
-	
-	// Process each content item
-	for i, content := range contents {
-		if content.ContentID == "" {
-			log.Printf("Skipping content with empty ID: %s", content.URI)
-			continue
-		}
-		
-		filename := fmt.Sprintf("%s.md", content.ContentID)
-		filepath := filepath.Join(outputDir, filename)
-
-		// Convert to markdown
-		markdown := convertContentToMarkdown(content)
-
-		// Write to file
-		if err := os.WriteFile(filepath, []byte(markdown), 0644); err != nil {
-			log.Printf("Failed to write file %s: %v", filename, err)
+	// Write each content item
+	var validContents []repository.Content
+	for i, c := range contents {
+		if c.ContentID == "" {
+			log.Printf("Skipping content with empty ID: %s", c.URI)
 			continue
 		}
 
-		validContents = append(validContents, content)
+		if err := content.WriteOne(ctx, &c); err != nil {
+			log.Printf("Failed to write %s: %v", c.ContentID, err)
+			continue
+		}
+
+		validContents = append(validContents, c)
 
 		if (i+1)%10 == 0 {
 			log.Printf("Processed %d/%d files...", i+1, len(contents))
 		}
 	}
 
-	// Sort contents by URI for consistent ordering
+	// Sort by URI for consistent ordering
 	sort.Slice(validContents, func(i, j int) bool {
 		return validContents[i].URI < validContents[j].URI
 	})
 
-	// Create CSV index file
-	csvPath := "data/markdown/index_uri.csv"
-	csvFile, err := os.Create(csvPath)
-	if err != nil {
-		log.Fatal("Failed to create CSV file:", err)
-	}
-	defer csvFile.Close()
-
-	csvWriter := csv.NewWriter(csvFile)
-	defer csvWriter.Flush()
-
-	// Write CSV header
-	if err := csvWriter.Write([]string{"uri", "id"}); err != nil {
-		log.Fatal("Failed to write CSV header:", err)
+	// Write index
+	if err := content.WriteIndex(ctx, validContents); err != nil {
+		log.Fatal("Failed to write index:", err)
 	}
 
-	// Write content data
-	for _, content := range validContents {
-		if err := csvWriter.Write([]string{content.URI, content.ContentID}); err != nil {
-			log.Printf("Failed to write CSV row for %s: %v", content.URI, err)
-			continue
-		}
-	}
-
-	log.Printf("Successfully exported %d content items to %s", len(validContents), outputDir)
-	log.Printf("Created CSV index with %d entries at %s", len(validContents), csvPath)
+	log.Printf("Successfully exported %d content items to data/markdown/content", len(validContents))
+	log.Printf("Created CSV index with %d entries at data/markdown/index_uri.csv", len(validContents))
 }
 
-func convertContentToMarkdown(content models.Content) string {
-	var sb strings.Builder
-	
-	// Add frontmatter
-	sb.WriteString("---\n")
-	sb.WriteString(fmt.Sprintf("id: %s\n", content.ContentID))
-	sb.WriteString(fmt.Sprintf("uri: %s\n", content.URI))
-	sb.WriteString(fmt.Sprintf("title: %s\n", content.Title))
-	sb.WriteString(fmt.Sprintf("type: %s\n", content.Type))
-	
-	if content.Description != "" {
-		sb.WriteString(fmt.Sprintf("description: %s\n", content.Description))
+func exportRecipes(ctx context.Context, db *mongo.Database) {
+	// Configure reader and writer
+	recipe.UseMongo(db)
+	if err := recipe.UseMarkdownWriter("data/markdown/recipes"); err != nil {
+		log.Fatal("Failed to configure recipe writer:", err)
 	}
-	
-	if content.Surtitle != "" {
-		sb.WriteString(fmt.Sprintf("surtitle: %s\n", content.Surtitle))
+
+	// Read all recipes
+	log.Println("Fetching all recipes from MongoDB...")
+	recipes, err := recipe.FindAll(ctx)
+	if err != nil {
+		log.Fatal("Failed to fetch recipes:", err)
 	}
-	
-	if content.Authorship != "" {
-		sb.WriteString(fmt.Sprintf("authorship: %s\n", content.Authorship))
-	}
-	
-	// Always export order field to ensure proper sorting
-	sb.WriteString(fmt.Sprintf("order: %d\n", content.Order))
-	
-	if content.Hide {
-		sb.WriteString("hide: true\n")
-	}
-	
-	if content.HasSublist {
-		sb.WriteString("has_sublist: true\n")
-	}
-	
-	if content.RedirectURI != "" {
-		sb.WriteString(fmt.Sprintf("redirect_uri: %s\n", content.RedirectURI))
-	}
-	
-	if content.FurtherReadingURI != "" {
-		sb.WriteString(fmt.Sprintf("further_reading_uri: %s\n", content.FurtherReadingURI))
-	}
-	
-	if !content.UpdatedAt.IsZero() {
-		sb.WriteString(fmt.Sprintf("updated_at: %s\n", content.UpdatedAt.Format(time.RFC3339)))
-	}
-	
-	if !content.CreatedAt.IsZero() {
-		sb.WriteString(fmt.Sprintf("created_at: %s\n", content.CreatedAt.Format(time.RFC3339)))
-	}
-	
-	// Add contents (table of contents) if present
-	if len(content.Contents) > 0 {
-		sb.WriteString("contents:\n")
-		for _, item := range content.Contents {
-			// Clean up the text by removing carriage returns and extra whitespace
-			cleanText := strings.ReplaceAll(item.Text, "\r\n", " ")
-			cleanText = strings.ReplaceAll(cleanText, "\n", " ")
-			cleanText = strings.TrimSpace(cleanText)
-			// Collapse multiple spaces into single spaces
-			cleanText = regexp.MustCompile(`\s+`).ReplaceAllString(cleanText, " ")
-			
-			// Quote the text to handle YAML special characters and HTML entities
-			sb.WriteString(fmt.Sprintf("  - text: \"%s\"\n", strings.ReplaceAll(cleanText, "\"", "\\\"")))
-			sb.WriteString(fmt.Sprintf("    id: %s\n", item.ID))
+
+	log.Printf("Found %d recipes", len(recipes))
+
+	// Write each recipe
+	for i, r := range recipes {
+		if r.RecipeID == "" {
+			log.Printf("Skipping recipe with empty ID: %s", r.Title)
+			continue
+		}
+
+		if err := recipe.WriteOne(ctx, &r); err != nil {
+			log.Printf("Failed to write recipe %s: %v", r.RecipeID, err)
+			continue
+		}
+
+		if (i+1)%10 == 0 {
+			log.Printf("Processed %d/%d recipes...", i+1, len(recipes))
 		}
 	}
-	
-	sb.WriteString("---\n\n")
-	
-	// Add content body
-	if content.Body != "" {
-		sb.WriteString(content.Body)
-		sb.WriteString("\n")
+
+	// Write index
+	if err := recipe.WriteIndex(ctx, recipes); err != nil {
+		log.Fatal("Failed to write recipe index:", err)
 	}
-	
-	return sb.String()
+
+	log.Printf("Successfully exported %d recipes to data/markdown/recipes", len(recipes))
+	log.Printf("Created CSV index at data/markdown/index_recipes.csv")
+}
+
+func exportVideos(ctx context.Context, db *mongo.Database) {
+	// Configure reader and writer
+	video.UseMongo(db)
+	if err := video.UseMarkdownWriter("data/markdown/videos"); err != nil {
+		log.Fatal("Failed to configure video writer:", err)
+	}
+
+	// Read all videos
+	log.Println("Fetching all videos from MongoDB...")
+	videos, err := video.FindAll(ctx)
+	if err != nil {
+		log.Fatal("Failed to fetch videos:", err)
+	}
+
+	log.Printf("Found %d videos", len(videos))
+
+	// Write each video
+	for i, v := range videos {
+		if v.ID == "" {
+			log.Printf("Skipping video with empty ID: %s", v.Name)
+			continue
+		}
+
+		if err := video.WriteOne(ctx, &v); err != nil {
+			log.Printf("Failed to write video %s: %v", v.ID, err)
+			continue
+		}
+
+		if (i+1)%10 == 0 {
+			log.Printf("Processed %d/%d videos...", i+1, len(videos))
+		}
+	}
+
+	// Write index
+	if err := video.WriteIndex(ctx, videos); err != nil {
+		log.Fatal("Failed to write video index:", err)
+	}
+
+	log.Printf("Successfully exported %d videos to data/markdown/videos", len(videos))
+	log.Printf("Created CSV index at data/markdown/index_videos.csv")
 }

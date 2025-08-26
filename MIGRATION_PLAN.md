@@ -139,12 +139,12 @@ go run .
   - Uses `MONGO_URI` environment variable (defaults to localhost:27017/maxfacts)
   - Identical functionality to the original server
 
-- **`dump-mongo`** - Exports all content pages to markdown files and creates CSV index
+- **`dump-mongo`** - Exports all content, recipes, and videos to markdown files and creates CSV indexes
   - Uses `MONGO_URI` environment variable (defaults to localhost:27017/maxfacts)
-  - Creates `data/markdown/content/` directory
-  - Exports each page as `{page_id}.md` with YAML frontmatter
-  - Includes all content metadata (title, URI, type, description, etc.)
-  - Creates `data/markdown/index_uri.csv` with ordered URI-to-ID mapping
+  - Creates `data/markdown/content/`, `data/markdown/recipes/`, `data/markdown/videos/` directories
+  - Exports each item as `{id}.md` with YAML frontmatter preserving all metadata
+  - Creates CSV indexes: `index_uri.csv`, `index_recipes.csv`, `index_videos.csv`
+  - Handles complex recipe structures (ingredients with headings) and video multiline titles
 
 ### Future Commands
 The CLI structure allows for easy addition of new commands such as:
@@ -178,11 +178,12 @@ The long-term goal is to eliminate the MongoDB dependency by transitioning to a 
   - ✓ Further reading cross-references
 - **Other handlers use MongoDB** - recipes, search, videos via package functions
 
-### Phase 3: Full File-based System (Future)
-- **Search functionality** using file-based indexing instead of MongoDB text search
-- **Recipe and video data** exported to similar file structures
-- **Complete MongoDB removal** from the application
-- **Static deployment** capability without database dependency
+### Phase 3: Full File-based System ✓ **COMPLETE**
+- **Complete markdown migration** - all content types now use markdown by default ✓
+- **Recipe and video data** exported to file structures with auto-initialization ✓
+- **MongoDB completely optional** - server runs without database dependency ✓
+- **Static deployment ready** - no database required for core functionality ✓
+- **Search functionality** gracefully degrades when MongoDB unavailable ✓
 
 ### Benefits of File-based Approach
 - **Version control** - content can be tracked in Git
@@ -313,13 +314,14 @@ REFERENCE_URL=http://production.site.com MONGO_URI=localhost:27017/maxfacts go t
    - ✓ Timezone format - Changed to use +00:00 for UTC in both versions
    - ✓ Breadcrumb ID format - Uses semantic content IDs instead of MongoDB ObjectIDs
 
-### Current Architecture
-- **Content Pages**: 100% file-based via `content.UseMarkdown()` ✓
-- **Recipes**: MongoDB-based via `recipe.UseMongo()` ✓
-- **Search**: MongoDB-based via `content.Search()` (uses MongoDB backend) ✓ 
-- **Videos**: MongoDB-based via `video.UseMongo()` ✓
-- **Sitemaps**: Mixed - content from markdown, recipes/videos from MongoDB ✓
-- **Package-Level Functions**: Simplified access without dependency injection ✓
+### Current Architecture ✓ **COMPLETE - MARKDOWN DEFAULT**
+- **Content Pages**: 100% file-based by default, auto-initialized from `data/markdown/index_uri.csv` ✓
+- **Recipes**: File-based by default, auto-initialized from `data/markdown/index_recipes.csv` ✓
+- **Videos**: File-based by default, auto-initialized from `data/markdown/index_videos.csv` ✓
+- **Search**: MongoDB-based only (gracefully degrades when MongoDB unavailable) ✓
+- **Sitemaps**: 100% file-based using markdown data for all content types ✓
+- **MongoDB**: Optional, only connects when `MONGO_URI` environment variable provided ✓
+- **Package-Level Functions**: Zero-configuration defaults with auto-initialization ✓
 
 ### Phase 4: Package-Level Repository Simplification (✓ Complete)
 The Go version now implements simplified package-level access instead of complex dependency injection:
@@ -327,14 +329,16 @@ The Go version now implements simplified package-level access instead of complex
 1. **Package-Level Functions** (`pkg/content/`, `pkg/recipe/`, `pkg/video/`):
    - `content.FindOne()`, `content.FindAll()`, `content.GetBreadcrumbs()` - content operations
    - `content.Search()` - search operations (MongoDB backend only)
+   - `content.WriteOne()`, `content.WriteIndex()` - write operations
    - `recipe.FindOne()`, `recipe.FindAll()` - recipe operations
    - `video.FindOne()`, `video.FindAll()` - video operations
    - Configuration via `content.UseMarkdown()`, `recipe.UseMongo()`, `video.UseMongo()`
 
 2. **Internal Repository Pattern**:
-   - Repository interfaces still exist internally for flexibility
-   - MongoDB implementations for all data types
-   - Markdown implementation for content only
+   - Repository interfaces split into `ContentReader` and `ContentWriter` for separation of concerns
+   - `ContentRepository` combines both for backwards compatibility
+   - MongoDB implementations for all data types (panics on write operations)
+   - Markdown implementation for content reading, separate `ContentWriter` for writing
    - Package functions route to appropriate internal repository
 
 3. **Handler Simplification**:
@@ -343,8 +347,14 @@ The Go version now implements simplified package-level access instead of complex
    - Direct package function calls: `content.FindOne()` instead of `h.contentRepo.FindOne()`
 
 4. **Configuration Model**:
-   - `content.UseMarkdown(indexCSV)` - content uses markdown files (default for serve)
-   - `content.UseMongo(db)` - content uses MongoDB (used for dump-mongo command)
+   - **Legacy functions** (for backwards compatibility):
+     - `content.UseMarkdown(indexCSV)` - configures both reader and writer for markdown
+     - `content.UseMongo(db)` - configures both reader and writer for MongoDB
+   - **New separated functions** (for flexible configuration):
+     - `content.UseMarkdownReader(indexCSV)` - read from markdown files
+     - `content.UseMongoReader(db)` - read from MongoDB
+     - `content.UseMarkdownWriter(outputDir)` - write to markdown files
+     - `content.UseMongoWriter(db)` - write to MongoDB (panics on any write)
    - `recipe.UseMongo(db)` - recipes always use MongoDB
    - `video.UseMongo(db)` - videos always use MongoDB
 
@@ -352,7 +362,14 @@ The Go version now implements simplified package-level access instead of complex
    - **Simplified architecture** - no complex dependency injection
    - **Cleaner code** - direct function calls instead of method chains
    - **Better defaults** - markdown content by default, explicit MongoDB where needed
+   - **Flexible configuration** - can mix readers and writers (e.g., read from MongoDB, write to markdown)
    - **Easier testing** - global configuration makes test setup simpler
    - **Same flexibility** - can still switch backends via configuration functions
+
+6. **dump-mongo Command Refactoring**:
+   - Reduced from ~90 lines to ~40 lines of code
+   - Uses separated configuration: `content.UseMongoReader(db)` + `content.UseMarkdownWriter(outputDir)`
+   - All file I/O and conversion logic moved to `pkg/markdown/content_writer.go`
+   - Cleaner separation of concerns between CLI and business logic
 
 This simplification reduces complexity while preserving all functionality and maintaining the hybrid markdown/MongoDB architecture.
