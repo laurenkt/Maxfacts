@@ -57,15 +57,11 @@ func staticFileHandler(nextHandler http.HandlerFunc) http.HandlerFunc {
 }
 
 // SetupRouter creates and configures the application router
-func SetupRouter(db *mongo.Database, indexCSV string) http.Handler {
+func SetupRouter(db *mongo.Database) http.Handler {
 	mux := http.NewServeMux()
 
-	// Configure repositories
-	if err := content.UseMarkdown(indexCSV); err != nil {
-		log.Fatal("Failed to configure content repository:", err)
-	}
-	recipe.UseMongo(db)
-	video.UseMongo(db)
+	// All packages default to markdown if available
+	// No additional configuration needed - packages auto-initialize from markdown files
 	
 	// Initialize handlers (no dependencies)
 	contentHandler := handlers.NewContentHandler()
@@ -151,34 +147,34 @@ func printUsage() {
 }
 
 func serveCommand(args []string) {
-	// Load environment variables
-	mongoURI := cmp.Or(os.Getenv("MONGO_URI"), "localhost:27017/maxfacts")
+	var db *mongo.Database
+	
+	// Only connect to MongoDB if MONGO_URI is explicitly provided
+	if mongoURI := os.Getenv("MONGO_URI"); mongoURI != "" {
+		// Connect to MongoDB
+		ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+		defer cancel()
 
-	// Connect to MongoDB
-	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
-	defer cancel()
-
-	client, err := mongodb.Connect(ctx, mongoURI)
-	if err != nil {
-		log.Fatal("Failed to connect to MongoDB:", err)
-	}
-	defer client.Disconnect(context.Background())
-
-	db := client.Database("maxfacts")
-
-	// Get index CSV
-	indexCSV, err := GetIndexCSV()
-	if err != nil {
-		log.Fatal("Failed to load index CSV:", err)
+		client, err := mongodb.Connect(ctx, mongoURI)
+		if err != nil {
+			log.Printf("Warning: Failed to connect to MongoDB: %v", err)
+			log.Printf("Continuing with markdown-only mode...")
+		} else {
+			defer client.Disconnect(context.Background())
+			db = client.Database("maxfacts")
+			log.Printf("Connected to MongoDB - search functionality available")
+		}
+	} else {
+		log.Printf("No MONGO_URI provided - running in markdown-only mode")
 	}
 
 	// Setup routes
-	handler := SetupRouter(db, indexCSV)
+	handler := SetupRouter(db)
 
 	// Start server
 	port := cmp.Or(os.Getenv("PORT"), "3000")
 
-	log.Printf("Server starting on port %s (content: markdown files, recipes/search: MongoDB)", port)
+	log.Printf("Server starting on port %s", port)
 	
 	if err := http.ListenAndServe(":"+port, handler); err != nil {
 		log.Fatal("Server failed to start:", err)
@@ -239,6 +235,17 @@ func dumpMongoCommand(args []string) {
 
 	db := client.Database("maxfacts")
 
+	// Export content
+	exportContent(ctx, db)
+	
+	// Export recipes
+	exportRecipes(ctx, db)
+	
+	// Export videos
+	exportVideos(ctx, db)
+}
+
+func exportContent(ctx context.Context, db *mongo.Database) {
 	// Configure reader and writer
 	content.UseMongoReader(db)
 	content.UseMarkdownWriter("data/markdown/content")
@@ -284,4 +291,88 @@ func dumpMongoCommand(args []string) {
 
 	log.Printf("Successfully exported %d content items to data/markdown/content", len(validContents))
 	log.Printf("Created CSV index with %d entries at data/markdown/index_uri.csv", len(validContents))
+}
+
+func exportRecipes(ctx context.Context, db *mongo.Database) {
+	// Configure reader and writer
+	recipe.UseMongo(db)
+	if err := recipe.UseMarkdownWriter("data/markdown/recipes"); err != nil {
+		log.Fatal("Failed to configure recipe writer:", err)
+	}
+
+	// Read all recipes
+	log.Println("Fetching all recipes from MongoDB...")
+	recipes, err := recipe.FindAll(ctx)
+	if err != nil {
+		log.Fatal("Failed to fetch recipes:", err)
+	}
+
+	log.Printf("Found %d recipes", len(recipes))
+
+	// Write each recipe
+	for i, r := range recipes {
+		if r.RecipeID == "" {
+			log.Printf("Skipping recipe with empty ID: %s", r.Title)
+			continue
+		}
+
+		if err := recipe.WriteOne(ctx, &r); err != nil {
+			log.Printf("Failed to write recipe %s: %v", r.RecipeID, err)
+			continue
+		}
+
+		if (i+1)%10 == 0 {
+			log.Printf("Processed %d/%d recipes...", i+1, len(recipes))
+		}
+	}
+
+	// Write index
+	if err := recipe.WriteIndex(ctx, recipes); err != nil {
+		log.Fatal("Failed to write recipe index:", err)
+	}
+
+	log.Printf("Successfully exported %d recipes to data/markdown/recipes", len(recipes))
+	log.Printf("Created CSV index at data/markdown/index_recipes.csv")
+}
+
+func exportVideos(ctx context.Context, db *mongo.Database) {
+	// Configure reader and writer
+	video.UseMongo(db)
+	if err := video.UseMarkdownWriter("data/markdown/videos"); err != nil {
+		log.Fatal("Failed to configure video writer:", err)
+	}
+
+	// Read all videos
+	log.Println("Fetching all videos from MongoDB...")
+	videos, err := video.FindAll(ctx)
+	if err != nil {
+		log.Fatal("Failed to fetch videos:", err)
+	}
+
+	log.Printf("Found %d videos", len(videos))
+
+	// Write each video
+	for i, v := range videos {
+		if v.ID == "" {
+			log.Printf("Skipping video with empty ID: %s", v.Name)
+			continue
+		}
+
+		if err := video.WriteOne(ctx, &v); err != nil {
+			log.Printf("Failed to write video %s: %v", v.ID, err)
+			continue
+		}
+
+		if (i+1)%10 == 0 {
+			log.Printf("Processed %d/%d videos...", i+1, len(videos))
+		}
+	}
+
+	// Write index
+	if err := video.WriteIndex(ctx, videos); err != nil {
+		log.Fatal("Failed to write video index:", err)
+	}
+
+	log.Printf("Successfully exported %d videos to data/markdown/videos", len(videos))
+	log.Printf("Created CSV index at data/markdown/index_videos.csv")
 }

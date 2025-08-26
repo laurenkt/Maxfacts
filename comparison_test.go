@@ -65,6 +65,7 @@ var testEndpoints = []string{
 	"/diagnosis/tests",
 	"/treatment/restorative-dentistry",
 	"/treatment/surgery/abscess/more-info",
+	"/help/oral-food/recipes/bean-salad-with-yogurt-dressing",
 	//"/search",
 }
 
@@ -91,15 +92,8 @@ func TestMain(m *testing.M) {
 
 	testDB = client.Database("maxfacts")
 
-	// Get index CSV
-	indexCSV, err := GetIndexCSV()
-	if err != nil {
-		fmt.Printf("Failed to load index CSV: %v\n", err)
-		os.Exit(1)
-	}
-
 	// Use the same router setup as main.go
-	testHandler = SetupRouter(testDB, indexCSV)
+	testHandler = SetupRouter(testDB)
 
 	// Initialize sitemap handler for shared URL collection
 	testSitemapHandler = handlers.NewSitemapHandler()

@@ -2,6 +2,8 @@ package content
 
 import (
 	"fmt"
+	"log"
+	"os"
 	
 	"go.mongodb.org/mongo-driver/mongo"
 
@@ -46,12 +48,19 @@ func UseMongoWriter(db *mongo.Database) {
 
 // UseMarkdown configures content to use markdown files (default)
 // This provides content operations but no search functionality
-func UseMarkdown(indexCSV string) error {
-	if err := UseMarkdownReader(indexCSV); err != nil {
+func UseMarkdown() error {
+	indexPath := "data/markdown/index_uri.csv"
+	csvContent, err := os.ReadFile(indexPath)
+	if err != nil {
+		return fmt.Errorf("failed to read content index: %w", err)
+	}
+	
+	if err := UseMarkdownReader(string(csvContent)); err != nil {
 		return err
 	}
 	UseMarkdownWriter("data/markdown/content")
 	searchRepo = nil // Search not available with markdown
+	log.Printf("Content: switched to markdown repository")
 	return nil
 }
 
@@ -60,4 +69,5 @@ func UseMarkdown(indexCSV string) error {
 func UseMongo(db *mongo.Database) {
 	UseMongoReader(db)
 	UseMongoWriter(db)
+	log.Printf("Content: switched to MongoDB repository")
 }

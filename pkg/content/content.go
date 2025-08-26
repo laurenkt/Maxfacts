@@ -3,14 +3,40 @@ package content
 import (
 	"context"
 	"fmt"
+	"log"
+	"os"
 	"regexp"
 
+	"github.com/maxfacts/maxfacts/pkg/markdown"
 	"github.com/maxfacts/maxfacts/pkg/repository"
 )
 
 // Internal repository instances - set by configuration functions
 var contentReader repository.ContentReader = nil
 var contentWriter repository.ContentWriter = nil
+
+func init() {
+	// Try to load markdown repository by default
+	indexPath := "data/markdown/index_uri.csv"
+	if _, err := os.Stat(indexPath); err == nil {
+		// Index file exists, load markdown repository
+		csvContent, err := os.ReadFile(indexPath)
+		if err != nil {
+			log.Printf("Warning: failed to read content index: %v", err)
+			return
+		}
+		
+		repo, err := markdown.NewContentRepository("data/markdown/content", string(csvContent))
+		if err != nil {
+			log.Printf("Warning: failed to create markdown content repository: %v", err)
+			return
+		}
+		
+		contentReader = repo
+		contentWriter, _ = markdown.NewContentWriter("data/markdown/content")
+		log.Printf("Content: using markdown repository from %s", indexPath)
+	}
+}
 
 // FindOne finds a single content item by URI
 func FindOne(ctx context.Context, uri string) (*repository.Content, error) {
