@@ -20,10 +20,7 @@
 │   └── markdown/          # Markdown content files
 │       ├── content/       # Individual page files ({id}.md)
 │       ├── recipes/       # Recipe files ({id}.md)
-│       ├── videos/        # Video metadata files ({id}.md)
-│       ├── index_uri.csv  # URI-to-ID mapping index
-│       ├── index_recipes.csv  # Recipe index
-│       └── index_videos.csv   # Video index
+│       └── videos/        # Video metadata files ({id}.md)
 ├── static/                 # Static assets (CSS, JS, images)
 └── pkg/                    # Shared utilities & package-level repositories
     ├── content/           # Package-level content operations
@@ -65,6 +62,7 @@ This document tracks the ongoing migration of the Maxfacts medical content manag
 - **Static file serving** - CSS, JS, images served from filesystem
 - **Package-level APIs** - Clean interfaces for all data operations
 - **Comprehensive testing** - Comparison tests against Node.js reference
+- **In-memory indexing** - Fast URI-to-ID lookups built from markdown files
 
 ### 🚧 **Remaining Components**
 - **Admin dashboard** - Content editing, user management, image uploads
@@ -106,8 +104,7 @@ go run .
 **`dump-mongo`** - Exports MongoDB data to markdown files
 - Uses `MONGO_URI` environment variable (defaults to localhost:27017/maxfacts)
 - Creates `data/markdown/content/`, `data/markdown/recipes/`, `data/markdown/videos/` directories
-- Exports each item as `{id}.md` with YAML frontmatter
-- Creates CSV indexes: `index_uri.csv`, `index_recipes.csv`, `index_videos.csv`
+- Exports each item as `{id}.md` with YAML frontmatter including URI metadata
 - Handles complex data structures and preserves all metadata
 
 ## Data Storage Architecture
@@ -115,10 +112,10 @@ go run .
 The application uses a file-based storage system with optional MongoDB connectivity.
 
 ### File-based Storage (Default)
-- **Markdown files** with YAML frontmatter store all content metadata
-- **CSV indexes** provide fast URI-to-ID lookups without database queries
+- **Markdown files** with YAML frontmatter store all content metadata including URIs
+- **In-memory indexes** built by scanning markdown files for fast URI-to-ID lookups
 - **Directory structure**: `data/markdown/content/`, `data/markdown/recipes/`, `data/markdown/videos/`
-- **Auto-initialization** from CSV indexes on startup
+- **Auto-initialization** by scanning markdown directories on startup
 - **Bleve search** provides in-memory full-text search capabilities
 
 ### Content Organization
@@ -248,7 +245,7 @@ video.WriteOne(ctx, video)     // Export video metadata
 ```
 
 ### Configuration
-- **Auto-initialization**: Packages auto-configure from CSV indexes on startup
+- **Auto-initialization**: Packages auto-configure by scanning markdown directories on startup
 - **Zero configuration**: Works out-of-the-box with file-based storage
 - **Optional MongoDB**: Can be enabled via configuration functions when needed
 
@@ -325,3 +322,11 @@ The Node.js application uses a complex build system that needs replacement:
 - **Lazy initialization** prevents slow server startup
 - **Rate limiting** - 20 requests per 30 minutes
 - **Graceful degradation** when search unavailable
+
+### In-Memory Index Architecture
+- **Direct file scanning** - Indexes built by reading markdown frontmatter on startup
+- **No CSV dependencies** - Eliminated all intermediate index files 
+- **Fast initialization** - URI-to-ID mappings built in memory instantly
+- **Consistent with search** - Same pattern as Bleve search indexing
+- **Zero configuration** - Auto-detects content directories and builds indexes
+- **Efficient lookups** - Hash-based O(1) URI resolution performance

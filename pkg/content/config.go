@@ -3,7 +3,6 @@ package content
 import (
 	"fmt"
 	"log"
-	"os"
 	
 	"go.mongodb.org/mongo-driver/mongo"
 
@@ -12,8 +11,8 @@ import (
 )
 
 // UseMarkdownReader configures content reader to use markdown files
-func UseMarkdownReader(indexCSV string) error {
-	repo, err := markdown.NewContentRepository("data/markdown/content", indexCSV)
+func UseMarkdownReader() error {
+	repo, err := markdown.NewContentRepository("data/markdown/content")
 	if err != nil {
 		return err
 	}
@@ -49,13 +48,7 @@ func UseMongoWriter(db *mongo.Database) {
 // UseMarkdown configures content to use markdown files (default)
 // This provides content operations and Bleve search functionality
 func UseMarkdown() error {
-	indexPath := "data/markdown/index_uri.csv"
-	csvContent, err := os.ReadFile(indexPath)
-	if err != nil {
-		return fmt.Errorf("failed to read content index: %w", err)
-	}
-	
-	if err := UseMarkdownReader(string(csvContent)); err != nil {
+	if err := UseMarkdownReader(); err != nil {
 		return err
 	}
 	UseMarkdownWriter("data/markdown/content")

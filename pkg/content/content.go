@@ -21,28 +21,22 @@ var searchRepo repository.ContentSearchRepository = nil
 
 func init() {
 	// Try to load markdown repository by default
-	indexPath := "data/markdown/index_uri.csv"
-	if _, err := os.Stat(indexPath); err == nil {
-		// Index file exists, load markdown repository
-		csvContent, err := os.ReadFile(indexPath)
-		if err != nil {
-			log.Printf("Warning: failed to read content index: %v", err)
-			return
-		}
-		
-		repo, err := markdown.NewContentRepository("data/markdown/content", string(csvContent))
+	contentDir := "data/markdown/content"
+	if _, err := os.Stat(contentDir); err == nil {
+		// Content directory exists, load markdown repository
+		repo, err := markdown.NewContentRepository(contentDir)
 		if err != nil {
 			log.Printf("Warning: failed to create markdown content repository: %v", err)
 			return
 		}
 		
 		contentReader = repo
-		contentWriter, _ = markdown.NewContentWriter("data/markdown/content")
+		contentWriter, _ = markdown.NewContentWriter(contentDir)
 		
 		// Don't initialize search in init() - it's too slow and blocks startup
 		// Search will be initialized lazily when first needed
 		
-		log.Printf("Content: using markdown repository from %s", indexPath)
+		log.Printf("Content: using markdown repository from %s", contentDir)
 	}
 }
 
@@ -133,10 +127,3 @@ func WriteOne(ctx context.Context, content *repository.Content) error {
 	return contentWriter.WriteOne(ctx, content)
 }
 
-// WriteIndex writes the URI-to-ID index
-func WriteIndex(ctx context.Context, contents []repository.Content) error {
-	if contentWriter == nil {
-		return fmt.Errorf("content writer not configured - call UseMarkdownWriter() or UseMongoWriter() first")
-	}
-	return contentWriter.WriteIndex(ctx, contents)
-}

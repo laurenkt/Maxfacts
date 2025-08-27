@@ -2,11 +2,9 @@ package markdown
 
 import (
 	"context"
-	"encoding/csv"
 	"fmt"
 	"os"
 	"path/filepath"
-	"sort"
 	"strings"
 	"time"
 
@@ -51,38 +49,6 @@ func (w *VideoWriter) WriteOne(ctx context.Context, video *repository.Video) err
 	return nil
 }
 
-// WriteIndex writes the URI-to-ID index CSV file for videos
-func (w *VideoWriter) WriteIndex(ctx context.Context, videos []repository.Video) error {
-	// Sort videos by URI for consistent ordering
-	sort.Slice(videos, func(i, j int) bool {
-		return videos[i].URI < videos[j].URI
-	})
-	
-	// Create CSV file
-	csvPath := "data/markdown/index_videos.csv"
-	csvFile, err := os.Create(csvPath)
-	if err != nil {
-		return fmt.Errorf("failed to create CSV file: %w", err)
-	}
-	defer csvFile.Close()
-	
-	csvWriter := csv.NewWriter(csvFile)
-	defer csvWriter.Flush()
-	
-	// Write CSV header
-	if err := csvWriter.Write([]string{"uri", "id"}); err != nil {
-		return fmt.Errorf("failed to write CSV header: %w", err)
-	}
-	
-	// Write video data
-	for _, video := range videos {
-		if err := csvWriter.Write([]string{video.URI, video.ID}); err != nil {
-			return fmt.Errorf("failed to write CSV row for %s: %w", video.URI, err)
-		}
-	}
-	
-	return nil
-}
 
 // convertVideoToMarkdown converts a video item to markdown with YAML frontmatter
 func convertVideoToMarkdown(video *repository.Video) string {

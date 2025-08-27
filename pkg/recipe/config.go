@@ -3,8 +3,6 @@ package recipe
 import (
 	"fmt"
 	"log"
-	"os"
-	"path/filepath"
 	"go.mongodb.org/mongo-driver/mongo"
 
 	"github.com/maxfacts/maxfacts/pkg/markdown"
@@ -22,13 +20,7 @@ func UseMongo(db *mongo.Database) {
 
 // UseMarkdown configures recipe to use markdown files
 func UseMarkdown() error {
-	indexPath := "data/markdown/index_recipes.csv"
-	csvContent, err := os.ReadFile(indexPath)
-	if err != nil {
-		return fmt.Errorf("failed to read recipe index: %w", err)
-	}
-	
-	repo, err := markdown.NewRecipeRepository("data/markdown/recipes", string(csvContent))
+	repo, err := markdown.NewRecipeRepository("data/markdown/recipes")
 	if err != nil {
 		return fmt.Errorf("failed to create markdown recipe repository: %w", err)
 	}
@@ -39,20 +31,8 @@ func UseMarkdown() error {
 }
 
 // UseMarkdownReader configures the recipe package to read from markdown files
-func UseMarkdownReader(indexCSVPath string) error {
-	// Read the CSV index file
-	csvContent, err := os.ReadFile(indexCSVPath)
-	if err != nil {
-		return fmt.Errorf("failed to read index CSV: %w", err)
-	}
-	
-	// Get directory from CSV path
-	recipeDir := filepath.Dir(indexCSVPath)
-	if filepath.Base(recipeDir) == "markdown" {
-		recipeDir = filepath.Join(recipeDir, "recipes")
-	}
-	
-	repo, err := markdown.NewRecipeRepository(recipeDir, string(csvContent))
+func UseMarkdownReader(recipeDir string) error {
+	repo, err := markdown.NewRecipeRepository(recipeDir)
 	if err != nil {
 		return fmt.Errorf("failed to create markdown recipe repository: %w", err)
 	}

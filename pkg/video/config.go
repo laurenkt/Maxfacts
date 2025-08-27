@@ -3,8 +3,6 @@ package video
 import (
 	"fmt"
 	"log"
-	"os"
-	"path/filepath"
 	"go.mongodb.org/mongo-driver/mongo"
 
 	"github.com/maxfacts/maxfacts/pkg/markdown"
@@ -22,13 +20,7 @@ func UseMongo(db *mongo.Database) {
 
 // UseMarkdown configures video to use markdown files
 func UseMarkdown() error {
-	indexPath := "data/markdown/index_videos.csv"
-	csvContent, err := os.ReadFile(indexPath)
-	if err != nil {
-		return fmt.Errorf("failed to read video index: %w", err)
-	}
-	
-	repo, err := markdown.NewVideoRepository("data/markdown/videos", string(csvContent))
+	repo, err := markdown.NewVideoRepository("data/markdown/videos")
 	if err != nil {
 		return fmt.Errorf("failed to create markdown video repository: %w", err)
 	}
@@ -39,20 +31,8 @@ func UseMarkdown() error {
 }
 
 // UseMarkdownReader configures the video package to read from markdown files
-func UseMarkdownReader(indexCSVPath string) error {
-	// Read the CSV index file
-	csvContent, err := os.ReadFile(indexCSVPath)
-	if err != nil {
-		return fmt.Errorf("failed to read index CSV: %w", err)
-	}
-	
-	// Get directory from CSV path
-	videoDir := filepath.Dir(indexCSVPath)
-	if filepath.Base(videoDir) == "markdown" {
-		videoDir = filepath.Join(videoDir, "videos")
-	}
-	
-	repo, err := markdown.NewVideoRepository(videoDir, string(csvContent))
+func UseMarkdownReader(videoDir string) error {
+	repo, err := markdown.NewVideoRepository(videoDir)
 	if err != nil {
 		return fmt.Errorf("failed to create markdown video repository: %w", err)
 	}

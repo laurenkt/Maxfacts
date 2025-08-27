@@ -41,9 +41,6 @@ type ContentReader interface {
 type ContentWriter interface {
 	// WriteOne writes a single content item
 	WriteOne(ctx context.Context, content *Content) error
-	
-	// WriteIndex writes the URI-to-ID index
-	WriteIndex(ctx context.Context, contents []Content) error
 }
 
 // ContentRepository combines both read and write operations

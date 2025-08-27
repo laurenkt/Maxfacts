@@ -2,11 +2,9 @@ package markdown
 
 import (
 	"context"
-	"encoding/csv"
 	"fmt"
 	"os"
 	"path/filepath"
-	"sort"
 	"strings"
 	"time"
 
@@ -60,38 +58,6 @@ func (w *RecipeWriter) WriteOne(ctx context.Context, recipe *repository.Recipe) 
 	return nil
 }
 
-// WriteIndex writes the URI-to-ID index CSV file for recipes
-func (w *RecipeWriter) WriteIndex(ctx context.Context, recipes []repository.Recipe) error {
-	// Sort recipes by URI for consistent ordering
-	sort.Slice(recipes, func(i, j int) bool {
-		return recipes[i].URI < recipes[j].URI
-	})
-	
-	// Create CSV file
-	csvPath := "data/markdown/index_recipes.csv"
-	csvFile, err := os.Create(csvPath)
-	if err != nil {
-		return fmt.Errorf("failed to create CSV file: %w", err)
-	}
-	defer csvFile.Close()
-	
-	csvWriter := csv.NewWriter(csvFile)
-	defer csvWriter.Flush()
-	
-	// Write CSV header
-	if err := csvWriter.Write([]string{"uri", "recipe_id"}); err != nil {
-		return fmt.Errorf("failed to write CSV header: %w", err)
-	}
-	
-	// Write recipe data
-	for _, recipe := range recipes {
-		if err := csvWriter.Write([]string{recipe.URI, recipe.RecipeID}); err != nil {
-			return fmt.Errorf("failed to write CSV row for %s: %w", recipe.URI, err)
-		}
-	}
-	
-	return nil
-}
 
 // convertRecipeToMarkdown converts a recipe item to markdown with YAML frontmatter
 func convertRecipeToMarkdown(recipe *repository.Recipe) string {

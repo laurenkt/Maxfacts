@@ -299,13 +299,7 @@ func exportContent(ctx context.Context, db *mongo.Database) {
 		return validContents[i].URI < validContents[j].URI
 	})
 
-	// Write index
-	if err := content.WriteIndex(ctx, validContents); err != nil {
-		log.Fatal("Failed to write index:", err)
-	}
-
 	log.Printf("Successfully exported %d content items to data/markdown/content", len(validContents))
-	log.Printf("Created CSV index with %d entries at data/markdown/index_uri.csv", len(validContents))
 	
 	// Build Bleve search index
 	buildBleveSearchIndex(ctx, validContents)
@@ -344,13 +338,7 @@ func exportRecipes(ctx context.Context, db *mongo.Database) {
 		}
 	}
 
-	// Write index
-	if err := recipe.WriteIndex(ctx, recipes); err != nil {
-		log.Fatal("Failed to write recipe index:", err)
-	}
-
 	log.Printf("Successfully exported %d recipes to data/markdown/recipes", len(recipes))
-	log.Printf("Created CSV index at data/markdown/index_recipes.csv")
 }
 
 func exportVideos(ctx context.Context, db *mongo.Database) {
@@ -386,13 +374,7 @@ func exportVideos(ctx context.Context, db *mongo.Database) {
 		}
 	}
 
-	// Write index
-	if err := video.WriteIndex(ctx, videos); err != nil {
-		log.Fatal("Failed to write video index:", err)
-	}
-
 	log.Printf("Successfully exported %d videos to data/markdown/videos", len(videos))
-	log.Printf("Created CSV index at data/markdown/index_videos.csv")
 }
 
 // buildBleveSearchIndex creates a Bleve search index from the exported content

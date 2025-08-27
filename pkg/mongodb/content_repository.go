@@ -332,7 +332,3 @@ func (r *ContentRepository) WriteOne(ctx context.Context, content *repository.Co
 	panic("MongoDB repository does not support writing")
 }
 
-// WriteIndex panics as MongoDB repository is read-only
-func (r *ContentRepository) WriteIndex(ctx context.Context, contents []repository.Content) error {
-	panic("MongoDB repository does not support writing")
-}
