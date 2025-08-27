@@ -3,7 +3,6 @@ package markdown
 import (
 	"bufio"
 	"context"
-	"encoding/csv"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -26,19 +25,14 @@ type RecipeRepository struct {
 }
 
 // NewRecipeRepository creates a new file-based recipe repository
-func NewRecipeRepository(recipeDir string, indexCSV string) (*RecipeRepository, error) {
+func NewRecipeRepository(recipeDir string) (*RecipeRepository, error) {
 	repo := &RecipeRepository{
 		recipeDir: recipeDir,
 		uriIndex:  make(map[string]string),
 		recipes:   make(map[string]*repository.Recipe),
 	}
 
-	// Parse the CSV index
-	if err := repo.loadIndex(indexCSV); err != nil {
-		return nil, fmt.Errorf("failed to load index: %w", err)
-	}
-
-	// Load all recipes into memory (they're small enough)
+	// Load all recipes and build index from files directly
 	if err := repo.loadAllRecipes(); err != nil {
 		return nil, fmt.Errorf("failed to load recipes: %w", err)
 	}
@@ -46,40 +40,7 @@ func NewRecipeRepository(recipeDir string, indexCSV string) (*RecipeRepository, 
 	return repo, nil
 }
 
-// loadIndex loads the URI-to-RecipeID mapping from CSV content
-func (r *RecipeRepository) loadIndex(csvContent string) error {
-	reader := csv.NewReader(strings.NewReader(csvContent))
-	records, err := reader.ReadAll()
-	if err != nil {
-		return fmt.Errorf("error reading CSV: %w", err)
-	}
-
-	// Skip header row
-	if len(records) == 0 {
-		return fmt.Errorf("empty CSV index")
-	}
-
-	for i, record := range records {
-		if i == 0 {
-			// Validate header
-			if len(record) != 2 || record[0] != "uri" || record[1] != "recipe_id" {
-				return fmt.Errorf("invalid CSV header, expected 'uri,recipe_id'")
-			}
-			continue
-		}
-
-		if len(record) != 2 {
-			return fmt.Errorf("invalid CSV record at line %d: expected 2 fields, got %d", i+1, len(record))
-		}
-
-		uri, recipeID := record[0], record[1]
-		r.uriIndex[uri] = recipeID
-	}
-
-	return nil
-}
-
-// loadAllRecipes loads all recipes from markdown files (including subdirectories)
+// loadAllRecipes loads all recipes from markdown files (including subdirectories) and builds the URI index
 func (r *RecipeRepository) loadAllRecipes() error {
 	return filepath.WalkDir(r.recipeDir, func(path string, d os.DirEntry, err error) error {
 		if err != nil {
@@ -110,6 +71,11 @@ func (r *RecipeRepository) loadAllRecipes() error {
 		}
 
 		r.recipes[recipeID] = recipe
+		
+		// Build URI index entry from the loaded recipe
+		if recipe.URI != "" {
+			r.uriIndex[recipe.URI] = recipeID
+		}
 		return nil
 	})
 }
@@ -134,14 +100,7 @@ func (r *RecipeRepository) loadRecipeFromFile(filePath string, recipeID string) 
 		RecipeID: recipeID,
 		Title:    getString(fm, "title"),
 		Tags:     getStringArray(fm, "tags"),
-	}
-
-	// Find the URI for this recipe
-	for uri, id := range r.uriIndex {
-		if id == recipeID {
-			recipe.URI = uri  // Don't add leading slash - sitemap template expects URIs without it
-			break
-		}
+		URI:      "help/oral-food/recipes/" + recipeID, // Build URI from recipe ID
 	}
 
 	// Handle complex fields

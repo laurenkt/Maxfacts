@@ -2,12 +2,10 @@ package markdown
 
 import (
 	"context"
-	"encoding/csv"
 	"fmt"
 	"os"
 	"path/filepath"
 	"regexp"
-	"sort"
 	"strings"
 	"time"
 
@@ -51,38 +49,6 @@ func (w *ContentWriter) WriteOne(ctx context.Context, content *repository.Conten
 	return nil
 }
 
-// WriteIndex writes the URI-to-ID index CSV file
-func (w *ContentWriter) WriteIndex(ctx context.Context, contents []repository.Content) error {
-	// Sort contents by URI for consistent ordering
-	sort.Slice(contents, func(i, j int) bool {
-		return contents[i].URI < contents[j].URI
-	})
-	
-	// Create CSV file
-	csvPath := "data/markdown/index_uri.csv"
-	csvFile, err := os.Create(csvPath)
-	if err != nil {
-		return fmt.Errorf("failed to create CSV file: %w", err)
-	}
-	defer csvFile.Close()
-	
-	csvWriter := csv.NewWriter(csvFile)
-	defer csvWriter.Flush()
-	
-	// Write CSV header
-	if err := csvWriter.Write([]string{"uri", "id"}); err != nil {
-		return fmt.Errorf("failed to write CSV header: %w", err)
-	}
-	
-	// Write content data
-	for _, content := range contents {
-		if err := csvWriter.Write([]string{content.URI, content.ContentID}); err != nil {
-			return fmt.Errorf("failed to write CSV row for %s: %w", content.URI, err)
-		}
-	}
-	
-	return nil
-}
 
 // convertContentToMarkdown converts a content item to markdown with YAML frontmatter
 func convertContentToMarkdown(content *repository.Content) string {

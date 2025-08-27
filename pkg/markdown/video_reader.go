@@ -2,7 +2,6 @@ package markdown
 
 import (
 	"context"
-	"encoding/csv"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -23,19 +22,14 @@ type VideoRepository struct {
 }
 
 // NewVideoRepository creates a new file-based video repository
-func NewVideoRepository(videoDir string, indexCSV string) (*VideoRepository, error) {
+func NewVideoRepository(videoDir string) (*VideoRepository, error) {
 	repo := &VideoRepository{
 		videoDir: videoDir,
 		uriIndex: make(map[string]string),
 		videos:   make(map[string]*repository.Video),
 	}
 
-	// Parse the CSV index
-	if err := repo.loadIndex(indexCSV); err != nil {
-		return nil, fmt.Errorf("failed to load index: %w", err)
-	}
-
-	// Load all videos into memory (they're small enough)
+	// Load all videos and build index from files directly
 	if err := repo.loadAllVideos(); err != nil {
 		return nil, fmt.Errorf("failed to load videos: %w", err)
 	}
@@ -43,40 +37,7 @@ func NewVideoRepository(videoDir string, indexCSV string) (*VideoRepository, err
 	return repo, nil
 }
 
-// loadIndex loads the URI-to-ID mapping from CSV content
-func (r *VideoRepository) loadIndex(csvContent string) error {
-	reader := csv.NewReader(strings.NewReader(csvContent))
-	records, err := reader.ReadAll()
-	if err != nil {
-		return fmt.Errorf("error reading CSV: %w", err)
-	}
-
-	// Skip header row
-	if len(records) == 0 {
-		return fmt.Errorf("empty CSV index")
-	}
-
-	for i, record := range records {
-		if i == 0 {
-			// Validate header
-			if len(record) != 2 || record[0] != "uri" || record[1] != "id" {
-				return fmt.Errorf("invalid CSV header, expected 'uri,id'")
-			}
-			continue
-		}
-
-		if len(record) != 2 {
-			return fmt.Errorf("invalid CSV record at line %d: expected 2 fields, got %d", i+1, len(record))
-		}
-
-		uri, id := record[0], record[1]
-		r.uriIndex[uri] = id
-	}
-
-	return nil
-}
-
-// loadAllVideos loads all videos from markdown files
+// loadAllVideos loads all videos from markdown files and builds the URI index
 func (r *VideoRepository) loadAllVideos() error {
 	entries, err := os.ReadDir(r.videoDir)
 	if err != nil {
@@ -99,6 +60,11 @@ func (r *VideoRepository) loadAllVideos() error {
 		}
 
 		r.videos[videoID] = video
+		
+		// Build URI index entry from the loaded video
+		if video.URI != "" {
+			r.uriIndex[video.URI] = videoID
+		}
 	}
 
 	return nil

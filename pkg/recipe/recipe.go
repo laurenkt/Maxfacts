@@ -15,23 +15,17 @@ var recipeRepo repository.RecipeRepository = nil
 
 func init() {
 	// Try to load markdown repository by default
-	indexPath := "data/markdown/index_recipes.csv"
-	if _, err := os.Stat(indexPath); err == nil {
-		// Index file exists, load markdown repository
-		csvContent, err := os.ReadFile(indexPath)
-		if err != nil {
-			log.Printf("Warning: failed to read recipe index: %v", err)
-			return
-		}
-		
-		repo, err := markdown.NewRecipeRepository("data/markdown/recipes", string(csvContent))
+	recipeDir := "data/markdown/recipes"
+	if _, err := os.Stat(recipeDir); err == nil {
+		// Recipe directory exists, load markdown repository
+		repo, err := markdown.NewRecipeRepository(recipeDir)
 		if err != nil {
 			log.Printf("Warning: failed to create markdown recipe repository: %v", err)
 			return
 		}
 		
 		recipeRepo = repo
-		log.Printf("Recipe: using markdown repository from %s", indexPath)
+		log.Printf("Recipe: using markdown repository from %s", recipeDir)
 	}
 }
 
@@ -59,10 +53,3 @@ func WriteOne(ctx context.Context, recipe *repository.Recipe) error {
 	return recipeWriter.WriteOne(ctx, recipe)
 }
 
-// WriteIndex writes the URI-to-ID index for recipes
-func WriteIndex(ctx context.Context, recipes []repository.Recipe) error {
-	if recipeWriter == nil {
-		return fmt.Errorf("recipe writer not configured - call UseMarkdownWriter() first")
-	}
-	return recipeWriter.WriteIndex(ctx, recipes)
-}

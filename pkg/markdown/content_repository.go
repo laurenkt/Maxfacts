@@ -2,7 +2,6 @@ package markdown
 
 import (
 	"context"
-	"encoding/csv"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -23,48 +22,53 @@ type ContentRepository struct {
 }
 
 // NewContentRepository creates a new file-based content repository
-func NewContentRepository(contentDir string, indexCSV string) (*ContentRepository, error) {
+func NewContentRepository(contentDir string) (*ContentRepository, error) {
 	repo := &ContentRepository{
 		contentDir: contentDir,
 		uriIndex:   make(map[string]string),
 	}
 
-	// Parse the CSV index
-	if err := repo.loadIndex(indexCSV); err != nil {
-		return nil, fmt.Errorf("failed to load index: %w", err)
+	// Build index by scanning markdown files directly
+	if err := repo.buildIndexFromFiles(); err != nil {
+		return nil, fmt.Errorf("failed to build index from files: %w", err)
 	}
 
 	return repo, nil
 }
 
-// loadIndex loads the URI-to-ID mapping from CSV content
-func (r *ContentRepository) loadIndex(csvContent string) error {
-	reader := csv.NewReader(strings.NewReader(csvContent))
-	records, err := reader.ReadAll()
+// buildIndexFromFiles builds the URI-to-ID mapping by scanning markdown files
+func (r *ContentRepository) buildIndexFromFiles() error {
+	entries, err := os.ReadDir(r.contentDir)
 	if err != nil {
-		return fmt.Errorf("error reading CSV: %w", err)
+		return fmt.Errorf("failed to read content directory: %w", err)
 	}
 
-	// Skip header row
-	if len(records) == 0 {
-		return fmt.Errorf("empty CSV index")
-	}
-
-	for i, record := range records {
-		if i == 0 {
-			// Validate header
-			if len(record) != 2 || record[0] != "uri" || record[1] != "id" {
-				return fmt.Errorf("invalid CSV header, expected 'uri,id'")
-			}
+	for _, entry := range entries {
+		if entry.IsDir() || !strings.HasSuffix(entry.Name(), ".md") {
 			continue
 		}
 
-		if len(record) != 2 {
-			return fmt.Errorf("invalid CSV record at line %d: expected 2 fields, got %d", i+1, len(record))
+		// Extract ID from filename
+		id := strings.TrimSuffix(entry.Name(), ".md")
+		filePath := filepath.Join(r.contentDir, entry.Name())
+		
+		// Read and parse frontmatter to get URI
+		fileContent, err := os.ReadFile(filePath)
+		if err != nil {
+			fmt.Printf("Warning: failed to read %s: %v\n", entry.Name(), err)
+			continue
 		}
 
-		uri, id := record[0], record[1]
-		r.uriIndex[uri] = id
+		content, err := ParseFrontmatter(string(fileContent))
+		if err != nil {
+			fmt.Printf("Warning: failed to parse frontmatter in %s: %v\n", entry.Name(), err)
+			continue
+		}
+
+		// Add to index
+		if content.URI != "" {
+			r.uriIndex[content.URI] = id
+		}
 	}
 
 	return nil
@@ -353,7 +357,3 @@ func (r *ContentRepository) WriteOne(ctx context.Context, content *repository.Co
 	panic("markdown ContentRepository does not support writing - use ContentWriter instead")
 }
 
-// WriteIndex panics as markdown repository is read-only
-func (r *ContentRepository) WriteIndex(ctx context.Context, contents []repository.Content) error {
-	panic("markdown ContentRepository does not support writing - use ContentWriter instead")
-}

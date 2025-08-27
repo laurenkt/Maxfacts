@@ -15,23 +15,17 @@ var videoRepo repository.VideoRepository = nil
 
 func init() {
 	// Try to load markdown repository by default
-	indexPath := "data/markdown/index_videos.csv"
-	if _, err := os.Stat(indexPath); err == nil {
-		// Index file exists, load markdown repository
-		csvContent, err := os.ReadFile(indexPath)
-		if err != nil {
-			log.Printf("Warning: failed to read video index: %v", err)
-			return
-		}
-		
-		repo, err := markdown.NewVideoRepository("data/markdown/videos", string(csvContent))
+	videoDir := "data/markdown/videos"
+	if _, err := os.Stat(videoDir); err == nil {
+		// Video directory exists, load markdown repository
+		repo, err := markdown.NewVideoRepository(videoDir)
 		if err != nil {
 			log.Printf("Warning: failed to create markdown video repository: %v", err)
 			return
 		}
 		
 		videoRepo = repo
-		log.Printf("Video: using markdown repository from %s", indexPath)
+		log.Printf("Video: using markdown repository from %s", videoDir)
 	}
 }
 
@@ -59,10 +53,3 @@ func WriteOne(ctx context.Context, video *repository.Video) error {
 	return videoWriter.WriteOne(ctx, video)
 }
 
-// WriteIndex writes the URI-to-ID index for videos
-func WriteIndex(ctx context.Context, videos []repository.Video) error {
-	if videoWriter == nil {
-		return fmt.Errorf("video writer not configured - call UseMarkdownWriter() first")
-	}
-	return videoWriter.WriteIndex(ctx, videos)
-}
