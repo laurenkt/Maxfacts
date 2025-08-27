@@ -59,4 +59,8 @@ type ContentSearchRepository interface {
 	// Search performs a text search on content
 	// Returns matching content ordered by relevance
 	Search(ctx context.Context, query string) ([]Content, error)
+	
+	// GetMatchedParagraph finds a paragraph matching the given pattern
+	// Returns nil if not supported by the implementation
+	GetMatchedParagraph(content *Content, pattern *regexp.Regexp) []string
 }

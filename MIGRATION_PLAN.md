@@ -85,11 +85,17 @@
    - ✓ Next page navigation (level1 → level2 → level3)
    - **Uses embedded CSV index and markdown files, no MongoDB**
 
-2. **Search handler** (`/search`) ✓ **COMPLETE - PACKAGE-BASED**
-   - Uses `content.Search()` for MongoDB text search with weights
+2. **Search handler** (`/search`) ✓ **COMPLETE - BLEVE-BASED**
+   - Uses `content.Search()` for Bleve full-text search with weighted scoring:
+     - Title: 3x weight
+     - Description: 2x weight  
+     - Body: 1x weight
    - Extract matching paragraphs with `content.GetMatchedParagraph()`
    - Generate breadcrumbs with `content.GetBreadcrumbs()`
-   - Preserve rate limiting logic
+   - Preserve rate limiting logic (20 requests per 30 minutes)
+   - In-memory index builds in ~1 second on first search
+   - Lazy initialization prevents slow server startup
+   - Graceful degradation when search unavailable
 
 3. **Sitemap handler** (`/map.xml`) ✓ **COMPLETE - PACKAGE-BASED**
    - Uses `content.FindAll()`, `recipe.FindAll()`, `video.FindAll()` 
@@ -318,7 +324,7 @@ REFERENCE_URL=http://production.site.com MONGO_URI=localhost:27017/maxfacts go t
 - **Content Pages**: 100% file-based by default, auto-initialized from `data/markdown/index_uri.csv` ✓
 - **Recipes**: File-based by default, auto-initialized from `data/markdown/index_recipes.csv` ✓
 - **Videos**: File-based by default, auto-initialized from `data/markdown/index_videos.csv` ✓
-- **Search**: MongoDB-based only (gracefully degrades when MongoDB unavailable) ✓
+- **Search**: Bleve-based with in-memory indexing (fast startup, no disk persistence) ✓
 - **Sitemaps**: 100% file-based using markdown data for all content types ✓
 - **MongoDB**: Optional, only connects when `MONGO_URI` environment variable provided ✓
 - **Package-Level Functions**: Zero-configuration defaults with auto-initialization ✓

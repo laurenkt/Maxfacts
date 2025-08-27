@@ -15,6 +15,10 @@ import (
 var contentReader repository.ContentReader = nil
 var contentWriter repository.ContentWriter = nil
 
+// External reference to search repository (defined in search.go)
+// This allows us to initialize it from init() function
+var searchRepo repository.ContentSearchRepository = nil
+
 func init() {
 	// Try to load markdown repository by default
 	indexPath := "data/markdown/index_uri.csv"
@@ -34,6 +38,10 @@ func init() {
 		
 		contentReader = repo
 		contentWriter, _ = markdown.NewContentWriter("data/markdown/content")
+		
+		// Don't initialize search in init() - it's too slow and blocks startup
+		// Search will be initialized lazily when first needed
+		
 		log.Printf("Content: using markdown repository from %s", indexPath)
 	}
 }
@@ -97,10 +105,15 @@ func GetNextPage(ctx context.Context, content *repository.Content) (*repository.
 // GetMatchedParagraph finds a paragraph matching the given pattern
 // Returns nil if not supported by the current implementation
 func GetMatchedParagraph(content *repository.Content, pattern *regexp.Regexp) []string {
-	if contentReader == nil {
-		return nil
+	if searchRepo != nil {
+		// Use search repository if available (preferred for highlighting)
+		return searchRepo.GetMatchedParagraph(content, pattern)
 	}
-	return contentReader.GetMatchedParagraph(content, pattern)
+	if contentReader != nil {
+		// Fall back to content reader
+		return contentReader.GetMatchedParagraph(content, pattern)
+	}
+	return nil
 }
 
 // GetInvalidLinks returns invalid links in the content body

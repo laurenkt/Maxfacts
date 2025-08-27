@@ -81,9 +81,11 @@ func (h *SearchHandler) Search(w http.ResponseWriter, r *http.Request) {
 	if query != "" {
 		results, err := h.performSearch(ctx, query)
 		if err != nil {
+			log.Printf("Search error for query '%s': %v", query, err)
 			h.renderError(w, err)
 			return
 		}
+		log.Printf("Search for '%s' returned %d results", query, len(results))
 		data["Results"] = results
 	}
 
@@ -112,11 +114,9 @@ func (h *SearchHandler) performSearch(ctx context.Context, query string) ([]Sear
 			if len(before) > 100 {
 				// Truncate and add ellipsis
 				words := strings.Fields(before)
-				if len(words) > 0 {
+				if len(words) > 15 {
 					truncated := strings.Join(words[len(words)-15:], " ")
-					if len(truncated) < len(before) {
-						before = "..." + truncated
-					}
+					before = "..." + truncated
 				}
 			}
 			
@@ -124,11 +124,9 @@ func (h *SearchHandler) performSearch(ctx context.Context, query string) ([]Sear
 			if len(after) > 100 {
 				// Truncate and add ellipsis
 				words := strings.Fields(after)
-				if len(words) > 0 {
+				if len(words) > 15 {
 					truncated := strings.Join(words[:15], " ")
-					if len(truncated) < len(after) {
-						after = truncated + "..."
-					}
+					after = truncated + "..."
 				}
 			}
 			
@@ -175,10 +173,16 @@ func (h *SearchHandler) render(w http.ResponseWriter, templateName string, data 
 // renderError renders an error page
 func (h *SearchHandler) renderError(w http.ResponseWriter, err error) {
 	w.WriteHeader(http.StatusInternalServerError)
+	
+	// Create an error structure that matches the template expectations
+	errorInfo := map[string]interface{}{
+		"Status": 500,
+	}
+	
 	data := map[string]interface{}{
 		"Title":   "Error",
 		"Message": err.Error(),
-		"Error":   err,
+		"Error":   errorInfo,
 	}
 	h.render(w, "error.gohtml", data)
 }

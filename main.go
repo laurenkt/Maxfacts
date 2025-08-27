@@ -14,6 +14,7 @@ import (
 
 	"github.com/maxfacts/maxfacts/handlers"
 	"github.com/maxfacts/maxfacts/pkg/content"
+	"github.com/maxfacts/maxfacts/pkg/markdown"
 	"github.com/maxfacts/maxfacts/pkg/mongodb"
 	"github.com/maxfacts/maxfacts/pkg/recipe"
 	"github.com/maxfacts/maxfacts/pkg/repository"
@@ -142,30 +143,44 @@ func main() {
 func printUsage() {
 	fmt.Fprintf(os.Stderr, "Usage: %s <command> [options]\n", os.Args[0])
 	fmt.Fprintf(os.Stderr, "\nAvailable commands:\n")
-	fmt.Fprintf(os.Stderr, "  serve       Start the HTTP server\n")
-	fmt.Fprintf(os.Stderr, "  dump-mongo  Export all pages to markdown files\n")
+	fmt.Fprintf(os.Stderr, "  serve [--use-mongo]  Start the HTTP server (default: markdown + Bleve search)\n")
+	fmt.Fprintf(os.Stderr, "  dump-mongo           Export all pages to markdown files\n")
 }
 
 func serveCommand(args []string) {
 	var db *mongo.Database
 	
-	// Only connect to MongoDB if MONGO_URI is explicitly provided
-	if mongoURI := os.Getenv("MONGO_URI"); mongoURI != "" {
-		// Connect to MongoDB
-		ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
-		defer cancel()
+	// By default, use markdown-only mode with Bleve search
+	// Only connect to MongoDB if explicitly requested with --use-mongo flag
+	useMongo := false
+	for _, arg := range args {
+		if arg == "--use-mongo" {
+			useMongo = true
+			break
+		}
+	}
+	
+	if useMongo {
+		if mongoURI := os.Getenv("MONGO_URI"); mongoURI != "" {
+			// Connect to MongoDB
+			ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+			defer cancel()
 
-		client, err := mongodb.Connect(ctx, mongoURI)
-		if err != nil {
-			log.Printf("Warning: Failed to connect to MongoDB: %v", err)
-			log.Printf("Continuing with markdown-only mode...")
+			client, err := mongodb.Connect(ctx, mongoURI)
+			if err != nil {
+				log.Printf("Warning: Failed to connect to MongoDB: %v", err)
+				log.Printf("Continuing with markdown-only mode...")
+			} else {
+				defer client.Disconnect(context.Background())
+				db = client.Database("maxfacts")
+				log.Printf("Connected to MongoDB - using MongoDB for content and search")
+			}
 		} else {
-			defer client.Disconnect(context.Background())
-			db = client.Database("maxfacts")
-			log.Printf("Connected to MongoDB - search functionality available")
+			log.Printf("Warning: --use-mongo specified but no MONGO_URI provided")
+			log.Printf("Continuing with markdown-only mode...")
 		}
 	} else {
-		log.Printf("No MONGO_URI provided - running in markdown-only mode")
+		log.Printf("Running in markdown-only mode with Bleve search")
 	}
 
 	// Setup routes
@@ -291,6 +306,9 @@ func exportContent(ctx context.Context, db *mongo.Database) {
 
 	log.Printf("Successfully exported %d content items to data/markdown/content", len(validContents))
 	log.Printf("Created CSV index with %d entries at data/markdown/index_uri.csv", len(validContents))
+	
+	// Build Bleve search index
+	buildBleveSearchIndex(ctx, validContents)
 }
 
 func exportRecipes(ctx context.Context, db *mongo.Database) {
@@ -375,4 +393,25 @@ func exportVideos(ctx context.Context, db *mongo.Database) {
 
 	log.Printf("Successfully exported %d videos to data/markdown/videos", len(videos))
 	log.Printf("Created CSV index at data/markdown/index_videos.csv")
+}
+
+// buildBleveSearchIndex creates a Bleve search index from the exported content
+func buildBleveSearchIndex(ctx context.Context, contents []repository.Content) {
+	log.Println("Building Bleve search index...")
+	
+	// Import the markdown package
+	searchRepo, err := markdown.NewSearchRepository("data/markdown/search/content.bleve")
+	if err != nil {
+		log.Printf("Warning: failed to create search repository: %v", err)
+		return
+	}
+	defer searchRepo.Close()
+	
+	// Index all content
+	if err := searchRepo.IndexAllContent(contents); err != nil {
+		log.Printf("Warning: failed to build search index: %v", err)
+		return
+	}
+	
+	log.Printf("Successfully built search index with %d content items", len(contents))
 }
