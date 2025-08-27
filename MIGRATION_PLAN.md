@@ -1,4 +1,4 @@
-# Go Migration Plan for Maxfacts Content Display
+# Go Migration Plan for Maxfacts Content Management System
 
 ## Project Structure
 ```
@@ -7,14 +7,11 @@
 ├── go.mod                  # Go module file
 ├── handlers/               # HTTP request handlers
 │   ├── content.go         # Main content handler (index, pages)
-│   ├── search.go          # Search functionality
+│   ├── search.go          # Search functionality  
 │   ├── sitemap.go         # XML sitemap generation
 │   ├── recipes.go         # Recipe browser & display
-│   └── videos.go          # Video page handler
-├── models/                 # Legacy MongoDB models (Node.js compatibility)
-│   ├── content.go         # Content model with methods
-│   ├── recipe.go          # Recipe model
-│   └── video.go           # Video model
+│   ├── videos.go          # Video page handler
+│   └── feedback.go        # Feedback form handler
 ├── templates/              # Go templates (converted from Handlebars)
 │   ├── layouts/           # Base layouts
 │   ├── partials/          # Reusable template fragments
@@ -22,105 +19,57 @@
 ├── data/                   # File-based content storage
 │   └── markdown/          # Markdown content files
 │       ├── content/       # Individual page files ({id}.md)
-│       └── index_uri.csv  # URI-to-ID mapping index
+│       ├── recipes/       # Recipe files ({id}.md)
+│       ├── videos/        # Video metadata files ({id}.md)
+│       ├── index_uri.csv  # URI-to-ID mapping index
+│       ├── index_recipes.csv  # Recipe index
+│       └── index_videos.csv   # Video index
+├── static/                 # Static assets (CSS, JS, images)
 └── pkg/                    # Shared utilities & package-level repositories
-    ├── content/           # Package-level content operations (UseMarkdown/UseMongo)
-    ├── recipe/            # Package-level recipe operations (UseMongo)
-    ├── video/             # Package-level video operations (UseMongo)
+    ├── content/           # Package-level content operations
+    ├── recipe/            # Package-level recipe operations
+    ├── video/             # Package-level video operations
     ├── repository/        # Domain models & repository interfaces
-    ├── mongodb/           # MongoDB repository implementations
+    ├── mongodb/           # MongoDB repository implementations (optional)
     ├── markdown/          # Markdown parsing & file-based repositories
-    ├── htmlutil/          # HTML processing (sanitization, link extraction)
     └── template/          # Template helpers & functions
-
 ```
 
-## Implementation Steps
+## Migration Overview
 
-### Phase 1: Core Setup & Models
-1. **Initialize Go module and dependencies**
-   - `go mod init github.com/maxfacts/maxfacts`
-   - Add MongoDB driver: `go.mongodb.org/mongo-driver`
-   - Add HTML parser: `golang.org/x/net/html`
-   - Uses Go standard library `net/http.ServeMux` (no third-party router needed)
+This document tracks the ongoing migration of the Maxfacts medical content management system from a Node.js/MongoDB application to a standalone Go binary. The migration maintains identical functionality while enabling simpler deployment and better performance.
 
-2. **Create MongoDB connection layer**
-   - Connection to existing MongoDB using connection string
-   - Context management for queries
-   - Read from existing collections without modification
+### Original System (Node.js)
+- **Express.js** web framework with Handlebars templating
+- **MongoDB** with Mongoose ODM for content storage
+- **Admin dashboard** for content editing and management
+- **Complex deployment** requiring Node.js, MongoDB, and various services
+- **Asset pipeline** using Gulp, Webpack, and SCSS compilation
 
-3. **Implement repository pattern** ✓ **COMPLETE**
-   - Repository interfaces for Content, Recipe, Video data access
-   - MongoDB repository implementations with all business logic
-   - Markdown repository implementations for file-based content
-   - Domain models shared across repository implementations
-   - Package-level functions replacing dependency injection:
-     - `content.FindOne()`, `content.FindAll()`, `content.GetBreadcrumbs()`, `content.GetChildren()`
-     - `recipe.FindOne()`, `recipe.FindAll()`, `video.FindOne()`, `video.FindAll()`
-     - Configuration via `content.UseMarkdown()`, `recipe.UseMongo()`, etc.
+### Target System (Go)
+- **Standalone binary** with embedded templates and static assets
+- **File-based storage** using Markdown with YAML frontmatter
+- **Optional MongoDB** connectivity for legacy compatibility
+- **Simple deployment** requiring only the binary and data files
+- **Built-in asset serving** without external build tools
 
-### Phase 2: Template Migration
-1. **Convert Handlebars to Go templates**
-   - Create template functions to replace Handlebars helpers:
-     - `shift_headers` - adjust heading levels
-     - `toJSON` - JSON serialization
-     - `date` - date formatting
-     - `lookup` - map lookups
-   - Convert partials to Go template includes
-   - Maintain exact HTML output structure
+## Current Implementation Status
 
-2. **Template structure**
-   - Base layouts (main.gohtml, home.gohtml)
-   - Content templates (page, directory, level1/2/3, alphabetical)
-   - Search & sitemap templates
-   - Recipe templates
+### ✅ **Completed Components**
+- **Content display system** - All public pages working identically to Node.js version
+- **Search functionality** - Bleve-based full-text search with rate limiting
+- **Recipe browser** - Complete recipe display and browsing functionality
+- **Video playback** - Multipart video pages with metadata
+- **Sitemap generation** - XML sitemap with proper priorities and dates
+- **Template system** - Go templates producing identical HTML output
+- **Static file serving** - CSS, JS, images served from filesystem
+- **Package-level APIs** - Clean interfaces for all data operations
+- **Comprehensive testing** - Comparison tests against Node.js reference
 
-### Phase 3: HTTP Handlers
-1. **Content handler** (`/` and `/:uri(*)`): ✓ **COMPLETE - FILE-BASED**
-   - ✓ Home page with 3 pillars (diagnosis, treatment, help)
-   - ✓ URI-based content lookup from markdown files
-   - ✓ Directory browsing with menu generation
-   - ✓ Breadcrumb & navigation generation
-   - ✓ Placeholder content for empty pages
-   - ✓ Next page navigation (level1 → level2 → level3)
-   - **Uses embedded CSV index and markdown files, no MongoDB**
-
-2. **Search handler** (`/search`) ✓ **COMPLETE - BLEVE-BASED**
-   - Uses `content.Search()` for Bleve full-text search with weighted scoring:
-     - Title: 3x weight
-     - Description: 2x weight  
-     - Body: 1x weight
-   - Extract matching paragraphs with `content.GetMatchedParagraph()`
-   - Generate breadcrumbs with `content.GetBreadcrumbs()`
-   - Preserve rate limiting logic (20 requests per 30 minutes)
-   - In-memory index builds in ~1 second on first search
-   - Lazy initialization prevents slow server startup
-   - Graceful degradation when search unavailable
-
-3. **Sitemap handler** (`/map.xml`) ✓ **COMPLETE - PACKAGE-BASED**
-   - Uses `content.FindAll()`, `recipe.FindAll()`, `video.FindAll()` 
-   - Content from markdown files (sorted by URI), recipes/videos from MongoDB
-   - Calculate priorities based on depth with proper URI sorting
-   - Generate XML with proper lastmod dates from repository timestamps
-
-4. **Recipe handlers** ✓ **COMPLETE - PACKAGE-BASED**
-   - Index page with `recipe.FindAll()` from MongoDB
-   - Browser with all recipes sorted by title
-   - Individual recipe display with `recipe.FindOne()`
-
-5. **Video handler** ✓ **COMPLETE - PACKAGE-BASED**
-   - Multipart video display using `video.FindOne()`
-   - Breadcrumb generation via `content.FindOne()` integration
-
-### Phase 4: Utility Functions
-1. **HTML processing**
-   - Link extraction from HTML
-   - Heading ID generation
-   - URI normalization (lowercase, dashes, etc.)
-
-2. **Static file serving**
-   - CSS, JS, images from `static/`
-   - Preserve exact paths for compatibility
+### 🚧 **Remaining Components**
+- **Admin dashboard** - Content editing, user management, image uploads
+- **Production deployment** - Docker configuration, CI/CD, environment management
+- **Static asset pipeline** - SCSS compilation, JavaScript bundling, image optimization
 
 ## CLI Commands
 
@@ -129,83 +78,71 @@ The Go application is structured as a CLI with subcommands:
 ### Available Commands
 
 ```bash
-# Start the HTTP server
+# Start the HTTP server (default: file-based mode)
 go run . serve
 
-# Export all pages to markdown files
+# Start the HTTP server with MongoDB support
+go run . serve --use-mongo
+
+# Export all pages from MongoDB to markdown files
 go run . dump-mongo
 
 # Show help
 go run .
 ```
 
-### Command Structure
-- **`serve`** - Starts the HTTP server on the configured port
-  - Uses `PORT` environment variable (defaults to 3000)
-  - Uses `MONGO_URI` environment variable (defaults to localhost:27017/maxfacts)
-  - Identical functionality to the original server
+### Command Details
 
-- **`dump-mongo`** - Exports all content, recipes, and videos to markdown files and creates CSV indexes
-  - Uses `MONGO_URI` environment variable (defaults to localhost:27017/maxfacts)
-  - Creates `data/markdown/content/`, `data/markdown/recipes/`, `data/markdown/videos/` directories
-  - Exports each item as `{id}.md` with YAML frontmatter preserving all metadata
-  - Creates CSV indexes: `index_uri.csv`, `index_recipes.csv`, `index_videos.csv`
-  - Handles complex recipe structures (ingredients with headings) and video multiline titles
+**`serve [--use-mongo]`** - Starts the HTTP server
+- **Default mode**: File-based operation using markdown files
+  - Reads from `data/markdown/` directory
+  - Uses Bleve for search indexing
+  - No database connection required
+- **`--use-mongo` flag**: Enables MongoDB connectivity
+  - Uses `MONGO_URI` environment variable
+  - Falls back to file-based mode if connection fails
+- Uses `PORT` environment variable (defaults to 3000)
 
-### Future Commands
-The CLI structure allows for easy addition of new commands such as:
-- Database migration commands
-- Content validation tools
-- Static site generation
-- Development utilities
+**`dump-mongo`** - Exports MongoDB data to markdown files
+- Uses `MONGO_URI` environment variable (defaults to localhost:27017/maxfacts)
+- Creates `data/markdown/content/`, `data/markdown/recipes/`, `data/markdown/videos/` directories
+- Exports each item as `{id}.md` with YAML frontmatter
+- Creates CSV indexes: `index_uri.csv`, `index_recipes.csv`, `index_videos.csv`
+- Handles complex data structures and preserves all metadata
 
-## MongoDB to Markdown Migration Strategy
+## Data Storage Architecture
 
-The long-term goal is to eliminate the MongoDB dependency by transitioning to a file-based content system using Markdown files with YAML frontmatter and CSV indexes.
+The application uses a file-based storage system with optional MongoDB connectivity.
 
-### Phase 1: Export System (✓ Complete)
-- **`dump-mongo` command** exports all content from MongoDB to local files
-- **Markdown files** with YAML frontmatter preserve all metadata (`data/markdown/content/{id}.md`)
-- **CSV index** provides fast URI-to-ID lookup (`data/markdown/index_uri.csv`)
-- **Sorted by URI** for deterministic, consistent ordering
+### File-based Storage (Default)
+- **Markdown files** with YAML frontmatter store all content metadata
+- **CSV indexes** provide fast URI-to-ID lookups without database queries
+- **Directory structure**: `data/markdown/content/`, `data/markdown/recipes/`, `data/markdown/videos/`
+- **Auto-initialization** from CSV indexes on startup
+- **Bleve search** provides in-memory full-text search capabilities
 
-### Phase 2: Hybrid System (✓ Complete)
-- **Embedded CSV index** using `//go:embed` to include `index_uri.csv` in binary
-- **Content handler** reads from markdown files instead of MongoDB
-- **Frontmatter parser** to extract metadata from YAML headers
-- **File-based content lookup** with CSV index for URI resolution
-- **Complete content functionality**:
-  - ✓ Individual page loading from markdown files
-  - ✓ Home page with directory listings (diagnosis, treatment, help)
-  - ✓ Breadcrumb navigation (excluding current page)
-  - ✓ Next page navigation (level1 → level2 → level3)
-  - ✓ Placeholder content for empty pages ("coming-soon")
-  - ✓ Directory and alphabetical page types
-  - ✓ Further reading cross-references
-- **Other handlers use MongoDB** - recipes, search, videos via package functions
+### Content Organization
+- **Content pages**: Individual `.md` files with semantic IDs
+- **Recipes**: Structured markdown with ingredients and instructions  
+- **Videos**: Metadata files referencing video assets
+- **Static assets**: Served from `static/` directory
 
-### Phase 3: Full File-based System ✓ **COMPLETE**
-- **Complete markdown migration** - all content types now use markdown by default ✓
-- **Recipe and video data** exported to file structures with auto-initialization ✓
-- **MongoDB completely optional** - server runs without database dependency ✓
-- **Static deployment ready** - no database required for core functionality ✓
-- **Search functionality** gracefully degrades when MongoDB unavailable ✓
+### Benefits
+- **Version control friendly** - all content can be tracked in Git
+- **No external dependencies** - runs without database
+- **Fast startup** - no database connection overhead
+- **Simple deployment** - single binary + file directory
+- **Easy backup/restore** - standard file operations
 
-### Benefits of File-based Approach
-- **Version control** - content can be tracked in Git
-- **No database dependency** - simpler deployment and development
-- **Faster startup** - no database connection required
-- **Better caching** - files can be embedded in binary or served statically
-- **Easier backup/restore** - standard file system operations
-
-## Key Considerations
-- **No changes to MongoDB data** - read-only access during migration
-- **Identical HTML output** - preserve all CSS classes, structure
-- **Preserve JavaScript** - directory.hbs has positioning JS that must work
-- **URL compatibility** - exact same routes and parameters
-- **Template functions** - must produce identical output to Handlebars helpers
-- **CLI extensibility** - Easy to add new commands for additional functionality
-- **Backwards compatibility** - maintain MongoDB support during transition
+## Migration Principles
+- **Identical public functionality** - all user-facing features work exactly as before
+- **URL compatibility** - maintains exact same routes and parameters as original
+- **Template fidelity** - Go templates produce identical output to original Handlebars
+- **Backward compatibility** - optional MongoDB support maintained during transition
+- **Incremental migration** - components can be migrated independently
+- **Testing-driven** - comparison tests ensure functional equivalence
+- **Performance improvement** - faster startup, lower resource usage
+- **Deployment simplification** - reduce infrastructure complexity
 
 ## Testing Strategy
 
@@ -284,98 +221,107 @@ REFERENCE_URL=http://production.site.com MONGO_URI=localhost:27017/maxfacts go t
 - Binary files compared byte-for-byte
 - Includes health checks for all endpoints
 
-### Manual Testing Checklist
-1. **Visual Comparison**:
-   - Side-by-side browser windows
-   - Check styling and layout consistency
-   - Verify JavaScript functionality (directory page positioning)
+## Package-Level API
 
-2. **Navigation Testing**:
-   - Breadcrumb links work correctly
-   - Next page suggestions match
-   - Directory listings in correct order
+The application uses simple package-level functions for all data operations:
 
-3. **Search Functionality**:
-   - Results match between versions
-   - Search highlighting works
-   - Rate limiting behaves identically
+### Content Operations
+```go
+content.FindOne(ctx, uri)      // Find single content by URI
+content.FindAll(ctx)           // Get all content items
+content.GetBreadcrumbs(ctx, content)  // Generate navigation breadcrumbs
+content.Search(ctx, query)     // Full-text search with Bleve
+```
 
-4. **Content Validation**:
-   - Recipe sorting by title (not URI)
-   - Last modified dates in sitemap
-   - Priority calculations in sitemap
+### Recipe Operations  
+```go
+recipe.FindOne(ctx, uri)       // Find single recipe
+recipe.FindAll(ctx)            // Get all recipes
+recipe.WriteOne(ctx, recipe)   // Export recipe to markdown
+```
 
-### Implementation Status
-1. ✓ **File-based Content System** - Complete migration from MongoDB to markdown files
-   - ✓ Content handler reads from markdown files with YAML frontmatter
-   - ✓ CSV index embedded in binary via `//go:embed`
-   - ✓ All navigation features working (breadcrumbs, next page, directories)
-   - ✓ Placeholder content system using "coming-soon" page
-   - ✓ Comprehensive test coverage passing
+### Video Operations
+```go
+video.FindOne(ctx, uri)        // Find single video
+video.FindAll(ctx)             // Get all videos
+video.WriteOne(ctx, video)     // Export video metadata
+```
 
-2. ✓ **Recently Fixed Differences**:
-   - ✓ Recipe ordering in sitemap - Both now sort by title
-   - ✓ Date formatting in sitemap - Fixed month indexing (added +1) in Node.js
-   - ✓ Recipe UpdatedAt fallback - Added to Go FindAll method
-   - ✓ Timezone format - Changed to use +00:00 for UTC in both versions
-   - ✓ Breadcrumb ID format - Uses semantic content IDs instead of MongoDB ObjectIDs
+### Configuration
+- **Auto-initialization**: Packages auto-configure from CSV indexes on startup
+- **Zero configuration**: Works out-of-the-box with file-based storage
+- **Optional MongoDB**: Can be enabled via configuration functions when needed
 
-### Current Architecture ✓ **COMPLETE - MARKDOWN DEFAULT**
-- **Content Pages**: 100% file-based by default, auto-initialized from `data/markdown/index_uri.csv` ✓
-- **Recipes**: File-based by default, auto-initialized from `data/markdown/index_recipes.csv` ✓
-- **Videos**: File-based by default, auto-initialized from `data/markdown/index_videos.csv` ✓
-- **Search**: Bleve-based with in-memory indexing (fast startup, no disk persistence) ✓
-- **Sitemaps**: 100% file-based using markdown data for all content types ✓
-- **MongoDB**: Optional, only connects when `MONGO_URI` environment variable provided ✓
-- **Package-Level Functions**: Zero-configuration defaults with auto-initialization ✓
+## Remaining Migration Tasks
 
-### Phase 4: Package-Level Repository Simplification (✓ Complete)
-The Go version now implements simplified package-level access instead of complex dependency injection:
+### 1. Admin Dashboard Migration
+The Node.js application includes a comprehensive admin interface that needs to be migrated:
 
-1. **Package-Level Functions** (`pkg/content/`, `pkg/recipe/`, `pkg/video/`):
-   - `content.FindOne()`, `content.FindAll()`, `content.GetBreadcrumbs()` - content operations
-   - `content.Search()` - search operations (MongoDB backend only)
-   - `content.WriteOne()`, `content.WriteIndex()` - write operations
-   - `recipe.FindOne()`, `recipe.FindAll()` - recipe operations
-   - `video.FindOne()`, `video.FindAll()` - video operations
-   - Configuration via `content.UseMarkdown()`, `recipe.UseMongo()`, `video.UseMongo()`
+**Current Node.js Dashboard Features:**
+- Content editing with rich text editor (Slate.js)
+- User management and authentication (Google OAuth restricted to @york.ac.uk)
+- Image upload and management
+- Video upload and management
+- Content validation and broken link detection
+- User permissions and content authorship tracking
 
-2. **Internal Repository Pattern**:
-   - Repository interfaces split into `ContentReader` and `ContentWriter` for separation of concerns
-   - `ContentRepository` combines both for backwards compatibility
-   - MongoDB implementations for all data types (panics on write operations)
-   - Markdown implementation for content reading, separate `ContentWriter` for writing
-   - Package functions route to appropriate internal repository
+**Migration Approach:**
+- **Option A**: Migrate dashboard to Go with embedded web interface
+- **Option B**: Keep Node.js dashboard as separate admin service
+- **Option C**: Develop new admin interface (web or CLI-based)
 
-3. **Handler Simplification**:
-   - No constructor parameters - handlers use `NewContentHandler()` instead of `NewContentHandler(repo1, repo2, db)`
-   - No repository fields in handler structs
-   - Direct package function calls: `content.FindOne()` instead of `h.contentRepo.FindOne()`
+### 2. Production Deployment Infrastructure
+Current Node.js deployment needs to be replicated/replaced:
 
-4. **Configuration Model**:
-   - **Legacy functions** (for backwards compatibility):
-     - `content.UseMarkdown(indexCSV)` - configures both reader and writer for markdown
-     - `content.UseMongo(db)` - configures both reader and writer for MongoDB
-   - **New separated functions** (for flexible configuration):
-     - `content.UseMarkdownReader(indexCSV)` - read from markdown files
-     - `content.UseMongoReader(db)` - read from MongoDB
-     - `content.UseMarkdownWriter(outputDir)` - write to markdown files
-     - `content.UseMongoWriter(db)` - write to MongoDB (panics on any write)
-   - `recipe.UseMongo(db)` - recipes always use MongoDB
-   - `video.UseMongo(db)` - videos always use MongoDB
+**Existing Infrastructure:**
+- **Docker Compose** setup with Node.js app, MongoDB, Nginx
+- **AWS deployment** (EC2, S3, CloudFront, Route53)
+- **Terraform** infrastructure as code
+- **Environment management** for staging vs production
 
-5. **Benefits Achieved**:
-   - **Simplified architecture** - no complex dependency injection
-   - **Cleaner code** - direct function calls instead of method chains
-   - **Better defaults** - markdown content by default, explicit MongoDB where needed
-   - **Flexible configuration** - can mix readers and writers (e.g., read from MongoDB, write to markdown)
-   - **Easier testing** - global configuration makes test setup simpler
-   - **Same flexibility** - can still switch backends via configuration functions
+**Go Deployment Requirements:**
+- **Binary distribution** strategy (single executable vs. container)
+- **Data synchronization** between admin system and Go binary
+- **Static asset management** and CDN integration
+- **Health monitoring** and logging setup
+- **SSL/TLS termination** and domain configuration
 
-6. **dump-mongo Command Refactoring**:
-   - Reduced from ~90 lines to ~40 lines of code
-   - Uses separated configuration: `content.UseMongoReader(db)` + `content.UseMarkdownWriter(outputDir)`
-   - All file I/O and conversion logic moved to `pkg/markdown/content_writer.go`
-   - Cleaner separation of concerns between CLI and business logic
+### 3. Static Asset Pipeline
+The Node.js application uses a complex build system that needs replacement:
 
-This simplification reduces complexity while preserving all functionality and maintaining the hybrid markdown/MongoDB architecture.
+**Current Node.js Asset Pipeline:**
+- **Gulp** for task automation
+- **Webpack** for JavaScript bundling (React components)
+- **SCSS/Sass** compilation with Bourbon framework
+- **Image optimization** and processing
+- **Client-side React components**: Magic Triangle, Recipe Browser, Rich Text Editor
+
+**Go Asset Strategy:**
+- **Option A**: Pre-build assets and embed in Go binary
+- **Option B**: Build assets during CI/CD and serve separately
+- **Option C**: Migrate JavaScript components to server-side rendering
+
+## Implementation Notes
+
+### Architecture Benefits
+- **Simplified design**: Package-level functions eliminate complex dependency injection
+- **Clean handlers**: No constructor parameters or repository fields needed
+- **Flexible configuration**: Can mix file-based and database backends as needed
+- **Easy testing**: Global configuration simplifies test setup
+- **Fast startup**: File-based mode starts instantly without database connections
+
+### Template System
+- **Go templates** converted from original Handlebars templates
+- **Template functions** replicate original helper behavior exactly:
+  - `shift_headers` - adjusts heading levels
+  - `toJSON` - JSON serialization  
+  - `date` - date formatting
+  - `lookup` - map lookups
+- **Identical output** - preserves all HTML structure and CSS classes
+
+### Search Implementation
+- **Bleve full-text search** with weighted scoring (Title: 3x, Description: 2x, Body: 1x)
+- **In-memory indexing** builds in ~1 second on first search
+- **Lazy initialization** prevents slow server startup
+- **Rate limiting** - 20 requests per 30 minutes
+- **Graceful degradation** when search unavailable
