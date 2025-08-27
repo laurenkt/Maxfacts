@@ -16,14 +16,11 @@ import (
 
 	"github.com/laurenkt/gohtmldiff"
 	"github.com/maxfacts/maxfacts/handlers"
-	"github.com/maxfacts/maxfacts/pkg/mongodb"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"go.mongodb.org/mongo-driver/mongo"
 )
 
 var (
-	testDB             *mongo.Database
 	testHandler        http.Handler
 	testSitemapHandler *handlers.SitemapHandler
 	testAll            = flag.Bool("all", false, "Test all URLs from sitemap instead of just configured endpoints")
@@ -77,23 +74,9 @@ var testBinaryEndpoints = []string{
 
 // TestMain sets up the test environment
 func TestMain(m *testing.M) {
-	// Setup test database connection
-	mongoURI := cmp.Or(os.Getenv("MONGO_URI"), "localhost:27017/maxfacts")
-
-	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
-	defer cancel()
-
-	client, err := mongodb.Connect(ctx, mongoURI)
-	if err != nil {
-		fmt.Printf("Failed to connect to MongoDB: %v\n", err)
-		os.Exit(1)
-	}
-	defer client.Disconnect(context.Background())
-
-	testDB = client.Database("maxfacts")
-
 	// Use the same router setup as main.go
-	testHandler = SetupRouter(testDB)
+	// Pass nil to use markdown/Bleve mode (default)
+	testHandler = SetupRouter(nil)
 
 	// Initialize sitemap handler for shared URL collection
 	testSitemapHandler = handlers.NewSitemapHandler()

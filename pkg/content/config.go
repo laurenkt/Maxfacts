@@ -47,7 +47,7 @@ func UseMongoWriter(db *mongo.Database) {
 // Legacy configuration functions for backwards compatibility
 
 // UseMarkdown configures content to use markdown files (default)
-// This provides content operations but no search functionality
+// This provides content operations and Bleve search functionality
 func UseMarkdown() error {
 	indexPath := "data/markdown/index_uri.csv"
 	csvContent, err := os.ReadFile(indexPath)
@@ -59,8 +59,12 @@ func UseMarkdown() error {
 		return err
 	}
 	UseMarkdownWriter("data/markdown/content")
-	searchRepo = nil // Search not available with markdown
-	log.Printf("Content: switched to markdown repository")
+	
+	// Don't initialize search here - it will be done lazily on first use
+	// This prevents slow startup times
+	searchRepo = nil // Reset to ensure lazy initialization works
+	
+	log.Printf("Content: switched to markdown repository (search will initialize on first use)")
 	return nil
 }
 
