@@ -1,0 +1,45 @@
+{{define "content"}}
+<h2>Unattributed Content</h2>
+<p><a href="/dashboard/directory">« Back to directory</a></p>
+
+{{if .Pages}}
+<form method="post" action="/dashboard/directory/unattributed">
+	<p>The following pages have no authorship information. Please add authorship details:</p>
+	
+	<table class="unattributed-table">
+		<thead>
+			<tr>
+				<th>URI</th>
+				<th>Title</th>
+				<th>Type</th>
+				<th>Authorship</th>
+			</tr>
+		</thead>
+		<tbody>
+			{{range .Pages}}
+			<tr>
+				<td>
+					{{if .Parents}}
+						{{range .Parents}}{{.}}/{{end}}<strong>{{.URI}}</strong>
+					{{else}}
+						<strong>{{.URI}}</strong>
+					{{end}}
+				</td>
+				<td>{{.Title}}</td>
+				<td>{{.Type}}</td>
+				<td>
+					<input type="text" name="{{.URI}}" placeholder="Enter authorship">
+				</td>
+			</tr>
+			{{end}}
+		</tbody>
+	</table>
+	
+	<p>
+		<input type="submit" value="Save Authorship">
+	</p>
+</form>
+{{else}}
+<p class="success">All content has authorship information!</p>
+{{end}}
+{{end}}

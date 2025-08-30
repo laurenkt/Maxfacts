@@ -76,7 +76,7 @@ var testBinaryEndpoints = []string{
 func TestMain(m *testing.M) {
 	// Use the same router setup as main.go
 	// Pass nil to use markdown/Bleve mode (default)
-	testHandler = SetupRouter(nil)
+	testHandler = SetupRouter(nil, false)
 
 	// Initialize sitemap handler for shared URL collection
 	testSitemapHandler = handlers.NewSitemapHandler()

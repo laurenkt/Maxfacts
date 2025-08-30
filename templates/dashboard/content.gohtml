@@ -1,0 +1,21 @@
+{{define "content"}}
+<h2>Editor</h2>
+{{if .Saved}}
+	<p class="success">Content has been updated. Go <a href="/{{.Content.URI}}">to page</a>, return <a href="/dashboard/directory">to directory editor</a>, or <a href="/dashboard/directory/new">create a new page</a>.</p>
+{{end}}
+{{if .Error}}
+	<div class="error">
+		<p>The following error occurred:</p>
+		<pre>{{.Error}}</pre>
+	</div>
+{{end}}
+<script type="application/json" id="editor_data">
+	{{.ContentJSON}}
+</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/immutable/3.8.1/immutable.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom-server.min.js"></script>
+<script src="//unpkg.com/slate@0.21.1/dist/slate.js"></script>
+<script type="text/javascript" src="/js/editor.js"></script>
+{{end}}

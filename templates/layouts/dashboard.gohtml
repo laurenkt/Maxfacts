@@ -1,0 +1,72 @@
+{{define "dashboard.gohtml"}}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{.Title}}</title>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/dashboard.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body class="dashboard">
+		<header>
+			<div>
+				<h1><a href="/">Maxfacts</a></h1>
+				<p>Dashboard Mode</p>
+			</div>
+			<nav>
+				<p>
+					<a href="/dashboard">Dashboard</a>
+					{{if .Breadcrumbs}}
+						{{range .Breadcrumbs}}
+						» <a href="/dashboard/{{.URI}}">{{.Title}}</a>
+						{{end}}
+					{{end}}
+				</p>
+			</nav>
+		</header>
+		<section>
+			<nav class="sidebar">
+				<ul>
+					<li>
+						<a href="/dashboard">Overview</a>
+					</li>
+					<li>
+						<a href="/dashboard/directory">Directory</a>
+						<ul>
+							<li><a href="/dashboard/directory">View all</a></li>
+							<li><a href="/dashboard/directory/broken-links">View broken links</a></li>
+							<li><a href="/dashboard/directory/unattributed">View unattributed</a></li>
+							<li><a href="/dashboard/directory/new">Create new page</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="/dashboard/images">Images</a>
+						<ul>
+							<li><a href="/dashboard/images">View all</a></li>
+							<li><a href="/dashboard/images/upload">Upload new image</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="/dashboard/videos">Videos</a>
+						<ul>
+							<li><a href="/dashboard/videos">View all</a></li>
+							<li><a href="/dashboard/videos/new">Upload new video</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="/dashboard/users">Users</a>
+						<ul>
+							<li><a href="/dashboard/users">View all</a></li>
+							<li><a href="/dashboard/users/new">Create new user</a></li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+			<main>
+				{{template "content" .}}
+			</main>
+		</section>
+	</body>
+</html>
+{{end}}

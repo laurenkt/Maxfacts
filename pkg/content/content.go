@@ -127,3 +127,25 @@ func WriteOne(ctx context.Context, content *repository.Content) error {
 	return contentWriter.WriteOne(ctx, content)
 }
 
+// DeleteOne deletes a single content item
+func DeleteOne(ctx context.Context, uri string) error {
+	if contentWriter == nil {
+		return fmt.Errorf("content writer not configured - call UseMarkdownWriter() or UseMongoWriter() first")
+	}
+	
+	// First find the content to get the ID
+	content, err := FindOne(ctx, uri)
+	if err != nil {
+		return fmt.Errorf("content not found: %w", err)
+	}
+	
+	// Delete the markdown file
+	filename := fmt.Sprintf("data/markdown/content/%s.md", content.ContentID)
+	if err := os.Remove(filename); err != nil {
+		return fmt.Errorf("failed to delete file %s: %w", filename, err)
+	}
+	
+	log.Printf("Deleted content: %s (file: %s)", uri, filename)
+	return nil
+}
+
