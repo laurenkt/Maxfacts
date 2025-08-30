@@ -63,9 +63,13 @@ This document tracks the ongoing migration of the Maxfacts medical content manag
 - **Package-level APIs** - Clean interfaces for all data operations
 - **Comprehensive testing** - Comparison tests against Node.js reference
 - **In-memory indexing** - Fast URI-to-ID lookups built from markdown files
+- **Admin dashboard** - Complete content management interface with Slate.js editor
 
 ### 🚧 **Remaining Components**
-- **Admin dashboard** - Content editing, user management, image uploads
+- **Dashboard authentication** - Google OAuth integration (currently disabled via -dashboard flag)
+- **Dashboard image management** - Upload and management interface
+- **Dashboard video management** - Upload and management interface
+- **Dashboard user management** - User permissions and account management
 - **Production deployment** - Docker configuration, CI/CD, environment management
 - **Static asset pipeline** - SCSS compilation, JavaScript bundling, image optimization
 
@@ -82,6 +86,9 @@ go run . serve
 # Start the HTTP server with MongoDB support
 go run . serve --use-mongo
 
+# Start the HTTP server with admin dashboard enabled
+go run . serve -dashboard
+
 # Export all pages from MongoDB to markdown files
 go run . dump-mongo
 
@@ -91,7 +98,7 @@ go run .
 
 ### Command Details
 
-**`serve [--use-mongo]`** - Starts the HTTP server
+**`serve [--use-mongo] [-dashboard]`** - Starts the HTTP server
 - **Default mode**: File-based operation using markdown files
   - Reads from `data/markdown/` directory
   - Uses Bleve for search indexing
@@ -99,6 +106,11 @@ go run .
 - **`--use-mongo` flag**: Enables MongoDB connectivity
   - Uses `MONGO_URI` environment variable
   - Falls back to file-based mode if connection fails
+- **`-dashboard` flag**: Enables admin dashboard at `/dashboard`
+  - Content editing with Slate.js rich text editor
+  - Directory management with broken link detection
+  - Content creation, editing, and deletion
+  - Authentication disabled for development
 - Uses `PORT` environment variable (defaults to 3000)
 
 **`dump-mongo`** - Exports MongoDB data to markdown files

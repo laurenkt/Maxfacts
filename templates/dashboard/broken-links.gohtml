@@ -1,0 +1,32 @@
+{{define "content"}}
+<h2>Broken Links</h2>
+<p><a href="/dashboard/directory">« Back to directory</a></p>
+
+{{if .Pages}}
+<form method="post" action="/dashboard/directory/broken-links">
+	<p>The following pages contain broken links. You can fix them by entering the correct URLs below:</p>
+	
+	{{range $uri, $links := .Pages}}
+	<div class="broken-links-section">
+		<h3>{{$uri}}</h3>
+		<ul>
+			{{range $links}}
+			<li>
+				<label>
+					{{.}} →
+					<input type="text" name="{{.}}" placeholder="Enter correct URL">
+				</label>
+			</li>
+			{{end}}
+		</ul>
+	</div>
+	{{end}}
+	
+	<p>
+		<input type="submit" value="Fix All Links">
+	</p>
+</form>
+{{else}}
+<p class="success">No broken links found!</p>
+{{end}}
+{{end}}

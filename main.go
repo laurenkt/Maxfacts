@@ -13,6 +13,7 @@ import (
 	"time"
 
 	"github.com/maxfacts/maxfacts/handlers"
+	"github.com/maxfacts/maxfacts/handlers/dashboard"
 	"github.com/maxfacts/maxfacts/pkg/content"
 	"github.com/maxfacts/maxfacts/pkg/markdown"
 	"github.com/maxfacts/maxfacts/pkg/mongodb"
@@ -58,7 +59,7 @@ func staticFileHandler(nextHandler http.HandlerFunc) http.HandlerFunc {
 }
 
 // SetupRouter creates and configures the application router
-func SetupRouter(db *mongo.Database) http.Handler {
+func SetupRouter(db *mongo.Database, enableDashboard bool) http.Handler {
 	mux := http.NewServeMux()
 
 	// All packages default to markdown if available
@@ -80,9 +81,78 @@ func SetupRouter(db *mongo.Database) http.Handler {
 	mux.HandleFunc("GET /help/oral-food/recipes", logHandler("RecipeIndex", recipeHandler.Index))
 	mux.HandleFunc("GET /help/oral-food/recipes/browse", logHandler("RecipeBrowse", recipeHandler.Browse))
 	
+	// Dashboard routes (only if enabled)
+	if enableDashboard {
+		log.Printf("Dashboard enabled at /dashboard")
+		
+		dashboardHandler := handlers.NewDashboardHandler()
+		dashContentHandler := dashboard.NewContentHandler()
+		dashDirectoryHandler := dashboard.NewDirectoryHandler()
+		
+		// Dashboard routes
+		mux.HandleFunc("GET /dashboard", logHandler("DashboardOverview", dashboardHandler.Overview))
+		
+		// Directory routes (order matters - specific routes first)
+		mux.HandleFunc("GET /dashboard/directory/new", logHandler("DashboardNew", dashContentHandler.New))
+		mux.HandleFunc("POST /dashboard/directory/new", logHandler("DashboardCreate", dashContentHandler.Save))
+		mux.HandleFunc("GET /dashboard/directory/broken-links", logHandler("DashboardBrokenLinks", dashDirectoryHandler.BrokenLinks))
+		mux.HandleFunc("GET /dashboard/directory/unattributed", logHandler("DashboardUnattributed", dashDirectoryHandler.Unattributed))
+		
+		// Directory listing (exact match)
+		mux.HandleFunc("GET /dashboard/directory", logHandler("DashboardDirectory", dashDirectoryHandler.List))
+		
+		// Directory content routes (with trailing slash to catch subpaths)
+		mux.HandleFunc("/dashboard/directory/", func(w http.ResponseWriter, r *http.Request) {
+			path := strings.TrimPrefix(r.URL.Path, "/dashboard/directory")
+			
+			// Handle directory listing
+			if path == "" || path == "/" {
+				if r.Method == http.MethodGet {
+					logHandler("DashboardDirectory", dashDirectoryHandler.List)(w, r)
+				} else {
+					http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+				}
+				return
+			}
+			
+			// Handle delete routes
+			if strings.HasPrefix(path, "/delete/") {
+				uri := strings.TrimPrefix(path, "/delete/")
+				if r.Method == http.MethodGet {
+					// Temporarily update the path for the handler
+					r.URL.Path = "/dashboard/directory/delete/" + uri
+					logHandler("DashboardDelete", dashDirectoryHandler.Delete)(w, r)
+				} else {
+					http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+				}
+				return
+			}
+			
+			// Handle content edit routes
+			uri := strings.TrimPrefix(path, "/")
+			if r.Method == http.MethodGet {
+				// Temporarily update the path for the handler
+				r.URL.Path = "/dashboard/directory/" + uri
+				logHandler("DashboardEdit", dashContentHandler.Edit)(w, r)
+			} else if r.Method == http.MethodPost {
+				// Temporarily update the path for the handler
+				r.URL.Path = "/dashboard/directory/" + uri
+				logHandler("DashboardSave", dashContentHandler.Save)(w, r)
+			} else {
+				http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+			}
+		})
+	}
+	
 	// Catch-all pattern for everything else (including home page)
 	mux.HandleFunc("/", staticFileHandler(func(w http.ResponseWriter, r *http.Request) {
 		path := r.URL.Path
+		
+		// Skip dashboard routes - they should be handled by dashboard handlers
+		if enableDashboard && strings.HasPrefix(path, "/dashboard") {
+			http.NotFound(w, r)
+			return
+		}
 		
 		// Handle home page first
 		if path == "/" {
@@ -143,8 +213,10 @@ func main() {
 func printUsage() {
 	fmt.Fprintf(os.Stderr, "Usage: %s <command> [options]\n", os.Args[0])
 	fmt.Fprintf(os.Stderr, "\nAvailable commands:\n")
-	fmt.Fprintf(os.Stderr, "  serve [--use-mongo]  Start the HTTP server (default: markdown + Bleve search)\n")
-	fmt.Fprintf(os.Stderr, "  dump-mongo           Export all pages to markdown files\n")
+	fmt.Fprintf(os.Stderr, "  serve [--use-mongo] [-dashboard]  Start the HTTP server\n")
+	fmt.Fprintf(os.Stderr, "                                     --use-mongo: Use MongoDB instead of markdown files\n")
+	fmt.Fprintf(os.Stderr, "                                     -dashboard: Enable dashboard at /dashboard\n")
+	fmt.Fprintf(os.Stderr, "  dump-mongo                         Export all pages to markdown files\n")
 }
 
 func serveCommand(args []string) {
@@ -153,10 +225,13 @@ func serveCommand(args []string) {
 	// By default, use markdown-only mode with Bleve search
 	// Only connect to MongoDB if explicitly requested with --use-mongo flag
 	useMongo := false
+	enableDashboard := false
 	for _, arg := range args {
 		if arg == "--use-mongo" {
 			useMongo = true
-			break
+		}
+		if arg == "-dashboard" {
+			enableDashboard = true
 		}
 	}
 	
@@ -184,7 +259,7 @@ func serveCommand(args []string) {
 	}
 
 	// Setup routes
-	handler := SetupRouter(db)
+	handler := SetupRouter(db, enableDashboard)
 
 	// Start server
 	port := cmp.Or(os.Getenv("PORT"), "3000")

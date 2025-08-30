@@ -1,0 +1,51 @@
+{{define "content"}}
+<h2>Content Directory</h2>
+<p>
+	<a href="/dashboard/directory/new">Create new page</a> |
+	<a href="/dashboard/directory/broken-links">View broken links</a> |
+	<a href="/dashboard/directory/unattributed">View unattributed</a>
+</p>
+<table class="directory-table">
+	<thead>
+		<tr>
+			<th>URI</th>
+			<th>Title</th>
+			<th>Type</th>
+			<th>Status</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		{{range .Items}}
+		<tr>
+			<td>
+				<a href="/dashboard/directory/{{.URI}}">{{.URI}}</a>
+			</td>
+			<td>{{.Title}}</td>
+			<td>{{.Type}}</td>
+			<td>
+				{{if .IsEmpty}}
+					<span class="status-warning">Empty</span>
+				{{end}}
+				{{if gt .InvalidLinksCount 0}}
+					<span class="status-error">{{.InvalidLinksCount}} broken links</span>
+				{{end}}
+				{{if .Hide}}
+					<span class="status-info">Hidden</span>
+				{{end}}
+			</td>
+			<td>
+				<a href="/{{.URI}}" target="_blank">View</a> |
+				<a href="/dashboard/directory/{{.URI}}">Edit</a> |
+				<a href="/dashboard/directory/delete/{{.URI}}?confirm=true" 
+				   onclick="return confirm('Are you sure you want to delete this page?')">Delete</a>
+			</td>
+		</tr>
+		{{else}}
+		<tr>
+			<td colspan="5" class="empty-message">No content found.</td>
+		</tr>
+		{{end}}
+	</tbody>
+</table>
+{{end}}

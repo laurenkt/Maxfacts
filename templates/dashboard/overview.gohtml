@@ -1,0 +1,29 @@
+{{define "content"}}
+<h2>Dashboard Overview</h2>
+
+<div class="overview-stats">
+	<div class="stat-card">
+		<h3>Content Issues</h3>
+		<ul>
+			<li>
+				<a href="/dashboard/directory/unattributed">
+					<strong>{{.Unattributed}}</strong> pages with no authorship
+				</a>
+			</li>
+			<li>
+				<a href="/dashboard/directory/broken-links">
+					<strong>{{.BrokenLinks}}</strong> pages with broken links
+				</a>
+			</li>
+		</ul>
+	</div>
+	
+	<div class="quick-actions">
+		<h3>Quick Actions</h3>
+		<ul>
+			<li><a href="/dashboard/directory/new">Create new page</a></li>
+			<li><a href="/dashboard/directory">View all content</a></li>
+		</ul>
+	</div>
+</div>
+{{end}}
