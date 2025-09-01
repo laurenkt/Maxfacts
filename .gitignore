@@ -17,6 +17,7 @@ logs
 
 # Env files (as these may contain passwords)
 .env
+.env.bak
 
 # Runtime data
 pids
@@ -70,3 +71,7 @@ terraform.tfstate.backup
 .terraform*
 .idea
 maxfacts
+
+# Go binary and Lambda package
+bootstrap
+lambda-package.zip

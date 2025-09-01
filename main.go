@@ -192,6 +192,13 @@ func SetupRouter(db *mongo.Database, enableDashboard bool) http.Handler {
 }
 
 func main() {
+	// Auto-detect Lambda environment (AWS_LAMBDA_RUNTIME_API is available during init)
+	if _, exists := os.LookupEnv("AWS_LAMBDA_RUNTIME_API"); exists {
+		log.Println("Detected Lambda environment, auto-starting server")
+		serveCommand([]string{})
+		return
+	}
+
 	if len(os.Args) < 2 {
 		printUsage()
 		os.Exit(1)

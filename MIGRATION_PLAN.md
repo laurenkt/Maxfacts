@@ -295,6 +295,17 @@ Current Node.js deployment needs to be replicated/replaced:
 - **Health monitoring** and logging setup
 - **SSL/TLS termination** and domain configuration
 
+**✅ Implemented: AWS Serverless Deployment**
+
+A complete serverless infrastructure has been implemented using:
+- **CloudFront** for global content delivery
+- **S3** for static assets (CSS, JS, images)
+- **API Gateway HTTP API** + **Lambda** for dynamic content
+- **AWS Lambda Web Adapter** to run the standard Go HTTP server
+- **Terraform** for infrastructure as code
+
+See "AWS Serverless Deployment" section below for deployment instructions.
+
 ### 3. Static Asset Pipeline
 The Node.js application uses a complex build system that needs replacement:
 
@@ -342,3 +353,40 @@ The Node.js application uses a complex build system that needs replacement:
 - **Consistent with search** - Same pattern as Bleve search indexing
 - **Zero configuration** - Auto-detects content directories and builds indexes
 - **Efficient lookups** - Hash-based O(1) URI resolution performance
+
+## AWS Serverless Deployment
+
+The Go binary is deployed as a serverless application using CloudFront + S3 (static assets) and API Gateway + Lambda (dynamic content).
+
+### Prerequisites
+
+1. AWS CLI configured with appropriate credentials
+2. Terraform installed
+3. Go 1.21+ for building the binary
+4. Compiled static assets in `build/static/` directory
+
+### Deployment
+
+```bash
+cd terraform/serverless
+terraform init  # first time only
+./deploy.sh staging
+```
+
+The deployment script:
+1. Builds the Go binary for Lambda
+2. Creates deployment package with templates and markdown data
+3. Deploys infrastructure via Terraform
+4. Uploads static assets to S3
+5. Outputs the CloudFront URL
+
+### Important Implementation Details
+
+The Go binary auto-detects Lambda environment and starts automatically:
+```go
+if _, exists := os.LookupEnv("AWS_LAMBDA_RUNTIME_API"); exists {
+    serveCommand([]string{})
+}
+```
+
+CloudFront must NOT forward the Host header to API Gateway to avoid 403 errors.
