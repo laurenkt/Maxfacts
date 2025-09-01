@@ -9,11 +9,16 @@ NC='\033[0m' # No Color
 
 echo -e "${GREEN}=== Maxfacts Serverless Deployment Script ===${NC}"
 
-# Check if we're in the right directory
-if [ ! -f "../../main.go" ]; then
-    echo -e "${RED}Error: This script must be run from terraform/serverless directory${NC}"
+# Find the project root (directory containing main.go)
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
+
+if [ ! -f "$PROJECT_ROOT/main.go" ]; then
+    echo -e "${RED}Error: Cannot find main.go in expected location: $PROJECT_ROOT${NC}"
     exit 1
 fi
+
+echo -e "${YELLOW}Project root: ${PROJECT_ROOT}${NC}"
 
 # Environment
 ENVIRONMENT=${1:-staging}
@@ -21,7 +26,7 @@ echo -e "${YELLOW}Deploying to environment: ${ENVIRONMENT}${NC}"
 
 # Step 1: Build the Go binary
 echo -e "\n${GREEN}Step 1: Building Go binary for Lambda...${NC}"
-cd ../..
+cd "$PROJECT_ROOT"
 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o bootstrap .
 if [ $? -ne 0 ]; then
     echo -e "${RED}Failed to build Go binary${NC}"
@@ -38,8 +43,8 @@ if [ $? -ne 0 ]; then
 fi
 echo -e "${GREEN}Lambda package created: lambda-package.zip ($(du -h lambda-package.zip | cut -f1))${NC}"
 
-# Step 3: Return to terraform directory
-cd terraform/serverless
+# Step 3: Go to terraform directory
+cd "$SCRIPT_DIR"
 
 # Step 4: Initialize Terraform if needed
 if [ ! -d ".terraform" ]; then
@@ -57,7 +62,7 @@ fi
 echo -e "\n${GREEN}Step 4: Planning Terraform deployment...${NC}"
 terraform plan \
     -var="environment=${ENVIRONMENT}" \
-    -var="lambda_package_path=../../lambda-package.zip" \
+    -var="lambda_package_path=${PROJECT_ROOT}/lambda-package.zip" \
     -out=tfplan
 
 if [ $? -ne 0 ]; then
@@ -82,7 +87,7 @@ echo -e "${GREEN}Static bucket:${NC} $(terraform output -raw static_assets_bucke
 
 # Step 8: Deploy static assets automatically
 echo -e "\n${GREEN}Step 6: Deploying static assets...${NC}"
-aws s3 sync ../../build/static/ s3://$(terraform output -raw static_assets_bucket)/ --delete --cache-control 'public, max-age=31536000'
+aws s3 sync "${PROJECT_ROOT}/build/static/" s3://$(terraform output -raw static_assets_bucket)/ --delete --cache-control 'public, max-age=31536000'
 if [ $? -ne 0 ]; then
     echo -e "${RED}Failed to deploy static assets${NC}"
     exit 1
