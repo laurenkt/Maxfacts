@@ -1,0 +1,10 @@
+# Terraform files
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+tfplan
+*.tfvars
+
+# Lambda package
+lambda-package.zip

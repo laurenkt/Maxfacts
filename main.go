@@ -192,6 +192,25 @@ func SetupRouter(db *mongo.Database, enableDashboard bool) http.Handler {
 }
 
 func main() {
+	// Debug: Confirm we're in main()
+	log.Printf("=== MAIN FUNCTION STARTED ===")
+	log.Printf("Args: %v", os.Args)
+	
+	// Debug: Print environment variables to understand Lambda environment
+	log.Printf("Debug: Environment variables:")
+	for _, env := range os.Environ() {
+		if strings.Contains(env, "AWS") || strings.Contains(env, "LAMBDA") || strings.Contains(env, "LWA") {
+			log.Printf("  %s", env)
+		}
+	}
+	
+	// Auto-detect Lambda environment (AWS_LAMBDA_RUNTIME_API is available during init)
+	if _, exists := os.LookupEnv("AWS_LAMBDA_RUNTIME_API"); exists {
+		log.Println("Detected Lambda environment, auto-starting server")
+		serveCommand([]string{})
+		return
+	}
+
 	if len(os.Args) < 2 {
 		printUsage()
 		os.Exit(1)
