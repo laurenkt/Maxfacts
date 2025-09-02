@@ -12,6 +12,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/maxfacts/maxfacts/cmd/deploy"
 	"github.com/maxfacts/maxfacts/handlers"
 	"github.com/maxfacts/maxfacts/handlers/dashboard"
 	"github.com/maxfacts/maxfacts/pkg/content"
@@ -210,6 +211,8 @@ func main() {
 		serveCommand(os.Args[2:])
 	case "dump-mongo":
 		dumpMongoCommand(os.Args[2:])
+	case "deploy":
+		deploy.Run(os.Args[2:])
 	default:
 		fmt.Fprintf(os.Stderr, "Unknown command: %s\n\n", command)
 		printUsage()
@@ -224,6 +227,9 @@ func printUsage() {
 	fmt.Fprintf(os.Stderr, "                                     --use-mongo: Use MongoDB instead of markdown files\n")
 	fmt.Fprintf(os.Stderr, "                                     -dashboard: Enable dashboard at /dashboard\n")
 	fmt.Fprintf(os.Stderr, "  dump-mongo                         Export all pages to markdown files\n")
+	fmt.Fprintf(os.Stderr, "  deploy [--env ENV] [--plan-only]   Deploy to AWS using Terraform\n")
+	fmt.Fprintf(os.Stderr, "                                     --env: Environment to deploy (staging/production, default: staging)\n")
+	fmt.Fprintf(os.Stderr, "                                     --plan-only: Show deployment plan without applying\n")
 }
 
 func serveCommand(args []string) {
@@ -479,3 +485,4 @@ func buildBleveSearchIndex(ctx context.Context, contents []repository.Content) {
 	
 	log.Printf("Successfully built search index with %d content items", len(contents))
 }
+
