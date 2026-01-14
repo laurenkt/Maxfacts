@@ -5,6 +5,7 @@
     "scripts": {
         "start": "babel-node ./bin/www.js",
         "start:dev": "DEBUG=maxfacts node-dev ./bin/www.js",
+        "build": "gulp clean && gulp",
         "backup": "rm -rf data/dump/* && mongodump -d maxfacts -o data/dump && mv data/dump/maxfacts/* data/dump && rm -r data/dump/maxfacts",
         "backup:copy": "npm run backup && copy; cp -R data/dump /shared/storage/cs/staffstore/lt696/maxfacts-backups/$(date \"+%Y-%m-%d-%Hh-%Mm\")",
         "restore": "mongo maxfacts --eval \"db.dropDatabase();\"; cd data/dump; mongorestore -d maxfacts maxfacts",
