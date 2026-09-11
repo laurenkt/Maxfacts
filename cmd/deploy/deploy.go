@@ -136,19 +136,37 @@ func Run(args []string) {
 		
 		// Step 8: Deploy static assets
 		log.Printf("Step 6: Deploying static assets...")
-		staticPath := filepath.Join(projectRoot, "build", "static")
-		if _, err := os.Stat(staticPath); err == nil {
-			syncCmd := exec.Command("aws", "s3", "sync", staticPath, fmt.Sprintf("s3://%s/", staticBucket),
-				"--delete", "--cache-control", "public, max-age=31536000")
+		
+		// First sync from build/static if it exists
+		buildStaticPath := filepath.Join(projectRoot, "build", "static")
+		if _, err := os.Stat(buildStaticPath); err == nil {
+			log.Printf("Syncing from build/static...")
+			syncCmd := exec.Command("aws", "s3", "sync", buildStaticPath, fmt.Sprintf("s3://%s/", staticBucket),
+				"--cache-control", "public, max-age=31536000")
 			syncCmd.Dir = projectRoot
 			syncCmd.Stdout = os.Stdout
 			syncCmd.Stderr = os.Stderr
 			
 			if err := syncCmd.Run(); err != nil {
-				log.Printf("Warning: Failed to deploy static assets: %v", err)
+				log.Printf("Warning: Failed to sync from build/static: %v", err)
+			}
+		}
+		
+		// Then sync from ../maxfacts-statics/build if it exists
+		maxfactsStaticsPath := filepath.Join(projectRoot, "..", "maxfacts-statics", "build")
+		if _, err := os.Stat(maxfactsStaticsPath); err == nil {
+			log.Printf("Syncing from ../maxfacts-statics/build...")
+			syncCmd := exec.Command("aws", "s3", "sync", maxfactsStaticsPath, fmt.Sprintf("s3://%s/", staticBucket),
+				"--cache-control", "public, max-age=31536000")
+			syncCmd.Dir = projectRoot
+			syncCmd.Stdout = os.Stdout
+			syncCmd.Stderr = os.Stderr
+			
+			if err := syncCmd.Run(); err != nil {
+				log.Printf("Warning: Failed to sync from ../maxfacts-statics/build: %v", err)
 			}
 		} else {
-			log.Printf("Warning: Static assets directory not found: %s", staticPath)
+			log.Printf("Warning: Static assets directory not found: %s", maxfactsStaticsPath)
 		}
 	}
 	
